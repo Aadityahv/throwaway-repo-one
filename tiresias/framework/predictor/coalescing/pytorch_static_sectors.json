@@ -1,0 +1,1547 @@
+{
+ "input_sha256": {
+  "tiresias/framework/predictor/coalescing/coalescing.py": "ef93d7894b211e03ddfcb640da03619c153cc12ef6cdd53df7e703d087a7c338",
+  "tiresias/framework/predictor/coalescing/static_sectors_frozen.json": "1eb98e6dd6f77194e39e5c6803c7f3776d87b437fbbdceb90a643e985778f9be",
+  "tiresias/framework/predictor/extract_features.py": "0158fc7e7c7732a62da213c64a95f4f91553e27f74fb1f1aea7ab2bbc1468376",
+  "tiresias/framework/predictor/features_blackwell.json": "bd4194faca7a7627f53bdc7eacdb7149d94a7c5708141c16d7a6ca1e694f83c7",
+  "tiresias/framework/predictor/phases.py": "804c91e38e3bafca0331161255c9f3b0534a1bc953e0993f6016370c6f1a77e9",
+  "tiresias/framework/predictor/pytorch_dispatch/dispatch_trace.json": "f5876460deb752052e7a29354c4ae62fd5e2c71ae60c9274eb14ce80a1936396",
+  "tiresias/framework/predictor/pytorch_dispatch/src/aten_src_ATen_cuda_detail_IntegerDivider.cuh": "a8f25f13f760d958eb33c96036ded8540ee5b5183e5f5aadf765c90925bec3fa",
+  "tiresias/framework/predictor/pytorch_features/adapter.py": "fcf80450232bb328daa4267ce1168a5d862d993604ab2708736801c9dcc25b70",
+  "tiresias/framework/predictor/pytorch_features/pt_interp.py": "4217fee7e44943e872dd512d13032e4ba095ed0f0001bd3cab04f9b002298b18"
+ },
+ "note": "Addresses use aligned static pointers and the logged dispatch/fast-path assumptions. Embedding address-derived sectors stay null.",
+ "rows": {
+  "blackwell/dev_pytorch_rowwise_softmax/large/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k4",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/large/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k4",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/large/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k4",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/large/c4": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k4",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/medium/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k6",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/medium/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k6",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/medium/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k6",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/medium/c4": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k6",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/small/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k5",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/small/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k5",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/small/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k5",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/dev_pytorch_rowwise_softmax/small/c4": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k5",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_embedding/large/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k2",
+     "phases": [
+      {
+       "index": 0,
+       "lines": null,
+       "read_bytes": 50331648,
+       "read_sectors": null,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": "data-dependent global address; transaction counts remain null",
+   "status": "unsupported"
+  },
+  "blackwell/final_pytorch_embedding/medium/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k2",
+     "phases": [
+      {
+       "index": 0,
+       "lines": null,
+       "read_bytes": 6291456,
+       "read_sectors": null,
+       "repetitions": 1,
+       "write_bytes": 4194304,
+       "write_sectors": 131072
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": "data-dependent global address; transaction counts remain null",
+   "status": "unsupported"
+  },
+  "blackwell/final_pytorch_embedding/small/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k2",
+     "phases": [
+      {
+       "index": 0,
+       "lines": null,
+       "read_bytes": 786432,
+       "read_sectors": null,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "reason": "data-dependent global address; transaction counts remain null",
+   "status": "unsupported"
+  },
+  "blackwell/final_pytorch_layer_norm/large/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 262144,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 2637824,
+       "read_bytes": 100663296,
+       "read_sectors": 9437184,
+       "repetitions": 1,
+       "write_bytes": 33619968,
+       "write_sectors": 1064960
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/large/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 262144,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 2637824,
+       "read_bytes": 100663296,
+       "read_sectors": 9437184,
+       "repetitions": 1,
+       "write_bytes": 33619968,
+       "write_sectors": 1064960
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/large/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 262144,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 2637824,
+       "read_bytes": 100663296,
+       "read_sectors": 9437184,
+       "repetitions": 1,
+       "write_bytes": 33619968,
+       "write_sectors": 1064960
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/large/c4": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524288,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 33554432,
+       "write_sectors": 1048576
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 262144,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 2637824,
+       "read_bytes": 100663296,
+       "read_sectors": 9437184,
+       "repetitions": 1,
+       "write_bytes": 33619968,
+       "write_sectors": 1064960
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/medium/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 65536,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 663552,
+       "read_bytes": 25165824,
+       "read_sectors": 2359296,
+       "repetitions": 1,
+       "write_bytes": 8421376,
+       "write_sectors": 270336
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/medium/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 65536,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 663552,
+       "read_bytes": 25165824,
+       "read_sectors": 2359296,
+       "repetitions": 1,
+       "write_bytes": 8421376,
+       "write_sectors": 270336
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/medium/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 65536,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 663552,
+       "read_bytes": 25165824,
+       "read_sectors": 2359296,
+       "repetitions": 1,
+       "write_bytes": 8421376,
+       "write_sectors": 270336
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/medium/c4": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131072,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 8388608,
+       "write_sectors": 262144
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 65536,
+       "read_bytes": 8388608,
+       "read_sectors": 262144,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 663552,
+       "read_bytes": 25165824,
+       "read_sectors": 2359296,
+       "repetitions": 1,
+       "write_bytes": 8421376,
+       "write_sectors": 270336
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/small/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 4096,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 43008,
+       "read_bytes": 1572864,
+       "read_sectors": 147456,
+       "repetitions": 1,
+       "write_bytes": 532480,
+       "write_sectors": 18432
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/small/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 4096,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 43008,
+       "read_bytes": 1572864,
+       "read_sectors": 147456,
+       "repetitions": 1,
+       "write_bytes": 532480,
+       "write_sectors": 18432
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/small/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 4096,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 43008,
+       "read_bytes": 1572864,
+       "read_sectors": 147456,
+       "repetitions": 1,
+       "write_bytes": 532480,
+       "write_sectors": 18432
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  },
+  "blackwell/final_pytorch_layer_norm/small/c4": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "kernel_id": "k1",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8192,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 524288,
+       "write_sectors": 16384
+      }
+     ],
+     "unknown_guard_upper_bounds": []
+    },
+    {
+     "barrier_sequence": [
+      "0x19d0",
+      "0x1cb0",
+      "0x19d0",
+      "0x1cb0",
+      "0x1e70"
+     ],
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 4096,
+       "read_bytes": 524288,
+       "read_sectors": 16384,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 43008,
+       "read_bytes": 1572864,
+       "read_sectors": 147456,
+       "repetitions": 1,
+       "write_bytes": 532480,
+       "write_sectors": 18432
+      }
+     ],
+     "unknown_guard_upper_bounds": [
+      "0x2000",
+      "0x2020"
+     ]
+    }
+   ],
+   "reason": null,
+   "status": "conditional_static_phases"
+  }
+ },
+ "transaction_profiler_validation": false
+}

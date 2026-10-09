@@ -1,0 +1,649 @@
+{
+ "schema": "prosp_timing/1",
+ "booking_ref": "booking log 2026-10-04 BOOKING attention_prospective_20261004",
+ "started_utc": "2026-10-03T19:01:38Z",
+ "manifest": {
+  "schema": "prosp_build/1",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Thu_Mar_19_11:12:51_PM_PDT_2026\nCuda compilation tools, release 13.2, V13.2.78\nBuild cuda_13.2.r13.2/compiler.37668154_0",
+  "command": [
+   "/usr/local/cuda-13.2/bin/nvcc",
+   "-arch=sm_120",
+   "-Xcompiler",
+   "-O2",
+   "-I",
+   "/home/user/attn_prosp_20261004/tiresias/framework/predictor/prospective_test/src",
+   "-I",
+   "/home/user/attn_prosp_20261004/tiresias/framework/predictor/fresh_g/src",
+   "-I",
+   "/home/user/attn_prosp_20261004/tiresias/framework/predictor/fresh_h/src",
+   "-I",
+   "/home/user/attn_prosp_20261004/tiresias/framework/predictor/fresh_f/gpu/drivers",
+   "/home/user/attn_prosp_20261004/tiresias/framework/predictor/prospective_test/gpu/driver_prosp.cu",
+   "-o",
+   "/home/user/prosp_work_20261004/driver_prosp"
+  ],
+  "driver_prosp_cu_sha256": "46adc72dc4a8b65916dd5fc01b548552e0e46f601ac5b0d3e897d667f041ae60",
+  "driver_common_h_sha256": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+  "prosp_kernels_cuh_sha256": "463c5a1b68402e4ce3b305230672da92536d623b193c29f6894d247a688258ab",
+  "tc_kernels_cuh_sha256": "ae5de3f3b1d763f6424b7beae2b099dc33694a6a21f6d9d178a9b67408256651",
+  "attn_kernels_cuh_sha256": "17c4367f20d8d9fccd38059b9e8c483c63e3e85d0ecc0968764f46455f7c3994",
+  "binary": "/home/user/prosp_work_20261004/driver_prosp",
+  "binary_sha256": "c7e03b1ca7cb449455ed9f388f1ca49649436aa874e8a8c6b9daad2810eff1cf"
+ },
+ "cells": [
+  {
+   "cell_id": "blackwell/prosp_attention_no_max/large/c1",
+   "argv": [
+    "attnnm",
+    "0",
+    "384",
+    "1024"
+   ],
+   "graph_batch": 11,
+   "repeat_per_window": 220,
+   "probe_per_launch_s": 0.0004762,
+   "calibration_per_launch_s": 0.0004748887272727273,
+   "window_per_launch_s": [
+    0.0004768014409090909,
+    0.00047656524090909094,
+    0.00047639229545454545,
+    0.00047654415454545453,
+    0.00047640523181818184
+   ],
+   "per_launch_runtime_s": 0.00047654415454545453,
+   "per_launch_min_s": 0.00047639229545454545,
+   "per_launch_max_s": 0.0004768014409090909,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=0 BH=384 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.0101 repeat=220 graph_batch=11"
+  },
+  {
+   "cell_id": "blackwell/prosp_attention_no_max/large/c2",
+   "argv": [
+    "attnnm",
+    "1",
+    "384",
+    "1024"
+   ],
+   "graph_batch": 13,
+   "repeat_per_window": 260,
+   "probe_per_launch_s": 0.000405908,
+   "calibration_per_launch_s": 0.0004041206153846154,
+   "window_per_launch_s": [
+    0.0004049159423076923,
+    0.0004046468884615385,
+    0.0004050120730769231,
+    0.0004053726769230769,
+    0.00040482019230769236
+   ],
+   "per_launch_runtime_s": 0.0004049159423076923,
+   "per_launch_min_s": 0.0004046468884615385,
+   "per_launch_max_s": 0.0004053726769230769,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=1 BH=384 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.0101 repeat=260 graph_batch=13"
+  },
+  {
+   "cell_id": "blackwell/prosp_attention_no_max/medium/c1",
+   "argv": [
+    "attnnm",
+    "0",
+    "72",
+    "1024"
+   ],
+   "graph_batch": 49,
+   "repeat_per_window": 1029,
+   "probe_per_launch_s": 0.000102044,
+   "calibration_per_launch_s": 0.00010111151020408162,
+   "window_per_launch_s": [
+    0.00010120940524781341,
+    0.00010133974246841594,
+    0.0001013015801749271,
+    0.00010132534402332362,
+    0.00010132820602526726
+   ],
+   "per_launch_runtime_s": 0.00010132534402332362,
+   "per_launch_min_s": 0.00010120940524781341,
+   "per_launch_max_s": 0.00010133974246841594,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=0 BH=72 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00959 repeat=1029 graph_batch=49"
+  },
+  {
+   "cell_id": "blackwell/prosp_attention_no_max/medium/c2",
+   "argv": [
+    "attnnm",
+    "1",
+    "72",
+    "1024"
+   ],
+   "graph_batch": 55,
+   "repeat_per_window": 1155,
+   "probe_per_launch_s": 9.146e-05,
+   "calibration_per_launch_s": 9.066821818181817e-05,
+   "window_per_launch_s": [
+    9.057399220779221e-05,
+    9.065012727272728e-05,
+    9.065467186147186e-05,
+    9.062258874458875e-05,
+    9.064444675324675e-05
+   ],
+   "per_launch_runtime_s": 9.064444675324675e-05,
+   "per_launch_min_s": 9.057399220779221e-05,
+   "per_launch_max_s": 9.065467186147186e-05,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=1 BH=72 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00959 repeat=1155 graph_batch=55"
+  },
+  {
+   "cell_id": "blackwell/prosp_attention_no_max/small/c1",
+   "argv": [
+    "attnnm",
+    "0",
+    "32",
+    "768"
+   ],
+   "graph_batch": 140,
+   "repeat_per_window": 2940,
+   "probe_per_launch_s": 3.5772e-05,
+   "calibration_per_launch_s": 3.456777142857143e-05,
+   "window_per_launch_s": [
+    3.457677142857143e-05,
+    3.449889455782313e-05,
+    3.450822380952381e-05,
+    3.453079795918368e-05,
+    3.454012448979592e-05
+   ],
+   "per_launch_runtime_s": 3.453079795918368e-05,
+   "per_launch_min_s": 3.449889455782313e-05,
+   "per_launch_max_s": 3.457677142857143e-05,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=0 BH=32 S=768 D=64 checked=5056 bad=0 first_bad=-1 worst=0.0118 repeat=2940 graph_batch=140"
+  },
+  {
+   "cell_id": "blackwell/prosp_attention_no_max/small/c2",
+   "argv": [
+    "attnnm",
+    "1",
+    "32",
+    "768"
+   ],
+   "graph_batch": 136,
+   "repeat_per_window": 2856,
+   "probe_per_launch_s": 3.69e-05,
+   "calibration_per_launch_s": 3.5447529411764706e-05,
+   "window_per_launch_s": [
+    3.541731092436975e-05,
+    3.5438230392156865e-05,
+    3.5404357492997196e-05,
+    3.541299684873949e-05,
+    3.544217331932773e-05
+   ],
+   "per_launch_runtime_s": 3.541731092436975e-05,
+   "per_launch_min_s": 3.5404357492997196e-05,
+   "per_launch_max_s": 3.544217331932773e-05,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=1 BH=32 S=768 D=64 checked=5056 bad=0 first_bad=-1 worst=0.0118 repeat=2856 graph_batch=136"
+  },
+  {
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/large/c1",
+   "argv": [
+    "attn2",
+    "0",
+    "384",
+    "1024"
+   ],
+   "graph_batch": 8,
+   "repeat_per_window": 144,
+   "probe_per_launch_s": 0.000710952,
+   "calibration_per_launch_s": 0.00071276,
+   "window_per_launch_s": [
+    0.0007135624375,
+    0.0007127046597222223,
+    0.0007136951041666666,
+    0.0007138511319444445,
+    0.0007137808819444445
+   ],
+   "per_launch_runtime_s": 0.0007136951041666666,
+   "per_launch_min_s": 0.0007127046597222223,
+   "per_launch_max_s": 0.0007138511319444445,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=0 BH=384 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00976 repeat=144 graph_batch=8"
+  },
+  {
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/large/c2",
+   "argv": [
+    "attn2",
+    "1",
+    "384",
+    "1024"
+   ],
+   "graph_batch": 12,
+   "repeat_per_window": 228,
+   "probe_per_launch_s": 0.000448332,
+   "calibration_per_launch_s": 0.00044785333333333333,
+   "window_per_launch_s": [
+    0.00044795564912280704,
+    0.0004481361447368421,
+    0.0004480638684210526,
+    0.0004482182631578948,
+    0.0004482863245614035
+   ],
+   "per_launch_runtime_s": 0.0004481361447368421,
+   "per_launch_min_s": 0.00044795564912280704,
+   "per_launch_max_s": 0.0004482863245614035,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=1 BH=384 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00976 repeat=228 graph_batch=12"
+  },
+  {
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/medium/c1",
+   "argv": [
+    "attn2",
+    "0",
+    "72",
+    "1024"
+   ],
+   "graph_batch": 35,
+   "repeat_per_window": 700,
+   "probe_per_launch_s": 0.000145212,
+   "calibration_per_launch_s": 0.00014473874285714285,
+   "window_per_launch_s": [
+    0.0001447482085714286,
+    0.00014473124857142857,
+    0.00014475441999999998,
+    0.0001446886442857143,
+    0.00014477704714285715
+   ],
+   "per_launch_runtime_s": 0.0001447482085714286,
+   "per_launch_min_s": 0.0001446886442857143,
+   "per_launch_max_s": 0.00014477704714285715,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=0 BH=72 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00938 repeat=700 graph_batch=35"
+  },
+  {
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/medium/c2",
+   "argv": [
+    "attn2",
+    "1",
+    "72",
+    "1024"
+   ],
+   "graph_batch": 55,
+   "repeat_per_window": 1155,
+   "probe_per_launch_s": 9.1604e-05,
+   "calibration_per_launch_s": 9.058967272727273e-05,
+   "window_per_launch_s": [
+    9.072977662337662e-05,
+    9.074790303030303e-05,
+    9.078748917748918e-05,
+    9.072709523809524e-05,
+    9.077061904761905e-05
+   ],
+   "per_launch_runtime_s": 9.074790303030303e-05,
+   "per_launch_min_s": 9.072709523809524e-05,
+   "per_launch_max_s": 9.078748917748918e-05,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=1 BH=72 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00938 repeat=1155 graph_batch=55"
+  },
+  {
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/small/c1",
+   "argv": [
+    "attn2",
+    "0",
+    "32",
+    "768"
+   ],
+   "graph_batch": 106,
+   "repeat_per_window": 2226,
+   "probe_per_launch_s": 4.7224e-05,
+   "calibration_per_launch_s": 4.6689509433962266e-05,
+   "window_per_launch_s": [
+    4.67227893081761e-05,
+    4.671731221922731e-05,
+    4.674617789757412e-05,
+    4.6737410601976644e-05,
+    4.674002560646901e-05
+   ],
+   "per_launch_runtime_s": 4.6737410601976644e-05,
+   "per_launch_min_s": 4.671731221922731e-05,
+   "per_launch_max_s": 4.674617789757412e-05,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=0 BH=32 S=768 D=64 checked=5056 bad=0 first_bad=-1 worst=0.014 repeat=2226 graph_batch=106"
+  },
+  {
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/small/c2",
+   "argv": [
+    "attn2",
+    "1",
+    "32",
+    "768"
+   ],
+   "graph_batch": 144,
+   "repeat_per_window": 3024,
+   "probe_per_launch_s": 3.4956e-05,
+   "calibration_per_launch_s": 3.4141777777777774e-05,
+   "window_per_launch_s": [
+    3.4174444775132274e-05,
+    3.4162655092592594e-05,
+    3.4170539351851856e-05,
+    3.4169386243386244e-05,
+    3.417699537037037e-05
+   ],
+   "per_launch_runtime_s": 3.4170539351851856e-05,
+   "per_launch_min_s": 3.4162655092592594e-05,
+   "per_launch_max_s": 3.417699537037037e-05,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=1 BH=32 S=768 D=64 checked=5056 bad=0 first_bad=-1 worst=0.014 repeat=3024 graph_batch=144"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/large/c1",
+   "argv": [
+    "tcrelu",
+    "0",
+    "8192",
+    "8192",
+    "768"
+   ],
+   "graph_batch": 12,
+   "repeat_per_window": 240,
+   "probe_per_launch_s": 0.000439504,
+   "calibration_per_launch_s": 0.00043833600000000005,
+   "window_per_launch_s": [
+    0.0004407828,
+    0.0004408796,
+    0.00044057280416666666,
+    0.0004404995916666667,
+    0.0004406738583333333
+   ],
+   "per_launch_runtime_s": 0.0004406738583333333,
+   "per_launch_min_s": 0.0004404995916666667,
+   "per_launch_max_s": 0.0004408796,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=0 M=8192 N=8192 K=768 checked=4160 bad=0 first_bad=-1 worst=1.61e-07 repeat=240 graph_batch=12"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/large/c2",
+   "argv": [
+    "tcrelu",
+    "1",
+    "8192",
+    "8192",
+    "768"
+   ],
+   "graph_batch": 10,
+   "repeat_per_window": 190,
+   "probe_per_launch_s": 0.000531888,
+   "calibration_per_launch_s": 0.0005321664000000001,
+   "window_per_launch_s": [
+    0.0005368239157894736,
+    0.0005371599315789474,
+    0.0005362285421052632,
+    0.0005373931894736842,
+    0.0005359920684210527
+   ],
+   "per_launch_runtime_s": 0.0005368239157894736,
+   "per_launch_min_s": 0.0005359920684210527,
+   "per_launch_max_s": 0.0005373931894736842,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=1 M=8192 N=8192 K=768 checked=4160 bad=0 first_bad=-1 worst=1.61e-07 repeat=190 graph_batch=10"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/medium/c1",
+   "argv": [
+    "tcrelu",
+    "0",
+    "3072",
+    "3072",
+    "1024"
+   ],
+   "graph_batch": 52,
+   "repeat_per_window": 1092,
+   "probe_per_launch_s": 9.718e-05,
+   "calibration_per_launch_s": 9.565661538461538e-05,
+   "window_per_launch_s": [
+    9.589933699633699e-05,
+    9.591785897435896e-05,
+    9.592398626373626e-05,
+    9.591952838827838e-05,
+    9.594341575091575e-05
+   ],
+   "per_launch_runtime_s": 9.591952838827838e-05,
+   "per_launch_min_s": 9.589933699633699e-05,
+   "per_launch_max_s": 9.594341575091575e-05,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=0 M=3072 N=3072 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.97e-07 repeat=1092 graph_batch=52"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/medium/c2",
+   "argv": [
+    "tcrelu",
+    "1",
+    "3072",
+    "3072",
+    "1024"
+   ],
+   "graph_batch": 52,
+   "repeat_per_window": 1092,
+   "probe_per_launch_s": 9.6804e-05,
+   "calibration_per_launch_s": 9.583323076923078e-05,
+   "window_per_launch_s": [
+    9.627704120879121e-05,
+    9.627733516483516e-05,
+    9.650388278388279e-05,
+    9.633556135531135e-05,
+    9.650646153846154e-05
+   ],
+   "per_launch_runtime_s": 9.633556135531135e-05,
+   "per_launch_min_s": 9.627704120879121e-05,
+   "per_launch_max_s": 9.650646153846154e-05,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=1 M=3072 N=3072 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.97e-07 repeat=1092 graph_batch=52"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/small/c1",
+   "argv": [
+    "tcrelu",
+    "0",
+    "1024",
+    "1024",
+    "2048"
+   ],
+   "graph_batch": 86,
+   "repeat_per_window": 1806,
+   "probe_per_launch_s": 5.814e-05,
+   "calibration_per_launch_s": 5.7091720930232564e-05,
+   "window_per_launch_s": [
+    5.7031866002214834e-05,
+    5.6892403654485044e-05,
+    5.689100498338871e-05,
+    5.7002721483942415e-05,
+    5.702198062015504e-05
+   ],
+   "per_launch_runtime_s": 5.7002721483942415e-05,
+   "per_launch_min_s": 5.689100498338871e-05,
+   "per_launch_max_s": 5.7031866002214834e-05,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=0 M=1024 N=1024 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.58e-07 repeat=1806 graph_batch=86"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/small/c2",
+   "argv": [
+    "tcrelu",
+    "1",
+    "1024",
+    "1024",
+    "2048"
+   ],
+   "graph_batch": 141,
+   "repeat_per_window": 2961,
+   "probe_per_launch_s": 3.5584e-05,
+   "calibration_per_launch_s": 3.4444028368794324e-05,
+   "window_per_launch_s": [
+    3.4427546099290775e-05,
+    3.424044444444445e-05,
+    3.42657956771361e-05,
+    3.4249359675785205e-05,
+    3.4414060114826074e-05
+   ],
+   "per_launch_runtime_s": 3.42657956771361e-05,
+   "per_launch_min_s": 3.424044444444445e-05,
+   "per_launch_max_s": 3.4427546099290775e-05,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=1 M=1024 N=1024 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.58e-07 repeat=2961 graph_batch=141"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/large/c1",
+   "argv": [
+    "tcgemm2",
+    "0",
+    "8192",
+    "8192",
+    "768"
+   ],
+   "graph_batch": 12,
+   "repeat_per_window": 228,
+   "probe_per_launch_s": 0.000447056,
+   "calibration_per_launch_s": 0.000446472,
+   "window_per_launch_s": [
+    0.0004495402236842105,
+    0.00044824141666666666,
+    0.0004482720043859649,
+    0.0004480475701754386,
+    0.00044883507017543856
+   ],
+   "per_launch_runtime_s": 0.0004482720043859649,
+   "per_launch_min_s": 0.0004480475701754386,
+   "per_launch_max_s": 0.0004495402236842105,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=0 M=8192 N=8192 K=768 checked=4160 bad=0 first_bad=-1 worst=1.65e-07 repeat=228 graph_batch=12"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/large/c2",
+   "argv": [
+    "tcgemm2",
+    "1",
+    "8192",
+    "8192",
+    "768"
+   ],
+   "graph_batch": 11,
+   "repeat_per_window": 209,
+   "probe_per_launch_s": 0.0004843,
+   "calibration_per_launch_s": 0.00048669090909090907,
+   "window_per_launch_s": [
+    0.00048355905741626797,
+    0.0004832330717703349,
+    0.00048692193779904303,
+    0.0004868565598086124,
+    0.00048587514354066983
+   ],
+   "per_launch_runtime_s": 0.00048587514354066983,
+   "per_launch_min_s": 0.0004832330717703349,
+   "per_launch_max_s": 0.00048692193779904303,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=1 M=8192 N=8192 K=768 checked=4160 bad=0 first_bad=-1 worst=1.65e-07 repeat=209 graph_batch=11"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/medium/c1",
+   "argv": [
+    "tcgemm2",
+    "0",
+    "3072",
+    "3072",
+    "1024"
+   ],
+   "graph_batch": 60,
+   "repeat_per_window": 1260,
+   "probe_per_launch_s": 8.4168e-05,
+   "calibration_per_launch_s": 8.258453333333333e-05,
+   "window_per_launch_s": [
+    8.360969920634921e-05,
+    8.357267222222221e-05,
+    8.352525476190477e-05,
+    8.335385396825397e-05,
+    8.386623412698413e-05
+   ],
+   "per_launch_runtime_s": 8.357267222222221e-05,
+   "per_launch_min_s": 8.335385396825397e-05,
+   "per_launch_max_s": 8.386623412698413e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=0 M=3072 N=3072 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.94e-07 repeat=1260 graph_batch=60"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/medium/c2",
+   "argv": [
+    "tcgemm2",
+    "1",
+    "3072",
+    "3072",
+    "1024"
+   ],
+   "graph_batch": 51,
+   "repeat_per_window": 1071,
+   "probe_per_launch_s": 9.8232e-05,
+   "calibration_per_launch_s": 9.673913725490195e-05,
+   "window_per_launch_s": [
+    9.665416339869281e-05,
+    9.666312511671334e-05,
+    9.671012698412699e-05,
+    9.668505882352941e-05,
+    9.669907096171803e-05
+   ],
+   "per_launch_runtime_s": 9.668505882352941e-05,
+   "per_launch_min_s": 9.665416339869281e-05,
+   "per_launch_max_s": 9.671012698412699e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=1 M=3072 N=3072 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.94e-07 repeat=1071 graph_batch=51"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/small/c1",
+   "argv": [
+    "tcgemm2",
+    "0",
+    "1024",
+    "1024",
+    "2048"
+   ],
+   "graph_batch": 106,
+   "repeat_per_window": 2226,
+   "probe_per_launch_s": 4.7268e-05,
+   "calibration_per_launch_s": 4.642083018867924e-05,
+   "window_per_launch_s": [
+    4.646460287511231e-05,
+    4.645757322551662e-05,
+    4.64621320754717e-05,
+    4.64515790655885e-05,
+    4.6455791105121294e-05
+   ],
+   "per_launch_runtime_s": 4.645757322551662e-05,
+   "per_launch_min_s": 4.64515790655885e-05,
+   "per_launch_max_s": 4.646460287511231e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=0 M=1024 N=1024 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.6e-07 repeat=2226 graph_batch=106"
+  },
+  {
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/small/c2",
+   "argv": [
+    "tcgemm2",
+    "1",
+    "1024",
+    "1024",
+    "2048"
+   ],
+   "graph_batch": 56,
+   "repeat_per_window": 1176,
+   "probe_per_launch_s": 8.9772e-05,
+   "calibration_per_launch_s": 8.874000000000001e-05,
+   "window_per_launch_s": [
+    8.889798384353741e-05,
+    8.893442517006803e-05,
+    8.888038350340136e-05,
+    8.887398639455782e-05,
+    8.888557993197279e-05
+   ],
+   "per_launch_runtime_s": 8.888557993197279e-05,
+   "per_launch_min_s": 8.887398639455782e-05,
+   "per_launch_max_s": 8.893442517006803e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=1 M=1024 N=1024 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.6e-07 repeat=1176 graph_batch=56"
+  }
+ ],
+ "finished_utc": "2026-10-03T19:03:39Z",
+ "all_correct": true
+}

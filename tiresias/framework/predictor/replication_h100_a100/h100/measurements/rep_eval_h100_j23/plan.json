@@ -1,0 +1,35 @@
+{
+ "cells": 44,
+ "by_set_family_tier": {
+  "fresh_g/tcgemm/DRAM": 4,
+  "fresh_g/tcgemm/L2": 4,
+  "fresh_h/attn/DRAM": 4,
+  "fresh_h/attn/L2": 4,
+  "prospective/attn2/DRAM": 2,
+  "prospective/attn2/L2": 4,
+  "prospective/attnnm/DRAM": 2,
+  "prospective/attnnm/L2": 4,
+  "prospective/tcgemm2/DRAM": 2,
+  "prospective/tcgemm2/L2": 4,
+  "prospective/tcrelu/DRAM": 2,
+  "prospective/tcrelu/L2": 4,
+  "validation/attn/DRAM": 2,
+  "validation/tcgemm/DRAM": 2
+ },
+ "window_s": 40.0,
+ "assumptions": {
+  "per_energy_window_service_s": "176 = 90 precondition + 40 counted window + 46 gates, probes, process starts and finalisation (Blackwell: 151 s median at a 15 s window)",
+  "per_cell_timing_s": 15.0,
+  "build_and_sass_gate_s": 600.0,
+  "rejected_windows": "up to 3 attempts per cell are possible inside the harness (duration retargeting); 10% extra is added",
+  "note": "planning allowances, not measured rates on this board; the scheduler ceiling is 24 h regardless"
+ },
+ "gpu_seconds": {
+  "build_and_gate": 600.0,
+  "timing": 660.0,
+  "energy": 7744.0,
+  "energy_with_10pct_retarget_margin": 8518.400000000001
+ },
+ "gpu_hours_total_runtime_only": 0.35,
+ "gpu_hours_total_with_energy": 2.72
+}

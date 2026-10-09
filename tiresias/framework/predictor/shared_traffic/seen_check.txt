@@ -1,0 +1,17 @@
+  diff_b_a = subtract(b, a)
+  subtract(b, diff_b_a * (1 - t), out=lerp_interpolation, where=t >= 0.5,
+current model reproduces eval_cells.csv exactly on all 59 cells (runtime, energy static, energy measured)
+cells 59 refused by candidate: [('blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c1', 'inter-block reuse working set 138.2 MiB exceeds the L2 capacity 128.0 MiB; the L2-captures-reuse assumption fails (refused)'), ('blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c2', 'inter-block reuse working set 138.2 MiB exceeds the L2 capacity 128.0 MiB; the L2-captures-reuse assumption fails (refused)')]
+Seen during model building (59)                      n=59 runtime  13.2 ->  12.1 | energy(static)  11.9 ->   9.9 | energy(measured)   9.5 ->   6.7
+set: Classic kernels                                 n=32 runtime  14.3 ->  14.3 | energy(static)  17.9 ->  15.8 | energy(measured)  14.0 ->   7.1
+set: CUDA-samples kernels at new shapes              n=27 runtime   5.3 ->   5.3 | energy(static)   8.7 ->   8.2 | energy(measured)   7.3 ->   6.7
+kernel: Black-Scholes                                n= 8 runtime   8.8 ->   8.8 | energy(static)  20.0 ->  20.0 | energy(measured)   8.6 ->   8.6
+kernel: Tiled matrix multiply                        n= 8 runtime  21.1 ->  21.1 | energy(static)   9.5 ->   6.9 | energy(measured)  20.3 ->   6.2
+kernel: Prefix-sum scan                              n= 8 runtime  14.3 ->  14.3 | energy(static)  29.9 ->  30.2 | energy(measured)  18.7 ->  19.0
+kernel: Separable convolution                        n= 8 runtime  14.2 ->  14.2 | energy(static)   9.2 ->   7.7 | energy(measured)   1.6 ->   1.0
+kernel: Copy                                         n= 4 runtime   3.7 ->   3.7 | energy(static)   5.4 ->   5.4 | energy(measured)   4.2 ->   4.2
+kernel: Reduce2                                      n= 2 runtime  18.8 ->  18.8 | energy(static)  20.0 ->  19.4 | energy(measured)  14.2 ->  13.6
+kernel: Reductions (reduce0/1/6)                     n= 5 runtime  13.6 ->  13.6 | energy(static)  14.5 ->  13.7 | energy(measured)   6.4 ->   6.7
+kernel: Transposes (naive, coalesced, padded, diagon n= 8 runtime   6.1 ->   6.1 | energy(static)   8.4 ->   7.3 | energy(measured)   8.9 ->   7.2
+kernel: Fine- and coarse-grained transpose           n= 4 runtime   4.5 ->   4.5 | energy(static)   9.4 ->   9.4 | energy(measured)  10.0 ->  10.0
+kernel: Vector add                                   n= 4 runtime  11.3 ->  11.3 | energy(static)   7.6 ->   7.6 | energy(measured)   3.3 ->   3.3

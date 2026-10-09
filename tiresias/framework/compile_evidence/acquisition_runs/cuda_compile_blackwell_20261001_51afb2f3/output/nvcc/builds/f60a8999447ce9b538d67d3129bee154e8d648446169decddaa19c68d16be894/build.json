@@ -1,0 +1,232 @@
+{
+  "architecture": "sm_120",
+  "cell_metadata": {
+    "architecture": "sm_120",
+    "cell": "medium/c1",
+    "compile_flags": [
+      "-O3",
+      "-std=c++17",
+      "-arch=sm_120",
+      "-cubin"
+    ],
+    "compiler": "nvcc",
+    "compiler_version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Thu_Mar_19_11:12:51_PM_PDT_2026\nCuda compilation tools, release 13.2, V13.2.78\nBuild cuda_13.2.r13.2/compiler.37668154_0",
+    "cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+    "flags": [],
+    "full_ptx_retained": true,
+    "function_names_in_cubin": [
+      "_Z13copySharedMemPfS_ii",
+      "_Z14transposeNaivePfS_ii",
+      "_Z17transposeDiagonalPfS_ii",
+      "_Z18transposeCoalescedPfS_ii",
+      "_Z20transposeFineGrainedPfS_ii",
+      "_Z22transposeCoarseGrainedPfS_ii",
+      "_Z24transposeNoBankConflictsPfS_ii",
+      "_Z4copyPfS_ii"
+    ],
+    "isolated_function_section": "_Z14transposeNaivePfS_ii",
+    "isolation_anchor": "transposeNaive",
+    "operator_id": "train_cuda_samples_transpose",
+    "retained_compiler_events": [
+      {
+        "path": "compile_events/0003_nvcc/event.json",
+        "sha256": "c5c4cdec5a6d9f4861ccf05177bf77c8876e7dfe3b3e7a5894139f65445a31be"
+      },
+      {
+        "path": "compile_events/0005_nvcc/event.json",
+        "sha256": "6dfdec94b1875b4a86952a4c552fda34721eccdec7a8c9fc592984894e07b15e"
+      }
+    ],
+    "retained_source_path": "sources/ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95/transpose.cu",
+    "sibling_instantiations_same_template_prefix": [],
+    "source_revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+    "source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+    "static_mix": {
+      "static_arith_count": 5,
+      "static_arith_density": 0.15625,
+      "static_branch_count": 2,
+      "static_branch_density": 0.0625,
+      "static_load_count": 7,
+      "static_load_density": 0.21875,
+      "static_store_count": 2,
+      "static_store_density": 0.0625,
+      "static_total_instructions": 32,
+      "static_unique_opcodes": 10
+    },
+    "widths": {
+      "atomics": {
+        "by_opcode": {},
+        "count": 0,
+        "global_count": 0,
+        "shared_count": 0
+      },
+      "bar": {
+        "by_variant": {},
+        "count": 0
+      },
+      "classifier_instruction_lines": 32,
+      "conflicting_width_modifiers": {},
+      "fadd": 0,
+      "fence": {
+        "by_opcode": {},
+        "count": 0
+      },
+      "ffma": 0,
+      "flags": [],
+      "fmul": 0,
+      "full_opcode_histogram": {
+        "BRA": 1,
+        "EXIT": 1,
+        "IMAD": 2,
+        "IMAD.WIDE": 3,
+        "LDC": 1,
+        "LDC.64": 3,
+        "LDCU.64": 1,
+        "LDG.E": 2,
+        "LEA": 3,
+        "NOP": 9,
+        "S2R": 4,
+        "STG.E": 2
+      },
+      "global_or_generic_load": {
+        "bytes_hist": {
+          "4": 2
+        },
+        "count": 2
+      },
+      "has_unknown_width_global_load": false,
+      "memory": {
+        "async_global_to_shared": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "constant_load": {
+          "bytes_hist": {
+            "4": 1,
+            "8": 4
+          },
+          "count": 5,
+          "default_width_used": 1,
+          "known_bytes_sum": 36
+        },
+        "generic_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "generic_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "global_load": {
+          "bytes_hist": {
+            "4": 2
+          },
+          "count": 2,
+          "default_width_used": 2,
+          "known_bytes_sum": 8
+        },
+        "global_store": {
+          "bytes_hist": {
+            "4": 2
+          },
+          "count": 2,
+          "default_width_used": 2,
+          "known_bytes_sum": 8
+        },
+        "local_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "local_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_matrix_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_matrix_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        }
+      },
+      "mufu": {
+        "by_subop": {},
+        "count": 0
+      },
+      "opcode_histogram": {
+        "BRA": 1,
+        "EXIT": 1,
+        "IMAD": 5,
+        "LDC": 4,
+        "LDCU": 1,
+        "LDG": 2,
+        "LEA": 3,
+        "NOP": 9,
+        "S2R": 4,
+        "STG": 2
+      },
+      "other_memory_opcodes": {},
+      "packed_fp32_ffma2_fmul2_fadd2": [
+        0,
+        0,
+        0
+      ],
+      "parser_version": "1",
+      "shfl": {
+        "by_variant": {},
+        "count": 0
+      },
+      "total_instructions": 32,
+      "unclassified_ld_st_opcodes": {},
+      "unknown_width_modifiers": {},
+      "widest_global_load_bytes": 4,
+      "widest_global_load_is_lower_bound": false,
+      "widest_global_store_bytes": 4,
+      "widest_global_store_is_lower_bound": false,
+      "widest_ldg_only_bytes": 4,
+      "widest_ldg_only_is_lower_bound": false,
+      "widest_shared_load_bytes": null,
+      "widest_shared_load_is_lower_bound": false,
+      "widest_shared_store_bytes": null,
+      "widest_shared_store_is_lower_bound": false,
+      "widest_stg_only_bytes": 4
+    }
+  },
+  "compile_argv_prefix": null,
+  "compile_flags": [
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-cubin"
+  ],
+  "compiler": "nvcc",
+  "compiler_version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Thu_Mar_19_11:12:51_PM_PDT_2026\nCuda compilation tools, release 13.2, V13.2.78\nBuild cuda_13.2.r13.2/compiler.37668154_0",
+  "note": "Header/toolchain transitive build closure still requires verification"
+}

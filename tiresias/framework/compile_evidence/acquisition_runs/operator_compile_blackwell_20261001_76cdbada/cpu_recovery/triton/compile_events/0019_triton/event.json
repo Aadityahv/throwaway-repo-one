@@ -1,0 +1,96 @@
+{
+  "actual_keyword_arguments": {
+    "items": {
+      "BLOCK_SIZE": {
+        "type": "int",
+        "value": 512
+      },
+      "grid": {
+        "items": [
+          {
+            "type": "int",
+            "value": 4096
+          }
+        ],
+        "type": "tuple"
+      },
+      "num_stages": {
+        "type": "int",
+        "value": 2
+      },
+      "num_warps": {
+        "type": "int",
+        "value": 8
+      }
+    },
+    "type": "dict"
+  },
+  "actual_positional_arguments": {
+    "items": [
+      {
+        "type": "torch.dtype",
+        "value": "torch.float32"
+      },
+      {
+        "type": "torch.dtype",
+        "value": "torch.float32"
+      },
+      {
+        "type": "int",
+        "value": 512
+      },
+      {
+        "type": "int",
+        "value": 512
+      },
+      {
+        "type": "int",
+        "value": 4096
+      },
+      {
+        "type": "int",
+        "value": 512
+      }
+    ],
+    "type": "list"
+  },
+  "asm": {
+    "cubin": {
+      "path": "compile_events/0019_triton/asm_05_cubin.cubin",
+      "sha256": "2001505cc59f7e24fadea7fcb352849dd7700f5ed1818d7d60b81c42b456ab96",
+      "type": "bytes"
+    },
+    "llir": {
+      "path": "compile_events/0019_triton/asm_03_llir.txt",
+      "sha256": "9dcb37f3726849658f2b30c055d8c0a88e5f57f1f5e2fbc2f07f33f37acc0d93",
+      "type": "str"
+    },
+    "ptx": {
+      "path": "compile_events/0019_triton/asm_04_ptx.ptx",
+      "sha256": "698debb3249622e0b99a061ea6e84dd9f31c0c134996113289cad581bb65b646",
+      "type": "str"
+    },
+    "source": {
+      "path": "compile_events/0019_triton/asm_00_source.txt",
+      "sha256": "480fc2cb01ca804d6a55b08efed7a5d0d336aa23417d73ef8de2a72b0b5f9fd1",
+      "type": "str"
+    },
+    "ttgir": {
+      "path": "compile_events/0019_triton/asm_02_ttgir.txt",
+      "sha256": "dc2951d72149970acfdeaf8f24be98b889878862e39983a361f143d056926638",
+      "type": "str"
+    },
+    "ttir": {
+      "path": "compile_events/0019_triton/asm_01_ttir.txt",
+      "sha256": "29046398201f9f8d8a837bf473773bc332c8a429970a26e70e1b42d2ffd9da89",
+      "type": "str"
+    }
+  },
+  "cubin_sha256": "2001505cc59f7e24fadea7fcb352849dd7700f5ed1818d7d60b81c42b456ab96",
+  "kernel_name": "softmax_kernel",
+  "kind": "actual_triton_warmup_with_MockTensor_specialization",
+  "source_closure_verified": false,
+  "status": "completed",
+  "target_kernel_launches": 0,
+  "unsupported_asm_types": {}
+}

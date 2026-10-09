@@ -1,0 +1,64 @@
+{
+ "cell_id": "blackwell/fresh_d_cuda_samples_reduce2/l2/c1",
+ "kernels": [
+  {
+   "blocks": 24576,
+   "first_touch_sectors_per_sampled_block": [
+    32,
+    32,
+    32
+   ],
+   "kernel_id": "retained",
+   "pointers": {
+    "0": {
+     "read": {
+      "footprint": 786432.0,
+      "mean_per_block": 32.0,
+      "naive": 786432.0,
+      "reused": false,
+      "sampled_blocks": 3,
+      "span": 786432,
+      "union": 96
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 3,
+      "span": 0,
+      "union": 0
+     }
+    },
+    "1": {
+     "read": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 3,
+      "span": 0,
+      "union": 0
+     },
+     "write": {
+      "footprint": 3072,
+      "mean_per_block": 1.0,
+      "naive": 24576.0,
+      "reused": true,
+      "sampled_blocks": 3,
+      "span": 3072,
+      "union": 3
+     }
+    }
+   },
+   "read_footprint_sectors": 786432.0,
+   "read_naive_sectors": 786432.0,
+   "reuse_working_set_bytes": 0,
+   "sampled_blocks": 3,
+   "write_footprint_sectors": 3072,
+   "write_naive_sectors": 24576.0
+  }
+ ],
+ "seconds": 72.1,
+ "status": "ok"
+}

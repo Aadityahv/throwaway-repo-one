@@ -1,0 +1,84 @@
+{
+  "actual_keyword_arguments": {
+    "items": {
+      "BLOCK_SIZE": {
+        "type": "int",
+        "value": 512
+      },
+      "grid": {
+        "items": [
+          {
+            "type": "int",
+            "value": 16384
+          }
+        ],
+        "type": "tuple"
+      },
+      "num_warps": {
+        "type": "int",
+        "value": 4
+      }
+    },
+    "type": "dict"
+  },
+  "actual_positional_arguments": {
+    "items": [
+      {
+        "type": "torch.dtype",
+        "value": "torch.float32"
+      },
+      {
+        "type": "torch.dtype",
+        "value": "torch.float32"
+      },
+      {
+        "type": "torch.dtype",
+        "value": "torch.float32"
+      },
+      {
+        "type": "int",
+        "value": 8388608
+      }
+    ],
+    "type": "list"
+  },
+  "asm": {
+    "cubin": {
+      "path": "compile_events/0007_triton/asm_05_cubin.cubin",
+      "sha256": "50a6e3d1f555389a8f060f33213f237fe8012868d9309d04010bd4ba3bad495a",
+      "type": "bytes"
+    },
+    "llir": {
+      "path": "compile_events/0007_triton/asm_03_llir.txt",
+      "sha256": "772a820acc09784210ef49cbe7662cf86ee4b1fbb0f1e4c01936eeeba5375c6a",
+      "type": "str"
+    },
+    "ptx": {
+      "path": "compile_events/0007_triton/asm_04_ptx.ptx",
+      "sha256": "900492e6309a6300f82d8c78d6b78319791ab9cdb71b6dee0051005a07273549",
+      "type": "str"
+    },
+    "source": {
+      "path": "compile_events/0007_triton/asm_00_source.txt",
+      "sha256": "6ac1290118e2a663c5f41fa323166a9ef741c6458e3fabfb36075b6025670c30",
+      "type": "str"
+    },
+    "ttgir": {
+      "path": "compile_events/0007_triton/asm_02_ttgir.txt",
+      "sha256": "1954c73c8d80cda2210eb5c3592c5e5601d9b7bf0a03159b5c8808a15feb2c96",
+      "type": "str"
+    },
+    "ttir": {
+      "path": "compile_events/0007_triton/asm_01_ttir.txt",
+      "sha256": "624367d5b8c46af3f60cc22a618d8a5f6b375426e2c7f5f1056cbb22bc6bd727",
+      "type": "str"
+    }
+  },
+  "cubin_sha256": "50a6e3d1f555389a8f060f33213f237fe8012868d9309d04010bd4ba3bad495a",
+  "kernel_name": "add_kernel",
+  "kind": "actual_triton_warmup_with_MockTensor_specialization",
+  "source_closure_verified": false,
+  "status": "completed",
+  "target_kernel_launches": 0,
+  "unsupported_asm_types": {}
+}

@@ -1,0 +1,125 @@
+{
+ "schema": "unseen_gpu_build/1",
+ "built_utc": "2026-10-04T16:36:57Z",
+ "samples_root": "/home/user/tiresias/app_sources/cuda-samples-5443602",
+ "samples_revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+ "nvcc": {
+  "path": "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+  "version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2023 NVIDIA Corporation\nBuilt on Tue_Feb__7_19:32:13_PST_2023\nCuda compilation tools, release 12.1, V12.1.66\nBuild cuda_12.1.r12.1/compiler.32415258_0"
+ },
+ "arch": "sm_90",
+ "host_opt": true,
+ "driver_common_h_sha256": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+ "common_headers": {
+  "helper_cuda.h": "0494246768a4e3dbfcd688d79f4abad1fa39fc9f2d9dc3264a894f1c96d3785d",
+  "helper_string.h": "26e988c97fb3d77d498e384c685177ed7966e41d5d58ebc9b7d3d696859f5e57",
+  "helper_functions.h": "3fdcd18e41ffc2a9c88ade3595384e9cd05a2d84f80b86a2d5982035ca79c426",
+  "helper_image.h": "bc1fe7921bafad278ffa2e4bc8a99c18825208b9f5f47842a7cf7e86cae8b3f1",
+  "helper_timer.h": "c48552a7c7b7a5840fcfbc176bfb5a19b501fdc56796b64a63e78e39ab547078",
+  "exception.h": "ad043023a652bf3610671aad88237383c7bf2e17c66f8da5830d1d668fe7bbe7"
+ },
+ "families": {
+  "matmul": {
+   "driver": "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_matmul.cu",
+   "driver_sha256": "c72d5768dc682ad753a36c9786f5be03e320a5f9efad55d07dad33406fff6a65",
+   "sample_files": {
+    "cpp/0_Introduction/matrixMul/matrixMul.cu": "3d2b766f5af14cefb097188baa2d73b00ca0e02254ca9946d6811106d92662e0"
+   },
+   "command": [
+    "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+    "-arch=sm_90",
+    "-Xcompiler",
+    "-O2",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/Common",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/cpp/0_Introduction/matrixMul",
+    "-I",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_matmul.cu",
+    "-o",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_matmul"
+   ],
+   "returncode": 0,
+   "binary": "/home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_matmul",
+   "binary_sha256": "57f97b008e5eed55adbb28524df8cdac2a6bb80786c34f5531cf390712a6e5fc"
+  },
+  "bs": {
+   "driver": "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_bs.cu",
+   "driver_sha256": "891f3cc69b5edf80eea31b64ccb09807b67f72d8929015cd1ad65fffb5d20742",
+   "sample_files": {
+    "cpp/5_Domain_Specific/BlackScholes/BlackScholes_kernel.cuh": "1576566f2f98439ae519739a62a48ed4d245040c1e2b0167c62e7857bd51bfd9"
+   },
+   "command": [
+    "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+    "-arch=sm_90",
+    "-Xcompiler",
+    "-O2",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/Common",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/cpp/5_Domain_Specific/BlackScholes",
+    "-I",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_bs.cu",
+    "-o",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_bs"
+   ],
+   "returncode": 0,
+   "binary": "/home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_bs",
+   "binary_sha256": "bce4b8970401612f3f45ea77d066cc6a0853342e707aa118b556ccdf16f0ba37"
+  },
+  "scan": {
+   "driver": "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_scan.cu",
+   "driver_sha256": "c22d3cab255a384a9e433e6767769b2d6e13c08c3761b6b23afe399c1858dd33",
+   "sample_files": {
+    "cpp/2_Concepts_and_Techniques/scan/scan.cu": "253d0b7c92d459cddee73d7b85aada42f820c07a89956407dba0b49487dc8f43",
+    "cpp/2_Concepts_and_Techniques/scan/scan_common.h": "669fa278d71bbbee6a009f5f71b40a21544c435f9b77d127bc7182f8f9217acc"
+   },
+   "command": [
+    "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+    "-arch=sm_90",
+    "-Xcompiler",
+    "-O2",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/Common",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/cpp/2_Concepts_and_Techniques/scan",
+    "-I",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_scan.cu",
+    "-o",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_scan"
+   ],
+   "returncode": 0,
+   "binary": "/home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_scan",
+   "binary_sha256": "41bd8857db4fd1b8b8fee56dac8f4ce5bd392c4afd29742c73850f082cfb1692"
+  },
+  "conv": {
+   "driver": "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_conv.cu",
+   "driver_sha256": "b27143e66f402c9d55efffa1c5b4e16b5b29f428e2d042b3f264f59ab4eed8d4",
+   "sample_files": {
+    "cpp/2_Concepts_and_Techniques/convolutionSeparable/convolutionSeparable.cu": "8664b64131d53fee99659124e62628c761294bffe177de3e202df6d1add71577",
+    "cpp/2_Concepts_and_Techniques/convolutionSeparable/convolutionSeparable_common.h": "c898be7a6f140a673d9852517d474d396ceda9c975d158c9e9b61ca4c5180386"
+   },
+   "command": [
+    "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+    "-arch=sm_90",
+    "-Xcompiler",
+    "-O2",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/Common",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/cpp/2_Concepts_and_Techniques/convolutionSeparable",
+    "-I",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_conv.cu",
+    "-o",
+    "/home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_conv"
+   ],
+   "returncode": 0,
+   "binary": "/home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_conv",
+   "binary_sha256": "cd5d6d7ef60a9227ee68112e624bf58f6f7107e22f23aa17e4e0be25719e166d"
+  }
+ }
+}

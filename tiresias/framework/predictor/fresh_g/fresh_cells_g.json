@@ -1,0 +1,308 @@
+{
+ "cells": [
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/large/c1",
+   "controls": {
+    "K": 512,
+    "M": 8192,
+    "N": 8192,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 285212672,
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 8192
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      64,
+      64,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "l2_ratio": 2.125,
+   "logical_bytes_per_launch": 285212672,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "large",
+   "shape_a": 8192,
+   "shape_b": 8192,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/large/c2",
+   "controls": {
+    "K": 512,
+    "M": 8192,
+    "N": 8192,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 285212672,
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 8192
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      128,
+      128,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "l2_ratio": 2.125,
+   "logical_bytes_per_launch": 285212672,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "large",
+   "shape_a": 8192,
+   "shape_b": 8192,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/medium/c1",
+   "controls": {
+    "K": 2048,
+    "M": 1024,
+    "N": 1024,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 12582912,
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      8,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "l2_ratio": 0.09375,
+   "logical_bytes_per_launch": 12582912,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "medium",
+   "shape_a": 1024,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/medium/c2",
+   "controls": {
+    "K": 2048,
+    "M": 1024,
+    "N": 1024,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 12582912,
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      16,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "l2_ratio": 0.09375,
+   "logical_bytes_per_launch": 12582912,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "medium",
+   "shape_a": 1024,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/small/c1",
+   "controls": {
+    "K": 512,
+    "M": 512,
+    "N": 512,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 2097152,
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 512
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      4,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "l2_ratio": 0.015625,
+   "logical_bytes_per_launch": 2097152,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "small",
+   "shape_a": 512,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/small/c2",
+   "controls": {
+    "K": 512,
+    "M": 512,
+    "N": 512,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 2097152,
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 512
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      8,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "l2_ratio": 0.015625,
+   "logical_bytes_per_launch": 2097152,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "small",
+   "shape_a": 512,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/xlarge/c1",
+   "controls": {
+    "K": 1024,
+    "M": 8192,
+    "N": 8192,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 301989888,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 8192
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      64,
+      64,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "l2_ratio": 2.25,
+   "logical_bytes_per_launch": 301989888,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "xlarge",
+   "shape_a": 8192,
+   "shape_b": 8192,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/xlarge/c2",
+   "controls": {
+    "K": 1024,
+    "M": 8192,
+    "N": 8192,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 301989888,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 8192
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      128,
+      128,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "l2_ratio": 2.25,
+   "logical_bytes_per_launch": 301989888,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "xlarge",
+   "shape_a": 8192,
+   "shape_b": 8192,
+   "tier": "DRAM"
+  }
+ ]
+}

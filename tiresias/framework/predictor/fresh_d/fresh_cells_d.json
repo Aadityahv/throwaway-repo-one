@@ -1,0 +1,1856 @@
+{
+ "schema": "fresh_cuda_samples_cells/1",
+ "set": "D",
+ "purpose": "Prospective test cells of the static runtime model: pinned CUDA Samples kernels at new geometries; no measured value of any kind is in this file.",
+ "hardware_l2_bytes_from_ground_truth": 134217728,
+ "source_revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+ "tier_rule": "L2 iff footprint / verified L2 capacity < 1 (HARDWARE_GROUND_TRUTH.md Blackwell); footprint = logical bytes per launch",
+ "logical_bytes_rule": {
+  "vector_add": "3*n*4",
+  "transposes / copy / tile kernels": "2*dim*dim*4",
+  "reductions": "4*n + 4*blocks (blocks = launched grid)"
+ },
+ "cells": [
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_vector_add/l2/c1",
+   "operator_id": "fresh_d_cuda_samples_vector_add",
+   "regime": "l2",
+   "candidate_id": "c1",
+   "kernel": "vecAdd",
+   "kernel_family": "vecadd",
+   "origin_operator_id": "final_cuda_samples_copy",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "n": 3145728,
+    "threads": 128,
+    "blocks": 24576,
+    "grid": [
+     24576,
+     1,
+     1
+    ],
+    "block": [
+     128,
+     1,
+     1
+    ]
+   },
+   "shape_a": 3145728,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 37748736,
+   "footprint_bytes": 37748736,
+   "footprint_over_l2": 0.28125,
+   "tier": "L2",
+   "grid_blocks": 24576,
+   "block_threads": 128,
+   "gate_passed": true,
+   "kernel_symbol": "_Z6vecAddPfS_S_i",
+   "retained_cubin_sha256": "16a4a73c1d8a0115711b0f1a2973fc9e9f7bd8e48c6a58529cb5117040ae5fef",
+   "retained_isolated_sass_sha256": "51b36388bef7a2e9048a2c09f48c9b0089d96b30f86a14d85ec02d9ea9d08489",
+   "retained_source_sha256": "e02d4a73913aff50976cd9ed5e54d57349b0361d01f80446ecebcd9c71cfc9ae",
+   "timing": {
+    "runner": "copy_runner",
+    "numeric_args": [
+     3145728,
+     128
+    ],
+    "input_kind": "vecadd_uniform_pair",
+    "elements": 3145728,
+    "oracle": "vector_add",
+    "file_args": [
+     "x.bin",
+     "y.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_vector_add/l2/c2",
+   "operator_id": "fresh_d_cuda_samples_vector_add",
+   "regime": "l2",
+   "candidate_id": "c2",
+   "kernel": "vecAdd",
+   "kernel_family": "vecadd",
+   "origin_operator_id": "final_cuda_samples_copy",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "n": 3145728,
+    "threads": 1024,
+    "blocks": 3072,
+    "grid": [
+     3072,
+     1,
+     1
+    ],
+    "block": [
+     1024,
+     1,
+     1
+    ]
+   },
+   "shape_a": 3145728,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 37748736,
+   "footprint_bytes": 37748736,
+   "footprint_over_l2": 0.28125,
+   "tier": "L2",
+   "grid_blocks": 3072,
+   "block_threads": 1024,
+   "gate_passed": true,
+   "kernel_symbol": "_Z6vecAddPfS_S_i",
+   "retained_cubin_sha256": "16a4a73c1d8a0115711b0f1a2973fc9e9f7bd8e48c6a58529cb5117040ae5fef",
+   "retained_isolated_sass_sha256": "51b36388bef7a2e9048a2c09f48c9b0089d96b30f86a14d85ec02d9ea9d08489",
+   "retained_source_sha256": "e02d4a73913aff50976cd9ed5e54d57349b0361d01f80446ecebcd9c71cfc9ae",
+   "timing": {
+    "runner": "copy_runner",
+    "numeric_args": [
+     3145728,
+     1024
+    ],
+    "input_kind": "vecadd_uniform_pair",
+    "elements": 3145728,
+    "oracle": "vector_add",
+    "file_args": [
+     "x.bin",
+     "y.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_vector_add/dram/c1",
+   "operator_id": "fresh_d_cuda_samples_vector_add",
+   "regime": "dram",
+   "candidate_id": "c1",
+   "kernel": "vecAdd",
+   "kernel_family": "vecadd",
+   "origin_operator_id": "final_cuda_samples_copy",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "n": 25165824,
+    "threads": 128,
+    "blocks": 196608,
+    "grid": [
+     196608,
+     1,
+     1
+    ],
+    "block": [
+     128,
+     1,
+     1
+    ]
+   },
+   "shape_a": 25165824,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 301989888,
+   "footprint_bytes": 301989888,
+   "footprint_over_l2": 2.25,
+   "tier": "DRAM",
+   "grid_blocks": 196608,
+   "block_threads": 128,
+   "gate_passed": true,
+   "kernel_symbol": "_Z6vecAddPfS_S_i",
+   "retained_cubin_sha256": "16a4a73c1d8a0115711b0f1a2973fc9e9f7bd8e48c6a58529cb5117040ae5fef",
+   "retained_isolated_sass_sha256": "51b36388bef7a2e9048a2c09f48c9b0089d96b30f86a14d85ec02d9ea9d08489",
+   "retained_source_sha256": "e02d4a73913aff50976cd9ed5e54d57349b0361d01f80446ecebcd9c71cfc9ae",
+   "timing": {
+    "runner": "copy_runner",
+    "numeric_args": [
+     25165824,
+     128
+    ],
+    "input_kind": "vecadd_uniform_pair",
+    "elements": 25165824,
+    "oracle": "vector_add",
+    "file_args": [
+     "x.bin",
+     "y.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_vector_add/dram/c2",
+   "operator_id": "fresh_d_cuda_samples_vector_add",
+   "regime": "dram",
+   "candidate_id": "c2",
+   "kernel": "vecAdd",
+   "kernel_family": "vecadd",
+   "origin_operator_id": "final_cuda_samples_copy",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "n": 25165824,
+    "threads": 1024,
+    "blocks": 24576,
+    "grid": [
+     24576,
+     1,
+     1
+    ],
+    "block": [
+     1024,
+     1,
+     1
+    ]
+   },
+   "shape_a": 25165824,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 301989888,
+   "footprint_bytes": 301989888,
+   "footprint_over_l2": 2.25,
+   "tier": "DRAM",
+   "grid_blocks": 24576,
+   "block_threads": 1024,
+   "gate_passed": true,
+   "kernel_symbol": "_Z6vecAddPfS_S_i",
+   "retained_cubin_sha256": "16a4a73c1d8a0115711b0f1a2973fc9e9f7bd8e48c6a58529cb5117040ae5fef",
+   "retained_isolated_sass_sha256": "51b36388bef7a2e9048a2c09f48c9b0089d96b30f86a14d85ec02d9ea9d08489",
+   "retained_source_sha256": "e02d4a73913aff50976cd9ed5e54d57349b0361d01f80446ecebcd9c71cfc9ae",
+   "timing": {
+    "runner": "copy_runner",
+    "numeric_args": [
+     25165824,
+     1024
+    ],
+    "input_kind": "vecadd_uniform_pair",
+    "elements": 25165824,
+    "oracle": "vector_add",
+    "file_args": [
+     "x.bin",
+     "y.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transpose/l2/c1",
+   "operator_id": "fresh_d_cuda_samples_transpose",
+   "regime": "l2",
+   "candidate_id": "c1",
+   "kernel": "transposeNaive",
+   "kernel_family": "tile",
+   "origin_operator_id": "train_cuda_samples_transpose",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "dim_x": 1536,
+    "dim_y": 1536,
+    "grid": [
+     48,
+     48,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 2304,
+    "threads": 512
+   },
+   "shape_a": 1536,
+   "shape_b": 1536,
+   "logical_bytes_per_launch": 18874368,
+   "footprint_bytes": 18874368,
+   "footprint_over_l2": 0.140625,
+   "tier": "L2",
+   "grid_blocks": 2304,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z14transposeNaivePfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "a59fb9a266a4849bd7a0849008c231e5645dd5c3f4e1c39f02582dc01c1ce1b1",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "transpose_runner",
+    "numeric_args": [
+     1536,
+     1536,
+     2
+    ],
+    "input_kind": "transpose_mod8192",
+    "elements": 2359296,
+    "oracle": "full_transpose",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transpose/l2/c2",
+   "operator_id": "fresh_d_cuda_samples_transpose",
+   "regime": "l2",
+   "candidate_id": "c2",
+   "kernel": "transposeCoalesced",
+   "kernel_family": "tile",
+   "origin_operator_id": "train_cuda_samples_transpose",
+   "origin_cell": "small/c2",
+   "geometry": {
+    "dim_x": 1536,
+    "dim_y": 1536,
+    "grid": [
+     48,
+     48,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 2304,
+    "threads": 512
+   },
+   "shape_a": 1536,
+   "shape_b": 1536,
+   "logical_bytes_per_launch": 18874368,
+   "footprint_bytes": 18874368,
+   "footprint_over_l2": 0.140625,
+   "tier": "L2",
+   "grid_blocks": 2304,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z18transposeCoalescedPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "2c687f407e9f37354e14ad3ae9984c92869016a86bfc08f48afc0f830131c422",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "transpose_runner",
+    "numeric_args": [
+     1536,
+     1536,
+     3
+    ],
+    "input_kind": "transpose_mod8192",
+    "elements": 2359296,
+    "oracle": "full_transpose",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transpose/l2/c3",
+   "operator_id": "fresh_d_cuda_samples_transpose",
+   "regime": "l2",
+   "candidate_id": "c3",
+   "kernel": "transposeNoBankConflicts",
+   "kernel_family": "tile",
+   "origin_operator_id": "train_cuda_samples_transpose",
+   "origin_cell": "small/c3",
+   "geometry": {
+    "dim_x": 1536,
+    "dim_y": 1536,
+    "grid": [
+     48,
+     48,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 2304,
+    "threads": 512
+   },
+   "shape_a": 1536,
+   "shape_b": 1536,
+   "logical_bytes_per_launch": 18874368,
+   "footprint_bytes": 18874368,
+   "footprint_over_l2": 0.140625,
+   "tier": "L2",
+   "grid_blocks": 2304,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z24transposeNoBankConflictsPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "5c8224944ebc0d45c282c77e1d87321d33e605d2b9144ad496a49952df172293",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "transpose_runner",
+    "numeric_args": [
+     1536,
+     1536,
+     4
+    ],
+    "input_kind": "transpose_mod8192",
+    "elements": 2359296,
+    "oracle": "full_transpose",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transpose/l2/c4",
+   "operator_id": "fresh_d_cuda_samples_transpose",
+   "regime": "l2",
+   "candidate_id": "c4",
+   "kernel": "transposeDiagonal",
+   "kernel_family": "tile",
+   "origin_operator_id": "train_cuda_samples_transpose",
+   "origin_cell": "small/c4",
+   "geometry": {
+    "dim_x": 1536,
+    "dim_y": 1536,
+    "grid": [
+     48,
+     48,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 2304,
+    "threads": 512
+   },
+   "shape_a": 1536,
+   "shape_b": 1536,
+   "logical_bytes_per_launch": 18874368,
+   "footprint_bytes": 18874368,
+   "footprint_over_l2": 0.140625,
+   "tier": "L2",
+   "grid_blocks": 2304,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z17transposeDiagonalPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "6432e3bcd8b33da1f33e8be778f2108b7bf76a2051c6594c3679a2397f5db011",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "transpose_runner",
+    "numeric_args": [
+     1536,
+     1536,
+     7
+    ],
+    "input_kind": "transpose_mod8192",
+    "elements": 2359296,
+    "oracle": "full_transpose",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transpose/dram/c1",
+   "operator_id": "fresh_d_cuda_samples_transpose",
+   "regime": "dram",
+   "candidate_id": "c1",
+   "kernel": "transposeNaive",
+   "kernel_family": "tile",
+   "origin_operator_id": "train_cuda_samples_transpose",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "dim_x": 5120,
+    "dim_y": 5120,
+    "grid": [
+     160,
+     160,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 25600,
+    "threads": 512
+   },
+   "shape_a": 5120,
+   "shape_b": 5120,
+   "logical_bytes_per_launch": 209715200,
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 1.5625,
+   "tier": "DRAM",
+   "grid_blocks": 25600,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z14transposeNaivePfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "a59fb9a266a4849bd7a0849008c231e5645dd5c3f4e1c39f02582dc01c1ce1b1",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "transpose_runner",
+    "numeric_args": [
+     5120,
+     5120,
+     2
+    ],
+    "input_kind": "transpose_mod8192",
+    "elements": 26214400,
+    "oracle": "full_transpose",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transpose/dram/c2",
+   "operator_id": "fresh_d_cuda_samples_transpose",
+   "regime": "dram",
+   "candidate_id": "c2",
+   "kernel": "transposeCoalesced",
+   "kernel_family": "tile",
+   "origin_operator_id": "train_cuda_samples_transpose",
+   "origin_cell": "small/c2",
+   "geometry": {
+    "dim_x": 5120,
+    "dim_y": 5120,
+    "grid": [
+     160,
+     160,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 25600,
+    "threads": 512
+   },
+   "shape_a": 5120,
+   "shape_b": 5120,
+   "logical_bytes_per_launch": 209715200,
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 1.5625,
+   "tier": "DRAM",
+   "grid_blocks": 25600,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z18transposeCoalescedPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "2c687f407e9f37354e14ad3ae9984c92869016a86bfc08f48afc0f830131c422",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "transpose_runner",
+    "numeric_args": [
+     5120,
+     5120,
+     3
+    ],
+    "input_kind": "transpose_mod8192",
+    "elements": 26214400,
+    "oracle": "full_transpose",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transpose/dram/c3",
+   "operator_id": "fresh_d_cuda_samples_transpose",
+   "regime": "dram",
+   "candidate_id": "c3",
+   "kernel": "transposeNoBankConflicts",
+   "kernel_family": "tile",
+   "origin_operator_id": "train_cuda_samples_transpose",
+   "origin_cell": "small/c3",
+   "geometry": {
+    "dim_x": 5120,
+    "dim_y": 5120,
+    "grid": [
+     160,
+     160,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 25600,
+    "threads": 512
+   },
+   "shape_a": 5120,
+   "shape_b": 5120,
+   "logical_bytes_per_launch": 209715200,
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 1.5625,
+   "tier": "DRAM",
+   "grid_blocks": 25600,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z24transposeNoBankConflictsPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "5c8224944ebc0d45c282c77e1d87321d33e605d2b9144ad496a49952df172293",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "transpose_runner",
+    "numeric_args": [
+     5120,
+     5120,
+     4
+    ],
+    "input_kind": "transpose_mod8192",
+    "elements": 26214400,
+    "oracle": "full_transpose",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transpose/dram/c4",
+   "operator_id": "fresh_d_cuda_samples_transpose",
+   "regime": "dram",
+   "candidate_id": "c4",
+   "kernel": "transposeDiagonal",
+   "kernel_family": "tile",
+   "origin_operator_id": "train_cuda_samples_transpose",
+   "origin_cell": "small/c4",
+   "geometry": {
+    "dim_x": 5120,
+    "dim_y": 5120,
+    "grid": [
+     160,
+     160,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 25600,
+    "threads": 512
+   },
+   "shape_a": 5120,
+   "shape_b": 5120,
+   "logical_bytes_per_launch": 209715200,
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 1.5625,
+   "tier": "DRAM",
+   "grid_blocks": 25600,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z17transposeDiagonalPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "6432e3bcd8b33da1f33e8be778f2108b7bf76a2051c6594c3679a2397f5db011",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "transpose_runner",
+    "numeric_args": [
+     5120,
+     5120,
+     7
+    ],
+    "input_kind": "transpose_mod8192",
+    "elements": 26214400,
+    "oracle": "full_transpose",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_copy/l2/c1",
+   "operator_id": "fresh_d_cuda_samples_copy",
+   "regime": "l2",
+   "candidate_id": "c1",
+   "kernel": "copy",
+   "kernel_family": "tile",
+   "origin_operator_id": "alt_cuda_samples_copy",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "dim_x": 1536,
+    "dim_y": 1536,
+    "grid": [
+     48,
+     48,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 2304,
+    "threads": 512
+   },
+   "shape_a": 2359296,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 18874368,
+   "footprint_bytes": 18874368,
+   "footprint_over_l2": 0.140625,
+   "tier": "L2",
+   "grid_blocks": 2304,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z4copyPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "d88f3015b597f672c2a55be445bb75079514e8986cb152f709aa13987447120f",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "tile_family",
+    "numeric_args": [
+     1536,
+     1536,
+     0
+    ],
+    "input_kind": "copy_uniform",
+    "elements": 2359296,
+    "oracle": "identity",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_copy/l2/c2",
+   "operator_id": "fresh_d_cuda_samples_copy",
+   "regime": "l2",
+   "candidate_id": "c2",
+   "kernel": "copySharedMem",
+   "kernel_family": "tile",
+   "origin_operator_id": "alt_cuda_samples_copy",
+   "origin_cell": "small/c2",
+   "geometry": {
+    "dim_x": 1536,
+    "dim_y": 1536,
+    "grid": [
+     48,
+     48,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 2304,
+    "threads": 512
+   },
+   "shape_a": 2359296,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 18874368,
+   "footprint_bytes": 18874368,
+   "footprint_over_l2": 0.140625,
+   "tier": "L2",
+   "grid_blocks": 2304,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z13copySharedMemPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "d3ee697141455a9acf5c4d3052ab0a6b38a7730258f884758f7ade3d83541698",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "tile_family",
+    "numeric_args": [
+     1536,
+     1536,
+     1
+    ],
+    "input_kind": "copy_uniform",
+    "elements": 2359296,
+    "oracle": "identity",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_copy/dram/c1",
+   "operator_id": "fresh_d_cuda_samples_copy",
+   "regime": "dram",
+   "candidate_id": "c1",
+   "kernel": "copy",
+   "kernel_family": "tile",
+   "origin_operator_id": "alt_cuda_samples_copy",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "dim_x": 5120,
+    "dim_y": 5120,
+    "grid": [
+     160,
+     160,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 25600,
+    "threads": 512
+   },
+   "shape_a": 26214400,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 209715200,
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 1.5625,
+   "tier": "DRAM",
+   "grid_blocks": 25600,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z4copyPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "d88f3015b597f672c2a55be445bb75079514e8986cb152f709aa13987447120f",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "tile_family",
+    "numeric_args": [
+     5120,
+     5120,
+     0
+    ],
+    "input_kind": "copy_uniform",
+    "elements": 26214400,
+    "oracle": "identity",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_copy/dram/c2",
+   "operator_id": "fresh_d_cuda_samples_copy",
+   "regime": "dram",
+   "candidate_id": "c2",
+   "kernel": "copySharedMem",
+   "kernel_family": "tile",
+   "origin_operator_id": "alt_cuda_samples_copy",
+   "origin_cell": "small/c2",
+   "geometry": {
+    "dim_x": 5120,
+    "dim_y": 5120,
+    "grid": [
+     160,
+     160,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 25600,
+    "threads": 512
+   },
+   "shape_a": 26214400,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 209715200,
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 1.5625,
+   "tier": "DRAM",
+   "grid_blocks": 25600,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z13copySharedMemPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "d3ee697141455a9acf5c4d3052ab0a6b38a7730258f884758f7ade3d83541698",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "tile_family",
+    "numeric_args": [
+     5120,
+     5120,
+     1
+    ],
+    "input_kind": "copy_uniform",
+    "elements": 26214400,
+    "oracle": "identity",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transposefine/l2/c1",
+   "operator_id": "fresh_d_cuda_samples_transposefine",
+   "regime": "l2",
+   "candidate_id": "c1",
+   "kernel": "transposeFineGrained",
+   "kernel_family": "tile",
+   "origin_operator_id": "alt_cuda_samples_transposefine",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "dim_x": 1536,
+    "dim_y": 1536,
+    "grid": [
+     48,
+     48,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 2304,
+    "threads": 512
+   },
+   "shape_a": 1536,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 18874368,
+   "footprint_bytes": 18874368,
+   "footprint_over_l2": 0.140625,
+   "tier": "L2",
+   "grid_blocks": 2304,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z20transposeFineGrainedPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "5ab929f6290279d16a1d8c5442d9a6f24a2df7e51f7ae03f10e00dd01afe1c32",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "tile_family",
+    "numeric_args": [
+     1536,
+     1536,
+     6
+    ],
+    "input_kind": "transpose_mod2p24",
+    "elements": 2359296,
+    "oracle": "kernel_semantics:transposeFineGrained",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transposefine/l2/c2",
+   "operator_id": "fresh_d_cuda_samples_transposefine",
+   "regime": "l2",
+   "candidate_id": "c2",
+   "kernel": "transposeCoarseGrained",
+   "kernel_family": "tile",
+   "origin_operator_id": "alt_cuda_samples_transposefine",
+   "origin_cell": "small/c2",
+   "geometry": {
+    "dim_x": 1536,
+    "dim_y": 1536,
+    "grid": [
+     48,
+     48,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 2304,
+    "threads": 512
+   },
+   "shape_a": 1536,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 18874368,
+   "footprint_bytes": 18874368,
+   "footprint_over_l2": 0.140625,
+   "tier": "L2",
+   "grid_blocks": 2304,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z22transposeCoarseGrainedPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "021e8b75c46a4854a1f66f536c5053196dc9c37e00d2d4dc626d86e0070867a3",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "tile_family",
+    "numeric_args": [
+     1536,
+     1536,
+     5
+    ],
+    "input_kind": "transpose_mod2p24",
+    "elements": 2359296,
+    "oracle": "kernel_semantics:transposeCoarseGrained",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transposefine/dram/c1",
+   "operator_id": "fresh_d_cuda_samples_transposefine",
+   "regime": "dram",
+   "candidate_id": "c1",
+   "kernel": "transposeFineGrained",
+   "kernel_family": "tile",
+   "origin_operator_id": "alt_cuda_samples_transposefine",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "dim_x": 5120,
+    "dim_y": 5120,
+    "grid": [
+     160,
+     160,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 25600,
+    "threads": 512
+   },
+   "shape_a": 5120,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 209715200,
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 1.5625,
+   "tier": "DRAM",
+   "grid_blocks": 25600,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z20transposeFineGrainedPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "5ab929f6290279d16a1d8c5442d9a6f24a2df7e51f7ae03f10e00dd01afe1c32",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "tile_family",
+    "numeric_args": [
+     5120,
+     5120,
+     6
+    ],
+    "input_kind": "transpose_mod2p24",
+    "elements": 26214400,
+    "oracle": "kernel_semantics:transposeFineGrained",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_transposefine/dram/c2",
+   "operator_id": "fresh_d_cuda_samples_transposefine",
+   "regime": "dram",
+   "candidate_id": "c2",
+   "kernel": "transposeCoarseGrained",
+   "kernel_family": "tile",
+   "origin_operator_id": "alt_cuda_samples_transposefine",
+   "origin_cell": "small/c2",
+   "geometry": {
+    "dim_x": 5120,
+    "dim_y": 5120,
+    "grid": [
+     160,
+     160,
+     1
+    ],
+    "block": [
+     32,
+     16,
+     1
+    ],
+    "blocks": 25600,
+    "threads": 512
+   },
+   "shape_a": 5120,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 209715200,
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 1.5625,
+   "tier": "DRAM",
+   "grid_blocks": 25600,
+   "block_threads": 512,
+   "gate_passed": true,
+   "kernel_symbol": "_Z22transposeCoarseGrainedPfS_ii",
+   "retained_cubin_sha256": "a6de435837aafb6da14e2789671407b65ab7d1f727742d09203d7bb9f7b0553e",
+   "retained_isolated_sass_sha256": "021e8b75c46a4854a1f66f536c5053196dc9c37e00d2d4dc626d86e0070867a3",
+   "retained_source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95",
+   "timing": {
+    "runner": "tile_family",
+    "numeric_args": [
+     5120,
+     5120,
+     5
+    ],
+    "input_kind": "transpose_mod2p24",
+    "elements": 26214400,
+    "oracle": "kernel_semantics:transposeCoarseGrained",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_reduction/l2/c1",
+   "operator_id": "fresh_d_cuda_samples_reduction",
+   "regime": "l2",
+   "candidate_id": "c1",
+   "kernel": "reduce0",
+   "kernel_family": "reduction",
+   "origin_operator_id": "alt_cuda_samples_reduction",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "n": 6291456,
+    "threads": 256,
+    "blocks": 24576,
+    "grid": [
+     24576,
+     1,
+     1
+    ],
+    "block": [
+     256,
+     1,
+     1
+    ]
+   },
+   "shape_a": 6291456,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 25264128,
+   "footprint_bytes": 25264128,
+   "footprint_over_l2": 0.188232421875,
+   "tier": "L2",
+   "grid_blocks": 24576,
+   "block_threads": 256,
+   "gate_passed": true,
+   "kernel_symbol": "_Z7reduce0IfEvPT_S1_j",
+   "retained_cubin_sha256": "686c4f1f5e69774fefceab0dc068b888525fd09824c5e6211c544a8c8387b2fe",
+   "retained_isolated_sass_sha256": "712228e5aee6b1d105d2161f8a8e53bdde297101dff5d7545f535a3bf65279c4",
+   "retained_source_sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9",
+   "timing": {
+    "runner": "reduction_runner",
+    "numeric_args": [
+     6291456,
+     256,
+     24576,
+     0
+    ],
+    "input_kind": "reduction_uniform",
+    "elements": 6291456,
+    "oracle": "sum_double",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_reduction/l2/c2",
+   "operator_id": "fresh_d_cuda_samples_reduction",
+   "regime": "l2",
+   "candidate_id": "c2",
+   "kernel": "reduce1",
+   "kernel_family": "reduction",
+   "origin_operator_id": "alt_cuda_samples_reduction",
+   "origin_cell": "small/c2",
+   "geometry": {
+    "n": 6291456,
+    "threads": 256,
+    "blocks": 24576,
+    "grid": [
+     24576,
+     1,
+     1
+    ],
+    "block": [
+     256,
+     1,
+     1
+    ]
+   },
+   "shape_a": 6291456,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 25264128,
+   "footprint_bytes": 25264128,
+   "footprint_over_l2": 0.188232421875,
+   "tier": "L2",
+   "grid_blocks": 24576,
+   "block_threads": 256,
+   "gate_passed": true,
+   "kernel_symbol": "_Z7reduce1IfEvPT_S1_j",
+   "retained_cubin_sha256": "686c4f1f5e69774fefceab0dc068b888525fd09824c5e6211c544a8c8387b2fe",
+   "retained_isolated_sass_sha256": "08ad038bdb4c8c468d038064b51eb5f9e3d1930e35a645242d1b8f4f6de1b23c",
+   "retained_source_sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9",
+   "timing": {
+    "runner": "reduction_runner",
+    "numeric_args": [
+     6291456,
+     256,
+     24576,
+     1
+    ],
+    "input_kind": "reduction_uniform",
+    "elements": 6291456,
+    "oracle": "sum_double",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_reduction/l2/c3",
+   "operator_id": "fresh_d_cuda_samples_reduction",
+   "regime": "l2",
+   "candidate_id": "c3",
+   "kernel": "reduce6",
+   "kernel_family": "reduction",
+   "origin_operator_id": "alt_cuda_samples_reduction",
+   "origin_cell": "small/c3",
+   "geometry": {
+    "n": 8388608,
+    "threads": 256,
+    "blocks": 64,
+    "grid": [
+     64,
+     1,
+     1
+    ],
+    "block": [
+     256,
+     1,
+     1
+    ]
+   },
+   "shape_a": 8388608,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 33554688,
+   "footprint_bytes": 33554688,
+   "footprint_over_l2": 0.2500019073486328,
+   "tier": "L2",
+   "grid_blocks": 64,
+   "block_threads": 256,
+   "gate_passed": true,
+   "kernel_symbol": "_Z7reduce6IfLj256ELb1EEvPT_S1_j",
+   "retained_cubin_sha256": "686c4f1f5e69774fefceab0dc068b888525fd09824c5e6211c544a8c8387b2fe",
+   "retained_isolated_sass_sha256": "cb6583ce85c5517cc58e7ad45dfc81fdd571d5c32ea5fb2eca7cc6ba9f93dd26",
+   "retained_source_sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9",
+   "timing": {
+    "runner": "reduction_runner",
+    "numeric_args": [
+     8388608,
+     256,
+     64,
+     6
+    ],
+    "input_kind": "reduction_uniform",
+    "elements": 8388608,
+    "oracle": "sum_double",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "collective",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_reduction/dram/c1",
+   "operator_id": "fresh_d_cuda_samples_reduction",
+   "regime": "dram",
+   "candidate_id": "c1",
+   "kernel": "reduce0",
+   "kernel_family": "reduction",
+   "origin_operator_id": "alt_cuda_samples_reduction",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "n": 50331648,
+    "threads": 256,
+    "blocks": 196608,
+    "grid": [
+     196608,
+     1,
+     1
+    ],
+    "block": [
+     256,
+     1,
+     1
+    ]
+   },
+   "shape_a": 50331648,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 202113024,
+   "footprint_bytes": 202113024,
+   "footprint_over_l2": 1.505859375,
+   "tier": "DRAM",
+   "grid_blocks": 196608,
+   "block_threads": 256,
+   "gate_passed": true,
+   "kernel_symbol": "_Z7reduce0IfEvPT_S1_j",
+   "retained_cubin_sha256": "686c4f1f5e69774fefceab0dc068b888525fd09824c5e6211c544a8c8387b2fe",
+   "retained_isolated_sass_sha256": "712228e5aee6b1d105d2161f8a8e53bdde297101dff5d7545f535a3bf65279c4",
+   "retained_source_sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9",
+   "timing": {
+    "runner": "reduction_runner",
+    "numeric_args": [
+     50331648,
+     256,
+     196608,
+     0
+    ],
+    "input_kind": "reduction_uniform",
+    "elements": 50331648,
+    "oracle": "sum_double",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_reduction/dram/c2",
+   "operator_id": "fresh_d_cuda_samples_reduction",
+   "regime": "dram",
+   "candidate_id": "c2",
+   "kernel": "reduce1",
+   "kernel_family": "reduction",
+   "origin_operator_id": "alt_cuda_samples_reduction",
+   "origin_cell": "small/c2",
+   "geometry": {
+    "n": 50331648,
+    "threads": 256,
+    "blocks": 196608,
+    "grid": [
+     196608,
+     1,
+     1
+    ],
+    "block": [
+     256,
+     1,
+     1
+    ]
+   },
+   "shape_a": 50331648,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 202113024,
+   "footprint_bytes": 202113024,
+   "footprint_over_l2": 1.505859375,
+   "tier": "DRAM",
+   "grid_blocks": 196608,
+   "block_threads": 256,
+   "gate_passed": true,
+   "kernel_symbol": "_Z7reduce1IfEvPT_S1_j",
+   "retained_cubin_sha256": "686c4f1f5e69774fefceab0dc068b888525fd09824c5e6211c544a8c8387b2fe",
+   "retained_isolated_sass_sha256": "08ad038bdb4c8c468d038064b51eb5f9e3d1930e35a645242d1b8f4f6de1b23c",
+   "retained_source_sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9",
+   "timing": {
+    "runner": "reduction_runner",
+    "numeric_args": [
+     50331648,
+     256,
+     196608,
+     1
+    ],
+    "input_kind": "reduction_uniform",
+    "elements": 50331648,
+    "oracle": "sum_double",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_reduction/dram/c3",
+   "operator_id": "fresh_d_cuda_samples_reduction",
+   "regime": "dram",
+   "candidate_id": "c3",
+   "kernel": "reduce6",
+   "kernel_family": "reduction",
+   "origin_operator_id": "alt_cuda_samples_reduction",
+   "origin_cell": "small/c3",
+   "geometry": {
+    "n": 67108864,
+    "threads": 256,
+    "blocks": 64,
+    "grid": [
+     64,
+     1,
+     1
+    ],
+    "block": [
+     256,
+     1,
+     1
+    ]
+   },
+   "shape_a": 67108864,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 268435712,
+   "footprint_bytes": 268435712,
+   "footprint_over_l2": 2.000001907348633,
+   "tier": "DRAM",
+   "grid_blocks": 64,
+   "block_threads": 256,
+   "gate_passed": true,
+   "kernel_symbol": "_Z7reduce6IfLj256ELb1EEvPT_S1_j",
+   "retained_cubin_sha256": "686c4f1f5e69774fefceab0dc068b888525fd09824c5e6211c544a8c8387b2fe",
+   "retained_isolated_sass_sha256": "cb6583ce85c5517cc58e7ad45dfc81fdd571d5c32ea5fb2eca7cc6ba9f93dd26",
+   "retained_source_sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9",
+   "timing": {
+    "runner": "reduction_runner",
+    "numeric_args": [
+     67108864,
+     256,
+     64,
+     6
+    ],
+    "input_kind": "reduction_uniform",
+    "elements": 67108864,
+    "oracle": "sum_double",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "collective",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_reduce2/l2/c1",
+   "operator_id": "fresh_d_cuda_samples_reduce2",
+   "regime": "l2",
+   "candidate_id": "c1",
+   "kernel": "reduce2",
+   "kernel_family": "reduction",
+   "origin_operator_id": "train_cuda_samples_reduction",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "n": 6291456,
+    "threads": 256,
+    "blocks": 24576,
+    "grid": [
+     24576,
+     1,
+     1
+    ],
+    "block": [
+     256,
+     1,
+     1
+    ]
+   },
+   "shape_a": 6291456,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 25264128,
+   "footprint_bytes": 25264128,
+   "footprint_over_l2": 0.188232421875,
+   "tier": "L2",
+   "grid_blocks": 24576,
+   "block_threads": 256,
+   "gate_passed": true,
+   "kernel_symbol": "_Z7reduce2IfEvPT_S1_j",
+   "retained_cubin_sha256": "b0dfb32a2f6f38c813f6de067a1405a2b03fa4afbfe694ebae81acdc348b253c",
+   "retained_isolated_sass_sha256": "87cb483c513400a5fac7764db401c603cec07499499ad7f13d2c80b45442668f",
+   "retained_source_sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9",
+   "timing": {
+    "runner": "reduction_runner",
+    "numeric_args": [
+     6291456,
+     256,
+     24576,
+     2
+    ],
+    "input_kind": "reduction_uniform",
+    "elements": 6291456,
+    "oracle": "sum_double",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  },
+  {
+   "cell_id": "blackwell/fresh_d_cuda_samples_reduce2/dram/c1",
+   "operator_id": "fresh_d_cuda_samples_reduce2",
+   "regime": "dram",
+   "candidate_id": "c1",
+   "kernel": "reduce2",
+   "kernel_family": "reduction",
+   "origin_operator_id": "train_cuda_samples_reduction",
+   "origin_cell": "small/c1",
+   "geometry": {
+    "n": 50331648,
+    "threads": 256,
+    "blocks": 196608,
+    "grid": [
+     196608,
+     1,
+     1
+    ],
+    "block": [
+     256,
+     1,
+     1
+    ]
+   },
+   "shape_a": 50331648,
+   "shape_b": 1,
+   "logical_bytes_per_launch": 202113024,
+   "footprint_bytes": 202113024,
+   "footprint_over_l2": 1.505859375,
+   "tier": "DRAM",
+   "grid_blocks": 196608,
+   "block_threads": 256,
+   "gate_passed": true,
+   "kernel_symbol": "_Z7reduce2IfEvPT_S1_j",
+   "retained_cubin_sha256": "b0dfb32a2f6f38c813f6de067a1405a2b03fa4afbfe694ebae81acdc348b253c",
+   "retained_isolated_sass_sha256": "87cb483c513400a5fac7764db401c603cec07499499ad7f13d2c80b45442668f",
+   "retained_source_sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9",
+   "timing": {
+    "runner": "reduction_runner",
+    "numeric_args": [
+     50331648,
+     256,
+     196608,
+     2
+    ],
+    "input_kind": "reduction_uniform",
+    "elements": 50331648,
+    "oracle": "sum_double",
+    "file_args": [
+     "in.bin",
+     "out.bin"
+    ]
+   },
+   "features_status": "supported",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "first_touch_status": "ok",
+   "first_touch_reason": null,
+   "coalescing_status": "ok",
+   "derivation_path": "plain",
+   "derived_fully": true,
+   "in_timing_list": true
+  }
+ ],
+ "refused_by_gate": [],
+ "refusal_probes": [
+  {
+   "kernel": "reduce3",
+   "symbol": "_Z7reduce3IfEvPT_S1_j",
+   "n": 6291456,
+   "derivation_path": "plain",
+   "derivation_status": "candidate_class_counts",
+   "derivation_reason": null,
+   "coalescing_status": "ok",
+   "phases_status": "unsupported",
+   "phases_reason": "sampled blocks have different phase signatures; grid phase split unproved",
+   "first_touch_status": "unsupported",
+   "first_touch_reason": "frozen phase table unsupported: sampled blocks have different phase signatures; grid phase split unproved",
+   "features_status": "supported"
+  },
+  {
+   "kernel": "reduce4",
+   "symbol": "_Z7reduce4IfLj256EEvPT_S1_j",
+   "n": 6291456,
+   "derivation_path": "collective",
+   "derivation_status": "candidate_class_counts",
+   "derivation_reason": null,
+   "coalescing_status": "ok",
+   "phases_status": "unsupported",
+   "phases_reason": "sampled blocks have different phase signatures; grid phase split unproved",
+   "first_touch_status": "unsupported",
+   "first_touch_reason": "frozen phase table unsupported: sampled blocks have different phase signatures; grid phase split unproved",
+   "features_status": "supported"
+  },
+  {
+   "kernel": "reduce5",
+   "symbol": "_Z7reduce5IfLj256EEvPT_S1_j",
+   "n": 6291456,
+   "derivation_path": "collective",
+   "derivation_status": "candidate_class_counts",
+   "derivation_reason": null,
+   "coalescing_status": "ok",
+   "phases_status": "unsupported",
+   "phases_reason": "sampled blocks have different phase signatures; grid phase split unproved",
+   "first_touch_status": "unsupported",
+   "first_touch_reason": "frozen phase table unsupported: sampled blocks have different phase signatures; grid phase split unproved",
+   "features_status": "supported"
+  }
+ ],
+ "coverage": {
+  "fresh_d_cuda_samples_vector_add derived_fully=True": 4,
+  "fresh_d_cuda_samples_transpose derived_fully=True": 8,
+  "fresh_d_cuda_samples_copy derived_fully=True": 4,
+  "fresh_d_cuda_samples_transposefine derived_fully=True": 4,
+  "fresh_d_cuda_samples_reduction derived_fully=True": 6,
+  "fresh_d_cuda_samples_reduce2 derived_fully=True": 2
+ }
+}

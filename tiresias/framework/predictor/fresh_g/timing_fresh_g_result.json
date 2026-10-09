@@ -1,0 +1,242 @@
+{
+ "schema": "fresh_f_timing/1",
+ "booking_ref": "fresh_g_tensor_20261003",
+ "started_utc": "2026-10-02T20:32:45Z",
+ "manifest": {
+  "schema": "fresh_f_build/1",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Thu_Mar_19_11:12:51_PM_PDT_2026\nCuda compilation tools, release 13.2, V13.2.78\nBuild cuda_13.2.r13.2/compiler.37668154_0",
+  "command": [
+   "/usr/local/cuda-13.2/bin/nvcc",
+   "-arch=sm_120",
+   "-Xcompiler",
+   "-O2",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_f/src",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_g/src",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_f/gpu/drivers",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_f/gpu/drivers/driver_ml.cu",
+   "-o",
+   "/home/user/fresh_fg_work/driver_ml"
+  ],
+  "driver_ml_cu_sha256": "66ebb31e4777002740d5754db5c44ad78f272139176fb0bc06fdb883273f76e3",
+  "driver_common_h_sha256": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+  "ml_kernels_cuh_sha256": "0e307a8f09f8d739fc8a1f8665cbbe38a9915ce3bf1e903c4893ac59fd047dc1",
+  "tc_kernels_cuh_sha256": "ae5de3f3b1d763f6424b7beae2b099dc33694a6a21f6d9d178a9b67408256651",
+  "binary": "/home/user/fresh_fg_work/driver_ml",
+  "binary_sha256": "652ce9788104c270ff756beb4d33e97e9e84bb8813c3189d427861618c47b6aa"
+ },
+ "cells": [
+  {
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/large/c1",
+   "argv": [
+    "tcgemm",
+    "0",
+    "8192",
+    "8192",
+    "512"
+   ],
+   "graph_batch": 17,
+   "repeat_per_window": 340,
+   "probe_per_launch_s": 0.00029674,
+   "calibration_per_launch_s": 0.0002964028235294118,
+   "window_per_launch_s": [
+    0.0002962285205882353,
+    0.00029651877352941176,
+    0.00029694052352941176,
+    0.0002963835323529412,
+    0.0002964069588235294
+   ],
+   "per_launch_runtime_s": 0.0002964069588235294,
+   "per_launch_min_s": 0.0002962285205882353,
+   "per_launch_max_s": 0.00029694052352941176,
+   "correct": true,
+   "check": "CHECK_OK tcgemm variant=0 M=8192 N=8192 K=512 checked=4160 bad=0 first_bad=-1 worst=1.14e-07 repeat=340 graph_batch=17"
+  },
+  {
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/large/c2",
+   "argv": [
+    "tcgemm",
+    "1",
+    "8192",
+    "8192",
+    "512"
+   ],
+   "graph_batch": 14,
+   "repeat_per_window": 280,
+   "probe_per_launch_s": 0.00036428,
+   "calibration_per_launch_s": 0.00036461714285714286,
+   "window_per_launch_s": [
+    0.00036850218214285716,
+    0.0003689395357142857,
+    0.0003689895892857143,
+    0.00036820125714285716,
+    0.0003689719892857143
+   ],
+   "per_launch_runtime_s": 0.0003689395357142857,
+   "per_launch_min_s": 0.00036820125714285716,
+   "per_launch_max_s": 0.0003689895892857143,
+   "correct": true,
+   "check": "CHECK_OK tcgemm variant=1 M=8192 N=8192 K=512 checked=4160 bad=0 first_bad=-1 worst=1.14e-07 repeat=280 graph_batch=14"
+  },
+  {
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/medium/c1",
+   "argv": [
+    "tcgemm",
+    "0",
+    "1024",
+    "1024",
+    "2048"
+   ],
+   "graph_batch": 88,
+   "repeat_per_window": 1760,
+   "probe_per_launch_s": 5.7416e-05,
+   "calibration_per_launch_s": 5.6917818181818185e-05,
+   "window_per_launch_s": [
+    5.67415625e-05,
+    5.674598011363636e-05,
+    5.6737110795454546e-05,
+    5.688098125e-05,
+    5.674067386363637e-05
+   ],
+   "per_launch_runtime_s": 5.67415625e-05,
+   "per_launch_min_s": 5.6737110795454546e-05,
+   "per_launch_max_s": 5.688098125e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm variant=0 M=1024 N=1024 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.6e-07 repeat=1760 graph_batch=88"
+  },
+  {
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/medium/c2",
+   "argv": [
+    "tcgemm",
+    "1",
+    "1024",
+    "1024",
+    "2048"
+   ],
+   "graph_batch": 150,
+   "repeat_per_window": 3150,
+   "probe_per_launch_s": 3.338e-05,
+   "calibration_per_launch_s": 3.20192e-05,
+   "window_per_launch_s": [
+    3.206149142857143e-05,
+    3.1977020634920634e-05,
+    3.20548673015873e-05,
+    3.200538507936508e-05,
+    3.207045047619048e-05
+   ],
+   "per_launch_runtime_s": 3.20548673015873e-05,
+   "per_launch_min_s": 3.1977020634920634e-05,
+   "per_launch_max_s": 3.207045047619048e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm variant=1 M=1024 N=1024 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.6e-07 repeat=3150 graph_batch=150"
+  },
+  {
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/small/c1",
+   "argv": [
+    "tcgemm",
+    "0",
+    "512",
+    "512",
+    "512"
+   ],
+   "graph_batch": 308,
+   "repeat_per_window": 6468,
+   "probe_per_launch_s": 1.6264e-05,
+   "calibration_per_launch_s": 1.5618493506493506e-05,
+   "window_per_launch_s": [
+    1.5606411255411256e-05,
+    1.5605209338280767e-05,
+    1.5604205473098332e-05,
+    1.5604428416821274e-05,
+    1.5606446660482376e-05
+   ],
+   "per_launch_runtime_s": 1.5605209338280767e-05,
+   "per_launch_min_s": 1.5604205473098332e-05,
+   "per_launch_max_s": 1.5606446660482376e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm variant=0 M=512 N=512 K=512 checked=4160 bad=0 first_bad=-1 worst=1.15e-07 repeat=6468 graph_batch=308"
+  },
+  {
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/small/c2",
+   "argv": [
+    "tcgemm",
+    "1",
+    "512",
+    "512",
+    "512"
+   ],
+   "graph_batch": 620,
+   "repeat_per_window": 13640,
+   "probe_per_launch_s": 8.068e-06,
+   "calibration_per_launch_s": 7.5138064516129035e-06,
+   "window_per_launch_s": [
+    7.504241715542522e-06,
+    7.51253724340176e-06,
+    7.508703519061584e-06,
+    7.511723460410557e-06,
+    7.506819721407625e-06
+   ],
+   "per_launch_runtime_s": 7.508703519061584e-06,
+   "per_launch_min_s": 7.504241715542522e-06,
+   "per_launch_max_s": 7.51253724340176e-06,
+   "correct": true,
+   "check": "CHECK_OK tcgemm variant=1 M=512 N=512 K=512 checked=4160 bad=0 first_bad=-1 worst=1.15e-07 repeat=13640 graph_batch=620"
+  },
+  {
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/xlarge/c1",
+   "argv": [
+    "tcgemm",
+    "0",
+    "8192",
+    "8192",
+    "1024"
+   ],
+   "graph_batch": 10,
+   "repeat_per_window": 190,
+   "probe_per_launch_s": 0.000538188,
+   "calibration_per_launch_s": 0.0005381568,
+   "window_per_launch_s": [
+    0.0005400394263157895,
+    0.000540122947368421,
+    0.0005399191631578948,
+    0.0005405815526315789,
+    0.0005391604368421052
+   ],
+   "per_launch_runtime_s": 0.0005400394263157895,
+   "per_launch_min_s": 0.0005391604368421052,
+   "per_launch_max_s": 0.0005405815526315789,
+   "correct": true,
+   "check": "CHECK_OK tcgemm variant=0 M=8192 N=8192 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.56e-07 repeat=190 graph_batch=10"
+  },
+  {
+   "cell_id": "blackwell/fresh_g_ml_tensor_matmul/xlarge/c2",
+   "argv": [
+    "tcgemm",
+    "1",
+    "8192",
+    "8192",
+    "1024"
+   ],
+   "graph_batch": 8,
+   "repeat_per_window": 152,
+   "probe_per_launch_s": 0.000677132,
+   "calibration_per_launch_s": 0.00067624,
+   "window_per_launch_s": [
+    0.0006818858684210526,
+    0.0006808776842105263,
+    0.0006829540855263158,
+    0.0006811587171052632,
+    0.000682373697368421
+   ],
+   "per_launch_runtime_s": 0.0006818858684210526,
+   "per_launch_min_s": 0.0006808776842105263,
+   "per_launch_max_s": 0.0006829540855263158,
+   "correct": true,
+   "check": "CHECK_OK tcgemm variant=1 M=8192 N=8192 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.56e-07 repeat=152 graph_batch=8"
+  }
+ ],
+ "finished_utc": "2026-10-02T20:33:18Z",
+ "all_correct": true
+}

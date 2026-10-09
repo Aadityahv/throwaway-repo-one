@@ -1,0 +1,745 @@
+{
+ "schema": "fresh_timing_raw/1",
+ "booking_ref": "booking log static_runtime_v3_fresh_timing_20261002",
+ "started_utc": "2026-10-01T21:41:20Z",
+ "device": {
+  "name": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "uuid": "0e63baea-3c6b-bdda-193e-855c6e80a50b",
+  "cuda_visible_devices": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8"
+ },
+ "fresh_cells_json_sha256": "62a69a7b3acd4e47968902464cd5a9c65d1b4211c96c7c6afb30d2a9119b0904",
+ "method": {
+  "graph_launches": 1000,
+  "warmup_launches": 3,
+  "target_window_s": 0.1,
+  "windows": 5,
+  "per_launch_runtime_s": "median over windows of elapsed_s / (replays_per_window * graph_launches)",
+  "clocks_set": false
+ },
+ "cells": [
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/small/c1",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 96,
+   "kernels_per_launch": 1,
+   "smi_before": "180, 25.32, 28, 0",
+   "calibration_replay_s": 0.0011114239692687987,
+   "replays_per_window": 90,
+   "window_elapsed_s_raw": [
+    0.09886905670166016,
+    0.09907984161376954,
+    0.09885209655761719,
+    0.09885833740234375,
+    0.09886064147949218
+   ],
+   "window_per_launch_s": [
+    1.0985450744628906e-06,
+    1.1008871290418838e-06,
+    1.0983566284179688e-06,
+    1.0984259711371527e-06,
+    1.0984515719943575e-06
+   ],
+   "per_launch_runtime_s": 1.0984515719943575e-06,
+   "per_launch_min_s": 1.0983566284179688e-06,
+   "per_launch_max_s": 1.1008871290418838e-06,
+   "window_seconds_mean": 0.09890399475097657,
+   "smi_after": "180, 110.31, 33, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/small/c2",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 97,
+   "kernels_per_launch": 2,
+   "smi_before": "180, 113.52, 32, 39",
+   "calibration_replay_s": 0.00215993595123291,
+   "replays_per_window": 46,
+   "window_elapsed_s_raw": [
+    0.09850540924072265,
+    0.09850521850585937,
+    0.0987391357421875,
+    0.09850303649902344,
+    0.09850422668457032
+   ],
+   "window_per_launch_s": [
+    2.14142194001571e-06,
+    2.1414177936056387e-06,
+    2.1465029509171194e-06,
+    2.1413703586744227e-06,
+    2.141396232273268e-06
+   ],
+   "per_launch_runtime_s": 2.1414177936056387e-06,
+   "per_launch_min_s": 2.1413703586744227e-06,
+   "per_launch_max_s": 2.1465029509171194e-06,
+   "window_seconds_mean": 0.09855140533447265,
+   "smi_after": "180, 212.30, 34, 99",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/small/c3",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 99,
+   "kernels_per_launch": 2,
+   "smi_before": "180, 196.29, 34, 99",
+   "calibration_replay_s": 0.002380608081817627,
+   "replays_per_window": 42,
+   "window_elapsed_s_raw": [
+    0.09917478179931641,
+    0.09916438293457032,
+    0.09920156860351563,
+    0.09916207885742187,
+    0.0991561279296875
+   ],
+   "window_per_launch_s": [
+    2.3613043285551528e-06,
+    2.3610567365373885e-06,
+    2.361942109607515e-06,
+    2.3610018775576635e-06,
+    2.3608601888020836e-06
+   ],
+   "per_launch_runtime_s": 2.3610567365373885e-06,
+   "per_launch_min_s": 2.3608601888020836e-06,
+   "per_launch_max_s": 2.361942109607515e-06,
+   "window_seconds_mean": 0.09917178802490237,
+   "smi_after": "180, 206.13, 34, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/small/c4",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 103,
+   "kernels_per_launch": 2,
+   "smi_before": "180, 196.62, 33, 39",
+   "calibration_replay_s": 0.0023747520446777345,
+   "replays_per_window": 42,
+   "window_elapsed_s_raw": [
+    0.09897465515136719,
+    0.09899673461914063,
+    0.09897325134277343,
+    0.09897046661376953,
+    0.09897401428222656
+   ],
+   "window_per_launch_s": [
+    2.3565394083658856e-06,
+    2.3570651099795388e-06,
+    2.3565059843517485e-06,
+    2.3564396812802267e-06,
+    2.3565241495768227e-06
+   ],
+   "per_launch_runtime_s": 2.3565241495768227e-06,
+   "per_launch_min_s": 2.3564396812802267e-06,
+   "per_launch_max_s": 2.3570651099795388e-06,
+   "window_seconds_mean": 0.09897782440185546,
+   "smi_after": "180, 201.88, 34, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/medium/c1",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 384,
+   "kernels_per_launch": 1,
+   "smi_before": "180, 169.10, 34, 100",
+   "calibration_replay_s": 0.003255039930343628,
+   "replays_per_window": 31,
+   "window_elapsed_s_raw": [
+    0.102270751953125,
+    0.10216416168212891,
+    0.10237104034423829,
+    0.10247666931152344,
+    0.10250466918945313
+   ],
+   "window_per_launch_s": [
+    3.2990565146169355e-06,
+    3.295618118778352e-06,
+    3.3022916240076866e-06,
+    3.305699010049143e-06,
+    3.3066022319178428e-06
+   ],
+   "per_launch_runtime_s": 3.3022916240076866e-06,
+   "per_launch_min_s": 3.295618118778352e-06,
+   "per_launch_max_s": 3.3066022319178428e-06,
+   "window_seconds_mean": 0.10235745849609375,
+   "smi_after": "2707, 422.04, 44, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/medium/c2",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 385,
+   "kernels_per_launch": 2,
+   "smi_before": "2857, 97.38, 32, 0",
+   "calibration_replay_s": 0.007610847949981689,
+   "replays_per_window": 13,
+   "window_elapsed_s_raw": [
+    0.09868707275390624,
+    0.09869017791748047,
+    0.09872156524658203,
+    0.0987416000366211,
+    0.09875161743164063
+   ],
+   "window_per_launch_s": [
+    7.591313288762018e-06,
+    7.591552147498498e-06,
+    7.593966557429387e-06,
+    7.595507695124699e-06,
+    7.596278263972356e-06
+   ],
+   "per_launch_runtime_s": 7.593966557429387e-06,
+   "per_launch_min_s": 7.591313288762018e-06,
+   "per_launch_max_s": 7.596278263972356e-06,
+   "window_seconds_mean": 0.0987184066772461,
+   "smi_after": "2857, 385.26, 44, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/medium/c3",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 387,
+   "kernels_per_launch": 2,
+   "smi_before": "2857, 258.31, 34, 0",
+   "calibration_replay_s": 0.007811007976531982,
+   "replays_per_window": 13,
+   "window_elapsed_s_raw": [
+    0.1015765151977539,
+    0.10159664154052735,
+    0.10162102508544922,
+    0.10168115234375,
+    0.10174291229248048
+   ],
+   "window_per_launch_s": [
+    7.813578092134915e-06,
+    7.815126272348257e-06,
+    7.81700192964994e-06,
+    7.821627103365384e-06,
+    7.826377868652344e-06
+   ],
+   "per_launch_runtime_s": 7.81700192964994e-06,
+   "per_launch_min_s": 7.813578092134915e-06,
+   "per_launch_max_s": 7.826377868652344e-06,
+   "window_seconds_mean": 0.10164364929199218,
+   "smi_after": "2797, 357.95, 45, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/medium/c4",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 391,
+   "kernels_per_launch": 2,
+   "smi_before": "2797, 262.33, 34, 0",
+   "calibration_replay_s": 0.0075905280113220215,
+   "replays_per_window": 13,
+   "window_elapsed_s_raw": [
+    0.09872838592529297,
+    0.09875459289550781,
+    0.09877394866943359,
+    0.09887564849853515,
+    0.09891244506835938
+   ],
+   "window_per_launch_s": [
+    7.594491225022536e-06,
+    7.596507145808293e-06,
+    7.597996051494892e-06,
+    7.605819115271935e-06,
+    7.608649620643029e-06
+   ],
+   "per_launch_runtime_s": 7.597996051494892e-06,
+   "per_launch_min_s": 7.594491225022536e-06,
+   "per_launch_max_s": 7.608649620643029e-06,
+   "window_seconds_mean": 0.09880900421142577,
+   "smi_after": "2797, 363.40, 47, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/large/c1",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 768,
+   "kernels_per_launch": 1,
+   "smi_before": "2842, 98.50, 34, 0",
+   "calibration_replay_s": 0.01088041591644287,
+   "replays_per_window": 9,
+   "window_elapsed_s_raw": [
+    0.10768822479248047,
+    0.10795549011230468,
+    0.10895779418945313,
+    0.10930694580078125,
+    0.10946240234375
+   ],
+   "window_per_launch_s": [
+    1.1965358310275608e-05,
+    1.1995054456922742e-05,
+    1.2106421576605904e-05,
+    1.2145216200086806e-05,
+    1.2162489149305556e-05
+   ],
+   "per_launch_runtime_s": 1.2106421576605904e-05,
+   "per_launch_min_s": 1.1965358310275608e-05,
+   "per_launch_max_s": 1.2162489149305556e-05,
+   "window_seconds_mean": 0.1086741714477539,
+   "smi_after": "1740, 439.50, 44, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/large/c2",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 769,
+   "kernels_per_launch": 2,
+   "smi_before": "2610, 85.33, 34, 0",
+   "calibration_replay_s": 0.027260639190673827,
+   "replays_per_window": 4,
+   "window_elapsed_s_raw": [
+    0.11373209381103516,
+    0.11430675506591798,
+    0.11443094635009765,
+    0.11449462127685547,
+    0.11463343811035157
+   ],
+   "window_per_launch_s": [
+    2.8433023452758792e-05,
+    2.8576688766479495e-05,
+    2.8607736587524413e-05,
+    2.862365531921387e-05,
+    2.8658359527587893e-05
+   ],
+   "per_launch_runtime_s": 2.8607736587524413e-05,
+   "per_launch_min_s": 2.8433023452758792e-05,
+   "per_launch_max_s": 2.8658359527587893e-05,
+   "window_seconds_mean": 0.11431957092285157,
+   "smi_after": "2610, 446.59, 44, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/large/c3",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 771,
+   "kernels_per_launch": 2,
+   "smi_before": "2610, 85.80, 34, 0",
+   "calibration_replay_s": 0.026579872131347656,
+   "replays_per_window": 4,
+   "window_elapsed_s_raw": [
+    0.11151494598388671,
+    0.11222454071044922,
+    0.11226380920410156,
+    0.11238060760498046,
+    0.11252880096435547
+   ],
+   "window_per_launch_s": [
+    2.787873649597168e-05,
+    2.8056135177612306e-05,
+    2.806595230102539e-05,
+    2.8095151901245117e-05,
+    2.8132200241088868e-05
+   ],
+   "per_launch_runtime_s": 2.806595230102539e-05,
+   "per_launch_min_s": 2.787873649597168e-05,
+   "per_launch_max_s": 2.8132200241088868e-05,
+   "window_seconds_mean": 0.11218254089355469,
+   "smi_after": "2610, 469.66, 44, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/large/c4",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 775,
+   "kernels_per_launch": 2,
+   "smi_before": "2610, 85.42, 35, 0",
+   "calibration_replay_s": 0.027313087463378908,
+   "replays_per_window": 4,
+   "window_elapsed_s_raw": [
+    0.11395193481445312,
+    0.1145363540649414,
+    0.11470642852783203,
+    0.11477021026611328,
+    0.1137257308959961
+   ],
+   "window_per_launch_s": [
+    2.848798370361328e-05,
+    2.863408851623535e-05,
+    2.8676607131958008e-05,
+    2.869255256652832e-05,
+    2.8431432723999024e-05
+   ],
+   "per_launch_runtime_s": 2.863408851623535e-05,
+   "per_launch_min_s": 2.8431432723999024e-05,
+   "per_launch_max_s": 2.869255256652832e-05,
+   "window_seconds_mean": 0.1143381317138672,
+   "smi_after": "2460, 451.92, 46, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/small/c1",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 96,
+   "kernels_per_launch": 1,
+   "smi_before": "2737, 97.39, 35, 0",
+   "calibration_replay_s": 0.002458784103393555,
+   "replays_per_window": 41,
+   "window_elapsed_s_raw": [
+    0.10046380615234375,
+    0.10049353790283203,
+    0.100495361328125,
+    0.10048454284667968,
+    0.10048854064941407
+   ],
+   "window_per_launch_s": [
+    2.4503367354230184e-06,
+    2.451061900069074e-06,
+    2.4511063738567076e-06,
+    2.450842508455602e-06,
+    2.4509400158393674e-06
+   ],
+   "per_launch_runtime_s": 2.4509400158393674e-06,
+   "per_launch_min_s": 2.4503367354230184e-06,
+   "per_launch_max_s": 2.4511063738567076e-06,
+   "window_seconds_mean": 0.10048515777587892,
+   "smi_after": "2737, 164.99, 41, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/small/c2",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 97,
+   "kernels_per_launch": 2,
+   "smi_before": "2737, 161.32, 41, 100",
+   "calibration_replay_s": 0.0034778881072998046,
+   "replays_per_window": 29,
+   "window_elapsed_s_raw": [
+    0.10047782135009765,
+    0.10048889923095704,
+    0.10049212646484375,
+    0.10053382110595703,
+    0.10055689239501953
+   ],
+   "window_per_launch_s": [
+    3.464752460348195e-06,
+    3.4651344562398976e-06,
+    3.4652457401670258e-06,
+    3.4666834864123113e-06,
+    3.4674790481041216e-06
+   ],
+   "per_launch_runtime_s": 3.4652457401670258e-06,
+   "per_launch_min_s": 3.464752460348195e-06,
+   "per_launch_max_s": 3.4674790481041216e-06,
+   "window_seconds_mean": 0.10050991210937502,
+   "smi_after": "2737, 229.78, 40, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/small/c3",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 99,
+   "kernels_per_launch": 2,
+   "smi_before": "2737, 212.11, 41, 92",
+   "calibration_replay_s": 0.003489439964294434,
+   "replays_per_window": 29,
+   "window_elapsed_s_raw": [
+    0.10080044555664062,
+    0.10088047790527344,
+    0.10088172912597657,
+    0.10087245178222656,
+    0.10087731170654297
+   ],
+   "window_per_launch_s": [
+    3.4758774329876077e-06,
+    3.4786371691473597e-06,
+    3.478680314688847e-06,
+    3.4783604062836745e-06,
+    3.4785279898807923e-06
+   ],
+   "per_launch_runtime_s": 3.4785279898807923e-06,
+   "per_launch_min_s": 3.4758774329876077e-06,
+   "per_launch_max_s": 3.478680314688847e-06,
+   "window_seconds_mean": 0.10086248321533205,
+   "smi_after": "2737, 236.88, 41, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/small/c4",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 103,
+   "kernels_per_launch": 2,
+   "smi_before": "2737, 230.19, 41, 100",
+   "calibration_replay_s": 0.003485088109970093,
+   "replays_per_window": 29,
+   "window_elapsed_s_raw": [
+    0.10062528228759765,
+    0.10066349029541016,
+    0.10071513366699218,
+    0.10070051574707031,
+    0.10071270751953125
+   ],
+   "window_per_launch_s": [
+    3.4698373202619878e-06,
+    3.471154837772764e-06,
+    3.4729356436893858e-06,
+    3.472431577485183e-06,
+    3.472851983432112e-06
+   ],
+   "per_launch_runtime_s": 3.472431577485183e-06,
+   "per_launch_min_s": 3.4698373202619878e-06,
+   "per_launch_max_s": 3.4729356436893858e-06,
+   "window_seconds_mean": 0.10068342590332031,
+   "smi_after": "2820, 236.08, 41, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/medium/c1",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 384,
+   "kernels_per_launch": 1,
+   "smi_before": "2820, 198.84, 41, 100",
+   "calibration_replay_s": 0.006519360065460205,
+   "replays_per_window": 15,
+   "window_elapsed_s_raw": [
+    0.0976638412475586,
+    0.09776217651367188,
+    0.09826316833496093,
+    0.09847001647949219,
+    0.0985630111694336
+   ],
+   "window_per_launch_s": [
+    6.51092274983724e-06,
+    6.517478434244792e-06,
+    6.550877888997395e-06,
+    6.564667765299479e-06,
+    6.5708674112955735e-06
+   ],
+   "per_launch_runtime_s": 6.550877888997395e-06,
+   "per_launch_min_s": 6.51092274983724e-06,
+   "per_launch_max_s": 6.5708674112955735e-06,
+   "window_seconds_mean": 0.09814444274902344,
+   "smi_after": "2820, 415.68, 48, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/medium/c2",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 385,
+   "kernels_per_launch": 2,
+   "smi_before": "2842, 146.59, 37, 0",
+   "calibration_replay_s": 0.01110912036895752,
+   "replays_per_window": 9,
+   "window_elapsed_s_raw": [
+    0.0991343994140625,
+    0.09809455871582032,
+    0.09810028839111327,
+    0.09823296356201172,
+    0.09823859405517578
+   ],
+   "window_per_launch_s": [
+    1.1014933268229167e-05,
+    1.0899395412868925e-05,
+    1.090003204345703e-05,
+    1.0914773729112414e-05,
+    1.0915399339463976e-05
+   ],
+   "per_launch_runtime_s": 1.0914773729112414e-05,
+   "per_launch_min_s": 1.0899395412868925e-05,
+   "per_launch_max_s": 1.1014933268229167e-05,
+   "window_seconds_mean": 0.09836016082763673,
+   "smi_after": "2842, 388.28, 50, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/medium/c3",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 387,
+   "kernels_per_launch": 2,
+   "smi_before": "2842, 106.57, 38, 0",
+   "calibration_replay_s": 0.010888895988464355,
+   "replays_per_window": 9,
+   "window_elapsed_s_raw": [
+    0.09810582733154297,
+    0.09810940551757813,
+    0.09817298889160156,
+    0.09824755096435547,
+    0.09824320220947266
+   ],
+   "window_per_launch_s": [
+    1.0900647481282552e-05,
+    1.0901045057508681e-05,
+    1.0908109876844619e-05,
+    1.0916394551595053e-05,
+    1.0915911356608074e-05
+   ],
+   "per_launch_runtime_s": 1.0908109876844619e-05,
+   "per_launch_min_s": 1.0900647481282552e-05,
+   "per_launch_max_s": 1.0916394551595053e-05,
+   "window_seconds_mean": 0.09817579498291015,
+   "smi_after": "2842, 361.96, 49, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/medium/c4",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 391,
+   "kernels_per_launch": 2,
+   "smi_before": "2842, 107.43, 39, 0",
+   "calibration_replay_s": 0.0111048002243042,
+   "replays_per_window": 9,
+   "window_elapsed_s_raw": [
+    0.10008370971679688,
+    0.10009024047851563,
+    0.10008672332763671,
+    0.10016534423828125,
+    0.10021977233886718
+   ],
+   "window_per_launch_s": [
+    1.1120412190755208e-05,
+    1.1121137830946181e-05,
+    1.1120747036404079e-05,
+    1.1129482693142361e-05,
+    1.1135530259874132e-05
+   ],
+   "per_launch_runtime_s": 1.1121137830946181e-05,
+   "per_launch_min_s": 1.1120412190755208e-05,
+   "per_launch_max_s": 1.1135530259874132e-05,
+   "window_seconds_mean": 0.10012915802001951,
+   "smi_after": "2805, 362.25, 51, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/large/c1",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 768,
+   "kernels_per_launch": 1,
+   "smi_before": "2842, 102.16, 38, 0",
+   "calibration_replay_s": 0.018465984344482423,
+   "replays_per_window": 5,
+   "window_elapsed_s_raw": [
+    0.10388988494873047,
+    0.10405939483642578,
+    0.10482025909423828,
+    0.10502291107177734,
+    0.10506217956542968
+   ],
+   "window_per_launch_s": [
+    2.0777976989746094e-05,
+    2.0811878967285154e-05,
+    2.0964051818847656e-05,
+    2.100458221435547e-05,
+    2.1012435913085936e-05
+   ],
+   "per_launch_runtime_s": 2.0964051818847656e-05,
+   "per_launch_min_s": 2.0777976989746094e-05,
+   "per_launch_max_s": 2.1012435913085936e-05,
+   "window_seconds_mean": 0.10457092590332032,
+   "smi_after": "2190, 415.06, 49, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/large/c2",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 769,
+   "kernels_per_launch": 2,
+   "smi_before": "2610, 86.50, 38, 0",
+   "calibration_replay_s": 0.033659263610839846,
+   "replays_per_window": 3,
+   "window_elapsed_s_raw": [
+    0.10677526092529296,
+    0.10759318542480469,
+    0.10770905303955078,
+    0.10783119964599609,
+    0.10800822448730468
+   ],
+   "window_per_launch_s": [
+    3.559175364176432e-05,
+    3.586439514160156e-05,
+    3.590301767985026e-05,
+    3.594373321533203e-05,
+    3.600274149576823e-05
+   ],
+   "per_launch_runtime_s": 3.590301767985026e-05,
+   "per_launch_min_s": 3.559175364176432e-05,
+   "per_launch_max_s": 3.600274149576823e-05,
+   "window_seconds_mean": 0.10758338470458986,
+   "smi_after": "2520, 449.61, 50, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/large/c3",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 771,
+   "kernels_per_launch": 2,
+   "smi_before": "2610, 86.64, 38, 0",
+   "calibration_replay_s": 0.0336611213684082,
+   "replays_per_window": 3,
+   "window_elapsed_s_raw": [
+    0.10683020782470704,
+    0.1076957778930664,
+    0.10787664031982422,
+    0.10800313568115234,
+    0.1080381088256836
+   ],
+   "window_per_launch_s": [
+    3.561006927490234e-05,
+    3.589859263102214e-05,
+    3.595888010660807e-05,
+    3.600104522705078e-05,
+    3.601270294189453e-05
+   ],
+   "per_launch_runtime_s": 3.595888010660807e-05,
+   "per_launch_min_s": 3.561006927490234e-05,
+   "per_launch_max_s": 3.601270294189453e-05,
+   "window_seconds_mean": 0.1076887741088867,
+   "smi_after": "2512, 436.91, 50, 100",
+   "correct": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/large/c4",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 775,
+   "kernels_per_launch": 2,
+   "smi_before": "2610, 86.95, 38, 0",
+   "calibration_replay_s": 0.03432732772827148,
+   "replays_per_window": 3,
+   "window_elapsed_s_raw": [
+    0.10838969421386718,
+    0.10919382476806641,
+    0.10933519744873046,
+    0.10945206451416016,
+    0.10957113647460938
+   ],
+   "window_per_launch_s": [
+    3.612989807128906e-05,
+    3.6397941589355474e-05,
+    3.644506581624349e-05,
+    3.6484021504720054e-05,
+    3.6523712158203125e-05
+   ],
+   "per_launch_runtime_s": 3.644506581624349e-05,
+   "per_launch_min_s": 3.612989807128906e-05,
+   "per_launch_max_s": 3.6523712158203125e-05,
+   "window_seconds_mean": 0.10918838348388674,
+   "smi_after": "2610, 468.91, 49, 100",
+   "correct": true
+  }
+ ],
+ "finished_utc": "2026-10-01T21:42:14Z",
+ "all_correct": true
+}

@@ -1,0 +1,1657 @@
+{
+ "schema": "fresh_pytorch_cells/1",
+ "purpose": "Prospective evaluation cells for the static runtime predictor; no measured value of any kind is in this file.",
+ "hardware_l2_bytes_from_ground_truth": 134217728,
+ "padding_rule": {
+  "stride": "cols + pad",
+  "pad_by_candidate": {
+   "c1": 0,
+   "c2": 1,
+   "c3": 3,
+   "c4": 7
+  },
+  "derived_from": "pytorch_dispatch/dispatch_trace.json development controls"
+ },
+ "shapes_rows_cols": {
+  "small": [
+   1368,
+   96
+  ],
+  "medium": [
+   5464,
+   384
+  ],
+  "large": [
+   10920,
+   768
+  ]
+ },
+ "development_shapes_rows_cols": {
+  "small": [
+   1024,
+   128
+  ],
+  "medium": [
+   4096,
+   512
+  ],
+  "large": [
+   8192,
+   1024
+  ]
+ },
+ "logical_bytes_rule": {
+  "fresh_pytorch_rowwise_softmax": "read rows*cols*4 + write rows*cols*4 (reset/build_workload_catalog.py work_pytorch_softmax); padded stride and the contiguous() copy kernel traffic are not added, as in the development table",
+  "fresh_pytorch_layer_norm": "read (3*rows*cols + 2*rows)*4 + write (rows*cols + 2*rows)*4 (work_pytorch_layer_norm); padded stride and copy kernel traffic not added, as in the development table"
+ },
+ "footprint_rule": {
+  "fresh_pytorch_rowwise_softmax": "2*rows*cols*4 (operator_work_time_diagnostic.py footprint_bytes), independent of stride",
+  "fresh_pytorch_layer_norm": "rows*row_stride*4 + 2*cols*4 + write bytes (heldout_operator_test.py operator_design)"
+ },
+ "tier_rule": "L2 iff footprint / verified L2 capacity < 1 (HARDWARE_GROUND_TRUTH.md Blackwell, 134,217,728 B), else DRAM",
+ "cells": [
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/small/c1",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "small",
+   "candidate_id": "c1",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 96,
+   "pad_elements": 0,
+   "controls": {
+    "dim_size": 96,
+    "inner_size": 1,
+    "outer_size": 1368,
+    "row_stride": 96
+   },
+   "footprint_bytes": 1050624,
+   "l2_ratio": 0.0078277587890625,
+   "tier": "L2",
+   "logical_read_bytes": 525312,
+   "logical_write_bytes": 525312,
+   "logical_bytes_per_launch": 1050624,
+   "shape_a": 1368,
+   "shape_b": 96,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 1,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "softmax",
+     "grid": [
+      171,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k5",
+     "template_log2_elements": 7
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "derived_fully": true,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/small/c2",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "small",
+   "candidate_id": "c2",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 97,
+   "pad_elements": 1,
+   "controls": {
+    "dim_size": 96,
+    "inner_size": 1,
+    "outer_size": 1368,
+    "row_stride": 97
+   },
+   "footprint_bytes": 1050624,
+   "l2_ratio": 0.0078277587890625,
+   "tier": "L2",
+   "logical_read_bytes": 525312,
+   "logical_write_bytes": 525312,
+   "logical_bytes_per_launch": 1050624,
+   "shape_a": 1368,
+   "shape_b": 96,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "grid": [
+      513,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "grid": [
+      171,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k5",
+     "template_log2_elements": 7
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/small/c3",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "small",
+   "candidate_id": "c3",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 99,
+   "pad_elements": 3,
+   "controls": {
+    "dim_size": 96,
+    "inner_size": 1,
+    "outer_size": 1368,
+    "row_stride": 99
+   },
+   "footprint_bytes": 1050624,
+   "l2_ratio": 0.0078277587890625,
+   "tier": "L2",
+   "logical_read_bytes": 525312,
+   "logical_write_bytes": 525312,
+   "logical_bytes_per_launch": 1050624,
+   "shape_a": 1368,
+   "shape_b": 96,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "grid": [
+      513,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "grid": [
+      171,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k5",
+     "template_log2_elements": 7
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/small/c4",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "small",
+   "candidate_id": "c4",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 103,
+   "pad_elements": 7,
+   "controls": {
+    "dim_size": 96,
+    "inner_size": 1,
+    "outer_size": 1368,
+    "row_stride": 103
+   },
+   "footprint_bytes": 1050624,
+   "l2_ratio": 0.0078277587890625,
+   "tier": "L2",
+   "logical_read_bytes": 525312,
+   "logical_write_bytes": 525312,
+   "logical_bytes_per_launch": 1050624,
+   "shape_a": 1368,
+   "shape_b": 96,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "grid": [
+      513,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "grid": [
+      171,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k5",
+     "template_log2_elements": 7
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/medium/c1",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 384,
+   "pad_elements": 0,
+   "controls": {
+    "dim_size": 384,
+    "inner_size": 1,
+    "outer_size": 5464,
+    "row_stride": 384
+   },
+   "footprint_bytes": 16785408,
+   "l2_ratio": 0.12506103515625,
+   "tier": "L2",
+   "logical_read_bytes": 8392704,
+   "logical_write_bytes": 8392704,
+   "logical_bytes_per_launch": 16785408,
+   "shape_a": 5464,
+   "shape_b": 384,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 1,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "softmax",
+     "grid": [
+      1366,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k6",
+     "template_log2_elements": 9
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "derived_fully": true,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/medium/c2",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 385,
+   "pad_elements": 1,
+   "controls": {
+    "dim_size": 384,
+    "inner_size": 1,
+    "outer_size": 5464,
+    "row_stride": 385
+   },
+   "footprint_bytes": 16785408,
+   "l2_ratio": 0.12506103515625,
+   "tier": "L2",
+   "logical_read_bytes": 8392704,
+   "logical_write_bytes": 8392704,
+   "logical_bytes_per_launch": 16785408,
+   "shape_a": 5464,
+   "shape_b": 384,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "grid": [
+      8196,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "grid": [
+      1366,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k6",
+     "template_log2_elements": 9
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/medium/c3",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "medium",
+   "candidate_id": "c3",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 387,
+   "pad_elements": 3,
+   "controls": {
+    "dim_size": 384,
+    "inner_size": 1,
+    "outer_size": 5464,
+    "row_stride": 387
+   },
+   "footprint_bytes": 16785408,
+   "l2_ratio": 0.12506103515625,
+   "tier": "L2",
+   "logical_read_bytes": 8392704,
+   "logical_write_bytes": 8392704,
+   "logical_bytes_per_launch": 16785408,
+   "shape_a": 5464,
+   "shape_b": 384,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "grid": [
+      8196,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "grid": [
+      1366,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k6",
+     "template_log2_elements": 9
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/medium/c4",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "medium",
+   "candidate_id": "c4",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 391,
+   "pad_elements": 7,
+   "controls": {
+    "dim_size": 384,
+    "inner_size": 1,
+    "outer_size": 5464,
+    "row_stride": 391
+   },
+   "footprint_bytes": 16785408,
+   "l2_ratio": 0.12506103515625,
+   "tier": "L2",
+   "logical_read_bytes": 8392704,
+   "logical_write_bytes": 8392704,
+   "logical_bytes_per_launch": 16785408,
+   "shape_a": 5464,
+   "shape_b": 384,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "grid": [
+      8196,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "grid": [
+      1366,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k6",
+     "template_log2_elements": 9
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/large/c1",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "large",
+   "candidate_id": "c1",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 768,
+   "pad_elements": 0,
+   "controls": {
+    "dim_size": 768,
+    "inner_size": 1,
+    "outer_size": 10920,
+    "row_stride": 768
+   },
+   "footprint_bytes": 67092480,
+   "l2_ratio": 0.4998779296875,
+   "tier": "L2",
+   "logical_read_bytes": 33546240,
+   "logical_write_bytes": 33546240,
+   "logical_bytes_per_launch": 67092480,
+   "shape_a": 10920,
+   "shape_b": 768,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 1,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "softmax",
+     "grid": [
+      2730,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k4",
+     "template_log2_elements": 10
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "derived_fully": true,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/large/c2",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "large",
+   "candidate_id": "c2",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 769,
+   "pad_elements": 1,
+   "controls": {
+    "dim_size": 768,
+    "inner_size": 1,
+    "outer_size": 10920,
+    "row_stride": 769
+   },
+   "footprint_bytes": 67092480,
+   "l2_ratio": 0.4998779296875,
+   "tier": "L2",
+   "logical_read_bytes": 33546240,
+   "logical_write_bytes": 33546240,
+   "logical_bytes_per_launch": 67092480,
+   "shape_a": 10920,
+   "shape_b": 768,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "grid": [
+      32760,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "grid": [
+      2730,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k4",
+     "template_log2_elements": 10
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/large/c3",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "large",
+   "candidate_id": "c3",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 771,
+   "pad_elements": 3,
+   "controls": {
+    "dim_size": 768,
+    "inner_size": 1,
+    "outer_size": 10920,
+    "row_stride": 771
+   },
+   "footprint_bytes": 67092480,
+   "l2_ratio": 0.4998779296875,
+   "tier": "L2",
+   "logical_read_bytes": 33546240,
+   "logical_write_bytes": 33546240,
+   "logical_bytes_per_launch": 67092480,
+   "shape_a": 10920,
+   "shape_b": 768,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "grid": [
+      32760,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "grid": [
+      2730,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k4",
+     "template_log2_elements": 10
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_rowwise_softmax/large/c4",
+   "operator_id": "fresh_pytorch_rowwise_softmax",
+   "regime": "large",
+   "candidate_id": "c4",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 775,
+   "pad_elements": 7,
+   "controls": {
+    "dim_size": 768,
+    "inner_size": 1,
+    "outer_size": 10920,
+    "row_stride": 775
+   },
+   "footprint_bytes": 67092480,
+   "l2_ratio": 0.4998779296875,
+   "tier": "L2",
+   "logical_read_bytes": 33546240,
+   "logical_write_bytes": 33546240,
+   "logical_bytes_per_launch": 67092480,
+   "shape_a": 10920,
+   "shape_b": 768,
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "grid": [
+      32760,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "grid": [
+      2730,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k4",
+     "template_log2_elements": 10
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/small/c1",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "small",
+   "candidate_id": "c1",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 96,
+   "pad_elements": 0,
+   "controls": {
+    "affine": true,
+    "cols": 96,
+    "eps": 1e-05,
+    "row_stride": 96,
+    "rows": 1368
+   },
+   "footprint_bytes": 1062336,
+   "l2_ratio": 0.007915019989013672,
+   "tier": "L2",
+   "logical_read_bytes": 1586880,
+   "logical_write_bytes": 536256,
+   "logical_bytes_per_launch": 2123136,
+   "shape_a": 1368,
+   "shape_b": 96,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 1,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      1368,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "derived_fully": true,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/small/c2",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "small",
+   "candidate_id": "c2",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 97,
+   "pad_elements": 1,
+   "controls": {
+    "affine": true,
+    "cols": 96,
+    "eps": 1e-05,
+    "row_stride": 97,
+    "rows": 1368
+   },
+   "footprint_bytes": 1067808,
+   "l2_ratio": 0.007955789566040039,
+   "tier": "L2",
+   "logical_read_bytes": 1586880,
+   "logical_write_bytes": 536256,
+   "logical_bytes_per_launch": 2123136,
+   "shape_a": 1368,
+   "shape_b": 96,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "grid": [
+      513,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      1368,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/small/c3",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "small",
+   "candidate_id": "c3",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 99,
+   "pad_elements": 3,
+   "controls": {
+    "affine": true,
+    "cols": 96,
+    "eps": 1e-05,
+    "row_stride": 99,
+    "rows": 1368
+   },
+   "footprint_bytes": 1078752,
+   "l2_ratio": 0.008037328720092773,
+   "tier": "L2",
+   "logical_read_bytes": 1586880,
+   "logical_write_bytes": 536256,
+   "logical_bytes_per_launch": 2123136,
+   "shape_a": 1368,
+   "shape_b": 96,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "grid": [
+      513,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      1368,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/small/c4",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "small",
+   "candidate_id": "c4",
+   "rows": 1368,
+   "cols": 96,
+   "row_stride": 103,
+   "pad_elements": 7,
+   "controls": {
+    "affine": true,
+    "cols": 96,
+    "eps": 1e-05,
+    "row_stride": 103,
+    "rows": 1368
+   },
+   "footprint_bytes": 1100640,
+   "l2_ratio": 0.008200407028198242,
+   "tier": "L2",
+   "logical_read_bytes": 1586880,
+   "logical_write_bytes": 536256,
+   "logical_bytes_per_launch": 2123136,
+   "shape_a": 1368,
+   "shape_b": 96,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "grid": [
+      513,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      1368,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/medium/c1",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 384,
+   "pad_elements": 0,
+   "controls": {
+    "affine": true,
+    "cols": 384,
+    "eps": 1e-05,
+    "row_stride": 384,
+    "rows": 5464
+   },
+   "footprint_bytes": 16832192,
+   "l2_ratio": 0.12540960311889648,
+   "tier": "L2",
+   "logical_read_bytes": 25221824,
+   "logical_write_bytes": 8436416,
+   "logical_bytes_per_launch": 33658240,
+   "shape_a": 5464,
+   "shape_b": 384,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 1,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      5464,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "derived_fully": true,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/medium/c2",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 385,
+   "pad_elements": 1,
+   "controls": {
+    "affine": true,
+    "cols": 384,
+    "eps": 1e-05,
+    "row_stride": 385,
+    "rows": 5464
+   },
+   "footprint_bytes": 16854048,
+   "l2_ratio": 0.12557244300842285,
+   "tier": "L2",
+   "logical_read_bytes": 25221824,
+   "logical_write_bytes": 8436416,
+   "logical_bytes_per_launch": 33658240,
+   "shape_a": 5464,
+   "shape_b": 384,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "grid": [
+      8196,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      5464,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/medium/c3",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "medium",
+   "candidate_id": "c3",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 387,
+   "pad_elements": 3,
+   "controls": {
+    "affine": true,
+    "cols": 384,
+    "eps": 1e-05,
+    "row_stride": 387,
+    "rows": 5464
+   },
+   "footprint_bytes": 16897760,
+   "l2_ratio": 0.12589812278747559,
+   "tier": "L2",
+   "logical_read_bytes": 25221824,
+   "logical_write_bytes": 8436416,
+   "logical_bytes_per_launch": 33658240,
+   "shape_a": 5464,
+   "shape_b": 384,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "grid": [
+      8196,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      5464,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/medium/c4",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "medium",
+   "candidate_id": "c4",
+   "rows": 5464,
+   "cols": 384,
+   "row_stride": 391,
+   "pad_elements": 7,
+   "controls": {
+    "affine": true,
+    "cols": 384,
+    "eps": 1e-05,
+    "row_stride": 391,
+    "rows": 5464
+   },
+   "footprint_bytes": 16985184,
+   "l2_ratio": 0.12654948234558105,
+   "tier": "L2",
+   "logical_read_bytes": 25221824,
+   "logical_write_bytes": 8436416,
+   "logical_bytes_per_launch": 33658240,
+   "shape_a": 5464,
+   "shape_b": 384,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "grid": [
+      8196,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      5464,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/large/c1",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "large",
+   "candidate_id": "c1",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 768,
+   "pad_elements": 0,
+   "controls": {
+    "affine": true,
+    "cols": 768,
+    "eps": 1e-05,
+    "row_stride": 768,
+    "rows": 10920
+   },
+   "footprint_bytes": 67185984,
+   "l2_ratio": 0.5005745887756348,
+   "tier": "L2",
+   "logical_read_bytes": 100726080,
+   "logical_write_bytes": 33633600,
+   "logical_bytes_per_launch": 134359680,
+   "shape_a": 10920,
+   "shape_b": 768,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 1,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      10920,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "conditional_static_phases",
+   "phases_reason": null,
+   "derived_fully": true,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/large/c2",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "large",
+   "candidate_id": "c2",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 769,
+   "pad_elements": 1,
+   "controls": {
+    "affine": true,
+    "cols": 768,
+    "eps": 1e-05,
+    "row_stride": 769,
+    "rows": 10920
+   },
+   "footprint_bytes": 67229664,
+   "l2_ratio": 0.5009000301361084,
+   "tier": "L2",
+   "logical_read_bytes": 100726080,
+   "logical_write_bytes": 33633600,
+   "logical_bytes_per_launch": 134359680,
+   "shape_a": 10920,
+   "shape_b": 768,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "grid": [
+      32760,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      10920,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/large/c3",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "large",
+   "candidate_id": "c3",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 771,
+   "pad_elements": 3,
+   "controls": {
+    "affine": true,
+    "cols": 768,
+    "eps": 1e-05,
+    "row_stride": 771,
+    "rows": 10920
+   },
+   "footprint_bytes": 67317024,
+   "l2_ratio": 0.5015509128570557,
+   "tier": "L2",
+   "logical_read_bytes": 100726080,
+   "logical_write_bytes": 33633600,
+   "logical_bytes_per_launch": 134359680,
+   "shape_a": 10920,
+   "shape_b": 768,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "grid": [
+      32760,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      10920,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  },
+  {
+   "cell_id": "blackwell/fresh_pytorch_layer_norm/large/c4",
+   "operator_id": "fresh_pytorch_layer_norm",
+   "regime": "large",
+   "candidate_id": "c4",
+   "rows": 10920,
+   "cols": 768,
+   "row_stride": 775,
+   "pad_elements": 7,
+   "controls": {
+    "affine": true,
+    "cols": 768,
+    "eps": 1e-05,
+    "row_stride": 775,
+    "rows": 10920
+   },
+   "footprint_bytes": 67491744,
+   "l2_ratio": 0.5028526782989502,
+   "tier": "L2",
+   "logical_read_bytes": 100726080,
+   "logical_write_bytes": 33633600,
+   "logical_bytes_per_launch": 134359680,
+   "shape_a": 10920,
+   "shape_b": 768,
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "kernels_per_launch": 2,
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "grid": [
+      32760,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "kernel_id": "k1",
+     "template_log2_elements": null
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "grid": [
+      10920,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "kernel_id": "k3",
+     "template_log2_elements": null
+    }
+   ],
+   "features_status": "supported_with_assumptions",
+   "features_missing": [],
+   "phases_status": "unsupported",
+   "phases_reason": "PyTorch boundary block phase signatures differ",
+   "derived_fully": false,
+   "phases_status_divider_corrected": "conditional_static_phases",
+   "phases_reason_divider_corrected": null,
+   "derived_fully_divider_corrected": true
+  }
+ ],
+ "features_identical_under_corrected_imad_hi": true,
+ "coverage": {
+  "frozen_pipeline": {
+   "fresh_pytorch_rowwise_softmax derived_fully=True": 3,
+   "fresh_pytorch_rowwise_softmax derived_fully=False": 9,
+   "fresh_pytorch_layer_norm derived_fully=True": 3,
+   "fresh_pytorch_layer_norm derived_fully=False": 9
+  },
+  "divider_corrected_variant": {
+   "fresh_pytorch_rowwise_softmax derived_fully=True": 12,
+   "fresh_pytorch_layer_norm derived_fully=True": 12
+  }
+ }
+}

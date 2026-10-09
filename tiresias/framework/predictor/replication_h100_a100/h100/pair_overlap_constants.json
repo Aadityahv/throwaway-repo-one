@@ -1,0 +1,24 @@
+{
+ "schema": "pair_overlap_constants/1",
+ "rule": "phase time of the shared-load pipe (s) and the MMA pipe (m): max(s, m) + beta * min(s, m); beta linearly interpolated in resident warps per SM, held at the end values outside the measured range",
+ "resident_warps_per_sm": [
+  4,
+  8,
+  16,
+  32
+ ],
+ "beta_hmma": [
+  0.769,
+  0.6399999999999999,
+  0.5125,
+  0.47350000000000003
+ ],
+ "configurations_per_point": [
+  3,
+  6,
+  6,
+  2
+ ],
+ "source": "calibrate/runs/cluster_h100_replication_20261004/pair_overlap/h100_j19/dep_frag.jsonl",
+ "source_sha256": "dbba4805e98a495fc6552dc24111b9e5da8c8997252b1d9513d04df63e1f0d11"
+}

@@ -1,0 +1,31 @@
+calibration calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json | complete: False | cap 600 W
+
+48 existing target cells: median / 90th pct / signed median absolute error %
+method                                             below cap (n=35)           all 48                    
+OURS (calibrator only), static runtime              14.4 /  30.5 /  +4.9       15.4 /  28.4 /  -2.0     
+   AccelWattch-style, static runtime                11.2 /  24.3 /  +9.0       12.9 /  26.0 /  +6.4     
+   FlipFlop, static runtime                         51.7 / 201.4 / +51.7       36.1 / 178.0 / +36.1     
+   Alavani, static runtime                          71.2 /  87.4 / -71.2       55.2 /  88.0 / -53.0     
+OURS (calibrator only), measured runtime            11.1 /  21.4 /  +4.6       12.1 /  25.0 /  -1.1     
+   AccelWattch-style, measured runtime              10.1 /  16.1 /  +9.5        9.9 /  20.5 /  +7.8     
+   FlipFlop, measured runtime                       45.8 / 173.6 / +45.8       29.6 / 161.6 / +29.6     
+   Alavani, measured runtime                        72.4 /  85.4 / -72.4       51.4 /  85.8 / -51.4     
+
+132 development cells (no published-method rows exist for them), below cap n=85
+OURS (calibrator only), static runtime (v3e, where available)  11.0 /  22.8 /  -7.0       15.4 /  30.7 /  -5.1     
+OURS (calibrator only), measured runtime             8.3 /  18.9 /  -7.6        7.2 /  22.7 /  -7.0     
+
+held-out calibration windows (error %): {'mixed_a': -0.84, 'mixed_app': -3.29, 'mixed_b': -2.02} | thermal anchor repeat/first energy: 1.011023298806566
+
+pre-registered bars (preregistered_bars.json):
+  FAIL calibration document complete                                          False
+  PASS held-out windows: median |error| <= 10%                                2.0
+  PASS held-out windows: max |error| <= 25%                                   3.3
+  PASS thermal anchor ratio within +/-5%                                      1.011
+  FAIL target below-cap median, static runtime <= 12% (AccelWattch-style 11.2) 14.4
+  FAIL target below-cap median, measured runtime <= 10% (AccelWattch-style 10.1) 11.1
+  FAIL target below-cap p90, both runtimes <= 30%                             (30.5, 21.4)
+  PASS development below-cap median, measured runtime <= 15%                  8.3
+  PASS development below-cap |signed median| <= 10%                           -7.6
+  PASS beats FlipFlop on target below-cap median (both runtimes)              (14.4, 51.7)
+  PASS beats Alavani on target below-cap median (both runtimes)               (14.4, 71.2)

@@ -1,0 +1,912 @@
+{
+ "code_sha256": {
+  "prospective_test/cells_prosp.py": "36e3413028a759e16359f04ba4bda2c97ad91267fc12a4d91df44bf69cead5b0",
+  "prospective_test/freeze_prosp.py": "165fa16bf0a93ce8dcb921ce37df52a2264045a4a638b3e1de3605ca70569dac",
+  "prospective_test/prosp_common.py": "9b5fef98dedd9582528c0d30bee35bf4d7c15aeadc52e676a000bf43296df3e9",
+  "prospective_test/prosp_lib.py": "f52900015ec5b0bfeb951aa7e88c888afd00eb20979ab3633d2bb954692fdda5",
+  "calibrate/cal/energy.py": "6680d919b169df3dc2f5b6a761c2207387d468ae09aaddce7c6dbfca62e7d90a",
+  "calibrate/cal/portable_predict.py": "c6500224c286685f36dc2a76baab8027254f14ff8f00daa1cceda33970d5597b",
+  "calibrate/cal/traffic.py": "337f68dbfcc8f93ce6d20b44a8dc3f17e0009f27b1ab84687d28daaaecfdc510",
+  "calibrate/predict.py": "24ff68476c87a80ce031ceb81b117f5a5be0ce23d2a287cc02f54a37f2cf9aec",
+  "constants/pair_overlap_constants.json": "0d64976f9bd03e4c0ea341281abc8dfd7c7cbf5859ab941b785a3e5361914323",
+  "predict_runtime_v2.py": "3c7c106d366224e859f24cb672adf618a42b546bb85752392c5cf6ca62c1ef72",
+  "predict_runtime_v3.py": "60919af340c7d800e13c5916e9a3f9b3f97569b86928a8921a9685f13dce9f48",
+  "predict_runtime_v3f.py": "e340edbd00d4295113537218e411523b2deb6810e419bf8529ebc3458bc17b78",
+  "predict_runtime_v3h.py": "32ebfce06e785a5be04b83296f37e34c79c81044e703a3f1b9cdfa49081a5f7a",
+  "predict_runtime_v3i.py": "940efca9a9482cc7d919b342a9e26e9b8994b0067231b9ae1372ebc219032610",
+  "predict_runtime_v3j.py": "6bb080b56cdd74a2bef4879eb033f40e75137f4f712cf997bb9b3b92c2f98ef8",
+  "predict_runtime_v3k.py": "b1ad0e38f5e4a98116b58438103f7fb4b367c406cb8449aeda1003a25cf0f39b",
+  "shared_traffic/footprint.py": "26c4072af7f07cf14af95b86b33c5e17145cb7b9b5e45c83cbb809a5b200b56b"
+ },
+ "energy_with_measured_runtime": "computed after timing with the same columns: energy_rows_traffic(doc, features, measured runtime, traffic)",
+ "frozen_before_any_measurement": true,
+ "inputs_sha256": {
+  "calibration:fresh_g/calibration_with_tensor.json": "b7aaf71ba6f20b64214cb0aedb40e070d1b5c240f243fa714d8d2e38c3c5a7c8",
+  "cells_prosp.json": "d3cf943ed436b9edd4ea2da02e3f0b77b8a33a2547e82891f7bf5a8fc629c36a",
+  "compiled/cubin/prosp.cubin": "d806a25369309749f9d3fde61c33f3e604267843d70b174eb88cf37781b1ed69",
+  "compiled/sass/prosp.sass": "7f14de7bc623728fa15228487467848534c8cd5355b89e6d42e1599a0356b20a",
+  "constants:fresh_g/constants_tensor": {
+   "dependency_constants.json": "7ee29c4d635478595871397dfb579648cf4f9f78df39e6661ce6af29dd9a2d7d",
+   "microbench_constants_v2.json": "dc6a5f70bd16c816751b6f5c9d76fa8f0373542ea3a4d4e0f77fe01410846b0d",
+   "overlap_constants.json": "c516c367dc16aef47c396eeb8beeef97c532a749b3b935d5fdbab5b5c44a8acc",
+   "stream_constants.json": "3b07403258d3fc7982f61a1b9b16566356fe41c68ef4f1a542058809f57f8229",
+   "v3_constants.json": "8bcd76814325d64635826cfd45a3e081ccab98a2bfa42454a327b77eca1cf1d1",
+   "v3c_constants.json": "caf6a703605bd0315246000bf71225d8daf21b5cb68c478b7ad3b60036d7295a",
+   "v3e_constants.json": "83523898b699f60e4f8f96ba0b258875793d6b45025d7b7ba4ebf2e0b558b092"
+  },
+  "gpu/driver_prosp.cu": "46adc72dc4a8b65916dd5fc01b548552e0e46f601ac5b0d3e897d667f041ae60",
+  "src/prosp_kernels.cuh": "463c5a1b68402e4ce3b305230672da92536d623b193c29f6894d247a688258ab",
+  "tables/prosp.json": "69e3d3db3b91f162997c48d877dda3bedc6dd026ec2a32cd8d31f1086d313e79"
+ },
+ "models": {
+  "current": "registry current model (v3j per-wave rule, component energy model with traffic columns)",
+  "proposed": "v3k = v3j + pair overlap, stage serialisation and busiest-SM rule (attention_diagnosis/DESIGN.md)"
+ },
+ "rows": {
+  "blackwell/prosp_attention_no_max/large/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.259973410978188,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.00043328901829698,
+    "traffic_bytes": {
+     "dram": 251658240.0,
+     "dram_read": 150994944.0,
+     "dram_write": 100663296,
+     "l2_read": 1711276032.0,
+     "l2_served": 1811939328.0,
+     "l2_write": 100663296
+    }
+   },
+   "family": "attnnm",
+   "kernel_group": "prosp_attention_no_max",
+   "proposed": {
+    "energy_static_j": 0.31173980612195334,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0005195663435365889,
+    "traffic_bytes": {
+     "dram": 251658240.0,
+     "dram_read": 150994944.0,
+     "dram_write": 100663296,
+     "l2_read": 1711276032.0,
+     "l2_served": 1811939328.0,
+     "l2_write": 100663296
+    }
+   },
+   "regime": "large",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/prosp_attention_no_max/large/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.20150637034626426,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0003358439505771071,
+    "traffic_bytes": {
+     "dram": 251658240.0,
+     "dram_read": 150994944.0,
+     "dram_write": 100663296,
+     "l2_read": 888260788.224,
+     "l2_served": 988924084.224,
+     "l2_write": 100663296
+    }
+   },
+   "family": "attnnm",
+   "kernel_group": "prosp_attention_no_max",
+   "proposed": {
+    "energy_static_j": 0.2595196392970238,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.00043253273216170633,
+    "traffic_bytes": {
+     "dram": 251658240.0,
+     "dram_read": 150994944.0,
+     "dram_write": 100663296,
+     "l2_read": 888260788.224,
+     "l2_served": 988924084.224,
+     "l2_write": 100663296
+    }
+   },
+   "regime": "large",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/prosp_attention_no_max/medium/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.046220037087160944,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 7.703339514526824e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 320864256.0,
+     "l2_served": 339738624.0,
+     "l2_write": 18874368
+    }
+   },
+   "family": "attnnm",
+   "kernel_group": "prosp_attention_no_max",
+   "proposed": {
+    "energy_static_j": 0.06093928766184914,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.00010491840526511391,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 320864256.0,
+     "l2_served": 339738624.0,
+     "l2_write": 18874368
+    }
+   },
+   "regime": "medium",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_attention_no_max/medium/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.03496226282792764,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 5.827043804654607e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 166548897.792,
+     "l2_served": 185423265.792,
+     "l2_write": 18874368
+    }
+   },
+   "family": "attnnm",
+   "kernel_group": "prosp_attention_no_max",
+   "proposed": {
+    "energy_static_j": 0.050309871730566086,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 9.489015439158094e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 166548897.792,
+     "l2_served": 185423265.792,
+     "l2_write": 18874368
+    }
+   },
+   "regime": "medium",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_attention_no_max/small/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.01202011046871448,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 2.0033517447857467e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 80811250.4832,
+     "l2_served": 87102706.4832,
+     "l2_write": 6291456
+    }
+   },
+   "family": "attnnm",
+   "kernel_group": "prosp_attention_no_max",
+   "proposed": {
+    "energy_static_j": 0.016613745551989113,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 3.515756331760836e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 80811250.4832,
+     "l2_served": 87102706.4832,
+     "l2_write": 6291456
+    }
+   },
+   "regime": "small",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_attention_no_max/small/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.009247412607840611,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 1.5412354346401018e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 42597246.5664,
+     "l2_served": 48888702.5664,
+     "l2_write": 6291456
+    }
+   },
+   "family": "attnnm",
+   "kernel_group": "prosp_attention_no_max",
+   "proposed": {
+    "energy_static_j": 0.014419475760556173,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 3.590240155853143e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 42597246.5664,
+     "l2_served": 48888702.5664,
+     "l2_write": 6291456
+    }
+   },
+   "regime": "small",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_fused_attention_new_blocks/large/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.3806424641102259,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0006344041068503765,
+    "traffic_bytes": {
+     "dram": 251658240.0,
+     "dram_read": 150994944.0,
+     "dram_write": 100663296,
+     "l2_read": 3321888768.0,
+     "l2_served": 3422552064.0,
+     "l2_write": 100663296
+    }
+   },
+   "family": "attn2",
+   "kernel_group": "prosp_fused_attention_new_blocks",
+   "proposed": {
+    "energy_static_j": 0.44849389177659565,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0007474898196276594,
+    "traffic_bytes": {
+     "dram": 251658240.0,
+     "dram_read": 150994944.0,
+     "dram_write": 100663296,
+     "l2_read": 3321888768.0,
+     "l2_served": 3422552064.0,
+     "l2_write": 100663296
+    }
+   },
+   "regime": "large",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/prosp_fused_attention_new_blocks/large/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.21022058668644095,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0003503676444774016,
+    "traffic_bytes": {
+     "dram": 251658240.0,
+     "dram_read": 150994944.0,
+     "dram_write": 100663296,
+     "l2_read": 476516135.7312,
+     "l2_served": 577179431.7312,
+     "l2_write": 100663296
+    }
+   },
+   "family": "attn2",
+   "kernel_group": "prosp_fused_attention_new_blocks",
+   "proposed": {
+    "energy_static_j": 0.2782334653908607,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.00046372244231810116,
+    "traffic_bytes": {
+     "dram": 251658240.0,
+     "dram_read": 150994944.0,
+     "dram_write": 100663296,
+     "l2_read": 476516135.7312,
+     "l2_served": 577179431.7312,
+     "l2_write": 100663296
+    }
+   },
+   "regime": "large",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/prosp_fused_attention_new_blocks/medium/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.0690177699326356,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.00011502961655439266,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 622854144.0,
+     "l2_served": 641728512.0,
+     "l2_write": 18874368
+    }
+   },
+   "family": "attn2",
+   "kernel_group": "prosp_fused_attention_new_blocks",
+   "proposed": {
+    "energy_static_j": 0.08571985027833029,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0001428664171305505,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 622854144.0,
+     "l2_served": 641728512.0,
+     "l2_write": 18874368
+    }
+   },
+   "regime": "medium",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_fused_attention_new_blocks/medium/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.030456221891570424,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 5.076036981928404e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 89346775.4496,
+     "l2_served": 108221143.4496,
+     "l2_write": 18874368
+    }
+   },
+   "family": "attn2",
+   "kernel_group": "prosp_fused_attention_new_blocks",
+   "proposed": {
+    "energy_static_j": 0.04630699119206597,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 8.521247605987905e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 89346775.4496,
+     "l2_served": 108221143.4496,
+     "l2_write": 18874368
+    }
+   },
+   "regime": "medium",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_fused_attention_new_blocks/small/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.017682725510310082,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 2.9471209183850136e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 157184942.8992,
+     "l2_served": 163476398.8992,
+     "l2_write": 6291456
+    }
+   },
+   "family": "attn2",
+   "kernel_group": "prosp_fused_attention_new_blocks",
+   "proposed": {
+    "energy_static_j": 0.02273712964624578,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 4.1703140511769826e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 157184942.8992,
+     "l2_served": 163476398.8992,
+     "l2_write": 6291456
+    }
+   },
+   "regime": "small",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_fused_attention_new_blocks/small/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.01234762509045282,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 2.574647998554664e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 23189363.097599998,
+     "l2_served": 29480819.097599998,
+     "l2_write": 6291456
+    }
+   },
+   "family": "attn2",
+   "kernel_group": "prosp_fused_attention_new_blocks",
+   "proposed": {
+    "energy_static_j": 0.01341664883431627,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 3.3518856555246016e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 23189363.097599998,
+     "l2_served": 29480819.097599998,
+     "l2_write": 6291456
+    }
+   },
+   "regime": "small",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_tensor_matmul_bias_relu/large/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.2548116652647443,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.00042468610877457384,
+    "traffic_bytes": {
+     "dram": 293634048.0,
+     "dram_read": 25198592.0,
+     "dram_write": 268435456,
+     "l2_read": 1617825363.968,
+     "l2_served": 1886260819.968,
+     "l2_write": 268435456
+    }
+   },
+   "family": "tcrelu",
+   "kernel_group": "prosp_tensor_matmul_bias_relu",
+   "proposed": {
+    "energy_static_j": 0.2636935191137504,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.00043948919852291734,
+    "traffic_bytes": {
+     "dram": 293634048.0,
+     "dram_read": 25198592.0,
+     "dram_write": 268435456,
+     "l2_read": 1617825363.968,
+     "l2_served": 1886260819.968,
+     "l2_write": 268435456
+    }
+   },
+   "regime": "large",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/prosp_tensor_matmul_bias_relu/large/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.3441921262002907,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0005736535436671512,
+    "traffic_bytes": {
+     "dram": 293634048.0,
+     "dram_read": 25198592.0,
+     "dram_write": 268435456,
+     "l2_read": 3238002688.0,
+     "l2_served": 3506438144.0,
+     "l2_write": 268435456
+    }
+   },
+   "family": "tcrelu",
+   "kernel_group": "prosp_tensor_matmul_bias_relu",
+   "proposed": {
+    "energy_static_j": 0.3496846652319872,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0005828077753866454,
+    "traffic_bytes": {
+     "dram": 293634048.0,
+     "dram_read": 25198592.0,
+     "dram_write": 268435456,
+     "l2_read": 3238002688.0,
+     "l2_served": 3506438144.0,
+     "l2_write": 268435456
+    }
+   },
+   "regime": "large",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/prosp_tensor_matmul_bias_relu/medium/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.035863853855772496,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 5.977308975962082e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 303169536.0,
+     "l2_served": 340918272.0,
+     "l2_write": 37748736
+    }
+   },
+   "family": "tcrelu",
+   "kernel_group": "prosp_tensor_matmul_bias_relu",
+   "proposed": {
+    "energy_static_j": 0.04714113596135694,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 7.85685599355949e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 303169536.0,
+     "l2_served": 340918272.0,
+     "l2_write": 37748736
+    }
+   },
+   "regime": "medium",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_tensor_matmul_bias_relu/medium/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.049232699198612354,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 8.205449866435392e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 606339072.0,
+     "l2_served": 644087808.0,
+     "l2_write": 37748736
+    }
+   },
+   "family": "tcrelu",
+   "kernel_group": "prosp_tensor_matmul_bias_relu",
+   "proposed": {
+    "energy_static_j": 0.05076591792632702,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 8.460986321054504e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 606339072.0,
+     "l2_served": 644087808.0,
+     "l2_write": 37748736
+    }
+   },
+   "regime": "medium",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_tensor_matmul_bias_relu/small/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.014728456905499773,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 4.490751503140233e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 67239936.0,
+     "l2_served": 71434240.0,
+     "l2_write": 4194304
+    }
+   },
+   "family": "tcrelu",
+   "kernel_group": "prosp_tensor_matmul_bias_relu",
+   "proposed": {
+    "energy_static_j": 0.015536884739041648,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 5.0785219420834755e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 67239936.0,
+     "l2_served": 71434240.0,
+     "l2_write": 4194304
+    }
+   },
+   "regime": "small",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_tensor_matmul_bias_relu/small/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.01219632279249422,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 2.0327204654157035e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 134479872.0,
+     "l2_served": 138674176.0,
+     "l2_write": 4194304
+    }
+   },
+   "family": "tcrelu",
+   "kernel_group": "prosp_tensor_matmul_bias_relu",
+   "proposed": {
+    "energy_static_j": 0.01646797956043072,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 2.764812394149005e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 134479872.0,
+     "l2_served": 138674176.0,
+     "l2_write": 4194304
+    }
+   },
+   "regime": "small",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_tensor_matmul_new_tiles/large/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.29517267516668,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0004919544586111333,
+    "traffic_bytes": {
+     "dram": 293601280.0,
+     "dram_read": 25165824.0,
+     "dram_write": 268435456,
+     "l2_read": 2415919104.0,
+     "l2_served": 2684354560.0,
+     "l2_write": 268435456
+    }
+   },
+   "family": "tcgemm2",
+   "kernel_group": "prosp_tensor_matmul_new_tiles",
+   "proposed": {
+    "energy_static_j": 0.30218020023546294,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0005036336670591049,
+    "traffic_bytes": {
+     "dram": 293601280.0,
+     "dram_read": 25165824.0,
+     "dram_write": 268435456,
+     "l2_read": 2415919104.0,
+     "l2_served": 2684354560.0,
+     "l2_write": 268435456
+    }
+   },
+   "regime": "large",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/prosp_tensor_matmul_new_tiles/large/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.27264091868597806,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.0004544015311432968,
+    "traffic_bytes": {
+     "dram": 293601280.0,
+     "dram_read": 25165824.0,
+     "dram_write": 268435456,
+     "l2_read": 1207959552.0,
+     "l2_served": 1476395008.0,
+     "l2_write": 268435456
+    }
+   },
+   "family": "tcgemm2",
+   "kernel_group": "prosp_tensor_matmul_new_tiles",
+   "proposed": {
+    "energy_static_j": 0.2871246277197132,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 0.00047854104619952204,
+    "traffic_bytes": {
+     "dram": 293601280.0,
+     "dram_read": 25165824.0,
+     "dram_write": 268435456,
+     "l2_read": 1207959552.0,
+     "l2_served": 1476395008.0,
+     "l2_write": 268435456
+    }
+   },
+   "regime": "large",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/prosp_tensor_matmul_new_tiles/medium/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.040167038065883634,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 6.694506344313939e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 452984832.0,
+     "l2_served": 490733568.0,
+     "l2_write": 37748736
+    }
+   },
+   "family": "tcgemm2",
+   "kernel_group": "prosp_tensor_matmul_new_tiles",
+   "proposed": {
+    "energy_static_j": 0.04700373178555211,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 7.833955297592018e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 452984832.0,
+     "l2_served": 490733568.0,
+     "l2_write": 37748736
+    }
+   },
+   "regime": "medium",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_tensor_matmul_new_tiles/medium/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.03697237677228325,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 6.162062795380542e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 226492416.0,
+     "l2_served": 264241152.0,
+     "l2_write": 37748736
+    }
+   },
+   "family": "tcgemm2",
+   "kernel_group": "prosp_tensor_matmul_new_tiles",
+   "proposed": {
+    "energy_static_j": 0.04675545041798292,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 7.905639947870287e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 226492416.0,
+     "l2_served": 264241152.0,
+     "l2_write": 37748736
+    }
+   },
+   "regime": "medium",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_tensor_matmul_new_tiles/small/c1": {
+   "candidate": "c1",
+   "current": {
+    "energy_static_j": 0.01497886990891105,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 3.220841482140952e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 100663296.0,
+     "l2_served": 104857600.0,
+     "l2_write": 4194304
+    }
+   },
+   "family": "tcgemm2",
+   "kernel_group": "prosp_tensor_matmul_new_tiles",
+   "proposed": {
+    "energy_static_j": 0.015439079223749454,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 3.5554383623636904e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 100663296.0,
+     "l2_served": 104857600.0,
+     "l2_write": 4194304
+    }
+   },
+   "regime": "small",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/prosp_tensor_matmul_new_tiles/small/c2": {
+   "candidate": "c2",
+   "current": {
+    "energy_static_j": 0.018499780209296168,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 7.878982291120593e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 50331648.0,
+     "l2_served": 54525952.0,
+     "l2_write": 4194304
+    }
+   },
+   "family": "tcgemm2",
+   "kernel_group": "prosp_tensor_matmul_new_tiles",
+   "proposed": {
+    "energy_static_j": 0.01935533432571172,
+    "energy_status": "ok",
+    "refusal": null,
+    "runtime_s": 8.501016067892108e-05,
+    "traffic_bytes": {
+     "dram": 0.0,
+     "dram_read": 0.0,
+     "dram_write": 0.0,
+     "l2_read": 50331648.0,
+     "l2_served": 54525952.0,
+     "l2_write": 4194304
+    }
+   },
+   "regime": "small",
+   "status": "ok",
+   "tier": "L2"
+  }
+ },
+ "schema": "prospective_prediction_freeze/1"
+}

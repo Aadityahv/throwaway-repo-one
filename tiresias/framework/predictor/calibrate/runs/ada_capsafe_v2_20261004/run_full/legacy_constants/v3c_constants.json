@@ -1,0 +1,33 @@
+{
+ "linear_region_points": {
+  "DRAM": [
+   0.463,
+   0.53,
+   0.828,
+   0.49,
+   0.817,
+   0.804,
+   0.499,
+   0.819,
+   0.804,
+   0.818
+  ],
+  "L2": [
+   0.277,
+   0.295,
+   0.328,
+   0.293,
+   0.324,
+   0.337,
+   0.294,
+   0.328,
+   0.324,
+   0.331
+  ]
+ },
+ "rule": "per phase with global loads: read bytes / (active SMs x in-flight bytes per SM / service latency) is a lower bound on the stream stage; in-flight per SM = resident warps x (read bytes per load request) x min(loads per warp / dependent load depth, 1 or more)",
+ "service_latency_us": {
+  "DRAM": 0.8041699218749998,
+  "L2": 0.32375000000000004
+ }
+}

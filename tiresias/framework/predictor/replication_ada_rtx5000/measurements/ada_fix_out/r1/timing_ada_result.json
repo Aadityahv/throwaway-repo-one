@@ -1,0 +1,468 @@
+{
+ "cells": [
+  {
+   "argv": [
+    "sgemm",
+    "0",
+    "1280",
+    "1280",
+    "512"
+   ],
+   "calibration_per_launch_s": 7.8352e-05,
+   "cell_id": "ada/validation_fp32_matmul/v1/c1",
+   "check": "CHECK_OK sgemm variant=0 M=1280 N=1280 K=512 checked=4160 bad=0 first_bad=-1 worst=1.81e-07 repeat=1280 graph_batch=64",
+   "correct": true,
+   "graph_batch": 64,
+   "per_launch_max_s": 8.44312015625e-05,
+   "per_launch_min_s": 8.165990078125e-05,
+   "per_launch_runtime_s": 8.40344015625e-05,
+   "probe_per_launch_s": 7.872e-05,
+   "repeat_per_window": 1280,
+   "set": "validation",
+   "window_per_launch_s": [
+    8.179519765625e-05,
+    8.40344015625e-05,
+    8.418239921875e-05,
+    8.165990078125e-05,
+    8.44312015625e-05
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "1",
+    "1280",
+    "1280",
+    "512"
+   ],
+   "calibration_per_launch_s": 9.070603636363637e-05,
+   "cell_id": "ada/validation_fp32_matmul/v1/c2",
+   "check": "CHECK_OK sgemm variant=1 M=1280 N=1280 K=512 checked=4160 bad=0 first_bad=-1 worst=1.81e-07 repeat=1155 graph_batch=55",
+   "correct": true,
+   "graph_batch": 55,
+   "per_launch_max_s": 9.483215238095238e-05,
+   "per_launch_min_s": 9.235770476190476e-05,
+   "per_launch_runtime_s": 9.433655151515151e-05,
+   "probe_per_launch_s": 9.0976e-05,
+   "repeat_per_window": 1155,
+   "set": "validation",
+   "window_per_launch_s": [
+    9.235770476190476e-05,
+    9.433655151515151e-05,
+    9.468054805194806e-05,
+    9.241251082251082e-05,
+    9.483215238095238e-05
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "0",
+    "6144",
+    "2560"
+   ],
+   "calibration_per_launch_s": 0.00025589760000000003,
+   "cell_id": "ada/validation_rmsnorm/v6/c1",
+   "check": "CHECK_OK rmsnorm variant=0 rows=6144 cols=2560 checked=161280 bad=0 first_bad=-1 worst=0.00252 repeat=400 graph_batch=20",
+   "correct": true,
+   "graph_batch": 20,
+   "per_launch_max_s": 0.00025610241,
+   "per_launch_min_s": 0.0002558279225,
+   "per_launch_runtime_s": 0.00025606654999999997,
+   "probe_per_launch_s": 0.000256128,
+   "repeat_per_window": 400,
+   "set": "validation",
+   "window_per_launch_s": [
+    0.0002560972775,
+    0.00025606654999999997,
+    0.00025610241,
+    0.0002559351925,
+    0.0002558279225
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "1",
+    "6144",
+    "2560"
+   ],
+   "calibration_per_launch_s": 0.0002566144,
+   "cell_id": "ada/validation_rmsnorm/v6/c2",
+   "check": "CHECK_OK rmsnorm variant=1 rows=6144 cols=2560 checked=161280 bad=0 first_bad=-1 worst=0.00252 repeat=400 graph_batch=20",
+   "correct": true,
+   "graph_batch": 20,
+   "per_launch_max_s": 0.00025655807499999996,
+   "per_launch_min_s": 0.0002557209575,
+   "per_launch_runtime_s": 0.000256081925,
+   "probe_per_launch_s": 0.000253564,
+   "repeat_per_window": 400,
+   "set": "validation",
+   "window_per_launch_s": [
+    0.0002562483225,
+    0.000256081925,
+    0.0002559692775,
+    0.00025655807499999996,
+    0.0002557209575
+   ]
+  },
+  {
+   "argv": [
+    "768",
+    "20480",
+    "64"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "ada/validation_scalar_product/v4/c1",
+   "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 22,
+   "launches": 132,
+   "operator_id": "validation_scalar_product",
+   "per_launch_max_s": 0.00023705599242424243,
+   "per_launch_min_s": 0.00023698472727272726,
+   "per_launch_runtime_s": 0.0002369939318181818,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.00023712,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 22,
+     "per_launch_s": 0.00023700945454545452,
+     "rc": 0,
+     "repeat": 22
+    }
+   ],
+   "regime": "v4",
+   "repeat": 132,
+   "set": "set_e",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "cuda_seconds": 0.031283199,
+     "error": null,
+     "host_begin_monotonic_ns": 4990480964544080,
+     "host_end_monotonic_ns": 4990480995834446,
+     "launches": 132,
+     "per_launch_s": 0.0002369939318181818,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "cuda_seconds": 0.031281984,
+     "error": null,
+     "host_begin_monotonic_ns": 4990481363373884,
+     "host_end_monotonic_ns": 4990481394662254,
+     "launches": 132,
+     "per_launch_s": 0.00023698472727272726,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "cuda_seconds": 0.031291391,
+     "error": null,
+     "host_begin_monotonic_ns": 4990481760161996,
+     "host_end_monotonic_ns": 4990481791459333,
+     "launches": 132,
+     "per_launch_s": 0.00023705599242424243,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "768",
+    "20480",
+    "128"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "ada/validation_scalar_product/v4/c2",
+   "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 22,
+   "launches": 132,
+   "operator_id": "validation_scalar_product",
+   "per_launch_max_s": 0.0002371646136363636,
+   "per_launch_min_s": 0.00023713333333333331,
+   "per_launch_runtime_s": 0.00023713357575757578,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000237234,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 22,
+     "per_launch_s": 0.00023719563636363637,
+     "rc": 0,
+     "repeat": 22
+    }
+   ],
+   "regime": "v4",
+   "repeat": 132,
+   "set": "set_e",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "cuda_seconds": 0.031301632,
+     "error": null,
+     "host_begin_monotonic_ns": 4990482955001262,
+     "host_end_monotonic_ns": 4990482986309695,
+     "launches": 132,
+     "per_launch_s": 0.00023713357575757578,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "cuda_seconds": 0.0313016,
+     "error": null,
+     "host_begin_monotonic_ns": 4990483403424634,
+     "host_end_monotonic_ns": 4990483434732513,
+     "launches": 132,
+     "per_launch_s": 0.00023713333333333331,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "cuda_seconds": 0.031305729,
+     "error": null,
+     "host_begin_monotonic_ns": 4990483846465297,
+     "host_end_monotonic_ns": 4990483877777646,
+     "launches": 132,
+     "per_launch_s": 0.0002371646136363636,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "3712",
+    "2560"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "ada/validation_separable_convolution/v5/c1",
+   "check": "CHECK_OK conv W=3712 H=2560 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 21,
+   "launches": 126,
+   "operator_id": "validation_separable_convolution",
+   "per_launch_max_s": 0.00024961219047619045,
+   "per_launch_min_s": 0.00024697904761904763,
+   "per_launch_runtime_s": 0.0002471880714285714,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.00024704,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 21,
+     "per_launch_s": 0.000246784,
+     "rc": 0,
+     "repeat": 21
+    }
+   ],
+   "regime": "v5",
+   "repeat": 126,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=3712 H=2560 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "cuda_seconds": 0.031451136,
+     "error": null,
+     "host_begin_monotonic_ns": 4990476380554900,
+     "host_end_monotonic_ns": 4990476412013465,
+     "launches": 126,
+     "per_launch_s": 0.00024961219047619045,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=3712 H=2560 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "cuda_seconds": 0.031145697,
+     "error": null,
+     "host_begin_monotonic_ns": 4990476838989229,
+     "host_end_monotonic_ns": 4990476870142119,
+     "launches": 126,
+     "per_launch_s": 0.0002471880714285714,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=3712 H=2560 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "cuda_seconds": 0.03111936,
+     "error": null,
+     "host_begin_monotonic_ns": 4990477295346386,
+     "host_end_monotonic_ns": 4990477326472425,
+     "launches": 126,
+     "per_launch_s": 0.00024697904761904763,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "2560",
+    "3712"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "ada/validation_separable_convolution/v5/c2",
+   "check": "CHECK_OK conv W=2560 H=3712 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 21,
+   "launches": 126,
+   "operator_id": "validation_separable_convolution",
+   "per_launch_max_s": 0.0002470603253968254,
+   "per_launch_min_s": 0.000246872126984127,
+   "per_launch_runtime_s": 0.0002470349206349206,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000246966,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 21,
+     "per_launch_s": 0.000247072,
+     "rc": 0,
+     "repeat": 21
+    }
+   ],
+   "regime": "v5",
+   "repeat": 126,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=2560 H=3712 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "cuda_seconds": 0.031105888,
+     "error": null,
+     "host_begin_monotonic_ns": 4990478670687132,
+     "host_end_monotonic_ns": 4990478701799428,
+     "launches": 126,
+     "per_launch_s": 0.000246872126984127,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=2560 H=3712 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "cuda_seconds": 0.0311264,
+     "error": null,
+     "host_begin_monotonic_ns": 4990479123123563,
+     "host_end_monotonic_ns": 4990479154255708,
+     "launches": 126,
+     "per_launch_s": 0.0002470349206349206,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=2560 H=3712 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "cuda_seconds": 0.031129601,
+     "error": null,
+     "host_begin_monotonic_ns": 4990479637144577,
+     "host_end_monotonic_ns": 4990479668280231,
+     "launches": 126,
+     "per_launch_s": 0.0002470603253968254,
+     "rc": 0
+    }
+   ]
+  }
+ ],
+ "engines": {
+  "fresh": {
+   "file": "timing_fresh_engine.json",
+   "rc": 0,
+   "wall_s": 13.4
+  },
+  "set_e": {
+   "file": "timing_set_e_engine.json",
+   "rc": 0,
+   "wall_s": 4.1
+  },
+  "unseen": {
+   "file": "timing_unseen_engine.json",
+   "rc": 0,
+   "wall_s": 4.7
+  }
+ },
+ "gate_refused_cells": [],
+ "meta": {
+  "board_matches_calibration": true,
+  "booking_ref": "BOOKING Ada GPU 0, missing measurements of the booked evaluation (ada_eval_main_20261004 scope), commit dcc9cc7 (r1_validation)",
+  "cells_sha256": {
+   "cells_ada_ml.json": "10356e6c080abaf834631723ceb0a8171ebe1e69236cbac97e96423fa5381651",
+   "cells_ada_prospective.json": "797db82876d450ea44548bf142be34ed2784d7555f8b34b96b94997f9d25bb35",
+   "cells_ada_samples.json": "12a635d6cc9fbc638df79db76c0241df9d056d0b639c5c80860d7e9ea1bdd30f",
+   "cells_ada_tensor.json": "1f8b6b0682d5b70d343b82b6aabcebfe3c40a06f2efc89e100288f6d0a72a64f",
+   "cells_ada_validation.json": "4498f7c2f9938d4390882e3a349e39bc32df0e4be2207309afc4040fb771a8a3"
+  },
+  "enforced_power_limit_w": 250.0,
+  "engines": "all",
+  "freeze": {
+   "ancestry": "ancestry not verified by git (no git here): relied on the recorded freeze commit a6b1e1674ffe and the matching sha256",
+   "calibration": "499c697a0aec43fbb3c47f15203020613a003510cd00c1fb1daef1e5a2b4808e",
+   "calibration_uuid": "GPU-4640d904-c754-5243-df67-37761e91b400",
+   "freeze_commit": "a6b1e1674ffe0e9586998dee1f91df6e9d1ed94c",
+   "hipc_commit": "dcc9cc706e09f8550ed00973e9876c793735ae3f",
+   "predictions_sha256": "005e3b1333cdbdebc0160d6a7a88c4d1362331a6e4b12ca69e0c0e6c2f977eef",
+   "profile": "main"
+  },
+  "gpu": {
+   "index": 0,
+   "name": "NVIDIA RTX 5000 Ada Generation",
+   "uuid": "GPU-4640d904-c754-5243-df67-37761e91b400",
+   "visible_gpus": 1
+  },
+  "hipc_commit": "dcc9cc706e09f8550ed00973e9876c793735ae3f",
+  "measure": "both",
+  "profile": "main",
+  "samples": {
+   "files_verified": 1442,
+   "manifest": "tiresias/app_runners/app_source_manifests/cuda-samples-5443602_ada_MANIFEST.sha256",
+   "manifest_sha256": "e2d4ec6aecae4e6d33c3764e8c46c285ffba5afd9e7606ff1b580183d125150d",
+   "root": "/tmp/adasamples_20261004",
+   "source_rev": null
+  },
+  "schema": "ada_eval_measure/1",
+  "timing_reused": null,
+  "tolerated_display_contexts": [
+   "GPU-4640d904-c754-5243-df67-37761e91b400, 1919421, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration"
+  ],
+  "window_validation": {
+   "note": "frozen 15 s default (FREEZE.md section 6); no Ada power-sensor result exists; per-window admission recorded by the harness gate",
+   "padding_s": 0,
+   "window_s": 15.0
+  }
+ },
+ "note": "per_launch_runtime_s: median over windows of cuda_seconds / launches; a cell with correct=false is excluded from the criteria and listed",
+ "schema": "ada_timing/1"
+}

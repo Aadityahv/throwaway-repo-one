@@ -1,0 +1,3019 @@
+{
+  "inputs_sha256": {
+    "tiresias/framework/evaluation_data/measured/kernel_sets/materialize_runtime.py": "3a1cc0c9d8e7b15c23ebc017ae4a85ee9e746e649c80264bb5ad8ee82768f550",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/predictions_static.json": "269145d87e15f80ca1b12a960bec67e601fe0d818e004fa6ad0679850bb751dc",
+    "tiresias/framework/predictor/bank/energy_predictions_unseen_v3i.json": "522c3a9f94fe6191454b7988346473302e0ef73f60017ff0f215bae7d109773e",
+    "tiresias/framework/predictor/bank/predictions_unseen_v3i.json": "3794e57f1d39ff3a8cb9e91b3d6db8a121328cb6d5d5297191612813e6fff828",
+    "tiresias/framework/predictor/fresh_e/energy_predictions_fresh_e.json": "c20a242c59947d5b384e269f438f2c3ed730cfd1c7dddd062db31d56df54b9fc",
+    "tiresias/framework/predictor/fresh_e/predictions_fresh_e_v3i.json": "6fcf4a7d571b001782268190c17ed356d8faa305cbafdb2312363eda71ff1708",
+    "tiresias/framework/predictor/fresh_e/timing_fresh_e_result.json": "2a492899b2e53a0336d8011a710dba75274f2ffbb625eb83644803837383ab96",
+    "tiresias/framework/predictor/unseen_kernels/measured/timing_unseen_result.json": "b3448480b554fb4ca8cbaa5958987407c23a367e9c63830b2ff9f24938558823"
+  },
+  "methods": {
+    "alavani_measured": {
+      "name": "Alavani static-feature power with measured runtime",
+      "role": "published adaptation",
+      "track": "P"
+    },
+    "alavani_predicted": {
+      "name": "Alavani static-feature power with our predicted runtime",
+      "role": "published hybrid adaptation",
+      "track": "S"
+    },
+    "component_measured": {
+      "name": "AccelWattch-style component model with measured runtime",
+      "role": "published re-implementation",
+      "track": "P"
+    },
+    "component_predicted": {
+      "name": "AccelWattch-style component model with our predicted runtime",
+      "role": "published hybrid re-implementation",
+      "track": "S"
+    },
+    "delestrac": {
+      "name": "Delestrac published A100 per-level coefficients",
+      "role": "published scope mismatch",
+      "track": "S"
+    },
+    "flipflop_measured": {
+      "name": "FlipFlop power with measured runtime",
+      "role": "published adaptation",
+      "track": "P"
+    },
+    "flipflop_predicted": {
+      "name": "FlipFlop power with our predicted runtime",
+      "role": "published hybrid adaptation",
+      "track": "S"
+    },
+    "flipflop_static": {
+      "name": "FlipFlop published equations, cached device",
+      "role": "published",
+      "track": "S"
+    },
+    "literature": {
+      "name": "O'Connor / Keckler literature movement constants",
+      "role": "published scope mismatch",
+      "track": "S"
+    },
+    "ours_measured": {
+      "name": "Decomposed energy with measured runtime (our ablation)",
+      "role": "ablation",
+      "track": "P"
+    },
+    "ours_static": {
+      "name": "Static runtime plus decomposed energy (our model)",
+      "role": "ours",
+      "track": "S"
+    }
+  },
+  "note": "Target runtime inputs opened only after the complete static baseline forms/predictions were pushed. Energy labels remain unopened; publish this materialization before scoring.",
+  "rows": {
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.006513302415117925,
+        "alavani_predicted": 0.006902766290681056,
+        "component_measured": 0.04519957014925373,
+        "component_predicted": 0.04713509384527799,
+        "delestrac": 0.0054022635519999996,
+        "flipflop_measured": 0.04383957949921425,
+        "flipflop_predicted": 0.04638395494838112,
+        "flipflop_static": 10.970135958380526,
+        "literature": 0.0008267812044800001,
+        "ours_measured": 0.04519957014925373,
+        "ours_static": 0.04790228509202324
+      },
+      "family": "fast Walsh transform",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.005001230824211444,
+            "power_w": 580.6818380622996,
+            "runtime_s": 8.612686838803588e-06
+          },
+          {
+            "energy_j": 0.005001230824211444,
+            "power_w": 580.6818380622996,
+            "runtime_s": 8.612686838803588e-06
+          },
+          {
+            "energy_j": 0.005001230824211444,
+            "power_w": 580.6818380622996,
+            "runtime_s": 8.612686838803588e-06
+          },
+          {
+            "energy_j": 0.005001230824211444,
+            "power_w": 580.6818380622996,
+            "runtime_s": 8.612686838803588e-06
+          },
+          {
+            "energy_j": 0.005001230824211444,
+            "power_w": 580.6818380622996,
+            "runtime_s": 8.612686838803588e-06
+          },
+          {
+            "energy_j": 0.005001230824211444,
+            "power_w": 580.6818380622996,
+            "runtime_s": 8.612686838803588e-06
+          },
+          {
+            "energy_j": 0.01383219455394559,
+            "power_w": 584.7102048667639,
+            "runtime_s": 2.3656495882601347e-05
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.005292011906996611,
+            "power_w": 579.7759949219986,
+            "runtime_s": 9.127683714653593e-06
+          },
+          {
+            "energy_j": 0.005292011906996611,
+            "power_w": 579.7759949219986,
+            "runtime_s": 9.127683714653593e-06
+          },
+          {
+            "energy_j": 0.005292011906996611,
+            "power_w": 579.7759949219986,
+            "runtime_s": 9.127683714653593e-06
+          },
+          {
+            "energy_j": 0.005292011906996611,
+            "power_w": 579.7759949219986,
+            "runtime_s": 9.127683714653593e-06
+          },
+          {
+            "energy_j": 0.005292011906996611,
+            "power_w": 579.7759949219986,
+            "runtime_s": 9.127683714653593e-06
+          },
+          {
+            "energy_j": 0.005292011906996611,
+            "power_w": 579.7759949219986,
+            "runtime_s": 9.127683714653593e-06
+          },
+          {
+            "energy_j": 0.014631883506401459,
+            "power_w": 583.6169452669616,
+            "runtime_s": 2.5071039532117174e-05
+          }
+        ]
+      },
+      "measured_runtime_s": 7.533261691542288e-05,
+      "native_power_w": {
+        "alavani_measured": 86.46058881016323,
+        "alavani_predicted": 86.46058881016323,
+        "component_measured": 600.0,
+        "component_predicted": 590.3905471907476,
+        "flipflop_measured": 581.94685508448,
+        "flipflop_predicted": 580.9821580654203,
+        "flipflop_static": 564.9151202654141
+      },
+      "predicted_runtime_s": 7.983714182003873e-05,
+      "regime": "large",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.006211150838339432,
+        "alavani_predicted": 0.00663954687207935,
+        "component_measured": 0.043102765714285715,
+        "component_predicted": 0.04607565340544307,
+        "delestrac": 0.0054022635519999996,
+        "flipflop_measured": 0.041727908675763384,
+        "flipflop_predicted": 0.04451750231932224,
+        "flipflop_static": 10.894062860152786,
+        "literature": 0.0008267812044800001,
+        "ours_measured": 0.043102765714285715,
+        "ours_static": 0.04607565340544307
+      },
+      "family": "fast Walsh transform",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.004792795263362464,
+            "power_w": 581.4008001607987,
+            "runtime_s": 8.243530559360969e-06
+          },
+          {
+            "energy_j": 0.004792795263362464,
+            "power_w": 581.4008001607987,
+            "runtime_s": 8.243530559360969e-06
+          },
+          {
+            "energy_j": 0.004792795263362464,
+            "power_w": 581.4008001607987,
+            "runtime_s": 8.243530559360969e-06
+          },
+          {
+            "energy_j": 0.004792795263362464,
+            "power_w": 581.4008001607987,
+            "runtime_s": 8.243530559360969e-06
+          },
+          {
+            "energy_j": 0.004792795263362464,
+            "power_w": 581.4008001607987,
+            "runtime_s": 8.243530559360969e-06
+          },
+          {
+            "energy_j": 0.004792795263362464,
+            "power_w": 581.4008001607987,
+            "runtime_s": 8.243530559360969e-06
+          },
+          {
+            "energy_j": 0.012971137095588605,
+            "power_w": 579.670040920011,
+            "runtime_s": 2.2376759500977037e-05
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.005113827150876851,
+            "power_w": 580.3185157759264,
+            "runtime_s": 8.812104063299286e-06
+          },
+          {
+            "energy_j": 0.005113827150876851,
+            "power_w": 580.3185157759264,
+            "runtime_s": 8.812104063299286e-06
+          },
+          {
+            "energy_j": 0.005113827150876851,
+            "power_w": 580.3185157759264,
+            "runtime_s": 8.812104063299286e-06
+          },
+          {
+            "energy_j": 0.005113827150876851,
+            "power_w": 580.3185157759264,
+            "runtime_s": 8.812104063299286e-06
+          },
+          {
+            "energy_j": 0.005113827150876851,
+            "power_w": 580.3185157759264,
+            "runtime_s": 8.812104063299286e-06
+          },
+          {
+            "energy_j": 0.005113827150876851,
+            "power_w": 580.3185157759264,
+            "runtime_s": 8.812104063299286e-06
+          },
+          {
+            "energy_j": 0.013834539414061134,
+            "power_w": 578.3638577438625,
+            "runtime_s": 2.392013129594273e-05
+          }
+        ]
+      },
+      "measured_runtime_s": 7.183794285714286e-05,
+      "native_power_w": {
+        "alavani_measured": 86.46058881016323,
+        "alavani_predicted": 86.46058881016323,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 580.86168696038,
+        "flipflop_predicted": 579.7096604697948,
+        "flipflop_static": 563.0731629404326
+      },
+      "predicted_runtime_s": 7.679275567573845e-05,
+      "regime": "large",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0033676751216047923,
+        "alavani_predicted": 0.003561953868326383,
+        "component_measured": 0.02331560609418598,
+        "component_predicted": 0.02363968097784998,
+        "delestrac": 0.0027011317759999998,
+        "flipflop_measured": 0.02321211074267946,
+        "flipflop_predicted": 0.024477205300246496,
+        "flipflop_static": 5.465394048895835,
+        "literature": 0.00041339060224000003,
+        "ours_measured": 0.023370244186046513,
+        "ours_static": 0.024718456702721534
+      },
+      "family": "fast Walsh transform",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.002663949869621742,
+            "power_w": 595.5392335237484,
+            "runtime_s": 4.473172747762404e-06
+          },
+          {
+            "energy_j": 0.002663949869621742,
+            "power_w": 595.5392335237484,
+            "runtime_s": 4.473172747762404e-06
+          },
+          {
+            "energy_j": 0.002663949869621742,
+            "power_w": 595.5392335237484,
+            "runtime_s": 4.473172747762404e-06
+          },
+          {
+            "energy_j": 0.002663949869621742,
+            "power_w": 595.5392335237484,
+            "runtime_s": 4.473172747762404e-06
+          },
+          {
+            "energy_j": 0.002663949869621742,
+            "power_w": 595.5392335237484,
+            "runtime_s": 4.473172747762404e-06
+          },
+          {
+            "energy_j": 0.002663949869621742,
+            "power_w": 595.5392335237484,
+            "runtime_s": 4.473172747762404e-06
+          },
+          {
+            "energy_j": 0.007228411524949008,
+            "power_w": 596.8285365240849,
+            "runtime_s": 1.2111370490169762e-05
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.002809654156568873,
+            "power_w": 593.8531892406846,
+            "runtime_s": 4.731226854504842e-06
+          },
+          {
+            "energy_j": 0.002809654156568873,
+            "power_w": 593.8531892406846,
+            "runtime_s": 4.731226854504842e-06
+          },
+          {
+            "energy_j": 0.002809654156568873,
+            "power_w": 593.8531892406846,
+            "runtime_s": 4.731226854504842e-06
+          },
+          {
+            "energy_j": 0.002809654156568873,
+            "power_w": 593.8531892406846,
+            "runtime_s": 4.731226854504842e-06
+          },
+          {
+            "energy_j": 0.002809654156568873,
+            "power_w": 593.8531892406846,
+            "runtime_s": 4.731226854504842e-06
+          },
+          {
+            "energy_j": 0.002809654156568873,
+            "power_w": 593.8531892406846,
+            "runtime_s": 4.731226854504842e-06
+          },
+          {
+            "energy_j": 0.007619280360833258,
+            "power_w": 594.7884997652391,
+            "runtime_s": 1.2810066710840175e-05
+          }
+        ]
+      },
+      "measured_runtime_s": 3.895040697674419e-05,
+      "native_power_w": {
+        "alavani_measured": 86.46058881016323,
+        "alavani_predicted": 86.46058881016323,
+        "component_measured": 598.5972395129747,
+        "component_predicted": 573.8144883919202,
+        "flipflop_measured": 595.9401337330963,
+        "flipflop_predicted": 594.1440178395488,
+        "flipflop_static": 563.1418691332219
+      },
+      "predicted_runtime_s": 4.119742783786922e-05,
+      "regime": "medium",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.0036960938932854297,
+        "alavani_predicted": 0.003898082975540528,
+        "component_measured": 0.020587134890017553,
+        "component_predicted": 0.02087004079875108,
+        "delestrac": 0.002315255808,
+        "flipflop_measured": 0.02142532088146724,
+        "flipflop_predicted": 0.0225333665431728,
+        "flipflop_static": 4.874005373862561,
+        "literature": 0.00035433480192,
+        "ours_measured": 0.021536250714285717,
+        "ours_static": 0.022713192546011618
+      },
+      "family": "fast Walsh transform",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0027568095677454134,
+            "power_w": 594.4430048936391,
+            "runtime_s": 4.637634802748964e-06
+          },
+          {
+            "energy_j": 0.0027568095677454134,
+            "power_w": 594.4430048936391,
+            "runtime_s": 4.637634802748964e-06
+          },
+          {
+            "energy_j": 0.0027568095677454134,
+            "power_w": 594.4430048936391,
+            "runtime_s": 4.637634802748964e-06
+          },
+          {
+            "energy_j": 0.0027568095677454134,
+            "power_w": 594.4430048936391,
+            "runtime_s": 4.637634802748964e-06
+          },
+          {
+            "energy_j": 0.0027568095677454134,
+            "power_w": 594.4430048936391,
+            "runtime_s": 4.637634802748964e-06
+          },
+          {
+            "energy_j": 0.007641273042740173,
+            "power_w": 601.4109344622439,
+            "runtime_s": 1.2705577176731372e-05
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.002899910677637503,
+            "power_w": 592.8980069180914,
+            "runtime_s": 4.891078471846043e-06
+          },
+          {
+            "energy_j": 0.002899910677637503,
+            "power_w": 592.8980069180914,
+            "runtime_s": 4.891078471846043e-06
+          },
+          {
+            "energy_j": 0.002899910677637503,
+            "power_w": 592.8980069180914,
+            "runtime_s": 4.891078471846043e-06
+          },
+          {
+            "energy_j": 0.002899910677637503,
+            "power_w": 592.8980069180914,
+            "runtime_s": 4.891078471846043e-06
+          },
+          {
+            "energy_j": 0.002899910677637503,
+            "power_w": 592.8980069180914,
+            "runtime_s": 4.891078471846043e-06
+          },
+          {
+            "energy_j": 0.008033813154985288,
+            "power_w": 599.541491921773,
+            "runtime_s": 1.3399928550789149e-05
+          }
+        ]
+      },
+      "measured_runtime_s": 3.589375119047619e-05,
+      "native_power_w": {
+        "alavani_measured": 102.97318532330291,
+        "alavani_predicted": 102.97318532330291,
+        "component_measured": 573.557630707598,
+        "component_predicted": 551.3106294451541,
+        "flipflop_measured": 596.9094945738659,
+        "flipflop_predicted": 595.249650550678,
+        "flipflop_static": 565.0103065522425
+      },
+      "predicted_runtime_s": 3.7855320910019365e-05,
+      "regime": "medium",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0006956460721910581,
+        "alavani_predicted": 0.0007670634098871324,
+        "component_measured": 0.0016253302005377374,
+        "component_predicted": 0.0017094316165079159,
+        "delestrac": 0.00012058624,
+        "flipflop_measured": 0.004201373887427966,
+        "flipflop_predicted": 0.004529411223917256,
+        "flipflop_static": 1.071352959136748,
+        "literature": 1.8454937600000003e-05,
+        "ours_measured": 0.0017447205374048055,
+        "ours_static": 0.0018336647808293773
+      },
+      "family": "fast Walsh transform",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0006192969744762042,
+            "power_w": 726.9369424273895,
+            "runtime_s": 8.519266779980206e-07
+          },
+          {
+            "energy_j": 0.0006192969744762042,
+            "power_w": 726.9369424273895,
+            "runtime_s": 8.519266779980206e-07
+          },
+          {
+            "energy_j": 0.0006192969744762042,
+            "power_w": 726.9369424273895,
+            "runtime_s": 8.519266779980206e-07
+          },
+          {
+            "energy_j": 0.0006192969744762042,
+            "power_w": 726.9369424273895,
+            "runtime_s": 8.519266779980206e-07
+          },
+          {
+            "energy_j": 0.0017241859895231488,
+            "power_w": 758.7806857087237,
+            "runtime_s": 2.2723113832460137e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0006686801590024355,
+            "power_w": 711.8250860982203,
+            "runtime_s": 9.393883020725243e-07
+          },
+          {
+            "energy_j": 0.0006686801590024355,
+            "power_w": 711.8250860982203,
+            "runtime_s": 9.393883020725243e-07
+          },
+          {
+            "energy_j": 0.0006686801590024355,
+            "power_w": 711.8250860982203,
+            "runtime_s": 9.393883020725243e-07
+          },
+          {
+            "energy_j": 0.0006686801590024355,
+            "power_w": 711.8250860982203,
+            "runtime_s": 9.393883020725243e-07
+          },
+          {
+            "energy_j": 0.0018546905879075137,
+            "power_w": 740.2197944911717,
+            "runtime_s": 2.5055944216979918e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 5.680018095238096e-06,
+      "native_power_w": {
+        "alavani_measured": 122.47250986299858,
+        "alavani_predicted": 122.47250986299858,
+        "component_measured": 286.1487715858424,
+        "component_predicted": 272.93490709417733,
+        "flipflop_measured": 739.6761448612694,
+        "flipflop_predicted": 723.184489892963,
+        "flipflop_static": 563.0750362220517
+      },
+      "predicted_runtime_s": 6.263147629988089e-06,
+      "regime": "small",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.0007260137317753159,
+        "alavani_predicted": 0.0008898558793506246,
+        "component_measured": 0.0013834412396817816,
+        "component_predicted": 0.0015459903515017694,
+        "delestrac": 9.646899199999999e-05,
+        "flipflop_measured": 0.0034733993412367384,
+        "flipflop_predicted": 0.004060192792578872,
+        "flipflop_static": 0.8475682064759846,
+        "literature": 1.476395008e-05,
+        "ours_measured": 0.00153703022690704,
+        "ours_static": 0.0017089394344201633
+      },
+      "family": "fast Walsh transform",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0006331083197793505,
+            "power_w": 722.406677648797,
+            "runtime_s": 8.763876904348613e-07
+          },
+          {
+            "energy_j": 0.0006331083197793505,
+            "power_w": 722.406677648797,
+            "runtime_s": 8.763876904348613e-07
+          },
+          {
+            "energy_j": 0.0006331083197793505,
+            "power_w": 722.406677648797,
+            "runtime_s": 8.763876904348613e-07
+          },
+          {
+            "energy_j": 0.0015740743818986867,
+            "power_w": 665.5614515483265,
+            "runtime_s": 2.365032377155925e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0007447788609378686,
+            "power_w": 693.3559286941354,
+            "runtime_s": 1.0741652737297322e-06
+          },
+          {
+            "energy_j": 0.0007447788609378686,
+            "power_w": 693.3559286941354,
+            "runtime_s": 1.0741652737297322e-06
+          },
+          {
+            "energy_j": 0.0007447788609378686,
+            "power_w": 693.3559286941354,
+            "runtime_s": 1.0741652737297322e-06
+          },
+          {
+            "energy_j": 0.0018258562097652666,
+            "power_w": 629.8753941066701,
+            "runtime_s": 2.898757796936668e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 4.994195448460509e-06,
+      "native_power_w": {
+        "alavani_measured": 145.3715096390779,
+        "alavani_predicted": 145.3715096390779,
+        "component_measured": 277.0098315051398,
+        "component_predicted": 252.56106803414937,
+        "flipflop_measured": 695.4872665841372,
+        "flipflop_predicted": 663.2943259459287,
+        "flipflop_static": 521.178621198954
+      },
+      "predicted_runtime_s": 6.121253618125864e-06,
+      "regime": "small",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.19624168857866722,
+        "alavani_predicted": 0.20283469460762973,
+        "component_measured": 1.3458356772461038,
+        "component_predicted": 1.3614765509569826,
+        "delestrac": 0.31557943296,
+        "flipflop_measured": 1.8199019784643082,
+        "flipflop_predicted": 1.880991673259246,
+        "flipflop_static": 98.53527142150038,
+        "literature": 0.15345918148608,
+        "ours_measured": 1.419609336216834,
+        "ours_static": 1.4361508612632932
+      },
+      "family": "fast Walsh transform",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.1701496391228941,
+            "power_w": 565.0861179776576,
+            "runtime_s": 0.0003011039091383616
+          },
+          {
+            "energy_j": 0.1701496391228941,
+            "power_w": 565.0861179776576,
+            "runtime_s": 0.0003011039091383616
+          },
+          {
+            "energy_j": 0.1701496391228941,
+            "power_w": 565.0861179776576,
+            "runtime_s": 0.0003011039091383616
+          },
+          {
+            "energy_j": 0.1701496391228941,
+            "power_w": 565.0861179776576,
+            "runtime_s": 0.0003011039091383616
+          },
+          {
+            "energy_j": 0.1701496391228941,
+            "power_w": 565.0861179776576,
+            "runtime_s": 0.0003011039091383616
+          },
+          {
+            "energy_j": 0.1701496391228941,
+            "power_w": 565.0861179776576,
+            "runtime_s": 0.0003011039091383616
+          },
+          {
+            "energy_j": 0.1701496391228941,
+            "power_w": 565.0861179776576,
+            "runtime_s": 0.0003011039091383616
+          },
+          {
+            "energy_j": 0.1701496391228941,
+            "power_w": 565.0861179776576,
+            "runtime_s": 0.0003011039091383616
+          },
+          {
+            "energy_j": 0.45870486548115547,
+            "power_w": 559.979015257441,
+            "runtime_s": 0.0008191465268931079
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.17586140173777653,
+            "power_w": 565.0711909794343,
+            "runtime_s": 0.0003112199038725671
+          },
+          {
+            "energy_j": 0.17586140173777653,
+            "power_w": 565.0711909794343,
+            "runtime_s": 0.0003112199038725671
+          },
+          {
+            "energy_j": 0.17586140173777653,
+            "power_w": 565.0711909794343,
+            "runtime_s": 0.0003112199038725671
+          },
+          {
+            "energy_j": 0.17586140173777653,
+            "power_w": 565.0711909794343,
+            "runtime_s": 0.0003112199038725671
+          },
+          {
+            "energy_j": 0.17586140173777653,
+            "power_w": 565.0711909794343,
+            "runtime_s": 0.0003112199038725671
+          },
+          {
+            "energy_j": 0.17586140173777653,
+            "power_w": 565.0711909794343,
+            "runtime_s": 0.0003112199038725671
+          },
+          {
+            "energy_j": 0.17586140173777653,
+            "power_w": 565.0711909794343,
+            "runtime_s": 0.0003112199038725671
+          },
+          {
+            "energy_j": 0.17586140173777653,
+            "power_w": 565.0711909794343,
+            "runtime_s": 0.0003112199038725671
+          },
+          {
+            "energy_j": 0.4741004593570336,
+            "power_w": 559.9610400497978,
+            "runtime_s": 0.0008466668668857237
+          }
+        ]
+      },
+      "measured_runtime_s": 0.0032279778,
+      "native_power_w": {
+        "alavani_measured": 60.79400192240083,
+        "alavani_predicted": 60.79400192240083,
+        "component_measured": 416.92841792347633,
+        "component_predicted": 408.0643512013306,
+        "flipflop_measured": 563.7901160486011,
+        "flipflop_predicted": 563.7744155227037,
+        "flipflop_static": 563.316001131935
+      },
+      "predicted_runtime_s": 0.00333642609786626,
+      "regime": "xlarge",
+      "scope": "prospective",
+      "tier": "DRAM"
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.21190275840106332,
+        "alavani_predicted": 0.2169395655500331,
+        "component_measured": 1.2072554692302466,
+        "component_predicted": 1.217271607981291,
+        "delestrac": 0.28051505152,
+        "flipflop_measured": 1.6517088164236369,
+        "flipflop_predicted": 1.6909350858121823,
+        "flipflop_static": 89.88309740045756,
+        "literature": 0.13640816132096,
+        "ours_measured": 1.285146255538675,
+        "ours_static": 1.2957391554675308
+      },
+      "family": "fast Walsh transform",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.1692891302554085,
+            "power_w": 565.0884541904952,
+            "runtime_s": 0.0002995798781589333
+          },
+          {
+            "energy_j": 0.1692891302554085,
+            "power_w": 565.0884541904952,
+            "runtime_s": 0.0002995798781589333
+          },
+          {
+            "energy_j": 0.1692891302554085,
+            "power_w": 565.0884541904952,
+            "runtime_s": 0.0002995798781589333
+          },
+          {
+            "energy_j": 0.1692891302554085,
+            "power_w": 565.0884541904952,
+            "runtime_s": 0.0002995798781589333
+          },
+          {
+            "energy_j": 0.1692891302554085,
+            "power_w": 565.0884541904952,
+            "runtime_s": 0.0002995798781589333
+          },
+          {
+            "energy_j": 0.1692891302554085,
+            "power_w": 565.0884541904952,
+            "runtime_s": 0.0002995798781589333
+          },
+          {
+            "energy_j": 0.1692891302554085,
+            "power_w": 565.0884541904952,
+            "runtime_s": 0.0002995798781589333
+          },
+          {
+            "energy_j": 0.46668490463577733,
+            "power_w": 565.8893526259994,
+            "runtime_s": 0.0008246928528874671
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.17330974913293012,
+            "power_w": 565.0777377252094,
+            "runtime_s": 0.0003067007202064092
+          },
+          {
+            "energy_j": 0.17330974913293012,
+            "power_w": 565.0777377252094,
+            "runtime_s": 0.0003067007202064092
+          },
+          {
+            "energy_j": 0.17330974913293012,
+            "power_w": 565.0777377252094,
+            "runtime_s": 0.0003067007202064092
+          },
+          {
+            "energy_j": 0.17330974913293012,
+            "power_w": 565.0777377252094,
+            "runtime_s": 0.0003067007202064092
+          },
+          {
+            "energy_j": 0.17330974913293012,
+            "power_w": 565.0777377252094,
+            "runtime_s": 0.0003067007202064092
+          },
+          {
+            "energy_j": 0.17330974913293012,
+            "power_w": 565.0777377252094,
+            "runtime_s": 0.0003067007202064092
+          },
+          {
+            "energy_j": 0.17330974913293012,
+            "power_w": 565.0777377252094,
+            "runtime_s": 0.0003067007202064092
+          },
+          {
+            "energy_j": 0.47776684188167146,
+            "power_w": 565.8764477442617,
+            "runtime_s": 0.0008442953294596034
+          }
+        ]
+      },
+      "measured_runtime_s": 0.002921752,
+      "native_power_w": {
+        "alavani_measured": 72.52592225523018,
+        "alavani_predicted": 72.52592225523018,
+        "component_measured": 413.1957364041324,
+        "component_predicted": 406.9508749135442,
+        "flipflop_measured": 565.3145155453429,
+        "flipflop_predicted": 565.3031813782785,
+        "flipflop_static": 564.8353064756271
+      },
+      "predicted_runtime_s": 0.0029912003709044676,
+      "regime": "xlarge",
+      "scope": "prospective",
+      "tier": "DRAM"
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0007979574765370386,
+        "alavani_predicted": 0.0007162111211217345,
+        "component_measured": 0.005078681934182462,
+        "component_predicted": 0.004927914365741873,
+        "delestrac": 0.000578825728,
+        "flipflop_measured": 0.006201189330669163,
+        "flipflop_predicted": 0.005673357399187783,
+        "flipflop_static": 1.7997928868892024,
+        "literature": 8.858550272e-05,
+        "ours_measured": 0.004742971122771198,
+        "ours_static": 0.004583521877437855
+      },
+      "family": "scalar product",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.006201189330669163,
+            "power_w": 607.7066388867585,
+            "runtime_s": 1.0204248125426038e-05
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.005673357399187783,
+            "power_w": 619.4379669453195,
+            "runtime_s": 9.158879019258752e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 1.020424812542604e-05,
+      "native_power_w": {
+        "alavani_measured": 78.19855679016263,
+        "alavani_predicted": 78.19855679016263,
+        "component_measured": 497.70270888727737,
+        "component_predicted": 538.0477627643891,
+        "flipflop_measured": 607.7066388867584,
+        "flipflop_predicted": 619.4379669453195,
+        "flipflop_static": 505.2183950808856
+      },
+      "predicted_runtime_s": 9.158879019258752e-06,
+      "regime": "large",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.0006051622586821837,
+        "alavani_predicted": 0.0005001079339171047,
+        "component_measured": 0.004643274378881988,
+        "component_predicted": 0.0038372160902592385,
+        "delestrac": 0.000578825728,
+        "flipflop_measured": 0.005739351174851462,
+        "flipflop_predicted": 0.004925089204641457,
+        "flipflop_static": 2.1602461278848724,
+        "literature": 8.858550272e-05,
+        "ours_measured": 0.004373005348218153,
+        "ours_static": 0.0038372160902592385
+      },
+      "family": "scalar product",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.005739351174851462,
+            "power_w": 741.6341193560983,
+            "runtime_s": 7.73879063146998e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.004925089204641457,
+            "power_w": 770.1034951579268,
+            "runtime_s": 6.395360150432064e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 7.73879063146998e-06,
+      "native_power_w": {
+        "alavani_measured": 78.19855679016263,
+        "alavani_predicted": 78.19855679016263,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 741.6341193560983,
+        "flipflop_predicted": 770.1034951579268,
+        "flipflop_static": 606.400930718247
+      },
+      "predicted_runtime_s": 6.395360150432064e-06,
+      "regime": "large",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0005796190318429306,
+        "alavani_predicted": 0.0005088554036523948,
+        "component_measured": 0.003476025228310823,
+        "component_predicted": 0.0033455134751920576,
+        "delestrac": 0.00038588774399999997,
+        "flipflop_measured": 0.004791389439358586,
+        "flipflop_predicted": 0.00433447240181384,
+        "flipflop_static": 1.7997928868892024,
+        "literature": 5.9057602560000004e-05,
+        "ours_measured": 0.0033013830951392604,
+        "ours_static": 0.0031633560595031507
+      },
+      "family": "scalar product",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.004791389439358586,
+            "power_w": 646.4241486104296,
+            "runtime_s": 7.412144873699851e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.00433447240181384,
+            "power_w": 666.1017724008932,
+            "runtime_s": 6.5072224416858906e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 7.412144873699851e-06,
+      "native_power_w": {
+        "alavani_measured": 78.19855679016263,
+        "alavani_predicted": 78.19855679016263,
+        "component_measured": 468.9634765025482,
+        "component_predicted": 514.1231155339608,
+        "flipflop_measured": 646.4241486104296,
+        "flipflop_predicted": 666.1017724008932,
+        "flipflop_static": 505.2183950808856
+      },
+      "predicted_runtime_s": 6.5072224416858906e-06,
+      "regime": "medium",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.0004327037814396661,
+        "alavani_predicted": 0.0003589295762562249,
+        "component_measured": 0.0032050644624441443,
+        "component_predicted": 0.0027539861935255935,
+        "delestrac": 0.00038588774399999997,
+        "flipflop_measured": 0.004402648666192925,
+        "flipflop_predicted": 0.0038308347042482144,
+        "flipflop_static": 2.1602461278848724,
+        "literature": 5.9057602560000004e-05,
+        "ours_measured": 0.0030209078691116956,
+        "ours_static": 0.0027539861935255935
+      },
+      "family": "scalar product",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.004402648666192925,
+            "power_w": 795.6500185992154,
+            "runtime_s": 5.533398558758315e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0038308347042482144,
+            "power_w": 834.6086948266206,
+            "runtime_s": 4.5899769892093225e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 5.533398558758315e-06,
+      "native_power_w": {
+        "alavani_measured": 78.19855679016263,
+        "alavani_predicted": 78.19855679016263,
+        "component_measured": 579.2216896017978,
+        "component_predicted": 600.0,
+        "flipflop_measured": 795.6500185992154,
+        "flipflop_predicted": 834.6086948266206,
+        "flipflop_static": 606.400930718247
+      },
+      "predicted_runtime_s": 4.5899769892093225e-06,
+      "regime": "medium",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0003049732293013577,
+        "alavani_predicted": 0.00028527407367800594,
+        "component_measured": 0.0011695350943027516,
+        "component_predicted": 0.0011332032752439476,
+        "delestrac": 9.648076799999999e-05,
+        "flipflop_measured": 0.003018015890259267,
+        "flipflop_predicted": 0.0028908194750992167,
+        "flipflop_static": 1.7997928868892024,
+        "literature": 1.476575232e-05,
+        "ours_measured": 0.001271875186115982,
+        "ours_static": 0.001233451265173086
+      },
+      "family": "scalar product",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.003018015890259267,
+            "power_w": 773.8531264816229,
+            "runtime_s": 3.899985393844548e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0028908194750992167,
+            "power_w": 792.423608563917,
+            "runtime_s": 3.648073383803081e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 3.899985393844548e-06,
+      "native_power_w": {
+        "alavani_measured": 78.19855679016263,
+        "alavani_predicted": 78.19855679016263,
+        "component_measured": 299.8819165191388,
+        "component_predicted": 310.6306140318357,
+        "flipflop_measured": 773.8531264816229,
+        "flipflop_predicted": 792.423608563917,
+        "flipflop_static": 505.2183950808856
+      },
+      "predicted_runtime_s": 3.648073383803081e-06,
+      "regime": "small",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.00020690561687106062,
+        "alavani_predicted": 0.00014716214085547976,
+        "component_measured": 0.0009886656794673842,
+        "component_predicted": 0.0008784787657720062,
+        "delestrac": 9.648076799999999e-05,
+        "flipflop_measured": 0.0026525174006540855,
+        "flipflop_predicted": 0.0021894537371978263,
+        "flipflop_static": 2.1602461278848724,
+        "literature": 1.476575232e-05,
+        "ours_measured": 0.001086679058117146,
+        "ours_static": 0.0009701472309074932
+      },
+      "family": "scalar product",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0026525174006540855,
+            "power_w": 1002.5007330816198,
+            "runtime_s": 2.645900709219858e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0021894537371978263,
+            "power_w": 1163.4250590023455,
+            "runtime_s": 1.8819035401174147e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 2.645900709219858e-06,
+      "native_power_w": {
+        "alavani_measured": 78.19855679016263,
+        "alavani_predicted": 78.19855679016263,
+        "component_measured": 373.65940302381625,
+        "component_predicted": 466.8032909472058,
+        "flipflop_measured": 1002.5007330816198,
+        "flipflop_predicted": 1163.4250590023455,
+        "flipflop_static": 606.400930718247
+      },
+      "predicted_runtime_s": 1.8819035401174147e-06,
+      "regime": "small",
+      "scope": "prospective",
+      "tier": "L2"
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.013090785521378085,
+        "alavani_predicted": 0.01899894143999994,
+        "component_measured": 0.07226413344811095,
+        "component_predicted": 0.08316074525781289,
+        "delestrac": 0.01753232448,
+        "flipflop_measured": 0.08557533558235854,
+        "flipflop_predicted": 0.12372398862231403,
+        "flipflop_static": 1.7997928868892024,
+        "literature": 0.00852557512704,
+        "ours_measured": 0.07257882410632643,
+        "ours_static": 0.08410289753749028
+      },
+      "family": "scalar product",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.08557533558235854,
+            "power_w": 511.1891664901272,
+            "runtime_s": 0.00016740443888888887
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.12372398862231403,
+            "power_w": 509.24086382085756,
+            "runtime_s": 0.00024295769921920104
+          }
+        ]
+      },
+      "measured_runtime_s": 0.00016740443888888887,
+      "native_power_w": {
+        "alavani_measured": 78.19855679016263,
+        "alavani_predicted": 78.19855679016263,
+        "component_measured": 431.67393844361993,
+        "component_predicted": 342.28487314898257,
+        "flipflop_measured": 511.1891664901272,
+        "flipflop_predicted": 509.24086382085756,
+        "flipflop_static": 505.2183950808856
+      },
+      "predicted_runtime_s": 0.00024295769921920104,
+      "regime": "xlarge",
+      "scope": "prospective",
+      "tier": "DRAM"
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.013006508652430568,
+        "alavani_predicted": 0.012940356540742234,
+        "component_measured": 0.07210869876796587,
+        "component_predicted": 0.07198669219072104,
+        "delestrac": 0.01753232448,
+        "flipflop_measured": 0.10186052248703872,
+        "flipflop_predicted": 0.10134778634868985,
+        "flipflop_static": 2.1602461278848724,
+        "literature": 0.00852557512704,
+        "ours_measured": 0.07242052732606909,
+        "ours_static": 0.07229149522142876
+      },
+      "family": "scalar product",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.10186052248703872,
+            "power_w": 612.4122979682041,
+            "runtime_s": 0.00016632670967741935
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.10134778634868985,
+            "power_w": 612.4445336102551,
+            "runtime_s": 0.0001654807591330142
+          }
+        ]
+      },
+      "measured_runtime_s": 0.00016632670967741935,
+      "native_power_w": {
+        "alavani_measured": 78.19855679016263,
+        "alavani_predicted": 78.19855679016263,
+        "component_measured": 433.5364951775716,
+        "component_predicted": 435.0154819682559,
+        "flipflop_measured": 612.4122979682041,
+        "flipflop_predicted": 612.4445336102551,
+        "flipflop_static": 606.400930718247
+      },
+      "predicted_runtime_s": 0.0001654807591330142,
+      "regime": "xlarge",
+      "scope": "prospective",
+      "tier": "DRAM"
+    },
+    "blackwell/unseen_cuda_samples_black_scholes/large/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.00235411102719375,
+        "alavani_predicted": 0.0021044158686402965,
+        "component_measured": 0.004006579305740988,
+        "component_predicted": 0.0035816106260791155,
+        "delestrac": 0.0006029312,
+        "flipflop_measured": 0.003881713976864609,
+        "flipflop_predicted": 0.003512970752499231,
+        "flipflop_static": 0.41542210122733764,
+        "literature": 9.227468799999999e-05,
+        "ours_measured": 0.004006579305740988,
+        "ours_static": 0.0035816106260791155
+      },
+      "family": "Black-Scholes",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.003881713976864609,
+            "power_w": 581.3009573482107,
+            "runtime_s": 6.67763217623498e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.003512970752499231,
+            "power_w": 588.5012837944878,
+            "runtime_s": 5.9693510434651926e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 6.67763217623498e-06,
+      "native_power_w": {
+        "alavani_measured": 352.53679224378277,
+        "alavani_predicted": 352.53679224378277,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 581.3009573482107,
+        "flipflop_predicted": 588.5012837944878,
+        "flipflop_static": 521.1253700352034
+      },
+      "predicted_runtime_s": 5.9693510434651926e-06,
+      "regime": "large",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_black_scholes/large/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.003441952576231395,
+        "alavani_predicted": 0.0028376223508211475,
+        "component_measured": 0.00585803125,
+        "component_predicted": 0.004829491411822178,
+        "delestrac": 0.0006029312,
+        "flipflop_measured": 0.0054753536036496134,
+        "flipflop_predicted": 0.0045849642874018545,
+        "flipflop_static": 0.41337903148350125,
+        "literature": 9.227468799999999e-05,
+        "ours_measured": 0.00585803125,
+        "ours_static": 0.004829491411822178
+      },
+      "family": "Black-Scholes",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0054753536036496134,
+            "power_w": 560.8048202524983,
+            "runtime_s": 9.763385416666667e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0045849642874018545,
+            "power_w": 569.6207608335227,
+            "runtime_s": 8.049152353036964e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 9.763385416666667e-06,
+      "native_power_w": {
+        "alavani_measured": 352.53679224378277,
+        "alavani_predicted": 352.53679224378277,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 560.8048202524983,
+        "flipflop_predicted": 569.6207608335227,
+        "flipflop_static": 519.918038757918
+      },
+      "predicted_runtime_s": 8.049152353036964e-06,
+      "regime": "large",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_black_scholes/medium/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0010875670431244678,
+        "alavani_predicted": 0.0010110474643557383,
+        "component_measured": 0.0018509847489150651,
+        "component_predicted": 0.0017207522504316462,
+        "delestrac": 0.00024117248,
+        "flipflop_measured": 0.0020113152266769906,
+        "flipflop_predicted": 0.0018983131309786817,
+        "flipflop_static": 0.1692168101038717,
+        "literature": 3.6909875200000005e-05,
+        "ours_measured": 0.0018509847489150651,
+        "ours_static": 0.0017207522504316462
+      },
+      "family": "Black-Scholes",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0020113152266769906,
+            "power_w": 651.9714096583135,
+            "runtime_s": 3.0849745815251085e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0018983131309786817,
+            "power_w": 661.9127642003646,
+            "runtime_s": 2.867920417386077e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 3.0849745815251085e-06,
+      "native_power_w": {
+        "alavani_measured": 352.53679224378277,
+        "alavani_predicted": 352.53679224378277,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 651.9714096583134,
+        "flipflop_predicted": 661.9127642003646,
+        "flipflop_static": 521.8667551779267
+      },
+      "predicted_runtime_s": 2.867920417386077e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_black_scholes/medium/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.0015039155166838084,
+        "alavani_predicted": 0.0013042551857844734,
+        "component_measured": 0.0025595890410958903,
+        "component_predicted": 0.0022197771372740593,
+        "delestrac": 0.00024117248,
+        "flipflop_measured": 0.002619948694616694,
+        "flipflop_predicted": 0.0023257793513729763,
+        "flipflop_static": 0.1683924366138131,
+        "literature": 3.6909875200000005e-05,
+        "ours_measured": 0.0025595890410958903,
+        "ours_static": 0.0022197771372740593
+      },
+      "family": "Black-Scholes",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.002619948694616694,
+            "power_w": 614.1490651549971,
+            "runtime_s": 4.265981735159817e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0023257793513729763,
+            "power_w": 628.6521234007546,
+            "runtime_s": 3.6996285621234328e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 4.265981735159817e-06,
+      "native_power_w": {
+        "alavani_measured": 352.53679224378277,
+        "alavani_predicted": 352.53679224378277,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 614.1490651549971,
+        "flipflop_predicted": 628.6521234007546,
+        "flipflop_static": 520.659347544759
+      },
+      "predicted_runtime_s": 3.6996285621234324e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_black_scholes/small/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0005510794716230751,
+        "alavani_predicted": 0.00046436326221345914,
+        "component_measured": 0.000937909716796875,
+        "component_predicted": 0.0007903230626079117,
+        "delestrac": 6.029312e-05,
+        "flipflop_measured": 0.0012190445311079177,
+        "flipflop_predicted": 0.0010909843202184068,
+        "flipflop_static": 0.0871483797293831,
+        "literature": 9.227468800000001e-06,
+        "ours_measured": 0.000937909716796875,
+        "ours_static": 0.0007903230626079117
+      },
+      "family": "Black-Scholes",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0012190445311079177,
+            "power_w": 779.8476821017488,
+            "runtime_s": 1.563182861328125e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0010909843202184068,
+            "power_w": 828.2569788246126,
+            "runtime_s": 1.3172051043465194e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 1.563182861328125e-06,
+      "native_power_w": {
+        "alavani_measured": 352.53679224378277,
+        "alavani_predicted": 352.53679224378277,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 779.8476821017488,
+        "flipflop_predicted": 828.2569788246126,
+        "flipflop_static": 523.0491245406744
+      },
+      "predicted_runtime_s": 1.3172051043465194e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_black_scholes/small/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.000565726256449618,
+        "alavani_predicted": 0.0005375716032661362,
+        "component_measured": 0.0009628378125,
+        "component_predicted": 0.00091492,
+        "delestrac": 6.029312e-05,
+        "flipflop_measured": 0.0012376685126783598,
+        "flipflop_predicted": 0.0011961868833585368,
+        "flipflop_static": 0.08673023832391707,
+        "literature": 9.227468800000001e-06,
+        "ours_measured": 0.0009628378125,
+        "ours_static": 0.00091492
+      },
+      "family": "Black-Scholes",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0012376685126783598,
+            "power_w": 771.2629250391182,
+            "runtime_s": 1.6047296874999998e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0011961868833585368,
+            "power_w": 784.4534276386155,
+            "runtime_s": 1.5248666666666668e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 1.6047296875e-06,
+      "native_power_w": {
+        "alavani_measured": 352.53679224378277,
+        "alavani_predicted": 352.53679224378277,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 771.262925039118,
+        "flipflop_predicted": 784.4534276386155,
+        "flipflop_static": 521.8414619053364
+      },
+      "predicted_runtime_s": 1.5248666666666666e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_black_scholes/xlarge/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.05643984963945385,
+        "alavani_predicted": 0.05948550540292966,
+        "component_measured": 0.08806766336629551,
+        "component_predicted": 0.08931365359453655,
+        "delestrac": 0.0164364288,
+        "flipflop_measured": 0.08375410623151192,
+        "flipflop_predicted": 0.08825185033290844,
+        "flipflop_static": 1.8105854175936447,
+        "literature": 0.0079926657024,
+        "ours_measured": 0.09238713005847385,
+        "ours_static": 0.09370486837342216
+      },
+      "family": "Black-Scholes",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.08375410623151192,
+            "power_w": 523.1481681244951,
+            "runtime_s": 0.00016009633854166666
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.08825185033290844,
+            "power_w": 523.0185742762419,
+            "runtime_s": 0.00016873559501215076
+          }
+        ]
+      },
+      "measured_runtime_s": 0.00016009633854166666,
+      "native_power_w": {
+        "alavani_measured": 352.53679224378277,
+        "alavani_predicted": 352.53679224378277,
+        "component_measured": 550.0916771021283,
+        "component_predicted": 529.3112789160166,
+        "flipflop_measured": 523.1481681244951,
+        "flipflop_predicted": 523.0185742762419,
+        "flipflop_static": 520.7335812639739
+      },
+      "predicted_runtime_s": 0.00016873559501215076,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "tier": "DRAM"
+    },
+    "blackwell/unseen_cuda_samples_black_scholes/xlarge/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.056931249975248795,
+        "alavani_predicted": 0.05948550540292966,
+        "component_measured": 0.08826869725328218,
+        "component_predicted": 0.08931365359453655,
+        "delestrac": 0.0164364288,
+        "flipflop_measured": 0.0842837549298503,
+        "flipflop_predicted": 0.08804706453798879,
+        "flipflop_static": 1.8016364024117333,
+        "literature": 0.0079926657024,
+        "ours_measured": 0.09259974011710913,
+        "ours_static": 0.09370486837342216
+      },
+      "family": "Black-Scholes",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0842837549298503,
+            "power_w": 521.9123875577735,
+            "runtime_s": 0.0001614902365591398
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.08804706453798879,
+            "power_w": 521.8049252242745,
+            "runtime_s": 0.00016873559501215076
+          }
+        ]
+      },
+      "measured_runtime_s": 0.0001614902365591398,
+      "native_power_w": {
+        "alavani_measured": 352.53679224378277,
+        "alavani_predicted": 352.53679224378277,
+        "component_measured": 546.5884448126191,
+        "component_predicted": 529.3112789160166,
+        "flipflop_measured": 521.9123875577735,
+        "flipflop_predicted": 521.8049252242745,
+        "flipflop_static": 519.5262643295665
+      },
+      "predicted_runtime_s": 0.00016873559501215076,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "tier": "DRAM"
+    },
+    "blackwell/unseen_cuda_samples_matrix_multiply/large/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.5190170841875328,
+        "alavani_predicted": 0.6252887766472808,
+        "component_measured": 0.7216314898601975,
+        "component_predicted": 0.7700254642653749,
+        "delestrac": 0.0005970432,
+        "flipflop_measured": 1.0612517344937467,
+        "flipflop_predicted": 1.278343861150766,
+        "flipflop_static": 49.0954848900379,
+        "literature": 9.1373568e-05,
+        "ours_measured": 0.513326527224418,
+        "ours_static": 0.5645071808450761
+      },
+      "family": "tiled matrix multiply",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 1.0612517344937467,
+            "power_w": 647.5917920544181,
+            "runtime_s": 0.0016387665000000002
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 1.278343861150766,
+            "power_w": 647.4878639448616,
+            "runtime_s": 0.0019743132378765736
+          }
+        ]
+      },
+      "measured_runtime_s": 0.0016387665,
+      "native_power_w": {
+        "alavani_measured": 316.7120417628337,
+        "alavani_predicted": 316.7120417628337,
+        "component_measured": 440.3504037092518,
+        "component_predicted": 390.0219324333548,
+        "flipflop_measured": 647.5917920544182,
+        "flipflop_predicted": 647.4878639448616,
+        "flipflop_static": 646.9934986203135
+      },
+      "predicted_runtime_s": 0.0019743132378765736,
+      "regime": "large",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_matrix_multiply/large/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.7126414258926749,
+        "alavani_predicted": 0.8689123012387517,
+        "component_measured": 0.7322127578779903,
+        "component_predicted": 0.7863608075248745,
+        "delestrac": 0.0005970432,
+        "flipflop_measured": 0.8771954138092103,
+        "flipflop_predicted": 1.069484725104569,
+        "flipflop_static": 11.180889492637961,
+        "literature": 9.1373568e-05,
+        "ours_measured": 0.5066537868020367,
+        "ours_static": 0.5639198536476414
+      },
+      "family": "tiled matrix multiply",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.8771954138092103,
+            "power_w": 512.340613429198,
+            "runtime_s": 0.001712133277777778
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 1.069484725104569,
+            "power_w": 512.3091780731565,
+            "runtime_s": 0.002087576742480005
+          }
+        ]
+      },
+      "measured_runtime_s": 0.0017121332777777778,
+      "native_power_w": {
+        "alavani_measured": 416.23011195578806,
+        "alavani_predicted": 416.23011195578806,
+        "component_measured": 427.66107485998305,
+        "component_predicted": 376.68593998163226,
+        "flipflop_measured": 512.3406134291981,
+        "flipflop_predicted": 512.3091780731565,
+        "flipflop_static": 512.179532357869
+      },
+      "predicted_runtime_s": 0.002087576742480005,
+      "regime": "large",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_matrix_multiply/medium/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.07182599146591039,
+        "alavani_predicted": 0.0822089073939479,
+        "component_measured": 0.0966383887142755,
+        "component_predicted": 0.10136655814531072,
+        "delestrac": 0.000153888768,
+        "flipflop_measured": 0.1477284519151382,
+        "flipflop_predicted": 0.16893870318287313,
+        "flipflop_static": 13.097124139782624,
+        "literature": 2.355167232e-05,
+        "ours_measured": 0.06969216252226956,
+        "ours_static": 0.07469259501172654
+      },
+      "family": "tiled matrix multiply",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.1477284519151382,
+            "power_w": 651.3990085986068,
+            "runtime_s": 0.00022678642424242424
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.16893870318287313,
+            "power_w": 650.8409284825507,
+            "runtime_s": 0.00025956988227024576
+          }
+        ]
+      },
+      "measured_runtime_s": 0.00022678642424242427,
+      "native_power_w": {
+        "alavani_measured": 316.7120417628337,
+        "alavani_predicted": 316.7120417628337,
+        "component_measured": 426.1206949979224,
+        "component_predicted": 390.51741002746627,
+        "flipflop_measured": 651.3990085986068,
+        "flipflop_predicted": 650.8409284825507,
+        "flipflop_static": 647.0297990291142
+      },
+      "predicted_runtime_s": 0.00025956988227024576,
+      "regime": "medium",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_matrix_multiply/medium/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.09538995213757968,
+        "alavani_predicted": 0.11414886155235932,
+        "component_measured": 0.09698302347002714,
+        "component_predicted": 0.10348300855082607,
+        "delestrac": 0.000153888768,
+        "flipflop_measured": 0.11767537834796318,
+        "flipflop_predicted": 0.1407579762026923,
+        "flipflop_static": 2.9203740748452933,
+        "literature": 2.355167232e-05,
+        "ours_measured": 0.06766240905556697,
+        "ours_static": 0.07453668398439417
+      },
+      "family": "tiled matrix multiply",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.11767537834796318,
+            "power_w": 513.4716477640031,
+            "runtime_s": 0.000229176
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.1407579762026923,
+            "power_w": 513.2570522102227,
+            "runtime_s": 0.00027424460238110836
+          }
+        ]
+      },
+      "measured_runtime_s": 0.000229176,
+      "native_power_w": {
+        "alavani_measured": 416.23011195578806,
+        "alavani_predicted": 416.23011195578806,
+        "component_measured": 423.18141284439537,
+        "component_predicted": 377.3383601804467,
+        "flipflop_measured": 513.4716477640031,
+        "flipflop_predicted": 513.2570522102227,
+        "flipflop_static": 512.2183128115153
+      },
+      "predicted_runtime_s": 0.00027424460238110836,
+      "regime": "medium",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_matrix_multiply/small/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0038956101189442276,
+        "alavani_predicted": 0.003894381241095774,
+        "component_measured": 0.0042060314693322404,
+        "component_predicted": 0.004205471863271881,
+        "delestrac": 1.7098752e-05,
+        "flipflop_measured": 0.008960068633570456,
+        "flipflop_predicted": 0.008957558278278772,
+        "flipflop_static": 3.279388984527665,
+        "literature": 2.61685248e-06,
+        "ours_measured": 0.0032719780170481693,
+        "ours_static": 0.003271386187088111
+      },
+      "family": "tiled matrix multiply",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.008960068633570456,
+            "power_w": 728.4511397773814,
+            "runtime_s": 1.2300164203612478e-05
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.008957558278278772,
+            "power_w": 728.4768480255409,
+            "runtime_s": 1.2296284092702854e-05
+          }
+        ]
+      },
+      "measured_runtime_s": 1.230016420361248e-05,
+      "native_power_w": {
+        "alavani_measured": 316.7120417628337,
+        "alavani_predicted": 316.7120417628337,
+        "component_measured": 341.9492130110715,
+        "component_predicted": 342.0116054221282,
+        "flipflop_measured": 728.4511397773813,
+        "flipflop_predicted": 728.4768480255408,
+        "flipflop_static": 647.1780551352604
+      },
+      "predicted_runtime_s": 1.2296284092702856e-05,
+      "regime": "small",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_matrix_multiply/small/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.005663968573775044,
+        "alavani_predicted": 0.0068967180109423395,
+        "component_measured": 0.004394621638846139,
+        "component_predicted": 0.004821770828214129,
+        "delestrac": 1.7098752e-05,
+        "flipflop_measured": 0.005982115549090596,
+        "flipflop_predicted": 0.007218974914949092,
+        "flipflop_static": 0.4002601635653932,
+        "literature": 2.61685248e-06,
+        "ours_measured": 0.0033742260264055116,
+        "ours_static": 0.0038259718268713067
+      },
+      "family": "tiled matrix multiply",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.005982115549090596,
+            "power_w": 439.60989406953803,
+            "runtime_s": 1.3607781876138434e-05
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.007218974914949092,
+            "power_w": 435.67893196270154,
+            "runtime_s": 1.6569483592948e-05
+          }
+        ]
+      },
+      "measured_runtime_s": 1.3607781876138434e-05,
+      "native_power_w": {
+        "alavani_measured": 416.23011195578806,
+        "alavani_predicted": 416.23011195578806,
+        "component_measured": 322.9491535686805,
+        "component_predicted": 291.00308414356874,
+        "flipflop_measured": 439.60989406953803,
+        "flipflop_predicted": 435.67893196270154,
+        "flipflop_static": 417.93027862027446
+      },
+      "predicted_runtime_s": 1.6569483592948e-05,
+      "regime": "small",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 4.440741893975492,
+        "alavani_predicted": 9.402705616264251,
+        "component_measured": 6.1881631789348654,
+        "component_predicted": 8.447740869078583,
+        "delestrac": 0.01419648384,
+        "flipflop_measured": 9.072562737590212,
+        "flipflop_predicted": 19.208876857878202,
+        "flipflop_static": 206.17924084251683,
+        "literature": 0.0069034308403200005,
+        "ours_measured": 4.397724830692088,
+        "ours_static": 6.787416202596443
+      },
+      "family": "tiled matrix multiply",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 9.072562737590212,
+            "power_w": 647.0517623511893,
+            "runtime_s": 0.014021386333333332
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 19.208876857878202,
+            "power_w": 647.0140465852991,
+            "runtime_s": 0.02968850051904677
+          }
+        ]
+      },
+      "measured_runtime_s": 0.014021386333333332,
+      "native_power_w": {
+        "alavani_measured": 316.7120417628337,
+        "alavani_predicted": 316.7120417628337,
+        "component_measured": 441.3374706196931,
+        "component_predicted": 284.54589222715714,
+        "flipflop_measured": 647.0517623511893,
+        "flipflop_predicted": 647.014046585299,
+        "flipflop_static": 646.9834371846159
+      },
+      "predicted_runtime_s": 0.029688500519046774,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "tier": "DRAM"
+    },
+    "blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 6.278774423442781,
+        "alavani_predicted": 10.361968094139042,
+        "component_measured": 6.341542368700937,
+        "component_predicted": 7.756373975096327,
+        "delestrac": 0.01419648384,
+        "flipflop_measured": 7.726250801174134,
+        "flipflop_predicted": 12.75056833369548,
+        "flipflop_static": 46.16660184819715,
+        "literature": 0.0069034308403200005,
+        "ours_measured": 4.408862019208458,
+        "ours_static": 5.9051641367451175
+      },
+      "family": "tiled matrix multiply",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 7.726250801174134,
+            "power_w": 512.1856622152487,
+            "runtime_s": 0.0150848635
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 12.75056833369548,
+            "power_w": 512.1778446737206,
+            "runtime_s": 0.02489480649405704
+          }
+        ]
+      },
+      "measured_runtime_s": 0.0150848635,
+      "native_power_w": {
+        "alavani_measured": 416.23011195578806,
+        "alavani_predicted": 416.23011195578806,
+        "component_measured": 420.3911005691856,
+        "component_predicted": 311.56594757818067,
+        "flipflop_measured": 512.1856622152487,
+        "flipflop_predicted": 512.1778446737206,
+        "flipflop_static": 512.1691435588518
+      },
+      "predicted_runtime_s": 0.02489480649405704,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "tier": "DRAM"
+    },
+    "blackwell/unseen_cuda_samples_scan/large/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.004150405930780513,
+        "alavani_predicted": 0.005173885910664488,
+        "component_measured": 0.0093682896875,
+        "component_predicted": 0.010344590374048552,
+        "delestrac": 0.001157627904,
+        "flipflop_measured": 0.008852197815775023,
+        "flipflop_predicted": 0.010940280779679836,
+        "flipflop_static": 1.6878597006893268,
+        "literature": 0.00017716740096,
+        "ours_measured": 0.0093682896875,
+        "ours_static": 0.01109623449787435
+      },
+      "family": "prefix-sum scan",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0049253958908120985,
+            "power_w": 585.326842706369,
+            "runtime_s": 8.414778772213149e-06
+          },
+          {
+            "energy_j": 0.0005447305086410919,
+            "power_w": 332.9844307622531,
+            "runtime_s": 1.635903839089771e-06
+          },
+          {
+            "energy_j": 0.0033820714163218324,
+            "power_w": 607.9435978534917,
+            "runtime_s": 5.563133534530415e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.006103080554344727,
+            "power_w": 581.8085868652958,
+            "runtime_s": 1.0489842694187931e-05
+          },
+          {
+            "energy_j": 0.0006385605946043242,
+            "power_w": 313.12523588601124,
+            "runtime_s": 2.03931373591614e-06
+          },
+          {
+            "energy_j": 0.004198639630730786,
+            "power_w": 605.4284750600237,
+            "runtime_s": 6.934988695922375e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 1.5613816145833334e-05,
+      "native_power_w": {
+        "alavani_measured": 265.8162419754174,
+        "alavani_predicted": 265.8162419754174,
+        "component_measured": 600.0,
+        "component_predicted": 531.469032267762,
+        "flipflop_measured": 566.9464615885912,
+        "flipflop_predicted": 562.0735310409837,
+        "flipflop_static": 542.436479874969
+      },
+      "predicted_runtime_s": 1.9464145126026446e-05,
+      "regime": "large",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_scan/large/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.004203405089169103,
+        "alavani_predicted": 0.005229817038221205,
+        "component_measured": 0.009487919303797467,
+        "component_predicted": 0.010375924077380734,
+        "delestrac": 0.001157627904,
+        "flipflop_measured": 0.008960325616911938,
+        "flipflop_predicted": 0.011054390324466838,
+        "flipflop_static": 1.6878597006893268,
+        "literature": 0.00017716740096,
+        "ours_measured": 0.009487919303797467,
+        "ours_static": 0.011132514295920765
+      },
+      "family": "prefix-sum scan",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.004986380274719105,
+            "power_w": 585.1025926087457,
+            "runtime_s": 8.522232404554505e-06
+          },
+          {
+            "energy_j": 0.0005495893389898243,
+            "power_w": 331.7186256045587,
+            "runtime_s": 1.6567937298913959e-06
+          },
+          {
+            "energy_j": 0.003424356003203008,
+            "power_w": 607.7832864499305,
+            "runtime_s": 5.634172705216546e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0061674386584916205,
+            "power_w": 581.6560040163696,
+            "runtime_s": 1.0603240774452747e-05
+          },
+          {
+            "energy_j": 0.0006436882205567753,
+            "power_w": 312.2639646571765,
+            "runtime_s": 2.061359277441628e-06
+          },
+          {
+            "energy_j": 0.0042432634454184414,
+            "power_w": 605.3193969774277,
+            "runtime_s": 7.009957828225142e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 1.5813198839662447e-05,
+      "native_power_w": {
+        "alavani_measured": 265.8162419754174,
+        "alavani_predicted": 265.8162419754174,
+        "component_measured": 600.0,
+        "component_predicted": 527.3777505244608,
+        "flipflop_measured": 566.6358658842494,
+        "flipflop_predicted": 561.8621974543545,
+        "flipflop_static": 542.436479874969
+      },
+      "predicted_runtime_s": 1.9674557880119517e-05,
+      "regime": "large",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_scan/medium/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0019116372650858817,
+        "alavani_predicted": 0.0022261879991073755,
+        "component_measured": 0.0035496622914107483,
+        "component_predicted": 0.0037203284677776176,
+        "delestrac": 0.00038587596799999997,
+        "flipflop_measured": 0.003765393283975345,
+        "flipflop_predicted": 0.004321682580181961,
+        "flipflop_static": 0.5957791517338401,
+        "literature": 5.905580032e-05,
+        "ours_measured": 0.003806053039419329,
+        "ours_static": 0.003986546717914568
+      },
+      "family": "prefix-sum scan",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.001970342818076617,
+            "power_w": 614.1934709274963,
+            "runtime_s": 3.208016547458887e-06
+          },
+          {
+            "energy_j": 0.00045506030247755605,
+            "power_w": 245.8227855052894,
+            "runtime_s": 1.8511721830105307e-06
+          },
+          {
+            "energy_j": 0.001339990163421172,
+            "power_w": 628.3995526421809,
+            "runtime_s": 2.1323856100581605e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0022699273281989413,
+            "power_w": 607.6017337667652,
+            "runtime_s": 3.7358802683572964e-06
+          },
+          {
+            "energy_j": 0.0005029147579054744,
+            "power_w": 233.28736361348933,
+            "runtime_s": 2.155773678075011e-06
+          },
+          {
+            "energy_j": 0.0015488404940775455,
+            "power_w": 623.7127216157054,
+            "runtime_s": 2.483259424411498e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 7.191574340527578e-06,
+      "native_power_w": {
+        "alavani_measured": 265.8162419754174,
+        "alavani_predicted": 265.8162419754174,
+        "component_measured": 493.5862612734033,
+        "component_predicted": 444.2229194548409,
+        "flipflop_measured": 523.5840034018356,
+        "flipflop_predicted": 516.0271382898537,
+        "flipflop_static": 470.4050524431071
+      },
+      "predicted_runtime_s": 8.374913370843805e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_scan/medium/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.001965005936143011,
+        "alavani_predicted": 0.0022821191266640946,
+        "component_measured": 0.0035789476242098477,
+        "component_predicted": 0.0037510041157328773,
+        "delestrac": 0.00038587596799999997,
+        "flipflop_measured": 0.0038597768515553337,
+        "flipflop_predicted": 0.004420597903591899,
+        "flipflop_static": 0.5957791517338401,
+        "literature": 5.905580032e-05,
+        "ours_measured": 0.003838071981727694,
+        "ours_static": 0.004020036034154927
+      },
+      "family": "prefix-sum scan",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0020211722247358206,
+            "power_w": 612.9264215553843,
+            "runtime_s": 3.297577251779782e-06
+          },
+          {
+            "energy_j": 0.0004631795926718561,
+            "power_w": 243.41325398880502,
+            "runtime_s": 1.9028528031310839e-06
+          },
+          {
+            "energy_j": 0.001375425034147657,
+            "power_w": 627.498660181743,
+            "runtime_s": 2.1919170851285823e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.002323197270492332,
+            "power_w": 606.6199181611246,
+            "runtime_s": 3.829741162365306e-06
+          },
+          {
+            "energy_j": 0.0005114238896963204,
+            "power_w": 231.42025748705333,
+            "runtime_s": 2.2099357042022636e-06
+          },
+          {
+            "energy_j": 0.001585976743403247,
+            "power_w": 623.014634945896,
+            "runtime_s": 2.5456492583693106e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 7.392347140039448e-06,
+      "native_power_w": {
+        "alavani_measured": 265.8162419754174,
+        "alavani_predicted": 265.8162419754174,
+        "component_measured": 484.14225636470167,
+        "component_predicted": 436.908751181593,
+        "flipflop_measured": 522.1314392352436,
+        "flipflop_predicted": 514.9015703377721,
+        "flipflop_static": 470.4050524431071
+      },
+      "predicted_runtime_s": 8.58532612493688e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_scan/small/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0009196755318480639,
+        "alavani_predicted": 0.0010338615113813546,
+        "component_measured": 0.0008130473432103978,
+        "component_predicted": 0.0008750013697437478,
+        "delestrac": 4.8234495999999996e-05,
+        "flipflop_measured": 0.0017076213722672386,
+        "flipflop_predicted": 0.001871883337855984,
+        "flipflop_static": 0.308302863372585,
+        "literature": 7.38197504e-06,
+        "ours_measured": 0.0008663639350002925,
+        "ours_static": 0.0009318854717490746
+      },
+      "family": "prefix-sum scan",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.00084944625011425,
+            "power_w": 688.9194392961775,
+            "runtime_s": 1.2330124564086504e-06
+          },
+          {
+            "energy_j": 0.0002957494201118995,
+            "power_w": 211.13697006002002,
+            "runtime_s": 1.4007467286654095e-06
+          },
+          {
+            "energy_j": 0.0005624257020410891,
+            "power_w": 680.855196458363,
+            "runtime_s": 8.260577358690742e-07
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0009363309196333274,
+            "power_w": 675.5137062751376,
+            "runtime_s": 1.3861020301073783e-06
+          },
+          {
+            "energy_j": 0.0003120785305158716,
+            "power_w": 198.18762802223313,
+            "runtime_s": 1.5746620191693396e-06
+          },
+          {
+            "energy_j": 0.0006234738877067852,
+            "power_w": 671.3981355724189,
+            "runtime_s": 9.286202249805555e-07
+          }
+        ]
+      },
+      "measured_runtime_s": 3.459816920943134e-06,
+      "native_power_w": {
+        "alavani_measured": 265.8162419754174,
+        "alavani_predicted": 265.8162419754174,
+        "component_measured": 234.99721568757573,
+        "component_predicted": 224.97169424351628,
+        "flipflop_measured": 493.5583041780566,
+        "flipflop_predicted": 481.28012195797845,
+        "flipflop_static": 382.86696115186305
+      },
+      "predicted_runtime_s": 3.8893842742572734e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_scan/small/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.0009720019111699571,
+        "alavani_predicted": 0.0010897926389380737,
+        "component_measured": 0.0008414792592808709,
+        "component_predicted": 0.0009053891184716036,
+        "delestrac": 4.8234495999999996e-05,
+        "flipflop_measured": 0.0017828953590972117,
+        "flipflop_predicted": 0.001952342926569176,
+        "flipflop_static": 0.308302863372585,
+        "literature": 7.38197504e-06,
+        "ours_measured": 0.0008965639597179893,
+        "ours_static": 0.0009641539521992843
+      },
+      "family": "prefix-sum scan",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0008892616477059229,
+            "power_w": 682.3852198129312,
+            "runtime_s": 1.3031666306455242e-06
+          },
+          {
+            "energy_j": 0.00030323232850818134,
+            "power_w": 204.82520457090214,
+            "runtime_s": 1.4804444069441398e-06
+          },
+          {
+            "energy_j": 0.0005904013828831074,
+            "power_w": 676.2456378912784,
+            "runtime_s": 8.730575841112156e-07
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0009788891877627178,
+            "power_w": 669.9722728375174,
+            "runtime_s": 1.46108910390702e-06
+          },
+          {
+            "energy_j": 0.0003200769341782585,
+            "power_w": 192.83484971083828,
+            "runtime_s": 1.6598500460794486e-06
+          },
+          {
+            "energy_j": 0.0006533768046281996,
+            "power_w": 667.4889369233985,
+            "runtime_s": 9.7885787836388e-07
+          }
+        ]
+      },
+      "measured_runtime_s": 3.6566686217008796e-06,
+      "native_power_w": {
+        "alavani_measured": 265.8162419754174,
+        "alavani_predicted": 265.8162419754174,
+        "component_measured": 230.12182572055474,
+        "component_predicted": 220.83754688604876,
+        "flipflop_measured": 487.5736752618036,
+        "flipflop_predicted": 476.2047762532156,
+        "flipflop_static": 382.86696115186305
+      },
+      "predicted_runtime_s": 4.099797028350349e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_scan/xlarge/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.09575359564049239,
+        "alavani_predicted": 0.10694500873993051,
+        "component_measured": 0.14996553855330202,
+        "component_predicted": 0.15603767724267695,
+        "delestrac": 0.03506438144,
+        "flipflop_measured": 0.2079684767982662,
+        "flipflop_predicted": 0.23223029829904976,
+        "flipflop_static": 8.173072449752693,
+        "literature": 0.01705102016512,
+        "ours_measured": 0.15965646413148832,
+        "ours_static": 0.16607825591067824
+      },
+      "family": "prefix-sum scan",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.12050156552240424,
+            "power_w": 568.2471425549736,
+            "runtime_s": 0.00021205837477791914
+          },
+          {
+            "energy_j": 0.004132104875535498,
+            "power_w": 499.006856445488,
+            "runtime_s": 8.280657514345986e-06
+          },
+          {
+            "energy_j": 0.08333480640032645,
+            "power_w": 595.7348154032185,
+            "runtime_s": 0.0001398857415172587
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.13456796037436536,
+            "power_w": 568.1732881176288,
+            "runtime_s": 0.000236843165964722
+          },
+          {
+            "energy_j": 0.004595858825340187,
+            "power_w": 496.93138630880975,
+            "runtime_s": 9.248477661026963e-06
+          },
+          {
+            "energy_j": 0.09306647909934421,
+            "power_w": 595.6819018250465,
+            "runtime_s": 0.00015623519669509468
+          }
+        ]
+      },
+      "measured_runtime_s": 0.0003602247738095238,
+      "native_power_w": {
+        "alavani_measured": 265.8162419754174,
+        "alavani_predicted": 265.8162419754174,
+        "component_measured": 416.3110076171478,
+        "component_predicted": 387.83809978534254,
+        "flipflop_measured": 577.3297449781556,
+        "flipflop_predicted": 577.2180103963559,
+        "flipflop_static": 576.2891307964159
+      },
+      "predicted_runtime_s": 0.00040232684032084367,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "tier": "DRAM"
+    },
+    "blackwell/unseen_cuda_samples_scan/xlarge/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.09579177191600659,
+        "alavani_predicted": 0.10700093986748724,
+        "component_measured": 0.1499915163448022,
+        "component_predicted": 0.15607328830595912,
+        "delestrac": 0.03506438144,
+        "flipflop_measured": 0.20805123899941633,
+        "flipflop_predicted": 0.23235155117579212,
+        "flipflop_static": 8.173072449752693,
+        "literature": 0.01705102016512,
+        "ours_measured": 0.15970069407501408,
+        "ours_static": 0.16613267384046404
+      },
+      "family": "prefix-sum scan",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.12054954896833626,
+            "power_w": 568.2468612887793,
+            "runtime_s": 0.00021214292093920387
+          },
+          {
+            "energy_j": 0.004133686838277937,
+            "power_w": 498.9989522543844,
+            "runtime_s": 8.283958953426073e-06
+          },
+          {
+            "energy_j": 0.08336800319280212,
+            "power_w": 595.7346138878961,
+            "runtime_s": 0.00013994151296451294
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.13463825974744167,
+            "power_w": 568.1729578144599,
+            "runtime_s": 0.00023696703247782618
+          },
+          {
+            "energy_j": 0.00459817652026316,
+            "power_w": 496.9221040721837,
+            "runtime_s": 9.253314518678004e-06
+          },
+          {
+            "energy_j": 0.0931151149080873,
+            "power_w": 595.6816651768073,
+            "runtime_s": 0.00015631690607843256
+          }
+        ]
+      },
+      "measured_runtime_s": 0.0003603683928571429,
+      "native_power_w": {
+        "alavani_measured": 265.8162419754174,
+        "alavani_predicted": 265.8162419754174,
+        "component_measured": 416.2171803015527,
+        "component_predicted": 387.7238370206306,
+        "flipflop_measured": 577.3293194497552,
+        "flipflop_predicted": 577.2175106797812,
+        "flipflop_static": 576.2891307964159
+      },
+      "predicted_runtime_s": 0.0004025372530749368,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "tier": "DRAM"
+    },
+    "blackwell/unseen_cuda_samples_separable_convolution/large/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0014597077017799297,
+        "alavani_predicted": 0.0012524660953270915,
+        "component_measured": 0.011585099227799227,
+        "component_predicted": 0.009940307895975031,
+        "delestrac": 0.000759693312,
+        "flipflop_measured": 0.015212545445671449,
+        "flipflop_predicted": 0.013438966150417453,
+        "flipflop_static": 15.071891065825799,
+        "literature": 0.00011626610688,
+        "ours_measured": 0.010018122696591823,
+        "ours_static": 0.00959999169858204
+      },
+      "family": "separable convolution",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.009235330728638263,
+            "power_w": 764.0689288648446,
+            "runtime_s": 1.2087038720916096e-05
+          },
+          {
+            "energy_j": 0.005977214717033186,
+            "power_w": 827.7017007068401,
+            "runtime_s": 7.221459992082617e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.008125077573538312,
+            "power_w": 783.4432154539629,
+            "runtime_s": 1.0370984665213126e-05
+          },
+          {
+            "energy_j": 0.00531388857687914,
+            "power_w": 857.6051009452493,
+            "runtime_s": 6.196195161411926e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 1.9308498712998712e-05,
+      "native_power_w": {
+        "alavani_measured": 75.59923345035816,
+        "alavani_predicted": 75.59923345035816,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 787.867854036222,
+        "flipflop_predicted": 811.1800735584303,
+        "flipflop_static": 647.0970872392845
+      },
+      "predicted_runtime_s": 1.6567179826625053e-05,
+      "regime": "large",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_separable_convolution/large/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.001458661620494934,
+        "alavani_predicted": 0.0012524110349574336,
+        "component_measured": 0.01157679691119691,
+        "component_predicted": 0.00993987090448336,
+        "delestrac": 0.000759693312,
+        "flipflop_measured": 0.015203593053630213,
+        "flipflop_predicted": 0.013438494942278868,
+        "flipflop_static": 15.071891065825799,
+        "literature": 0.00011626610688,
+        "ours_measured": 0.01001605440133857,
+        "ours_static": 0.009599922888719156
+      },
+      "family": "separable convolution",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.009229726568995629,
+            "power_w": 764.1528991492113,
+            "runtime_s": 1.2078376695647921e-05
+          },
+          {
+            "energy_j": 0.005973866484634585,
+            "power_w": 827.8313053253123,
+            "runtime_s": 7.216284823013595e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.00812478259923185,
+            "power_w": 783.4492148413577,
+            "runtime_s": 1.037052874049667e-05
+          },
+          {
+            "energy_j": 0.005313712343047017,
+            "power_w": 857.6143607485265,
+            "runtime_s": 6.195922766975596e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 1.9294661518661516e-05,
+      "native_power_w": {
+        "alavani_measured": 75.59923345035816,
+        "alavani_predicted": 75.59923345035816,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 787.9688917541009,
+        "flipflop_predicted": 811.1872923551227,
+        "flipflop_static": 647.0970872392845
+      },
+      "predicted_runtime_s": 1.6566451507472266e-05,
+      "regime": "large",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_separable_convolution/medium/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.0005641614831883983,
+        "alavani_predicted": 0.0004803966289688278,
+        "component_measured": 0.004477517488789238,
+        "component_predicted": 0.0038127103176326073,
+        "delestrac": 0.00024117248,
+        "flipflop_measured": 0.007548436590201827,
+        "flipflop_predicted": 0.006831574693323954,
+        "flipflop_static": 7.543115061953683,
+        "literature": 3.6909875200000005e-05,
+        "ours_measured": 0.003383609113920605,
+        "ours_static": 0.003214605009520635
+      },
+      "family": "separable convolution",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.00443716225370836,
+            "power_w": 949.9816435121363,
+            "runtime_s": 4.670787361010385e-06
+          },
+          {
+            "energy_j": 0.003111274336493467,
+            "power_w": 1114.4563408453332,
+            "runtime_s": 2.7917417869716773e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.003988479317785421,
+            "power_w": 1002.8147869103431,
+            "runtime_s": 3.977284110532379e-06
+          },
+          {
+            "energy_j": 0.002843095375538533,
+            "power_w": 1195.968284664134,
+            "runtime_s": 2.3772330855219666e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 7.462529147982063e-06,
+      "native_power_w": {
+        "alavani_measured": 75.59923345035816,
+        "alavani_predicted": 75.59923345035816,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 1011.5118400901649,
+        "flipflop_predicted": 1075.073759744615,
+        "flipflop_static": 647.2137018999291
+      },
+      "predicted_runtime_s": 6.354517196054346e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_separable_convolution/medium/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.0005556455329600042,
+        "alavani_predicted": 0.0004803691475358886,
+        "component_measured": 0.004409929896907216,
+        "component_predicted": 0.0038124922088104544,
+        "delestrac": 0.00024117248,
+        "flipflop_measured": 0.007475556856913664,
+        "flipflop_predicted": 0.006831339506474656,
+        "flipflop_static": 7.543115061953683,
+        "literature": 3.6909875200000005e-05,
+        "ours_measured": 0.003366448459076842,
+        "ours_static": 0.0032145707029510836
+      },
+      "family": "separable convolution",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.004391546922717229,
+            "power_w": 954.6255113565153,
+            "runtime_s": 4.60028238348342e-06
+          },
+          {
+            "energy_j": 0.003084009934196435,
+            "power_w": 1121.6209854317804,
+            "runtime_s": 2.749600778028606e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.0039883321146400265,
+            "power_w": 1002.8351438417625,
+            "runtime_s": 3.977056587148631e-06
+          },
+          {
+            "energy_j": 0.0028430073918346297,
+            "power_w": 1195.999691711746,
+            "runtime_s": 2.3770970942021257e-06
+          }
+        ]
+      },
+      "measured_runtime_s": 7.349883161512027e-06,
+      "native_power_w": {
+        "alavani_measured": 75.59923345035816,
+        "alavani_predicted": 75.59923345035816,
+        "component_measured": 600.0,
+        "component_predicted": 600.0,
+        "flipflop_measured": 1017.0987337675967,
+        "flipflop_predicted": 1075.0982505387656,
+        "flipflop_static": 647.2137018999291
+      },
+      "predicted_runtime_s": 6.354153681350757e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_separable_convolution/small/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.00022564556652432426,
+        "alavani_predicted": 0.0001827089768634925,
+        "component_measured": 0.0009923930517000132,
+        "component_predicted": 0.0009104808830627057,
+        "delestrac": 3.6175872e-05,
+        "flipflop_measured": 0.004651408183669199,
+        "flipflop_predicted": 0.004283955683494734,
+        "flipflop_static": 7.543115061953683,
+        "literature": 5.53648128e-06,
+        "ours_measured": 0.0007920398322989576,
+        "ours_static": 0.0007054109000429935
+      },
+      "family": "separable convolution",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0026239159135745087,
+            "power_w": 1404.5475436080203,
+            "runtime_s": 1.8681574187472208e-06
+          },
+          {
+            "energy_j": 0.0020274922700946898,
+            "power_w": 1815.768958784625,
+            "runtime_s": 1.1166025612926991e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.002393927868026886,
+            "power_w": 1582.5757650714997,
+            "runtime_s": 1.5126782052793095e-06
+          },
+          {
+            "energy_j": 0.0018900278154678474,
+            "power_w": 2090.4341680211583,
+            "runtime_s": 9.041317083220951e-07
+          }
+        ]
+      },
+      "measured_runtime_s": 2.98475998003992e-06,
+      "native_power_w": {
+        "alavani_measured": 75.59923345035816,
+        "alavani_predicted": 75.59923345035816,
+        "component_measured": 332.486718642864,
+        "component_predicted": 376.72837981120097,
+        "flipflop_measured": 1558.3860058345422,
+        "flipflop_predicted": 1772.5662491639673,
+        "flipflop_static": 647.2137018999291
+      },
+      "predicted_runtime_s": 2.4168099136014046e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_separable_convolution/small/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.00022575717533677864,
+        "alavani_predicted": 0.0001827089768634925,
+        "component_measured": 0.0009926059731252914,
+        "component_predicted": 0.0009104808830627057,
+        "delestrac": 3.6175872e-05,
+        "flipflop_measured": 0.0046523633349166964,
+        "flipflop_predicted": 0.004283955683494734,
+        "flipflop_static": 7.543115061953683,
+        "literature": 5.53648128e-06,
+        "ours_measured": 0.0007922755844250508,
+        "ours_static": 0.0007054214700498347
+      },
+      "family": "separable convolution",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.0026245137415073986,
+            "power_w": 1404.1730209328866,
+            "runtime_s": 1.8690814467890555e-06
+          },
+          {
+            "energy_j": 0.002027849593409298,
+            "power_w": 1815.1911383240044,
+            "runtime_s": 1.1171548552631457e-06
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.002393927868026886,
+            "power_w": 1582.5757650714997,
+            "runtime_s": 1.5126782052793095e-06
+          },
+          {
+            "energy_j": 0.0018900278154678474,
+            "power_w": 2090.4341680211583,
+            "runtime_s": 9.041317083220951e-07
+          }
+        ]
+      },
+      "measured_runtime_s": 2.9862363020522014e-06,
+      "native_power_w": {
+        "alavani_measured": 75.59923345035816,
+        "alavani_predicted": 75.59923345035816,
+        "component_measured": 332.3936462908688,
+        "component_predicted": 376.72837981120097,
+        "flipflop_measured": 1557.9354291954387,
+        "flipflop_predicted": 1772.5662491639673,
+        "flipflop_static": 647.2137018999291
+      },
+      "predicted_runtime_s": 2.4168099136014046e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "tier": "L2"
+    },
+    "blackwell/unseen_cuda_samples_separable_convolution/xlarge/c1": {
+      "candidate": "c1",
+      "energy_j": {
+        "alavani_measured": 0.020415718223375585,
+        "alavani_predicted": 0.023112547040113958,
+        "component_measured": 0.15423331636363585,
+        "component_predicted": 0.15937818461161735,
+        "delestrac": 0.02629828608,
+        "flipflop_measured": 0.17743859820197344,
+        "flipflop_predicted": 0.20051813244260375,
+        "flipflop_static": 82.83087510067486,
+        "literature": 0.012788265123839999,
+        "ours_measured": 0.13032737029819147,
+        "ours_static": 0.13576849644995662
+      },
+      "family": "separable convolution",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.11080205115860275,
+            "power_w": 655.350973972429,
+            "runtime_s": 0.00016907284120899814
+          },
+          {
+            "energy_j": 0.0666365470433707,
+            "power_w": 659.9044786955644,
+            "runtime_s": 0.00010097907984363344
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.125251577800123,
+            "power_w": 654.3742622900564,
+            "runtime_s": 0.00019140663839954674
+          },
+          {
+            "energy_j": 0.07526655464248075,
+            "power_w": 658.3964528861426,
+            "runtime_s": 0.00011431798320380183
+          }
+        ]
+      },
+      "measured_runtime_s": 0.00027005192105263156,
+      "native_power_w": {
+        "alavani_measured": 75.59923345035816,
+        "alavani_predicted": 75.59923345035816,
+        "component_measured": 571.1246776636581,
+        "component_predicted": 521.3128853533977,
+        "flipflop_measured": 657.0536417972442,
+        "flipflop_predicted": 655.8782586466288,
+        "flipflop_static": 647.0015414049047
+      },
+      "predicted_runtime_s": 0.00030572462160334855,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "tier": "DRAM"
+    },
+    "blackwell/unseen_cuda_samples_separable_convolution/xlarge/c2": {
+      "candidate": "c2",
+      "energy_j": {
+        "alavani_measured": 0.020297073184289294,
+        "alavani_predicted": 0.023106385506038767,
+        "component_measured": 0.154006971595074,
+        "component_predicted": 0.1593664299608121,
+        "delestrac": 0.02629828608,
+        "flipflop_measured": 0.17642323073590466,
+        "flipflop_predicted": 0.20046540186668413,
+        "flipflop_static": 82.83087510067486,
+        "literature": 0.012788265123839999,
+        "ours_measured": 0.1300881609968962,
+        "ours_static": 0.13575623404902054
+      },
+      "family": "separable convolution",
+      "flipflop_external_stages": {
+        "measured": [
+          {
+            "energy_j": 0.11016635465368518,
+            "power_w": 655.3999041707855,
+            "runtime_s": 0.00016809028190669037
+          },
+          {
+            "energy_j": 0.06625687608221947,
+            "power_w": 659.9800260687693,
+            "runtime_s": 0.00010039224440909908
+          }
+        ],
+        "predicted": [
+          {
+            "energy_j": 0.1252185644882585,
+            "power_w": 654.3762339613115,
+            "runtime_s": 0.00019135561163375283
+          },
+          {
+            "energy_j": 0.07524683737842564,
+            "power_w": 658.3994971121859,
+            "runtime_s": 0.00011428750736971505
+          }
+        ]
+      },
+      "measured_runtime_s": 0.00026848252631578946,
+      "native_power_w": {
+        "alavani_measured": 75.59923345035816,
+        "alavani_predicted": 75.59923345035816,
+        "component_measured": 573.6200925565295,
+        "component_predicted": 521.4134395710179,
+        "flipflop_measured": 657.1125248143541,
+        "flipflop_predicted": 655.8806313725964,
+        "flipflop_static": 647.0015414049047
+      },
+      "predicted_runtime_s": 0.00030564311900346786,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "tier": "DRAM"
+    }
+  },
+  "schema": "published_fresh_runtime_predictions/1"
+}

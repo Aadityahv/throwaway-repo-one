@@ -1,0 +1,90 @@
+PASS constant operand
+PASS negated constant operand
+PASS 64-bit constant operand
+PASS IADD3 carry-out
+PASS IADD3 no carry
+PASS IADD3.X carry-in
+PASS IMAD.X carry-in
+PASS LEA.HI.X.SX32 sign extension
+PASS HFMA2.MMA constant 31
+PASS HFMA2.MMA constant 16
+PASS HFMA2.MMA zero
+PASS HFMA2.MMA high half
+PASS scaled shared address
+PASS scaled + uniform shared address
+PASS register + uniform shared address stays as committed (unknown)
+PASS plain shared address unchanged
+PASS global operand without descriptor
+PASS global operand with descriptor
+PASS bank evaluator scaled term
+PASS bank evaluator plain term unchanged
+PASS Blackwell unchanged: blackwell__unseen_cuda_samples_black_scholes__small__c1.json
+PASS Blackwell unchanged: blackwell__unseen_cuda_samples_scan__small__c1.json
+cross-architecture checks on compiled_cluster_cuda12.1 ['sm_90', 'sm_80']
+PASS sm_90 unseen_cuda_samples_matrix_multiply mm16
+     logged assumptions: ['fchk_fast_path']
+PASS sm_90 unseen_cuda_samples_black_scholes bs
+PASS sm_90 unseen_cuda_samples_scan scan_bottom (known reference difference: the committed interpreter leaves the Blackwell operand [R11+UR5] unknown, so its reference span stops 4 B short; this build uses only resolved forms)
+PASS sm_90 unseen_cuda_samples_scan scan_top
+PASS sm_90 unseen_cuda_samples_scan scan_update
+PASS sm_90 unseen_cuda_samples_separable_convolution conv_rows
+PASS sm_90 unseen_cuda_samples_separable_convolution conv_cols
+PASS sm_90 fresh_e_cuda_samples_scalar_product sp
+PASS sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt1
+PASS sm_80 unseen_cuda_samples_matrix_multiply mm16
+     logged assumptions: ['fchk_fast_path']
+PASS sm_80 unseen_cuda_samples_black_scholes bs
+PASS sm_80 unseen_cuda_samples_scan scan_bottom (known reference difference: the committed interpreter leaves the Blackwell operand [R11+UR5] unknown, so its reference span stops 4 B short; this build uses only resolved forms)
+PASS sm_80 unseen_cuda_samples_scan scan_top
+PASS sm_80 unseen_cuda_samples_scan scan_update
+PASS sm_80 unseen_cuda_samples_separable_convolution conv_rows
+PASS sm_80 unseen_cuda_samples_separable_convolution conv_cols
+     logged assumptions: ['call_to_exit']
+PASS sm_80 fresh_e_cuda_samples_scalar_product sp
+PASS sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt1
+PASS bank sm_90 unseen_cuda_samples_matrix_multiply mm16
+PASS bank sm_90 unseen_cuda_samples_scan scan_bottom
+PASS bank sm_90 unseen_cuda_samples_scan scan_top
+PASS bank sm_90 unseen_cuda_samples_scan scan_update
+PASS bank sm_90 unseen_cuda_samples_separable_convolution conv_rows
+PASS bank sm_90 unseen_cuda_samples_separable_convolution conv_cols
+PASS bank sm_90 fresh_e_cuda_samples_scalar_product sp (known codegen difference: architecture-specific reduction layout; all conflict degrees 1; cost +0.7%)
+PASS bank sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS bank sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS bank sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS bank sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS bank sm_90 fresh_e_cuda_samples_fast_walsh_transform fwt1
+PASS bank sm_80 unseen_cuda_samples_matrix_multiply mm16
+PASS bank sm_80 unseen_cuda_samples_scan scan_bottom
+PASS bank sm_80 unseen_cuda_samples_scan scan_top
+PASS bank sm_80 unseen_cuda_samples_scan scan_update
+PASS bank sm_80 unseen_cuda_samples_separable_convolution conv_rows
+PASS bank sm_80 unseen_cuda_samples_separable_convolution conv_cols
+PASS bank sm_80 fresh_e_cuda_samples_scalar_product sp (known codegen difference: architecture-specific reduction layout; all conflict degrees 1; cost +0.7%)
+PASS bank sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS bank sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS bank sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS bank sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt2
+PASS bank sm_80 fresh_e_cuda_samples_fast_walsh_transform fwt1
+PASS cell build sm_90 unseen_cuda_samples_matrix_multiply (blocks/SM [8])
+PASS cell build sm_90 unseen_cuda_samples_black_scholes (blocks/SM [16])
+PASS cell build sm_90 unseen_cuda_samples_scan (blocks/SM [8, 8, 8])
+PASS cell build sm_90 unseen_cuda_samples_separable_convolution (blocks/SM [32, 16])
+PASS cell build sm_90 fresh_e_cuda_samples_scalar_product (blocks/SM [8])
+PASS cell build sm_90 fresh_e_cuda_samples_fast_walsh_transform (blocks/SM [8, 8, 8, 8, 8])
+PASS cell build sm_80 unseen_cuda_samples_matrix_multiply (blocks/SM [8])
+PASS cell build sm_80 unseen_cuda_samples_black_scholes (blocks/SM [16])
+PASS cell build sm_80 unseen_cuda_samples_scan (blocks/SM [8, 8, 8])
+PASS cell build sm_80 unseen_cuda_samples_separable_convolution (blocks/SM [32, 16])
+PASS cell build sm_80 fresh_e_cuda_samples_scalar_product (blocks/SM [8])
+PASS cell build sm_80 fresh_e_cuda_samples_fast_walsh_transform (blocks/SM [8, 8, 8, 8, 8])
+
+0 failure(s)

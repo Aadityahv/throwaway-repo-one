@@ -1,0 +1,50 @@
+[
+  {
+    "stage": "compile",
+    "argv": [
+      "nice",
+      "-n",
+      "19",
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O3",
+      "-std=c++17",
+      "-arch=sm_120",
+      "-Xptxas=-v",
+      "/home/user/energy_component_cal_20261002_5a5e881d/tiresias/framework/predictor/energy_revision/execution/calibration.cu",
+      "-o",
+      "/home/user/energy_component_cal_20261002_5a5e881d/native/calibration"
+    ],
+    "returncode": 0,
+    "wall_s": 2.5495211691595614
+  },
+  {
+    "stage": "sass",
+    "argv": [
+      "/usr/local/cuda-13.2/bin/cuobjdump",
+      "--dump-sass",
+      "/home/user/energy_component_cal_20261002_5a5e881d/native/calibration"
+    ],
+    "returncode": 0,
+    "wall_s": 1.245592095889151
+  },
+  {
+    "stage": "ptx",
+    "argv": [
+      "/usr/local/cuda-13.2/bin/cuobjdump",
+      "--dump-ptx",
+      "/home/user/energy_component_cal_20261002_5a5e881d/native/calibration"
+    ],
+    "returncode": 0,
+    "wall_s": 0.0036296392790973186
+  },
+  {
+    "stage": "resources",
+    "argv": [
+      "/usr/local/cuda-13.2/bin/cuobjdump",
+      "--dump-resource-usage",
+      "/home/user/energy_component_cal_20261002_5a5e881d/native/calibration"
+    ],
+    "returncode": 0,
+    "wall_s": 0.004376533906906843
+  }
+]

@@ -1,0 +1,5494 @@
+{
+ "cells": [
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_copy/dram/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "copy",
+   "numeric_args": [
+    3232,
+    3232,
+    0
+   ],
+   "per_launch_max_s": 6.2230015e-05,
+   "per_launch_min_s": 5.97975045e-05,
+   "per_launch_runtime_s": 5.9835392e-05,
+   "repeat": 2000,
+   "runner": "tile_family",
+   "set": "set_d",
+   "wall_s": 25.9
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_copy/dram/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "copySharedMem",
+   "numeric_args": [
+    3232,
+    3232,
+    1
+   ],
+   "per_launch_max_s": 5.6961536499999996e-05,
+   "per_launch_min_s": 5.65135345e-05,
+   "per_launch_runtime_s": 5.6920574e-05,
+   "repeat": 2000,
+   "runner": "tile_family",
+   "set": "set_d",
+   "wall_s": 46.5
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_copy/l2/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "copy",
+   "numeric_args": [
+    800,
+    800,
+    0
+   ],
+   "per_launch_max_s": 3.6735051481481483e-06,
+   "per_launch_min_s": 2.9951621111111113e-06,
+   "per_launch_runtime_s": 3.125854777777778e-06,
+   "repeat": 27000,
+   "runner": "tile_family",
+   "set": "set_d",
+   "wall_s": 11.1
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_copy/l2/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "copySharedMem",
+   "numeric_args": [
+    800,
+    800,
+    1
+   ],
+   "per_launch_max_s": 3.91925752e-06,
+   "per_launch_min_s": 3.19623168e-06,
+   "per_launch_runtime_s": 3.91839752e-06,
+   "repeat": 25000,
+   "runner": "tile_family",
+   "set": "set_d",
+   "wall_s": 13.3
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_reduce2/dram/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "reduce2",
+   "numeric_args": [
+    20889856,
+    256,
+    81601,
+    2
+   ],
+   "per_launch_max_s": 0.00016231117200000002,
+   "per_launch_min_s": 0.000162305023,
+   "per_launch_runtime_s": 0.000162309113,
+   "repeat": 1000,
+   "runner": "reduction_runner",
+   "set": "set_d",
+   "wall_s": 31.5
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_reduce2/l2/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "reduce2",
+   "numeric_args": [
+    1305600,
+    256,
+    5100,
+    2
+   ],
+   "per_launch_max_s": 1.1231686888888888e-05,
+   "per_launch_min_s": 1.1222016222222222e-05,
+   "per_launch_runtime_s": 1.1222584999999999e-05,
+   "repeat": 9000,
+   "runner": "reduction_runner",
+   "set": "set_d",
+   "wall_s": 6.0
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_reduction/dram/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "reduce0",
+   "numeric_args": [
+    20889856,
+    256,
+    81601,
+    0
+   ],
+   "per_launch_max_s": 0.00033996185299999996,
+   "per_launch_min_s": 0.000339638275,
+   "per_launch_runtime_s": 0.000339790863,
+   "repeat": 1000,
+   "runner": "reduction_runner",
+   "set": "set_d",
+   "wall_s": 32.9
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_reduction/dram/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "reduce1",
+   "numeric_args": [
+    20889856,
+    256,
+    81601,
+    1
+   ],
+   "per_launch_max_s": 0.000207639557,
+   "per_launch_min_s": 0.000207415298,
+   "per_launch_runtime_s": 0.000207433731,
+   "repeat": 1000,
+   "runner": "reduction_runner",
+   "set": "set_d",
+   "wall_s": 23.6
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_reduction/dram/c3",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "reduce6",
+   "numeric_args": [
+    16777216,
+    256,
+    64,
+    6
+   ],
+   "per_launch_max_s": 0.00027203686500000004,
+   "per_launch_min_s": 0.000271959045,
+   "per_launch_runtime_s": 0.00027203073100000004,
+   "repeat": 1000,
+   "runner": "reduction_runner",
+   "set": "set_d",
+   "wall_s": 20.3
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_reduction/l2/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "reduce0",
+   "numeric_args": [
+    1305600,
+    256,
+    5100,
+    0
+   ],
+   "per_launch_max_s": 2.657894325e-05,
+   "per_launch_min_s": 2.323174475e-05,
+   "per_launch_runtime_s": 2.32325115e-05,
+   "repeat": 4000,
+   "runner": "reduction_runner",
+   "set": "set_d",
+   "wall_s": 6.5
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_reduction/l2/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "reduce1",
+   "numeric_args": [
+    1305600,
+    256,
+    5100,
+    1
+   ],
+   "per_launch_max_s": 1.4716050285714286e-05,
+   "per_launch_min_s": 1.4714294428571428e-05,
+   "per_launch_runtime_s": 1.4715465000000001e-05,
+   "repeat": 7000,
+   "runner": "reduction_runner",
+   "set": "set_d",
+   "wall_s": 5.4
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_reduction/l2/c3",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "reduce6",
+   "numeric_args": [
+    1048576,
+    256,
+    64,
+    6
+   ],
+   "per_launch_max_s": 8.091903666666666e-06,
+   "per_launch_min_s": 8.090026833333333e-06,
+   "per_launch_runtime_s": 8.09096525e-06,
+   "repeat": 12000,
+   "runner": "reduction_runner",
+   "set": "set_d",
+   "wall_s": 5.2
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transpose/dram/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeNaive",
+   "numeric_args": [
+    3232,
+    3232,
+    2
+   ],
+   "per_launch_max_s": 0.000299953156,
+   "per_launch_min_s": 0.000299909119,
+   "per_launch_runtime_s": 0.000299945984,
+   "repeat": 1000,
+   "runner": "transpose_runner",
+   "set": "set_d",
+   "wall_s": 24.3
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transpose/dram/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeCoalesced",
+   "numeric_args": [
+    3232,
+    3232,
+    3
+   ],
+   "per_launch_max_s": 0.00010716877,
+   "per_launch_min_s": 9.930854e-05,
+   "per_launch_runtime_s": 0.000104204285,
+   "repeat": 1000,
+   "runner": "transpose_runner",
+   "set": "set_d",
+   "wall_s": 35.9
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transpose/dram/c3",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeNoBankConflicts",
+   "numeric_args": [
+    3232,
+    3232,
+    4
+   ],
+   "per_launch_max_s": 5.6421886499999996e-05,
+   "per_launch_min_s": 5.58479345e-05,
+   "per_launch_runtime_s": 5.63752975e-05,
+   "repeat": 2000,
+   "runner": "transpose_runner",
+   "set": "set_d",
+   "wall_s": 30.3
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transpose/dram/c4",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeDiagonal",
+   "numeric_args": [
+    3232,
+    3232,
+    7
+   ],
+   "per_launch_max_s": 6.0744705e-05,
+   "per_launch_min_s": 5.9689983500000004e-05,
+   "per_launch_runtime_s": 5.99352305e-05,
+   "repeat": 2000,
+   "runner": "transpose_runner",
+   "set": "set_d",
+   "wall_s": 81.2
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transpose/l2/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeNaive",
+   "numeric_args": [
+    800,
+    800,
+    2
+   ],
+   "per_launch_max_s": 1.9073535999999998e-05,
+   "per_launch_min_s": 1.905715175e-05,
+   "per_launch_runtime_s": 1.906892775e-05,
+   "repeat": 4000,
+   "runner": "transpose_runner",
+   "set": "set_d",
+   "wall_s": 7.5
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transpose/l2/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeCoalesced",
+   "numeric_args": [
+    800,
+    800,
+    3
+   ],
+   "per_launch_max_s": 9.308711153846155e-06,
+   "per_launch_min_s": 7.703000615384616e-06,
+   "per_launch_runtime_s": 8.826171307692308e-06,
+   "repeat": 13000,
+   "runner": "transpose_runner",
+   "set": "set_d",
+   "wall_s": 10.8
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transpose/l2/c3",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeNoBankConflicts",
+   "numeric_args": [
+    800,
+    800,
+    4
+   ],
+   "per_launch_max_s": 3.7321167096774194e-06,
+   "per_launch_min_s": 3.0676067741935486e-06,
+   "per_launch_runtime_s": 3.068465451612903e-06,
+   "repeat": 31000,
+   "runner": "transpose_runner",
+   "set": "set_d",
+   "wall_s": 7.2
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transpose/l2/c4",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeDiagonal",
+   "numeric_args": [
+    800,
+    800,
+    7
+   ],
+   "per_launch_max_s": 4.079701416666667e-06,
+   "per_launch_min_s": 3.327871958333334e-06,
+   "per_launch_runtime_s": 3.3280000833333334e-06,
+   "repeat": 24000,
+   "runner": "transpose_runner",
+   "set": "set_d",
+   "wall_s": 7.0
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transposefine/dram/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeFineGrained",
+   "numeric_args": [
+    3232,
+    3232,
+    6
+   ],
+   "per_launch_max_s": 5.6742401e-05,
+   "per_launch_min_s": 5.6332287e-05,
+   "per_launch_runtime_s": 5.6702976000000003e-05,
+   "repeat": 2000,
+   "runner": "tile_family",
+   "set": "set_d",
+   "wall_s": 46.7
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transposefine/dram/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeCoarseGrained",
+   "numeric_args": [
+    3232,
+    3232,
+    5
+   ],
+   "per_launch_max_s": 5.64224015e-05,
+   "per_launch_min_s": 5.5957504499999996e-05,
+   "per_launch_runtime_s": 5.6367103500000004e-05,
+   "repeat": 2000,
+   "runner": "tile_family",
+   "set": "set_d",
+   "wall_s": 89.8
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transposefine/l2/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeFineGrained",
+   "numeric_args": [
+    800,
+    800,
+    6
+   ],
+   "per_launch_max_s": 3.780371730769231e-06,
+   "per_launch_min_s": 3.083972923076923e-06,
+   "per_launch_runtime_s": 3.0846029615384615e-06,
+   "repeat": 26000,
+   "runner": "tile_family",
+   "set": "set_d",
+   "wall_s": 9.1
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_transposefine/l2/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "transposeCoarseGrained",
+   "numeric_args": [
+    800,
+    800,
+    5
+   ],
+   "per_launch_max_s": 3.7231501851851854e-06,
+   "per_launch_min_s": 3.0374495925925925e-06,
+   "per_launch_runtime_s": 3.0382837407407406e-06,
+   "repeat": 27000,
+   "runner": "tile_family",
+   "set": "set_d",
+   "wall_s": 36.9
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_vector_add/dram/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "vecAdd",
+   "numeric_args": [
+    6990848,
+    128
+   ],
+   "per_launch_max_s": 5.4401535e-05,
+   "per_launch_min_s": 5.3633022500000005e-05,
+   "per_launch_runtime_s": 5.3824001500000006e-05,
+   "repeat": 2000,
+   "runner": "copy_runner",
+   "set": "set_d",
+   "wall_s": 62.2
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_vector_add/dram/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "vecAdd",
+   "numeric_args": [
+    6990848,
+    1024
+   ],
+   "per_launch_max_s": 5.3953026e-05,
+   "per_launch_min_s": 5.3119999000000004e-05,
+   "per_launch_runtime_s": 5.3785087500000004e-05,
+   "repeat": 2000,
+   "runner": "copy_runner",
+   "set": "set_d",
+   "wall_s": 51.5
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_vector_add/l2/c1",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "vecAdd",
+   "numeric_args": [
+    437248,
+    128
+   ],
+   "per_launch_max_s": 4.90419195e-06,
+   "per_launch_min_s": 4.01960945e-06,
+   "per_launch_runtime_s": 4.02007025e-06,
+   "repeat": 20000,
+   "runner": "copy_runner",
+   "set": "set_d",
+   "wall_s": 8.9
+  },
+  {
+   "cell_id": "a100/fresh_d_cuda_samples_vector_add/l2/c2",
+   "correct": true,
+   "graph_batch": 1000,
+   "kernel": "vecAdd",
+   "numeric_args": [
+    437248,
+    1024
+   ],
+   "per_launch_max_s": 3.377806138888889e-06,
+   "per_launch_min_s": 2.7584853611111113e-06,
+   "per_launch_runtime_s": 2.7592247777777776e-06,
+   "repeat": 36000,
+   "runner": "copy_runner",
+   "set": "set_d",
+   "wall_s": 6.0
+  },
+  {
+   "argv": [
+    "21",
+    "1",
+    "inplace"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_e_cuda_samples_fast_walsh_transform/large/c1",
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=1 rel_l2_error=0 repeat=522 graph_batch=87",
+   "correct": true,
+   "family": "fwt",
+   "graph_batch": 87,
+   "launches": 522,
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "per_launch_max_s": 5.795408237547892e-05,
+   "per_launch_min_s": 5.794623754789272e-05,
+   "per_launch_runtime_s": 5.795016283524904e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 5.8112e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 87,
+     "per_launch_s": 5.802666666666667e-05,
+     "rc": 0,
+     "repeat": 87
+    }
+   ],
+   "regime": "large",
+   "repeat": 522,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=1 rel_l2_error=0 repeat=522 graph_batch=87",
+     "check_ok": true,
+     "cuda_seconds": 0.030247936,
+     "error": null,
+     "host_begin_monotonic_ns": 15236714062263560,
+     "host_end_monotonic_ns": 15236714092530006,
+     "launches": 522,
+     "per_launch_s": 5.794623754789272e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=1 rel_l2_error=0 repeat=522 graph_batch=87",
+     "check_ok": true,
+     "cuda_seconds": 0.030249985,
+     "error": null,
+     "host_begin_monotonic_ns": 15236715944639011,
+     "host_end_monotonic_ns": 15236715974905517,
+     "launches": 522,
+     "per_launch_s": 5.795016283524904e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=1 rel_l2_error=0 repeat=522 graph_batch=87",
+     "check_ok": true,
+     "cuda_seconds": 0.030252031,
+     "error": null,
+     "host_begin_monotonic_ns": 15236717523853721,
+     "host_end_monotonic_ns": 15236717554122657,
+     "launches": 522,
+     "per_launch_s": 5.795408237547892e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "20",
+    "2",
+    "inplace"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_e_cuda_samples_fast_walsh_transform/large/c2",
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=2 rel_l2_error=0 repeat=534 graph_batch=89",
+   "correct": true,
+   "family": "fwt",
+   "graph_batch": 89,
+   "launches": 534,
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "per_launch_max_s": 5.6402456928838956e-05,
+   "per_launch_min_s": 5.635451498127341e-05,
+   "per_launch_runtime_s": 5.636410674157304e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 5.6768e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 89,
+     "per_launch_s": 5.646957303370787e-05,
+     "rc": 0,
+     "repeat": 89
+    }
+   ],
+   "regime": "large",
+   "repeat": 534,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=2 rel_l2_error=0 repeat=534 graph_batch=89",
+     "check_ok": true,
+     "cuda_seconds": 0.030093311,
+     "error": null,
+     "host_begin_monotonic_ns": 15236722927571255,
+     "host_end_monotonic_ns": 15236722957682571,
+     "launches": 534,
+     "per_launch_s": 5.635451498127341e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=2 rel_l2_error=0 repeat=534 graph_batch=89",
+     "check_ok": true,
+     "cuda_seconds": 0.030118912,
+     "error": null,
+     "host_begin_monotonic_ns": 15236726140469332,
+     "host_end_monotonic_ns": 15236726170606558,
+     "launches": 534,
+     "per_launch_s": 5.6402456928838956e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=2 rel_l2_error=0 repeat=534 graph_batch=89",
+     "check_ok": true,
+     "cuda_seconds": 0.030098433,
+     "error": null,
+     "host_begin_monotonic_ns": 15236727931711594,
+     "host_end_monotonic_ns": 15236727961828750,
+     "launches": 534,
+     "per_launch_s": 5.636410674157304e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "20",
+    "1",
+    "inplace"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_e_cuda_samples_fast_walsh_transform/medium/c1",
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=1 rel_l2_error=0 repeat=840 graph_batch=140",
+   "correct": true,
+   "family": "fwt",
+   "graph_batch": 140,
+   "launches": 840,
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "per_launch_max_s": 3.5709563095238094e-05,
+   "per_launch_min_s": 3.5697371428571426e-05,
+   "per_launch_runtime_s": 3.570224642857143e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 3.6224e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 139,
+     "per_launch_s": 3.571476258992806e-05,
+     "rc": 0,
+     "repeat": 139
+    }
+   ],
+   "regime": "medium",
+   "repeat": 840,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=1 rel_l2_error=0 repeat=840 graph_batch=140",
+     "check_ok": true,
+     "cuda_seconds": 0.029996033,
+     "error": null,
+     "host_begin_monotonic_ns": 15236698987830089,
+     "host_end_monotonic_ns": 15236699017843905,
+     "launches": 840,
+     "per_launch_s": 3.5709563095238094e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=1 rel_l2_error=0 repeat=840 graph_batch=140",
+     "check_ok": true,
+     "cuda_seconds": 0.029989887,
+     "error": null,
+     "host_begin_monotonic_ns": 15236700146681067,
+     "host_end_monotonic_ns": 15236700176688393,
+     "launches": 840,
+     "per_launch_s": 3.570224642857143e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=1 rel_l2_error=0 repeat=840 graph_batch=140",
+     "check_ok": true,
+     "cuda_seconds": 0.029985792,
+     "error": null,
+     "host_begin_monotonic_ns": 15236702625592601,
+     "host_end_monotonic_ns": 15236702655597117,
+     "launches": 840,
+     "per_launch_s": 3.5697371428571426e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "19",
+    "2",
+    "inplace"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_e_cuda_samples_fast_walsh_transform/medium/c2",
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=19 batches=2 rel_l2_error=0 repeat=948 graph_batch=158",
+   "correct": true,
+   "family": "fwt",
+   "graph_batch": 158,
+   "launches": 948,
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "per_launch_max_s": 3.166730907172996e-05,
+   "per_launch_min_s": 3.163922362869199e-05,
+   "per_launch_runtime_s": 3.1654345991561186e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 3.1936e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 157,
+     "per_launch_s": 3.164616560509554e-05,
+     "rc": 0,
+     "repeat": 157
+    }
+   ],
+   "regime": "medium",
+   "repeat": 948,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=19 batches=2 rel_l2_error=0 repeat=948 graph_batch=158",
+     "check_ok": true,
+     "cuda_seconds": 0.029993984,
+     "error": null,
+     "host_begin_monotonic_ns": 15236707308307754,
+     "host_end_monotonic_ns": 15236707338319210,
+     "launches": 948,
+     "per_launch_s": 3.163922362869199e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=19 batches=2 rel_l2_error=0 repeat=948 graph_batch=158",
+     "check_ok": true,
+     "cuda_seconds": 0.03000832,
+     "error": null,
+     "host_begin_monotonic_ns": 15236708882603650,
+     "host_end_monotonic_ns": 15236708912629596,
+     "launches": 948,
+     "per_launch_s": 3.1654345991561186e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=19 batches=2 rel_l2_error=0 repeat=948 graph_batch=158",
+     "check_ok": true,
+     "cuda_seconds": 0.030020609,
+     "error": null,
+     "host_begin_monotonic_ns": 15236710391224679,
+     "host_end_monotonic_ns": 15236710421264355,
+     "launches": 948,
+     "per_launch_s": 3.166730907172996e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "17",
+    "1",
+    "inplace"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_e_cuda_samples_fast_walsh_transform/small/c1",
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=17 batches=1 rel_l2_error=0 repeat=2664 graph_batch=444",
+   "correct": true,
+   "family": "fwt",
+   "graph_batch": 444,
+   "launches": 2664,
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "per_launch_max_s": 1.1250162162162163e-05,
+   "per_launch_min_s": 1.1248239864864865e-05,
+   "per_launch_runtime_s": 1.124862424924925e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.1584e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 432,
+     "per_launch_s": 1.1264000000000001e-05,
+     "rc": 0,
+     "repeat": 432
+    }
+   ],
+   "regime": "small",
+   "repeat": 2664,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=17 batches=1 rel_l2_error=0 repeat=2664 graph_batch=444",
+     "check_ok": true,
+     "cuda_seconds": 0.029966335,
+     "error": null,
+     "host_begin_monotonic_ns": 15236687133565780,
+     "host_end_monotonic_ns": 15236687163550526,
+     "launches": 2664,
+     "per_launch_s": 1.124862424924925e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=17 batches=1 rel_l2_error=0 repeat=2664 graph_batch=444",
+     "check_ok": true,
+     "cuda_seconds": 0.029965311,
+     "error": null,
+     "host_begin_monotonic_ns": 15236687839747709,
+     "host_end_monotonic_ns": 15236687869730504,
+     "launches": 2664,
+     "per_launch_s": 1.1248239864864865e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=17 batches=1 rel_l2_error=0 repeat=2664 graph_batch=444",
+     "check_ok": true,
+     "cuda_seconds": 0.029970432,
+     "error": null,
+     "host_begin_monotonic_ns": 15236688552114052,
+     "host_end_monotonic_ns": 15236688582102078,
+     "launches": 2664,
+     "per_launch_s": 1.1250162162162163e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "16",
+    "2",
+    "inplace"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_e_cuda_samples_fast_walsh_transform/small/c2",
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=16 batches=2 rel_l2_error=0 repeat=2736 graph_batch=456",
+   "correct": true,
+   "family": "fwt",
+   "graph_batch": 456,
+   "launches": 2736,
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "per_launch_max_s": 1.0976561403508772e-05,
+   "per_launch_min_s": 1.0973941520467837e-05,
+   "per_launch_runtime_s": 1.09758125e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.1328e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 442,
+     "per_launch_s": 1.0988307692307692e-05,
+     "rc": 0,
+     "repeat": 442
+    }
+   ],
+   "regime": "small",
+   "repeat": 2736,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=16 batches=2 rel_l2_error=0 repeat=2736 graph_batch=456",
+     "check_ok": true,
+     "cuda_seconds": 0.030024704,
+     "error": null,
+     "host_begin_monotonic_ns": 15236690563821794,
+     "host_end_monotonic_ns": 15236690593863230,
+     "launches": 2736,
+     "per_launch_s": 1.0973941520467837e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=16 batches=2 rel_l2_error=0 repeat=2736 graph_batch=456",
+     "check_ok": true,
+     "cuda_seconds": 0.030029823,
+     "error": null,
+     "host_begin_monotonic_ns": 15236691252863858,
+     "host_end_monotonic_ns": 15236691282910494,
+     "launches": 2736,
+     "per_launch_s": 1.09758125e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=16 batches=2 rel_l2_error=0 repeat=2736 graph_batch=456",
+     "check_ok": true,
+     "cuda_seconds": 0.030031872,
+     "error": null,
+     "host_begin_monotonic_ns": 15236691971914207,
+     "host_end_monotonic_ns": 15236692001964743,
+     "launches": 2736,
+     "per_launch_s": 1.0976561403508772e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "24",
+    "1",
+    "inplace"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1",
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=24 batches=1 rel_l2_error=0 repeat=48 graph_batch=8",
+   "correct": true,
+   "family": "fwt",
+   "graph_batch": 8,
+   "launches": 48,
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "per_launch_max_s": 0.0007131733124999999,
+   "per_launch_min_s": 0.0007129813125,
+   "per_launch_runtime_s": 0.0007130666666666667,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.00071264,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 8,
+     "per_launch_s": 0.00071424,
+     "rc": 0,
+     "repeat": 8
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 48,
+   "set": "set_e",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=24 batches=1 rel_l2_error=0 repeat=48 graph_batch=8",
+     "check_ok": true,
+     "cuda_seconds": 0.034223103,
+     "error": null,
+     "host_begin_monotonic_ns": 15236739671335424,
+     "host_end_monotonic_ns": 15236739705576413,
+     "launches": 48,
+     "per_launch_s": 0.0007129813125,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=24 batches=1 rel_l2_error=0 repeat=48 graph_batch=8",
+     "check_ok": true,
+     "cuda_seconds": 0.0342272,
+     "error": null,
+     "host_begin_monotonic_ns": 15236741031379295,
+     "host_end_monotonic_ns": 15236741065624245,
+     "launches": 48,
+     "per_launch_s": 0.0007130666666666667,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=24 batches=1 rel_l2_error=0 repeat=48 graph_batch=8",
+     "check_ok": true,
+     "cuda_seconds": 0.034232319,
+     "error": null,
+     "host_begin_monotonic_ns": 15236745183983411,
+     "host_end_monotonic_ns": 15236745218234221,
+     "launches": 48,
+     "per_launch_s": 0.0007131733124999999,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "23",
+    "2",
+    "inplace"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2",
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=23 batches=2 rel_l2_error=0 repeat=48 graph_batch=8",
+   "correct": true,
+   "family": "fwt",
+   "graph_batch": 8,
+   "launches": 48,
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "per_launch_max_s": 0.0006507306458333333,
+   "per_launch_min_s": 0.0006500266875,
+   "per_launch_runtime_s": 0.0006506453333333333,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000650752,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 8,
+     "per_launch_s": 0.000651136,
+     "rc": 0,
+     "repeat": 8
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 48,
+   "set": "set_e",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=23 batches=2 rel_l2_error=0 repeat=48 graph_batch=8",
+     "check_ok": true,
+     "cuda_seconds": 0.031235071,
+     "error": null,
+     "host_begin_monotonic_ns": 15236757907373976,
+     "host_end_monotonic_ns": 15236757938628373,
+     "launches": 48,
+     "per_launch_s": 0.0006507306458333333,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=23 batches=2 rel_l2_error=0 repeat=48 graph_batch=8",
+     "check_ok": true,
+     "cuda_seconds": 0.031201281,
+     "error": null,
+     "host_begin_monotonic_ns": 15236759762111912,
+     "host_end_monotonic_ns": 15236759793332369,
+     "launches": 48,
+     "per_launch_s": 0.0006500266875,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=23 batches=2 rel_l2_error=0 repeat=48 graph_batch=8",
+     "check_ok": true,
+     "cuda_seconds": 0.031230976,
+     "error": null,
+     "host_begin_monotonic_ns": 15236762391821967,
+     "host_end_monotonic_ns": 15236762423070673,
+     "launches": 48,
+     "per_launch_s": 0.0006506453333333333,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "7168",
+    "64"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_e_cuda_samples_scalar_product/large/c1",
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=7168 grid=64 bad=0 first_bad=-1 worst_err_over_mag=7.65e-08 repeat=1338 graph_batch=223",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 223,
+   "launches": 1338,
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "per_launch_max_s": 2.247978400597907e-05,
+   "per_launch_min_s": 2.246600971599402e-05,
+   "per_launch_runtime_s": 2.2468304932735426e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 2.2848e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 219,
+     "per_launch_s": 2.249994520547945e-05,
+     "rc": 0,
+     "repeat": 219
+    }
+   ],
+   "regime": "large",
+   "repeat": 1338,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=7168 grid=64 bad=0 first_bad=-1 worst_err_over_mag=7.65e-08 repeat=1338 graph_batch=223",
+     "check_ok": true,
+     "cuda_seconds": 0.030062592,
+     "error": null,
+     "host_begin_monotonic_ns": 15236672902590976,
+     "host_end_monotonic_ns": 15236672932668452,
+     "launches": 1338,
+     "per_launch_s": 2.2468304932735426e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=7168 grid=64 bad=0 first_bad=-1 worst_err_over_mag=7.65e-08 repeat=1338 graph_batch=223",
+     "check_ok": true,
+     "cuda_seconds": 0.030059521,
+     "error": null,
+     "host_begin_monotonic_ns": 15236673539541665,
+     "host_end_monotonic_ns": 15236673569616521,
+     "launches": 1338,
+     "per_launch_s": 2.246600971599402e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=7168 grid=64 bad=0 first_bad=-1 worst_err_over_mag=7.65e-08 repeat=1338 graph_batch=223",
+     "check_ok": true,
+     "cuda_seconds": 0.030077951,
+     "error": null,
+     "host_begin_monotonic_ns": 15236674257933843,
+     "host_end_monotonic_ns": 15236674288027499,
+     "launches": 1338,
+     "per_launch_s": 2.247978400597907e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "7168",
+    "128"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_e_cuda_samples_scalar_product/large/c2",
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=7168 grid=128 bad=0 first_bad=-1 worst_err_over_mag=7.65e-08 repeat=2328 graph_batch=388",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 388,
+   "launches": 2328,
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "per_launch_max_s": 1.2875655927835052e-05,
+   "per_launch_min_s": 1.2856742268041238e-05,
+   "per_launch_runtime_s": 1.2857182130584192e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.3248e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 378,
+     "per_launch_s": 1.2886687830687831e-05,
+     "rc": 0,
+     "repeat": 378
+    }
+   ],
+   "regime": "large",
+   "repeat": 2328,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=7168 grid=128 bad=0 first_bad=-1 worst_err_over_mag=7.65e-08 repeat=2328 graph_batch=388",
+     "check_ok": true,
+     "cuda_seconds": 0.029974527,
+     "error": null,
+     "host_begin_monotonic_ns": 15236676349261484,
+     "host_end_monotonic_ns": 15236676379250540,
+     "launches": 2328,
+     "per_launch_s": 1.2875655927835052e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=7168 grid=128 bad=0 first_bad=-1 worst_err_over_mag=7.65e-08 repeat=2328 graph_batch=388",
+     "check_ok": true,
+     "cuda_seconds": 0.029930496,
+     "error": null,
+     "host_begin_monotonic_ns": 15236677063335568,
+     "host_end_monotonic_ns": 15236677093280874,
+     "launches": 2328,
+     "per_launch_s": 1.2856742268041238e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=7168 grid=128 bad=0 first_bad=-1 worst_err_over_mag=7.65e-08 repeat=2328 graph_batch=388",
+     "check_ok": true,
+     "cuda_seconds": 0.02993152,
+     "error": null,
+     "host_begin_monotonic_ns": 15236677775053611,
+     "host_end_monotonic_ns": 15236677805007957,
+     "launches": 2328,
+     "per_launch_s": 1.2857182130584192e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "3072",
+    "64"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_e_cuda_samples_scalar_product/medium/c1",
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=3072 grid=64 bad=0 first_bad=-1 worst_err_over_mag=9.08e-08 repeat=1824 graph_batch=304",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 304,
+   "launches": 1824,
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "per_launch_max_s": 1.649347423245614e-05,
+   "per_launch_min_s": 1.6492350877192983e-05,
+   "per_launch_runtime_s": 1.649347423245614e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.6832e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 298,
+     "per_launch_s": 1.65008322147651e-05,
+     "rc": 0,
+     "repeat": 298
+    }
+   ],
+   "regime": "medium",
+   "repeat": 1824,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=3072 grid=64 bad=0 first_bad=-1 worst_err_over_mag=9.08e-08 repeat=1824 graph_batch=304",
+     "check_ok": true,
+     "cuda_seconds": 0.030082048,
+     "error": null,
+     "host_begin_monotonic_ns": 15236666012512984,
+     "host_end_monotonic_ns": 15236666042610590,
+     "launches": 1824,
+     "per_launch_s": 1.6492350877192983e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=3072 grid=64 bad=0 first_bad=-1 worst_err_over_mag=9.08e-08 repeat=1824 graph_batch=304",
+     "check_ok": true,
+     "cuda_seconds": 0.030084097,
+     "error": null,
+     "host_begin_monotonic_ns": 15236666694084871,
+     "host_end_monotonic_ns": 15236666724184087,
+     "launches": 1824,
+     "per_launch_s": 1.649347423245614e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=3072 grid=64 bad=0 first_bad=-1 worst_err_over_mag=9.08e-08 repeat=1824 graph_batch=304",
+     "check_ok": true,
+     "cuda_seconds": 0.030084097,
+     "error": null,
+     "host_begin_monotonic_ns": 15236667390044320,
+     "host_end_monotonic_ns": 15236667420143956,
+     "launches": 1824,
+     "per_launch_s": 1.649347423245614e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "3072",
+    "128"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_e_cuda_samples_scalar_product/medium/c2",
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=3072 grid=128 bad=0 first_bad=-1 worst_err_over_mag=9.08e-08 repeat=3174 graph_batch=529",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 529,
+   "launches": 3174,
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "per_launch_max_s": 9.45893352236925e-06,
+   "per_launch_min_s": 9.457966288594834e-06,
+   "per_launch_runtime_s": 9.458610901071203e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 9.856e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 508,
+     "per_launch_s": 9.465952755905512e-06,
+     "rc": 0,
+     "repeat": 508
+    }
+   ],
+   "regime": "medium",
+   "repeat": 3174,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=3072 grid=128 bad=0 first_bad=-1 worst_err_over_mag=9.08e-08 repeat=3174 graph_batch=529",
+     "check_ok": true,
+     "cuda_seconds": 0.030021631,
+     "error": null,
+     "host_begin_monotonic_ns": 15236669416331925,
+     "host_end_monotonic_ns": 15236669446367691,
+     "launches": 3174,
+     "per_launch_s": 9.458610901071203e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=3072 grid=128 bad=0 first_bad=-1 worst_err_over_mag=9.08e-08 repeat=3174 graph_batch=529",
+     "check_ok": true,
+     "cuda_seconds": 0.030019585,
+     "error": null,
+     "host_begin_monotonic_ns": 15236670133430162,
+     "host_end_monotonic_ns": 15236670163465718,
+     "launches": 3174,
+     "per_launch_s": 9.457966288594834e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=3072 grid=128 bad=0 first_bad=-1 worst_err_over_mag=9.08e-08 repeat=3174 graph_batch=529",
+     "check_ok": true,
+     "cuda_seconds": 0.030022655,
+     "error": null,
+     "host_begin_monotonic_ns": 15236670817946931,
+     "host_end_monotonic_ns": 15236670847984957,
+     "launches": 3174,
+     "per_launch_s": 9.45893352236925e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "1024",
+    "64"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_e_cuda_samples_scalar_product/small/c1",
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=2352 graph_batch=392",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 392,
+   "launches": 2352,
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "per_launch_max_s": 1.2758639455782313e-05,
+   "per_launch_min_s": 1.2758204081632653e-05,
+   "per_launch_runtime_s": 1.2758639455782313e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.312e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 382,
+     "per_launch_s": 1.2767832460732985e-05,
+     "rc": 0,
+     "repeat": 382
+    }
+   ],
+   "regime": "small",
+   "repeat": 2352,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=2352 graph_batch=392",
+     "check_ok": true,
+     "cuda_seconds": 0.03000832,
+     "error": null,
+     "host_begin_monotonic_ns": 15236659271517741,
+     "host_end_monotonic_ns": 15236659301540377,
+     "launches": 2352,
+     "per_launch_s": 1.2758639455782313e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=2352 graph_batch=392",
+     "check_ok": true,
+     "cuda_seconds": 0.03000832,
+     "error": null,
+     "host_begin_monotonic_ns": 15236659953217918,
+     "host_end_monotonic_ns": 15236659983241544,
+     "launches": 2352,
+     "per_launch_s": 1.2758639455782313e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=2352 graph_batch=392",
+     "check_ok": true,
+     "cuda_seconds": 0.030007296,
+     "error": null,
+     "host_begin_monotonic_ns": 15236660645018494,
+     "host_end_monotonic_ns": 15236660675041190,
+     "launches": 2352,
+     "per_launch_s": 1.2758204081632653e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "1024",
+    "128"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_e_cuda_samples_scalar_product/small/c2",
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=3996 graph_batch=666",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 666,
+   "launches": 3996,
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "per_launch_max_s": 7.5060020020020025e-06,
+   "per_launch_min_s": 7.505232982982983e-06,
+   "per_launch_runtime_s": 7.5060020020020025e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 7.872e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 636,
+     "per_launch_s": 7.509333333333333e-06,
+     "rc": 0,
+     "repeat": 636
+    }
+   ],
+   "regime": "small",
+   "repeat": 3996,
+   "set": "set_e",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=3996 graph_batch=666",
+     "check_ok": true,
+     "cuda_seconds": 0.029990911,
+     "error": null,
+     "host_begin_monotonic_ns": 15236662623340947,
+     "host_end_monotonic_ns": 15236662653346763,
+     "launches": 3996,
+     "per_launch_s": 7.505232982982983e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=3996 graph_batch=666",
+     "check_ok": true,
+     "cuda_seconds": 0.029993984,
+     "error": null,
+     "host_begin_monotonic_ns": 15236663306847205,
+     "host_end_monotonic_ns": 15236663336858081,
+     "launches": 3996,
+     "per_launch_s": 7.5060020020020025e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=3996 graph_batch=666",
+     "check_ok": true,
+     "cuda_seconds": 0.029993984,
+     "error": null,
+     "host_begin_monotonic_ns": 15236664002338174,
+     "host_end_monotonic_ns": 15236664032347490,
+     "launches": 3996,
+     "per_launch_s": 7.5060020020020025e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "40960",
+    "64"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_e_cuda_samples_scalar_product/xlarge/c1",
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=40960 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.17e-07 repeat=300 graph_batch=50",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 50,
+   "launches": 300,
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "per_launch_max_s": 0.00010160468999999999,
+   "per_launch_min_s": 0.00010155690666666667,
+   "per_launch_runtime_s": 0.00010159445333333333,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000101888,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 50,
+     "per_launch_s": 0.00010156032,
+     "rc": 0,
+     "repeat": 50
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 300,
+   "set": "set_e",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=40960 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.17e-07 repeat=300 graph_batch=50",
+     "check_ok": true,
+     "cuda_seconds": 0.030467072,
+     "error": null,
+     "host_begin_monotonic_ns": 15236679968587160,
+     "host_end_monotonic_ns": 15236679999070537,
+     "launches": 300,
+     "per_launch_s": 0.00010155690666666667,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=40960 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.17e-07 repeat=300 graph_batch=50",
+     "check_ok": true,
+     "cuda_seconds": 0.030478336,
+     "error": null,
+     "host_begin_monotonic_ns": 15236680662937508,
+     "host_end_monotonic_ns": 15236680693431314,
+     "launches": 300,
+     "per_launch_s": 0.00010159445333333333,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=40960 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.17e-07 repeat=300 graph_batch=50",
+     "check_ok": true,
+     "cuda_seconds": 0.030481407,
+     "error": null,
+     "host_begin_monotonic_ns": 15236681419897880,
+     "host_end_monotonic_ns": 15236681450394496,
+     "launches": 300,
+     "per_launch_s": 0.00010160468999999999,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "40960",
+    "128"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_e_cuda_samples_scalar_product/xlarge/c2",
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=40960 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.17e-07 repeat=462 graph_batch=77",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 77,
+   "launches": 462,
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "per_launch_max_s": 6.50904935064935e-05,
+   "per_launch_min_s": 6.507054545454545e-05,
+   "per_launch_runtime_s": 6.507497835497835e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 6.5152e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 77,
+     "per_launch_s": 6.503064935064935e-05,
+     "rc": 0,
+     "repeat": 77
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 462,
+   "set": "set_e",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=40960 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.17e-07 repeat=462 graph_batch=77",
+     "check_ok": true,
+     "cuda_seconds": 0.03006464,
+     "error": null,
+     "host_begin_monotonic_ns": 15236683530708928,
+     "host_end_monotonic_ns": 15236683560790174,
+     "launches": 462,
+     "per_launch_s": 6.507497835497835e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=40960 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.17e-07 repeat=462 graph_batch=77",
+     "check_ok": true,
+     "cuda_seconds": 0.030071808,
+     "error": null,
+     "host_begin_monotonic_ns": 15236684317855186,
+     "host_end_monotonic_ns": 15236684347943272,
+     "launches": 462,
+     "per_launch_s": 6.50904935064935e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=40960 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.17e-07 repeat=462 graph_batch=77",
+     "check_ok": true,
+     "cuda_seconds": 0.030062592,
+     "error": null,
+     "host_begin_monotonic_ns": 15236685053797989,
+     "host_end_monotonic_ns": 15236685083876175,
+     "launches": 462,
+     "per_launch_s": 6.507054545454545e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "0",
+    "4352",
+    "4352",
+    "512"
+   ],
+   "calibration_per_launch_s": 0.00133248,
+   "cell_id": "a100/fresh_f_ml_fp32_matmul/large/c1",
+   "check": "CHECK_OK sgemm variant=0 M=4352 N=4352 K=512 checked=4160 bad=0 first_bad=-1 worst=1.35e-07 repeat=76 graph_batch=4",
+   "correct": true,
+   "graph_batch": 4,
+   "per_launch_max_s": 0.0012352134342105262,
+   "per_launch_min_s": 0.0012349305394736842,
+   "per_launch_runtime_s": 0.0012351999736842107,
+   "probe_per_launch_s": 0.001331456,
+   "repeat_per_window": 76,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.0012351999736842107,
+    0.0012349305394736842,
+    0.0012350652631578946,
+    0.0012352134342105262,
+    0.0012352134342105262
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "1",
+    "4352",
+    "4352",
+    "512"
+   ],
+   "calibration_per_launch_s": 0.001477376,
+   "cell_id": "a100/fresh_f_ml_fp32_matmul/large/c2",
+   "check": "CHECK_OK sgemm variant=1 M=4352 N=4352 K=512 checked=4160 bad=0 first_bad=-1 worst=1.35e-07 repeat=68 graph_batch=4",
+   "correct": true,
+   "graph_batch": 4,
+   "per_launch_max_s": 0.0014789120147058823,
+   "per_launch_min_s": 0.0014777675,
+   "per_launch_runtime_s": 0.001478249382352941,
+   "probe_per_launch_s": 0.001478784,
+   "repeat_per_window": 68,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.0014777675,
+    0.0014789120147058823,
+    0.001478249382352941,
+    0.0014781741029411765,
+    0.0014785506323529412
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "0",
+    "512",
+    "512",
+    "1024"
+   ],
+   "calibration_per_launch_s": 9.72996923076923e-05,
+   "cell_id": "a100/fresh_f_ml_fp32_matmul/medium/c1",
+   "check": "CHECK_OK sgemm variant=0 M=512 N=512 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.01e-07 repeat=1040 graph_batch=52",
+   "correct": true,
+   "graph_batch": 52,
+   "per_launch_max_s": 9.722879807692308e-05,
+   "per_launch_min_s": 9.716775576923077e-05,
+   "per_launch_runtime_s": 9.719827403846153e-05,
+   "probe_per_launch_s": 9.7792e-05,
+   "repeat_per_window": 1040,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    9.719827403846153e-05,
+    9.719434134615385e-05,
+    9.716775576923077e-05,
+    9.721797019230769e-05,
+    9.722879807692308e-05
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "1",
+    "512",
+    "512",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.0002764261052631579,
+   "cell_id": "a100/fresh_f_ml_fp32_matmul/medium/c2",
+   "check": "CHECK_OK sgemm variant=1 M=512 N=512 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.01e-07 repeat=380 graph_batch=19",
+   "correct": true,
+   "graph_batch": 19,
+   "per_launch_max_s": 0.00033886855263157893,
+   "per_launch_min_s": 0.00027614045263157894,
+   "per_launch_runtime_s": 0.0002762159236842105,
+   "probe_per_launch_s": 0.000276608,
+   "repeat_per_window": 380,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00027614045263157894,
+    0.0002762159236842105,
+    0.00033886855263157893,
+    0.0002762105236842105,
+    0.00032232017631578946
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "0",
+    "256",
+    "256",
+    "256"
+   ],
+   "calibration_per_launch_s": 2.5767073684210523e-05,
+   "cell_id": "a100/fresh_f_ml_fp32_matmul/small/c1",
+   "check": "CHECK_OK sgemm variant=0 M=256 N=256 K=256 checked=4160 bad=0 first_bad=-1 worst=1.81e-07 repeat=3990 graph_batch=190",
+   "correct": true,
+   "graph_batch": 190,
+   "per_launch_max_s": 2.574371879699248e-05,
+   "per_launch_min_s": 2.573961328320802e-05,
+   "per_launch_runtime_s": 2.5741923308270676e-05,
+   "probe_per_launch_s": 2.6368e-05,
+   "repeat_per_window": 3990,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    2.573961328320802e-05,
+    2.574320626566416e-05,
+    2.5741923308270676e-05,
+    2.574115263157895e-05,
+    2.574371879699248e-05
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "1",
+    "256",
+    "256",
+    "256"
+   ],
+   "calibration_per_launch_s": 8.025187096774194e-05,
+   "cell_id": "a100/fresh_f_ml_fp32_matmul/small/c2",
+   "check": "CHECK_OK sgemm variant=1 M=256 N=256 K=256 checked=4160 bad=0 first_bad=-1 worst=1.81e-07 repeat=1302 graph_batch=62",
+   "correct": true,
+   "graph_batch": 62,
+   "per_launch_max_s": 9.297715745007681e-05,
+   "per_launch_min_s": 8.017165284178187e-05,
+   "per_launch_runtime_s": 8.019209677419355e-05,
+   "probe_per_launch_s": 8.0768e-05,
+   "repeat_per_window": 1302,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    9.297715745007681e-05,
+    8.019209677419355e-05,
+    8.018501843317973e-05,
+    8.019760522273425e-05,
+    8.017165284178187e-05
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "0",
+    "4224",
+    "4224",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.0023149226666666664,
+   "cell_id": "a100/fresh_f_ml_fp32_matmul/xlarge/c1",
+   "check": "CHECK_OK sgemm variant=0 M=4224 N=4224 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.82e-07 repeat=45 graph_batch=3",
+   "correct": true,
+   "graph_batch": 3,
+   "per_launch_max_s": 0.002314353777777778,
+   "per_launch_min_s": 0.002313489111111111,
+   "per_launch_runtime_s": 0.0023137849555555554,
+   "probe_per_launch_s": 0.002313728125,
+   "repeat_per_window": 45,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.0023139214444444444,
+    0.0023137849555555554,
+    0.002313534555555556,
+    0.002313489111111111,
+    0.002314353777777778
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "1",
+    "4224",
+    "4224",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.002660864,
+   "cell_id": "a100/fresh_f_ml_fp32_matmul/xlarge/c2",
+   "check": "CHECK_OK sgemm variant=1 M=4224 N=4224 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.82e-07 repeat=38 graph_batch=2",
+   "correct": true,
+   "graph_batch": 2,
+   "per_launch_max_s": 0.0026492227368421052,
+   "per_launch_min_s": 0.0026456118157894737,
+   "per_launch_runtime_s": 0.0026476058947368423,
+   "probe_per_launch_s": 0.002646656,
+   "repeat_per_window": 38,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.0026469322894736844,
+    0.0026456118157894737,
+    0.0026492227368421052,
+    0.0026488992894736843,
+    0.0026476058947368423
+   ]
+  },
+  {
+   "argv": [
+    "gelu",
+    "0",
+    "20971520"
+   ],
+   "calibration_per_launch_s": 0.00011685506976744186,
+   "cell_id": "a100/fresh_f_ml_gelu/large/c1",
+   "check": "CHECK_OK gelu variant=0 n=20971520 checked=6148 bad=0 first_bad=-1 worst=0.00724 repeat=860 graph_batch=43",
+   "correct": true,
+   "graph_batch": 43,
+   "per_launch_max_s": 0.00011677648023255814,
+   "per_launch_min_s": 0.0001071735023255814,
+   "per_launch_runtime_s": 0.00010719613372093022,
+   "probe_per_launch_s": 0.00011712,
+   "repeat_per_window": 860,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00011677648023255814,
+    0.00010719613372093022,
+    0.00010717707790697675,
+    0.00010721399186046512,
+    0.0001071735023255814
+   ]
+  },
+  {
+   "argv": [
+    "gelu",
+    "1",
+    "20971520"
+   ],
+   "calibration_per_launch_s": 9.836423529411765e-05,
+   "cell_id": "a100/fresh_f_ml_gelu/large/c2",
+   "check": "CHECK_OK gelu variant=1 n=20971520 checked=6148 bad=0 first_bad=-1 worst=0.00724 repeat=1020 graph_batch=51",
+   "correct": true,
+   "graph_batch": 51,
+   "per_launch_max_s": 9.831203431372549e-05,
+   "per_launch_min_s": 9.80249068627451e-05,
+   "per_launch_runtime_s": 9.825580784313726e-05,
+   "probe_per_launch_s": 9.8944e-05,
+   "repeat_per_window": 1020,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    9.80249068627451e-05,
+    9.827287745098039e-05,
+    9.831203431372549e-05,
+    9.822870882352941e-05,
+    9.825580784313726e-05
+   ]
+  },
+  {
+   "argv": [
+    "gelu",
+    "0",
+    "1310720"
+   ],
+   "calibration_per_launch_s": 6.751606879606879e-06,
+   "cell_id": "a100/fresh_f_ml_gelu/medium/c1",
+   "check": "CHECK_OK gelu variant=0 n=1310720 checked=1345 bad=0 first_bad=-1 worst=0.00655 repeat=15466 graph_batch=814",
+   "correct": true,
+   "graph_batch": 814,
+   "per_launch_max_s": 6.747899068925384e-06,
+   "per_launch_min_s": 6.657919953446269e-06,
+   "per_launch_runtime_s": 6.746111341006078e-06,
+   "probe_per_launch_s": 6.144e-06,
+   "repeat_per_window": 15466,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    6.747899068925384e-06,
+    6.657919953446269e-06,
+    6.74743585930428e-06,
+    6.746111341006078e-06,
+    6.7456481313849736e-06
+   ]
+  },
+  {
+   "argv": [
+    "gelu",
+    "1",
+    "1310720"
+   ],
+   "calibration_per_launch_s": 5.1669835294117644e-06,
+   "cell_id": "a100/fresh_f_ml_gelu/medium/c2",
+   "check": "CHECK_OK gelu variant=1 n=1310720 checked=1345 bad=0 first_bad=-1 worst=0.00655 repeat=19550 graph_batch=850",
+   "correct": true,
+   "graph_batch": 850,
+   "per_launch_max_s": 5.159702915601023e-06,
+   "per_launch_min_s": 5.049655856777493e-06,
+   "per_launch_runtime_s": 5.115547672634271e-06,
+   "probe_per_launch_s": 5.888e-06,
+   "repeat_per_window": 19550,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    5.115547672634271e-06,
+    5.158917340153453e-06,
+    5.159702915601023e-06,
+    5.049655856777493e-06,
+    5.081187672634272e-06
+   ]
+  },
+  {
+   "argv": [
+    "gelu",
+    "0",
+    "327680"
+   ],
+   "calibration_per_launch_s": 2.48826103646833e-06,
+   "cell_id": "a100/fresh_f_ml_gelu/small/c1",
+   "check": "CHECK_OK gelu variant=0 n=327680 checked=1105 bad=0 first_bad=-1 worst=0.00699 repeat=40638 graph_batch=1563",
+   "correct": true,
+   "graph_batch": 1563,
+   "per_launch_max_s": 2.485564865396919e-06,
+   "per_launch_min_s": 2.4849096412225014e-06,
+   "per_launch_runtime_s": 2.4850609528027953e-06,
+   "probe_per_launch_s": 3.2e-06,
+   "repeat_per_window": 40638,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    2.4850609528027953e-06,
+    2.485564865396919e-06,
+    2.4849096412225014e-06,
+    2.4851869432550815e-06,
+    2.4850609528027953e-06
+   ]
+  },
+  {
+   "argv": [
+    "gelu",
+    "1",
+    "327680"
+   ],
+   "calibration_per_launch_s": 2.594405854956753e-06,
+   "cell_id": "a100/fresh_f_ml_gelu/small/c2",
+   "check": "CHECK_OK gelu variant=1 n=327680 checked=1105 bad=0 first_bad=-1 worst=0.00699 repeat=39078 graph_batch=1503",
+   "correct": true,
+   "graph_batch": 1503,
+   "per_launch_max_s": 2.5896628537796203e-06,
+   "per_launch_min_s": 2.1164972874763294e-06,
+   "per_launch_runtime_s": 2.1167854547315626e-06,
+   "probe_per_launch_s": 3.328e-06,
+   "repeat_per_window": 39078,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    2.5896628537796203e-06,
+    2.1164972874763294e-06,
+    2.1169951379292695e-06,
+    2.1167854547315626e-06,
+    2.1167592763191564e-06
+   ]
+  },
+  {
+   "argv": [
+    "gelu",
+    "0",
+    "41943040"
+   ],
+   "calibration_per_launch_s": 0.00021265066666666666,
+   "cell_id": "a100/fresh_f_ml_gelu/xlarge/c1",
+   "check": "CHECK_OK gelu variant=0 n=41943040 checked=11272 bad=0 first_bad=-1 worst=0.00697 repeat=480 graph_batch=24",
+   "correct": true,
+   "graph_batch": 24,
+   "per_launch_max_s": 0.00023110399166666667,
+   "per_launch_min_s": 0.00021231999375,
+   "per_launch_runtime_s": 0.00021236906041666666,
+   "probe_per_launch_s": 0.000212736,
+   "repeat_per_window": 480,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00023110399166666667,
+    0.00021236906041666666,
+    0.00021231999375,
+    0.0002123626708333333,
+    0.00021237333541666666
+   ]
+  },
+  {
+   "argv": [
+    "gelu",
+    "1",
+    "41943040"
+   ],
+   "calibration_per_launch_s": 0.00019182933333333332,
+   "cell_id": "a100/fresh_f_ml_gelu/xlarge/c2",
+   "check": "CHECK_OK gelu variant=1 n=41943040 checked=11272 bad=0 first_bad=-1 worst=0.00697 repeat=540 graph_batch=27",
+   "correct": true,
+   "graph_batch": 27,
+   "per_launch_max_s": 0.0001921630851851852,
+   "per_launch_min_s": 0.00019207205555555554,
+   "per_launch_runtime_s": 0.00019212515000000002,
+   "probe_per_launch_s": 0.000192256,
+   "repeat_per_window": 540,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00019212515000000002,
+    0.00019211188333333334,
+    0.00019214412592592593,
+    0.00019207205555555554,
+    0.0001921630851851852
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "0",
+    "5120",
+    "4096"
+   ],
+   "calibration_per_launch_s": 0.00011052521739130434,
+   "cell_id": "a100/fresh_f_ml_rmsnorm/large/c1",
+   "check": "CHECK_OK rmsnorm variant=0 rows=5120 cols=4096 checked=258048 bad=0 first_bad=-1 worst=0.00231 repeat=920 graph_batch=46",
+   "correct": true,
+   "graph_batch": 46,
+   "per_launch_max_s": 0.00010977168695652173,
+   "per_launch_min_s": 0.00010962810543478261,
+   "per_launch_runtime_s": 0.00010975944673913043,
+   "probe_per_launch_s": 0.000110976,
+   "repeat_per_window": 920,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00010962810543478261,
+    0.00010966149239130434,
+    0.00010976166956521739,
+    0.00010975944673913043,
+    0.00010977168695652173
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "1",
+    "5120",
+    "4096"
+   ],
+   "calibration_per_launch_s": 0.00013588756756756755,
+   "cell_id": "a100/fresh_f_ml_rmsnorm/large/c2",
+   "check": "CHECK_OK rmsnorm variant=1 rows=5120 cols=4096 checked=258048 bad=0 first_bad=-1 worst=0.00238 repeat=740 graph_batch=37",
+   "correct": true,
+   "graph_batch": 37,
+   "per_launch_max_s": 0.00013613802972972975,
+   "per_launch_min_s": 0.00013601487702702701,
+   "per_launch_runtime_s": 0.0001361117391891892,
+   "probe_per_launch_s": 0.00013568,
+   "repeat_per_window": 740,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00013612696621621623,
+    0.00013613802972972975,
+    0.0001361117391891892,
+    0.00013601487702702701,
+    0.00013610482027027026
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "0",
+    "640",
+    "2048"
+   ],
+   "calibration_per_launch_s": 6.579692307692308e-06,
+   "cell_id": "a100/fresh_f_ml_rmsnorm/medium/c1",
+   "check": "CHECK_OK rmsnorm variant=0 rows=640 cols=2048 checked=133120 bad=0 first_bad=-1 worst=0.00254 repeat=15808 graph_batch=832",
+   "correct": true,
+   "graph_batch": 832,
+   "per_launch_max_s": 6.569004238360324e-06,
+   "per_launch_min_s": 5.351708502024292e-06,
+   "per_launch_runtime_s": 6.568032262145749e-06,
+   "probe_per_launch_s": 6.016e-06,
+   "repeat_per_window": 15808,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    6.567449202935222e-06,
+    5.351708502024292e-06,
+    6.568809779858299e-06,
+    6.569004238360324e-06,
+    6.568032262145749e-06
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "1",
+    "640",
+    "2048"
+   ],
+   "calibration_per_launch_s": 6.394599156118143e-06,
+   "cell_id": "a100/fresh_f_ml_rmsnorm/medium/c2",
+   "check": "CHECK_OK rmsnorm variant=1 rows=640 cols=2048 checked=133120 bad=0 first_bad=-1 worst=0.00254 repeat=15642 graph_batch=711",
+   "correct": true,
+   "graph_batch": 711,
+   "per_launch_max_s": 6.385826620636748e-06,
+   "per_launch_min_s": 6.050647359672676e-06,
+   "per_launch_runtime_s": 6.3847141030558754e-06,
+   "probe_per_launch_s": 7.04e-06,
+   "repeat_per_window": 15642,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    6.384910177726634e-06,
+    6.3847141030558754e-06,
+    6.320230980693006e-06,
+    6.050647359672676e-06,
+    6.385826620636748e-06
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "0",
+    "320",
+    "1024"
+   ],
+   "calibration_per_launch_s": 2.9399656160458457e-06,
+   "cell_id": "a100/fresh_f_ml_rmsnorm/small/c1",
+   "check": "CHECK_OK rmsnorm variant=0 rows=320 cols=1024 checked=66560 bad=0 first_bad=-1 worst=0.00218 repeat=34900 graph_batch=1396",
+   "correct": true,
+   "graph_batch": 1396,
+   "per_launch_max_s": 3.586728767908309e-06,
+   "per_launch_min_s": 2.935417851002865e-06,
+   "per_launch_runtime_s": 2.9357405157593123e-06,
+   "probe_per_launch_s": 3.584e-06,
+   "repeat_per_window": 34900,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    2.935799111747851e-06,
+    2.935417851002865e-06,
+    3.586728767908309e-06,
+    2.935652406876791e-06,
+    2.9357405157593123e-06
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "1",
+    "320",
+    "1024"
+   ],
+   "calibration_per_launch_s": 3.102408314773571e-06,
+   "cell_id": "a100/fresh_f_ml_rmsnorm/small/c2",
+   "check": "CHECK_OK rmsnorm variant=1 rows=320 cols=1024 checked=66560 bad=0 first_bad=-1 worst=0.00218 repeat=32328 graph_batch=1347",
+   "correct": true,
+   "graph_batch": 1347,
+   "per_launch_max_s": 3.7844730264785945e-06,
+   "per_launch_min_s": 3.0953448094531055e-06,
+   "per_launch_runtime_s": 3.7819390930462755e-06,
+   "probe_per_launch_s": 3.712e-06,
+   "repeat_per_window": 32328,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    3.0959782232120763e-06,
+    3.7844730264785945e-06,
+    3.0953448094531055e-06,
+    3.7820342118287553e-06,
+    3.7819390930462755e-06
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "0",
+    "10240",
+    "4096"
+   ],
+   "calibration_per_launch_s": 0.0002165982608695652,
+   "cell_id": "a100/fresh_f_ml_rmsnorm/xlarge/c1",
+   "check": "CHECK_OK rmsnorm variant=0 rows=10240 cols=4096 checked=258048 bad=0 first_bad=-1 worst=0.00249 repeat=483 graph_batch=23",
+   "correct": true,
+   "graph_batch": 23,
+   "per_launch_max_s": 0.00021647105383022775,
+   "per_launch_min_s": 0.0002160004016563147,
+   "per_launch_runtime_s": 0.00021631840372670808,
+   "probe_per_launch_s": 0.000217984,
+   "repeat_per_window": 483,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00021647105383022775,
+    0.00021631840372670808,
+    0.0002160004016563147,
+    0.00021646681987577638,
+    0.00021622512836438922
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "1",
+    "10240",
+    "4096"
+   ],
+   "calibration_per_launch_s": 0.00026871915789473684,
+   "cell_id": "a100/fresh_f_ml_rmsnorm/xlarge/c2",
+   "check": "CHECK_OK rmsnorm variant=1 rows=10240 cols=4096 checked=258048 bad=0 first_bad=-1 worst=0.00212 repeat=380 graph_batch=19",
+   "correct": true,
+   "graph_batch": 19,
+   "per_launch_max_s": 0.0002683930842105263,
+   "per_launch_min_s": 0.00026826643684210526,
+   "per_launch_runtime_s": 0.0002683149447368421,
+   "probe_per_launch_s": 0.000269056,
+   "repeat_per_window": 380,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00026826643684210526,
+    0.0002683930842105263,
+    0.0002683149447368421,
+    0.0002683338157894737,
+    0.0002682906894736842
+   ]
+  },
+  {
+   "argv": [
+    "rope",
+    "0",
+    "1280",
+    "16"
+   ],
+   "calibration_per_launch_s": 0.0001016894693877551,
+   "cell_id": "a100/fresh_f_ml_rotary_embedding/large/c1",
+   "check": "CHECK_OK rope variant=0 seq=1280 batch=16 heads=8 checked=6148 bad=0 first_bad=-1 worst=0.00426 repeat=1029 graph_batch=49",
+   "correct": true,
+   "graph_batch": 49,
+   "per_launch_max_s": 0.00010146356948493684,
+   "per_launch_min_s": 0.00010089634013605442,
+   "per_launch_runtime_s": 0.00010094809232264334,
+   "probe_per_launch_s": 0.000102144,
+   "repeat_per_window": 1029,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00010146356948493684,
+    0.0001012426511175899,
+    0.00010094809232264334,
+    0.00010089634013605442,
+    0.00010090131584062197
+   ]
+  },
+  {
+   "argv": [
+    "rope",
+    "1",
+    "1280",
+    "16"
+   ],
+   "calibration_per_launch_s": 0.00015262595121951218,
+   "cell_id": "a100/fresh_f_ml_rotary_embedding/large/c2",
+   "check": "CHECK_OK rope variant=1 seq=1280 batch=16 heads=8 checked=6148 bad=0 first_bad=-1 worst=0.00426 repeat=656 graph_batch=41",
+   "correct": true,
+   "graph_batch": 41,
+   "per_launch_max_s": 0.00012395394664634147,
+   "per_launch_min_s": 0.0001239414679878049,
+   "per_launch_runtime_s": 0.00012394458536585365,
+   "probe_per_launch_s": 0.000124544,
+   "repeat_per_window": 656,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.0001239414679878049,
+    0.0001239414679878049,
+    0.00012395394664634147,
+    0.00012394458536585365,
+    0.00012394614329268292
+   ]
+  },
+  {
+   "argv": [
+    "rope",
+    "0",
+    "640",
+    "2"
+   ],
+   "calibration_per_launch_s": 4.0921212121212126e-06,
+   "cell_id": "a100/fresh_f_ml_rotary_embedding/medium/c1",
+   "check": "CHECK_OK rope variant=0 seq=640 batch=2 heads=8 checked=1345 bad=0 first_bad=-1 worst=0.0041 repeat=25344 graph_batch=1056",
+   "correct": true,
+   "graph_batch": 1056,
+   "per_launch_max_s": 5.011959517045454e-06,
+   "per_launch_min_s": 4.0837170928030306e-06,
+   "per_launch_runtime_s": 4.084686750315657e-06,
+   "probe_per_launch_s": 4.736e-06,
+   "repeat_per_window": 25344,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    4.083838423295454e-06,
+    5.011959517045454e-06,
+    4.084686750315657e-06,
+    5.011474826388889e-06,
+    4.0837170928030306e-06
+   ]
+  },
+  {
+   "argv": [
+    "rope",
+    "1",
+    "640",
+    "2"
+   ],
+   "calibration_per_launch_s": 1.1322314350797265e-05,
+   "cell_id": "a100/fresh_f_ml_rotary_embedding/medium/c2",
+   "check": "CHECK_OK rope variant=1 seq=640 batch=2 heads=8 checked=1345 bad=0 first_bad=-1 worst=0.0041 repeat=9219 graph_batch=439",
+   "correct": true,
+   "graph_batch": 439,
+   "per_launch_max_s": 1.1304320533680443e-05,
+   "per_launch_min_s": 9.23121726868424e-06,
+   "per_launch_runtime_s": 1.1090500488122356e-05,
+   "probe_per_launch_s": 1.1392e-05,
+   "repeat_per_window": 9219,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    9.23121726868424e-06,
+    1.1090500488122356e-05,
+    1.1048847922768196e-05,
+    1.1259446252305021e-05,
+    1.1304320533680443e-05
+   ]
+  },
+  {
+   "argv": [
+    "rope",
+    "0",
+    "80",
+    "2"
+   ],
+   "calibration_per_launch_s": 1.659e-06,
+   "cell_id": "a100/fresh_f_ml_rotary_embedding/small/c1",
+   "check": "CHECK_OK rope variant=0 seq=80 batch=2 heads=8 checked=1065 bad=0 first_bad=-1 worst=0.00359 repeat=61440 graph_batch=2048",
+   "correct": true,
+   "graph_batch": 2048,
+   "per_launch_max_s": 1.6559333821614583e-06,
+   "per_launch_min_s": 1.6557000651041666e-06,
+   "per_launch_runtime_s": 1.6557333333333333e-06,
+   "probe_per_launch_s": 2.304e-06,
+   "repeat_per_window": 61440,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    1.6557000651041666e-06,
+    1.6557333333333333e-06,
+    1.6559333821614583e-06,
+    1.65571669921875e-06,
+    1.6557333333333333e-06
+   ]
+  },
+  {
+   "argv": [
+    "rope",
+    "1",
+    "80",
+    "2"
+   ],
+   "calibration_per_launch_s": 2.5537760716570694e-06,
+   "cell_id": "a100/fresh_f_ml_rotary_embedding/small/c2",
+   "check": "CHECK_OK rope variant=1 seq=80 batch=2 heads=8 checked=1065 bad=0 first_bad=-1 worst=0.00359 repeat=40638 graph_batch=1563",
+   "correct": true,
+   "graph_batch": 1563,
+   "per_launch_max_s": 2.5488624686254246e-06,
+   "per_launch_min_s": 2.548358383778729e-06,
+   "per_launch_runtime_s": 2.5485600177174074e-06,
+   "probe_per_launch_s": 3.2e-06,
+   "repeat_per_window": 40638,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    2.5488624686254246e-06,
+    2.5484592007480686e-06,
+    2.5485600177174074e-06,
+    2.548811974014469e-06,
+    2.548358383778729e-06
+   ]
+  },
+  {
+   "argv": [
+    "rope",
+    "0",
+    "1280",
+    "32"
+   ],
+   "calibration_per_launch_s": 0.00019908923076923077,
+   "cell_id": "a100/fresh_f_ml_rotary_embedding/xlarge/c1",
+   "check": "CHECK_OK rope variant=0 seq=1280 batch=32 heads=8 checked=11272 bad=0 first_bad=-1 worst=0.00426 repeat=520 graph_batch=26",
+   "correct": true,
+   "graph_batch": 26,
+   "per_launch_max_s": 0.00019905575961538463,
+   "per_launch_min_s": 0.00019898486538461537,
+   "per_launch_runtime_s": 0.00019901833076923077,
+   "probe_per_launch_s": 0.000199424,
+   "repeat_per_window": 520,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.00019900652115384615,
+    0.00019901833076923077,
+    0.00019903408846153845,
+    0.00019898486538461537,
+    0.00019905575961538463
+   ]
+  },
+  {
+   "argv": [
+    "rope",
+    "1",
+    "1280",
+    "32"
+   ],
+   "calibration_per_launch_s": 0.00024556495238095235,
+   "cell_id": "a100/fresh_f_ml_rotary_embedding/xlarge/c2",
+   "check": "CHECK_OK rope variant=1 seq=1280 batch=32 heads=8 checked=11272 bad=0 first_bad=-1 worst=0.00426 repeat=420 graph_batch=21",
+   "correct": true,
+   "graph_batch": 21,
+   "per_launch_max_s": 0.0002692583547619048,
+   "per_launch_min_s": 0.00024541379047619046,
+   "per_launch_runtime_s": 0.00024542354285714285,
+   "probe_per_launch_s": 0.000246144,
+   "repeat_per_window": 420,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.0002692583547619048,
+    0.00024557226190476193,
+    0.00024542354285714285,
+    0.00024541379047619046,
+    0.0002454162238095238
+   ]
+  },
+  {
+   "argv": [
+    "swiglu",
+    "0",
+    "10485760"
+   ],
+   "calibration_per_launch_s": 7.824935384615385e-05,
+   "cell_id": "a100/fresh_f_ml_swiglu/large/c1",
+   "check": "CHECK_OK swiglu variant=0 n=10485760 checked=3586 bad=0 first_bad=-1 worst=0.00185 repeat=1300 graph_batch=65",
+   "correct": true,
+   "graph_batch": 65,
+   "per_launch_max_s": 7.816192076923077e-05,
+   "per_launch_min_s": 7.752231307692308e-05,
+   "per_launch_runtime_s": 7.81091423076923e-05,
+   "probe_per_launch_s": 7.6928e-05,
+   "repeat_per_window": 1300,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    7.755382230769231e-05,
+    7.815089307692309e-05,
+    7.816192076923077e-05,
+    7.752231307692308e-05,
+    7.81091423076923e-05
+   ]
+  },
+  {
+   "argv": [
+    "swiglu",
+    "1",
+    "10485760"
+   ],
+   "calibration_per_launch_s": 7.318588235294117e-05,
+   "cell_id": "a100/fresh_f_ml_swiglu/large/c2",
+   "check": "CHECK_OK swiglu variant=1 n=10485760 checked=3586 bad=0 first_bad=-1 worst=0.00185 repeat=1428 graph_batch=68",
+   "correct": true,
+   "graph_batch": 68,
+   "per_launch_max_s": 7.309839915966387e-05,
+   "per_launch_min_s": 7.303601190476191e-05,
+   "per_launch_runtime_s": 7.305680602240896e-05,
+   "probe_per_launch_s": 7.3728e-05,
+   "repeat_per_window": 1428,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    7.305680602240896e-05,
+    7.30948144257703e-05,
+    7.303601190476191e-05,
+    7.309839915966387e-05,
+    7.305250490196078e-05
+   ]
+  },
+  {
+   "argv": [
+    "swiglu",
+    "0",
+    "655360"
+   ],
+   "calibration_per_launch_s": 3.58533681462141e-06,
+   "cell_id": "a100/fresh_f_ml_swiglu/medium/c1",
+   "check": "CHECK_OK swiglu variant=0 n=655360 checked=1185 bad=0 first_bad=-1 worst=0.00177 repeat=28725 graph_batch=1149",
+   "correct": true,
+   "graph_batch": 1149,
+   "per_launch_max_s": 4.368318015665796e-06,
+   "per_launch_min_s": 3.579740052219321e-06,
+   "per_launch_runtime_s": 3.591539669277633e-06,
+   "probe_per_launch_s": 4.352e-06,
+   "repeat_per_window": 28725,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    4.368318015665796e-06,
+    3.591539669277633e-06,
+    4.239235300261097e-06,
+    3.579740052219321e-06,
+    3.5803817580504787e-06
+   ]
+  },
+  {
+   "argv": [
+    "swiglu",
+    "1",
+    "655360"
+   ],
+   "calibration_per_launch_s": 2.983243553008596e-06,
+   "cell_id": "a100/fresh_f_ml_swiglu/medium/c2",
+   "check": "CHECK_OK swiglu variant=1 n=655360 checked=1185 bad=0 first_bad=-1 worst=0.00177 repeat=34900 graph_batch=1396",
+   "correct": true,
+   "graph_batch": 1396,
+   "per_launch_max_s": 3.5028428080229224e-06,
+   "per_launch_min_s": 2.9793998853868197e-06,
+   "per_launch_runtime_s": 2.9797225501432666e-06,
+   "probe_per_launch_s": 3.584e-06,
+   "repeat_per_window": 34900,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    3.5028428080229224e-06,
+    3.3444017191977078e-06,
+    2.9797225501432666e-06,
+    2.9793998853868197e-06,
+    2.979634670487106e-06
+   ]
+  },
+  {
+   "argv": [
+    "swiglu",
+    "0",
+    "163840"
+   ],
+   "calibration_per_launch_s": 1.942141248720573e-06,
+   "cell_id": "a100/fresh_f_ml_swiglu/small/c1",
+   "check": "CHECK_OK swiglu variant=0 n=163840 checked=1065 bad=0 first_bad=-1 worst=0.00226 repeat=52758 graph_batch=1954",
+   "correct": true,
+   "graph_batch": 1954,
+   "per_launch_max_s": 1.9396763144925887e-06,
+   "per_launch_min_s": 1.939559744493726e-06,
+   "per_launch_runtime_s": 1.939637400962887e-06,
+   "probe_per_launch_s": 2.56e-06,
+   "repeat_per_window": 52758,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    1.9396763144925887e-06,
+    1.9395792675992266e-06,
+    1.939559744493726e-06,
+    1.9396763144925887e-06,
+    1.939637400962887e-06
+   ]
+  },
+  {
+   "argv": [
+    "swiglu",
+    "1",
+    "163840"
+   ],
+   "calibration_per_launch_s": 1.899e-06,
+   "cell_id": "a100/fresh_f_ml_swiglu/small/c2",
+   "check": "CHECK_OK swiglu variant=1 n=163840 checked=1065 bad=0 first_bad=-1 worst=0.00226 repeat=53248 graph_batch=2048",
+   "correct": true,
+   "graph_batch": 2048,
+   "per_launch_max_s": 2.2200768667367788e-06,
+   "per_launch_min_s": 1.896115440955529e-06,
+   "per_launch_runtime_s": 1.8961346529447114e-06,
+   "probe_per_launch_s": 2.432e-06,
+   "repeat_per_window": 53248,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    2.2200768667367788e-06,
+    2.0035576923076924e-06,
+    1.896115440955529e-06,
+    1.8961346529447114e-06,
+    1.896115440955529e-06
+   ]
+  },
+  {
+   "argv": [
+    "swiglu",
+    "0",
+    "20971520"
+   ],
+   "calibration_per_launch_s": 0.00015319660606060608,
+   "cell_id": "a100/fresh_f_ml_swiglu/xlarge/c1",
+   "check": "CHECK_OK swiglu variant=0 n=20971520 checked=6148 bad=0 first_bad=-1 worst=0.00196 repeat=660 graph_batch=33",
+   "correct": true,
+   "graph_batch": 33,
+   "per_launch_max_s": 0.00015185144545454545,
+   "per_launch_min_s": 0.00015175524696969697,
+   "per_launch_runtime_s": 0.0001518343727272727,
+   "probe_per_launch_s": 0.000153344,
+   "repeat_per_window": 660,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.0001518343727272727,
+    0.00015175524696969697,
+    0.00015185144545454545,
+    0.00015184833636363635,
+    0.00015180800454545453
+   ]
+  },
+  {
+   "argv": [
+    "swiglu",
+    "1",
+    "20971520"
+   ],
+   "calibration_per_launch_s": 0.0001429504,
+   "cell_id": "a100/fresh_f_ml_swiglu/xlarge/c2",
+   "check": "CHECK_OK swiglu variant=1 n=20971520 checked=6148 bad=0 first_bad=-1 worst=0.00196 repeat=700 graph_batch=35",
+   "correct": true,
+   "graph_batch": 35,
+   "per_launch_max_s": 0.00014295332714285713,
+   "per_launch_min_s": 0.00014291529,
+   "per_launch_runtime_s": 0.0001429460142857143,
+   "probe_per_launch_s": 0.000143616,
+   "repeat_per_window": 700,
+   "set": "fresh_f",
+   "window_per_launch_s": [
+    0.0001429460142857143,
+    0.0001429284557142857,
+    0.00014295332714285713,
+    0.00014291529,
+    0.00014294747428571428
+   ]
+  },
+  {
+   "argv": [
+    "786432",
+    "128"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_black_scholes/large/c1",
+   "check": "CHECK_OK bs optN=786432 block=128 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repeat=3030 graph_batch=505",
+   "correct": true,
+   "family": "bs",
+   "graph_batch": 505,
+   "launches": 3030,
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "per_launch_max_s": 9.902384488448845e-06,
+   "per_launch_min_s": 9.898666666666666e-06,
+   "per_launch_runtime_s": 9.901032343234323e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.024e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 489,
+     "per_launch_s": 9.909137014314927e-06,
+     "rc": 0,
+     "repeat": 489
+    }
+   ],
+   "regime": "large",
+   "repeat": 3030,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK bs optN=786432 block=128 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repeat=3030 graph_batch=505",
+     "check_ok": true,
+     "cuda_seconds": 0.030000128,
+     "error": null,
+     "host_begin_monotonic_ns": 15236386166277200,
+     "host_end_monotonic_ns": 15236386196293446,
+     "launches": 3030,
+     "per_launch_s": 9.901032343234323e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=786432 block=128 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repeat=3030 graph_batch=505",
+     "check_ok": true,
+     "cuda_seconds": 0.030004225,
+     "error": null,
+     "host_begin_monotonic_ns": 15236386941645028,
+     "host_end_monotonic_ns": 15236386971666994,
+     "launches": 3030,
+     "per_launch_s": 9.902384488448845e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=786432 block=128 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repeat=3030 graph_batch=505",
+     "check_ok": true,
+     "cuda_seconds": 0.02999296,
+     "error": null,
+     "host_begin_monotonic_ns": 15236387729046766,
+     "host_end_monotonic_ns": 15236387759057062,
+     "launches": 3030,
+     "per_launch_s": 9.898666666666666e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "786432",
+    "64"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_black_scholes/large/c2",
+   "check": "CHECK_OK bs optN=786432 block=64 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repeat=2982 graph_batch=497",
+   "correct": true,
+   "family": "bs",
+   "graph_batch": 497,
+   "launches": 2982,
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "per_launch_max_s": 1.0059031857813547e-05,
+   "per_launch_min_s": 1.0056284708249498e-05,
+   "per_launch_runtime_s": 1.0057314218645204e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.0432e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 480,
+     "per_launch_s": 1.00672e-05,
+     "rc": 0,
+     "repeat": 480
+    }
+   ],
+   "regime": "large",
+   "repeat": 2982,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK bs optN=786432 block=64 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repeat=2982 graph_batch=497",
+     "check_ok": true,
+     "cuda_seconds": 0.029996033,
+     "error": null,
+     "host_begin_monotonic_ns": 15236393703686949,
+     "host_end_monotonic_ns": 15236393733699645,
+     "launches": 2982,
+     "per_launch_s": 1.0059031857813547e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=786432 block=64 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repeat=2982 graph_batch=497",
+     "check_ok": true,
+     "cuda_seconds": 0.029990911,
+     "error": null,
+     "host_begin_monotonic_ns": 15236395850736828,
+     "host_end_monotonic_ns": 15236395880744154,
+     "launches": 2982,
+     "per_launch_s": 1.0057314218645204e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=786432 block=64 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repeat=2982 graph_batch=497",
+     "check_ok": true,
+     "cuda_seconds": 0.029987841,
+     "error": null,
+     "host_begin_monotonic_ns": 15236396633956132,
+     "host_end_monotonic_ns": 15236396663959868,
+     "launches": 2982,
+     "per_launch_s": 1.0056284708249498e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "262144",
+    "128"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_black_scholes/medium/c1",
+   "check": "CHECK_OK bs optN=262144 block=128 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repeat=6144 graph_batch=1024",
+   "correct": true,
+   "family": "bs",
+   "graph_batch": 1024,
+   "launches": 6144,
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "per_launch_max_s": 4.8835001627604165e-06,
+   "per_launch_min_s": 4.88333349609375e-06,
+   "per_launch_runtime_s": 4.8835001627604165e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 5.248e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 953,
+     "per_launch_s": 4.8857586568730324e-06,
+     "rc": 0,
+     "repeat": 953
+    }
+   ],
+   "regime": "medium",
+   "repeat": 6144,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK bs optN=262144 block=128 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repeat=6144 graph_batch=1024",
+     "check_ok": true,
+     "cuda_seconds": 0.030003201,
+     "error": null,
+     "host_begin_monotonic_ns": 15236377570542949,
+     "host_end_monotonic_ns": 15236377600563674,
+     "launches": 6144,
+     "per_launch_s": 4.88333349609375e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=262144 block=128 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repeat=6144 graph_batch=1024",
+     "check_ok": true,
+     "cuda_seconds": 0.030004225,
+     "error": null,
+     "host_begin_monotonic_ns": 15236378309752855,
+     "host_end_monotonic_ns": 15236378339774521,
+     "launches": 6144,
+     "per_launch_s": 4.8835001627604165e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=262144 block=128 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repeat=6144 graph_batch=1024",
+     "check_ok": true,
+     "cuda_seconds": 0.030004225,
+     "error": null,
+     "host_begin_monotonic_ns": 15236379049420652,
+     "host_end_monotonic_ns": 15236379079441468,
+     "launches": 6144,
+     "per_launch_s": 4.8835001627604165e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "262144",
+    "64"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_black_scholes/medium/c2",
+   "check": "CHECK_OK bs optN=262144 block=64 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repeat=6066 graph_batch=1011",
+   "correct": true,
+   "family": "bs",
+   "graph_batch": 1011,
+   "launches": 6066,
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "per_launch_max_s": 4.9451129244971975e-06,
+   "per_launch_min_s": 4.944606660072536e-06,
+   "per_launch_runtime_s": 4.9451129244971975e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 5.312e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 942,
+     "per_launch_s": 4.950420382165605e-06,
+     "rc": 0,
+     "repeat": 942
+    }
+   ],
+   "regime": "medium",
+   "repeat": 6066,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK bs optN=262144 block=64 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repeat=6066 graph_batch=1011",
+     "check_ok": true,
+     "cuda_seconds": 0.029997055,
+     "error": null,
+     "host_begin_monotonic_ns": 15236381169738228,
+     "host_end_monotonic_ns": 15236381199750634,
+     "launches": 6066,
+     "per_launch_s": 4.9451129244971975e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=262144 block=64 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repeat=6066 graph_batch=1011",
+     "check_ok": true,
+     "cuda_seconds": 0.029997055,
+     "error": null,
+     "host_begin_monotonic_ns": 15236381897259954,
+     "host_end_monotonic_ns": 15236381927273260,
+     "launches": 6066,
+     "per_launch_s": 4.9451129244971975e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=262144 block=64 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repeat=6066 graph_batch=1011",
+     "check_ok": true,
+     "cuda_seconds": 0.029993984,
+     "error": null,
+     "host_begin_monotonic_ns": 15236382628363374,
+     "host_end_monotonic_ns": 15236382658374390,
+     "launches": 6066,
+     "per_launch_s": 4.944606660072536e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "32768",
+    "128"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_black_scholes/small/c1",
+   "check": "CHECK_OK bs optN=32768 block=128 l1_rel=7.86e-08 max_abs=1.56e-05 finite=1 repeat=11964 graph_batch=1994",
+   "correct": true,
+   "family": "bs",
+   "graph_batch": 1994,
+   "launches": 11964,
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "per_launch_max_s": 2.505307840187228e-06,
+   "per_launch_min_s": 2.504794383149448e-06,
+   "per_launch_runtime_s": 2.505051153460381e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 2.88e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 1737,
+     "per_launch_s": 2.508416810592976e-06,
+     "rc": 0,
+     "repeat": 1737
+    }
+   ],
+   "regime": "small",
+   "repeat": 11964,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK bs optN=32768 block=128 l1_rel=7.86e-08 max_abs=1.56e-05 finite=1 repeat=11964 graph_batch=1994",
+     "check_ok": true,
+     "cuda_seconds": 0.029973503,
+     "error": null,
+     "host_begin_monotonic_ns": 15236365730899023,
+     "host_end_monotonic_ns": 15236365760890319,
+     "launches": 11964,
+     "per_launch_s": 2.505307840187228e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=32768 block=128 l1_rel=7.86e-08 max_abs=1.56e-05 finite=1 repeat=11964 graph_batch=1994",
+     "check_ok": true,
+     "cuda_seconds": 0.029970432,
+     "error": null,
+     "host_begin_monotonic_ns": 15236371260006454,
+     "host_end_monotonic_ns": 15236371289996600,
+     "launches": 11964,
+     "per_launch_s": 2.505051153460381e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=32768 block=128 l1_rel=7.86e-08 max_abs=1.56e-05 finite=1 repeat=11964 graph_batch=1994",
+     "check_ok": true,
+     "cuda_seconds": 0.02996736,
+     "error": null,
+     "host_begin_monotonic_ns": 15236371963187770,
+     "host_end_monotonic_ns": 15236371993173275,
+     "launches": 11964,
+     "per_launch_s": 2.504794383149448e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "32768",
+    "64"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_black_scholes/small/c2",
+   "check": "CHECK_OK bs optN=32768 block=64 l1_rel=7.86e-08 max_abs=1.56e-05 finite=1 repeat=11946 graph_batch=1991",
+   "correct": true,
+   "family": "bs",
+   "graph_batch": 1991,
+   "launches": 11946,
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "per_launch_max_s": 2.508482755734137e-06,
+   "per_launch_min_s": 2.508311485015905e-06,
+   "per_launch_runtime_s": 2.5083970366649927e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 2.816e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 1776,
+     "per_launch_s": 2.512144144144144e-06,
+     "rc": 0,
+     "repeat": 1776
+    }
+   ],
+   "regime": "small",
+   "repeat": 11946,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK bs optN=32768 block=64 l1_rel=7.86e-08 max_abs=1.56e-05 finite=1 repeat=11946 graph_batch=1991",
+     "check_ok": true,
+     "cuda_seconds": 0.029964289,
+     "error": null,
+     "host_begin_monotonic_ns": 15236373988151364,
+     "host_end_monotonic_ns": 15236374018135589,
+     "launches": 11946,
+     "per_launch_s": 2.508311485015905e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=32768 block=64 l1_rel=7.86e-08 max_abs=1.56e-05 finite=1 repeat=11946 graph_batch=1991",
+     "check_ok": true,
+     "cuda_seconds": 0.029965311,
+     "error": null,
+     "host_begin_monotonic_ns": 15236374713197838,
+     "host_end_monotonic_ns": 15236374743183364,
+     "launches": 11946,
+     "per_launch_s": 2.5083970366649927e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=32768 block=64 l1_rel=7.86e-08 max_abs=1.56e-05 finite=1 repeat=11946 graph_batch=1991",
+     "check_ok": true,
+     "cuda_seconds": 0.029966335,
+     "error": null,
+     "host_begin_monotonic_ns": 15236375426127492,
+     "host_end_monotonic_ns": 15236375456114398,
+     "launches": 11946,
+     "per_launch_s": 2.508482755734137e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "4194304",
+    "128"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_black_scholes/xlarge/c1",
+   "check": "CHECK_OK bs optN=4194304 block=128 l1_rel=7.89e-08 max_abs=2.04e-05 finite=1 repeat=546 graph_batch=91",
+   "correct": true,
+   "family": "bs",
+   "graph_batch": 91,
+   "launches": 546,
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "per_launch_max_s": 5.516471794871795e-05,
+   "per_launch_min_s": 5.5070943223443225e-05,
+   "per_launch_runtime_s": 5.513471062271062e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 5.472e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 92,
+     "per_launch_s": 5.5173565217391305e-05,
+     "rc": 0,
+     "repeat": 92
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 546,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK bs optN=4194304 block=128 l1_rel=7.89e-08 max_abs=2.04e-05 finite=1 repeat=546 graph_batch=91",
+     "check_ok": true,
+     "cuda_seconds": 0.030068735,
+     "error": null,
+     "host_begin_monotonic_ns": 15236408025826121,
+     "host_end_monotonic_ns": 15236408055910797,
+     "launches": 546,
+     "per_launch_s": 5.5070943223443225e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=4194304 block=128 l1_rel=7.89e-08 max_abs=2.04e-05 finite=1 repeat=546 graph_batch=91",
+     "check_ok": true,
+     "cuda_seconds": 0.030103552,
+     "error": null,
+     "host_begin_monotonic_ns": 15236418541462726,
+     "host_end_monotonic_ns": 15236418571583312,
+     "launches": 546,
+     "per_launch_s": 5.513471062271062e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=4194304 block=128 l1_rel=7.89e-08 max_abs=2.04e-05 finite=1 repeat=546 graph_batch=91",
+     "check_ok": true,
+     "cuda_seconds": 0.030119936,
+     "error": null,
+     "host_begin_monotonic_ns": 15236422740147042,
+     "host_end_monotonic_ns": 15236422770286008,
+     "launches": 546,
+     "per_launch_s": 5.516471794871795e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "4194304",
+    "64"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_black_scholes/xlarge/c2",
+   "check": "CHECK_OK bs optN=4194304 block=64 l1_rel=7.89e-08 max_abs=2.04e-05 finite=1 repeat=546 graph_batch=91",
+   "correct": true,
+   "family": "bs",
+   "graph_batch": 91,
+   "launches": 546,
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "per_launch_max_s": 5.5380395604395605e-05,
+   "per_launch_min_s": 5.5344763736263736e-05,
+   "per_launch_runtime_s": 5.536539194139194e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 5.5488e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 91,
+     "per_launch_s": 5.537476923076923e-05,
+     "rc": 0,
+     "repeat": 91
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 546,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK bs optN=4194304 block=64 l1_rel=7.89e-08 max_abs=2.04e-05 finite=1 repeat=546 graph_batch=91",
+     "check_ok": true,
+     "cuda_seconds": 0.030218241,
+     "error": null,
+     "host_begin_monotonic_ns": 15236431372852756,
+     "host_end_monotonic_ns": 15236431403088892,
+     "launches": 546,
+     "per_launch_s": 5.5344763736263736e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=4194304 block=64 l1_rel=7.89e-08 max_abs=2.04e-05 finite=1 repeat=546 graph_batch=91",
+     "check_ok": true,
+     "cuda_seconds": 0.030229504,
+     "error": null,
+     "host_begin_monotonic_ns": 15236435364021763,
+     "host_end_monotonic_ns": 15236435394269569,
+     "launches": 546,
+     "per_launch_s": 5.536539194139194e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK bs optN=4194304 block=64 l1_rel=7.89e-08 max_abs=2.04e-05 finite=1 repeat=546 graph_batch=91",
+     "check_ok": true,
+     "cuda_seconds": 0.030237696,
+     "error": null,
+     "host_begin_monotonic_ns": 15236438396673025,
+     "host_end_monotonic_ns": 15236438426928461,
+     "launches": 546,
+     "per_launch_s": 5.5380395604395605e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "1152",
+    "16"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_matrix_multiply/large/c1",
+   "check": "CHECK_OK matmul N=1152 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00147 repeat=42 graph_batch=7",
+   "correct": true,
+   "family": "matmul",
+   "graph_batch": 7,
+   "launches": 42,
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "per_launch_max_s": 0.0007967695476190476,
+   "per_launch_min_s": 0.0007965256904761904,
+   "per_launch_runtime_s": 0.0007966232380952381,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000796672,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 7,
+     "per_launch_s": 0.0007971108571428571,
+     "rc": 0,
+     "repeat": 7
+    }
+   ],
+   "regime": "large",
+   "repeat": 42,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK matmul N=1152 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00147 repeat=42 graph_batch=7",
+     "check_ok": true,
+     "cuda_seconds": 0.033464321,
+     "error": null,
+     "host_begin_monotonic_ns": 15236324473944414,
+     "host_end_monotonic_ns": 15236324507422893,
+     "launches": 42,
+     "per_launch_s": 0.0007967695476190476,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=1152 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00147 repeat=42 graph_batch=7",
+     "check_ok": true,
+     "cuda_seconds": 0.033454079,
+     "error": null,
+     "host_begin_monotonic_ns": 15236325214183591,
+     "host_end_monotonic_ns": 15236325247652200,
+     "launches": 42,
+     "per_launch_s": 0.0007965256904761904,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=1152 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00147 repeat=42 graph_batch=7",
+     "check_ok": true,
+     "cuda_seconds": 0.033458176,
+     "error": null,
+     "host_begin_monotonic_ns": 15236325931314589,
+     "host_end_monotonic_ns": 15236325964787308,
+     "launches": 42,
+     "per_launch_s": 0.0007966232380952381,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "1152",
+    "32"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_matrix_multiply/large/c2",
+   "check": "CHECK_OK matmul N=1152 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00147 repeat=48 graph_batch=8",
+   "correct": true,
+   "family": "matmul",
+   "graph_batch": 8,
+   "launches": 48,
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "per_launch_max_s": 0.0006778666875,
+   "per_launch_min_s": 0.0006777813333333333,
+   "per_launch_runtime_s": 0.0006778240208333334,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000678144,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 8,
+     "per_launch_s": 0.000678528,
+     "rc": 0,
+     "repeat": 8
+    }
+   ],
+   "regime": "large",
+   "repeat": 48,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK matmul N=1152 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00147 repeat=48 graph_batch=8",
+     "check_ok": true,
+     "cuda_seconds": 0.032535553,
+     "error": null,
+     "host_begin_monotonic_ns": 15236330315572424,
+     "host_end_monotonic_ns": 15236330348123472,
+     "launches": 48,
+     "per_launch_s": 0.0006778240208333334,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=1152 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00147 repeat=48 graph_batch=8",
+     "check_ok": true,
+     "cuda_seconds": 0.032533504,
+     "error": null,
+     "host_begin_monotonic_ns": 15236331038032807,
+     "host_end_monotonic_ns": 15236331070581125,
+     "launches": 48,
+     "per_launch_s": 0.0006777813333333333,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=1152 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00147 repeat=48 graph_batch=8",
+     "check_ok": true,
+     "cuda_seconds": 0.032537601,
+     "error": null,
+     "host_begin_monotonic_ns": 15236331753769893,
+     "host_end_monotonic_ns": 15236331786322161,
+     "launches": 48,
+     "per_launch_s": 0.0006778666875,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "672",
+    "16"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_matrix_multiply/medium/c1",
+   "check": "CHECK_OK matmul N=672 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.0018 repeat=180 graph_batch=30",
+   "correct": true,
+   "family": "matmul",
+   "graph_batch": 30,
+   "launches": 180,
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "per_launch_max_s": 0.0001701717388888889,
+   "per_launch_min_s": 0.00017010346666666666,
+   "per_launch_runtime_s": 0.00017010915555555555,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000170432,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 30,
+     "per_launch_s": 0.00017025706666666667,
+     "rc": 0,
+     "repeat": 30
+    }
+   ],
+   "regime": "medium",
+   "repeat": 180,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK matmul N=672 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.0018 repeat=180 graph_batch=30",
+     "check_ok": true,
+     "cuda_seconds": 0.030619648,
+     "error": null,
+     "host_begin_monotonic_ns": 15236316710008818,
+     "host_end_monotonic_ns": 15236316740644894,
+     "launches": 180,
+     "per_launch_s": 0.00017010915555555555,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=672 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.0018 repeat=180 graph_batch=30",
+     "check_ok": true,
+     "cuda_seconds": 0.030630913,
+     "error": null,
+     "host_begin_monotonic_ns": 15236317403792735,
+     "host_end_monotonic_ns": 15236317434439832,
+     "launches": 180,
+     "per_launch_s": 0.0001701717388888889,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=672 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.0018 repeat=180 graph_batch=30",
+     "check_ok": true,
+     "cuda_seconds": 0.030618624,
+     "error": null,
+     "host_begin_monotonic_ns": 15236318063429663,
+     "host_end_monotonic_ns": 15236318094063880,
+     "launches": 180,
+     "per_launch_s": 0.00017010346666666666,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "672",
+    "32"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_matrix_multiply/medium/c2",
+   "check": "CHECK_OK matmul N=672 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.0018 repeat=180 graph_batch=30",
+   "correct": true,
+   "family": "matmul",
+   "graph_batch": 30,
+   "launches": 180,
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "per_launch_max_s": 0.00016749795555555554,
+   "per_launch_min_s": 0.0001674638222222222,
+   "per_launch_runtime_s": 0.00016748089444444444,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000167808,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 30,
+     "per_launch_s": 0.00016759466666666666,
+     "rc": 0,
+     "repeat": 30
+    }
+   ],
+   "regime": "medium",
+   "repeat": 180,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK matmul N=672 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.0018 repeat=180 graph_batch=30",
+     "check_ok": true,
+     "cuda_seconds": 0.030146561,
+     "error": null,
+     "host_begin_monotonic_ns": 15236320117206832,
+     "host_end_monotonic_ns": 15236320147368808,
+     "launches": 180,
+     "per_launch_s": 0.00016748089444444444,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=672 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.0018 repeat=180 graph_batch=30",
+     "check_ok": true,
+     "cuda_seconds": 0.030143488,
+     "error": null,
+     "host_begin_monotonic_ns": 15236320821533689,
+     "host_end_monotonic_ns": 15236320851693935,
+     "launches": 180,
+     "per_launch_s": 0.0001674638222222222,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=672 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.0018 repeat=180 graph_batch=30",
+     "check_ok": true,
+     "cuda_seconds": 0.030149632,
+     "error": null,
+     "host_begin_monotonic_ns": 15236321521367331,
+     "host_end_monotonic_ns": 15236321551532607,
+     "launches": 180,
+     "per_launch_s": 0.00016749795555555554,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "224",
+    "16"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_matrix_multiply/small/c1",
+   "check": "CHECK_OK matmul N=224 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00165 repeat=3090 graph_batch=515",
+   "correct": true,
+   "family": "matmul",
+   "graph_batch": 515,
+   "launches": 3090,
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "per_launch_max_s": 9.712424919093851e-06,
+   "per_launch_min_s": 9.708447896440129e-06,
+   "per_launch_runtime_s": 9.709110679611651e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.0048e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 498,
+     "per_launch_s": 9.721831325301205e-06,
+     "rc": 0,
+     "repeat": 498
+    }
+   ],
+   "regime": "small",
+   "repeat": 3090,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK matmul N=224 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00165 repeat=3090 graph_batch=515",
+     "check_ok": true,
+     "cuda_seconds": 0.030011393,
+     "error": null,
+     "host_begin_monotonic_ns": 15236309820499675,
+     "host_end_monotonic_ns": 15236309850526091,
+     "launches": 3090,
+     "per_launch_s": 9.712424919093851e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=224 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00165 repeat=3090 graph_batch=515",
+     "check_ok": true,
+     "cuda_seconds": 0.030001152,
+     "error": null,
+     "host_begin_monotonic_ns": 15236310510110579,
+     "host_end_monotonic_ns": 15236310540128134,
+     "launches": 3090,
+     "per_launch_s": 9.709110679611651e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=224 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00165 repeat=3090 graph_batch=515",
+     "check_ok": true,
+     "cuda_seconds": 0.029999104,
+     "error": null,
+     "host_begin_monotonic_ns": 15236311229646148,
+     "host_end_monotonic_ns": 15236311259660744,
+     "launches": 3090,
+     "per_launch_s": 9.708447896440129e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "224",
+    "32"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_matrix_multiply/small/c2",
+   "check": "CHECK_OK matmul N=224 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00165 repeat=2106 graph_batch=351",
+   "correct": true,
+   "family": "matmul",
+   "graph_batch": 351,
+   "launches": 2106,
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "per_launch_max_s": 1.4233891737891739e-05,
+   "per_launch_min_s": 1.4231947293447292e-05,
+   "per_launch_runtime_s": 1.423243257359924e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.4592e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 343,
+     "per_launch_s": 1.4246437317784257e-05,
+     "rc": 0,
+     "repeat": 343
+    }
+   ],
+   "regime": "small",
+   "repeat": 2106,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK matmul N=224 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00165 repeat=2106 graph_batch=351",
+     "check_ok": true,
+     "cuda_seconds": 0.029973503,
+     "error": null,
+     "host_begin_monotonic_ns": 15236313265837492,
+     "host_end_monotonic_ns": 15236313295825998,
+     "launches": 2106,
+     "per_launch_s": 1.423243257359924e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=224 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00165 repeat=2106 graph_batch=351",
+     "check_ok": true,
+     "cuda_seconds": 0.029976576,
+     "error": null,
+     "host_begin_monotonic_ns": 15236313963355823,
+     "host_end_monotonic_ns": 15236313993347748,
+     "launches": 2106,
+     "per_launch_s": 1.4233891737891739e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=224 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00165 repeat=2106 graph_batch=351",
+     "check_ok": true,
+     "cuda_seconds": 0.029972481,
+     "error": null,
+     "host_begin_monotonic_ns": 15236314648152352,
+     "host_end_monotonic_ns": 15236314678140188,
+     "launches": 2106,
+     "per_launch_s": 1.4231947293447292e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "2656",
+    "16"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_matrix_multiply/xlarge/c1",
+   "check": "CHECK_OK matmul N=2656 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00208 repeat=4 graph_batch=1",
+   "correct": true,
+   "family": "matmul",
+   "graph_batch": 1,
+   "launches": 4,
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "per_launch_max_s": 0.00969625575,
+   "per_launch_min_s": 0.00969241625,
+   "per_launch_runtime_s": 0.009696,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.007958464125,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 1,
+     "per_launch_s": 0.009694208,
+     "rc": 0,
+     "repeat": 1
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 4,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK matmul N=2656 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00208 repeat=4 graph_batch=1",
+     "check_ok": true,
+     "cuda_seconds": 0.038769665,
+     "error": null,
+     "host_begin_monotonic_ns": 15236337980926346,
+     "host_end_monotonic_ns": 15236338019713349,
+     "launches": 4,
+     "per_launch_s": 0.00969241625,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=2656 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00208 repeat=4 graph_batch=1",
+     "check_ok": true,
+     "cuda_seconds": 0.038785023,
+     "error": null,
+     "host_begin_monotonic_ns": 15236339785313839,
+     "host_end_monotonic_ns": 15236339824115733,
+     "launches": 4,
+     "per_launch_s": 0.00969625575,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=2656 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00208 repeat=4 graph_batch=1",
+     "check_ok": true,
+     "cuda_seconds": 0.038784,
+     "error": null,
+     "host_begin_monotonic_ns": 15236344256241170,
+     "host_end_monotonic_ns": 15236344295041313,
+     "launches": 4,
+     "per_launch_s": 0.009696,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "2656",
+    "32"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_matrix_multiply/xlarge/c2",
+   "check": "CHECK_OK matmul N=2656 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00208 repeat=4 graph_batch=1",
+   "correct": true,
+   "family": "matmul",
+   "graph_batch": 1,
+   "launches": 4,
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "per_launch_max_s": 0.008602624,
+   "per_launch_min_s": 0.008602624,
+   "per_launch_runtime_s": 0.008602624,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.00776646425,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 1,
+     "per_launch_s": 0.00860672,
+     "rc": 0,
+     "repeat": 1
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 4,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK matmul N=2656 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00208 repeat=4 graph_batch=1",
+     "check_ok": true,
+     "cuda_seconds": 0.034410496,
+     "error": null,
+     "host_begin_monotonic_ns": 15236352915712077,
+     "host_end_monotonic_ns": 15236352950137966,
+     "launches": 4,
+     "per_launch_s": 0.008602624,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=2656 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00208 repeat=4 graph_batch=1",
+     "check_ok": true,
+     "cuda_seconds": 0.034410496,
+     "error": null,
+     "host_begin_monotonic_ns": 15236358496039722,
+     "host_end_monotonic_ns": 15236358530466422,
+     "launches": 4,
+     "per_launch_s": 0.008602624,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK matmul N=2656 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00208 repeat=4 graph_batch=1",
+     "check_ok": true,
+     "cuda_seconds": 0.034410496,
+     "error": null,
+     "host_begin_monotonic_ns": 15236363643937915,
+     "host_end_monotonic_ns": 15236363678363815,
+     "launches": 4,
+     "per_launch_s": 0.008602624,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "1835008",
+    "4096"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_scan/large/c1",
+   "check": "CHECK_OK scan N=1835008 arrayLength=4096 mismatches=0 first_bad=-1 repeat=1698 graph_batch=283",
+   "correct": true,
+   "family": "scan",
+   "graph_batch": 283,
+   "launches": 1698,
+   "operator_id": "unseen_cuda_samples_scan",
+   "per_launch_max_s": 1.7705912838633686e-05,
+   "per_launch_min_s": 1.7684203180212013e-05,
+   "per_launch_runtime_s": 1.7702898115429917e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.8112e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 277,
+     "per_launch_s": 1.7703740072202167e-05,
+     "rc": 0,
+     "repeat": 277
+    }
+   ],
+   "regime": "large",
+   "repeat": 1698,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scan N=1835008 arrayLength=4096 mismatches=0 first_bad=-1 repeat=1698 graph_batch=283",
+     "check_ok": true,
+     "cuda_seconds": 0.03006464,
+     "error": null,
+     "host_begin_monotonic_ns": 15236486511967077,
+     "host_end_monotonic_ns": 15236486542048393,
+     "launches": 1698,
+     "per_launch_s": 1.7705912838633686e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=1835008 arrayLength=4096 mismatches=0 first_bad=-1 repeat=1698 graph_batch=283",
+     "check_ok": true,
+     "cuda_seconds": 0.030059521,
+     "error": null,
+     "host_begin_monotonic_ns": 15236488523389008,
+     "host_end_monotonic_ns": 15236488553466004,
+     "launches": 1698,
+     "per_launch_s": 1.7702898115429917e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=1835008 arrayLength=4096 mismatches=0 first_bad=-1 repeat=1698 graph_batch=283",
+     "check_ok": true,
+     "cuda_seconds": 0.030027777,
+     "error": null,
+     "host_begin_monotonic_ns": 15236489715473494,
+     "host_end_monotonic_ns": 15236489745517720,
+     "launches": 1698,
+     "per_launch_s": 1.7684203180212013e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "1835008",
+    "262144"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_scan/large/c2",
+   "check": "CHECK_OK scan N=1835008 arrayLength=262144 mismatches=0 first_bad=-1 repeat=1644 graph_batch=274",
+   "correct": true,
+   "family": "scan",
+   "graph_batch": 274,
+   "launches": 1644,
+   "operator_id": "unseen_cuda_samples_scan",
+   "per_launch_max_s": 1.8276905109489052e-05,
+   "per_launch_min_s": 1.825821897810219e-05,
+   "per_launch_runtime_s": 1.8269431265206812e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.8624e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 269,
+     "per_launch_s": 1.8279732342007433e-05,
+     "rc": 0,
+     "repeat": 269
+    }
+   ],
+   "regime": "large",
+   "repeat": 1644,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scan N=1835008 arrayLength=262144 mismatches=0 first_bad=-1 repeat=1644 graph_batch=274",
+     "check_ok": true,
+     "cuda_seconds": 0.030047232,
+     "error": null,
+     "host_begin_monotonic_ns": 15236494594075244,
+     "host_end_monotonic_ns": 15236494624140090,
+     "launches": 1644,
+     "per_launch_s": 1.8276905109489052e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=1835008 arrayLength=262144 mismatches=0 first_bad=-1 repeat=1644 graph_batch=274",
+     "check_ok": true,
+     "cuda_seconds": 0.030016512,
+     "error": null,
+     "host_begin_monotonic_ns": 15236496232370144,
+     "host_end_monotonic_ns": 15236496262402490,
+     "launches": 1644,
+     "per_launch_s": 1.825821897810219e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=1835008 arrayLength=262144 mismatches=0 first_bad=-1 repeat=1644 graph_batch=274",
+     "check_ok": true,
+     "cuda_seconds": 0.030034945,
+     "error": null,
+     "host_begin_monotonic_ns": 15236497140507516,
+     "host_end_monotonic_ns": 15236497170559812,
+     "launches": 1644,
+     "per_launch_s": 1.8269431265206812e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "786432",
+    "4096"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_scan/medium/c1",
+   "check": "CHECK_OK scan N=786432 arrayLength=4096 mismatches=0 first_bad=-1 repeat=2994 graph_batch=499",
+   "correct": true,
+   "family": "scan",
+   "graph_batch": 499,
+   "launches": 2994,
+   "operator_id": "unseen_cuda_samples_scan",
+   "per_launch_max_s": 1.1468526720106881e-05,
+   "per_launch_min_s": 1.1466474281897127e-05,
+   "per_launch_runtime_s": 1.1467499665998663e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.184e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 423,
+     "per_launch_s": 1.0029390070921986e-05,
+     "rc": 0,
+     "repeat": 423
+    }
+   ],
+   "regime": "medium",
+   "repeat": 2994,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scan N=786432 arrayLength=4096 mismatches=0 first_bad=-1 repeat=2994 graph_batch=499",
+     "check_ok": true,
+     "cuda_seconds": 0.034333694,
+     "error": null,
+     "host_begin_monotonic_ns": 15236453301139270,
+     "host_end_monotonic_ns": 15236453335491900,
+     "launches": 2994,
+     "per_launch_s": 1.1467499665998663e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=786432 arrayLength=4096 mismatches=0 first_bad=-1 repeat=2994 graph_batch=499",
+     "check_ok": true,
+     "cuda_seconds": 0.034336769,
+     "error": null,
+     "host_begin_monotonic_ns": 15236455459418429,
+     "host_end_monotonic_ns": 15236455493772358,
+     "launches": 2994,
+     "per_launch_s": 1.1468526720106881e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=786432 arrayLength=4096 mismatches=0 first_bad=-1 repeat=2994 graph_batch=499",
+     "check_ok": true,
+     "cuda_seconds": 0.034330624,
+     "error": null,
+     "host_begin_monotonic_ns": 15236461061429283,
+     "host_end_monotonic_ns": 15236461095780613,
+     "launches": 2994,
+     "per_launch_s": 1.1466474281897127e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "786432",
+    "262144"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_scan/medium/c2",
+   "check": "CHECK_OK scan N=786432 arrayLength=262144 mismatches=0 first_bad=-1 repeat=2496 graph_batch=416",
+   "correct": true,
+   "family": "scan",
+   "graph_batch": 416,
+   "launches": 2496,
+   "operator_id": "unseen_cuda_samples_scan",
+   "per_launch_max_s": 1.2038974358974359e-05,
+   "per_launch_min_s": 1.2033641426282051e-05,
+   "per_launch_runtime_s": 1.203528205128205e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.2352e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 405,
+     "per_launch_s": 1.2037688888888888e-05,
+     "rc": 0,
+     "repeat": 405
+    }
+   ],
+   "regime": "medium",
+   "repeat": 2496,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scan N=786432 arrayLength=262144 mismatches=0 first_bad=-1 repeat=2496 graph_batch=416",
+     "check_ok": true,
+     "cuda_seconds": 0.030035969,
+     "error": null,
+     "host_begin_monotonic_ns": 15236466636134824,
+     "host_end_monotonic_ns": 15236466666186690,
+     "launches": 2496,
+     "per_launch_s": 1.2033641426282051e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=786432 arrayLength=262144 mismatches=0 first_bad=-1 repeat=2496 graph_batch=416",
+     "check_ok": true,
+     "cuda_seconds": 0.03004928,
+     "error": null,
+     "host_begin_monotonic_ns": 15236467328491150,
+     "host_end_monotonic_ns": 15236467358556376,
+     "launches": 2496,
+     "per_launch_s": 1.2038974358974359e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=786432 arrayLength=262144 mismatches=0 first_bad=-1 repeat=2496 graph_batch=416",
+     "check_ok": true,
+     "cuda_seconds": 0.030040064,
+     "error": null,
+     "host_begin_monotonic_ns": 15236473883792615,
+     "host_end_monotonic_ns": 15236473913850901,
+     "launches": 2496,
+     "per_launch_s": 1.203528205128205e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "262144",
+    "4096"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_scan/small/c1",
+   "check": "CHECK_OK scan N=262144 arrayLength=4096 mismatches=0 first_bad=-1 repeat=3756 graph_batch=626",
+   "correct": true,
+   "family": "scan",
+   "graph_batch": 626,
+   "launches": 3756,
+   "operator_id": "unseen_cuda_samples_scan",
+   "per_launch_max_s": 7.979621139510117e-06,
+   "per_launch_min_s": 7.976349041533547e-06,
+   "per_launch_runtime_s": 7.976621938232161e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 8.32e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 601,
+     "per_launch_s": 7.987540765391015e-06,
+     "rc": 0,
+     "repeat": 601
+    }
+   ],
+   "regime": "small",
+   "repeat": 3756,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scan N=262144 arrayLength=4096 mismatches=0 first_bad=-1 repeat=3756 graph_batch=626",
+     "check_ok": true,
+     "cuda_seconds": 0.029959167,
+     "error": null,
+     "host_begin_monotonic_ns": 15236442754153427,
+     "host_end_monotonic_ns": 15236442784131333,
+     "launches": 3756,
+     "per_launch_s": 7.976349041533547e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=262144 arrayLength=4096 mismatches=0 first_bad=-1 repeat=3756 graph_batch=626",
+     "check_ok": true,
+     "cuda_seconds": 0.029971457,
+     "error": null,
+     "host_begin_monotonic_ns": 15236443447606764,
+     "host_end_monotonic_ns": 15236443477595480,
+     "launches": 3756,
+     "per_launch_s": 7.979621139510117e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=262144 arrayLength=4096 mismatches=0 first_bad=-1 repeat=3756 graph_batch=626",
+     "check_ok": true,
+     "cuda_seconds": 0.029960192,
+     "error": null,
+     "host_begin_monotonic_ns": 15236444176824662,
+     "host_end_monotonic_ns": 15236444206803688,
+     "launches": 3756,
+     "per_launch_s": 7.976621938232161e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "262144",
+    "262144"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_scan/small/c2",
+   "check": "CHECK_OK scan N=262144 arrayLength=262144 mismatches=0 first_bad=-1 repeat=3600 graph_batch=600",
+   "correct": true,
+   "family": "scan",
+   "graph_batch": 600,
+   "launches": 3600,
+   "operator_id": "unseen_cuda_samples_scan",
+   "per_launch_max_s": 8.577706666666667e-06,
+   "per_launch_min_s": 8.323128888888889e-06,
+   "per_launch_runtime_s": 8.542150833333334e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 8.896e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 563,
+     "per_launch_s": 8.333868561278863e-06,
+     "rc": 0,
+     "repeat": 563
+    }
+   ],
+   "regime": "small",
+   "repeat": 3600,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK scan N=262144 arrayLength=262144 mismatches=0 first_bad=-1 repeat=3600 graph_batch=600",
+     "check_ok": true,
+     "cuda_seconds": 0.029963264,
+     "error": null,
+     "host_begin_monotonic_ns": 15236447614412503,
+     "host_end_monotonic_ns": 15236447644394409,
+     "launches": 3600,
+     "per_launch_s": 8.323128888888889e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=262144 arrayLength=262144 mismatches=0 first_bad=-1 repeat=3600 graph_batch=600",
+     "check_ok": true,
+     "cuda_seconds": 0.030751743,
+     "error": null,
+     "host_begin_monotonic_ns": 15236448310848712,
+     "host_end_monotonic_ns": 15236448341620799,
+     "launches": 3600,
+     "per_launch_s": 8.542150833333334e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=262144 arrayLength=262144 mismatches=0 first_bad=-1 repeat=3600 graph_batch=600",
+     "check_ok": true,
+     "cuda_seconds": 0.030879744,
+     "error": null,
+     "host_begin_monotonic_ns": 15236449030795152,
+     "host_end_monotonic_ns": 15236449061693579,
+     "launches": 3600,
+     "per_launch_s": 8.577706666666667e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "10485760",
+    "4096"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_scan/xlarge/c1",
+   "check": "CHECK_OK scan N=10485760 arrayLength=4096 mismatches=0 first_bad=-1 repeat=276 graph_batch=46",
+   "correct": true,
+   "family": "scan",
+   "graph_batch": 46,
+   "launches": 276,
+   "operator_id": "unseen_cuda_samples_scan",
+   "per_launch_max_s": 0.00010960880797101449,
+   "per_launch_min_s": 0.00010950863768115942,
+   "per_launch_runtime_s": 0.00010953460869565216,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000110208,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 46,
+     "per_launch_s": 0.00010961252173913044,
+     "rc": 0,
+     "repeat": 46
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 276,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK scan N=10485760 arrayLength=4096 mismatches=0 first_bad=-1 repeat=276 graph_batch=46",
+     "check_ok": true,
+     "cuda_seconds": 0.030252031,
+     "error": null,
+     "host_begin_monotonic_ns": 15236506311144674,
+     "host_end_monotonic_ns": 15236506341414090,
+     "launches": 276,
+     "per_launch_s": 0.00010960880797101449,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=10485760 arrayLength=4096 mismatches=0 first_bad=-1 repeat=276 graph_batch=46",
+     "check_ok": true,
+     "cuda_seconds": 0.030224384,
+     "error": null,
+     "host_begin_monotonic_ns": 15236508052795834,
+     "host_end_monotonic_ns": 15236508083036730,
+     "launches": 276,
+     "per_launch_s": 0.00010950863768115942,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=10485760 arrayLength=4096 mismatches=0 first_bad=-1 repeat=276 graph_batch=46",
+     "check_ok": true,
+     "cuda_seconds": 0.030231552,
+     "error": null,
+     "host_begin_monotonic_ns": 15236510987924921,
+     "host_end_monotonic_ns": 15236511018173657,
+     "launches": 276,
+     "per_launch_s": 0.00010953460869565216,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "10485760",
+    "262144"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_scan/xlarge/c2",
+   "check": "CHECK_OK scan N=10485760 arrayLength=262144 mismatches=0 first_bad=-1 repeat=276 graph_batch=46",
+   "correct": true,
+   "family": "scan",
+   "graph_batch": 46,
+   "launches": 276,
+   "operator_id": "unseen_cuda_samples_scan",
+   "per_launch_max_s": 0.00011012822826086957,
+   "per_launch_min_s": 0.00011006145289855072,
+   "per_launch_runtime_s": 0.00011012822826086957,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000110592,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 46,
+     "per_launch_s": 0.00011003547826086956,
+     "rc": 0,
+     "repeat": 46
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 276,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK scan N=10485760 arrayLength=262144 mismatches=0 first_bad=-1 repeat=276 graph_batch=46",
+     "check_ok": true,
+     "cuda_seconds": 0.030395391,
+     "error": null,
+     "host_begin_monotonic_ns": 15236531769959128,
+     "host_end_monotonic_ns": 15236531800371194,
+     "launches": 276,
+     "per_launch_s": 0.00011012822826086957,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=10485760 arrayLength=262144 mismatches=0 first_bad=-1 repeat=276 graph_batch=46",
+     "check_ok": true,
+     "cuda_seconds": 0.030395391,
+     "error": null,
+     "host_begin_monotonic_ns": 15236533330817472,
+     "host_end_monotonic_ns": 15236533361231058,
+     "launches": 276,
+     "per_launch_s": 0.00011012822826086957,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scan N=10485760 arrayLength=262144 mismatches=0 first_bad=-1 repeat=276 graph_batch=46",
+     "check_ok": true,
+     "cuda_seconds": 0.030376961,
+     "error": null,
+     "host_begin_monotonic_ns": 15236540387033829,
+     "host_end_monotonic_ns": 15236540417427775,
+     "launches": 276,
+     "per_launch_s": 0.00011006145289855072,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "1280",
+    "1024"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_separable_convolution/large/c1",
+   "check": "CHECK_OK conv W=1280 H=1024 mismatches=0 first_bad=-1 repeat=1122 graph_batch=187",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 187,
+   "launches": 1122,
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "per_launch_max_s": 2.6814744206773617e-05,
+   "per_launch_min_s": 2.6805619429590017e-05,
+   "per_launch_runtime_s": 2.6812008021390372e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 2.72e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 184,
+     "per_launch_s": 2.6818782608695652e-05,
+     "rc": 0,
+     "repeat": 184
+    }
+   ],
+   "regime": "large",
+   "repeat": 1122,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=1280 H=1024 mismatches=0 first_bad=-1 repeat=1122 graph_batch=187",
+     "check_ok": true,
+     "cuda_seconds": 0.030075905,
+     "error": null,
+     "host_begin_monotonic_ns": 15236563585292676,
+     "host_end_monotonic_ns": 15236563615384902,
+     "launches": 1122,
+     "per_launch_s": 2.6805619429590017e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=1280 H=1024 mismatches=0 first_bad=-1 repeat=1122 graph_batch=187",
+     "check_ok": true,
+     "cuda_seconds": 0.030083073,
+     "error": null,
+     "host_begin_monotonic_ns": 15236565921278437,
+     "host_end_monotonic_ns": 15236565951378483,
+     "launches": 1122,
+     "per_launch_s": 2.6812008021390372e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=1280 H=1024 mismatches=0 first_bad=-1 repeat=1122 graph_batch=187",
+     "check_ok": true,
+     "cuda_seconds": 0.030086143,
+     "error": null,
+     "host_begin_monotonic_ns": 15236567828102329,
+     "host_end_monotonic_ns": 15236567858204095,
+     "launches": 1122,
+     "per_launch_s": 2.6814744206773617e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "1024",
+    "1280"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_separable_convolution/large/c2",
+   "check": "CHECK_OK conv W=1024 H=1280 mismatches=0 first_bad=-1 repeat=1122 graph_batch=187",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 187,
+   "launches": 1122,
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "per_launch_max_s": 2.6736255793226382e-05,
+   "per_launch_min_s": 2.67307807486631e-05,
+   "per_launch_runtime_s": 2.6736255793226382e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 2.7072e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 185,
+     "per_launch_s": 2.676237837837838e-05,
+     "rc": 0,
+     "repeat": 185
+    }
+   ],
+   "regime": "large",
+   "repeat": 1122,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=1024 H=1280 mismatches=0 first_bad=-1 repeat=1122 graph_batch=187",
+     "check_ok": true,
+     "cuda_seconds": 0.029991936,
+     "error": null,
+     "host_begin_monotonic_ns": 15236571810283997,
+     "host_end_monotonic_ns": 15236571840293263,
+     "launches": 1122,
+     "per_launch_s": 2.67307807486631e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=1024 H=1280 mismatches=0 first_bad=-1 repeat=1122 graph_batch=187",
+     "check_ok": true,
+     "cuda_seconds": 0.029998079,
+     "error": null,
+     "host_begin_monotonic_ns": 15236574547987814,
+     "host_end_monotonic_ns": 15236574578008920,
+     "launches": 1122,
+     "per_launch_s": 2.6736255793226382e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=1024 H=1280 mismatches=0 first_bad=-1 repeat=1122 graph_batch=187",
+     "check_ok": true,
+     "cuda_seconds": 0.029998079,
+     "error": null,
+     "host_begin_monotonic_ns": 15236577426273172,
+     "host_end_monotonic_ns": 15236577456287698,
+     "launches": 1122,
+     "per_launch_s": 2.6736255793226382e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "896",
+    "512"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_separable_convolution/medium/c1",
+   "check": "CHECK_OK conv W=896 H=512 mismatches=0 first_bad=-1 repeat=2358 graph_batch=393",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 393,
+   "launches": 2358,
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "per_launch_max_s": 1.274311111111111e-05,
+   "per_launch_min_s": 1.274094020356234e-05,
+   "per_launch_runtime_s": 1.2741374469889737e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.312e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 382,
+     "per_launch_s": 1.2751748691099477e-05,
+     "rc": 0,
+     "repeat": 382
+    }
+   ],
+   "regime": "medium",
+   "repeat": 2358,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=896 H=512 mismatches=0 first_bad=-1 repeat=2358 graph_batch=393",
+     "check_ok": true,
+     "cuda_seconds": 0.030048256,
+     "error": null,
+     "host_begin_monotonic_ns": 15236553750048636,
+     "host_end_monotonic_ns": 15236553780113302,
+     "launches": 2358,
+     "per_launch_s": 1.274311111111111e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=896 H=512 mismatches=0 first_bad=-1 repeat=2358 graph_batch=393",
+     "check_ok": true,
+     "cuda_seconds": 0.030044161,
+     "error": null,
+     "host_begin_monotonic_ns": 15236554468104765,
+     "host_end_monotonic_ns": 15236554498165531,
+     "launches": 2358,
+     "per_launch_s": 1.2741374469889737e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=896 H=512 mismatches=0 first_bad=-1 repeat=2358 graph_batch=393",
+     "check_ok": true,
+     "cuda_seconds": 0.030043137,
+     "error": null,
+     "host_begin_monotonic_ns": 15236555188428325,
+     "host_end_monotonic_ns": 15236555218486491,
+     "launches": 2358,
+     "per_launch_s": 1.274094020356234e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "512",
+    "896"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_separable_convolution/medium/c2",
+   "check": "CHECK_OK conv W=512 H=896 mismatches=0 first_bad=-1 repeat=2376 graph_batch=396",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 396,
+   "launches": 2376,
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "per_launch_max_s": 1.2656915824915824e-05,
+   "per_launch_min_s": 1.2651313552188552e-05,
+   "per_launch_runtime_s": 1.265389898989899e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 1.2992e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 385,
+     "per_launch_s": 1.2657703896103896e-05,
+     "rc": 0,
+     "repeat": 385
+    }
+   ],
+   "regime": "medium",
+   "repeat": 2376,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=512 H=896 mismatches=0 first_bad=-1 repeat=2376 graph_batch=396",
+     "check_ok": true,
+     "cuda_seconds": 0.030059521,
+     "error": null,
+     "host_begin_monotonic_ns": 15236557602212084,
+     "host_end_monotonic_ns": 15236557632288410,
+     "launches": 2376,
+     "per_launch_s": 1.2651313552188552e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=512 H=896 mismatches=0 first_bad=-1 repeat=2376 graph_batch=396",
+     "check_ok": true,
+     "cuda_seconds": 0.030065664,
+     "error": null,
+     "host_begin_monotonic_ns": 15236558313036226,
+     "host_end_monotonic_ns": 15236558343118982,
+     "launches": 2376,
+     "per_launch_s": 1.265389898989899e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=512 H=896 mismatches=0 first_bad=-1 repeat=2376 graph_batch=396",
+     "check_ok": true,
+     "cuda_seconds": 0.030072832,
+     "error": null,
+     "host_begin_monotonic_ns": 15236559033502766,
+     "host_end_monotonic_ns": 15236559063592362,
+     "launches": 2376,
+     "per_launch_s": 1.2656915824915824e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "256"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_separable_convolution/small/c1",
+   "check": "CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=5154 graph_batch=859",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 859,
+   "launches": 5154,
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "per_launch_max_s": 5.822534730306558e-06,
+   "per_launch_min_s": 5.820945285215367e-06,
+   "per_launch_runtime_s": 5.82213736903376e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 6.144e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 814,
+     "per_launch_s": 5.8269877149877145e-06,
+     "rc": 0,
+     "repeat": 814
+    }
+   ],
+   "regime": "small",
+   "repeat": 5154,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=5154 graph_batch=859",
+     "check_ok": true,
+     "cuda_seconds": 0.030007296,
+     "error": null,
+     "host_begin_monotonic_ns": 15236546552781768,
+     "host_end_monotonic_ns": 15236546582806754,
+     "launches": 5154,
+     "per_launch_s": 5.82213736903376e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=5154 graph_batch=859",
+     "check_ok": true,
+     "cuda_seconds": 0.030009344,
+     "error": null,
+     "host_begin_monotonic_ns": 15236547469192168,
+     "host_end_monotonic_ns": 15236547499221264,
+     "launches": 5154,
+     "per_launch_s": 5.822534730306558e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=5154 graph_batch=859",
+     "check_ok": true,
+     "cuda_seconds": 0.030001152,
+     "error": null,
+     "host_begin_monotonic_ns": 15236548179006669,
+     "host_end_monotonic_ns": 15236548209025185,
+     "launches": 5154,
+     "per_launch_s": 5.820945285215367e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "256",
+    "256"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_separable_convolution/small/c2",
+   "check": "CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=5148 graph_batch=858",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 858,
+   "launches": 5148,
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "per_launch_max_s": 5.821364413364413e-06,
+   "per_launch_min_s": 5.820966394716395e-06,
+   "per_launch_runtime_s": 5.8211655011655005e-06,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 6.208e-06,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 806,
+     "per_launch_s": 5.827652605459057e-06,
+     "rc": 0,
+     "repeat": 806
+    }
+   ],
+   "regime": "small",
+   "repeat": 5148,
+   "set": "unseen",
+   "tier": "L2",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=5148 graph_batch=858",
+     "check_ok": true,
+     "cuda_seconds": 0.02996736,
+     "error": null,
+     "host_begin_monotonic_ns": 15236550228323334,
+     "host_end_monotonic_ns": 15236550258306240,
+     "launches": 5148,
+     "per_launch_s": 5.8211655011655005e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=5148 graph_batch=858",
+     "check_ok": true,
+     "cuda_seconds": 0.029968384,
+     "error": null,
+     "host_begin_monotonic_ns": 15236550927878926,
+     "host_end_monotonic_ns": 15236550957864312,
+     "launches": 5148,
+     "per_launch_s": 5.821364413364413e-06,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=5148 graph_batch=858",
+     "check_ok": true,
+     "cuda_seconds": 0.029966335,
+     "error": null,
+     "host_begin_monotonic_ns": 15236551666882362,
+     "host_end_monotonic_ns": 15236551696868008,
+     "launches": 5148,
+     "per_launch_s": 5.820966394716395e-06,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "3200",
+    "2176"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/unseen_cuda_samples_separable_convolution/xlarge/c1",
+   "check": "CHECK_OK conv W=3200 H=2176 mismatches=0 first_bad=-1 repeat=234 graph_batch=39",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 39,
+   "launches": 234,
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "per_launch_max_s": 0.00012890584188034187,
+   "per_launch_min_s": 0.0001288752094017094,
+   "per_launch_runtime_s": 0.00012890147435897436,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.00012928,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 39,
+     "per_launch_s": 0.0001290502564102564,
+     "rc": 0,
+     "repeat": 39
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 234,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=3200 H=2176 mismatches=0 first_bad=-1 repeat=234 graph_batch=39",
+     "check_ok": true,
+     "cuda_seconds": 0.030156799,
+     "error": null,
+     "host_begin_monotonic_ns": 15236586809208910,
+     "host_end_monotonic_ns": 15236586839383976,
+     "launches": 234,
+     "per_launch_s": 0.0001288752094017094,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=3200 H=2176 mismatches=0 first_bad=-1 repeat=234 graph_batch=39",
+     "check_ok": true,
+     "cuda_seconds": 0.030162945,
+     "error": null,
+     "host_begin_monotonic_ns": 15236590389071723,
+     "host_end_monotonic_ns": 15236590419252099,
+     "launches": 234,
+     "per_launch_s": 0.00012890147435897436,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=3200 H=2176 mismatches=0 first_bad=-1 repeat=234 graph_batch=39",
+     "check_ok": true,
+     "cuda_seconds": 0.030163967,
+     "error": null,
+     "host_begin_monotonic_ns": 15236596904674704,
+     "host_end_monotonic_ns": 15236596934855340,
+     "launches": 234,
+     "per_launch_s": 0.00012890584188034187,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "2176",
+    "3200"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/unseen_cuda_samples_separable_convolution/xlarge/c2",
+   "check": "CHECK_OK conv W=2176 H=3200 mismatches=0 first_bad=-1 repeat=234 graph_batch=39",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 39,
+   "launches": 234,
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "per_launch_max_s": 0.0001287089188034188,
+   "per_launch_min_s": 0.00012868704273504274,
+   "per_launch_runtime_s": 0.00012868704273504274,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000129152,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 39,
+     "per_launch_s": 0.0001288139487179487,
+     "rc": 0,
+     "repeat": 39
+    }
+   ],
+   "regime": "xlarge",
+   "repeat": 234,
+   "set": "unseen",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=2176 H=3200 mismatches=0 first_bad=-1 repeat=234 graph_batch=39",
+     "check_ok": true,
+     "cuda_seconds": 0.030117887,
+     "error": null,
+     "host_begin_monotonic_ns": 15236604051870939,
+     "host_end_monotonic_ns": 15236604082007885,
+     "launches": 234,
+     "per_launch_s": 0.0001287089188034188,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=2176 H=3200 mismatches=0 first_bad=-1 repeat=234 graph_batch=39",
+     "check_ok": true,
+     "cuda_seconds": 0.030112768,
+     "error": null,
+     "host_begin_monotonic_ns": 15236608153597951,
+     "host_end_monotonic_ns": 15236608183729497,
+     "launches": 234,
+     "per_launch_s": 0.00012868704273504274,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=2176 H=3200 mismatches=0 first_bad=-1 repeat=234 graph_batch=39",
+     "check_ok": true,
+     "cuda_seconds": 0.030112768,
+     "error": null,
+     "host_begin_monotonic_ns": 15236611754822272,
+     "host_end_monotonic_ns": 15236611784951728,
+     "launches": 234,
+     "per_launch_s": 0.00012868704273504274,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "0",
+    "1024",
+    "1024",
+    "512"
+   ],
+   "calibration_per_launch_s": 0.00012335104,
+   "cell_id": "a100/validation_fp32_matmul/v1/c1",
+   "check": "CHECK_OK sgemm variant=0 M=1024 N=1024 K=512 checked=4160 bad=0 first_bad=-1 worst=1.57e-07 repeat=850 graph_batch=50",
+   "correct": true,
+   "graph_batch": 50,
+   "per_launch_max_s": 0.0001232390011764706,
+   "per_launch_min_s": 0.00010104470588235295,
+   "per_launch_runtime_s": 0.00011287732235294117,
+   "probe_per_launch_s": 0.000101504,
+   "repeat_per_window": 850,
+   "set": "validation",
+   "window_per_launch_s": [
+    0.00011084980705882353,
+    0.0001232390011764706,
+    0.00011287732235294117,
+    0.00010104470588235295,
+    0.0001232377988235294
+   ]
+  },
+  {
+   "argv": [
+    "sgemm",
+    "1",
+    "1024",
+    "1024",
+    "512"
+   ],
+   "calibration_per_launch_s": 0.0001846125714285714,
+   "cell_id": "a100/validation_fp32_matmul/v1/c2",
+   "check": "CHECK_OK sgemm variant=1 M=1024 N=1024 K=512 checked=4160 bad=0 first_bad=-1 worst=1.57e-07 repeat=560 graph_batch=28",
+   "correct": true,
+   "graph_batch": 28,
+   "per_launch_max_s": 0.0001852982785714286,
+   "per_launch_min_s": 0.0001841097142857143,
+   "per_launch_runtime_s": 0.00018449554464285714,
+   "probe_per_launch_s": 0.000185088,
+   "repeat_per_window": 560,
+   "set": "validation",
+   "window_per_launch_s": [
+    0.00018449554464285714,
+    0.0001844864035714286,
+    0.00018452296964285714,
+    0.0001841097142857143,
+    0.0001852982785714286
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "0",
+    "3840",
+    "2560"
+   ],
+   "calibration_per_launch_s": 5.4130382978723406e-05,
+   "cell_id": "a100/validation_rmsnorm/v6/c1",
+   "check": "CHECK_OK rmsnorm variant=0 rows=3840 cols=2560 checked=161280 bad=0 first_bad=-1 worst=0.00245 repeat=1880 graph_batch=94",
+   "correct": true,
+   "graph_batch": 94,
+   "per_launch_max_s": 5.401382021276596e-05,
+   "per_launch_min_s": 5.384497127659575e-05,
+   "per_launch_runtime_s": 5.397024787234043e-05,
+   "probe_per_launch_s": 5.376e-05,
+   "repeat_per_window": 1880,
+   "set": "validation",
+   "window_per_launch_s": [
+    5.3988764893617024e-05,
+    5.401382021276596e-05,
+    5.393538776595745e-05,
+    5.397024787234043e-05,
+    5.384497127659575e-05
+   ]
+  },
+  {
+   "argv": [
+    "rmsnorm",
+    "1",
+    "3840",
+    "2560"
+   ],
+   "calibration_per_launch_s": 5.689018181818182e-05,
+   "cell_id": "a100/validation_rmsnorm/v6/c2",
+   "check": "CHECK_OK rmsnorm variant=1 rows=3840 cols=2560 checked=161280 bad=0 first_bad=-1 worst=0.00245 repeat=1760 graph_batch=88",
+   "correct": true,
+   "graph_batch": 88,
+   "per_launch_max_s": 5.670807159090909e-05,
+   "per_launch_min_s": 5.5541528409090906e-05,
+   "per_launch_runtime_s": 5.6571925568181815e-05,
+   "probe_per_launch_s": 5.6832e-05,
+   "repeat_per_window": 1760,
+   "set": "validation",
+   "window_per_launch_s": [
+    5.670807159090909e-05,
+    5.5541528409090906e-05,
+    5.6571925568181815e-05,
+    5.570327159090909e-05,
+    5.6651635795454543e-05
+   ]
+  },
+  {
+   "argv": [
+    "768",
+    "13312",
+    "64"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/validation_scalar_product/v4/c1",
+   "check": "CHECK_OK scalarProd vectorN=768 elementN=13312 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.01e-07 repeat=204 graph_batch=34",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 34,
+   "launches": 204,
+   "operator_id": "validation_scalar_product",
+   "per_launch_max_s": 0.00014938854901960783,
+   "per_launch_min_s": 0.00014927811764705882,
+   "per_launch_runtime_s": 0.00014933835784313726,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.00014944,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 34,
+     "per_launch_s": 0.00014920282352941176,
+     "rc": 0,
+     "repeat": 34
+    }
+   ],
+   "regime": "v4",
+   "repeat": 204,
+   "set": "validation",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=13312 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.01e-07 repeat=204 graph_batch=34",
+     "check_ok": true,
+     "cuda_seconds": 0.030475264,
+     "error": null,
+     "host_begin_monotonic_ns": 15236764558951362,
+     "host_end_monotonic_ns": 15236764589443089,
+     "launches": 204,
+     "per_launch_s": 0.00014938854901960783,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=13312 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.01e-07 repeat=204 graph_batch=34",
+     "check_ok": true,
+     "cuda_seconds": 0.030452736,
+     "error": null,
+     "host_begin_monotonic_ns": 15236765313350162,
+     "host_end_monotonic_ns": 15236765343818108,
+     "launches": 204,
+     "per_launch_s": 0.00014927811764705882,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=13312 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.01e-07 repeat=204 graph_batch=34",
+     "check_ok": true,
+     "cuda_seconds": 0.030465025,
+     "error": null,
+     "host_begin_monotonic_ns": 15236766044586171,
+     "host_end_monotonic_ns": 15236766075066468,
+     "launches": 204,
+     "per_launch_s": 0.00014933835784313726,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "768",
+    "13312",
+    "128"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/validation_scalar_product/v4/c2",
+   "check": "CHECK_OK scalarProd vectorN=768 elementN=13312 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.01e-07 repeat=354 graph_batch=59",
+   "correct": true,
+   "family": "sp",
+   "graph_batch": 59,
+   "launches": 354,
+   "operator_id": "validation_scalar_product",
+   "per_launch_max_s": 8.516266949152543e-05,
+   "per_launch_min_s": 8.51134943502825e-05,
+   "per_launch_runtime_s": 8.515109604519774e-05,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 8.544e-05,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 59,
+     "per_launch_s": 8.525233898305085e-05,
+     "rc": 0,
+     "repeat": 59
+    }
+   ],
+   "regime": "v4",
+   "repeat": 354,
+   "set": "validation",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=13312 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.01e-07 repeat=354 graph_batch=59",
+     "check_ok": true,
+     "cuda_seconds": 0.030147585,
+     "error": null,
+     "host_begin_monotonic_ns": 15236768249452090,
+     "host_end_monotonic_ns": 15236768279615466,
+     "launches": 354,
+     "per_launch_s": 8.516266949152543e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=13312 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.01e-07 repeat=354 graph_batch=59",
+     "check_ok": true,
+     "cuda_seconds": 0.030130177,
+     "error": null,
+     "host_begin_monotonic_ns": 15236768991045228,
+     "host_end_monotonic_ns": 15236769021190714,
+     "launches": 354,
+     "per_launch_s": 8.51134943502825e-05,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=13312 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.01e-07 repeat=354 graph_batch=59",
+     "check_ok": true,
+     "cuda_seconds": 0.030143488,
+     "error": null,
+     "host_begin_monotonic_ns": 15236769728011053,
+     "host_end_monotonic_ns": 15236769758170609,
+     "launches": 354,
+     "per_launch_s": 8.515109604519774e-05,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "2944",
+    "2048"
+   ],
+   "candidate_id": "c1",
+   "cell_id": "a100/validation_separable_convolution/v5/c1",
+   "check": "CHECK_OK conv W=2944 H=2048 mismatches=0 first_bad=-1 repeat=270 graph_batch=45",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 45,
+   "launches": 270,
+   "operator_id": "validation_separable_convolution",
+   "per_launch_max_s": 0.0001129509962962963,
+   "per_launch_min_s": 0.00011292065555555556,
+   "per_launch_runtime_s": 0.00011294720370370371,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.00011328,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 45,
+     "per_launch_s": 0.00011302684444444445,
+     "rc": 0,
+     "repeat": 45
+    }
+   ],
+   "regime": "v5",
+   "repeat": 270,
+   "set": "validation",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=2944 H=2048 mismatches=0 first_bad=-1 repeat=270 graph_batch=45",
+     "check_ok": true,
+     "cuda_seconds": 0.030495745,
+     "error": null,
+     "host_begin_monotonic_ns": 15236625240307835,
+     "host_end_monotonic_ns": 15236625270819951,
+     "launches": 270,
+     "per_launch_s": 0.00011294720370370371,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=2944 H=2048 mismatches=0 first_bad=-1 repeat=270 graph_batch=45",
+     "check_ok": true,
+     "cuda_seconds": 0.030488577,
+     "error": null,
+     "host_begin_monotonic_ns": 15236628624391419,
+     "host_end_monotonic_ns": 15236628654897016,
+     "launches": 270,
+     "per_launch_s": 0.00011292065555555556,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=2944 H=2048 mismatches=0 first_bad=-1 repeat=270 graph_batch=45",
+     "check_ok": true,
+     "cuda_seconds": 0.030496769,
+     "error": null,
+     "host_begin_monotonic_ns": 15236633547071099,
+     "host_end_monotonic_ns": 15236633577584565,
+     "launches": 270,
+     "per_launch_s": 0.0001129509962962963,
+     "rc": 0
+    }
+   ]
+  },
+  {
+   "argv": [
+    "2048",
+    "2944"
+   ],
+   "candidate_id": "c2",
+   "cell_id": "a100/validation_separable_convolution/v5/c2",
+   "check": "CHECK_OK conv W=2048 H=2944 mismatches=0 first_bad=-1 repeat=270 graph_batch=45",
+   "correct": true,
+   "family": "conv",
+   "graph_batch": 45,
+   "launches": 270,
+   "operator_id": "validation_separable_convolution",
+   "per_launch_max_s": 0.00011275377777777778,
+   "per_launch_min_s": 0.00011272343703703704,
+   "per_launch_runtime_s": 0.00011272343703703704,
+   "probes": [
+    {
+     "error": null,
+     "graph_batch": 16,
+     "per_launch_s": 0.000113216,
+     "rc": 0,
+     "repeat": 16
+    },
+    {
+     "error": null,
+     "graph_batch": 45,
+     "per_launch_s": 0.00011279928888888889,
+     "rc": 0,
+     "repeat": 45
+    }
+   ],
+   "regime": "v5",
+   "repeat": 270,
+   "set": "validation",
+   "tier": "DRAM",
+   "windows": [
+    {
+     "check": "CHECK_OK conv W=2048 H=2944 mismatches=0 first_bad=-1 repeat=270 graph_batch=45",
+     "check_ok": true,
+     "cuda_seconds": 0.030435328,
+     "error": null,
+     "host_begin_monotonic_ns": 15236644765859520,
+     "host_end_monotonic_ns": 15236644796311656,
+     "launches": 270,
+     "per_launch_s": 0.00011272343703703704,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=2048 H=2944 mismatches=0 first_bad=-1 repeat=270 graph_batch=45",
+     "check_ok": true,
+     "cuda_seconds": 0.03044352,
+     "error": null,
+     "host_begin_monotonic_ns": 15236646314127743,
+     "host_end_monotonic_ns": 15236646344588849,
+     "launches": 270,
+     "per_launch_s": 0.00011275377777777778,
+     "rc": 0
+    },
+    {
+     "check": "CHECK_OK conv W=2048 H=2944 mismatches=0 first_bad=-1 repeat=270 graph_batch=45",
+     "check_ok": true,
+     "cuda_seconds": 0.030435328,
+     "error": null,
+     "host_begin_monotonic_ns": 15236655521654292,
+     "host_end_monotonic_ns": 15236655552107218,
+     "launches": 270,
+     "per_launch_s": 0.00011272343703703704,
+     "rc": 0
+    }
+   ]
+  }
+ ],
+ "engines": {
+  "fresh": {
+   "file": "timing_fresh_engine.json",
+   "rc": 0,
+   "wall_s": 559.7
+  },
+  "set_d": {
+   "rc": 0,
+   "wall_s": 751.5
+  },
+  "set_e": {
+   "file": "timing_set_e_engine.json",
+   "rc": 0,
+   "wall_s": 112.6
+  },
+  "unseen": {
+   "file": "timing_unseen_engine.json",
+   "rc": 0,
+   "wall_s": 349.5
+  }
+ },
+ "gate_refused_cells": [],
+ "meta": {
+  "board": "a100",
+  "board_matches_calibration": true,
+  "booking_ref": "the booking log 2026-10-06 10:45 IST booking: A100 single-allocation replication, resubmission after job j24 failed in the in-job freeze (fixed, rehearsed on real outputs); one A100, shareduser quota, no clock/persistence/power-limit/sudo changes (step 5, measurement main)",
+  "cells_sha256": {
+   "cells_ml.json": "5444b1cb9842f84d3c1e87539071b38b259acc294cccc25a9e454be6c5060b25",
+   "cells_prospective.json": "dcec7b1c9abd864fe188acd3a0d6f3a957e73e287660d35ec634a0583860d63f",
+   "cells_samples.json": "34093dca55da46f8c4a6c45238b1d710117e8eaab4ac7af7179ecefe682e220e",
+   "cells_tensor.json": "72d1acdb71890342a4b84b77f626290ddf1295821726b2bbde109cc4558413ae",
+   "cells_validation.json": "e55c7fc5517f6ed7c1c957e0ce5ce2af0a360b2185767d83ebd655794067d3e9"
+  },
+  "enforced_power_limit_w": 400.0,
+  "engines": "all",
+  "freeze": {
+   "ancestry": "in-job freeze: predictions and record written inside the measurement allocation at 2026-10-06T19:32:09Z before any measurement, from code commit 225e5433eead (no git ancestry applies)",
+   "board": "a100",
+   "calibration": "9851d731f34947b1eeb17e95be28bb46dcca13863749557ca7394140b74d9658",
+   "calibration_uuid": "GPU-93eae1bb-ce0c-8ace-8f12-a6b2a4376933",
+   "created_utc": "2026-10-06T19:32:09Z",
+   "freeze_commit": "225e5433eead3a97e501ea7216967f40fbc41570",
+   "hipc_commit": "225e5433eead3a97e501ea7216967f40fbc41570",
+   "mode": "in_job",
+   "predictions_sha256": "4ae5d39afe97498e1d375ea07d237aab2a55bb3d266b49cf04643144a03d55c7",
+   "profile": "main"
+  },
+  "gpu": {
+   "index": 0,
+   "name": "NVIDIA A100-SXM4-80GB",
+   "uuid": "GPU-93eae1bb-ce0c-8ace-8f12-a6b2a4376933",
+   "visible_gpus": 1
+  },
+  "hipc_commit": "225e5433eead3a97e501ea7216967f40fbc41570",
+  "measure": "both",
+  "profile": "main",
+  "samples": {
+   "files_verified": 1443,
+   "manifest": "tiresias/app_runners/app_source_manifests/cuda-samples-5443602_cluster_MANIFEST.sha256",
+   "manifest_sha256": "23ad042ec36f50dd271b05037cbcd2a1fda3e78c1f5e9edbb019f29d63fb7a10",
+   "root": "/home/user/tiresias/app_sources/cuda-samples-5443602",
+   "source_rev": "5443602d89ed99aede2e4b7bf329daddeadb320e"
+  },
+  "sass_manifest_sha256": "a6a460b2dc151ec69409f5fedfa5b06e068b4d15f056f966431f0ab401f1e6ac",
+  "schema": "cluster_eval_measure/1",
+  "timing_reused": null,
+  "window_validation": {
+   "file": "power_sensor_results_injob.json",
+   "min_load_s_at_padding_0": 20.0,
+   "padding_s": 0.0,
+   "power_reading_update_period_ms": [
+    100.22987800000038,
+    100.2309519999951
+   ],
+   "runs": 2,
+   "sha256": "2bacc6fb141febb5ffa997a1a4992aee67a87cea194f5daea8fb9b5845d73c81",
+   "tolerance_pct": 3.0,
+   "window_s": 20.0
+  }
+ },
+ "note": "per_launch_runtime_s: median over windows of cuda_seconds / launches; a cell with correct=false is excluded from the criteria and listed",
+ "schema": "cluster_timing/1"
+}

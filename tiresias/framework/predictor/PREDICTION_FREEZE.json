@@ -1,0 +1,45 @@
+{
+ "assumptions": [
+  "Documented compute capability 8.9 issue rates proxy for Blackwell.",
+  "Clock is the ground-truth instantaneous boost reading, not a fixed clock.",
+  "Sampled block signatures and aligned synthetic pointer bases.",
+  "Loop-trip chain segments charge latency separately; cross-lane and shared-memory dependency edges are omitted.",
+  "Development-table logical byte total is allocated across directions/phases/kernels in proportion to statically executed bytes.",
+  "Correctness timing includes host gaps and timing_transfer_admitted remains false.",
+  "PyTorch dispatch, alignment, division fast-path and TensorIterator dimension assumptions remain conditional."
+ ],
+ "before_operator_scoring": true,
+ "cells": 132,
+ "diagnostics": [
+  "plain maximum",
+  "plain sum"
+ ],
+ "frozen_at_utc": "2026-10-01T16:26:57.055466+00:00",
+ "hashes": {
+  "HARDWARE_GROUND_TRUTH.md": "0820d51d4f4fc02df46e168b23fb0b35c0f66c018269878578cb224474379e3a",
+  "tiresias/planning/STATIC_RUNTIME_PLAN_2026-10-01.md": "a720fd6bf99ebb3242d1d474292311ee4d211066e7e806442b4bb01dfc9365df",
+  "tiresias/framework/compile_evidence/development/nested_folds.json": "355faca4a634c5364d6069e6ec9250a99b2af3452dde4b2c147d9701db8e426d",
+  "tiresias/framework/predictor/coalescing/FREEZE.json": "9b07e7d97357a697fec1813f55f9bd544a2032fc083ee979c0fd39c3cb8bcab8",
+  "tiresias/framework/predictor/coalescing/profiler_comparison.json": "066c787467a4a0e4b6aabe7511b765fb297f48fddc041b5ea31e2c279025ba0a",
+  "tiresias/framework/predictor/coalescing/pytorch_static_sectors.json": "41650795379138cc47a2053d3111a62b650ab92bc28b7ddf9d1c81fca8dfb232",
+  "tiresias/framework/predictor/constants/dependency_constants.json": "7ee29c4d635478595871397dfb579648cf4f9f78df39e6661ce6af29dd9a2d7d",
+  "tiresias/framework/predictor/constants/fit_dependency.py": "3e72d03bfeedda3b590e8f397dcc96533e4b6af1e5d6e3b69cc97130ef4bd5b8",
+  "tiresias/framework/predictor/constants/stream_constants.json": "3b07403258d3fc7982f61a1b9b16566356fe41c68ef4f1a542058809f57f8229",
+  "tiresias/framework/predictor/extract_features.py": "0158fc7e7c7732a62da213c64a95f4f91553e27f74fb1f1aea7ab2bbc1468376",
+  "tiresias/framework/predictor/features_blackwell.json": "bd4194faca7a7627f53bdc7eacdb7149d94a7c5708141c16d7a6ca1e694f83c7",
+  "tiresias/framework/predictor/phases.py": "804c91e38e3bafca0331161255c9f3b0534a1bc953e0993f6016370c6f1a77e9",
+  "tiresias/framework/predictor/phases_blackwell.json": "9c84e89605590876e5d1b2c225de84320c3892e4c3e0df2d51030b155e134f4f",
+  "tiresias/framework/predictor/predict_runtime.py": "d7a264651e17b5a4ad604d55c3913ef5b3d7b1d3d186572708779d5bfdd52462",
+  "tiresias/framework/predictor/predictions_blackwell.json": "14a6c7019f0bcad1741523fa65f46bf1cc33562c6a3f2364ad23c4d6497d3c4d",
+  "tiresias/framework/predictor/pytorch_dispatch/dispatch_trace.json": "f5876460deb752052e7a29354c4ae62fd5e2c71ae60c9274eb14ce80a1936396",
+  "tiresias/framework/predictor/pytorch_features/adapter.py": "fcf80450232bb328daa4267ce1168a5d862d993604ab2708736801c9dcc25b70",
+  "tiresias/framework/predictor/pytorch_features/pt_interp.py": "4217fee7e44943e872dd512d13032e4ba095ed0f0001bd3cab04f9b002298b18",
+  "tiresias/framework/predictor/score_runtime.py": "ee11d0cd1a428d344cb9bf66d622c2492c0cfbde872945a847f60bbee179a4a8",
+  "tiresias/framework/predictor/test_runtime_completion.py": "6ccfd5116028c3bd074d3a1c99b1e59cc813fe2e702d7fc66bf35e6455d2fc24"
+ },
+ "primary": "phase-wise maximum",
+ "retained_profiler_sectors": "Unavailable: only opcode-thread metrics are retained; no sector/line substitute.",
+ "supported": 108,
+ "tests_passed": 64,
+ "unsupported": 24
+}

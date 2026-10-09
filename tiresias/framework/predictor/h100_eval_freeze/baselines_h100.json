@@ -1,0 +1,1079 @@
+{
+ "calibration": {
+  "cap_w": 700.0,
+  "complete": true,
+  "device": "NVIDIA H100 80GB HBM3",
+  "file": "calibration_sm_90_90376b5d.json",
+  "sha256": "e9c6fff09dcd12a182d3a90ae1c5f4dd6c3ed636f9bdeb8c5621ccf8f7a0b0c9",
+  "uuid": "GPU-90376b5d-6fd8-1ffa-43fa-d42fd95159f1",
+  "windows_not_admitted_excluded_for_every_method": [],
+  "windows_used_in_every_fit": [
+   "fma16",
+   "fpadd16",
+   "int16",
+   "sfu16",
+   "shared16",
+   "shfl16",
+   "bar16",
+   "fma64",
+   "fpadd64",
+   "int64",
+   "sfu64",
+   "shared64",
+   "shfl64",
+   "bar64",
+   "light_int64",
+   "rd_l2_8",
+   "rd_l2_16",
+   "wr_l2_8",
+   "rd_dram_8",
+   "rd_dram_16",
+   "wr_dram_8",
+   "wr_dram_16",
+   "copy_dram_8"
+  ]
+ },
+ "code_sha256": {
+  "tiresias/framework/evaluation_data/measured/cell_manifests/sass_mix_classifier.py": "4a300c7a628a5c3babf48ab6969d53ca0d1ddc23c9d8d93a65579e3de4edaaab",
+  "tiresias/framework/predictor/calibrate/cal/energy.py": "68c9d1ec320e79a03e83b2e9f136a999118d8f08357136be846309dec592af65",
+  "tiresias/framework/predictor/calibrate/predict.py": "6ffd5d8a90d530a7923bb1daeff7ad99ad173fb1e18b27c87257878ac9ba2c4a",
+  "tiresias/framework/predictor/h100_eval_freeze/baselines_h100.py": "4e1446061ed512e5d72353c1378d67b7be98cf474d60b14b5fda936faef67b10",
+  "tiresias/framework/predictor/h100_eval_freeze/flipflop_h100.py": "707bd432789116976246d9679a501e24c548479ad078e430510817a5b4ef0b7d"
+ },
+ "inputs_sha256": {
+  "cells_h100.json": "0014bb823084c6bfd15955a49860ec1f7608220e6d900d6f99f30b86a48daf22",
+  "features_h100.json": "047f28a468900a1153a36557d16ed7c24b472fbd303a540f08f99e5dfc61c7e4",
+  "sass_manifest_h100.json": "0ef81566f390c7be6cc91bd85cf2b2af2d71494db3bd2c2ff805ff4257f3cc80",
+  "static_support_h100.json": "e242012d879662062b6a9e133704378b0625a9a4023070cd369e5b0572af71c2"
+ },
+ "kind": "h100_frozen_baselines",
+ "methods": {
+  "accelwattch_style": {
+   "cells": {
+    "h100/fresh_d_cuda_samples_copy/dram/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.012923844165719584
+    },
+    "h100/fresh_d_cuda_samples_copy/dram/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.013737685671133893
+    },
+    "h100/fresh_d_cuda_samples_copy/l2/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0003064742779674836
+    },
+    "h100/fresh_d_cuda_samples_copy/l2/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.00035644308838684446
+    },
+    "h100/fresh_d_cuda_samples_reduce2/dram/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.027231461263104963
+    },
+    "h100/fresh_d_cuda_samples_reduce2/l2/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0012049681403896394
+    },
+    "h100/fresh_d_cuda_samples_reduction/dram/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.05508546288040325
+    },
+    "h100/fresh_d_cuda_samples_reduction/dram/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.031176787271220866
+    },
+    "h100/fresh_d_cuda_samples_reduction/dram/c3": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.01658866665865729
+    },
+    "h100/fresh_d_cuda_samples_reduction/l2/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.002945809107334176
+    },
+    "h100/fresh_d_cuda_samples_reduction/l2/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0014515461810333417
+    },
+    "h100/fresh_d_cuda_samples_reduction/l2/c3": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0004062584657629122
+    },
+    "h100/fresh_d_cuda_samples_transpose/dram/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.012923844165719584
+    },
+    "h100/fresh_d_cuda_samples_transpose/dram/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.01391208027943696
+    },
+    "h100/fresh_d_cuda_samples_transpose/dram/c3": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.01391208027943696
+    },
+    "h100/fresh_d_cuda_samples_transpose/dram/c4": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.014958447929255356
+    },
+    "h100/fresh_d_cuda_samples_transpose/l2/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0003064742779674836
+    },
+    "h100/fresh_d_cuda_samples_transpose/l2/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.00036715069061956464
+    },
+    "h100/fresh_d_cuda_samples_transpose/l2/c3": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.00036715069061956464
+    },
+    "h100/fresh_d_cuda_samples_transpose/l2/c4": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0004313963040158857
+    },
+    "h100/fresh_d_cuda_samples_transposefine/dram/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.013737685671133893
+    },
+    "h100/fresh_d_cuda_samples_transposefine/dram/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.013795817207234915
+    },
+    "h100/fresh_d_cuda_samples_transposefine/l2/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.00035644308838684446
+    },
+    "h100/fresh_d_cuda_samples_transposefine/l2/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0003600122891310845
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/large/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.013455196136245877
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/large/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.012031173300538042
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/medium/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.006015586650269021
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/medium/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.005908364946278788
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/small/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0006361414780543299
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/small/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0005471400508225901
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.2853127625047228
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.2835972152408791
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/large/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0009251631375251271
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/large/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0009309904040463354
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/medium/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0003806654943965137
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/medium/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.00038649276091772195
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/small/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.00021315171967120904
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/small/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0002189789861924173
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/xlarge/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.012275867980475967
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/xlarge/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.012281695246997175
+    },
+    "h100/unseen_cuda_samples_black_scholes/large/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0016811630466606357
+    },
+    "h100/unseen_cuda_samples_black_scholes/large/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0016811630466606357
+    },
+    "h100/unseen_cuda_samples_black_scholes/medium/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0005603876822202118
+    },
+    "h100/unseen_cuda_samples_black_scholes/medium/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0005603876822202118
+    },
+    "h100/unseen_cuda_samples_black_scholes/small/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 7.004846027752648e-05
+    },
+    "h100/unseen_cuda_samples_black_scholes/small/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 7.004846027752648e-05
+    },
+    "h100/unseen_cuda_samples_black_scholes/xlarge/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.01691776132379515
+    },
+    "h100/unseen_cuda_samples_black_scholes/xlarge/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.01691776132379515
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/large/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.05723686524322989
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/large/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.050244145417779974
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/medium/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.011063247397258998
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/medium/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.009733865801692606
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/small/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.000499338334414018
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/small/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.00044339657581041864
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/xlarge/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.6953814430498431
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/xlarge/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.610301020933594
+    },
+    "h100/unseen_cuda_samples_scan/large/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.002159135132358674
+    },
+    "h100/unseen_cuda_samples_scan/large/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.002160487240293673
+    },
+    "h100/unseen_cuda_samples_scan/medium/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0007197117107862246
+    },
+    "h100/unseen_cuda_samples_scan/medium/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0007201624134312244
+    },
+    "h100/unseen_cuda_samples_scan/small/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0002399039035954082
+    },
+    "h100/unseen_cuda_samples_scan/small/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.00024005413781040812
+    },
+    "h100/unseen_cuda_samples_scan/xlarge/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.027898311996313933
+    },
+    "h100/unseen_cuda_samples_scan/xlarge/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.027905823707063928
+    },
+    "h100/unseen_cuda_samples_separable_convolution/large/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0021006947709385163
+    },
+    "h100/unseen_cuda_samples_separable_convolution/large/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0021006947709385163
+    },
+    "h100/unseen_cuda_samples_separable_convolution/medium/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0006719163952079619
+    },
+    "h100/unseen_cuda_samples_separable_convolution/medium/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.0006721713381182648
+    },
+    "h100/unseen_cuda_samples_separable_convolution/small/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 8.392581367341952e-05
+    },
+    "h100/unseen_cuda_samples_separable_convolution/small/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 8.392581367341952e-05
+    },
+    "h100/unseen_cuda_samples_separable_convolution/xlarge/c1": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.02175287500472926
+    },
+    "h100/unseen_cuda_samples_separable_convolution/xlarge/c2": {
+     "cap_w": 700.0,
+     "constant_power_w": 162.0469789170507,
+     "kind": "constant_plus_variable",
+     "variable_j": 0.02175344862627744
+    }
+   },
+   "fit": {
+    "basis": "constant + instruction activity + L2-lookup bytes + extra DRAM bytes, all per second, on window mean power (the Blackwell row's structure; static counts of the same pipeline)",
+    "condition_number": 5.223565844312425,
+    "n_windows": 23,
+    "params": {
+     "P_const_w": 162.0469789170507,
+     "e_DRAM_j_per_byte": 7.583197029372942e-11,
+     "e_L2_lookup_j_per_byte": 3.7715470383494247e-11,
+     "e_inst_j": 8.891703065808503e-12
+    },
+    "rmse_w": 53.6833761883483,
+    "window_ids": [
+     "fma16",
+     "fpadd16",
+     "int16",
+     "sfu16",
+     "shared16",
+     "shfl16",
+     "bar16",
+     "fma64",
+     "fpadd64",
+     "int64",
+     "sfu64",
+     "shared64",
+     "shfl64",
+     "bar64",
+     "light_int64",
+     "rd_l2_8",
+     "rd_l2_16",
+     "wr_l2_8",
+     "rd_dram_8",
+     "rd_dram_16",
+     "wr_dram_8",
+     "wr_dram_16",
+     "copy_dram_8"
+    ]
+   },
+   "label": "AccelWattch-style component model (re-implementation of the published structure; not the released tool)",
+   "route": "fitted on the H100 calibration run's admitted fit windows only",
+   "status": "run"
+  },
+  "alavani_refit": {
+   "cells": {
+    "h100/fresh_d_cuda_samples_copy/dram/c1": {
+     "kind": "native_power",
+     "power_w": 666.1536923866178
+    },
+    "h100/fresh_d_cuda_samples_copy/dram/c2": {
+     "kind": "native_power",
+     "power_w": 500.8367107739176
+    },
+    "h100/fresh_d_cuda_samples_copy/l2/c1": {
+     "kind": "native_power",
+     "power_w": 666.1536923866178
+    },
+    "h100/fresh_d_cuda_samples_copy/l2/c2": {
+     "kind": "native_power",
+     "power_w": 500.8367107739176
+    },
+    "h100/fresh_d_cuda_samples_reduce2/dram/c1": {
+     "kind": "native_power",
+     "power_w": 341.30031144461884
+    },
+    "h100/fresh_d_cuda_samples_reduce2/l2/c1": {
+     "kind": "native_power",
+     "power_w": 341.30031144461884
+    },
+    "h100/fresh_d_cuda_samples_reduction/dram/c1": {
+     "kind": "native_power",
+     "power_w": 305.2897298660264
+    },
+    "h100/fresh_d_cuda_samples_reduction/dram/c2": {
+     "kind": "native_power",
+     "power_w": 349.5039294077006
+    },
+    "h100/fresh_d_cuda_samples_reduction/dram/c3": {
+     "kind": "native_power",
+     "power_w": 88.93961612101674
+    },
+    "h100/fresh_d_cuda_samples_reduction/l2/c1": {
+     "kind": "native_power",
+     "power_w": 305.2897298660264
+    },
+    "h100/fresh_d_cuda_samples_reduction/l2/c2": {
+     "kind": "native_power",
+     "power_w": 349.5039294077006
+    },
+    "h100/fresh_d_cuda_samples_reduction/l2/c3": {
+     "kind": "native_power",
+     "power_w": 88.93961612101674
+    },
+    "h100/fresh_d_cuda_samples_transpose/dram/c1": {
+     "kind": "native_power",
+     "power_w": 666.1536923866178
+    },
+    "h100/fresh_d_cuda_samples_transpose/dram/c2": {
+     "kind": "native_power",
+     "power_w": 592.7863317448259
+    },
+    "h100/fresh_d_cuda_samples_transpose/dram/c3": {
+     "kind": "native_power",
+     "power_w": 599.9251937735414
+    },
+    "h100/fresh_d_cuda_samples_transpose/dram/c4": {
+     "kind": "native_power",
+     "power_w": 343.1058417764522
+    },
+    "h100/fresh_d_cuda_samples_transpose/l2/c1": {
+     "kind": "native_power",
+     "power_w": 666.1536923866178
+    },
+    "h100/fresh_d_cuda_samples_transpose/l2/c2": {
+     "kind": "native_power",
+     "power_w": 592.7863317448259
+    },
+    "h100/fresh_d_cuda_samples_transpose/l2/c3": {
+     "kind": "native_power",
+     "power_w": 599.9251937735414
+    },
+    "h100/fresh_d_cuda_samples_transpose/l2/c4": {
+     "kind": "native_power",
+     "power_w": 343.1058417764522
+    },
+    "h100/fresh_d_cuda_samples_transposefine/dram/c1": {
+     "kind": "native_power",
+     "power_w": 587.1680421461427
+    },
+    "h100/fresh_d_cuda_samples_transposefine/dram/c2": {
+     "kind": "native_power",
+     "power_w": 594.2392437175668
+    },
+    "h100/fresh_d_cuda_samples_transposefine/l2/c1": {
+     "kind": "native_power",
+     "power_w": 587.1680421461427
+    },
+    "h100/fresh_d_cuda_samples_transposefine/l2/c2": {
+     "kind": "native_power",
+     "power_w": 594.2392437175668
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/large/c1": {
+     "kind": "native_power",
+     "power_w": 6.566427187282525
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/large/c2": {
+     "kind": "native_power",
+     "power_w": 9.842093346363093
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/medium/c1": {
+     "kind": "native_power",
+     "power_w": 9.842093346363093
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/medium/c2": {
+     "kind": "native_power",
+     "power_w": 9.842093346363093
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/small/c1": {
+     "kind": "native_power",
+     "power_w": 14.769605746293832
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/small/c2": {
+     "kind": "native_power",
+     "power_w": 22.207276214685027
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1": {
+     "kind": "native_power",
+     "power_w": 4.384469442598933
+    },
+    "h100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2": {
+     "kind": "native_power",
+     "power_w": 4.384469442598933
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/large/c1": {
+     "kind": "native_power",
+     "power_w": 0.6985982270462833
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/large/c2": {
+     "kind": "native_power",
+     "power_w": 0.6985982270462833
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/medium/c1": {
+     "kind": "native_power",
+     "power_w": 0.6985982270462833
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/medium/c2": {
+     "kind": "native_power",
+     "power_w": 0.6985982270462833
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/small/c1": {
+     "kind": "native_power",
+     "power_w": 0.6985982270462833
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/small/c2": {
+     "kind": "native_power",
+     "power_w": 0.6985982270462833
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/xlarge/c1": {
+     "kind": "native_power",
+     "power_w": 0.6985982270462833
+    },
+    "h100/fresh_e_cuda_samples_scalar_product/xlarge/c2": {
+     "kind": "native_power",
+     "power_w": 0.6985982270462833
+    },
+    "h100/unseen_cuda_samples_black_scholes/large/c1": {
+     "kind": "native_power",
+     "power_w": 2.5715422678497704
+    },
+    "h100/unseen_cuda_samples_black_scholes/large/c2": {
+     "kind": "native_power",
+     "power_w": 2.5715422678497704
+    },
+    "h100/unseen_cuda_samples_black_scholes/medium/c1": {
+     "kind": "native_power",
+     "power_w": 2.5715422678497704
+    },
+    "h100/unseen_cuda_samples_black_scholes/medium/c2": {
+     "kind": "native_power",
+     "power_w": 2.5715422678497704
+    },
+    "h100/unseen_cuda_samples_black_scholes/small/c1": {
+     "kind": "native_power",
+     "power_w": 2.5715422678497704
+    },
+    "h100/unseen_cuda_samples_black_scholes/small/c2": {
+     "kind": "native_power",
+     "power_w": 2.5715422678497704
+    },
+    "h100/unseen_cuda_samples_black_scholes/xlarge/c1": {
+     "kind": "native_power",
+     "power_w": 2.5715422678497704
+    },
+    "h100/unseen_cuda_samples_black_scholes/xlarge/c2": {
+     "kind": "native_power",
+     "power_w": 2.5715422678497704
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/large/c1": {
+     "kind": "native_power",
+     "power_w": 404.30745484300877
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/large/c2": {
+     "kind": "native_power",
+     "power_w": 420.0191409049763
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/medium/c1": {
+     "kind": "native_power",
+     "power_w": 404.30745484300877
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/medium/c2": {
+     "kind": "native_power",
+     "power_w": 420.0191409049763
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/small/c1": {
+     "kind": "native_power",
+     "power_w": 404.30745484300877
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/small/c2": {
+     "kind": "native_power",
+     "power_w": 420.0191409049763
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/xlarge/c1": {
+     "kind": "native_power",
+     "power_w": 404.30745484300877
+    },
+    "h100/unseen_cuda_samples_matrix_multiply/xlarge/c2": {
+     "kind": "native_power",
+     "power_w": 420.0191409049763
+    },
+    "h100/unseen_cuda_samples_scan/large/c1": {
+     "kind": "native_power",
+     "power_w": 110.72339995307972
+    },
+    "h100/unseen_cuda_samples_scan/large/c2": {
+     "kind": "native_power",
+     "power_w": 110.72339995307972
+    },
+    "h100/unseen_cuda_samples_scan/medium/c1": {
+     "kind": "native_power",
+     "power_w": 110.72339995307972
+    },
+    "h100/unseen_cuda_samples_scan/medium/c2": {
+     "kind": "native_power",
+     "power_w": 110.72339995307972
+    },
+    "h100/unseen_cuda_samples_scan/small/c1": {
+     "kind": "native_power",
+     "power_w": 110.72339995307972
+    },
+    "h100/unseen_cuda_samples_scan/small/c2": {
+     "kind": "native_power",
+     "power_w": 110.72339995307972
+    },
+    "h100/unseen_cuda_samples_scan/xlarge/c1": {
+     "kind": "native_power",
+     "power_w": 110.72339995307972
+    },
+    "h100/unseen_cuda_samples_scan/xlarge/c2": {
+     "kind": "native_power",
+     "power_w": 110.72339995307972
+    },
+    "h100/unseen_cuda_samples_separable_convolution/large/c1": {
+     "kind": "native_power",
+     "power_w": 301.7793367069822
+    },
+    "h100/unseen_cuda_samples_separable_convolution/large/c2": {
+     "kind": "native_power",
+     "power_w": 301.7793367069822
+    },
+    "h100/unseen_cuda_samples_separable_convolution/medium/c1": {
+     "kind": "native_power",
+     "power_w": 301.7793367069822
+    },
+    "h100/unseen_cuda_samples_separable_convolution/medium/c2": {
+     "kind": "native_power",
+     "power_w": 301.7793367069822
+    },
+    "h100/unseen_cuda_samples_separable_convolution/small/c1": {
+     "kind": "native_power",
+     "power_w": 301.7793367069822
+    },
+    "h100/unseen_cuda_samples_separable_convolution/small/c2": {
+     "kind": "native_power",
+     "power_w": 301.7793367069822
+    },
+    "h100/unseen_cuda_samples_separable_convolution/xlarge/c1": {
+     "kind": "native_power",
+     "power_w": 301.7793367069822
+    },
+    "h100/unseen_cuda_samples_separable_convolution/xlarge/c2": {
+     "kind": "native_power",
+     "power_w": 301.7793367069822
+    }
+   },
+   "fit": {
+    "alpha": 14.38449888287663,
+    "coef": [
+     -0.056023112409816125,
+     -0.017402907849265327,
+     0.023691563011017457,
+     0.011897203545665643,
+     -0.05443809609291431,
+     0.002740819479287058,
+     0.036561574105393124,
+     0.06753049932312594,
+     0.08890225656235788,
+     0.06421167697205828
+    ],
+    "distinct_kernels": 17,
+    "features": [
+     "static_total_instructions",
+     "static_unique_opcodes",
+     "static_load_count",
+     "static_store_count",
+     "static_branch_count",
+     "static_arith_count",
+     "static_branch_density",
+     "static_arith_density",
+     "static_load_density",
+     "static_store_density"
+    ],
+    "intercept": 5.8410658072691675,
+    "mu": [
+     104.34782608695652,
+     16.130434782608695,
+     9.73913043478261,
+     9.217391304347826,
+     4.869565217391305,
+     42.26086956521739,
+     0.050952860253351134,
+     0.3999117097644446,
+     0.08488116799827879,
+     0.07716744452368576
+    ],
+    "n_windows": 23,
+    "note": "ridge on log(window mean board power); standardisation and alpha grid as reset/alavani_baseline_reset.py",
+    "sd": [
+     37.18649672699401,
+     1.4537611746783037,
+     13.603763518958992,
+     13.471246422591014,
+     0.3367811615397754,
+     23.32980439702741,
+     0.014112400063739254,
+     0.1495814019448349,
+     0.07212652683979805,
+     0.06318550718640635
+    ],
+    "window_ids": [
+     "fma16",
+     "fpadd16",
+     "int16",
+     "sfu16",
+     "shared16",
+     "shfl16",
+     "bar16",
+     "fma64",
+     "fpadd64",
+     "int64",
+     "sfu64",
+     "shared64",
+     "shfl64",
+     "bar64",
+     "light_int64",
+     "rd_l2_8",
+     "rd_l2_16",
+     "wr_l2_8",
+     "rd_dram_8",
+     "rd_dram_16",
+     "wr_dram_8",
+     "wr_dram_16",
+     "copy_dram_8"
+    ]
+   },
+   "label": "Alavani et al. static-feature power model, refit on the H100 calibration run's windows (not Blackwell-trained)",
+   "route": "refit on the same admitted fit windows; ten SASS-mix features of each window's kernel",
+   "status": "run"
+  },
+  "flipflop": {
+   "also_needed": [
+    "PTX of every evaluation kernel compiled for sm_90 with CUDA 12.1 (nvcc -ptx and -cubin -Xptxas -v, compile only, on the Cluster login node; none exists yet: the Blackwell PTX in measured/kernel_sets/compiled/ is sm_120 and covers six kernel groups, not the reduction, transpose and copy kernels)"
+   ],
+   "blockers": [
+    "Departure_del_coal_s",
+    "Departure_del_uncoal_s",
+    "Mem_LD_coal_ns",
+    "Mem_LD_local_ns",
+    "Mem_LD_partial_ns",
+    "Mem_LD_shared_ns",
+    "Mem_LD_uncoal_ns",
+    "baseline_kernel_overhead_ns",
+    "const_sm_power",
+    "idle_power",
+    "issue_cycles",
+    "max_power_alu",
+    "max_power_fds",
+    "max_power_fp",
+    "max_power_int",
+    "max_power_mem",
+    "max_power_reg",
+    "max_power_sfu",
+    "max_power_shm",
+    "power_alpha",
+    "power_beta"
+   ],
+   "constants": {
+    "different_definition": [
+     "Mem_LD_coal_ns",
+     "Mem_LD_shared_ns",
+     "baseline_kernel_overhead_ns",
+     "issue_cycles",
+     "max_power_fp",
+     "max_power_int",
+     "max_power_mem",
+     "max_power_sfu",
+     "max_power_shm"
+    ],
+    "not_measured": [
+     "Departure_del_coal_s",
+     "Departure_del_uncoal_s",
+     "Mem_LD_local_ns",
+     "Mem_LD_partial_ns",
+     "Mem_LD_uncoal_ns",
+     "const_sm_power",
+     "idle_power",
+     "max_power_alu",
+     "max_power_fds",
+     "max_power_reg",
+     "power_alpha",
+     "power_beta"
+    ],
+    "same_definition": [
+     "max_power_total"
+    ]
+   },
+   "counterparts": {
+    "Departure_del_coal_s": {
+     "flipflop_constant": "departure delay between coalesced memory requests",
+     "packaged_calibration": "stream bandwidth is measured, the per-request departure delay is not",
+     "status": "not_measured"
+    },
+    "Departure_del_uncoal_s": {
+     "flipflop_constant": "departure delay between uncoalesced requests",
+     "packaged_calibration": "no uncoalesced microbenchmark",
+     "status": "not_measured"
+    },
+    "Mem_LD_coal_ns": {
+     "flipflop_constant": "effective cost of a coalesced global load, from its load microbenchmark",
+     "packaged_calibration": "constants.chase_latency_ns (pointer-chase latency per tier, a dependent-load latency, not FlipFlop's per-load effective cost)",
+     "status": "different_definition"
+    },
+    "Mem_LD_local_ns": {
+     "flipflop_constant": "local-memory load cost",
+     "packaged_calibration": "no local-memory microbenchmark",
+     "status": "not_measured"
+    },
+    "Mem_LD_partial_ns": {
+     "flipflop_constant": "same for partially coalesced loads",
+     "packaged_calibration": "no partial-coalescing microbenchmark",
+     "status": "not_measured"
+    },
+    "Mem_LD_shared_ns": {
+     "flipflop_constant": "shared-memory load cost",
+     "packaged_calibration": "constants.smem floor and slope (issue cost per request versus bank-conflict degree)",
+     "status": "different_definition"
+    },
+    "Mem_LD_uncoal_ns": {
+     "flipflop_constant": "same for uncoalesced loads",
+     "packaged_calibration": "no uncoalesced-load microbenchmark in the packaged calibrator",
+     "status": "not_measured"
+    },
+    "baseline_kernel_overhead_ns": {
+     "flipflop_constant": "fixed kernel overhead of its timing harness",
+     "packaged_calibration": "constants.launch_reuse.launch_us_per_kernel (graph kernel gap), a different harness",
+     "status": "different_definition"
+    },
+    "const_sm_power": {
+     "flipflop_constant": "constant per-SM power",
+     "packaged_calibration": "needs an SM-count sweep",
+     "status": "not_measured"
+    },
+    "idle_power": {
+     "flipflop_constant": "board idle power",
+     "packaged_calibration": "the packaged calibrator takes no idle-power window (its base power is a fitted intercept, not an idle measurement)",
+     "status": "not_measured"
+    },
+    "issue_cycles": {
+     "flipflop_constant": "cycles per instruction issue",
+     "packaged_calibration": "constants.pipes (per-pipe issue cost); FlipFlop's single scalar is a different aggregate",
+     "status": "different_definition"
+    },
+    "max_power_alu": {
+     "flipflop_constant": "same, other ALU",
+     "packaged_calibration": "no isolated ALU window",
+     "status": "not_measured"
+    },
+    "max_power_fds": {
+     "flipflop_constant": "fetch-decode-schedule power",
+     "packaged_calibration": "not separable from the windows",
+     "status": "not_measured"
+    },
+    "max_power_fp": {
+     "flipflop_constant": "power at maximum floating-point activity",
+     "packaged_calibration": "energy windows are mixed designs; no isolated maximum-activity run per component",
+     "status": "different_definition"
+    },
+    "max_power_int": {
+     "flipflop_constant": "same, integer",
+     "packaged_calibration": "as above",
+     "status": "different_definition"
+    },
+    "max_power_mem": {
+     "flipflop_constant": "memory-system power at maximum activity",
+     "packaged_calibration": "rd_dram / wr_dram windows are mixed with instruction issue",
+     "status": "different_definition"
+    },
+    "max_power_reg": {
+     "flipflop_constant": "register-file power",
+     "packaged_calibration": "not separable from the windows",
+     "status": "not_measured"
+    },
+    "max_power_sfu": {
+     "flipflop_constant": "same, special function",
+     "packaged_calibration": "as above",
+     "status": "different_definition"
+    },
+    "max_power_shm": {
+     "flipflop_constant": "same, shared memory",
+     "packaged_calibration": "shared16/shared64 windows are mixed with global loads",
+     "status": "different_definition"
+    },
+    "max_power_total": {
+     "flipflop_constant": "board power ceiling used as a clamp",
+     "packaged_calibration": "constants.energy.cap_w (enforced power limit)",
+     "status": "same_definition"
+    },
+    "power_alpha": {
+     "flipflop_constant": "coefficient of its power-versus-active-SM-count law",
+     "packaged_calibration": "needs a power sweep over active SM counts; none in the packaged calibrator",
+     "status": "not_measured"
+    },
+    "power_beta": {
+     "flipflop_constant": "exponent of that law",
+     "packaged_calibration": "same sweep",
+     "status": "not_measured"
+    }
+   },
+   "label": "FlipFlop (Rajput et al., ICSE 2026)",
+   "reason": "FlipFlop's time and power models read 22 calibration constants that come from its own calibration program. The packaged H100 calibration measures 1 of them under the same definition, has only a differently defined counterpart for 9, and has none for 12 (including idle power and the power-versus-active-SM-count law). Filling them from another board, from defaults or by a new fit would be a different method; running FlipFlop's own calibration on the H100 would give it more calibration data than our model. So the row is not run on the H100 (decision of 3 October 2026: the row is not added after the freeze).",
+   "status": "not_run_on_h100"
+  }
+ },
+ "rules": "same calibration windows as our model; nothing fitted or tuned on the evaluation cells; windows not admitted are excluded for every method alike",
+ "schema": "h100_baselines/1",
+ "warning": null
+}

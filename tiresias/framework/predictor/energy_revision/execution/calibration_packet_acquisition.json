@@ -1,0 +1,1008 @@
+{
+  "attempts_per_slot": 1,
+  "booking": "Wait for every open GPU 1 booking to close; exact packet booking in the booking log pushed; fresh idle/UUID check; serial full grid; no GPU 0 or settings changes",
+  "cap_w": 600,
+  "compile": {
+    "cpu_only_env": {
+      "CUDA_VISIBLE_DEVICES": ""
+    },
+    "flags": [
+      "-O3",
+      "-std=c++17",
+      "-arch=sm_120",
+      "-Xptxas=-v"
+    ],
+    "nvcc": "/usr/local/cuda-13.2/bin/nvcc",
+    "priority": "nice -n 19, one compiler at a time"
+  },
+  "correctness_gate": "All 30 configurations, full output census, immutable inputs, exact uint/checksum and FP32 FMA oracle; dependent bounded SFU recurrence with 2 device +1 CPU ulp per step, geometrically propagated bound of 10 ulp",
+  "cost_qualification": "52.5 minutes is a device-time floor only. Full CPU oracles, probes, idle brackets, compilation and transfers are additional and presently unmeasured.",
+  "count_gate": "Complete actual compiled lane-instruction census and ABI/trip proof; six-column rank/conditioning after real calibration time is known; no transplanted hand counts",
+  "counted_target_s": 15,
+  "energy_windows_maximum": 30,
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894",
+  "inputs_sha256": {
+    "HARDWARE_GROUND_TRUTH.md": "cb2cb4ee8628a3b2a466d9ff4484d7ed6fc4154d25cdae5c943647dc57979cf0",
+    "tiresias/framework/predictor/energy_revision/component_candidate.py": "a881d5f2022adc1ae553777ae86fe7e08efda62a663aaddb71c2e0b32a0ee205",
+    "tiresias/framework/predictor/energy_revision/execution/acquire.py": "e6ff5dd0794e87ee02dd20ad888d1c591ac6b7b9f93e75c1469fd95dbcd1b965",
+    "tiresias/framework/predictor/energy_revision/execution/calibration.cu": "c9e5ce56746b42eacd7b85e0bf8e4bfb387f5457f8eb89696df97e2bb23a24f4",
+    "tiresias/framework/predictor/energy_revision/execution/compile.py": "77b4443e635fec3948bf30ed53e01ff420401ed56cf60dab4cce75c72a40f192",
+    "tiresias/framework/predictor/energy_revision/execution/count.py": "636530fc9a70903d2dcde766c938e413abe5ac7c07dc6e4d94de5780a8d01cc2",
+    "tiresias/framework/predictor/energy_revision/execution/fit.py": "55cac13f828139901aeb558b5c90c634475655f28b4232c9a1c0bc9e32aada5c",
+    "tiresias/framework/predictor/energy_revision/execution/fit_policy.json": "c295353bf199bdab59d613b0d10b07a37d267a86c0f3d26a26aa93bb280a405b",
+    "tiresias/framework/predictor/energy_revision/execution/oracle.hpp": "a6234437327964e195989045eb21ae459ecdc8d6198da3e43349cf82e3468cbb",
+    "tiresias/framework/predictor/energy_revision/execution/prepare.py": "d0ec59ba0fb36f12dca2535616d0b8a0e59f2f0f93d1974e1338e6819e38995c",
+    "tiresias/framework/predictor/fresh_e/gpu/drivers/driver_common.h": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085"
+  },
+  "planned_device_floor_s": 3150,
+  "precondition_target_s": 90,
+  "rows": [
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "memory",
+        "16",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "memory/low/small_candidate",
+      "dose": 16,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 3657728,
+      "mix": "memory",
+      "n": 48128,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "memory",
+        "16",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "memory/low/l2_candidate",
+      "dose": 16,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 536530944,
+      "mix": "memory",
+      "n": 8374272,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "memory",
+        "16",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "memory/low/dram_candidate",
+      "dose": 16,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 8591233024,
+      "mix": "memory",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "memory",
+        "64",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "memory/high/small_candidate",
+      "dose": 64,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 12898304,
+      "mix": "memory",
+      "n": 48128,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "memory",
+        "64",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "memory/high/l2_candidate",
+      "dose": 64,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 2144391168,
+      "mix": "memory",
+      "n": 8374272,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "memory",
+        "64",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "memory/high/dram_candidate",
+      "dose": 64,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 34363199488,
+      "mix": "memory",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "arithmetic",
+        "16",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "arithmetic/low/small_candidate",
+      "dose": 16,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 770048,
+      "mix": "arithmetic",
+      "n": 48128,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "arithmetic",
+        "16",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "arithmetic/low/l2_candidate",
+      "dose": 16,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 34074624,
+      "mix": "arithmetic",
+      "n": 8374272,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "arithmetic",
+        "16",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "arithmetic/low/dram_candidate",
+      "dose": 16,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 537493504,
+      "mix": "arithmetic",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "arithmetic",
+        "64",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "arithmetic/high/small_candidate",
+      "dose": 64,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 770048,
+      "mix": "arithmetic",
+      "n": 48128,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "arithmetic",
+        "64",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "arithmetic/high/l2_candidate",
+      "dose": 64,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 34074624,
+      "mix": "arithmetic",
+      "n": 8374272,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "arithmetic",
+        "64",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "arithmetic/high/dram_candidate",
+      "dose": 64,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 537493504,
+      "mix": "arithmetic",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "special_function",
+        "16",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "special_function/low/small_candidate",
+      "dose": 16,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 770048,
+      "mix": "special_function",
+      "n": 48128,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "special_function",
+        "16",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "special_function/low/l2_candidate",
+      "dose": 16,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 34074624,
+      "mix": "special_function",
+      "n": 8374272,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "special_function",
+        "16",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "special_function/low/dram_candidate",
+      "dose": 16,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 537493504,
+      "mix": "special_function",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "special_function",
+        "64",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "special_function/high/small_candidate",
+      "dose": 64,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 770048,
+      "mix": "special_function",
+      "n": 48128,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "special_function",
+        "64",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "special_function/high/l2_candidate",
+      "dose": 64,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 34074624,
+      "mix": "special_function",
+      "n": 8374272,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "special_function",
+        "64",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "special_function/high/dram_candidate",
+      "dose": 64,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 537493504,
+      "mix": "special_function",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "other_shared",
+        "16",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "other_shared/low/small_candidate",
+      "dose": 16,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 770048,
+      "mix": "other_shared",
+      "n": 48128,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "other_shared",
+        "16",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "other_shared/low/l2_candidate",
+      "dose": 16,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 34074624,
+      "mix": "other_shared",
+      "n": 8374272,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "other_shared",
+        "16",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "other_shared/low/dram_candidate",
+      "dose": 16,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 537493504,
+      "mix": "other_shared",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "other_shared",
+        "64",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "other_shared/high/small_candidate",
+      "dose": 64,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 770048,
+      "mix": "other_shared",
+      "n": 48128,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "other_shared",
+        "64",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "other_shared/high/l2_candidate",
+      "dose": 64,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 34074624,
+      "mix": "other_shared",
+      "n": 8374272,
+      "role": "fit",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "other_shared",
+        "64",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "other_shared/high/dram_candidate",
+      "dose": 64,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 537493504,
+      "mix": "other_shared",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "mixed",
+        "16",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "mixed/small_candidate",
+      "dose": 16,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 770048,
+      "mix": "mixed",
+      "n": 48128,
+      "role": "heldout",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "mixed",
+        "16",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "mixed/l2_candidate",
+      "dose": 16,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 34074624,
+      "mix": "mixed",
+      "n": 8374272,
+      "role": "heldout",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "mixed",
+        "16",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "mixed/dram_candidate",
+      "dose": 16,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 537493504,
+      "mix": "mixed",
+      "n": 134228992,
+      "role": "heldout",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "mixed_altered",
+        "16",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "mixed_altered/dram_candidate",
+      "dose": 16,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536915968,
+      "logical_bytes": 537493504,
+      "mix": "mixed_altered",
+      "n": 134228992,
+      "role": "heldout",
+      "tier": "DRAM",
+      "touched_bytes": 537493504,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "memory",
+        "16",
+        "l2_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "anchor_memory/l2_candidate",
+      "dose": 16,
+      "footprint_candidate": "l2_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 33497088,
+      "logical_bytes": 536530944,
+      "mix": "memory",
+      "n": 8374272,
+      "role": "heldout",
+      "tier": "L2",
+      "touched_bytes": 34074624,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "arithmetic",
+        "16",
+        "small_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "design_id": "anchor_arithmetic/small_candidate",
+      "dose": 16,
+      "footprint_candidate": "small_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 192512,
+      "logical_bytes": 770048,
+      "mix": "arithmetic",
+      "n": 48128,
+      "role": "heldout",
+      "tier": "L2",
+      "touched_bytes": 770048,
+      "work": null
+    }
+  ],
+  "schema": "energy_component_calibration_packet/1",
+  "sfu_reference": "https://docs.nvidia.com/cuda/parallel-thread-execution/#floating-point-instructions-ex2",
+  "sfu_reference_checked_date": "2026-10-02",
+  "small_candidate_qualification": "Not verified L1. cg bypasses L1; small and L2 rows share lookup coefficient. No L1 inference or physical L1 coefficient claimed.",
+  "status": "SOURCE_READY_NOT_COMPILED_OR_ADMITTED",
+  "traffic_qualification": "Declared logical tier/byte proxy from footprint/cache policy; not observed physical hierarchy traffic"
+}

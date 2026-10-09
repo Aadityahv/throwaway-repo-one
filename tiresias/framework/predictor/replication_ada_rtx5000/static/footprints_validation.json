@@ -1,0 +1,1021 @@
+{
+ "arch": "sm_89",
+ "cells": 12,
+ "group": "validation",
+ "note": "Grid-wide unique footprints per pointer argument from the interpreted address traces of the sampled blocks (shared_traffic/footprint.py), sm_89 port. No measured value was read.",
+ "refused": [
+  "ada/validation_rmsnorm/v6/c1",
+  "ada/validation_rmsnorm/v6/c2"
+ ],
+ "rows": {
+  "ada/validation_fp32_matmul/v1/c1": {
+   "cell_id": "ada/validation_fp32_matmul/v1/c1",
+   "kernels": [
+    {
+     "blocks": 400,
+     "first_touch_sectors_per_sampled_block": [
+      8192,
+      8192
+     ],
+     "kernel_id": "sg64",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 81920,
+        "mean_per_block": 4096.0,
+        "naive": 1638400.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 81920,
+        "union": 8192
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 81920,
+        "mean_per_block": 4096.0,
+        "naive": 1638400.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 81920,
+        "union": 8192
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "2": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 204800.0,
+        "mean_per_block": 512.0,
+        "naive": 204800.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 204800,
+        "union": 1024
+       }
+      }
+     },
+     "read_footprint_sectors": 163840,
+     "read_naive_sectors": 3276800.0,
+     "reuse_working_set_bytes": 5242880,
+     "sampled_block_ids": [
+      0,
+      399
+     ],
+     "sampled_blocks": 2,
+     "write_footprint_sectors": 204800.0,
+     "write_naive_sectors": 204800.0
+    }
+   ],
+   "status": "ok"
+  },
+  "ada/validation_fp32_matmul/v1/c2": {
+   "cell_id": "ada/validation_fp32_matmul/v1/c2",
+   "kernels": [
+    {
+     "blocks": 100,
+     "first_touch_sectors_per_sampled_block": [
+      16384,
+      16384
+     ],
+     "kernel_id": "sg128",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 81920,
+        "mean_per_block": 8192.0,
+        "naive": 819200.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 81920,
+        "union": 16384
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 81920,
+        "mean_per_block": 8192.0,
+        "naive": 819200.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 81920,
+        "union": 16384
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "2": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 204800.0,
+        "mean_per_block": 2048.0,
+        "naive": 204800.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 204800,
+        "union": 4096
+       }
+      }
+     },
+     "read_footprint_sectors": 163840,
+     "read_naive_sectors": 1638400.0,
+     "reuse_working_set_bytes": 5242880,
+     "sampled_block_ids": [
+      0,
+      99
+     ],
+     "sampled_blocks": 2,
+     "write_footprint_sectors": 204800.0,
+     "write_naive_sectors": 204800.0
+    }
+   ],
+   "status": "ok"
+  },
+  "ada/validation_fused_attention/v3/c1": {
+   "cell_id": "ada/validation_fused_attention/v3/c1",
+   "kernels": [
+    {
+     "blocks": 3072,
+     "first_touch_sectors_per_sampled_block": [
+      12544,
+      12544
+     ],
+     "kernel_id": "at4",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 786432.0,
+        "mean_per_block": 256.0,
+        "naive": 786432.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 786432,
+        "union": 512
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 786432,
+        "mean_per_block": 6144.0,
+        "naive": 18874368.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 786432,
+        "union": 12288
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "2": {
+       "read": {
+        "footprint": 786432,
+        "mean_per_block": 6144.0,
+        "naive": 18874368.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 786432,
+        "union": 12288
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "3": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 1572864.0,
+        "mean_per_block": 512.0,
+        "naive": 1572864.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 1572864,
+        "union": 1024
+       }
+      }
+     },
+     "read_footprint_sectors": 2359296.0,
+     "read_naive_sectors": 38535168.0,
+     "reuse_working_set_bytes": 50331648,
+     "sampled_block_ids": [
+      0,
+      3071
+     ],
+     "sampled_blocks": 2,
+     "write_footprint_sectors": 1572864.0,
+     "write_naive_sectors": 1572864.0
+    }
+   ],
+   "status": "ok"
+  },
+  "ada/validation_fused_attention/v3/c2": {
+   "cell_id": "ada/validation_fused_attention/v3/c2",
+   "kernels": [
+    {
+     "blocks": 1536,
+     "first_touch_sectors_per_sampled_block": [
+      12800,
+      12800
+     ],
+     "kernel_id": "at8",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 786432.0,
+        "mean_per_block": 512.0,
+        "naive": 786432.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 786432,
+        "union": 1024
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 786432,
+        "mean_per_block": 6144.0,
+        "naive": 9437184.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 786432,
+        "union": 12288
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "2": {
+       "read": {
+        "footprint": 786432,
+        "mean_per_block": 6144.0,
+        "naive": 9437184.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 786432,
+        "union": 12288
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "3": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 1572864.0,
+        "mean_per_block": 1024.0,
+        "naive": 1572864.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 1572864,
+        "union": 2048
+       }
+      }
+     },
+     "read_footprint_sectors": 2359296.0,
+     "read_naive_sectors": 19660800.0,
+     "reuse_working_set_bytes": 50331648,
+     "sampled_block_ids": [
+      0,
+      1535
+     ],
+     "sampled_blocks": 2,
+     "write_footprint_sectors": 1572864.0,
+     "write_naive_sectors": 1572864.0
+    }
+   ],
+   "status": "ok"
+  },
+  "ada/validation_rmsnorm/v6/c1": {
+   "cell_id": "ada/validation_rmsnorm/v6/c1",
+   "kernels": [],
+   "reason": "FootprintRefusal: data-dependent global address in a sampled block; footprint unknown",
+   "status": "refused"
+  },
+  "ada/validation_rmsnorm/v6/c2": {
+   "cell_id": "ada/validation_rmsnorm/v6/c2",
+   "kernels": [],
+   "reason": "FootprintRefusal: data-dependent global address in a sampled block; footprint unknown",
+   "status": "refused"
+  },
+  "ada/validation_scalar_product/v4/c1": {
+   "cell_id": "ada/validation_scalar_product/v4/c1",
+   "kernels": [
+    {
+     "blocks": 64,
+     "first_touch_sectors_per_sampled_block": [
+      61440,
+      61440
+     ],
+     "kernel_id": "sp",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 96,
+        "mean_per_block": 12.0,
+        "naive": 768.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 96,
+        "union": 24
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 1966080.0,
+        "mean_per_block": 30720.0,
+        "naive": 1966080.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 1966080,
+        "union": 61440
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "2": {
+       "read": {
+        "footprint": 1966080.0,
+        "mean_per_block": 30720.0,
+        "naive": 1966080.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 1966080,
+        "union": 61440
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      }
+     },
+     "read_footprint_sectors": 3932160.0,
+     "read_naive_sectors": 3932160.0,
+     "reuse_working_set_bytes": 0,
+     "sampled_block_ids": [
+      0,
+      63
+     ],
+     "sampled_blocks": 2,
+     "write_footprint_sectors": 96,
+     "write_naive_sectors": 768.0
+    }
+   ],
+   "status": "ok"
+  },
+  "ada/validation_scalar_product/v4/c2": {
+   "cell_id": "ada/validation_scalar_product/v4/c2",
+   "kernels": [
+    {
+     "blocks": 128,
+     "first_touch_sectors_per_sampled_block": [
+      30720,
+      30720
+     ],
+     "kernel_id": "sp",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 96,
+        "mean_per_block": 6.0,
+        "naive": 768.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 96,
+        "union": 12
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 1966080.0,
+        "mean_per_block": 15360.0,
+        "naive": 1966080.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 1966080,
+        "union": 30720
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "2": {
+       "read": {
+        "footprint": 1966080.0,
+        "mean_per_block": 15360.0,
+        "naive": 1966080.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 1966080,
+        "union": 30720
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      }
+     },
+     "read_footprint_sectors": 3932160.0,
+     "read_naive_sectors": 3932160.0,
+     "reuse_working_set_bytes": 0,
+     "sampled_block_ids": [
+      0,
+      127
+     ],
+     "sampled_blocks": 2,
+     "write_footprint_sectors": 96,
+     "write_naive_sectors": 768.0
+    }
+   ],
+   "status": "ok"
+  },
+  "ada/validation_separable_convolution/v5/c1": {
+   "cell_id": "ada/validation_separable_convolution/v5/c1",
+   "kernels": [
+    {
+     "blocks": 18560,
+     "first_touch_sectors_per_sampled_block": [
+      72,
+      72,
+      72,
+      72
+     ],
+     "kernel_id": "conv_rows",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 1187840.0,
+        "mean_per_block": 64.0,
+        "naive": 1187840.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 1187840,
+        "union": 256
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 1187840,
+        "mean_per_block": 72.0,
+        "naive": 1336320.0,
+        "reused": true,
+        "sampled_blocks": 4,
+        "span": 1187840,
+        "union": 288
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 0,
+        "union": 0
+       }
+      }
+     },
+     "read_footprint_sectors": 1187840,
+     "read_naive_sectors": 1336320.0,
+     "reuse_working_set_bytes": 38010880,
+     "sampled_block_ids": [
+      0,
+      28,
+      18531,
+      18559
+     ],
+     "sampled_blocks": 4,
+     "write_footprint_sectors": 1187840.0,
+     "write_naive_sectors": 1187840.0
+    },
+    {
+     "blocks": 9280,
+     "first_touch_sectors_per_sampled_block": [
+      144,
+      144,
+      144,
+      144
+     ],
+     "kernel_id": "conv_cols",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 1187840.0,
+        "mean_per_block": 128.0,
+        "naive": 1187840.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 1187840,
+        "union": 512
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 1187840,
+        "mean_per_block": 144.0,
+        "naive": 1336320.0,
+        "reused": true,
+        "sampled_blocks": 4,
+        "span": 1187840,
+        "union": 576
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 0,
+        "union": 0
+       }
+      }
+     },
+     "read_footprint_sectors": 1187840,
+     "read_naive_sectors": 1336320.0,
+     "reuse_working_set_bytes": 38010880,
+     "sampled_block_ids": [
+      0,
+      231,
+      9048,
+      9279
+     ],
+     "sampled_blocks": 4,
+     "write_footprint_sectors": 1187840.0,
+     "write_naive_sectors": 1187840.0
+    }
+   ],
+   "status": "ok"
+  },
+  "ada/validation_separable_convolution/v5/c2": {
+   "cell_id": "ada/validation_separable_convolution/v5/c2",
+   "kernels": [
+    {
+     "blocks": 18560,
+     "first_touch_sectors_per_sampled_block": [
+      72,
+      72,
+      72,
+      72
+     ],
+     "kernel_id": "conv_rows",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 1187840.0,
+        "mean_per_block": 64.0,
+        "naive": 1187840.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 1187840,
+        "union": 256
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 1187840,
+        "mean_per_block": 72.0,
+        "naive": 1336320.0,
+        "reused": true,
+        "sampled_blocks": 4,
+        "span": 1187840,
+        "union": 288
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 0,
+        "union": 0
+       }
+      }
+     },
+     "read_footprint_sectors": 1187840,
+     "read_naive_sectors": 1336320.0,
+     "reuse_working_set_bytes": 38010880,
+     "sampled_block_ids": [
+      0,
+      19,
+      18540,
+      18559
+     ],
+     "sampled_blocks": 4,
+     "write_footprint_sectors": 1187840.0,
+     "write_naive_sectors": 1187840.0
+    },
+    {
+     "blocks": 9280,
+     "first_touch_sectors_per_sampled_block": [
+      144,
+      144,
+      144,
+      144
+     ],
+     "kernel_id": "conv_cols",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 1187840.0,
+        "mean_per_block": 128.0,
+        "naive": 1187840.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 1187840,
+        "union": 512
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 1187840,
+        "mean_per_block": 144.0,
+        "naive": 1336320.0,
+        "reused": true,
+        "sampled_blocks": 4,
+        "span": 1187840,
+        "union": 576
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 4,
+        "span": 0,
+        "union": 0
+       }
+      }
+     },
+     "read_footprint_sectors": 1187840,
+     "read_naive_sectors": 1336320.0,
+     "reuse_working_set_bytes": 38010880,
+     "sampled_block_ids": [
+      0,
+      159,
+      9120,
+      9279
+     ],
+     "sampled_blocks": 4,
+     "write_footprint_sectors": 1187840.0,
+     "write_naive_sectors": 1187840.0
+    }
+   ],
+   "status": "ok"
+  },
+  "ada/validation_tensor_matmul/v2/c1": {
+   "cell_id": "ada/validation_tensor_matmul/v2/c1",
+   "kernels": [
+    {
+     "blocks": 1504,
+     "first_touch_sectors_per_sampled_block": [
+      8192,
+      8192
+     ],
+     "kernel_id": "tc128",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 192512,
+        "mean_per_block": 4096.0,
+        "naive": 6160384.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 192512,
+        "union": 8192
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 131072,
+        "mean_per_block": 4096.0,
+        "naive": 6160384.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 131072,
+        "union": 8192
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "2": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 3080192.0,
+        "mean_per_block": 2048.0,
+        "naive": 3080192.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 3080192,
+        "union": 4096
+       }
+      }
+     },
+     "read_footprint_sectors": 323584,
+     "read_naive_sectors": 12320768.0,
+     "reuse_working_set_bytes": 10354688,
+     "sampled_block_ids": [
+      0,
+      1503
+     ],
+     "sampled_blocks": 2,
+     "write_footprint_sectors": 3080192.0,
+     "write_naive_sectors": 3080192.0
+    }
+   ],
+   "status": "ok"
+  },
+  "ada/validation_tensor_matmul/v2/c2": {
+   "cell_id": "ada/validation_tensor_matmul/v2/c2",
+   "kernels": [
+    {
+     "blocks": 6016,
+     "first_touch_sectors_per_sampled_block": [
+      4096,
+      4096
+     ],
+     "kernel_id": "tc64",
+     "pointers": {
+      "0": {
+       "read": {
+        "footprint": 192512,
+        "mean_per_block": 2048.0,
+        "naive": 12320768.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 192512,
+        "union": 4096
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "1": {
+       "read": {
+        "footprint": 131072,
+        "mean_per_block": 2048.0,
+        "naive": 12320768.0,
+        "reused": true,
+        "sampled_blocks": 2,
+        "span": 131072,
+        "union": 4096
+       },
+       "write": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       }
+      },
+      "2": {
+       "read": {
+        "footprint": 0,
+        "mean_per_block": 0.0,
+        "naive": 0.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 0,
+        "union": 0
+       },
+       "write": {
+        "footprint": 3080192.0,
+        "mean_per_block": 512.0,
+        "naive": 3080192.0,
+        "reused": false,
+        "sampled_blocks": 2,
+        "span": 3080192,
+        "union": 1024
+       }
+      }
+     },
+     "read_footprint_sectors": 323584,
+     "read_naive_sectors": 24641536.0,
+     "reuse_working_set_bytes": 10354688,
+     "sampled_block_ids": [
+      0,
+      6015
+     ],
+     "sampled_blocks": 2,
+     "write_footprint_sectors": 3080192.0,
+     "write_naive_sectors": 3080192.0
+    }
+   ],
+   "status": "ok"
+  }
+ },
+ "schema": "ada_footprints/1"
+}

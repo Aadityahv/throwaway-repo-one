@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/home/user/tiresias/tiresias/framework/predictor/energy_revision/execution/count.py", line 142, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/user/tiresias/tiresias/framework/predictor/energy_revision/execution/count.py", line 114, in main
+    slope,intercept,proof=certify(sites,row['grid'],row['block'])
+                          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tiresias/tiresias/framework/predictor/energy_revision/execution/count.py", line 63, in certify
+    samples = [trace(sites,trips,b,grid,block) for b in (0,grid[0]//2,grid[0]-1)]
+               ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tiresias/tiresias/framework/predictor/energy_revision/execution/count.py", line 51, in trace
+    res = interp.run_block(sites,cm,coords,block[0],max_steps=100000)
+  File "/home/user/tiresias/tiresias/framework/predictor/port_common/port_ext.py", line 213, in run_block
+    return super().run_block(sites, constants, coords_for_lane, threads, max_steps)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tiresias/tiresias/framework/predictor/pytorch_features/pt_interp.py", line 792, in run_block
+    q = next(gens[l]) if st[l] == 'new' else gens[l].send(send[l])
+        ~~~~^^^^^^^^^
+  File "<cross-gpu-port-ext>", line 19, in _lane_gen
+  File "/home/user/tiresias/tiresias/framework/predictor/pytorch_features/pt_interp.py", line 39, in require
+    raise Refusal(msg)
+pt_interp.Refusal: unsupported opcode LDG.E.STRONG.GPU

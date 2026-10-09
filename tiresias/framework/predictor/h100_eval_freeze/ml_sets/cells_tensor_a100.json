@@ -1,0 +1,849 @@
+{
+ "arch": "a100",
+ "cells": [
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "524288",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "4",
+    "shape_a": "256",
+    "shape_b": "256",
+    "tier": "L2"
+   },
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/small/c1",
+   "controls": {
+    "K": 256,
+    "M": 256,
+    "N": 256,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 524288,
+   "footprint_over_l2": 0.0125,
+   "kernels": [
+    {
+     "args": {
+      "K": 256,
+      "N": 256
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      2,
+      2,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 524288,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "small",
+   "set": "fresh_g",
+   "shape_a": 256,
+   "shape_b": 256,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "524288",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "16",
+    "shape_a": "256",
+    "shape_b": "256",
+    "tier": "L2"
+   },
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/small/c2",
+   "controls": {
+    "K": 256,
+    "M": 256,
+    "N": 256,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 524288,
+   "footprint_over_l2": 0.0125,
+   "kernels": [
+    {
+     "args": {
+      "K": 256,
+      "N": 256
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      4,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 524288,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "small",
+   "set": "fresh_g",
+   "shape_a": 256,
+   "shape_b": 256,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "3145728",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "16",
+    "shape_a": "512",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/medium/c1",
+   "controls": {
+    "K": 1024,
+    "M": 512,
+    "N": 512,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 3145728,
+   "footprint_over_l2": 0.075,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 512
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      4,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 3145728,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "medium",
+   "set": "fresh_g",
+   "shape_a": 512,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "3145728",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "64",
+    "shape_a": "512",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/medium/c2",
+   "controls": {
+    "K": 1024,
+    "M": 512,
+    "N": 512,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 3145728,
+   "footprint_over_l2": 0.075,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 512
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      8,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 3145728,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "medium",
+   "set": "fresh_g",
+   "shape_a": 512,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "89456640",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "1225",
+    "shape_a": "4480",
+    "shape_b": "4480",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/large/c1",
+   "controls": {
+    "K": 512,
+    "M": 4480,
+    "N": 4480,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 89456640,
+   "footprint_over_l2": 2.1328125,
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 4480
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      35,
+      35,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 89456640,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "large",
+   "set": "fresh_g",
+   "shape_a": 4480,
+   "shape_b": 4480,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "89456640",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "4900",
+    "shape_a": "4480",
+    "shape_b": "4480",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/large/c2",
+   "controls": {
+    "K": 512,
+    "M": 4480,
+    "N": 4480,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 89456640,
+   "footprint_over_l2": 2.1328125,
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 4480
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      70,
+      70,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 89456640,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "large",
+   "set": "fresh_g",
+   "shape_a": 4480,
+   "shape_b": 4480,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "93585408",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "1156",
+    "shape_a": "4352",
+    "shape_b": "4352",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/xlarge/c1",
+   "controls": {
+    "K": 1024,
+    "M": 4352,
+    "N": 4352,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 93585408,
+   "footprint_over_l2": 2.23125,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 4352
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      34,
+      34,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 93585408,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "xlarge",
+   "set": "fresh_g",
+   "shape_a": 4352,
+   "shape_b": 4352,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "93585408",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "4624",
+    "shape_a": "4352",
+    "shape_b": "4352",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/xlarge/c2",
+   "controls": {
+    "K": 1024,
+    "M": 4352,
+    "N": 4352,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 93585408,
+   "footprint_over_l2": 2.23125,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 4352
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      68,
+      68,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 93585408,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "xlarge",
+   "set": "fresh_g",
+   "shape_a": 4352,
+   "shape_b": 4352,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "1638400",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "40",
+    "shape_a": "5",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_h_ml_fused_attention/small/c1",
+   "controls": {
+    "BH": 5,
+    "D": 64,
+    "S": 512,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 1638400,
+   "footprint_over_l2": 0.0390625,
+   "kernels": [
+    {
+     "args": {
+      "S": 512
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      5,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 1638400,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "small",
+   "set": "fresh_h",
+   "shape_a": 5,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "1638400",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "20",
+    "shape_a": "5",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_h_ml_fused_attention/small/c2",
+   "controls": {
+    "BH": 5,
+    "D": 64,
+    "S": 512,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 1638400,
+   "footprint_over_l2": 0.0390625,
+   "kernels": [
+    {
+     "args": {
+      "S": 512
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      5,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 1638400,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "small",
+   "set": "fresh_h",
+   "shape_a": 5,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "13107200",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "320",
+    "shape_a": "20",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_h_ml_fused_attention/medium/c1",
+   "controls": {
+    "BH": 20,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 13107200,
+   "footprint_over_l2": 0.3125,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      20,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 13107200,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "medium",
+   "set": "fresh_h",
+   "shape_a": 20,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "13107200",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "160",
+    "shape_a": "20",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_h_ml_fused_attention/medium/c2",
+   "controls": {
+    "BH": 20,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 13107200,
+   "footprint_over_l2": 0.3125,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      20,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 13107200,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "medium",
+   "set": "fresh_h",
+   "shape_a": 20,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "104857600",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "2560",
+    "shape_a": "80",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_h_ml_fused_attention/large/c1",
+   "controls": {
+    "BH": 80,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 104857600,
+   "footprint_over_l2": 2.5,
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      80,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 104857600,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "large",
+   "set": "fresh_h",
+   "shape_a": 80,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "104857600",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "1280",
+    "shape_a": "80",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_h_ml_fused_attention/large/c2",
+   "controls": {
+    "BH": 80,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 104857600,
+   "footprint_over_l2": 2.5,
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      80,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 104857600,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "large",
+   "set": "fresh_h",
+   "shape_a": 80,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "209715200",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "5120",
+    "shape_a": "160",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c1",
+   "cell_id": "a100/fresh_h_ml_fused_attention/xlarge/c1",
+   "controls": {
+    "BH": 160,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 5.0,
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      160,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 209715200,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "xlarge",
+   "set": "fresh_h",
+   "shape_a": 160,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "209715200",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "2560",
+    "shape_a": "160",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c2",
+   "cell_id": "a100/fresh_h_ml_fused_attention/xlarge/c2",
+   "controls": {
+    "BH": 160,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 209715200,
+   "footprint_over_l2": 5.0,
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      160,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 209715200,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "xlarge",
+   "set": "fresh_h",
+   "shape_a": 160,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  }
+ ],
+ "ground_truth_section": "A100",
+ "hardware_from_ground_truth": {
+  "l2_bytes": 41943040,
+  "max_blocks_per_sm": 32,
+  "max_registers_per_thread": 256,
+  "max_threads_per_block": 1024,
+  "max_threads_per_sm": 2048,
+  "max_warps_per_sm": 64,
+  "register_alloc_granularity_regs_per_warp": 256,
+  "register_sub_partitions_per_sm": 4,
+  "regs_per_block": 65536,
+  "regs_per_sm": 65536,
+  "reserved_shared_per_block_bytes": 1024,
+  "shared_alloc_granularity_bytes": 128,
+  "shared_per_block_bytes": 49152,
+  "shared_per_sm_bytes": 167936,
+  "sm_count": 108,
+  "warp_size": 32
+ },
+ "l2_bytes": 41943040,
+ "note": "Shapes derived from this board's L2 in HARDWARE_GROUND_TRUTH.md; the regime targets are the footprint/L2 ratios of the Blackwell cells of the same regime, never Blackwell shapes.",
+ "regime_targets_footprint_over_l2": {
+  "attn/large": 2.5,
+  "attn/medium": 0.3125,
+  "attn/small": 0.039062,
+  "attn/xlarge": 5.0,
+  "gelu/large": 4.0,
+  "gelu/medium": 0.25,
+  "gelu/small": 0.0625,
+  "gelu/xlarge": 8.0,
+  "rmsnorm/large": 4.000122,
+  "rmsnorm/medium": 0.250061,
+  "rmsnorm/small": 0.062531,
+  "rmsnorm/xlarge": 8.000122,
+  "rope/large": 4.015625,
+  "rope/medium": 0.257812,
+  "rope/small": 0.032227,
+  "rope/xlarge": 8.015625,
+  "sgemm/large": 2.25,
+  "sgemm/medium": 0.15625,
+  "sgemm/small": 0.023438,
+  "sgemm/xlarge": 2.5,
+  "swiglu/large": 3.0,
+  "swiglu/medium": 0.1875,
+  "swiglu/small": 0.046875,
+  "swiglu/xlarge": 6.0,
+  "tcgemm/large": 2.125,
+  "tcgemm/medium": 0.09375,
+  "tcgemm/small": 0.015625,
+  "tcgemm/xlarge": 2.25
+ },
+ "schema": "ml_eval_cells/1"
+}

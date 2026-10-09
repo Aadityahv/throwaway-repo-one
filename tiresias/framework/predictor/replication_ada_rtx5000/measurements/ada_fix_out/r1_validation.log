@@ -1,0 +1,51 @@
+[build] matmul: /usr/local/cuda-13.2/bin/nvcc -arch=sm_89 -Xcompiler -O2 -I /tmp/adasamples_20261004/Common -I /tmp/adasamples_20261004/cpp/0_Introduction/matrixMul -I /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/unseen_kernels/gpu/drivers /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_matmul.cu -o /home/user/ada_fix_work/r1/unseen/bin/unseen_matmul
+[build] bs: /usr/local/cuda-13.2/bin/nvcc -arch=sm_89 -Xcompiler -O2 -I /tmp/adasamples_20261004/Common -I /tmp/adasamples_20261004/cpp/5_Domain_Specific/BlackScholes -I /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/unseen_kernels/gpu/drivers /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_bs.cu -o /home/user/ada_fix_work/r1/unseen/bin/unseen_bs
+[build] scan: /usr/local/cuda-13.2/bin/nvcc -arch=sm_89 -Xcompiler -O2 -I /tmp/adasamples_20261004/Common -I /tmp/adasamples_20261004/cpp/2_Concepts_and_Techniques/scan -I /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/unseen_kernels/gpu/drivers /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_scan.cu -o /home/user/ada_fix_work/r1/unseen/bin/unseen_scan
+[build] conv: /usr/local/cuda-13.2/bin/nvcc -arch=sm_89 -Xcompiler -O2 -I /tmp/adasamples_20261004/Common -I /tmp/adasamples_20261004/cpp/2_Concepts_and_Techniques/convolutionSeparable -I /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/unseen_kernels/gpu/drivers /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_conv.cu -o /home/user/ada_fix_work/r1/unseen/bin/unseen_conv
+wrote /home/user/ada_fix_work/r1/unseen/manifest.json
+[build] sp: /usr/local/cuda-13.2/bin/nvcc -arch=sm_89 -Xcompiler -O2 -I /tmp/adasamples_20261004/Common -I /tmp/adasamples_20261004/cpp/2_Concepts_and_Techniques/scalarProd -I /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/fresh_e/gpu/drivers /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_sp.cu -o /home/user/ada_fix_work/r1/set_e/bin/fresh_e_sp
+[build] fwt: /usr/local/cuda-13.2/bin/nvcc -arch=sm_89 -Xcompiler -O2 -I /tmp/adasamples_20261004/Common -I /tmp/adasamples_20261004/cpp/5_Domain_Specific/fastWalshTransform -I /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/fresh_e/gpu/drivers /home/user/ada_run_dcc9cc7/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_fwt.cu -o /home/user/ada_fix_work/r1/set_e/bin/fresh_e_fwt
+wrote /home/user/ada_fix_work/r1/set_e/manifest.json
+built /home/user/ada_fix_work/r1/fresh/driver_ml cc06a753267c650d
+[   11.8s] sass gate conv_cols                  PASS identical to the analysed SASS
+[   11.8s] sass gate conv_rows                  PASS identical to the analysed SASS
+[   11.8s] sass gate rms_s                      PASS identical to the analysed SASS
+[   11.8s] sass gate rms_v4                     PASS identical to the analysed SASS
+[   11.8s] sass gate sg128                      PASS identical to the analysed SASS
+[   11.8s] sass gate sg64                       PASS identical to the analysed SASS
+[   11.8s] sass gate sp                         PASS identical to the analysed SASS
+[    0.0s] cell 1/2 ada/validation_separable_convolution/v5/c1
+          OK per_launch=247.188 us repeat=126 graph_batch=21 check=CHECK_OK conv W=3712 H=2560 mismatches=0 first_bad=-1 repeat=126 graph_batch=21
+[    2.3s] cell 2/2 ada/validation_separable_convolution/v5/c2
+          OK per_launch=247.035 us repeat=126 graph_batch=21 check=CHECK_OK conv W=2560 H=3712 mismatches=0 first_bad=-1 repeat=126 graph_batch=21
+wrote /home/user/ada_fix_out/r1/timing_unseen_engine.json
+[    0.0s] cell 1/2 ada/validation_scalar_product/v4/c1
+          OK per_launch=236.994 us repeat=132 graph_batch=22 check=CHECK_OK scalarProd vectorN=768 elementN=20480 grid=64 bad=0 first_bad=-1 worst_
+[    2.0s] cell 2/2 ada/validation_scalar_product/v4/c2
+          OK per_launch=237.134 us repeat=132 graph_batch=22 check=CHECK_OK scalarProd vectorN=768 elementN=20480 grid=128 bad=0 first_bad=-1 worst
+wrote /home/user/ada_fix_out/r1/timing_set_e_engine.json
+[    3.1s] 1/4 ada/validation_fp32_matmul/v1/c1                               batch=64    repeat=1280    84.034 us/launch correct=True
+[    6.1s] 2/4 ada/validation_fp32_matmul/v1/c2                               batch=55    repeat=1155    94.337 us/launch correct=True
+[    9.7s] 3/4 ada/validation_rmsnorm/v6/c1                                   batch=20    repeat=400     256.067 us/launch correct=True
+[   13.4s] 4/4 ada/validation_rmsnorm/v6/c2                                   batch=20    repeat=400     256.082 us/launch correct=True
+wrote /home/user/ada_fix_out/r1/timing_fresh_engine.json
+[   34.1s] wrote /home/user/ada_fix_out/r1/timing_ada_result.json (8 cells timed, 0 refused by the SASS gate)
+cell 1/2 ada/validation_separable_convolution/v5/c1 run_id=ADA-EVAL-UNSEEN-conv-v5-c1
+  RAW 
+cell 2/2 ada/validation_separable_convolution/v5/c2 run_id=ADA-EVAL-UNSEEN-conv-v5-c2
+  RAW 
+cell 1/2 ada/validation_scalar_product/v4/c1 run_id=ADA-EVAL-SET_E-sp-v4-c1
+  RAW 
+cell 2/2 ada/validation_scalar_product/v4/c2 run_id=ADA-EVAL-SET_E-sp-v4-c2
+  RAW 
+cell 1/4 ada/validation_fp32_matmul/v1/c1 run_id=ADA-EVAL-FRESH-ada-validation_fp32_matmul-v1-c1 batch=60
+  RAW 
+cell 2/4 ada/validation_fp32_matmul/v1/c2 run_id=ADA-EVAL-FRESH-ada-validation_fp32_matmul-v1-c2 batch=54
+  RAW 
+cell 3/4 ada/validation_rmsnorm/v6/c1 run_id=ADA-EVAL-FRESH-ada-validation_rmsnorm-v6-c1 batch=20
+  RAW 
+cell 4/4 ada/validation_rmsnorm/v6/c2 run_id=ADA-EVAL-FRESH-ada-validation_rmsnorm-v6-c2 batch=20
+  RAW 
+[ 1326.4s] energy coverage: all 8 cells in scope have an energy row or a recorded rejection
+[ 1326.4s] window gate: 8 windows, 6 below cap, 2 near cap, 0 above the cap rule, 1 clock-throttled, 0 without trace
+done; exit code 0

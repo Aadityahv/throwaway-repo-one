@@ -1,0 +1,1029 @@
+{
+ "schema": "fresh_f_timing/1",
+ "booking_ref": "fresh_fh_20261003",
+ "started_utc": "2026-10-03T02:59:45Z",
+ "manifest": {
+  "schema": "fresh_f_build/1",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Thu_Mar_19_11:12:51_PM_PDT_2026\nCuda compilation tools, release 13.2, V13.2.78\nBuild cuda_13.2.r13.2/compiler.37668154_0",
+  "command": [
+   "/usr/local/cuda-13.2/bin/nvcc",
+   "-arch=sm_120",
+   "-Xcompiler",
+   "-O2",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_f/src",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_g/src",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_h/src",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_f/gpu/drivers",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_f/gpu/drivers/driver_ml.cu",
+   "-o",
+   "/home/user/fresh_fgh_work/driver_ml"
+  ],
+  "driver_ml_cu_sha256": "0064caef8dfd6019ad7d544dc7da6d395b8ed72275c458e280e2a97da4be87b4",
+  "driver_common_h_sha256": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+  "ml_kernels_cuh_sha256": "0e307a8f09f8d739fc8a1f8665cbbe38a9915ce3bf1e903c4893ac59fd047dc1",
+  "tc_kernels_cuh_sha256": "ae5de3f3b1d763f6424b7beae2b099dc33694a6a21f6d9d178a9b67408256651",
+  "attn_kernels_cuh_sha256": "17c4367f20d8d9fccd38059b9e8c483c63e3e85d0ecc0968764f46455f7c3994",
+  "binary": "/home/user/fresh_fgh_work/driver_ml",
+  "binary_sha256": "997276269b06dbce38bea9be23ddfb6a6156252c30de6bfb61d868d8f40c3b4a"
+ },
+ "cells": [
+  {
+   "cell_id": "blackwell/fresh_f_ml_fp32_matmul/large/c1",
+   "argv": [
+    "sgemm",
+    "0",
+    "8192",
+    "8192",
+    "512"
+   ],
+   "graph_batch": 4,
+   "repeat_per_window": 72,
+   "probe_per_launch_s": 0.001469732,
+   "calibration_per_launch_s": 0.001470096,
+   "window_per_launch_s": [
+    0.0014834618055555556,
+    0.001487996,
+    0.0014892507083333333,
+    0.0014917262361111112,
+    0.0014903862222222222
+   ],
+   "per_launch_runtime_s": 0.0014892507083333333,
+   "per_launch_min_s": 0.0014834618055555556,
+   "per_launch_max_s": 0.0014917262361111112,
+   "correct": true,
+   "check": "CHECK_OK sgemm variant=0 M=8192 N=8192 K=512 checked=4160 bad=0 first_bad=-1 worst=1.54e-07 repeat=72 graph_batch=4"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_fp32_matmul/large/c2",
+   "argv": [
+    "sgemm",
+    "1",
+    "8192",
+    "8192",
+    "512"
+   ],
+   "graph_batch": 3,
+   "repeat_per_window": 54,
+   "probe_per_launch_s": 0.001881224,
+   "calibration_per_launch_s": 0.0018966613333333334,
+   "window_per_launch_s": [
+    0.001888982,
+    0.0018889831296296294,
+    0.0018896699074074073,
+    0.001881453611111111,
+    0.0018984390555555554
+   ],
+   "per_launch_runtime_s": 0.0018889831296296294,
+   "per_launch_min_s": 0.001881453611111111,
+   "per_launch_max_s": 0.0018984390555555554,
+   "correct": true,
+   "check": "CHECK_OK sgemm variant=1 M=8192 N=8192 K=512 checked=4160 bad=0 first_bad=-1 worst=1.54e-07 repeat=54 graph_batch=3"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_fp32_matmul/medium/c1",
+   "argv": [
+    "sgemm",
+    "0",
+    "1024",
+    "1024",
+    "2048"
+   ],
+   "graph_batch": 37,
+   "repeat_per_window": 740,
+   "probe_per_launch_s": 0.00013664,
+   "calibration_per_launch_s": 0.00013594983783783785,
+   "window_per_launch_s": [
+    0.00013600462837837836,
+    0.00013591212702702702,
+    0.00013590421891891891,
+    0.00013589751756756756,
+    0.00013596744054054054
+   ],
+   "per_launch_runtime_s": 0.00013591212702702702,
+   "per_launch_min_s": 0.00013589751756756756,
+   "per_launch_max_s": 0.00013600462837837836,
+   "correct": true,
+   "check": "CHECK_OK sgemm variant=0 M=1024 N=1024 K=2048 checked=4160 bad=0 first_bad=-1 worst=1.65e-07 repeat=740 graph_batch=37"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_fp32_matmul/medium/c2",
+   "argv": [
+    "sgemm",
+    "1",
+    "1024",
+    "1024",
+    "2048"
+   ],
+   "graph_batch": 22,
+   "repeat_per_window": 440,
+   "probe_per_launch_s": 0.000228036,
+   "calibration_per_launch_s": 0.0002275621818181818,
+   "window_per_launch_s": [
+    0.00022799294318181818,
+    0.00022789920454545454,
+    0.0002278138931818182,
+    0.00022803367272727272,
+    0.00022790203181818184
+   ],
+   "per_launch_runtime_s": 0.00022790203181818184,
+   "per_launch_min_s": 0.0002278138931818182,
+   "per_launch_max_s": 0.00022803367272727272,
+   "correct": true,
+   "check": "CHECK_OK sgemm variant=1 M=1024 N=1024 K=2048 checked=4160 bad=0 first_bad=-1 worst=1.65e-07 repeat=440 graph_batch=22"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_fp32_matmul/small/c1",
+   "argv": [
+    "sgemm",
+    "0",
+    "512",
+    "512",
+    "512"
+   ],
+   "graph_batch": 220,
+   "repeat_per_window": 4620,
+   "probe_per_launch_s": 2.2736e-05,
+   "calibration_per_launch_s": 2.16992e-05,
+   "window_per_launch_s": [
+    2.17311512987013e-05,
+    2.173442748917749e-05,
+    2.1729058874458875e-05,
+    2.1726179004329007e-05,
+    2.176360909090909e-05
+   ],
+   "per_launch_runtime_s": 2.17311512987013e-05,
+   "per_launch_min_s": 2.1726179004329007e-05,
+   "per_launch_max_s": 2.176360909090909e-05,
+   "correct": true,
+   "check": "CHECK_OK sgemm variant=0 M=512 N=512 K=512 checked=4160 bad=0 first_bad=-1 worst=1.62e-07 repeat=4620 graph_batch=220"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_fp32_matmul/small/c2",
+   "argv": [
+    "sgemm",
+    "1",
+    "512",
+    "512",
+    "512"
+   ],
+   "graph_batch": 75,
+   "repeat_per_window": 1575,
+   "probe_per_launch_s": 6.7108e-05,
+   "calibration_per_launch_s": 6.583722666666666e-05,
+   "window_per_launch_s": [
+    6.575843428571429e-05,
+    6.578935873015873e-05,
+    6.580894349206349e-05,
+    6.583033968253968e-05,
+    6.580402666666666e-05
+   ],
+   "per_launch_runtime_s": 6.580402666666666e-05,
+   "per_launch_min_s": 6.575843428571429e-05,
+   "per_launch_max_s": 6.583033968253968e-05,
+   "correct": true,
+   "check": "CHECK_OK sgemm variant=1 M=512 N=512 K=512 checked=4160 bad=0 first_bad=-1 worst=1.62e-07 repeat=1575 graph_batch=75"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_fp32_matmul/xlarge/c1",
+   "argv": [
+    "sgemm",
+    "0",
+    "8192",
+    "8192",
+    "1024"
+   ],
+   "graph_batch": 2,
+   "repeat_per_window": 36,
+   "probe_per_launch_s": 0.002887504125,
+   "calibration_per_launch_s": 0.002888368,
+   "window_per_launch_s": [
+    0.002913472916666667,
+    0.002915575027777778,
+    0.0029200053611111113,
+    0.0029192053611111113,
+    0.002917512888888889
+   ],
+   "per_launch_runtime_s": 0.002917512888888889,
+   "per_launch_min_s": 0.002913472916666667,
+   "per_launch_max_s": 0.0029200053611111113,
+   "correct": true,
+   "check": "CHECK_OK sgemm variant=0 M=8192 N=8192 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.41e-07 repeat=36 graph_batch=2"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_fp32_matmul/xlarge/c2",
+   "argv": [
+    "sgemm",
+    "1",
+    "8192",
+    "8192",
+    "1024"
+   ],
+   "graph_batch": 2,
+   "repeat_per_window": 32,
+   "probe_per_launch_s": 0.003349088,
+   "calibration_per_launch_s": 0.00333072,
+   "window_per_launch_s": [
+    0.003354033,
+    0.003347188,
+    0.0033316669375,
+    0.00335159303125,
+    0.00334675096875
+   ],
+   "per_launch_runtime_s": 0.003347188,
+   "per_launch_min_s": 0.0033316669375,
+   "per_launch_max_s": 0.003354033,
+   "correct": true,
+   "check": "CHECK_OK sgemm variant=1 M=8192 N=8192 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.41e-07 repeat=32 graph_batch=2"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_gelu/large/c1",
+   "argv": [
+    "gelu",
+    "0",
+    "67108864"
+   ],
+   "graph_batch": 14,
+   "repeat_per_window": 280,
+   "probe_per_launch_s": 0.000363344,
+   "calibration_per_launch_s": 0.00036277714285714284,
+   "window_per_launch_s": [
+    0.00036342446428571425,
+    0.0003635498321428572,
+    0.00036375816785714284,
+    0.0003635875428571429,
+    0.0003638286857142857
+   ],
+   "per_launch_runtime_s": 0.0003635875428571429,
+   "per_launch_min_s": 0.00036342446428571425,
+   "per_launch_max_s": 0.0003638286857142857,
+   "correct": true,
+   "check": "CHECK_OK gelu variant=0 n=67108864 checked=17421 bad=0 first_bad=-1 worst=0.00696 repeat=280 graph_batch=14"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_gelu/large/c2",
+   "argv": [
+    "gelu",
+    "1",
+    "67108864"
+   ],
+   "graph_batch": 14,
+   "repeat_per_window": 280,
+   "probe_per_launch_s": 0.000364628,
+   "calibration_per_launch_s": 0.0003636022857142857,
+   "window_per_launch_s": [
+    0.000364409475,
+    0.0003650110785714286,
+    0.0003656371535714286,
+    0.00036475715714285716,
+    0.0003651999892857143
+   ],
+   "per_launch_runtime_s": 0.0003650110785714286,
+   "per_launch_min_s": 0.000364409475,
+   "per_launch_max_s": 0.0003656371535714286,
+   "correct": true,
+   "check": "CHECK_OK gelu variant=1 n=67108864 checked=17421 bad=0 first_bad=-1 worst=0.00696 repeat=280 graph_batch=14"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_gelu/medium/c1",
+   "argv": [
+    "gelu",
+    "0",
+    "4194304"
+   ],
+   "graph_batch": 544,
+   "repeat_per_window": 12512,
+   "probe_per_launch_s": 9.196e-06,
+   "calibration_per_launch_s": 7.99470588235294e-06,
+   "window_per_launch_s": [
+    7.972780051150895e-06,
+    7.973941096547315e-06,
+    7.97306425831202e-06,
+    7.974245364450129e-06,
+    7.973849024936063e-06
+   ],
+   "per_launch_runtime_s": 7.973849024936063e-06,
+   "per_launch_min_s": 7.972780051150895e-06,
+   "per_launch_max_s": 7.974245364450129e-06,
+   "correct": true,
+   "check": "CHECK_OK gelu variant=0 n=4194304 checked=2049 bad=0 first_bad=-1 worst=0.00662 repeat=12512 graph_batch=544"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_gelu/medium/c2",
+   "argv": [
+    "gelu",
+    "1",
+    "4194304"
+   ],
+   "graph_batch": 861,
+   "repeat_per_window": 21525,
+   "probe_per_launch_s": 5.812e-06,
+   "calibration_per_launch_s": 4.769783972125435e-06,
+   "window_per_launch_s": [
+    4.747583832752613e-06,
+    4.7505824390243906e-06,
+    4.749669732868757e-06,
+    4.7501156329849015e-06,
+    4.749910383275261e-06
+   ],
+   "per_launch_runtime_s": 4.749910383275261e-06,
+   "per_launch_min_s": 4.747583832752613e-06,
+   "per_launch_max_s": 4.7505824390243906e-06,
+   "correct": true,
+   "check": "CHECK_OK gelu variant=1 n=4194304 checked=2049 bad=0 first_bad=-1 worst=0.00662 repeat=21525 graph_batch=861"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_gelu/small/c1",
+   "argv": [
+    "gelu",
+    "0",
+    "1048576"
+   ],
+   "graph_batch": 1468,
+   "repeat_per_window": 42572,
+   "probe_per_launch_s": 3.408e-06,
+   "calibration_per_launch_s": 2.3824523160762943e-06,
+   "window_per_launch_s": [
+    2.371456215352814e-06,
+    2.371738842431645e-06,
+    2.3720049563093115e-06,
+    2.371633632434464e-06,
+    2.372001902659025e-06
+   ],
+   "per_launch_runtime_s": 2.371738842431645e-06,
+   "per_launch_min_s": 2.371456215352814e-06,
+   "per_launch_max_s": 2.3720049563093115e-06,
+   "correct": true,
+   "check": "CHECK_OK gelu variant=0 n=1048576 checked=1281 bad=0 first_bad=-1 worst=0.00655 repeat=42572 graph_batch=1468"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_gelu/small/c2",
+   "argv": [
+    "gelu",
+    "1",
+    "1048576"
+   ],
+   "graph_batch": 1699,
+   "repeat_per_window": 59465,
+   "probe_per_launch_s": 2.944e-06,
+   "calibration_per_launch_s": 1.7296951147733961e-06,
+   "window_per_launch_s": [
+    1.7147232657865972e-06,
+    1.7151375430925754e-06,
+    1.7173670226183468e-06,
+    1.7154685613386026e-06,
+    1.716120709661145e-06
+   ],
+   "per_launch_runtime_s": 1.7154685613386026e-06,
+   "per_launch_min_s": 1.7147232657865972e-06,
+   "per_launch_max_s": 1.7173670226183468e-06,
+   "correct": true,
+   "check": "CHECK_OK gelu variant=1 n=1048576 checked=1281 bad=0 first_bad=-1 worst=0.00655 repeat=59465 graph_batch=1699"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_gelu/xlarge/c1",
+   "argv": [
+    "gelu",
+    "0",
+    "134217728"
+   ],
+   "graph_batch": 7,
+   "repeat_per_window": 140,
+   "probe_per_launch_s": 0.000721024,
+   "calibration_per_launch_s": 0.0007232548571428571,
+   "window_per_launch_s": [
+    0.0007222068785714286,
+    0.0007225220785714286,
+    0.0007227648071428572,
+    0.0007231824071428571,
+    0.0007223108571428571
+   ],
+   "per_launch_runtime_s": 0.0007225220785714286,
+   "per_launch_min_s": 0.0007222068785714286,
+   "per_launch_max_s": 0.0007231824071428571,
+   "correct": true,
+   "check": "CHECK_OK gelu variant=0 n=134217728 checked=33817 bad=0 first_bad=-1 worst=0.00743 repeat=140 graph_batch=7"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_gelu/xlarge/c2",
+   "argv": [
+    "gelu",
+    "1",
+    "134217728"
+   ],
+   "graph_batch": 7,
+   "repeat_per_window": 140,
+   "probe_per_launch_s": 0.000727884,
+   "calibration_per_launch_s": 0.0007282468571428571,
+   "window_per_launch_s": [
+    0.0007286925714285714,
+    0.0007280091428571428,
+    0.0007284532785714285,
+    0.0007281421642857142,
+    0.0007273858214285714
+   ],
+   "per_launch_runtime_s": 0.0007281421642857142,
+   "per_launch_min_s": 0.0007273858214285714,
+   "per_launch_max_s": 0.0007286925714285714,
+   "correct": true,
+   "check": "CHECK_OK gelu variant=1 n=134217728 checked=33817 bad=0 first_bad=-1 worst=0.00743 repeat=140 graph_batch=7"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rmsnorm/large/c1",
+   "argv": [
+    "rmsnorm",
+    "0",
+    "16384",
+    "4096"
+   ],
+   "graph_batch": 14,
+   "repeat_per_window": 280,
+   "probe_per_launch_s": 0.00036748,
+   "calibration_per_launch_s": 0.000366416,
+   "window_per_launch_s": [
+    0.0003666678821428572,
+    0.00036676273214285716,
+    0.00036653107142857146,
+    0.00036652752857142855,
+    0.0003665722178571429
+   ],
+   "per_launch_runtime_s": 0.0003665722178571429,
+   "per_launch_min_s": 0.00036652752857142855,
+   "per_launch_max_s": 0.00036676273214285716,
+   "correct": true,
+   "check": "CHECK_OK rmsnorm variant=0 rows=16384 cols=4096 checked=258048 bad=0 first_bad=-1 worst=0.00224 repeat=280 graph_batch=14"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rmsnorm/large/c2",
+   "argv": [
+    "rmsnorm",
+    "1",
+    "16384",
+    "4096"
+   ],
+   "graph_batch": 13,
+   "repeat_per_window": 260,
+   "probe_per_launch_s": 0.000409332,
+   "calibration_per_launch_s": 0.00039017353846153844,
+   "window_per_launch_s": [
+    0.00040269687307692306,
+    0.00040638733076923077,
+    0.00040065096153846154,
+    0.0004032669653846154,
+    0.0003975947153846154
+   ],
+   "per_launch_runtime_s": 0.00040269687307692306,
+   "per_launch_min_s": 0.0003975947153846154,
+   "per_launch_max_s": 0.00040638733076923077,
+   "correct": true,
+   "check": "CHECK_OK rmsnorm variant=1 rows=16384 cols=4096 checked=258048 bad=0 first_bad=-1 worst=0.00253 repeat=260 graph_batch=13"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rmsnorm/medium/c1",
+   "argv": [
+    "rmsnorm",
+    "0",
+    "2048",
+    "2048"
+   ],
+   "graph_batch": 713,
+   "repeat_per_window": 16399,
+   "probe_per_launch_s": 7.02e-06,
+   "calibration_per_launch_s": 6.14435904628331e-06,
+   "window_per_launch_s": [
+    6.195070248185865e-06,
+    6.185792060491493e-06,
+    6.186164705164949e-06,
+    6.153869931093359e-06,
+    6.141049393255686e-06
+   ],
+   "per_launch_runtime_s": 6.185792060491493e-06,
+   "per_launch_min_s": 6.141049393255686e-06,
+   "per_launch_max_s": 6.195070248185865e-06,
+   "correct": true,
+   "check": "CHECK_OK rmsnorm variant=0 rows=2048 cols=2048 checked=131072 bad=0 first_bad=-1 worst=0.0025 repeat=16399 graph_batch=713"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rmsnorm/medium/c2",
+   "argv": [
+    "rmsnorm",
+    "1",
+    "2048",
+    "2048"
+   ],
+   "graph_batch": 688,
+   "repeat_per_window": 15136,
+   "probe_per_launch_s": 7.276e-06,
+   "calibration_per_launch_s": 6.6957209302325576e-06,
+   "window_per_launch_s": [
+    6.6807209302325586e-06,
+    6.69146088794926e-06,
+    6.679380681818182e-06,
+    6.690910940803383e-06,
+    6.692012817124736e-06
+   ],
+   "per_launch_runtime_s": 6.690910940803383e-06,
+   "per_launch_min_s": 6.679380681818182e-06,
+   "per_launch_max_s": 6.692012817124736e-06,
+   "correct": true,
+   "check": "CHECK_OK rmsnorm variant=1 rows=2048 cols=2048 checked=131072 bad=0 first_bad=-1 worst=0.0025 repeat=15136 graph_batch=688"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rmsnorm/small/c1",
+   "argv": [
+    "rmsnorm",
+    "0",
+    "1024",
+    "1024"
+   ],
+   "graph_batch": 1732,
+   "repeat_per_window": 43300,
+   "probe_per_launch_s": 2.888e-06,
+   "calibration_per_launch_s": 2.400923787528868e-06,
+   "window_per_launch_s": [
+    2.4045487066974595e-06,
+    2.404268729792148e-06,
+    2.4044371593533487e-06,
+    2.4077539260969976e-06,
+    2.4010463972286375e-06
+   ],
+   "per_launch_runtime_s": 2.4044371593533487e-06,
+   "per_launch_min_s": 2.4010463972286375e-06,
+   "per_launch_max_s": 2.4077539260969976e-06,
+   "correct": true,
+   "check": "CHECK_OK rmsnorm variant=0 rows=1024 cols=1024 checked=66560 bad=0 first_bad=-1 worst=0.00238 repeat=43300 graph_batch=1732"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rmsnorm/small/c2",
+   "argv": [
+    "rmsnorm",
+    "1",
+    "1024",
+    "1024"
+   ],
+   "graph_batch": 1427,
+   "repeat_per_window": 37102,
+   "probe_per_launch_s": 3.504e-06,
+   "calibration_per_launch_s": 2.7512151366503158e-06,
+   "window_per_launch_s": [
+    2.745526117190448e-06,
+    2.746180017249744e-06,
+    2.7482326559215136e-06,
+    2.746339577381273e-06,
+    2.745691849495984e-06
+   ],
+   "per_launch_runtime_s": 2.746180017249744e-06,
+   "per_launch_min_s": 2.745526117190448e-06,
+   "per_launch_max_s": 2.7482326559215136e-06,
+   "correct": true,
+   "check": "CHECK_OK rmsnorm variant=1 rows=1024 cols=1024 checked=66560 bad=0 first_bad=-1 worst=0.00222 repeat=37102 graph_batch=1427"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rmsnorm/xlarge/c1",
+   "argv": [
+    "rmsnorm",
+    "0",
+    "32768",
+    "4096"
+   ],
+   "graph_batch": 7,
+   "repeat_per_window": 140,
+   "probe_per_launch_s": 0.000735424,
+   "calibration_per_launch_s": 0.0007358537142857143,
+   "window_per_launch_s": [
+    0.0007358146142857143,
+    0.00073594535,
+    0.0007362233285714286,
+    0.0007355097071428572,
+    0.0007364916642857143
+   ],
+   "per_launch_runtime_s": 0.00073594535,
+   "per_launch_min_s": 0.0007355097071428572,
+   "per_launch_max_s": 0.0007364916642857143,
+   "correct": true,
+   "check": "CHECK_OK rmsnorm variant=0 rows=32768 cols=4096 checked=258048 bad=0 first_bad=-1 worst=0.00227 repeat=140 graph_batch=7"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rmsnorm/xlarge/c2",
+   "argv": [
+    "rmsnorm",
+    "1",
+    "32768",
+    "4096"
+   ],
+   "graph_batch": 7,
+   "repeat_per_window": 126,
+   "probe_per_launch_s": 0.000813156,
+   "calibration_per_launch_s": 0.0008383588571428572,
+   "window_per_launch_s": [
+    0.0008167794206349206,
+    0.0008099316825396826,
+    0.0008063964206349207,
+    0.000818279873015873,
+    0.0008144187936507937
+   ],
+   "per_launch_runtime_s": 0.0008144187936507937,
+   "per_launch_min_s": 0.0008063964206349207,
+   "per_launch_max_s": 0.000818279873015873,
+   "correct": true,
+   "check": "CHECK_OK rmsnorm variant=1 rows=32768 cols=4096 checked=258048 bad=0 first_bad=-1 worst=0.00227 repeat=126 graph_batch=7"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rotary_embedding/large/c1",
+   "argv": [
+    "rope",
+    "0",
+    "4096",
+    "16"
+   ],
+   "graph_batch": 14,
+   "repeat_per_window": 280,
+   "probe_per_launch_s": 0.000365636,
+   "calibration_per_launch_s": 0.00036579885714285715,
+   "window_per_launch_s": [
+    0.0003652717607142857,
+    0.0003657248071428571,
+    0.0003657232,
+    0.00036536216785714283,
+    0.0003655750821428571
+   ],
+   "per_launch_runtime_s": 0.0003655750821428571,
+   "per_launch_min_s": 0.0003652717607142857,
+   "per_launch_max_s": 0.0003657248071428571,
+   "correct": true,
+   "check": "CHECK_OK rope variant=0 seq=4096 batch=16 heads=8 checked=17421 bad=0 first_bad=-1 worst=0.00433 repeat=280 graph_batch=14"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rotary_embedding/large/c2",
+   "argv": [
+    "rope",
+    "1",
+    "4096",
+    "16"
+   ],
+   "graph_batch": 14,
+   "repeat_per_window": 280,
+   "probe_per_launch_s": 0.000365436,
+   "calibration_per_launch_s": 0.0003662057142857143,
+   "window_per_launch_s": [
+    0.0003655747535714286,
+    0.0003658582964285714,
+    0.0003657657071428572,
+    0.0003654697142857143,
+    0.0003658426285714286
+   ],
+   "per_launch_runtime_s": 0.0003657657071428572,
+   "per_launch_min_s": 0.0003654697142857143,
+   "per_launch_max_s": 0.0003658582964285714,
+   "correct": true,
+   "check": "CHECK_OK rope variant=1 seq=4096 batch=16 heads=8 checked=17421 bad=0 first_bad=-1 worst=0.00433 repeat=280 graph_batch=14"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rotary_embedding/medium/c1",
+   "argv": [
+    "rope",
+    "0",
+    "2048",
+    "2"
+   ],
+   "graph_batch": 845,
+   "repeat_per_window": 20280,
+   "probe_per_launch_s": 5.92e-06,
+   "calibration_per_launch_s": 5.064558579881657e-06,
+   "window_per_launch_s": [
+    5.0462090729783035e-06,
+    5.048121301775148e-06,
+    5.046745562130177e-06,
+    5.048623175542406e-06,
+    5.045943836291913e-06
+   ],
+   "per_launch_runtime_s": 5.046745562130177e-06,
+   "per_launch_min_s": 5.045943836291913e-06,
+   "per_launch_max_s": 5.048623175542406e-06,
+   "correct": true,
+   "check": "CHECK_OK rope variant=0 seq=2048 batch=2 heads=8 checked=2049 bad=0 first_bad=-1 worst=0.00405 repeat=20280 graph_batch=845"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rotary_embedding/medium/c2",
+   "argv": [
+    "rope",
+    "1",
+    "2048",
+    "2"
+   ],
+   "graph_batch": 315,
+   "repeat_per_window": 6615,
+   "probe_per_launch_s": 1.5916e-05,
+   "calibration_per_launch_s": 1.5312253968253967e-05,
+   "window_per_launch_s": [
+    1.5287809523809522e-05,
+    1.528714754346183e-05,
+    1.528987059712774e-05,
+    1.5289885563114134e-05,
+    1.5288139380196522e-05
+   ],
+   "per_launch_runtime_s": 1.5288139380196522e-05,
+   "per_launch_min_s": 1.528714754346183e-05,
+   "per_launch_max_s": 1.5289885563114134e-05,
+   "correct": true,
+   "check": "CHECK_OK rope variant=1 seq=2048 batch=2 heads=8 checked=2049 bad=0 first_bad=-1 worst=0.00405 repeat=6615 graph_batch=315"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rotary_embedding/small/c1",
+   "argv": [
+    "rope",
+    "0",
+    "256",
+    "2"
+   ],
+   "graph_batch": 2048,
+   "repeat_per_window": 79872,
+   "probe_per_launch_s": 2.36e-06,
+   "calibration_per_launch_s": 1.274984375e-06,
+   "window_per_launch_s": [
+    1.2675741561498397e-06,
+    1.2677395958533653e-06,
+    1.2672247470953524e-06,
+    1.2675184670472756e-06,
+    1.2671085862379808e-06
+   ],
+   "per_launch_runtime_s": 1.2675184670472756e-06,
+   "per_launch_min_s": 1.2671085862379808e-06,
+   "per_launch_max_s": 1.2677395958533653e-06,
+   "correct": true,
+   "check": "CHECK_OK rope variant=0 seq=256 batch=2 heads=8 checked=1153 bad=0 first_bad=-1 worst=0.00402 repeat=79872 graph_batch=2048"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rotary_embedding/small/c2",
+   "argv": [
+    "rope",
+    "1",
+    "256",
+    "2"
+   ],
+   "graph_batch": 1774,
+   "repeat_per_window": 46124,
+   "probe_per_launch_s": 2.82e-06,
+   "calibration_per_launch_s": 2.198998872604284e-06,
+   "window_per_launch_s": [
+    2.1942860766629085e-06,
+    2.1928304787095657e-06,
+    2.1945080652155058e-06,
+    2.1943512488075624e-06,
+    2.1940951998959325e-06
+   ],
+   "per_launch_runtime_s": 2.1942860766629085e-06,
+   "per_launch_min_s": 2.1928304787095657e-06,
+   "per_launch_max_s": 2.1945080652155058e-06,
+   "correct": true,
+   "check": "CHECK_OK rope variant=1 seq=256 batch=2 heads=8 checked=1153 bad=0 first_bad=-1 worst=0.00402 repeat=46124 graph_batch=1774"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rotary_embedding/xlarge/c1",
+   "argv": [
+    "rope",
+    "0",
+    "4096",
+    "32"
+   ],
+   "graph_batch": 7,
+   "repeat_per_window": 140,
+   "probe_per_launch_s": 0.000727392,
+   "calibration_per_launch_s": 0.0007263177142857143,
+   "window_per_launch_s": [
+    0.0007278905071428571,
+    0.0007281929000000001,
+    0.0007272027714285714,
+    0.0007279947571428571,
+    0.0007269709428571429
+   ],
+   "per_launch_runtime_s": 0.0007278905071428571,
+   "per_launch_min_s": 0.0007269709428571429,
+   "per_launch_max_s": 0.0007281929000000001,
+   "correct": true,
+   "check": "CHECK_OK rope variant=0 seq=4096 batch=32 heads=8 checked=33817 bad=0 first_bad=-1 worst=0.00433 repeat=140 graph_batch=7"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_rotary_embedding/xlarge/c2",
+   "argv": [
+    "rope",
+    "1",
+    "4096",
+    "32"
+   ],
+   "graph_batch": 7,
+   "repeat_per_window": 140,
+   "probe_per_launch_s": 0.000731352,
+   "calibration_per_launch_s": 0.0007309028571428571,
+   "window_per_launch_s": [
+    0.0007318002428571428,
+    0.0007321387714285714,
+    0.00073162035,
+    0.0007320102714285714,
+    0.0007316756642857143
+   ],
+   "per_launch_runtime_s": 0.0007318002428571428,
+   "per_launch_min_s": 0.00073162035,
+   "per_launch_max_s": 0.0007321387714285714,
+   "correct": true,
+   "check": "CHECK_OK rope variant=1 seq=4096 batch=32 heads=8 checked=33817 bad=0 first_bad=-1 worst=0.00433 repeat=140 graph_batch=7"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_swiglu/large/c1",
+   "argv": [
+    "swiglu",
+    "0",
+    "33554432"
+   ],
+   "graph_batch": 20,
+   "repeat_per_window": 400,
+   "probe_per_launch_s": 0.000262612,
+   "calibration_per_launch_s": 0.0002625152,
+   "window_per_launch_s": [
+    0.00026339231500000003,
+    0.0002631583225,
+    0.0002633785625,
+    0.000263183995,
+    0.00026346201
+   ],
+   "per_launch_runtime_s": 0.0002633785625,
+   "per_launch_min_s": 0.0002631583225,
+   "per_launch_max_s": 0.00026346201,
+   "correct": true,
+   "check": "CHECK_OK swiglu variant=0 n=33554432 checked=9223 bad=0 first_bad=-1 worst=0.00202 repeat=400 graph_batch=20"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_swiglu/large/c2",
+   "argv": [
+    "swiglu",
+    "1",
+    "33554432"
+   ],
+   "graph_batch": 19,
+   "repeat_per_window": 380,
+   "probe_per_launch_s": 0.000264232,
+   "calibration_per_launch_s": 0.00026371705263157895,
+   "window_per_launch_s": [
+    0.0002644636657894737,
+    0.00026418256315789473,
+    0.00026455377368421056,
+    0.0002647150342105263,
+    0.0002646802605263158
+   ],
+   "per_launch_runtime_s": 0.00026455377368421056,
+   "per_launch_min_s": 0.00026418256315789473,
+   "per_launch_max_s": 0.0002647150342105263,
+   "correct": true,
+   "check": "CHECK_OK swiglu variant=1 n=33554432 checked=9223 bad=0 first_bad=-1 worst=0.00202 repeat=380 graph_batch=19"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_swiglu/medium/c1",
+   "argv": [
+    "swiglu",
+    "0",
+    "2097152"
+   ],
+   "graph_batch": 997,
+   "repeat_per_window": 23928,
+   "probe_per_launch_s": 5.02e-06,
+   "calibration_per_launch_s": 4.281516549648947e-06,
+   "window_per_launch_s": [
+    4.275069124038783e-06,
+    4.276076354062187e-06,
+    4.276870611835506e-06,
+    4.275888874958208e-06,
+    4.2755652373788035e-06
+   ],
+   "per_launch_runtime_s": 4.275888874958208e-06,
+   "per_launch_min_s": 4.275069124038783e-06,
+   "per_launch_max_s": 4.276870611835506e-06,
+   "correct": true,
+   "check": "CHECK_OK swiglu variant=0 n=2097152 checked=1537 bad=0 first_bad=-1 worst=0.00179 repeat=23928 graph_batch=997"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_swiglu/medium/c2",
+   "argv": [
+    "swiglu",
+    "1",
+    "2097152"
+   ],
+   "graph_batch": 1418,
+   "repeat_per_window": 34032,
+   "probe_per_launch_s": 3.528e-06,
+   "calibration_per_launch_s": 2.947294781382229e-06,
+   "window_per_launch_s": [
+    2.9433388869299482e-06,
+    2.9435195992007522e-06,
+    2.9440394628584864e-06,
+    2.9437921955806303e-06,
+    2.9445340267983073e-06
+   ],
+   "per_launch_runtime_s": 2.9437921955806303e-06,
+   "per_launch_min_s": 2.9433388869299482e-06,
+   "per_launch_max_s": 2.9445340267983073e-06,
+   "correct": true,
+   "check": "CHECK_OK swiglu variant=1 n=2097152 checked=1537 bad=0 first_bad=-1 worst=0.00179 repeat=34032 graph_batch=1418"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_swiglu/small/c1",
+   "argv": [
+    "swiglu",
+    "0",
+    "524288"
+   ],
+   "graph_batch": 2048,
+   "repeat_per_window": 69632,
+   "probe_per_launch_s": 2.04e-06,
+   "calibration_per_launch_s": 1.442921875e-06,
+   "window_per_launch_s": [
+    1.4389182559742646e-06,
+    1.4392219669117647e-06,
+    1.4390675838694854e-06,
+    1.4389889275045956e-06,
+    1.4392118853400735e-06
+   ],
+   "per_launch_runtime_s": 1.4390675838694854e-06,
+   "per_launch_min_s": 1.4389182559742646e-06,
+   "per_launch_max_s": 1.4392219669117647e-06,
+   "correct": true,
+   "check": "CHECK_OK swiglu variant=0 n=524288 checked=1153 bad=0 first_bad=-1 worst=0.00197 repeat=69632 graph_batch=2048"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_swiglu/small/c2",
+   "argv": [
+    "swiglu",
+    "1",
+    "524288"
+   ],
+   "graph_batch": 2048,
+   "repeat_per_window": 73728,
+   "probe_per_launch_s": 1.952e-06,
+   "calibration_per_launch_s": 1.358828125e-06,
+   "window_per_launch_s": [
+    1.354882798936632e-06,
+    1.3551810302734377e-06,
+    1.3547894694010417e-06,
+    1.3550199110243055e-06,
+    1.3553958604600693e-06
+   ],
+   "per_launch_runtime_s": 1.3550199110243055e-06,
+   "per_launch_min_s": 1.3547894694010417e-06,
+   "per_launch_max_s": 1.3553958604600693e-06,
+   "correct": true,
+   "check": "CHECK_OK swiglu variant=1 n=524288 checked=1153 bad=0 first_bad=-1 worst=0.00197 repeat=73728 graph_batch=2048"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_swiglu/xlarge/c1",
+   "argv": [
+    "swiglu",
+    "0",
+    "67108864"
+   ],
+   "graph_batch": 10,
+   "repeat_per_window": 190,
+   "probe_per_launch_s": 0.000528024,
+   "calibration_per_launch_s": 0.000528128,
+   "window_per_launch_s": [
+    0.0005297613421052632,
+    0.0005298135473684211,
+    0.0005295848263157895,
+    0.000529831252631579,
+    0.0005296700736842105
+   ],
+   "per_launch_runtime_s": 0.0005297613421052632,
+   "per_launch_min_s": 0.0005295848263157895,
+   "per_launch_max_s": 0.000529831252631579,
+   "correct": true,
+   "check": "CHECK_OK swiglu variant=0 n=67108864 checked=17421 bad=0 first_bad=-1 worst=0.00233 repeat=190 graph_batch=10"
+  },
+  {
+   "cell_id": "blackwell/fresh_f_ml_swiglu/xlarge/c2",
+   "argv": [
+    "swiglu",
+    "1",
+    "67108864"
+   ],
+   "graph_batch": 10,
+   "repeat_per_window": 190,
+   "probe_per_launch_s": 0.000529028,
+   "calibration_per_launch_s": 0.0005292928,
+   "window_per_launch_s": [
+    0.000530841947368421,
+    0.0005309199263157894,
+    0.0005309160315789473,
+    0.0005302038105263158,
+    0.0005305737947368421
+   ],
+   "per_launch_runtime_s": 0.000530841947368421,
+   "per_launch_min_s": 0.0005302038105263158,
+   "per_launch_max_s": 0.0005309199263157894,
+   "correct": true,
+   "check": "CHECK_OK swiglu variant=1 n=67108864 checked=17421 bad=0 first_bad=-1 worst=0.00233 repeat=190 graph_batch=10"
+  }
+ ],
+ "finished_utc": "2026-10-03T03:03:12Z",
+ "all_correct": true
+}

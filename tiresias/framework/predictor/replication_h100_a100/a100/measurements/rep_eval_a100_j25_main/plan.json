@@ -1,0 +1,53 @@
+{
+ "cells": 124,
+ "by_set_family_tier": {
+  "fresh_f/gelu/DRAM": 4,
+  "fresh_f/gelu/L2": 4,
+  "fresh_f/rmsnorm/DRAM": 4,
+  "fresh_f/rmsnorm/L2": 4,
+  "fresh_f/rope/DRAM": 4,
+  "fresh_f/rope/L2": 4,
+  "fresh_f/sgemm/DRAM": 4,
+  "fresh_f/sgemm/L2": 4,
+  "fresh_f/swiglu/DRAM": 4,
+  "fresh_f/swiglu/L2": 4,
+  "set_d/reduction/DRAM": 4,
+  "set_d/reduction/L2": 4,
+  "set_d/tile/DRAM": 8,
+  "set_d/tile/L2": 8,
+  "set_d/vecadd/DRAM": 2,
+  "set_d/vecadd/L2": 2,
+  "set_e/fwt/DRAM": 2,
+  "set_e/fwt/L2": 6,
+  "set_e/sp/DRAM": 2,
+  "set_e/sp/L2": 6,
+  "unseen/bs/DRAM": 2,
+  "unseen/bs/L2": 6,
+  "unseen/conv/DRAM": 2,
+  "unseen/conv/L2": 6,
+  "unseen/matmul/DRAM": 2,
+  "unseen/matmul/L2": 6,
+  "unseen/scan/DRAM": 2,
+  "unseen/scan/L2": 6,
+  "validation/conv/DRAM": 2,
+  "validation/rmsnorm/DRAM": 2,
+  "validation/sgemm/L2": 2,
+  "validation/sp/DRAM": 2
+ },
+ "window_s": 20.0,
+ "assumptions": {
+  "per_energy_window_service_s": "156 = 90 precondition + 20 counted window + 46 gates, probes, process starts and finalisation (Blackwell: 151 s median at a 15 s window)",
+  "per_cell_timing_s": 15.0,
+  "build_and_sass_gate_s": 600.0,
+  "rejected_windows": "up to 3 attempts per cell are possible inside the harness (duration retargeting); 10% extra is added",
+  "note": "planning allowances, not measured rates on this board; the scheduler ceiling is 24 h regardless"
+ },
+ "gpu_seconds": {
+  "build_and_gate": 600.0,
+  "timing": 1860.0,
+  "energy": 19344.0,
+  "energy_with_10pct_retarget_margin": 21278.4
+ },
+ "gpu_hours_total_runtime_only": 0.68,
+ "gpu_hours_total_with_energy": 6.59
+}

@@ -1,0 +1,720 @@
+{
+ "cell": {
+  "candidate_id": "c2",
+  "cell_id": "blackwell/unseen_cuda_samples_black_scholes/large/c2",
+  "controls": {
+   "block": 64,
+   "optN": 2621440
+  },
+  "family": "bs",
+  "footprint_bytes": 52428800,
+  "kernels": [
+   {
+    "args": {
+     "optN": 2621440,
+     "riskfree": 0.02,
+     "volatility": 0.3
+    },
+    "block": [
+     64,
+     1,
+     1
+    ],
+    "grid": [
+     20480,
+     1,
+     1
+    ],
+    "kid": "bs"
+   }
+  ],
+  "l2_ratio": 0.390625,
+  "logical_bytes_per_launch": 52428800,
+  "operator_id": "unseen_cuda_samples_black_scholes",
+  "regime": "large",
+  "shape_a": 2621440,
+  "shape_b": 64,
+  "tier": "L2"
+ },
+ "features": {
+  "build_seconds": 5.8,
+  "cell": "large/c2",
+  "cell_id": "blackwell/unseen_cuda_samples_black_scholes/large/c2",
+  "corpus": "cuda_samples_unseen",
+  "geometry": {
+   "block_threads": 64,
+   "dev_table_active_sm_fraction": null,
+   "dev_table_blocks_per_sm": null,
+   "dev_table_blocks_per_sm_is_grid_over_sm_count": null,
+   "geometry_source": "host code of the sample (cells.py)",
+   "grid_blocks": 20480
+  },
+  "inputs": {
+   "cubin_sha256": "2b4f5f3721cf7265bf1a80a1f2a17575e3b0eab6eec248ee663f910c4dc88cbe",
+   "isolated_sass_sha256": "2901f83cec3788d69b15a8a97e3331e063559fd8e3ebc07995751675253b158e",
+   "kernel_symbol": "_Z15BlackScholesGPUP6float2S0_S0_S0_S0_ffi",
+   "secondary_kernel_symbols": []
+  },
+  "kernels_per_launch": 1,
+  "main_kernel": {
+   "abi": {
+    "all_constant_bank_accesses_on_declared_fields": true,
+    "bound_values": {
+     "call": {
+      "offset": "0x380",
+      "source": "distinct aligned synthetic base 0 (pointer value; only address differences matter)",
+      "value": 139637976727552
+     },
+     "optN": {
+      "offset": "0x3b0",
+      "source": "launch argument from the sample's host code",
+      "value": 2621440
+     },
+     "put": {
+      "offset": "0x388",
+      "source": "distinct aligned synthetic base 1 (pointer value; only address differences matter)",
+      "value": 139642271694848
+     },
+     "riskfree": {
+      "offset": "0x3a8",
+      "source": "launch argument 0.02 as binary32",
+      "value": 1017370378
+     },
+     "stock": {
+      "offset": "0x390",
+      "source": "distinct aligned synthetic base 2 (pointer value; only address differences matter)",
+      "value": 139646566662144
+     },
+     "strike": {
+      "offset": "0x398",
+      "source": "distinct aligned synthetic base 3 (pointer value; only address differences matter)",
+      "value": 139650861629440
+     },
+     "volatility": {
+      "offset": "0x3ac",
+      "source": "launch argument 0.3 as binary32",
+      "value": 1050253722
+     },
+     "years": {
+      "offset": "0x3a0",
+      "source": "distinct aligned synthetic base 4 (pointer value; only address differences matter)",
+      "value": 139655156596736
+     }
+    },
+    "parameter_fields": [
+     {
+      "bytes": 8,
+      "name": "call",
+      "offset": "0x380"
+     },
+     {
+      "bytes": 8,
+      "name": "put",
+      "offset": "0x388"
+     },
+     {
+      "bytes": 8,
+      "name": "stock",
+      "offset": "0x390"
+     },
+     {
+      "bytes": 8,
+      "name": "strike",
+      "offset": "0x398"
+     },
+     {
+      "bytes": 8,
+      "name": "years",
+      "offset": "0x3a0"
+     },
+     {
+      "bytes": 4,
+      "name": "riskfree",
+      "offset": "0x3a8"
+     },
+     {
+      "bytes": 4,
+      "name": "volatility",
+      "offset": "0x3ac"
+     },
+     {
+      "bytes": 4,
+      "name": "optN",
+      "offset": "0x3b0"
+     }
+    ],
+    "problems": []
+   },
+   "interpreter_outcomes": {
+    "extended_interpreter": {
+     "assumptions_applied": [
+      "division_fast_path"
+     ],
+     "shared_addresses_touched_min_max": null,
+     "status": "ok"
+    },
+    "frozen_derive_run_lane_unmodified": {
+     "reason": "frozen derive.run_lane comparison skipped for new kernels",
+     "status": "not_run"
+    }
+   },
+   "kernel_id": "bs",
+   "kernel_symbol": "_Z15BlackScholesGPUP6float2S0_S0_S0_S0_ffi",
+   "role": "main",
+   "shape_problems": []
+  },
+  "memory": {
+   "executed_async_copy_global_to_shared_bytes_lane_level": 0,
+   "executed_bytes_scope": "main kernel only; per-launch sums are in per_launch_totals",
+   "executed_global_bytes_exact": true,
+   "executed_global_bytes_per_thread": 40.0,
+   "executed_global_load_bytes_lane_level": 31457280,
+   "executed_global_store_bytes_lane_level": 20971520,
+   "global_load_width_bits_histogram": {
+    "64": 3932160
+   },
+   "global_store_width_bits_histogram": {
+    "64": 2621440
+   },
+   "logical_bytes_per_launch": 52428800,
+   "shape_a": 2621440,
+   "shape_b": 64,
+   "tier": "L2",
+   "tier_source_note": "tier from the footprint-over-verified-L2 rule written in cells.py, not a counter"
+  },
+  "missing_features": [],
+  "occupancy": {
+   "active_sm_fraction": 1.0,
+   "blocks_per_sm": 24,
+   "blocks_per_sm_if_shared_were_static": 24,
+   "blocks_per_sm_ignoring_shared_by_warp_alloc_multiple": {
+    "1": 24,
+    "2": 24,
+    "4": 24
+   },
+   "first_wave_active_warps_per_sm_avg": 48,
+   "first_wave_resident_blocks_per_sm_avg": 24,
+   "last_wave_fill_fraction": 0.5390070921985816,
+   "limit_by_max_blocks": 24,
+   "limit_by_registers_by_warp_alloc_multiple": {
+    "1": 32,
+    "2": 32,
+    "4": 32
+   },
+   "limit_by_registers_if_multiple_1": 32,
+   "limit_by_shared": 100,
+   "limit_by_threads": 24,
+   "limit_by_warps": 24,
+   "limiter": [
+    "max_blocks",
+    "threads",
+    "warps"
+   ],
+   "max_resident_warps_per_sm": 48,
+   "occupancy_fraction_of_max_warps": 1.0,
+   "reasons": [],
+   "registers_per_warp_allocated": 1024,
+   "resident_block_slots": 4512,
+   "shared_allocated_bytes_per_block": 1024,
+   "shared_decision_changes_occupancy": false,
+   "shared_nonbinding_up_to_dynamic_bytes": 3200,
+   "tail_idle_fraction_of_last_wave": 0.46099290780141844,
+   "warps_per_block": 2,
+   "waves": 5,
+   "waves_fractional": 4.539007092198582
+  },
+  "operator_id": "unseen_cuda_samples_black_scholes",
+  "per_launch_totals": {
+   "all_counts_exact": false,
+   "assumptions_applied": [
+    "division_fast_path"
+   ],
+   "barrier_releases_per_launch_estimate": 0,
+   "executed_global_load_bytes_lane_level": 31457280,
+   "executed_global_store_bytes_lane_level": 20971520,
+   "families": {
+    "control": {
+     "exact": true,
+     "lane_instructions": 9175040
+    },
+    "fp32_add": {
+     "exact": false,
+     "lane_instructions": 15728640
+    },
+    "fp32_fma": {
+     "exact": true,
+     "lane_instructions": 48496640
+    },
+    "fp32_mul": {
+     "exact": false,
+     "lane_instructions": 98304000
+    },
+    "fp_other": {
+     "exact": true,
+     "lane_instructions": 45875200
+    },
+    "global_load": {
+     "exact": true,
+     "lane_instructions": 3932160,
+     "width_bits_histogram": {
+      "64": 3932160
+     }
+    },
+    "global_store": {
+     "exact": true,
+     "lane_instructions": 2621440,
+     "width_bits_histogram": {
+      "64": 2621440
+     }
+    },
+    "integer_alu": {
+     "exact": true,
+     "lane_instructions": 11796480
+    },
+    "move_const_special": {
+     "exact": true,
+     "lane_instructions": 20971520
+    },
+    "other": {
+     "exact": true,
+     "lane_instructions": 2621440
+    },
+    "special_function": {
+     "exact": true,
+     "lane_instructions": 26214400,
+     "mode_histogram": {
+      "EX2": 7864320,
+      "LG2": 2621440,
+      "RCP": 13107200,
+      "RSQ": 2621440
+     }
+    }
+   },
+   "grid_blocks_sum": 20480,
+   "kernels_per_launch": 1,
+   "note": "sum over the kernels of one measured launch; occupancy, waves and tail stay per kernel in each kernel block",
+   "opcode_lane_counts": {
+    "BRA": 2621440,
+    "BSSY.RECONVERGENT": 2621440,
+    "BSYNC.RECONVERGENT": 2621440,
+    "EXIT": 1310720,
+    "FADD": 15728640,
+    "FCHK": 2621440,
+    "FFMA": 47185920,
+    "FMUL": 96993280,
+    "FSEL": 13107200,
+    "FSETP.GEU.AND": 23592960,
+    "FSETP.GT.AND": 5242880,
+    "HFMA2": 3932160,
+    "IMAD": 1310720,
+    "IMAD.WIDE": 6553600,
+    "ISETP.GE.AND": 1310720,
+    "LDC": 1310720,
+    "LDC.64": 6553600,
+    "LDCU": 2621440,
+    "LDCU.64": 3932160,
+    "LDG.E.64.CONSTANT": 3932160,
+    "MOV": 3932160,
+    "MUFU.EX2": 7864320,
+    "MUFU.LG2": 2621440,
+    "MUFU.RCP": 13107200,
+    "MUFU.RSQ": 2621440,
+    "S2R": 2621440,
+    "STG.E.64": 2621440,
+    "UFFMA": 1310720,
+    "UFMUL": 1310720,
+    "ULEA.HI": 1310720,
+    "USHF.R.S32.HI": 1310720
+   },
+   "six_class_counts": {
+    "barrier": 0,
+    "exponential": 7864320,
+    "fma": 47185920,
+    "shared_load": 0,
+    "shared_store": 0,
+    "shuffle": 0
+   },
+   "total_lane_instructions": 285736960
+  },
+  "resources": {
+   "constant_bank0_bytes": 948,
+   "dynamic_shared_bytes_per_launch": 0,
+   "dynamic_shared_source": "dispatch_trace.json dynamic_smem_bytes = 0 (no extern __shared__ in the kernel source)",
+   "frame_size_bytes": 0,
+   "local_memory_bytes_per_thread": 0,
+   "max_register_index_in_isolated_sass": 22,
+   "max_threads_attr": null,
+   "maxreg_count_attr": null,
+   "min_stack_size_bytes": null,
+   "register_count_consistent_with_sass": true,
+   "registers_per_thread": 25,
+   "reqntid": null,
+   "shared_decision": "no shared section",
+   "shared_section_bytes_raw": 0,
+   "source_of_resources": "cuobjdump --dump-resource-usage line in libtorch_sm120/isolated_index.json (no cubin ELF retained for libtorch kernels); STACK is cuobjdump's STACK field",
+   "static_shared_bytes_per_block": 0
+  },
+  "secondary_kernels": [],
+  "status": "supported_with_assumptions",
+  "structure": {
+   "barrier_arrivals_per_block": 0,
+   "barrier_participants_per_release_assumed": 64,
+   "barrier_participation_uniform": true,
+   "barrier_releases_per_block_estimate": 0,
+   "barrier_releases_per_launch_estimate": 0,
+   "hot_region": "whole_kernel_no_loop",
+   "hot_region_chain": {
+    "async_copies": 0,
+    "critical_path_instructions": 35,
+    "dependency_waits": 0,
+    "dependent_global_load_depth": 1,
+    "global_load_to_use_edges": 30,
+    "global_loads": 3,
+    "global_loads_with_a_consumer": 3,
+    "instructions": 218,
+    "shared_loads": 0,
+    "shared_loads_with_a_consumer": 0
+   },
+   "innermost_loops": 0,
+   "iterations_note": "iterations = visits of the loop header per thread; equals the trip count if the loop is entered once",
+   "loop_back_edge_pc": null,
+   "loop_body_dynamic_instructions_per_iteration_per_thread_mean": 218.0,
+   "loop_body_static_instructions": 218,
+   "loop_header_pc": null,
+   "loop_iterations_per_thread_max": 1,
+   "loop_iterations_per_thread_mean": 1.0,
+   "loop_iterations_per_thread_min": 1,
+   "note": "releases = max per-lane visit count summed over barrier sites; assumes every barrier is block-wide (BAR.SYNC with the default thread count)",
+   "static_backward_branches_executed": 0,
+   "static_barrier_sites": 0,
+   "whole_kernel_chain": {
+    "async_copies": 0,
+    "critical_path_instructions": 35,
+    "dependency_waits": 0,
+    "dependent_global_load_depth": 1,
+    "global_load_to_use_edges": 30,
+    "global_loads": 3,
+    "global_loads_with_a_consumer": 3,
+    "instructions": 218,
+    "shared_loads": 0,
+    "shared_loads_with_a_consumer": 0
+   }
+  },
+  "work": {
+   "all_counts_exact": false,
+   "assumption_log_lane_visits": {
+    "fchk_fast_path@0x1e0": 64,
+    "fchk_fast_path@0x7b0": 64
+   },
+   "assumptions_applied": [
+    "division_fast_path"
+   ],
+   "executed_async_copy_global_to_shared_bytes": 0,
+   "executed_global_bytes_exact": true,
+   "executed_global_bytes_per_thread": 40.0,
+   "executed_global_load_bytes": 31457280,
+   "executed_global_store_bytes": 20971520,
+   "families": {
+    "control": {
+     "exact": true,
+     "lane_instructions": 9175040
+    },
+    "fp32_add": {
+     "exact": false,
+     "lane_instructions": 15728640
+    },
+    "fp32_fma": {
+     "exact": true,
+     "lane_instructions": 48496640
+    },
+    "fp32_mul": {
+     "exact": false,
+     "lane_instructions": 98304000
+    },
+    "fp_other": {
+     "exact": true,
+     "lane_instructions": 45875200
+    },
+    "global_load": {
+     "exact": true,
+     "lane_instructions": 3932160,
+     "width_bits_histogram": {
+      "64": 3932160
+     }
+    },
+    "global_store": {
+     "exact": true,
+     "lane_instructions": 2621440,
+     "width_bits_histogram": {
+      "64": 2621440
+     }
+    },
+    "integer_alu": {
+     "exact": true,
+     "lane_instructions": 11796480
+    },
+    "move_const_special": {
+     "exact": true,
+     "lane_instructions": 20971520
+    },
+    "other": {
+     "exact": true,
+     "lane_instructions": 2621440
+    },
+    "special_function": {
+     "exact": true,
+     "lane_instructions": 26214400,
+     "mode_histogram": {
+      "EX2": 7864320,
+      "LG2": 2621440,
+      "RCP": 13107200,
+      "RSQ": 2621440
+     }
+    }
+   },
+   "float_variant_lane_counts": {
+    "FADD": 15728640,
+    "FFMA": 47185920,
+    "FMUL": 96993280,
+    "FSEL": 13107200,
+    "FSETP.GEU.AND": 23592960,
+    "FSETP.GT.AND": 5242880,
+    "MUFU.EX2": 7864320,
+    "MUFU.LG2": 2621440,
+    "MUFU.RCP": 13107200,
+    "MUFU.RSQ": 2621440
+   },
+   "note": "lane-level predicate-true instruction counts per launch of this kernel; counts are CONDITIONAL on `assumptions_applied` and are not warp-issued counts. FFMA modifier variants (.SAT/.RM/.RZ/.RP) are in opcode_lane_counts and float_variant_lane_counts, not in the six-class fma count (FFMA only), and families.other.",
+   "opcode_lane_counts": {
+    "BRA": 2621440,
+    "BSSY.RECONVERGENT": 2621440,
+    "BSYNC.RECONVERGENT": 2621440,
+    "EXIT": 1310720,
+    "FADD": 15728640,
+    "FCHK": 2621440,
+    "FFMA": 47185920,
+    "FMUL": 96993280,
+    "FSEL": 13107200,
+    "FSETP.GEU.AND": 23592960,
+    "FSETP.GT.AND": 5242880,
+    "HFMA2": 3932160,
+    "IMAD": 1310720,
+    "IMAD.WIDE": 6553600,
+    "ISETP.GE.AND": 1310720,
+    "LDC": 1310720,
+    "LDC.64": 6553600,
+    "LDCU": 2621440,
+    "LDCU.64": 3932160,
+    "LDG.E.64.CONSTANT": 3932160,
+    "MOV": 3932160,
+    "MUFU.EX2": 7864320,
+    "MUFU.LG2": 2621440,
+    "MUFU.RCP": 13107200,
+    "MUFU.RSQ": 2621440,
+    "S2R": 2621440,
+    "STG.E.64": 2621440,
+    "UFFMA": 1310720,
+    "UFMUL": 1310720,
+    "ULEA.HI": 1310720,
+    "USHF.R.S32.HI": 1310720
+   },
+   "opcodes_with_unknown_guard_upper_bound": [
+    "FADD",
+    "FMUL"
+   ],
+   "six_class_counts": {
+    "barrier": 0,
+    "exponential": 7864320,
+    "fma": 47185920,
+    "shared_load": 0,
+    "shared_store": 0,
+    "shuffle": 0
+   },
+   "six_class_counts_from_frozen_derivation": null,
+   "six_class_cross_check": {
+    "barrier": {
+     "equal": true,
+     "from_events": 0,
+     "from_visits": 0
+    },
+    "exponential": {
+     "equal": true,
+     "from_events": 7864320,
+     "from_visits": 7864320
+    },
+    "fma": {
+     "equal": true,
+     "from_events": 47185920,
+     "from_visits": 47185920
+    },
+    "shared_load": {
+     "equal": true,
+     "from_events": 0,
+     "from_visits": 0
+    },
+    "shared_store": {
+     "equal": true,
+     "from_events": 0,
+     "from_visits": 0
+    },
+    "shuffle": {
+     "equal": true,
+     "from_events": 0,
+     "from_visits": 0
+    }
+   },
+   "six_class_cross_check_all_equal": true,
+   "six_class_width_histograms": {
+    "barrier": {},
+    "exponential": {
+     "32": 7864320
+    },
+    "fma": {
+     "32": 47185920
+    },
+    "shared_load": {},
+    "shared_store": {},
+    "shuffle": {}
+   },
+   "source_of_six_class_counts": "pytorch_features/pt_interp.py (extended interpreter); the frozen derivation refuses these kernels, so there is no frozen reference",
+   "static_global_access_width_sites": {
+    "global_load": {
+     "64": 3
+    },
+    "global_store": {
+     "64": 2
+    }
+   },
+   "total_lane_instructions": 285736960,
+   "total_lane_instructions_per_thread": 218.0,
+   "upper_bound_note": "opcodes_with_unknown_guard_upper_bound lists opcodes with a guard predicate the interpreter could not decide; they are counted as executed"
+  }
+ },
+ "phases": {
+  "kernels": [
+   {
+    "barrier_sequence": [],
+    "kernel_id": "bs",
+    "phases": [
+     {
+      "critical_path_compute_instructions": 34,
+      "dependent_global_load_depth": 1,
+      "index": 0,
+      "issue_warp_instructions": {
+       "BRA": 81920,
+       "BSSY.RECONVERGENT": 81920,
+       "BSYNC.RECONVERGENT": 81920,
+       "EXIT": 81920,
+       "FADD": 491520,
+       "FCHK": 81920,
+       "FFMA": 1474560,
+       "FMUL": 3031040,
+       "FSEL": 409600,
+       "FSETP.GEU.AND": 737280,
+       "FSETP.GT.AND": 163840,
+       "HFMA2": 122880,
+       "IMAD": 40960,
+       "IMAD.WIDE": 204800,
+       "ISETP.GE.AND": 40960,
+       "LDC": 40960,
+       "LDC.64": 204800,
+       "LDCU": 81920,
+       "LDCU.64": 122880,
+       "LDG.E.64.CONSTANT": 122880,
+       "MOV": 122880,
+       "MUFU.EX2": 245760,
+       "MUFU.LG2": 81920,
+       "MUFU.RCP": 409600,
+       "MUFU.RSQ": 81920,
+       "S2R": 81920,
+       "STG.E.64": 81920,
+       "UFFMA": 40960,
+       "UFMUL": 40960,
+       "ULEA.HI": 40960,
+       "USHF.R.S32.HI": 40960
+      },
+      "lines": 409600,
+      "read_bytes": 31457280,
+      "read_sectors": 983040,
+      "repetitions": 1,
+      "write_bytes": 20971520,
+      "write_sectors": 655360
+     }
+    ],
+    "unknown_guard_upper_bounds": [
+     "0x1d0",
+     "0x240",
+     "0x340",
+     "0x3e0",
+     "0x430",
+     "0x550",
+     "0x590",
+     "0x5c0",
+     "0x5d0",
+     "0x5f0",
+     "0x600",
+     "0x680",
+     "0x6e0",
+     "0x750",
+     "0x7c0",
+     "0x7d0",
+     "0x820",
+     "0x960",
+     "0x9d0",
+     "0xa10",
+     "0xb00",
+     "0xb60",
+     "0xb90",
+     "0xbd0",
+     "0xbe0",
+     "0xc00",
+     "0xcd0",
+     "0xd20",
+     "0xd60",
+     "0xdb0"
+    ]
+   }
+  ],
+  "reason": null,
+  "status": "conditional_static_phases"
+ },
+ "unique": {
+  "kernels": [
+   {
+    "blocks": 20480,
+    "blocks_per_sm": 24,
+    "first_touch_read_sectors_per_block": 48,
+    "kernel_id": "bs",
+    "phases": [
+     {
+      "index": 0,
+      "lines": 409600,
+      "read_sectors": 983040,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 983040,
+      "read_sectors_first_touch_per_block": 48,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 983040,
+      "read_sectors_unique_in_phase_per_block": 48,
+      "repetitions": 1,
+      "write_sectors": 655360
+     }
+    ],
+    "read_sectors_shared_across_blocks_note": {
+     "block0_distinct_read_sectors": 48,
+     "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+     "sampled_blocks_compared": 1,
+     "shared_with_at_least_one_other_sampled_block": 0
+    },
+    "status": "ok",
+    "total_requested_read_sectors_per_block": 48,
+    "unique_read_bytes_per_block": 1536,
+    "unique_read_or_written_bytes_per_block": 2560,
+    "unique_read_sectors_per_block": 48
+   }
+  ],
+  "kernels_per_launch": 1,
+  "reason": null,
+  "status": "ok"
+ }
+}

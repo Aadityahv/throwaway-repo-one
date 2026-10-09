@@ -1,0 +1,141 @@
+{
+ "adapters": [
+  {
+   "bytes_formula": "4*n + 4*blocks (float32 input read once, one float32 partial sum written per block; blocks = n/256 upper bound)",
+   "candidates": {
+    "c1": {
+     "kernel": "reduce0",
+     "note": "naive single global accumulator per block"
+    },
+    "c2": {
+     "kernel": "reduce1",
+     "note": "shared-memory tree"
+    },
+    "c3": {
+     "kernel": "reduce6",
+     "note": "multi-element unrolled"
+    }
+   },
+   "correctness_reference": "seeded uniform(-1,1) float32 input, per-block partials completed on the host in double precision and compared with the double-precision sum, rtol 1e-5 atol 1e-6 (same oracle as the catalog reduction runner)",
+   "family": "reduction",
+   "lineage_id": "cuda-samples-reduction-alt016",
+   "lineage_rationale": "different kernels (0/1/6) from catalog 2/3/4/5 in the same pinned file; distinct algorithms (naive/shared/unrolled), no shared device code paths beyond headers",
+   "parent_id": "alt_cuda_samples_reduction",
+   "regimes": {
+    "large": {
+     "n": 16777216
+    },
+    "medium": {
+     "n": 1048576
+    },
+    "small": {
+     "n": 65536
+    }
+   },
+   "source": {
+    "bytes": 31971,
+    "file": "cpp/2_Concepts_and_Techniques/reduction/reduction_kernel.cu",
+    "license_spdx": "BSD-3-Clause",
+    "repository": "https://github.com/NVIDIA/cuda-samples",
+    "revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+    "sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9"
+   },
+   "status": "metadata_complete_gpu_pending",
+   "threads_per_block": 256
+  },
+  {
+   "bytes_formula": "2*n*4 (read + write, float32)",
+   "candidates": {
+    "c1": {
+     "kernel": "copy",
+     "note": "direct global copy"
+    },
+    "c2": {
+     "kernel": "copySharedMem",
+     "note": "shared-memory staged copy"
+    }
+   },
+   "correctness_reference": "bitwise identity out==in",
+   "family": "streaming",
+   "lineage_id": "cuda-samples-copy-alt",
+   "lineage_rationale": "different file AND different kernels from catalog vectorAdd.cu copy; copy/shared-copy are partial kernels the catalog runner explicitly excludes",
+   "parent_id": "alt_cuda_samples_copy",
+   "regimes": {
+    "large": {
+     "n": 67108864
+    },
+    "medium": {
+     "n": 4194304
+    },
+    "small": {
+     "n": 1048576
+    }
+   },
+   "source": {
+    "bytes": 22486,
+    "file": "cpp/6_Performance/transpose/transpose.cu",
+    "license_spdx": "BSD-3-Clause",
+    "repository": "https://github.com/NVIDIA/cuda-samples",
+    "revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+    "sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95"
+   },
+   "status": "metadata_complete_gpu_pending",
+   "threads_per_block": 256
+  },
+  {
+   "bytes_formula": "2*n*n*4 (read + write, float32 matrix)",
+   "candidates": {
+    "c1": {
+     "kernel": "transposeFineGrained",
+     "note": "fine-grained tiled partial transpose"
+    },
+    "c2": {
+     "kernel": "transposeCoarseGrained",
+     "note": "coarse-grained tiled partial transpose"
+    }
+   },
+   "correctness_reference": "each kernel's own documented partial permutation, checked on every element (fine-grained: transpose inside each tile, tile left in place; coarse-grained: tile moved, no transpose inside it); neither is a full transpose; catalog variants 2/3/4/7 excluded",
+   "family": "layout_transform",
+   "lineage_id": "cuda-samples-transpose-finecoarse",
+   "lineage_rationale": "disjoint kernel symbols from catalog variants {Naive,Coalesced,NoBankConflicts,Diagonal}; tiled partial-transpose algorithms",
+   "parent_id": "alt_cuda_samples_transposefine",
+   "regimes": {
+    "large": {
+     "n": 8192
+    },
+    "medium": {
+     "n": 2048
+    },
+    "small": {
+     "n": 1024
+    }
+   },
+   "source": {
+    "bytes": 22486,
+    "file": "cpp/6_Performance/transpose/transpose.cu",
+    "license_spdx": "BSD-3-Clause",
+    "repository": "https://github.com/NVIDIA/cuda-samples",
+    "revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+    "sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95"
+   },
+   "status": "metadata_complete_gpu_pending",
+   "threads_per_block": 256
+  }
+ ],
+ "data_role": "metadata_only_no_energy",
+ "role": "independent-operator adapter builder (completion plan)",
+ "unsupported_with_reason": [
+  {
+   "family": "softmax",
+   "reason": "no disjoint implementation at pinned revs (Triton 02 has one softmax kernel; ATen alternate would need a new file review)"
+  },
+  {
+   "family": "normalization",
+   "reason": "same as softmax (single triton/ATen kernels at pinned revs)"
+  },
+  {
+   "family": "gather",
+   "reason": "only sealed xformers/embedding plus catalog Indexing.cu at pinned revs; new upstream or local kernel needs coordinator approval"
+  }
+ ]
+}

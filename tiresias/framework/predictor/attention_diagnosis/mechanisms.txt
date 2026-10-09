@@ -1,0 +1,61 @@
+beta tables {"hmma": {"4": 0.418, "8": 0.328, "16": 0.177, "32": 0.08049999999999999}, "ffma": {"4": 0.854, "8": 0.398, "16": 0.22649999999999998}}
+
+mechanism (runtime error, median/p90)                                    all 131     12 validation
+baseline                                                         10.3/  28.9 (131)   12.8/  35.8
+pair overlap coefficient (shared load and MMA)                    9.7/  24.7 (131)   13.1/  35.8
+pair overlap coefficient, also FP32 FMA pair                     10.6/  24.7 (131)   13.1/  29.9
+pair overlap + stage serialisation (stage rule)                   8.5/  24.7 (131)    8.9/  35.8
+load latency added to load phases                                11.0/  30.1 (131)   18.3/  31.3
+loaded service latency added to load phases                      12.4/  43.4 (131)   12.4/  32.7
+load phases: transfer and store issue additive                    9.3/  25.6 (131)   13.7/  32.0
+pair overlap + load latency                                       9.9/  31.5 (131)   15.7/  31.3
+stage rule + load latency                                         9.9/  31.5 (131)   16.0/  31.3
+stage rule + additive store issue                                 8.7/  25.6 (131)   19.3/  32.0
+stage rule + additive store issue + load latency                 11.1/  35.7 (131)   24.0/  32.8
+busiest-SM rule (issue terms)                                     9.3/  24.8 (131)   12.5/  29.9
+stage rule + busiest-SM rule                                      7.1/  24.1 (131)    9.6/  29.9
+
+per-kernel median runtime error, evaluation cells (baseline | mechanism); * = rises more than 2 points
+kernel                                        n      baseline pair overlap  pair overlap  pair overlap  load latency  loaded servic load phases:  pair overlap  stage rule +  stage rule +  stage rule +  busiest-SM ru stage rule + 
+Black-Scholes                                 8          8.8           8.8           8.8           8.8           8.8           8.8           8.8           8.8           8.8           8.8           8.8           8.8           8.8 
+Copy                                          4          3.7           3.7           3.7           3.7           4.2           9.1*          3.0           4.2           4.2           3.0           7.4*          3.7           3.7 
+FP32 matrix multiply                          8         10.4          10.4          21.7*         10.4          20.8*         31.0*         16.5*         20.8*         20.8*         16.5*         25.5*          9.4           9.4 
+Fast Walsh transform                          8          5.9           5.9           6.2           5.9           8.7*         12.3*          7.5           8.7*          8.7*          7.5          10.5*          6.1           6.1 
+Fine- and coarse-grained transpose            4          4.5           4.5           4.5           4.5           6.5*         14.8*          4.4           6.5*          6.5*          4.4          11.6*          4.5           4.5 
+Fused attention                               8         29.6          20.2          20.2           9.8          24.7          18.4          16.0          16.2           9.4           9.2          15.2          26.3           6.1 
+GELU                                          8          1.7           1.7           1.7           1.7           1.7           1.7           1.7           1.7           1.7           1.7           1.7           1.7           1.7 
+Prefix-sum scan                               8         14.3          14.3          14.3          14.3          22.4*         31.6*         16.5*         22.4*         22.4*         16.5*         24.7*         14.9          14.9 
+RMSNorm                                       8         12.3          12.3          12.3          12.3           9.8           6.8           9.1           9.8           9.8           9.1           6.4          12.3          12.3 
+Reduce2                                       2         18.8          18.8          18.7          18.8          14.8          18.0          14.8          14.8          14.8          14.8          14.8          18.8          18.8 
+Reductions (reduce0/1/6)                      5         13.6          13.6          13.6          13.6          16.0*          9.6          10.4          16.0*         16.0*         10.4          12.2          13.6          13.6 
+Rotary embedding                              8          1.5           1.5           1.5           1.5           1.5           1.5           1.5           1.5           1.5           1.5           1.5           1.5           1.5 
+Scalar product                                8         14.6          14.6          14.6          14.6          11.9          10.0           9.3          11.9          11.9           9.3           9.5          14.4          14.4 
+Separable convolution                         8         14.2          14.2          11.7          14.2          12.9           9.4          11.5          12.9          12.9          11.5          10.3           8.8           8.8 
+SwiGLU gate                                   8          1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0 
+Tensor-core matrix multiply                   8         14.3          10.2          10.2          10.0          17.0*         18.5*         12.4          15.4          15.4          15.2          18.5*         14.5          10.0 
+Tiled matrix multiply                         8         21.1          21.1          22.7          21.1          30.8*         43.1*         24.7*         30.8*         30.8*         24.7*         34.5*         22.4          22.4 
+Transposes (naive, coalesced, padded, diagonal)      8          6.1           6.1           6.1           6.1           6.6          14.4*          5.9           6.6           6.6           5.9          11.7*          6.1           6.1 
+Vector add                                    4         11.3          11.3          11.3          11.3          11.3          11.3          11.3          11.3          11.3          11.3          11.3          11.3          11.3 
+
+per-cell ratio predicted/measured, tensor-core matmul and attention cells (evaluation + validation)
+cell                                                 tier   baseline pair over pair over pair over load late loaded se load phas pair over stage rul stage rul stage rul busiest-S stage rul
+fresh_g_ml_tensor_matmul/large/c1                    DRAM       1.12      1.15      1.15      1.15      1.22      1.32      1.18      1.25      1.25      1.21      1.31      1.12      1.16
+fresh_g_ml_tensor_matmul/large/c2                    DRAM       1.16      1.18      1.18      1.18      1.23      1.29      1.24      1.24      1.24      1.25      1.31      1.17      1.18
+fresh_g_ml_tensor_matmul/medium/c1                   L2         0.79      0.89      0.89      0.89      0.93      1.09      0.88      1.03      1.03      0.98      1.12      0.79      0.89
+fresh_g_ml_tensor_matmul/medium/c2                   L2         0.63      0.68      0.68      0.68      0.78      0.95      0.70      0.82      0.82      0.74      0.89      0.74      0.86
+fresh_g_ml_tensor_matmul/small/c1                    L2         0.81      0.90      0.90      0.91      0.94      1.09      0.89      1.03      1.03      0.99      1.11      0.81      0.91
+fresh_g_ml_tensor_matmul/small/c2                    L2         1.00      1.08      1.08      1.08      1.27      1.58      1.09      1.34      1.34      1.16      1.42      1.00      1.08
+fresh_g_ml_tensor_matmul/xlarge/c1                   DRAM       0.96      0.99      0.99      0.99      1.07      1.18      1.02      1.10      1.10      1.05      1.16      0.96      0.99
+fresh_g_ml_tensor_matmul/xlarge/c2                   DRAM       1.05      1.06      1.06      1.06      1.12      1.19      1.13      1.13      1.13      1.14      1.21      1.05      1.07
+fresh_h_ml_fused_attention/large/c1                  DRAM       0.88      0.95      0.95      1.06      0.92      0.96      1.05      0.99      1.10      1.22      1.27      0.89      1.07
+fresh_h_ml_fused_attention/large/c2                  DRAM       0.78      0.86      0.86      0.99      0.83      0.89      0.89      0.92      1.04      1.09      1.15      0.79      1.00
+fresh_h_ml_fused_attention/medium/c1                 L2         0.77      0.83      0.83      0.93      0.79      0.82      0.91      0.86      0.95      1.07      1.10      0.84      1.02
+fresh_h_ml_fused_attention/medium/c2                 L2         0.69      0.77      0.77      0.88      0.72      0.76      0.78      0.80      0.91      0.97      1.00      0.76      0.96
+fresh_h_ml_fused_attention/small/c1                  L2         0.63      0.73      0.73      0.80      0.72      0.81      0.82      0.82      0.89      0.99      1.08      0.63      0.80
+fresh_h_ml_fused_attention/small/c2                  L2         0.72      0.84      0.84      0.94      0.78      0.86      0.86      0.91      1.01      1.09      1.15      0.72      0.94
+fresh_h_ml_fused_attention/xlarge/c1                 DRAM    refused   refused   refused   refused   refused   refused   refused   refused   refused   refused   refused   refused   refused
+fresh_h_ml_fused_attention/xlarge/c2                 DRAM    refused   refused   refused   refused   refused   refused   refused   refused   refused   refused   refused   refused   refused
+validation_tensor_matmul/v2/c1                       DRAM       1.08      1.11      1.11      1.11      1.19      1.29      1.14      1.21      1.22      1.17      1.27      1.09      1.12
+validation_tensor_matmul/v2/c2                       DRAM       1.14      1.15      1.15      1.15      1.20      1.27      1.21      1.22      1.22      1.22      1.29      1.14      1.15
+validation_fused_attention/v3/c1                     DRAM       0.88      0.95      0.95      1.06      0.93      0.97      1.05      1.00      1.11      1.22      1.27      0.89      1.07
+validation_fused_attention/v3/c2                     DRAM       0.76      0.84      0.84      0.96      0.82      0.88      0.86      0.90      1.02      1.06      1.12      0.79      1.00

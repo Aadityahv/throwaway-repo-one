@@ -1,0 +1,62 @@
+Runtime error (median / p90 / refused counted as failures), energy with static runtime (median / p90). RETROSPECTIVE for all cells shown.
+
+| Group | n | current runtime | stage rule | busiest-SM rule | both | current energy | stage rule | busiest-SM rule | both |
+|---|---:|---|---|---|---|---|---|---|---|
+| ALL 131 evaluation cells | 131 | 10.3 / 28.9 (4 refused) | 8.5 / 24.7 (4 refused) | 9.3 / 24.8 (4 refused) | 7.1 / 24.1 (4 refused) | 10.8 / 28.9 (4 refused) | 10.2 / 28.4 (4 refused) | 10.8 / 28.3 (4 refused) | 9.7 / 28.1 (4 refused) |
+| predicted before measurement (72) | 72 | 7.7 / 30.5 (2 refused) | 6.4 / 23.5 (2 refused) | 6.8 / 25.7 (2 refused) | 6.1 / 20.4 (2 refused) | 11.1 / 28.3 (2 refused) | 10.3 / 23.4 (2 refused) | 11.1 / 24.1 (2 refused) | 9.4 / 21.5 (2 refused) |
+| seen during model building (59) | 59 | 12.1 / 24.7 (2 refused) | 12.1 / 24.7 (2 refused) | 11.5 / 24.7 (2 refused) | 11.5 / 24.7 (2 refused) | 9.9 / 32.7 (2 refused) | 9.9 / 32.7 (2 refused) | 9.9 / 33.4 (2 refused) | 9.9 / 33.4 (2 refused) |
+| evaluation cells below 570 W | 91 | 6.9 / 24.7 (1 refused) | 6.9 / 24.0 (1 refused) | 6.5 / 24.7 (1 refused) | 6.5 / 24.1 (1 refused) | 9.3 / 28.1 (1 refused) | 8.7 / 28.1 (1 refused) | 9.1 / 28.1 (1 refused) | 8.2 / 28.1 (1 refused) |
+| 12 validation cells | 12 | 12.8 / 35.8 | 8.9 / 35.8 | 12.5 / 29.9 | 9.6 / 29.9 | 19.3 / 29.0 | 9.0 / 21.6 | 16.0 / 25.5 | 6.9 / 21.6 |
+
+Per-kernel median error, evaluation cells (runtime | energy with static runtime); regression = median rises by more than 2 points (marked R)
+
+| Kernel | n | runtime current | stage rule | busiest-SM rule | both | energy current | stage rule | busiest-SM rule | both |
+|---|---:|---|---|---|---|---|---|---|---|
+| Black-Scholes | 8 | 8.8 | 8.8 | 8.8 | 8.8 | 20.0 | 20.0 | 20.0 | 20.0 |
+| Copy | 4 | 3.7 | 3.7 | 3.7 | 3.7 | 5.4 | 5.4 | 5.4 | 5.4 |
+| FP32 matrix multiply | 8 | 10.4 | 10.4 | 9.4 | 9.4 | 10.4 | 10.4 | 10.0 | 10.0 |
+| Fast Walsh transform | 8 | 5.9 | 5.9 | 6.1 | 6.1 | 13.8 | 13.8 | 13.8 | 13.8 |
+| Fine- and coarse-grained transpose | 4 | 4.5 | 4.5 | 4.5 | 4.5 | 9.4 | 9.4 | 9.4 | 9.4 |
+| Fused attention | 8 | 29.6 | 9.8 | 26.3 | 6.1 | 28.4 | 14.9 | 25.2 | 8.9 |
+| GELU | 8 | 1.7 | 1.7 | 1.7 | 1.7 | 2.5 | 2.5 | 2.5 | 2.5 |
+| Prefix-sum scan | 8 | 14.3 | 14.3 | 14.9 | 14.9 | 30.2 | 30.2 | 30.2 | 30.2 |
+| RMSNorm | 8 | 12.3 | 12.3 | 12.3 | 12.3 | 4.8 | 4.8 | 4.8 | 4.8 |
+| Reduce2 | 2 | 18.8 | 18.8 | 18.8 | 18.8 | 19.4 | 19.4 | 19.3 | 19.3 |
+| Reductions (reduce0/1/6) | 5 | 13.6 | 13.6 | 13.6 | 13.6 | 13.7 | 13.7 | 13.7 | 13.7 |
+| Rotary embedding | 8 | 1.5 | 1.5 | 1.5 | 1.5 | 5.2 | 5.2 | 5.2 | 5.2 |
+| Scalar product | 8 | 14.6 | 14.6 | 14.4 | 14.4 | 16.7 | 16.7 | 16.7 | 16.7 |
+| Separable convolution | 8 | 14.2 | 14.2 | 8.8 | 8.8 | 7.7 | 7.7 | 5.2 | 5.2 |
+| SwiGLU gate | 8 | 1.0 | 1.0 | 1.0 | 1.0 | 1.7 | 1.7 | 1.7 | 1.7 |
+| Tensor-core matrix multiply | 8 | 14.3 | 10.0 | 14.5 | 10.0 | 11.4 | 7.0 | 11.3 | 6.9 |
+| Tiled matrix multiply | 8 | 21.1 | 21.1 | 22.4 | 22.4 | 6.9 | 6.9 | 5.0 | 5.0 |
+| Transposes (naive, coalesced, padded, diagonal) | 8 | 6.1 | 6.1 | 6.1 | 6.1 | 7.3 | 7.3 | 7.3 | 7.3 |
+| Vector add | 4 | 11.3 | 11.3 | 11.3 | 11.3 | 7.6 | 7.6 | 7.6 | 7.6 |
+
+Kernel-median regressions above 2 points: none
+
+Validation cells (runtime error %: current | A | B | A+B ; energy static error %)
+
+| Cell | measured us | current | stage rule | busiest-SM rule | both | energy current | both |
+|---|---:|---|---|---|---|---|---|
+| validation_fp32_matmul/v1/c1 | 98.9 | 6.5 | 6.5 | 1.4 | 1.4 | 20.3 | 13.6 |
+| validation_fp32_matmul/v1/c2 | 144.2 | 36.4 | 36.4 | 19.9 | 19.9 | 30.6 | 26.0 |
+| validation_rmsnorm/v6/c1 | 171.1 | 0.3 | 0.3 | 0.3 | 0.3 | 0.5 | 0.5 |
+| validation_rmsnorm/v6/c2 | 171.9 | 0.2 | 0.2 | 0.2 | 0.2 | 3.8 | 3.8 |
+| validation_scalar_product/v4/c1 | 159.2 | 43.4 | 43.4 | 43.4 | 43.4 | 18.4 | 18.4 |
+| validation_scalar_product/v4/c2 | 156.5 | 0.7 | 0.7 | 0.7 | 0.7 | 3.9 | 3.9 |
+| validation_separable_convolution/v5/c1 | 156.2 | 28.7 | 28.7 | 28.7 | 28.7 | 21.6 | 21.6 |
+| validation_separable_convolution/v5/c2 | 154.5 | 30.1 | 30.1 | 30.1 | 30.1 | 21.4 | 21.4 |
+| validation_tensor_matmul/v2/c1 | 231.7 | 8.3 | 11.3 | 9.2 | 12.3 | 6.3 | 2.8 |
+| validation_tensor_matmul/v2/c2 | 284.2 | 13.8 | 14.9 | 14.0 | 15.1 | 5.1 | 4.1 |
+| validation_fused_attention/v3/c1 | 716.3 | 11.8 | 5.9 | 11.0 | 6.9 | 22.3 | 5.8 |
+| validation_fused_attention/v3/c2 | 634.2 | 23.6 | 3.6 | 20.9 | 0.0 | 29.8 | 8.0 |
+
+Cells whose runtime error rises by more than 2 points under both rules (evaluation and validation):
+  blackwell/unseen_cuda_samples_matrix_multiply/large/c2                  21.9 ->  24.1
+  blackwell/unseen_cuda_samples_matrix_multiply/medium/c1                 14.5 ->  17.9
+  blackwell/unseen_cuda_samples_matrix_multiply/medium/c2                 19.7 ->  23.0
+  blackwell/unseen_cuda_samples_matrix_multiply/small/c1                   0.0 ->  10.9
+  blackwell/fresh_g_ml_tensor_matmul/large/c1                             12.2 ->  15.6
+  blackwell/fresh_g_ml_tensor_matmul/small/c2                              0.5 ->   7.6
+  blackwell/validation_tensor_matmul/v2/c1                                 8.3 ->  12.3
+  (7 cells)

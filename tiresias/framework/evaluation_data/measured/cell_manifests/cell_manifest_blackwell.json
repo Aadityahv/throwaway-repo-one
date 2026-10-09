@@ -1,0 +1,589 @@
+{
+  "dev_triton_softmax": {
+    "cells": {
+      "large/c1": {
+        "cols": 1024,
+        "constants": {
+          "BLOCK_SIZE": 1024,
+          "num_stages": 2
+        },
+        "num_warps": 2,
+        "rows": 8192
+      },
+      "large/c2": {
+        "cols": 1024,
+        "constants": {
+          "BLOCK_SIZE": 1024,
+          "num_stages": 2
+        },
+        "num_warps": 4,
+        "rows": 8192
+      },
+      "large/c3": {
+        "cols": 1024,
+        "constants": {
+          "BLOCK_SIZE": 1024,
+          "num_stages": 2
+        },
+        "num_warps": 8,
+        "rows": 8192
+      },
+      "large/c4": {
+        "cols": 1024,
+        "constants": {
+          "BLOCK_SIZE": 1024,
+          "num_stages": 4
+        },
+        "num_warps": 8,
+        "rows": 8192
+      },
+      "medium/c1": {
+        "cols": 512,
+        "constants": {
+          "BLOCK_SIZE": 512,
+          "num_stages": 2
+        },
+        "num_warps": 2,
+        "rows": 4096
+      },
+      "medium/c2": {
+        "cols": 512,
+        "constants": {
+          "BLOCK_SIZE": 512,
+          "num_stages": 2
+        },
+        "num_warps": 4,
+        "rows": 4096
+      },
+      "medium/c3": {
+        "cols": 512,
+        "constants": {
+          "BLOCK_SIZE": 512,
+          "num_stages": 2
+        },
+        "num_warps": 8,
+        "rows": 4096
+      },
+      "medium/c4": {
+        "cols": 512,
+        "constants": {
+          "BLOCK_SIZE": 512,
+          "num_stages": 4
+        },
+        "num_warps": 8,
+        "rows": 4096
+      },
+      "small/c1": {
+        "cols": 128,
+        "constants": {
+          "BLOCK_SIZE": 128,
+          "num_stages": 2
+        },
+        "num_warps": 2,
+        "rows": 1024
+      },
+      "small/c2": {
+        "cols": 128,
+        "constants": {
+          "BLOCK_SIZE": 128,
+          "num_stages": 2
+        },
+        "num_warps": 4,
+        "rows": 1024
+      },
+      "small/c3": {
+        "cols": 128,
+        "constants": {
+          "BLOCK_SIZE": 128,
+          "num_stages": 2
+        },
+        "num_warps": 8,
+        "rows": 1024
+      },
+      "small/c4": {
+        "cols": 128,
+        "constants": {
+          "BLOCK_SIZE": 128,
+          "num_stages": 4
+        },
+        "num_warps": 8,
+        "rows": 1024
+      }
+    },
+    "kernel_name": "softmax_kernel",
+    "kind": "triton",
+    "source_rel": "python/tutorials/02-fused-softmax.py",
+    "source_revision": "7369aa3d9b0fae7134bf47b16d83876b09ef8e9f",
+    "source_sha256": "8a65b696d5b02a3900380395ecd883671afeb66328db108f55622ed8853a05da"
+  },
+  "final_cuda_samples_copy": {
+    "cells": {
+      "large/c1": {
+        "blocks": 524288,
+        "entry_substring": "vecAdd",
+        "threads": 128
+      },
+      "large/c2": {
+        "blocks": 262144,
+        "entry_substring": "vecAdd",
+        "threads": 256
+      },
+      "large/c3": {
+        "blocks": 131072,
+        "entry_substring": "vecAdd",
+        "threads": 512
+      },
+      "large/c4": {
+        "blocks": 65536,
+        "entry_substring": "vecAdd",
+        "threads": 1024
+      },
+      "medium/c1": {
+        "blocks": 65536,
+        "entry_substring": "vecAdd",
+        "threads": 128
+      },
+      "medium/c2": {
+        "blocks": 32768,
+        "entry_substring": "vecAdd",
+        "threads": 256
+      },
+      "medium/c3": {
+        "blocks": 16384,
+        "entry_substring": "vecAdd",
+        "threads": 512
+      },
+      "medium/c4": {
+        "blocks": 8192,
+        "entry_substring": "vecAdd",
+        "threads": 1024
+      },
+      "small/c1": {
+        "blocks": 8192,
+        "entry_substring": "vecAdd",
+        "threads": 128
+      },
+      "small/c2": {
+        "blocks": 4096,
+        "entry_substring": "vecAdd",
+        "threads": 256
+      },
+      "small/c3": {
+        "blocks": 2048,
+        "entry_substring": "vecAdd",
+        "threads": 512
+      },
+      "small/c4": {
+        "blocks": 1024,
+        "entry_substring": "vecAdd",
+        "threads": 1024
+      }
+    },
+    "include_rels": [],
+    "kind": "cuda_samples",
+    "source_rel": "cpp/0_Introduction/vectorAdd/vectorAdd.cu",
+    "source_revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+    "source_sha256": "e02d4a73913aff50976cd9ed5e54d57349b0361d01f80446ecebcd9c71cfc9ae"
+  },
+  "final_triton_layer_norm": {
+    "cells": {
+      "large/c1": {
+        "cols": 1024,
+        "constants": {
+          "BLOCK_SIZE": 1024
+        },
+        "eps": 1e-05,
+        "num_warps": 1,
+        "rows": 8192
+      },
+      "large/c2": {
+        "cols": 1024,
+        "constants": {
+          "BLOCK_SIZE": 1024
+        },
+        "eps": 1e-05,
+        "num_warps": 2,
+        "rows": 8192
+      },
+      "large/c3": {
+        "cols": 1024,
+        "constants": {
+          "BLOCK_SIZE": 1024
+        },
+        "eps": 1e-05,
+        "num_warps": 4,
+        "rows": 8192
+      },
+      "large/c4": {
+        "cols": 1024,
+        "constants": {
+          "BLOCK_SIZE": 1024
+        },
+        "eps": 1e-05,
+        "num_warps": 8,
+        "rows": 8192
+      },
+      "medium/c1": {
+        "cols": 512,
+        "constants": {
+          "BLOCK_SIZE": 512
+        },
+        "eps": 1e-05,
+        "num_warps": 1,
+        "rows": 4096
+      },
+      "medium/c2": {
+        "cols": 512,
+        "constants": {
+          "BLOCK_SIZE": 512
+        },
+        "eps": 1e-05,
+        "num_warps": 2,
+        "rows": 4096
+      },
+      "medium/c3": {
+        "cols": 512,
+        "constants": {
+          "BLOCK_SIZE": 512
+        },
+        "eps": 1e-05,
+        "num_warps": 4,
+        "rows": 4096
+      },
+      "medium/c4": {
+        "cols": 512,
+        "constants": {
+          "BLOCK_SIZE": 512
+        },
+        "eps": 1e-05,
+        "num_warps": 8,
+        "rows": 4096
+      },
+      "small/c1": {
+        "cols": 128,
+        "constants": {
+          "BLOCK_SIZE": 128
+        },
+        "eps": 1e-05,
+        "num_warps": 1,
+        "rows": 1024
+      },
+      "small/c2": {
+        "cols": 128,
+        "constants": {
+          "BLOCK_SIZE": 128
+        },
+        "eps": 1e-05,
+        "num_warps": 2,
+        "rows": 1024
+      },
+      "small/c3": {
+        "cols": 128,
+        "constants": {
+          "BLOCK_SIZE": 128
+        },
+        "eps": 1e-05,
+        "num_warps": 4,
+        "rows": 1024
+      },
+      "small/c4": {
+        "cols": 128,
+        "constants": {
+          "BLOCK_SIZE": 128
+        },
+        "eps": 1e-05,
+        "num_warps": 8,
+        "rows": 1024
+      }
+    },
+    "kernel_name": "_layer_norm_fwd_fused",
+    "kind": "triton",
+    "source_rel": "python/tutorials/05-layer-norm.py",
+    "source_revision": "7369aa3d9b0fae7134bf47b16d83876b09ef8e9f",
+    "source_sha256": "241f9f74e2f18567b26f3b4cf9b9873ae859150ccd10976d65d38fe24896d1d2"
+  },
+  "train_cuda_samples_reduction": {
+    "cells": {
+      "large/c1": {
+        "blocks": 65536,
+        "entry_substring": "reduce2If",
+        "kernel_label": "reduce2",
+        "threads": 256,
+        "which_kernel": 2
+      },
+      "large/c2": {
+        "blocks": 65536,
+        "entry_substring": "reduce3If",
+        "kernel_label": "reduce3",
+        "threads": 256,
+        "which_kernel": 3
+      },
+      "large/c3": {
+        "blocks": 65536,
+        "entry_substring": "reduce4IfLj256E",
+        "kernel_label": "reduce4[blockSize=256]",
+        "threads": 256,
+        "which_kernel": 4
+      },
+      "large/c4": {
+        "blocks": 65536,
+        "entry_substring": "reduce5IfLj256E",
+        "kernel_label": "reduce5[blockSize=256]",
+        "threads": 256,
+        "which_kernel": 5
+      },
+      "medium/c1": {
+        "blocks": 4096,
+        "entry_substring": "reduce2If",
+        "kernel_label": "reduce2",
+        "threads": 256,
+        "which_kernel": 2
+      },
+      "medium/c2": {
+        "blocks": 4096,
+        "entry_substring": "reduce3If",
+        "kernel_label": "reduce3",
+        "threads": 256,
+        "which_kernel": 3
+      },
+      "medium/c3": {
+        "blocks": 4096,
+        "entry_substring": "reduce4IfLj256E",
+        "kernel_label": "reduce4[blockSize=256]",
+        "threads": 256,
+        "which_kernel": 4
+      },
+      "medium/c4": {
+        "blocks": 4096,
+        "entry_substring": "reduce5IfLj256E",
+        "kernel_label": "reduce5[blockSize=256]",
+        "threads": 256,
+        "which_kernel": 5
+      },
+      "small/c1": {
+        "blocks": 256,
+        "entry_substring": "reduce2If",
+        "kernel_label": "reduce2",
+        "threads": 256,
+        "which_kernel": 2
+      },
+      "small/c2": {
+        "blocks": 256,
+        "entry_substring": "reduce3If",
+        "kernel_label": "reduce3",
+        "threads": 256,
+        "which_kernel": 3
+      },
+      "small/c3": {
+        "blocks": 256,
+        "entry_substring": "reduce4IfLj256E",
+        "kernel_label": "reduce4[blockSize=256]",
+        "threads": 256,
+        "which_kernel": 4
+      },
+      "small/c4": {
+        "blocks": 256,
+        "entry_substring": "reduce5IfLj256E",
+        "kernel_label": "reduce5[blockSize=256]",
+        "threads": 256,
+        "which_kernel": 5
+      }
+    },
+    "include_rels": [
+      "Common",
+      "cpp/2_Concepts_and_Techniques/reduction"
+    ],
+    "kind": "cuda_samples",
+    "source_rel": "cpp/2_Concepts_and_Techniques/reduction/reduction_kernel.cu",
+    "source_revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+    "source_sha256": "c9ac9a9a424726522dd616fa24d58e6f0919ac95dd746a233d5fb857bffffde9"
+  },
+  "train_cuda_samples_transpose": {
+    "cells": {
+      "large/c1": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeNaive",
+        "grid_x": 256,
+        "grid_y": 256
+      },
+      "large/c2": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeCoalesced",
+        "grid_x": 256,
+        "grid_y": 256
+      },
+      "large/c3": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeNoBankConflicts",
+        "grid_x": 256,
+        "grid_y": 256
+      },
+      "large/c4": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeDiagonal",
+        "grid_x": 256,
+        "grid_y": 256
+      },
+      "medium/c1": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeNaive",
+        "grid_x": 64,
+        "grid_y": 64
+      },
+      "medium/c2": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeCoalesced",
+        "grid_x": 64,
+        "grid_y": 64
+      },
+      "medium/c3": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeNoBankConflicts",
+        "grid_x": 64,
+        "grid_y": 64
+      },
+      "medium/c4": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeDiagonal",
+        "grid_x": 64,
+        "grid_y": 64
+      },
+      "small/c1": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeNaive",
+        "grid_x": 32,
+        "grid_y": 32
+      },
+      "small/c2": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeCoalesced",
+        "grid_x": 32,
+        "grid_y": 32
+      },
+      "small/c3": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeNoBankConflicts",
+        "grid_x": 32,
+        "grid_y": 32
+      },
+      "small/c4": {
+        "block_x": 32,
+        "block_y": 16,
+        "entry_substring": "transposeDiagonal",
+        "grid_x": 32,
+        "grid_y": 32
+      }
+    },
+    "include_rels": [
+      "Common"
+    ],
+    "kind": "cuda_samples",
+    "source_rel": "cpp/6_Performance/transpose/transpose.cu",
+    "source_revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+    "source_sha256": "ba300b6b5f4dbc17ec72bfd3d1ee082508632ec431fe46ba54e6e3ce05292a95"
+  },
+  "train_triton_vector_add": {
+    "cells": {
+      "large/c1": {
+        "constants": {
+          "BLOCK_SIZE": 128
+        },
+        "n": 67108864,
+        "num_warps": 4
+      },
+      "large/c2": {
+        "constants": {
+          "BLOCK_SIZE": 256
+        },
+        "n": 67108864,
+        "num_warps": 4
+      },
+      "large/c3": {
+        "constants": {
+          "BLOCK_SIZE": 512
+        },
+        "n": 67108864,
+        "num_warps": 4
+      },
+      "large/c4": {
+        "constants": {
+          "BLOCK_SIZE": 1024
+        },
+        "n": 67108864,
+        "num_warps": 4
+      },
+      "medium/c1": {
+        "constants": {
+          "BLOCK_SIZE": 128
+        },
+        "n": 8388608,
+        "num_warps": 4
+      },
+      "medium/c2": {
+        "constants": {
+          "BLOCK_SIZE": 256
+        },
+        "n": 8388608,
+        "num_warps": 4
+      },
+      "medium/c3": {
+        "constants": {
+          "BLOCK_SIZE": 512
+        },
+        "n": 8388608,
+        "num_warps": 4
+      },
+      "medium/c4": {
+        "constants": {
+          "BLOCK_SIZE": 1024
+        },
+        "n": 8388608,
+        "num_warps": 4
+      },
+      "small/c1": {
+        "constants": {
+          "BLOCK_SIZE": 128
+        },
+        "n": 1048576,
+        "num_warps": 4
+      },
+      "small/c2": {
+        "constants": {
+          "BLOCK_SIZE": 256
+        },
+        "n": 1048576,
+        "num_warps": 4
+      },
+      "small/c3": {
+        "constants": {
+          "BLOCK_SIZE": 512
+        },
+        "n": 1048576,
+        "num_warps": 4
+      },
+      "small/c4": {
+        "constants": {
+          "BLOCK_SIZE": 1024
+        },
+        "n": 1048576,
+        "num_warps": 4
+      }
+    },
+    "kernel_name": "add_kernel",
+    "kind": "triton",
+    "source_rel": "python/tutorials/01-vector-add.py",
+    "source_revision": "7369aa3d9b0fae7134bf47b16d83876b09ef8e9f",
+    "source_sha256": "842430949e0ccde4fbce07606cce3ac4bac36bf21b2b12619a31b795ca4029b3"
+  }
+}

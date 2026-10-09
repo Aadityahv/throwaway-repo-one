@@ -1,0 +1,229 @@
+{
+ "code_sha256": {
+  "calibrate/cal/energy.py": "6680d919b169df3dc2f5b6a761c2207387d468ae09aaddce7c6dbfca62e7d90a",
+  "calibrate/cal/portable_predict.py": "c6500224c286685f36dc2a76baab8027254f14ff8f00daa1cceda33970d5597b",
+  "calibrate/cal/traffic.py": "337f68dbfcc8f93ce6d20b44a8dc3f17e0009f27b1ab84687d28daaaecfdc510",
+  "calibrate/predict.py": "24ff68476c87a80ce031ceb81b117f5a5be0ce23d2a287cc02f54a37f2cf9aec",
+  "predict_runtime_v2.py": "3c7c106d366224e859f24cb672adf618a42b546bb85752392c5cf6ca62c1ef72",
+  "predict_runtime_v3.py": "60919af340c7d800e13c5916e9a3f9b3f97569b86928a8921a9685f13dce9f48",
+  "predict_runtime_v3f.py": "e340edbd00d4295113537218e411523b2deb6810e419bf8529ebc3458bc17b78",
+  "predict_runtime_v3h.py": "32ebfce06e785a5be04b83296f37e34c79c81044e703a3f1b9cdfa49081a5f7a",
+  "predict_runtime_v3i.py": "940efca9a9482cc7d919b342a9e26e9b8994b0067231b9ae1372ebc219032610",
+  "predict_runtime_v3j.py": "6bb080b56cdd74a2bef4879eb033f40e75137f4f712cf997bb9b3b92c2f98ef8",
+  "shared_traffic/footprint.py": "26c4072af7f07cf14af95b86b33c5e17145cb7b9b5e45c83cbb809a5b200b56b",
+  "shared_traffic/validation/freeze_validation.py": "b5289ff9772e8130ce752b5054f401d75d3fcf78e46df40ed087426e501c4dc2"
+ },
+ "energy_with_measured_runtime": "computed after timing with the same columns: energy_rows_traffic(doc, features, measured runtime, traffic)",
+ "frozen_before_any_measurement": true,
+ "inputs_sha256": {
+  "calibration:calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json": "cd5427fba14fa03eaf60e2d099105246c86489f3a52331943f6df0a91b73f753",
+  "calibration:fresh_g/calibration_with_tensor.json": "b7aaf71ba6f20b64214cb0aedb40e070d1b5c240f243fa714d8d2e38c3c5a7c8",
+  "constants:constants": {
+   "dependency_constants.json": "7ee29c4d635478595871397dfb579648cf4f9f78df39e6661ce6af29dd9a2d7d",
+   "microbench_constants_v2.json": "63d25ff1b51659a02f9212332dd80dfbb8f9d32a4e7fcc3831c765ce8bafd0e4",
+   "overlap_constants.json": "c516c367dc16aef47c396eeb8beeef97c532a749b3b935d5fdbab5b5c44a8acc",
+   "stream_constants.json": "3b07403258d3fc7982f61a1b9b16566356fe41c68ef4f1a542058809f57f8229",
+   "v3_constants.json": "8bcd76814325d64635826cfd45a3e081ccab98a2bfa42454a327b77eca1cf1d1",
+   "v3c_constants.json": "caf6a703605bd0315246000bf71225d8daf21b5cb68c478b7ad3b60036d7295a",
+   "v3e_constants.json": "83523898b699f60e4f8f96ba0b258875793d6b45025d7b7ba4ebf2e0b558b092"
+  },
+  "constants:fresh_g/constants_tensor": {
+   "dependency_constants.json": "7ee29c4d635478595871397dfb579648cf4f9f78df39e6661ce6af29dd9a2d7d",
+   "microbench_constants_v2.json": "dc6a5f70bd16c816751b6f5c9d76fa8f0373542ea3a4d4e0f77fe01410846b0d",
+   "overlap_constants.json": "c516c367dc16aef47c396eeb8beeef97c532a749b3b935d5fdbab5b5c44a8acc",
+   "stream_constants.json": "3b07403258d3fc7982f61a1b9b16566356fe41c68ef4f1a542058809f57f8229",
+   "v3_constants.json": "8bcd76814325d64635826cfd45a3e081ccab98a2bfa42454a327b77eca1cf1d1",
+   "v3c_constants.json": "caf6a703605bd0315246000bf71225d8daf21b5cb68c478b7ad3b60036d7295a",
+   "v3e_constants.json": "83523898b699f60e4f8f96ba0b258875793d6b45025d7b7ba4ebf2e0b558b092"
+  },
+  "validation/tables/classic.json": "e9f59616954082229ae3b26495373b52b3d19ca3ed923eb55410868097cc5acd",
+  "validation/tables/e.json": "a716084ebbfb5fbe78891949f7e415d07ef162855c4038ca20b1c93fb13d4743",
+  "validation/tables/f.json": "2a1b7b26e661c3a11d022c614d4f95d53457ff9021782355e161d6210df253d6",
+  "validation/tables/g.json": "930e8442b841f73c2acd09361cb9ff57f82c06bfb14ec3c8f82f189e4b2b1aae",
+  "validation/tables/h.json": "ff826332e71ff094a4fc61773375de2409c07bc1b069de143682b8e297e33255"
+ },
+ "model": "registry current model (bank-conflict and overlap runtime model, component energy model: current_* fields) and the candidate (v3j, per-wave L2 rule, traffic energy columns: candidate_* fields); the candidate was not adopted, both frozen",
+ "rows": {
+  "blackwell/validation_fp32_matmul/v1/c1": {
+   "candidate_energy_static_j": 0.05551208897214644,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 9.252014828691073e-05,
+   "candidate_traffic_bytes": {
+    "dram": 0.0,
+    "l2_served": 335544320.0
+   },
+   "current_energy_static_j": 0.04734316243720319,
+   "current_runtime_s": 9.252014828691073e-05,
+   "energy_document": "calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json",
+   "kernel_family": "sgemm",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/validation_fp32_matmul/v1/c2": {
+   "candidate_energy_static_j": 0.04956758117307676,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 9.172494257669541e-05,
+   "candidate_traffic_bytes": {
+    "dram": 0.0,
+    "l2_served": 268435456.0
+   },
+   "current_energy_static_j": 0.037982483790616216,
+   "current_runtime_s": 9.172494257669541e-05,
+   "energy_document": "calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json",
+   "kernel_family": "sgemm",
+   "status": "ok",
+   "tier": "L2"
+  },
+  "blackwell/validation_fused_attention/v3/c1": {
+   "candidate_energy_static_j": 0.3791413361596733,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.0006319022269327889,
+   "candidate_traffic_bytes": {
+    "dram": 251658240.0,
+    "l2_served": 2617245696.0
+   },
+   "current_energy_static_j": 0.5391575942561693,
+   "current_runtime_s": 0.0017238698619258222,
+   "energy_document": "fresh_g/calibration_with_tensor.json",
+   "kernel_family": "attn",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/validation_fused_attention/v3/c2": {
+   "candidate_energy_static_j": 0.2905155187547434,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.00048419253125790566,
+   "candidate_traffic_bytes": {
+    "dram": 251658240.0,
+    "l2_served": 1401022001.9712
+   },
+   "current_energy_static_j": 0.4229438649974119,
+   "current_runtime_s": 0.0010000518815795137,
+   "energy_document": "fresh_g/calibration_with_tensor.json",
+   "kernel_family": "attn",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/validation_rmsnorm/v6/c1": {
+   "candidate_energy_static_j": 0.08107051055491435,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.00017171576561705073,
+   "candidate_traffic_bytes": {
+    "dram": 251668480.0,
+    "l2_served": 391393050.624
+   },
+   "current_energy_static_j": 0.07441648331734478,
+   "current_runtime_s": 0.00017171576561705073,
+   "energy_document": "calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json",
+   "kernel_family": "rmsnorm",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/validation_rmsnorm/v6/c2": {
+   "candidate_energy_static_j": 0.08048812506139671,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.0001716485566282889,
+   "candidate_traffic_bytes": {
+    "dram": 251668480.0,
+    "l2_served": 429322665.98399997
+   },
+   "current_energy_static_j": 0.0720277963795726,
+   "current_runtime_s": 0.0001716485566282889,
+   "energy_document": "calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json",
+   "kernel_family": "rmsnorm",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/validation_scalar_product/v4/c1": {
+   "candidate_energy_static_j": 0.07526328386987849,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.00022828266330476008,
+   "candidate_traffic_bytes": {
+    "dram": 251682816.0,
+    "l2_served": 251682816.0
+   },
+   "current_energy_static_j": 0.07525960055993693,
+   "current_runtime_s": 0.00022828266330476008,
+   "energy_document": "calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json",
+   "kernel_family": "sp",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/validation_scalar_product/v4/c2": {
+   "candidate_energy_static_j": 0.06524232156006675,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.0001553928206768802,
+   "candidate_traffic_bytes": {
+    "dram": 251682816.0,
+    "l2_served": 251682816.0
+   },
+   "current_energy_static_j": 0.06523863825012519,
+   "current_runtime_s": 0.0001553928206768802,
+   "energy_document": "calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json",
+   "kernel_family": "sp",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/validation_separable_convolution/v5/c1": {
+   "candidate_energy_static_j": 0.10639017113754089,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.0002009690584508692,
+   "candidate_traffic_bytes": {
+    "dram": 293601280.0,
+    "l2_served": 329515008.0
+   },
+   "current_energy_static_j": 0.10774915731699891,
+   "current_runtime_s": 0.00022328441639594564,
+   "energy_document": "calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json",
+   "kernel_family": "conv",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/validation_separable_convolution/v5/c2": {
+   "candidate_energy_static_j": 0.1063855814988698,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.0002009690584508692,
+   "candidate_traffic_bytes": {
+    "dram": 293601280.0,
+    "l2_served": 329416704.0
+   },
+   "current_energy_static_j": 0.10774084174308558,
+   "current_runtime_s": 0.00022322328998830335,
+   "energy_document": "calibrate/runs/energy_repeat_20261002/run_full/calibration_sm_120_0e63baea.json",
+   "kernel_family": "conv",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/validation_tensor_matmul/v2/c1": {
+   "candidate_energy_static_j": 0.15058711562334462,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.0002509785260389077,
+   "candidate_traffic_bytes": {
+    "dram": 218103808.0,
+    "l2_served": 1006632960.0
+   },
+   "current_energy_static_j": 0.19895677920899174,
+   "current_runtime_s": 0.0006978969213481241,
+   "energy_document": "fresh_g/calibration_with_tensor.json",
+   "kernel_family": "tcgemm",
+   "status": "ok",
+   "tier": "DRAM"
+  },
+  "blackwell/validation_tensor_matmul/v2/c2": {
+   "candidate_energy_static_j": 0.19409065119344682,
+   "candidate_refusal": null,
+   "candidate_runtime_s": 0.0003234844186557447,
+   "candidate_traffic_bytes": {
+    "dram": 218103808.0,
+    "l2_served": 1811939328.0
+   },
+   "current_energy_static_j": 0.27642435376374047,
+   "current_runtime_s": 0.0011794857476203867,
+   "energy_document": "fresh_g/calibration_with_tensor.json",
+   "kernel_family": "tcgemm",
+   "status": "ok",
+   "tier": "DRAM"
+  }
+ },
+ "schema": "validation_prediction_freeze/1"
+}

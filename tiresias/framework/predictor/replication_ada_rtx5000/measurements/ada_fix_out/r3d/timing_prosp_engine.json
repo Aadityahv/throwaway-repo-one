@@ -1,0 +1,649 @@
+{
+ "schema": "prosp_timing/1",
+ "booking_ref": "BOOKING Ada GPU 0, resume 3 of (the owner of the other GPU series, krish, handed the GPU over) the missing measurements of the booked evaluation (ada_eval_main_20261004 scope), commit 35b0f6b (r3d_tensor)",
+ "started_utc": "2026-10-05T08:54:06Z",
+ "manifest": {
+  "schema": "prosp_build/1",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Fri_May_08_10:53:34_AM_PDT_2026\nCuda compilation tools, release 13.2, V13.2.86\nBuild cuda_13.2.r13.2/compiler.37953736_0",
+  "command": [
+   "/usr/local/cuda-13.2/bin/nvcc",
+   "-arch=sm_89",
+   "-Xcompiler",
+   "-O2",
+   "-I",
+   "/home/user/ada_run_35b0f6b/tiresias/framework/predictor/prospective_test/src",
+   "-I",
+   "/home/user/ada_run_35b0f6b/tiresias/framework/predictor/fresh_g/src",
+   "-I",
+   "/home/user/ada_run_35b0f6b/tiresias/framework/predictor/fresh_h/src",
+   "-I",
+   "/home/user/ada_run_35b0f6b/tiresias/framework/predictor/fresh_f/gpu/drivers",
+   "/home/user/ada_run_35b0f6b/tiresias/framework/predictor/prospective_test/gpu/driver_prosp.cu",
+   "-o",
+   "/home/user/ada_fix_work/r3d/prosp/driver_prosp"
+  ],
+  "driver_prosp_cu_sha256": "46adc72dc4a8b65916dd5fc01b548552e0e46f601ac5b0d3e897d667f041ae60",
+  "driver_common_h_sha256": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+  "prosp_kernels_cuh_sha256": "463c5a1b68402e4ce3b305230672da92536d623b193c29f6894d247a688258ab",
+  "tc_kernels_cuh_sha256": "ae5de3f3b1d763f6424b7beae2b099dc33694a6a21f6d9d178a9b67408256651",
+  "attn_kernels_cuh_sha256": "17c4367f20d8d9fccd38059b9e8c483c63e3e85d0ecc0968764f46455f7c3994",
+  "binary": "/home/user/ada_fix_work/r3d/prosp/driver_prosp",
+  "binary_sha256": "098194fd6aa5d397843ff57f9d52b2c9626fb5e580908003586dcee7a22202ad"
+ },
+ "cells": [
+  {
+   "cell_id": "ada/prosp_tensor_matmul_new_tiles/small/c1",
+   "argv": [
+    "tcgemm2",
+    "0",
+    "512",
+    "512",
+    "2048"
+   ],
+   "graph_batch": 103,
+   "repeat_per_window": 2163,
+   "probe_per_launch_s": 4.864e-05,
+   "calibration_per_launch_s": 4.833677669902913e-05,
+   "window_per_launch_s": [
+    4.8318313453536755e-05,
+    4.8320176144244107e-05,
+    4.831784096162737e-05,
+    4.831925889967637e-05,
+    4.8321153028201575e-05
+   ],
+   "per_launch_runtime_s": 4.831925889967637e-05,
+   "per_launch_min_s": 4.831784096162737e-05,
+   "per_launch_max_s": 4.8321153028201575e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=0 M=512 N=512 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.82e-07 repeat=2163 graph_batch=103"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_new_tiles/small/c2",
+   "argv": [
+    "tcgemm2",
+    "1",
+    "512",
+    "512",
+    "2048"
+   ],
+   "graph_batch": 56,
+   "repeat_per_window": 1176,
+   "probe_per_launch_s": 8.9472e-05,
+   "calibration_per_launch_s": 8.917942857142857e-05,
+   "window_per_launch_s": [
+    8.914634183673469e-05,
+    8.914280612244898e-05,
+    8.914547193877551e-05,
+    8.914459608843538e-05,
+    8.914372704081633e-05
+   ],
+   "per_launch_runtime_s": 8.914459608843538e-05,
+   "per_launch_min_s": 8.914280612244898e-05,
+   "per_launch_max_s": 8.914634183673469e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=1 M=512 N=512 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.82e-07 repeat=1176 graph_batch=56"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_bias_relu/small/c1",
+   "argv": [
+    "tcrelu",
+    "0",
+    "512",
+    "512",
+    "2048"
+   ],
+   "graph_batch": 91,
+   "repeat_per_window": 1820,
+   "probe_per_launch_s": 5.5296e-05,
+   "calibration_per_launch_s": 5.50821978021978e-05,
+   "window_per_launch_s": [
+    5.50580032967033e-05,
+    5.50557521978022e-05,
+    5.505519065934066e-05,
+    5.5053501098901105e-05,
+    5.505336318681319e-05
+   ],
+   "per_launch_runtime_s": 5.505519065934066e-05,
+   "per_launch_min_s": 5.505336318681319e-05,
+   "per_launch_max_s": 5.50580032967033e-05,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=0 M=512 N=512 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.74e-07 repeat=1820 graph_batch=91"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_bias_relu/small/c2",
+   "argv": [
+    "tcrelu",
+    "1",
+    "512",
+    "512",
+    "2048"
+   ],
+   "graph_batch": 169,
+   "repeat_per_window": 3549,
+   "probe_per_launch_s": 2.966e-05,
+   "calibration_per_launch_s": 2.9296094674556215e-05,
+   "window_per_launch_s": [
+    2.981141307410538e-05,
+    3.058987151310228e-05,
+    2.9284806424344886e-05,
+    2.9292921668075512e-05,
+    2.928830402930403e-05
+   ],
+   "per_launch_runtime_s": 2.9292921668075512e-05,
+   "per_launch_min_s": 2.9284806424344886e-05,
+   "per_launch_max_s": 3.058987151310228e-05,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=1 M=512 N=512 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.74e-07 repeat=3549 graph_batch=169"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_new_tiles/medium/c1",
+   "argv": [
+    "tcgemm2",
+    "0",
+    "2048",
+    "2048",
+    "1024"
+   ],
+   "graph_batch": 57,
+   "repeat_per_window": 1197,
+   "probe_per_launch_s": 8.8064e-05,
+   "calibration_per_launch_s": 8.74520701754386e-05,
+   "window_per_launch_s": [
+    9.052690309106099e-05,
+    9.468278780284043e-05,
+    9.282127903091061e-05,
+    9.45433425229741e-05,
+    9.178872263993316e-05
+   ],
+   "per_launch_runtime_s": 9.282127903091061e-05,
+   "per_launch_min_s": 9.052690309106099e-05,
+   "per_launch_max_s": 9.468278780284043e-05,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=0 M=2048 N=2048 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.48e-07 repeat=1197 graph_batch=57"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_new_tiles/medium/c2",
+   "argv": [
+    "tcgemm2",
+    "1",
+    "2048",
+    "2048",
+    "1024"
+   ],
+   "graph_batch": 50,
+   "repeat_per_window": 1000,
+   "probe_per_launch_s": 0.000100608,
+   "calibration_per_launch_s": 0.00010041024000000001,
+   "window_per_launch_s": [
+    0.000102269951,
+    0.00010221158599999999,
+    0.000100943779,
+    0.00010071859,
+    0.00010227507
+   ],
+   "per_launch_runtime_s": 0.00010221158599999999,
+   "per_launch_min_s": 0.00010071859,
+   "per_launch_max_s": 0.00010227507,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=1 M=2048 N=2048 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.48e-07 repeat=1000 graph_batch=50"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_bias_relu/medium/c1",
+   "argv": [
+    "tcrelu",
+    "0",
+    "2048",
+    "2048",
+    "1024"
+   ],
+   "graph_batch": 66,
+   "repeat_per_window": 1386,
+   "probe_per_launch_s": 7.5884e-05,
+   "calibration_per_launch_s": 7.554327272727274e-05,
+   "window_per_launch_s": [
+    8.050073088023088e-05,
+    7.999094877344877e-05,
+    8.055318975468976e-05,
+    8.036922582972583e-05,
+    8.008246825396826e-05
+   ],
+   "per_launch_runtime_s": 8.036922582972583e-05,
+   "per_launch_min_s": 7.999094877344877e-05,
+   "per_launch_max_s": 8.055318975468976e-05,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=0 M=2048 N=2048 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.44e-07 repeat=1386 graph_batch=66"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_bias_relu/medium/c2",
+   "argv": [
+    "tcrelu",
+    "1",
+    "2048",
+    "2048",
+    "1024"
+   ],
+   "graph_batch": 56,
+   "repeat_per_window": 1120,
+   "probe_per_launch_s": 9.0368e-05,
+   "calibration_per_launch_s": 9.064228571428572e-05,
+   "window_per_launch_s": [
+    9.631359910714285e-05,
+    9.62102892857143e-05,
+    9.279268839285714e-05,
+    9.223117142857143e-05,
+    9.421439821428571e-05
+   ],
+   "per_launch_runtime_s": 9.421439821428571e-05,
+   "per_launch_min_s": 9.223117142857143e-05,
+   "per_launch_max_s": 9.631359910714285e-05,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=1 M=2048 N=2048 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.44e-07 repeat=1120 graph_batch=56"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_new_tiles/large/c1",
+   "argv": [
+    "tcgemm2",
+    "0",
+    "5632",
+    "5632",
+    "768"
+   ],
+   "graph_batch": 11,
+   "repeat_per_window": 220,
+   "probe_per_launch_s": 0.000464128,
+   "calibration_per_launch_s": 0.0004647767272727273,
+   "window_per_launch_s": [
+    0.0004967004954545454,
+    0.00050290035,
+    0.0004970632727272727,
+    0.0005013317818181819,
+    0.0004965655227272727
+   ],
+   "per_launch_runtime_s": 0.0004970632727272727,
+   "per_launch_min_s": 0.0004965655227272727,
+   "per_launch_max_s": 0.00050290035,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=0 M=5632 N=5632 K=768 checked=4160 bad=0 first_bad=-1 worst=1.95e-07 repeat=220 graph_batch=11"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_new_tiles/large/c2",
+   "argv": [
+    "tcgemm2",
+    "1",
+    "5632",
+    "5632",
+    "768"
+   ],
+   "graph_batch": 11,
+   "repeat_per_window": 220,
+   "probe_per_launch_s": 0.000466432,
+   "calibration_per_launch_s": 0.00046592000000000004,
+   "window_per_launch_s": [
+    0.0004905006409090909,
+    0.0004906868318181819,
+    0.0004909893727272727,
+    0.000490956809090909,
+    0.0004755732454545455
+   ],
+   "per_launch_runtime_s": 0.0004906868318181819,
+   "per_launch_min_s": 0.0004755732454545455,
+   "per_launch_max_s": 0.0004909893727272727,
+   "correct": true,
+   "check": "CHECK_OK tcgemm2 variant=1 M=5632 N=5632 K=768 checked=4160 bad=0 first_bad=-1 worst=1.95e-07 repeat=220 graph_batch=11"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_bias_relu/large/c1",
+   "argv": [
+    "tcrelu",
+    "0",
+    "5632",
+    "5632",
+    "768"
+   ],
+   "graph_batch": 12,
+   "repeat_per_window": 240,
+   "probe_per_launch_s": 0.00042198,
+   "calibration_per_launch_s": 0.00042112000000000003,
+   "window_per_launch_s": [
+    0.00044302507916666665,
+    0.0004315775875,
+    0.00044220587499999996,
+    0.0004454613375,
+    0.00044229974583333335
+   ],
+   "per_launch_runtime_s": 0.00044229974583333335,
+   "per_launch_min_s": 0.0004315775875,
+   "per_launch_max_s": 0.0004454613375,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=0 M=5632 N=5632 K=768 checked=4160 bad=0 first_bad=-1 worst=1.91e-07 repeat=240 graph_batch=12"
+  },
+  {
+   "cell_id": "ada/prosp_tensor_matmul_bias_relu/large/c2",
+   "argv": [
+    "tcrelu",
+    "1",
+    "5632",
+    "5632",
+    "768"
+   ],
+   "graph_batch": 10,
+   "repeat_per_window": 190,
+   "probe_per_launch_s": 0.000546944,
+   "calibration_per_launch_s": 0.0005473279999999999,
+   "window_per_launch_s": [
+    0.0005848118052631579,
+    0.0005902010842105263,
+    0.0005602573578947368,
+    0.0005919582157894737,
+    0.000587231647368421
+   ],
+   "per_launch_runtime_s": 0.000587231647368421,
+   "per_launch_min_s": 0.0005602573578947368,
+   "per_launch_max_s": 0.0005919582157894737,
+   "correct": true,
+   "check": "CHECK_OK tcrelu variant=1 M=5632 N=5632 K=768 checked=4160 bad=0 first_bad=-1 worst=1.91e-07 repeat=190 graph_batch=10"
+  },
+  {
+   "cell_id": "ada/prosp_fused_attention_new_blocks/small/c1",
+   "argv": [
+    "attn2",
+    "0",
+    "16",
+    "768"
+   ],
+   "graph_batch": 126,
+   "repeat_per_window": 2646,
+   "probe_per_launch_s": 3.9916e-05,
+   "calibration_per_launch_s": 3.956215873015873e-05,
+   "window_per_launch_s": [
+    4.137288019652305e-05,
+    4.138066817838246e-05,
+    4.1460004157218446e-05,
+    4.1618673091458804e-05,
+    4.1424374149659864e-05
+   ],
+   "per_launch_runtime_s": 4.1424374149659864e-05,
+   "per_launch_min_s": 4.137288019652305e-05,
+   "per_launch_max_s": 4.1618673091458804e-05,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=0 BH=16 S=768 D=64 checked=5760 bad=0 first_bad=-1 worst=0.014 repeat=2646 graph_batch=126"
+  },
+  {
+   "cell_id": "ada/prosp_fused_attention_new_blocks/small/c2",
+   "argv": [
+    "attn2",
+    "1",
+    "16",
+    "768"
+   ],
+   "graph_batch": 141,
+   "repeat_per_window": 2961,
+   "probe_per_launch_s": 3.5712e-05,
+   "calibration_per_launch_s": 3.542604255319149e-05,
+   "window_per_launch_s": [
+    3.539249848024316e-05,
+    3.54035623100304e-05,
+    3.537209422492401e-05,
+    3.53571472475515e-05,
+    3.537313002364066e-05
+   ],
+   "per_launch_runtime_s": 3.537313002364066e-05,
+   "per_launch_min_s": 3.53571472475515e-05,
+   "per_launch_max_s": 3.54035623100304e-05,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=1 BH=16 S=768 D=64 checked=5760 bad=0 first_bad=-1 worst=0.014 repeat=2961 graph_batch=141"
+  },
+  {
+   "cell_id": "ada/prosp_attention_no_max/small/c1",
+   "argv": [
+    "attnnm",
+    "0",
+    "16",
+    "768"
+   ],
+   "graph_batch": 183,
+   "repeat_per_window": 3843,
+   "probe_per_launch_s": 2.7376e-05,
+   "calibration_per_launch_s": 2.7054863387978145e-05,
+   "window_per_launch_s": [
+    2.8442313296903462e-05,
+    2.8505196721311477e-05,
+    2.8495869893312515e-05,
+    2.84772183190216e-05,
+    2.8454304449648715e-05
+   ],
+   "per_launch_runtime_s": 2.84772183190216e-05,
+   "per_launch_min_s": 2.8442313296903462e-05,
+   "per_launch_max_s": 2.8505196721311477e-05,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=0 BH=16 S=768 D=64 checked=5760 bad=0 first_bad=-1 worst=0.0111 repeat=3843 graph_batch=183"
+  },
+  {
+   "cell_id": "ada/prosp_attention_no_max/small/c2",
+   "argv": [
+    "attnnm",
+    "1",
+    "16",
+    "768"
+   ],
+   "graph_batch": 217,
+   "repeat_per_window": 4557,
+   "probe_per_launch_s": 2.314e-05,
+   "calibration_per_launch_s": 2.2792258064516132e-05,
+   "window_per_launch_s": [
+    2.377491112574062e-05,
+    2.3168195962255868e-05,
+    2.348678560456441e-05,
+    2.3271563528637262e-05,
+    2.3747047180162387e-05
+   ],
+   "per_launch_runtime_s": 2.348678560456441e-05,
+   "per_launch_min_s": 2.3168195962255868e-05,
+   "per_launch_max_s": 2.377491112574062e-05,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=1 BH=16 S=768 D=64 checked=5760 bad=0 first_bad=-1 worst=0.0111 repeat=4557 graph_batch=217"
+  },
+  {
+   "cell_id": "ada/prosp_fused_attention_new_blocks/medium/c1",
+   "argv": [
+    "attn2",
+    "0",
+    "36",
+    "1024"
+   ],
+   "graph_batch": 35,
+   "repeat_per_window": 700,
+   "probe_per_launch_s": 0.000145408,
+   "calibration_per_launch_s": 0.00014523245714285715,
+   "window_per_launch_s": [
+    0.00015278341000000002,
+    0.0001529724342857143,
+    0.00015315062428571428,
+    0.00015328379,
+    0.00015091688999999998
+   ],
+   "per_launch_runtime_s": 0.0001529724342857143,
+   "per_launch_min_s": 0.00015091688999999998,
+   "per_launch_max_s": 0.00015328379,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=0 BH=36 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00882 repeat=700 graph_batch=35"
+  },
+  {
+   "cell_id": "ada/prosp_fused_attention_new_blocks/medium/c2",
+   "argv": [
+    "attn2",
+    "1",
+    "36",
+    "1024"
+   ],
+   "graph_batch": 52,
+   "repeat_per_window": 1040,
+   "probe_per_launch_s": 9.7792e-05,
+   "calibration_per_launch_s": 9.755569230769232e-05,
+   "window_per_launch_s": [
+    9.932378653846154e-05,
+    0.00010140652307692308,
+    0.00010127754230769231,
+    0.00010097526442307693,
+    0.00010125784519230768
+   ],
+   "per_launch_runtime_s": 0.00010125784519230768,
+   "per_launch_min_s": 9.932378653846154e-05,
+   "per_launch_max_s": 0.00010140652307692308,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=1 BH=36 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00882 repeat=1040 graph_batch=52"
+  },
+  {
+   "cell_id": "ada/prosp_attention_no_max/medium/c1",
+   "argv": [
+    "attnnm",
+    "0",
+    "36",
+    "1024"
+   ],
+   "graph_batch": 52,
+   "repeat_per_window": 1040,
+   "probe_per_launch_s": 9.7528e-05,
+   "calibration_per_launch_s": 9.749661538461538e-05,
+   "window_per_launch_s": [
+    0.00010277212596153847,
+    0.00010046008942307693,
+    9.931322980769231e-05,
+    9.948159711538462e-05,
+    0.00010303590480769232
+   ],
+   "per_launch_runtime_s": 0.00010046008942307693,
+   "per_launch_min_s": 9.931322980769231e-05,
+   "per_launch_max_s": 0.00010303590480769232,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=0 BH=36 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.0101 repeat=1040 graph_batch=52"
+  },
+  {
+   "cell_id": "ada/prosp_attention_no_max/medium/c2",
+   "argv": [
+    "attnnm",
+    "1",
+    "36",
+    "1024"
+   ],
+   "graph_batch": 64,
+   "repeat_per_window": 1280,
+   "probe_per_launch_s": 7.858e-05,
+   "calibration_per_launch_s": 7.8464e-05,
+   "window_per_launch_s": [
+    8.29392015625e-05,
+    7.972617734375e-05,
+    8.1222396875e-05,
+    8.168159687499999e-05,
+    8.295992578124999e-05
+   ],
+   "per_launch_runtime_s": 8.168159687499999e-05,
+   "per_launch_min_s": 7.972617734375e-05,
+   "per_launch_max_s": 8.295992578124999e-05,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=1 BH=36 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.0101 repeat=1280 graph_batch=64"
+  },
+  {
+   "cell_id": "ada/prosp_fused_attention_new_blocks/large/c1",
+   "argv": [
+    "attn2",
+    "0",
+    "192",
+    "1024"
+   ],
+   "graph_batch": 7,
+   "repeat_per_window": 133,
+   "probe_per_launch_s": 0.000769024,
+   "calibration_per_launch_s": 0.0007679999999999999,
+   "window_per_launch_s": [
+    0.0008231102481203007,
+    0.0007897118571428571,
+    0.000820600067669173,
+    0.000823065045112782,
+    0.0008180758796992482
+   ],
+   "per_launch_runtime_s": 0.000820600067669173,
+   "per_launch_min_s": 0.0007897118571428571,
+   "per_launch_max_s": 0.0008231102481203007,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=0 BH=192 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00993 repeat=133 graph_batch=7"
+  },
+  {
+   "cell_id": "ada/prosp_fused_attention_new_blocks/large/c2",
+   "argv": [
+    "attn2",
+    "1",
+    "192",
+    "1024"
+   ],
+   "graph_batch": 12,
+   "repeat_per_window": 228,
+   "probe_per_launch_s": 0.000453632,
+   "calibration_per_launch_s": 0.00045380266666666664,
+   "window_per_launch_s": [
+    0.0004804491096491228,
+    0.00047902539035087717,
+    0.00048277024999999996,
+    0.00046610751754385966,
+    0.00048301810526315793
+   ],
+   "per_launch_runtime_s": 0.0004804491096491228,
+   "per_launch_min_s": 0.00046610751754385966,
+   "per_launch_max_s": 0.00048301810526315793,
+   "correct": true,
+   "check": "CHECK_OK attn2 variant=1 BH=192 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00993 repeat=228 graph_batch=12"
+  },
+  {
+   "cell_id": "ada/prosp_attention_no_max/large/c1",
+   "argv": [
+    "attnnm",
+    "0",
+    "192",
+    "1024"
+   ],
+   "graph_batch": 10,
+   "repeat_per_window": 200,
+   "probe_per_launch_s": 0.000519808,
+   "calibration_per_launch_s": 0.0005198848,
+   "window_per_launch_s": [
+    0.000561668815,
+    0.00053958145,
+    0.000557911035,
+    0.00055627777,
+    0.000556574705
+   ],
+   "per_launch_runtime_s": 0.000556574705,
+   "per_launch_min_s": 0.00053958145,
+   "per_launch_max_s": 0.000561668815,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=0 BH=192 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.0117 repeat=200 graph_batch=10"
+  },
+  {
+   "cell_id": "ada/prosp_attention_no_max/large/c2",
+   "argv": [
+    "attnnm",
+    "1",
+    "192",
+    "1024"
+   ],
+   "graph_batch": 12,
+   "repeat_per_window": 240,
+   "probe_per_launch_s": 0.000431616,
+   "calibration_per_launch_s": 0.0004322,
+   "window_per_launch_s": [
+    0.00046573175000000003,
+    0.0004618837375,
+    0.0004462976125,
+    0.000464439075,
+    0.0004622836125
+   ],
+   "per_launch_runtime_s": 0.0004622836125,
+   "per_launch_min_s": 0.0004462976125,
+   "per_launch_max_s": 0.00046573175000000003,
+   "correct": true,
+   "check": "CHECK_OK attnnm variant=1 BH=192 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.0117 repeat=240 graph_batch=12"
+  }
+ ],
+ "finished_utc": "2026-10-05T08:55:34Z",
+ "all_correct": true
+}

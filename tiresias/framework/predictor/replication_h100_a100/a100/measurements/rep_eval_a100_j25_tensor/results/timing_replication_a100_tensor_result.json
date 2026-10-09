@@ -1,0 +1,1237 @@
+{
+ "cells": [
+  {
+   "argv": [
+    "tcgemm",
+    "0",
+    "4480",
+    "4480",
+    "512"
+   ],
+   "calibration_per_launch_s": 0.00020422656000000002,
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/large/c1",
+   "check": "CHECK_OK tcgemm variant=0 M=4480 N=4480 K=512 checked=4160 bad=0 first_bad=-1 worst=1.57e-07 repeat=500 graph_batch=25",
+   "correct": true,
+   "graph_batch": 25,
+   "per_launch_max_s": 0.00020419378599999998,
+   "per_launch_min_s": 0.000204111878,
+   "per_launch_runtime_s": 0.000204175354,
+   "probe_per_launch_s": 0.000204928,
+   "repeat_per_window": 500,
+   "set": "fresh_g",
+   "window_per_launch_s": [
+    0.00020419174200000001,
+    0.0002041344,
+    0.000204111878,
+    0.00020419378599999998,
+    0.000204175354
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm",
+    "1",
+    "4480",
+    "4480",
+    "512"
+   ],
+   "calibration_per_launch_s": 0.0003035136,
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/large/c2",
+   "check": "CHECK_OK tcgemm variant=1 M=4480 N=4480 K=512 checked=4160 bad=0 first_bad=-1 worst=1.57e-07 repeat=340 graph_batch=20",
+   "correct": true,
+   "graph_batch": 20,
+   "per_launch_max_s": 0.00027231171470588233,
+   "per_launch_min_s": 0.0002498831117647059,
+   "per_launch_runtime_s": 0.0002499102205882353,
+   "probe_per_launch_s": 0.00025024,
+   "repeat_per_window": 340,
+   "set": "fresh_g",
+   "window_per_launch_s": [
+    0.00027231171470588233,
+    0.0002498891264705882,
+    0.0002498831117647059,
+    0.0002499102205882353,
+    0.00024992527647058825
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm",
+    "0",
+    "512",
+    "512",
+    "1024"
+   ],
+   "calibration_per_launch_s": 4.598619847328244e-05,
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/medium/c1",
+   "check": "CHECK_OK tcgemm variant=0 M=512 N=512 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.82e-07 repeat=2227 graph_batch=131",
+   "correct": true,
+   "graph_batch": 131,
+   "per_launch_max_s": 4.595953075886843e-05,
+   "per_launch_min_s": 3.7706375841939827e-05,
+   "per_launch_runtime_s": 3.771235069600359e-05,
+   "probe_per_launch_s": 3.8272e-05,
+   "repeat_per_window": 2227,
+   "set": "fresh_g",
+   "window_per_launch_s": [
+    4.595953075886843e-05,
+    3.771235069600359e-05,
+    3.7707753030983384e-05,
+    4.367656713066907e-05,
+    3.7706375841939827e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm",
+    "1",
+    "512",
+    "512",
+    "1024"
+   ],
+   "calibration_per_launch_s": 1.9902683127572017e-05,
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/medium/c2",
+   "check": "CHECK_OK tcgemm variant=1 M=512 N=512 K=1024 checked=4160 bad=0 first_bad=-1 worst=1.82e-07 repeat=5103 graph_batch=243",
+   "correct": true,
+   "graph_batch": 243,
+   "per_launch_max_s": 1.9883819909856947e-05,
+   "per_launch_min_s": 1.9881212424064275e-05,
+   "per_launch_runtime_s": 1.9882215559474818e-05,
+   "probe_per_launch_s": 2.0608e-05,
+   "repeat_per_window": 5103,
+   "set": "fresh_g",
+   "window_per_launch_s": [
+    1.9883819909856947e-05,
+    1.9881212424064275e-05,
+    1.9882215559474818e-05,
+    1.988321889084852e-05,
+    1.9881813443072705e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm",
+    "0",
+    "256",
+    "256",
+    "256"
+   ],
+   "calibration_per_launch_s": 1.4102029673590504e-05,
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/small/c1",
+   "check": "CHECK_OK tcgemm variant=0 M=256 N=256 K=256 checked=4160 bad=0 first_bad=-1 worst=9.41e-08 repeat=7414 graph_batch=337",
+   "correct": true,
+   "graph_batch": 337,
+   "per_launch_max_s": 1.3228715673050986e-05,
+   "per_launch_min_s": 1.155238818451578e-05,
+   "per_launch_runtime_s": 1.1555012274076072e-05,
+   "probe_per_launch_s": 1.4848e-05,
+   "repeat_per_window": 7414,
+   "set": "fresh_g",
+   "window_per_launch_s": [
+    1.3228715673050986e-05,
+    1.155238818451578e-05,
+    1.155238818451578e-05,
+    1.1557360669004585e-05,
+    1.1555012274076072e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm",
+    "1",
+    "256",
+    "256",
+    "256"
+   ],
+   "calibration_per_launch_s": 6.175913279132792e-06,
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/small/c2",
+   "check": "CHECK_OK tcgemm variant=1 M=256 N=256 K=256 checked=4160 bad=0 first_bad=-1 worst=9.41e-08 repeat=16236 graph_batch=738",
+   "correct": true,
+   "graph_batch": 738,
+   "per_launch_max_s": 6.296250431140675e-06,
+   "per_launch_min_s": 6.16184879280611e-06,
+   "per_launch_runtime_s": 6.1684077974870654e-06,
+   "probe_per_launch_s": 6.784e-06,
+   "repeat_per_window": 16236,
+   "set": "fresh_g",
+   "window_per_launch_s": [
+    6.296250431140675e-06,
+    6.16184879280611e-06,
+    6.1684077974870654e-06,
+    6.170615360926336e-06,
+    6.167461874846021e-06
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm",
+    "0",
+    "4352",
+    "4352",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.0003662262857142857,
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/xlarge/c1",
+   "check": "CHECK_OK tcgemm variant=0 M=4352 N=4352 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.85e-07 repeat=280 graph_batch=14",
+   "correct": true,
+   "graph_batch": 14,
+   "per_launch_max_s": 0.0004342381607142857,
+   "per_launch_min_s": 0.00036547290357142855,
+   "per_launch_runtime_s": 0.0003655972607142857,
+   "probe_per_launch_s": 0.000365952,
+   "repeat_per_window": 280,
+   "set": "fresh_g",
+   "window_per_launch_s": [
+    0.00036547290357142855,
+    0.0003655972607142857,
+    0.00036561189285714283,
+    0.00036553873214285713,
+    0.0004342381607142857
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm",
+    "1",
+    "4352",
+    "4352",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.00044740266666666665,
+   "cell_id": "a100/fresh_g_ml_tensor_matmul/xlarge/c2",
+   "check": "CHECK_OK tcgemm variant=1 M=4352 N=4352 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.85e-07 repeat=228 graph_batch=12",
+   "correct": true,
+   "graph_batch": 12,
+   "per_launch_max_s": 0.0004543191666666667,
+   "per_launch_min_s": 0.0004471601535087719,
+   "per_launch_runtime_s": 0.0004472769035087719,
+   "probe_per_launch_s": 0.000448,
+   "repeat_per_window": 228,
+   "set": "fresh_g",
+   "window_per_launch_s": [
+    0.0004543191666666667,
+    0.0004472769035087719,
+    0.0004472769035087719,
+    0.0004471601535087719,
+    0.00044720057456140353
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "0",
+    "80",
+    "2048"
+   ],
+   "calibration_per_launch_s": 0.001311488,
+   "cell_id": "a100/fresh_h_ml_fused_attention/large/c1",
+   "check": "CHECK_OK attn variant=0 BH=80 S=2048 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00677 repeat=80 graph_batch=4",
+   "correct": true,
+   "graph_batch": 4,
+   "per_launch_max_s": 0.0013101951625000001,
+   "per_launch_min_s": 0.001308569625,
+   "per_launch_runtime_s": 0.001310156825,
+   "probe_per_launch_s": 0.00131008,
+   "repeat_per_window": 80,
+   "set": "fresh_h",
+   "window_per_launch_s": [
+    0.001308569625,
+    0.001310156825,
+    0.0013100159625,
+    0.0013101951625000001,
+    0.0013101951625000001
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "1",
+    "80",
+    "2048"
+   ],
+   "calibration_per_launch_s": 0.0010078208,
+   "cell_id": "a100/fresh_h_ml_fused_attention/large/c2",
+   "check": "CHECK_OK attn variant=1 BH=80 S=2048 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00677 repeat=100 graph_batch=5",
+   "correct": true,
+   "graph_batch": 5,
+   "per_launch_max_s": 0.00100822014,
+   "per_launch_min_s": 0.0008843264000000001,
+   "per_launch_runtime_s": 0.0010079232,
+   "probe_per_launch_s": 0.001008256,
+   "repeat_per_window": 100,
+   "set": "fresh_h",
+   "window_per_launch_s": [
+    0.00100820992,
+    0.00100822014,
+    0.0008843264000000001,
+    0.0010079232,
+    0.00099688446
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "0",
+    "20",
+    "1024"
+   ],
+   "calibration_per_launch_s": 9.288921212121211e-05,
+   "cell_id": "a100/fresh_h_ml_fused_attention/medium/c1",
+   "check": "CHECK_OK attn variant=0 BH=20 S=1024 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00933 repeat=1122 graph_batch=66",
+   "correct": true,
+   "graph_batch": 66,
+   "per_launch_max_s": 9.179584848484849e-05,
+   "per_launch_min_s": 7.610272727272728e-05,
+   "per_launch_runtime_s": 8.902502495543672e-05,
+   "probe_per_launch_s": 7.6672e-05,
+   "repeat_per_window": 1122,
+   "set": "fresh_h",
+   "window_per_launch_s": [
+    9.070978787878787e-05,
+    8.220383600713013e-05,
+    8.902502495543672e-05,
+    9.179584848484849e-05,
+    7.610272727272728e-05
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "1",
+    "20",
+    "1024"
+   ],
+   "calibration_per_launch_s": 9.084561194029851e-05,
+   "cell_id": "a100/fresh_h_ml_fused_attention/medium/c2",
+   "check": "CHECK_OK attn variant=1 BH=20 S=1024 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00933 repeat=1139 graph_batch=67",
+   "correct": true,
+   "graph_batch": 67,
+   "per_launch_max_s": 9.081504741000878e-05,
+   "per_launch_min_s": 7.444003599648815e-05,
+   "per_launch_runtime_s": 7.445351975417033e-05,
+   "probe_per_launch_s": 7.5008e-05,
+   "repeat_per_window": 1139,
+   "set": "fresh_h",
+   "window_per_launch_s": [
+    7.444003599648815e-05,
+    7.445351975417033e-05,
+    7.445172431957857e-05,
+    9.081504741000878e-05,
+    7.446071378402107e-05
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "0",
+    "5",
+    "512"
+   ],
+   "calibration_per_launch_s": 1.8537931034482758e-05,
+   "cell_id": "a100/fresh_h_ml_fused_attention/small/c1",
+   "check": "CHECK_OK attn variant=0 BH=5 S=512 D=64 checked=3648 bad=0 first_bad=-1 worst=0.0135 repeat=5481 graph_batch=261",
+   "correct": true,
+   "graph_batch": 261,
+   "per_launch_max_s": 1.852130377668309e-05,
+   "per_launch_min_s": 1.8518500456121146e-05,
+   "per_launch_runtime_s": 1.8520181901112935e-05,
+   "probe_per_launch_s": 1.92e-05,
+   "repeat_per_window": 5481,
+   "set": "fresh_h",
+   "window_per_launch_s": [
+    1.8519061302681993e-05,
+    1.8520181901112935e-05,
+    1.852074293012224e-05,
+    1.852130377668309e-05,
+    1.8518500456121146e-05
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "1",
+    "5",
+    "512"
+   ],
+   "calibration_per_launch_s": 2.3468307692307695e-05,
+   "cell_id": "a100/fresh_h_ml_fused_attention/small/c2",
+   "check": "CHECK_OK attn variant=1 BH=5 S=512 D=64 checked=3648 bad=0 first_bad=-1 worst=0.0135 repeat=4368 graph_batch=208",
+   "correct": true,
+   "graph_batch": 208,
+   "per_launch_max_s": 2.3451897664835164e-05,
+   "per_launch_min_s": 2.3447443681318682e-05,
+   "per_launch_runtime_s": 2.3449083791208793e-05,
+   "probe_per_launch_s": 2.4064e-05,
+   "repeat_per_window": 4368,
+   "set": "fresh_h",
+   "window_per_launch_s": [
+    2.3449083791208793e-05,
+    2.344955357142857e-05,
+    2.3451897664835164e-05,
+    2.3448381639194137e-05,
+    2.3447443681318682e-05
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "0",
+    "160",
+    "2048"
+   ],
+   "calibration_per_launch_s": 0.002598912,
+   "cell_id": "a100/fresh_h_ml_fused_attention/xlarge/c1",
+   "check": "CHECK_OK attn variant=0 BH=160 S=2048 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00776 repeat=40 graph_batch=2",
+   "correct": true,
+   "graph_batch": 2,
+   "per_launch_max_s": 0.0025971712,
+   "per_launch_min_s": 0.0021338112,
+   "per_launch_runtime_s": 0.002133964725,
+   "probe_per_launch_s": 0.002596992,
+   "repeat_per_window": 40,
+   "set": "fresh_h",
+   "window_per_launch_s": [
+    0.002134220875,
+    0.0025971712,
+    0.002133964725,
+    0.0021338112,
+    0.002133939175
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "1",
+    "160",
+    "2048"
+   ],
+   "calibration_per_launch_s": 0.001993984,
+   "cell_id": "a100/fresh_h_ml_fused_attention/xlarge/c2",
+   "check": "CHECK_OK attn variant=1 BH=160 S=2048 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00776 repeat=52 graph_batch=4",
+   "correct": true,
+   "graph_batch": 4,
+   "per_launch_max_s": 0.001656457903846154,
+   "per_launch_min_s": 0.0016398375576923076,
+   "per_launch_runtime_s": 0.0016398966923076924,
+   "probe_per_launch_s": 0.001640192,
+   "repeat_per_window": 52,
+   "set": "fresh_h",
+   "window_per_launch_s": [
+    0.001656457903846154,
+    0.0016398966923076924,
+    0.0016398375576923076,
+    0.0016400541153846154,
+    0.0016398966923076924
+   ]
+  },
+  {
+   "argv": [
+    "attnnm",
+    "0",
+    "120",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.0004930094545454545,
+   "cell_id": "a100/prosp_attention_no_max/large/c1",
+   "check": "CHECK_OK attnnm variant=0 BH=120 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00965 repeat=209 graph_batch=11",
+   "correct": true,
+   "graph_batch": 11,
+   "per_launch_max_s": 0.0004924215311004784,
+   "per_launch_min_s": 0.0004923235167464114,
+   "per_launch_runtime_s": 0.0004924019282296651,
+   "probe_per_launch_s": 0.000492928,
+   "repeat_per_window": 209,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.0004924166028708134,
+    0.0004923382248803828,
+    0.0004924215311004784,
+    0.0004923235167464114,
+    0.0004924019282296651
+   ]
+  },
+  {
+   "argv": [
+    "attnnm",
+    "1",
+    "120",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.0003761091764705882,
+   "cell_id": "a100/prosp_attention_no_max/large/c2",
+   "check": "CHECK_OK attnnm variant=1 BH=120 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00965 repeat=272 graph_batch=17",
+   "correct": true,
+   "graph_batch": 17,
+   "per_launch_max_s": 0.00037596988602941176,
+   "per_launch_min_s": 0.00031988704779411766,
+   "per_launch_runtime_s": 0.00037593224632352944,
+   "probe_per_launch_s": 0.000310656,
+   "repeat_per_window": 272,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.00037593224632352944,
+    0.00037014963970588235,
+    0.00031988704779411766,
+    0.00037596234191176466,
+    0.00037596988602941176
+   ]
+  },
+  {
+   "argv": [
+    "attnnm",
+    "0",
+    "23",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.00011508363636363637,
+   "cell_id": "a100/prosp_attention_no_max/medium/c1",
+   "check": "CHECK_OK attnnm variant=0 BH=23 S=1024 D=64 checked=5760 bad=0 first_bad=-1 worst=0.00928 repeat=880 graph_batch=44",
+   "correct": true,
+   "graph_batch": 44,
+   "per_launch_max_s": 0.0001150138159090909,
+   "per_launch_min_s": 9.432086931818182e-05,
+   "per_launch_runtime_s": 9.432086931818182e-05,
+   "probe_per_launch_s": 0.000115712,
+   "repeat_per_window": 880,
+   "set": "prospective",
+   "window_per_launch_s": [
+    9.432086931818182e-05,
+    9.432086931818182e-05,
+    9.432086931818182e-05,
+    0.00011500683749999999,
+    0.0001150138159090909
+   ]
+  },
+  {
+   "argv": [
+    "attnnm",
+    "1",
+    "23",
+    "1024"
+   ],
+   "calibration_per_launch_s": 8.652800000000001e-05,
+   "cell_id": "a100/prosp_attention_no_max/medium/c2",
+   "check": "CHECK_OK attnnm variant=1 BH=23 S=1024 D=64 checked=5760 bad=0 first_bad=-1 worst=0.00928 repeat=1160 graph_batch=58",
+   "correct": true,
+   "graph_batch": 58,
+   "per_launch_max_s": 8.645296465517241e-05,
+   "per_launch_min_s": 7.090405431034483e-05,
+   "per_launch_runtime_s": 8.127294051724138e-05,
+   "probe_per_launch_s": 8.704e-05,
+   "repeat_per_window": 1160,
+   "set": "prospective",
+   "window_per_launch_s": [
+    7.090670517241379e-05,
+    7.090405431034483e-05,
+    8.645296465517241e-05,
+    8.127294051724138e-05,
+    8.6365575e-05
+   ]
+  },
+  {
+   "argv": [
+    "attnnm",
+    "0",
+    "10",
+    "768"
+   ],
+   "calibration_per_launch_s": 3.84833488372093e-05,
+   "cell_id": "a100/prosp_attention_no_max/small/c1",
+   "check": "CHECK_OK attnnm variant=0 BH=10 S=768 D=64 checked=7168 bad=0 first_bad=-1 worst=0.0134 repeat=2709 graph_batch=129",
+   "correct": true,
+   "graph_batch": 129,
+   "per_launch_max_s": 3.8428916574381686e-05,
+   "per_launch_min_s": 3.8417578073089697e-05,
+   "per_launch_runtime_s": 3.842362495385751e-05,
+   "probe_per_launch_s": 3.904e-05,
+   "repeat_per_window": 2709,
+   "set": "prospective",
+   "window_per_launch_s": [
+    3.842362495385751e-05,
+    3.8428916574381686e-05,
+    3.8417578073089697e-05,
+    3.842287006275378e-05,
+    3.84251373200443e-05
+   ]
+  },
+  {
+   "argv": [
+    "attnnm",
+    "1",
+    "10",
+    "768"
+   ],
+   "calibration_per_launch_s": 3.791163076923077e-05,
+   "cell_id": "a100/prosp_attention_no_max/small/c2",
+   "check": "CHECK_OK attnnm variant=1 BH=10 S=768 D=64 checked=7168 bad=0 first_bad=-1 worst=0.0134 repeat=2730 graph_batch=130",
+   "correct": true,
+   "graph_batch": 130,
+   "per_launch_max_s": 3.78940010989011e-05,
+   "per_launch_min_s": 3.10643347985348e-05,
+   "per_launch_runtime_s": 3.106583553113553e-05,
+   "probe_per_launch_s": 3.8656e-05,
+   "repeat_per_window": 2730,
+   "set": "prospective",
+   "window_per_launch_s": [
+    3.78940010989011e-05,
+    3.106508351648352e-05,
+    3.477511575091575e-05,
+    3.106583553113553e-05,
+    3.10643347985348e-05
+   ]
+  },
+  {
+   "argv": [
+    "attn2",
+    "0",
+    "120",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.000828928,
+   "cell_id": "a100/prosp_fused_attention_new_blocks/large/c1",
+   "check": "CHECK_OK attn2 variant=0 BH=120 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00959 repeat=128 graph_batch=8",
+   "correct": true,
+   "graph_batch": 8,
+   "per_launch_max_s": 0.00082857603125,
+   "per_launch_min_s": 0.0008283600234375,
+   "per_launch_runtime_s": 0.00082852,
+   "probe_per_launch_s": 0.000681856,
+   "repeat_per_window": 128,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.00082857603125,
+    0.00082852,
+    0.00082852,
+    0.000828527984375,
+    0.0008283600234375
+   ]
+  },
+  {
+   "argv": [
+    "attn2",
+    "1",
+    "120",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.0004291413333333333,
+   "cell_id": "a100/prosp_fused_attention_new_blocks/large/c2",
+   "check": "CHECK_OK attn2 variant=1 BH=120 S=1024 D=64 checked=4352 bad=0 first_bad=-1 worst=0.00959 repeat=240 graph_batch=12",
+   "correct": true,
+   "graph_batch": 12,
+   "per_launch_max_s": 0.000428586675,
+   "per_launch_min_s": 0.0003549909291666667,
+   "per_launch_runtime_s": 0.0004212992041666667,
+   "probe_per_launch_s": 0.000428928,
+   "repeat_per_window": 240,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.000428586675,
+    0.0003549909291666667,
+    0.0004212992041666667,
+    0.00036990292916666665,
+    0.00042853972083333337
+   ]
+  },
+  {
+   "argv": [
+    "attn2",
+    "0",
+    "23",
+    "1024"
+   ],
+   "calibration_per_launch_s": 0.00017294222222222222,
+   "cell_id": "a100/prosp_fused_attention_new_blocks/medium/c1",
+   "check": "CHECK_OK attn2 variant=0 BH=23 S=1024 D=64 checked=5760 bad=0 first_bad=-1 worst=0.00933 repeat=612 graph_batch=36",
+   "correct": true,
+   "graph_batch": 36,
+   "per_launch_max_s": 0.00017292548856209151,
+   "per_launch_min_s": 0.00014182733986928104,
+   "per_launch_runtime_s": 0.00014190599019607843,
+   "probe_per_launch_s": 0.000142464,
+   "repeat_per_window": 612,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.00014182733986928104,
+    0.00014190599019607843,
+    0.00017292548856209151,
+    0.00014184072875816992,
+    0.00014194280392156863
+   ]
+  },
+  {
+   "argv": [
+    "attn2",
+    "1",
+    "23",
+    "1024"
+   ],
+   "calibration_per_launch_s": 8.413866666666667e-05,
+   "cell_id": "a100/prosp_fused_attention_new_blocks/medium/c2",
+   "check": "CHECK_OK attn2 variant=1 BH=23 S=1024 D=64 checked=5760 bad=0 first_bad=-1 worst=0.00933 repeat=1200 graph_batch=60",
+   "correct": true,
+   "graph_batch": 60,
+   "per_launch_max_s": 8.40550425e-05,
+   "per_launch_min_s": 6.891690583333333e-05,
+   "per_launch_runtime_s": 8.404223749999999e-05,
+   "probe_per_launch_s": 8.4736e-05,
+   "repeat_per_window": 1200,
+   "set": "prospective",
+   "window_per_launch_s": [
+    8.404223749999999e-05,
+    6.891690583333333e-05,
+    8.404906583333333e-05,
+    6.891690583333333e-05,
+    8.40550425e-05
+   ]
+  },
+  {
+   "argv": [
+    "attn2",
+    "0",
+    "10",
+    "768"
+   ],
+   "calibration_per_launch_s": 5.6319999999999996e-05,
+   "cell_id": "a100/prosp_fused_attention_new_blocks/small/c1",
+   "check": "CHECK_OK attn2 variant=0 BH=10 S=768 D=64 checked=7168 bad=0 first_bad=-1 worst=0.0122 repeat=1780 graph_batch=89",
+   "correct": true,
+   "graph_batch": 89,
+   "per_launch_max_s": 6.863216011235956e-05,
+   "per_launch_min_s": 5.6284332022471906e-05,
+   "per_launch_runtime_s": 6.861087471910113e-05,
+   "probe_per_launch_s": 5.6448e-05,
+   "repeat_per_window": 1780,
+   "set": "prospective",
+   "window_per_launch_s": [
+    6.863216011235956e-05,
+    6.607733764044944e-05,
+    6.861087471910113e-05,
+    6.861663146067415e-05,
+    5.6284332022471906e-05
+   ]
+  },
+  {
+   "argv": [
+    "attn2",
+    "1",
+    "10",
+    "768"
+   ],
+   "calibration_per_launch_s": 5.137946391752578e-05,
+   "cell_id": "a100/prosp_fused_attention_new_blocks/small/c2",
+   "check": "CHECK_OK attn2 variant=1 BH=10 S=768 D=64 checked=7168 bad=0 first_bad=-1 worst=0.0122 repeat=2037 graph_batch=97",
+   "correct": true,
+   "graph_batch": 97,
+   "per_launch_max_s": 6.252834511536574e-05,
+   "per_launch_min_s": 5.133522582228768e-05,
+   "per_launch_runtime_s": 5.134427442317133e-05,
+   "probe_per_launch_s": 5.1968e-05,
+   "repeat_per_window": 2037,
+   "set": "prospective",
+   "window_per_launch_s": [
+    6.136409278350515e-05,
+    5.133522582228768e-05,
+    5.133723711340206e-05,
+    6.252834511536574e-05,
+    5.134427442317133e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcrelu",
+    "0",
+    "4352",
+    "4352",
+    "768"
+   ],
+   "calibration_per_launch_s": 0.0002755637894736842,
+   "cell_id": "a100/prosp_tensor_matmul_bias_relu/large/c1",
+   "check": "CHECK_OK tcrelu variant=0 M=4352 N=4352 K=768 checked=4160 bad=0 first_bad=-1 worst=1.46e-07 repeat=380 graph_batch=19",
+   "correct": true,
+   "graph_batch": 19,
+   "per_launch_max_s": 0.00032957171315789474,
+   "per_launch_min_s": 0.0002751299394736842,
+   "per_launch_runtime_s": 0.00029493893947368425,
+   "probe_per_launch_s": 0.0002752,
+   "repeat_per_window": 380,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.00029493893947368425,
+    0.00029490121578947367,
+    0.00032957171315789474,
+    0.0002977280052631579,
+    0.0002751299394736842
+   ]
+  },
+  {
+   "argv": [
+    "tcrelu",
+    "1",
+    "4352",
+    "4352",
+    "768"
+   ],
+   "calibration_per_launch_s": 0.0003439274666666667,
+   "cell_id": "a100/prosp_tensor_matmul_bias_relu/large/c2",
+   "check": "CHECK_OK tcrelu variant=1 M=4352 N=4352 K=768 checked=4160 bad=0 first_bad=-1 worst=1.46e-07 repeat=300 graph_batch=15",
+   "correct": true,
+   "graph_batch": 15,
+   "per_launch_max_s": 0.00034398890333333336,
+   "per_launch_min_s": 0.00034364756333333336,
+   "per_launch_runtime_s": 0.00034372607,
+   "probe_per_launch_s": 0.000344448,
+   "repeat_per_window": 300,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.00034372607,
+    0.00034364756333333336,
+    0.00034367146666666666,
+    0.00034398890333333336,
+    0.0003438148233333333
+   ]
+  },
+  {
+   "argv": [
+    "tcrelu",
+    "0",
+    "1536",
+    "1536",
+    "1024"
+   ],
+   "calibration_per_launch_s": 8.021333333333333e-05,
+   "cell_id": "a100/prosp_tensor_matmul_bias_relu/medium/c1",
+   "check": "CHECK_OK tcrelu variant=0 M=1536 N=1536 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.44e-07 repeat=1260 graph_batch=63",
+   "correct": true,
+   "graph_batch": 63,
+   "per_launch_max_s": 8.015237857142857e-05,
+   "per_launch_min_s": 6.57034134920635e-05,
+   "per_launch_runtime_s": 6.571072777777777e-05,
+   "probe_per_launch_s": 8.064e-05,
+   "repeat_per_window": 1260,
+   "set": "prospective",
+   "window_per_launch_s": [
+    8.015237857142857e-05,
+    6.57034134920635e-05,
+    8.01328746031746e-05,
+    6.571072777777777e-05,
+    6.57034134920635e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcrelu",
+    "1",
+    "1536",
+    "1536",
+    "1024"
+   ],
+   "calibration_per_launch_s": 8.127587096774194e-05,
+   "cell_id": "a100/prosp_tensor_matmul_bias_relu/medium/c2",
+   "check": "CHECK_OK tcrelu variant=1 M=1536 N=1536 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.44e-07 repeat=1240 graph_batch=62",
+   "correct": true,
+   "graph_batch": 62,
+   "per_launch_max_s": 8.113795887096774e-05,
+   "per_launch_min_s": 6.648980403225807e-05,
+   "per_launch_runtime_s": 6.65038443548387e-05,
+   "probe_per_launch_s": 8.1792e-05,
+   "repeat_per_window": 1240,
+   "set": "prospective",
+   "window_per_launch_s": [
+    6.65038443548387e-05,
+    6.64964120967742e-05,
+    8.113795887096774e-05,
+    6.65038443548387e-05,
+    6.648980403225807e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcrelu",
+    "0",
+    "512",
+    "512",
+    "2048"
+   ],
+   "calibration_per_launch_s": 7.260011594202898e-05,
+   "cell_id": "a100/prosp_tensor_matmul_bias_relu/small/c1",
+   "check": "CHECK_OK tcrelu variant=0 M=512 N=512 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.74e-07 repeat=1380 graph_batch=69",
+   "correct": true,
+   "graph_batch": 69,
+   "per_launch_max_s": 7.255707898550725e-05,
+   "per_launch_min_s": 7.253110579710145e-05,
+   "per_launch_runtime_s": 7.255188188405797e-05,
+   "probe_per_launch_s": 7.3216e-05,
+   "repeat_per_window": 1380,
+   "set": "prospective",
+   "window_per_launch_s": [
+    7.253110579710145e-05,
+    7.25563384057971e-05,
+    7.255707898550725e-05,
+    7.254224057971015e-05,
+    7.255188188405797e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcrelu",
+    "1",
+    "512",
+    "512",
+    "2048"
+   ],
+   "calibration_per_launch_s": 3.820551937984496e-05,
+   "cell_id": "a100/prosp_tensor_matmul_bias_relu/small/c2",
+   "check": "CHECK_OK tcrelu variant=1 M=512 N=512 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.74e-07 repeat=2709 graph_batch=129",
+   "correct": true,
+   "graph_batch": 129,
+   "per_launch_max_s": 3.817527943890734e-05,
+   "per_launch_min_s": 3.817074234034699e-05,
+   "per_launch_runtime_s": 3.817414433370247e-05,
+   "probe_per_launch_s": 3.8912e-05,
+   "repeat_per_window": 2709,
+   "set": "prospective",
+   "window_per_launch_s": [
+    3.817074234034699e-05,
+    3.817527943890734e-05,
+    3.817414433370247e-05,
+    3.817414433370247e-05,
+    3.8174524547803614e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm2",
+    "0",
+    "4352",
+    "4352",
+    "768"
+   ],
+   "calibration_per_launch_s": 0.0003427669333333333,
+   "cell_id": "a100/prosp_tensor_matmul_new_tiles/large/c1",
+   "check": "CHECK_OK tcgemm2 variant=0 M=4352 N=4352 K=768 checked=4160 bad=0 first_bad=-1 worst=1.51e-07 repeat=300 graph_batch=15",
+   "correct": true,
+   "graph_batch": 15,
+   "per_launch_max_s": 0.00034256897,
+   "per_launch_min_s": 0.00028295850000000005,
+   "per_launch_runtime_s": 0.00028306432,
+   "probe_per_launch_s": 0.000342528,
+   "repeat_per_window": 300,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.00034256897,
+    0.00028306432,
+    0.00028295850000000005,
+    0.00028299263,
+    0.0003264273066666667
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm2",
+    "1",
+    "4352",
+    "4352",
+    "768"
+   ],
+   "calibration_per_launch_s": 0.000317632,
+   "cell_id": "a100/prosp_tensor_matmul_new_tiles/large/c2",
+   "check": "CHECK_OK tcgemm2 variant=1 M=4352 N=4352 K=768 checked=4160 bad=0 first_bad=-1 worst=1.51e-07 repeat=320 graph_batch=16",
+   "correct": true,
+   "graph_batch": 16,
+   "per_launch_max_s": 0.000374051190625,
+   "per_launch_min_s": 0.00031744959375000004,
+   "per_launch_runtime_s": 0.00031747200625000004,
+   "probe_per_launch_s": 0.000317952,
+   "repeat_per_window": 320,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.000374051190625,
+    0.00031747200625000004,
+    0.000317468809375,
+    0.00031744959375000004,
+    0.00031758079375
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm2",
+    "0",
+    "1536",
+    "1536",
+    "1024"
+   ],
+   "calibration_per_launch_s": 5.496967032967033e-05,
+   "cell_id": "a100/prosp_tensor_matmul_new_tiles/medium/c1",
+   "check": "CHECK_OK tcgemm2 variant=0 M=1536 N=1536 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.48e-07 repeat=1820 graph_batch=91",
+   "correct": true,
+   "graph_batch": 91,
+   "per_launch_max_s": 6.547467142857142e-05,
+   "per_launch_min_s": 5.492972472527472e-05,
+   "per_launch_runtime_s": 5.4942099450549457e-05,
+   "probe_per_launch_s": 5.5424e-05,
+   "repeat_per_window": 1820,
+   "set": "prospective",
+   "window_per_launch_s": [
+    5.93520532967033e-05,
+    6.547467142857142e-05,
+    5.4942099450549457e-05,
+    5.493928681318681e-05,
+    5.492972472527472e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm2",
+    "1",
+    "1536",
+    "1536",
+    "1024"
+   ],
+   "calibration_per_launch_s": 7.58016e-05,
+   "cell_id": "a100/prosp_tensor_matmul_new_tiles/medium/c2",
+   "check": "CHECK_OK tcgemm2 variant=1 M=1536 N=1536 K=1024 checked=4160 bad=0 first_bad=-1 worst=2.48e-07 repeat=1360 graph_batch=80",
+   "correct": true,
+   "graph_batch": 80,
+   "per_launch_max_s": 7.574437647058824e-05,
+   "per_launch_min_s": 6.208979117647059e-05,
+   "per_launch_runtime_s": 6.20920463235294e-05,
+   "probe_per_launch_s": 6.272e-05,
+   "repeat_per_window": 1360,
+   "set": "prospective",
+   "window_per_launch_s": [
+    6.209054264705882e-05,
+    6.208979117647059e-05,
+    7.574437647058824e-05,
+    6.20920463235294e-05,
+    6.209656176470588e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm2",
+    "0",
+    "512",
+    "512",
+    "2048"
+   ],
+   "calibration_per_launch_s": 6.152849382716049e-05,
+   "cell_id": "a100/prosp_tensor_matmul_new_tiles/small/c1",
+   "check": "CHECK_OK tcgemm2 variant=0 M=512 N=512 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.82e-07 repeat=1701 graph_batch=81",
+   "correct": true,
+   "graph_batch": 81,
+   "per_launch_max_s": 5.038730217519106e-05,
+   "per_launch_min_s": 5.036984597295708e-05,
+   "per_launch_runtime_s": 5.038549500293944e-05,
+   "probe_per_launch_s": 6.2208e-05,
+   "repeat_per_window": 1701,
+   "set": "prospective",
+   "window_per_launch_s": [
+    5.038730217519106e-05,
+    5.036984597295708e-05,
+    5.038549500293944e-05,
+    5.0376466196355087e-05,
+    5.0386701352145795e-05
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm2",
+    "1",
+    "512",
+    "512",
+    "2048"
+   ],
+   "calibration_per_launch_s": 0.00011466472727272727,
+   "cell_id": "a100/prosp_tensor_matmul_new_tiles/small/c2",
+   "check": "CHECK_OK tcgemm2 variant=1 M=512 N=512 K=2048 checked=4160 bad=0 first_bad=-1 worst=2.82e-07 repeat=880 graph_batch=44",
+   "correct": true,
+   "graph_batch": 44,
+   "per_launch_max_s": 0.0001398062534090909,
+   "per_launch_min_s": 0.00011460188977272728,
+   "per_launch_runtime_s": 0.00011461701818181817,
+   "probe_per_launch_s": 0.0001152,
+   "repeat_per_window": 880,
+   "set": "prospective",
+   "window_per_launch_s": [
+    0.0001398062534090909,
+    0.00011461120113636363,
+    0.00011460188977272728,
+    0.0001146205125,
+    0.00011461701818181817
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "0",
+    "80",
+    "1536"
+   ],
+   "calibration_per_launch_s": 0.0007476662857142857,
+   "cell_id": "a100/validation_fused_attention/v3/c1",
+   "check": "CHECK_OK attn variant=0 BH=80 S=1536 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00837 repeat=140 graph_batch=7",
+   "correct": true,
+   "graph_batch": 7,
+   "per_launch_max_s": 0.0007493705214285714,
+   "per_launch_min_s": 0.0007468982714285714,
+   "per_launch_runtime_s": 0.0007470665000000001,
+   "probe_per_launch_s": 0.000747264,
+   "repeat_per_window": 140,
+   "set": "validation",
+   "window_per_launch_s": [
+    0.0007468982714285714,
+    0.0007470665000000001,
+    0.0007493705214285714,
+    0.0007470738571428571,
+    0.0007469787571428571
+   ]
+  },
+  {
+   "argv": [
+    "attn",
+    "1",
+    "80",
+    "1536"
+   ],
+   "calibration_per_launch_s": 0.0005794702222222223,
+   "cell_id": "a100/validation_fused_attention/v3/c2",
+   "check": "CHECK_OK attn variant=1 BH=80 S=1536 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00837 repeat=180 graph_batch=9",
+   "correct": true,
+   "graph_batch": 9,
+   "per_launch_max_s": 0.0005786908444444445,
+   "per_launch_min_s": 0.0005671480833333334,
+   "per_launch_runtime_s": 0.0005785656833333333,
+   "probe_per_launch_s": 0.0005792,
+   "repeat_per_window": 180,
+   "set": "validation",
+   "window_per_launch_s": [
+    0.0005785656833333333,
+    0.0005671480833333334,
+    0.0005786908444444445,
+    0.0005679047055555555,
+    0.0005786225611111111
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm",
+    "0",
+    "3712",
+    "4096",
+    "512"
+   ],
+   "calibration_per_launch_s": 0.000188512,
+   "cell_id": "a100/validation_tensor_matmul/v2/c1",
+   "check": "CHECK_OK tcgemm variant=0 M=3712 N=4096 K=512 checked=4160 bad=0 first_bad=-1 worst=1.39e-07 repeat=544 graph_batch=32",
+   "correct": true,
+   "graph_batch": 32,
+   "per_launch_max_s": 0.0001880545900735294,
+   "per_launch_min_s": 0.00015755670220588233,
+   "per_launch_runtime_s": 0.00018798306433823528,
+   "probe_per_launch_s": 0.000158592,
+   "repeat_per_window": 544,
+   "set": "validation",
+   "window_per_launch_s": [
+    0.00015755670220588233,
+    0.0001880545900735294,
+    0.00018798306433823528,
+    0.00018802823713235292,
+    0.0001839604650735294
+   ]
+  },
+  {
+   "argv": [
+    "tcgemm",
+    "1",
+    "3712",
+    "4096",
+    "512"
+   ],
+   "calibration_per_launch_s": 0.00023035345454545456,
+   "cell_id": "a100/validation_tensor_matmul/v2/c2",
+   "check": "CHECK_OK tcgemm variant=1 M=3712 N=4096 K=512 checked=4160 bad=0 first_bad=-1 worst=1.39e-07 repeat=440 graph_batch=22",
+   "correct": true,
+   "graph_batch": 22,
+   "per_launch_max_s": 0.00022972509318181818,
+   "per_launch_min_s": 0.00018960524545454547,
+   "per_launch_runtime_s": 0.00021399040227272726,
+   "probe_per_launch_s": 0.000230656,
+   "repeat_per_window": 440,
+   "set": "validation",
+   "window_per_launch_s": [
+    0.00018962152727272725,
+    0.00021399040227272726,
+    0.00018960524545454547,
+    0.00022284102045454546,
+    0.00022972509318181818
+   ]
+  }
+ ],
+ "engines": {
+  "fresh": {
+   "file": "timing_fresh_engine.json",
+   "rc": 0,
+   "wall_s": 282.2
+  },
+  "prosp": {
+   "file": "timing_prosp_engine.json",
+   "rc": 0,
+   "wall_s": 325.6
+  }
+ },
+ "gate_refused_cells": [],
+ "meta": {
+  "board": "a100",
+  "board_matches_calibration": true,
+  "booking_ref": "the booking log 2026-10-06 10:45 IST booking: A100 single-allocation replication, resubmission after job j24 failed in the in-job freeze (fixed, rehearsed on real outputs); one A100, shareduser quota, no clock/persistence/power-limit/sudo changes (step 5, measurement tensor)",
+  "cells_sha256": {
+   "cells_ml.json": "5444b1cb9842f84d3c1e87539071b38b259acc294cccc25a9e454be6c5060b25",
+   "cells_prospective.json": "dcec7b1c9abd864fe188acd3a0d6f3a957e73e287660d35ec634a0583860d63f",
+   "cells_samples.json": "34093dca55da46f8c4a6c45238b1d710117e8eaab4ac7af7179ecefe682e220e",
+   "cells_tensor.json": "72d1acdb71890342a4b84b77f626290ddf1295821726b2bbde109cc4558413ae",
+   "cells_validation.json": "e55c7fc5517f6ed7c1c957e0ce5ce2af0a360b2185767d83ebd655794067d3e9"
+  },
+  "enforced_power_limit_w": 400.0,
+  "engines": "all",
+  "freeze": {
+   "ancestry": "in-job freeze: predictions and record written inside the measurement allocation at 2026-10-06T19:32:10Z before any measurement, from code commit 225e5433eead (no git ancestry applies)",
+   "board": "a100",
+   "calibration": "9851d731f34947b1eeb17e95be28bb46dcca13863749557ca7394140b74d9658",
+   "calibration_uuid": "GPU-93eae1bb-ce0c-8ace-8f12-a6b2a4376933",
+   "created_utc": "2026-10-06T19:32:10Z",
+   "freeze_commit": "225e5433eead3a97e501ea7216967f40fbc41570",
+   "hipc_commit": "225e5433eead3a97e501ea7216967f40fbc41570",
+   "mode": "in_job",
+   "predictions_sha256": "a0f1307e7b3f1b6f34d6f2641dd2473d1724c43e9cd5d5c7ec20b46109f51d5c",
+   "profile": "tensor"
+  },
+  "gpu": {
+   "index": 0,
+   "name": "NVIDIA A100-SXM4-80GB",
+   "uuid": "GPU-93eae1bb-ce0c-8ace-8f12-a6b2a4376933",
+   "visible_gpus": 1
+  },
+  "hipc_commit": "225e5433eead3a97e501ea7216967f40fbc41570",
+  "measure": "both",
+  "profile": "tensor",
+  "samples": null,
+  "sass_manifest_sha256": "a6a460b2dc151ec69409f5fedfa5b06e068b4d15f056f966431f0ab401f1e6ac",
+  "schema": "cluster_eval_measure/1",
+  "timing_reused": null,
+  "window_validation": {
+   "file": "power_sensor_results_injob.json",
+   "min_load_s_at_padding_0": 20.0,
+   "padding_s": 0.0,
+   "power_reading_update_period_ms": [
+    100.22987800000038,
+    100.2309519999951
+   ],
+   "runs": 2,
+   "sha256": "2bacc6fb141febb5ffa997a1a4992aee67a87cea194f5daea8fb9b5845d73c81",
+   "tolerance_pct": 3.0,
+   "window_s": 20.0
+  }
+ },
+ "note": "per_launch_runtime_s: median over windows of cuda_seconds / launches; a cell with correct=false is excluded from the criteria and listed",
+ "schema": "cluster_timing/1"
+}

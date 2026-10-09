@@ -1,0 +1,598 @@
+{
+ "arch": "sm_90",
+ "board": "h100",
+ "builds": [
+  {
+   "binary": "<WORK>/driver_ml/driver_ml",
+   "id": "driver_ml",
+   "kernels": [
+    "gelu_s",
+    "gelu_v4",
+    "swiglu_s",
+    "swiglu_v4",
+    "rms_s",
+    "rms_v4",
+    "rope_all",
+    "rope_one",
+    "sg64",
+    "sg128",
+    "tc128",
+    "tc64",
+    "at4",
+    "at8"
+   ],
+   "outputs": {
+    "res": "driver_ml.res",
+    "sass": "driver_ml.sass"
+   },
+   "role": "static_and_measurement_driver",
+   "source_of_command": "run_f.cmd_build",
+   "static_input": true,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-arch=sm_90",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_f/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_g/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_h/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_f/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/fresh_f/gpu/drivers/driver_ml.cu",
+      "-o",
+      "<WORK>/driver_ml/driver_ml"
+     ],
+     "cwd": "<WORK>/driver_ml"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/driver_prosp/driver_prosp",
+   "id": "driver_prosp",
+   "kernels": [
+    "tc128x64",
+    "tc256x128",
+    "at2",
+    "at16",
+    "nm4",
+    "nm8",
+    "tcr128",
+    "tcr64"
+   ],
+   "outputs": {
+    "res": "driver_prosp.res",
+    "sass": "driver_prosp.sass"
+   },
+   "role": "static_and_measurement_driver",
+   "source_of_command": "run_prosp.cmd_build",
+   "static_input": true,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-arch=sm_90",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/prospective_test/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_g/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_h/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_f/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/prospective_test/gpu/driver_prosp.cu",
+      "-o",
+      "<WORK>/driver_prosp/driver_prosp"
+     ],
+     "cwd": "<WORK>/driver_prosp"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/run_e_fwt/driver_fwt",
+   "id": "run_e_fwt",
+   "kernels": [
+    "fwt"
+   ],
+   "outputs": {
+    "res": "meas/run_e_fwt.res",
+    "sass": "meas/run_e_fwt.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_e.build_command(family='fwt')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-arch=sm_90",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/5_Domain_Specific/fastWalshTransform",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_e/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_fwt.cu",
+      "-o",
+      "<WORK>/run_e_fwt/driver_fwt"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/run_e_sp/driver_sp",
+   "id": "run_e_sp",
+   "kernels": [
+    "sp"
+   ],
+   "outputs": {
+    "res": "meas/run_e_sp.res",
+    "sass": "meas/run_e_sp.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_e.build_command(family='sp')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-arch=sm_90",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/scalarProd",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_e/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_sp.cu",
+      "-o",
+      "<WORK>/run_e_sp/driver_sp"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/run_unseen_bs/driver_bs",
+   "id": "run_unseen_bs",
+   "kernels": [
+    "bs"
+   ],
+   "outputs": {
+    "res": "meas/run_unseen_bs.res",
+    "sass": "meas/run_unseen_bs.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_unseen.build_command(family='bs')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-arch=sm_90",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/5_Domain_Specific/BlackScholes",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_bs.cu",
+      "-o",
+      "<WORK>/run_unseen_bs/driver_bs"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/run_unseen_conv/driver_conv",
+   "id": "run_unseen_conv",
+   "kernels": [
+    "conv"
+   ],
+   "outputs": {
+    "res": "meas/run_unseen_conv.res",
+    "sass": "meas/run_unseen_conv.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_unseen.build_command(family='conv')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-arch=sm_90",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/convolutionSeparable",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_conv.cu",
+      "-o",
+      "<WORK>/run_unseen_conv/driver_conv"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/run_unseen_matmul/driver_matmul",
+   "id": "run_unseen_matmul",
+   "kernels": [
+    "matmul"
+   ],
+   "outputs": {
+    "res": "meas/run_unseen_matmul.res",
+    "sass": "meas/run_unseen_matmul.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_unseen.build_command(family='matmul')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-arch=sm_90",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/0_Introduction/matrixMul",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_matmul.cu",
+      "-o",
+      "<WORK>/run_unseen_matmul/driver_matmul"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/run_unseen_scan/driver_scan",
+   "id": "run_unseen_scan",
+   "kernels": [
+    "scan"
+   ],
+   "outputs": {
+    "res": "meas/run_unseen_scan.res",
+    "sass": "meas/run_unseen_scan.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_unseen.build_command(family='scan')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-arch=sm_90",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/scan",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_scan.cu",
+      "-o",
+      "<WORK>/run_unseen_scan/driver_scan"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/copy_runner/copy_harness",
+   "id": "copy_runner",
+   "kernels": [],
+   "outputs": {
+    "res": "meas/copy_runner.res",
+    "sass": "meas/copy_runner.sass"
+   },
+   "python_entry": "copy_runner.build_binary(<SAMPLES>, <WORK>/copy_runner, nvcc)",
+   "role": "measurement_driver",
+   "source_of_command": "copy_runner.build_binary (HARNESS_CUDA_ARCH=sm_90)",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-O2",
+      "-arch=sm_90",
+      "-Dmain=vectorAdd_sample_main_disabled",
+      "-c",
+      "<SAMPLES>/cpp/0_Introduction/vectorAdd/vectorAdd.cu",
+      "-o",
+      "<WORK>/copy_runner/vectorAdd_kernel.o"
+     ],
+     "cwd": "<WORK>/copy_runner"
+    },
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-O2",
+      "-arch=sm_90",
+      "<WORK>/copy_runner/copy_driver.cu",
+      "<WORK>/copy_runner/vectorAdd_kernel.o",
+      "-o",
+      "<WORK>/copy_runner/copy_harness"
+     ],
+     "cwd": "<WORK>/copy_runner"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/transpose_runner/transpose_harness",
+   "id": "transpose_runner",
+   "kernels": [],
+   "outputs": {
+    "res": "meas/transpose_runner.res",
+    "sass": "meas/transpose_runner.sass"
+   },
+   "python_entry": "transpose_runner.build_binary(<SAMPLES>, <WORK>/transpose_runner, nvcc)",
+   "role": "measurement_driver",
+   "source_of_command": "transpose_runner.build_binary (HARNESS_CUDA_ARCH=sm_90)",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-O2",
+      "-arch=sm_90",
+      "-Dmain=transpose_sample_main_disabled",
+      "-I",
+      "<SAMPLES>/Common",
+      "-c",
+      "<SAMPLES>/cpp/6_Performance/transpose/transpose.cu",
+      "-o",
+      "<WORK>/transpose_runner/transpose_kernel.o"
+     ],
+     "cwd": "<WORK>/transpose_runner"
+    },
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-O2",
+      "-arch=sm_90",
+      "<WORK>/transpose_runner/transpose_driver.cu",
+      "<WORK>/transpose_runner/transpose_kernel.o",
+      "-o",
+      "<WORK>/transpose_runner/transpose_harness"
+     ],
+     "cwd": "<WORK>/transpose_runner"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/reduction_runner/reduction_harness",
+   "id": "reduction_runner",
+   "kernels": [],
+   "outputs": {
+    "res": "meas/reduction_runner.res",
+    "sass": "meas/reduction_runner.sass"
+   },
+   "python_entry": "reduction_runner.build_binary(<SAMPLES>, <WORK>/reduction_runner, nvcc)",
+   "role": "measurement_driver",
+   "source_of_command": "reduction_runner.build_binary (HARNESS_CUDA_ARCH=sm_90)",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-O2",
+      "-arch=sm_90",
+      "--default-stream",
+      "per-thread",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction",
+      "-c",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction/reduction_kernel.cu",
+      "-o",
+      "<WORK>/reduction_runner/reduction_kernel.o"
+     ],
+     "cwd": "<WORK>/reduction_runner"
+    },
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-O2",
+      "-arch=sm_90",
+      "--default-stream",
+      "per-thread",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction",
+      "-Dmain=reduction_sample_main_disabled",
+      "-c",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction/reduction.cpp",
+      "-o",
+      "<WORK>/reduction_runner/reduction_util.o"
+     ],
+     "cwd": "<WORK>/reduction_runner"
+    },
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-O2",
+      "-arch=sm_90",
+      "--default-stream",
+      "per-thread",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction",
+      "<WORK>/reduction_runner/reduction_driver.cu",
+      "<WORK>/reduction_runner/reduction_kernel.o",
+      "<WORK>/reduction_runner/reduction_util.o",
+      "-o",
+      "<WORK>/reduction_runner/reduction_harness"
+     ],
+     "cwd": "<WORK>/reduction_runner"
+    }
+   ]
+  },
+  {
+   "binary": "<WORK>/tile_family/tile_family_harness",
+   "id": "tile_family",
+   "kernels": [],
+   "outputs": {
+    "res": "meas/tile_family.res",
+    "sass": "meas/tile_family.sass"
+   },
+   "python_entry": "tile_family.build_binary(<SAMPLES>, <WORK>/tile_family, nvcc)",
+   "role": "measurement_driver",
+   "source_of_command": "tile_family.build_binary (HARNESS_CUDA_ARCH=sm_90)",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-O2",
+      "-arch=sm_90",
+      "-Dmain=transpose_sample_main_disabled",
+      "-I",
+      "<SAMPLES>/Common",
+      "-c",
+      "<SAMPLES>/cpp/6_Performance/transpose/transpose.cu",
+      "-o",
+      "<WORK>/tile_family/transpose_kernel.o"
+     ],
+     "cwd": "<WORK>/tile_family"
+    },
+    {
+     "cmd": [
+      "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+      "-O2",
+      "-arch=sm_90",
+      "<WORK>/tile_family/tile_family_driver.cu",
+      "<WORK>/tile_family/transpose_kernel.o",
+      "-o",
+      "<WORK>/tile_family/tile_family_harness"
+     ],
+     "cwd": "<WORK>/tile_family"
+    }
+   ]
+  }
+ ],
+ "nvcc": "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+ "nvcc_version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2023 NVIDIA Corporation\nBuilt on Tue_Feb__7_19:32:13_PST_2023\nCuda compilation tools, release 12.1, V12.1.66\nBuild cuda_12.1.r12.1/compiler.32415258_0\n",
+ "results": [
+  {
+   "binary_sha256": "a72b904f9d2e61f157dad2876d43a14489de5ff0cc79ed19d4f1ec6d9f831b52",
+   "id": "driver_ml",
+   "res_sha256": "6322c063ae170e165ddafb89d20180f9b30c31065e34fd98f2dd97aaf5c68141",
+   "sass_sha256": "86d235f97941bc3674f381a4412af95a69bf9c815b75bb983263f98d402058b5",
+   "status": "built"
+  },
+  {
+   "binary_sha256": "0b9c18e641f732f704e59b1eb9fc3092ce5e555c0a2fca15960a3e6247beafb2",
+   "id": "driver_prosp",
+   "res_sha256": "f4b4ee864be37878208531117146a14fa6f7d2fb6ef93638938a1fa1b7bb0180",
+   "sass_sha256": "c402ffc967873c123db686a52476b4dd82fce249dd13a4e3be1aba2e5e5dcdb7",
+   "status": "built"
+  },
+  {
+   "binary_sha256": "a1e7b235302218c567f579ee6b7beba9481727fc678e589524e923e8d3633992",
+   "id": "run_e_fwt",
+   "res_sha256": "ea956173933dc3e248a26153a6d7b0a3ff919c88eb866681706cb3654883b36e",
+   "sass_sha256": "26c292e50717548fc7849fc45c6ef19f42cd7d959b2588cdd71919152b989e26",
+   "status": "built"
+  },
+  {
+   "binary_sha256": "20d4eb3f0a93e9f06abfee2055c80c3aa1d3ca4e770448af93d83db6464cb3fe",
+   "id": "run_e_sp",
+   "res_sha256": "80ca0d2c84f32f0de7a1e38518f81d3b32b2532efb3c2a2b36b05996106806e5",
+   "sass_sha256": "d94fce4ffe8c9a55d69bedcd4b8f3a30f865cc81759c6bcdbe0c1cd0d2ab7e65",
+   "status": "built"
+  },
+  {
+   "binary_sha256": "a07e2c8ec4fb929402c992ccf48c6ed0841f68bb80e250f81fc9dc2bca445ec8",
+   "id": "run_unseen_bs",
+   "res_sha256": "eb9c890b81232e9b3837475da6d4c0a06e65b6edb4c1f7c8952806e973500dc4",
+   "sass_sha256": "a5d98c6d422394e332d367282a5405c932e4d4fefb495df4b117d7d60fda769f",
+   "status": "built"
+  },
+  {
+   "binary_sha256": "271285fde578e3e856495c9a7985ed67284c089e6f5632dcb9641bfee811f719",
+   "id": "run_unseen_conv",
+   "res_sha256": "d2bd08682597fd28d91904a1ef104ed4d8af9cccb272c624ff4d67e83a9fbc0e",
+   "sass_sha256": "17c189426fa2b3bd648a71bf33398608efa72795b217a828a23b844221c2363d",
+   "status": "built"
+  },
+  {
+   "binary_sha256": "0ba880e185a42d09f1d08e5b716f5b34870f049ddde013e5d1587ec2346ad7c6",
+   "id": "run_unseen_matmul",
+   "res_sha256": "cabf1036d3bcc193d7d06a929fed4bd6c80ac062da858c7f5619fbc313c16a9f",
+   "sass_sha256": "bc84d58d5ceb81c3c3cdf14fc7d4203a6098c1c3bf5b1113335b6ed1e4bca383",
+   "status": "built"
+  },
+  {
+   "binary_sha256": "573638ba5081cf6bbaf329a0403374619c3f57ee2b6df45c6352bb0a65c5aefa",
+   "id": "run_unseen_scan",
+   "res_sha256": "fa203fde68128b92eda5ab313b034cd8acac3ea958393dccbc348740df0a16af",
+   "sass_sha256": "729af9f95c2726e456fd99b82aaa4ba5a94778b49bdbb38aa4f6bf40ae54fb8a",
+   "status": "built"
+  },
+  {
+   "id": "copy_runner",
+   "reason": "RUNNER_BLOCKED: nvcc failed: /apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc -O2 -arch=sm_90 -Dmain=vectorAdd_sample_main_disabled -c /home/user/tiresias/app_sources/cuda-samples-5443602/cpp/0_Introduction/vectorAdd/vectorAdd.cu -o /home/user/replication_h100_a100/compile_85786a61_complete/h100/drivers/copy_runner/vectorAdd_kernel.o\n/home/user/tiresias/app_sources/cuda-samples-5443602/cpp/0_Introduction/vectorAdd/vectorAdd.cu:41:10: fatal error: cuda/cmath: No such file or directory\n #include <cuda/cmath>\n          ^~~~~~~~~~~~\ncompilation terminated.\n",
+   "status": "failed"
+  },
+  {
+   "binary_sha256": "68c7c8fb84df2fca2e09aad4c6818af4879adc16dfccf9f3989b53fac2115c37",
+   "id": "transpose_runner",
+   "res_sha256": "6fc7cd873d26d4d905a5a81bd4b8153640638fd45663c8ec2d070a9d01a50502",
+   "sass_sha256": "5d1f8c0dbe808c160ec60a0e35b2f58da5c87289dc85ccdd5cd082401786b094",
+   "status": "built"
+  },
+  {
+   "binary_sha256": "84989b8daac250bda55aa12deb78b89fbf8137b78ed45698f5827827a15bfd52",
+   "id": "reduction_runner",
+   "res_sha256": "d92560c4b3b8a90430dc62c35110c813ca094a03381e8d211db15d9da4406dd8",
+   "sass_sha256": "299d1c2bf5624d1e60250891add3e152ea56a02eb8763a9b9d670fbd2e43ad07",
+   "status": "built"
+  },
+  {
+   "binary_sha256": "4c4ce11c4258203899f0b52d380a0c3d8b8288bd0f1d47998b0c3d5f99a07d72",
+   "id": "tile_family",
+   "res_sha256": "6fc7cd873d26d4d905a5a81bd4b8153640638fd45663c8ec2d070a9d01a50502",
+   "sass_sha256": "5d1f8c0dbe808c160ec60a0e35b2f58da5c87289dc85ccdd5cd082401786b094",
+   "status": "built"
+  }
+ ],
+ "samples_revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+ "schema": "cluster_complete_suite_build/1",
+ "source_sha256": {
+  "prospective_test/gpu/driver_prosp.cu": "46adc72dc4a8b65916dd5fc01b548552e0e46f601ac5b0d3e897d667f041ae60",
+  "prospective_test/src/prosp_kernels.cuh": "463c5a1b68402e4ce3b305230672da92536d623b193c29f6894d247a688258ab",
+  "fresh_e/gpu/drivers/driver_fwt.cu": "697e1a01cd0cbf7f6119203c9714dde765c35ee9a9f726171db0b9fee7df23f1",
+  "fresh_e/gpu/drivers/driver_sp.cu": "427c17fdbc82bd9730d3c96dc1bfba5f48cfe6d4c134b0e60ec9d7d8071f562c",
+  "fresh_f/gpu/drivers/driver_common.h": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+  "fresh_f/gpu/drivers/driver_ml.cu": "0064caef8dfd6019ad7d544dc7da6d395b8ed72275c458e280e2a97da4be87b4",
+  "fresh_f/src/ml_kernels.cuh": "0e307a8f09f8d739fc8a1f8665cbbe38a9915ce3bf1e903c4893ac59fd047dc1",
+  "fresh_g/src/tc_kernels.cuh": "ae5de3f3b1d763f6424b7beae2b099dc33694a6a21f6d9d178a9b67408256651",
+  "fresh_h/src/attn_kernels.cuh": "17c4367f20d8d9fccd38059b9e8c483c63e3e85d0ecc0968764f46455f7c3994",
+  "unseen_kernels/gpu/drivers/driver_bs.cu": "891f3cc69b5edf80eea31b64ccb09807b67f72d8929015cd1ad65fffb5d20742",
+  "unseen_kernels/gpu/drivers/driver_conv.cu": "b27143e66f402c9d55efffa1c5b4e16b5b29f428e2d042b3f264f59ab4eed8d4",
+  "unseen_kernels/gpu/drivers/driver_matmul.cu": "c72d5768dc682ad753a36c9786f5be03e320a5f9efad55d07dad33406fff6a65",
+  "unseen_kernels/gpu/drivers/driver_scan.cu": "c22d3cab255a384a9e433e6767769b2d6e13c08c3761b6b23afe399c1858dd33"
+ }
+}

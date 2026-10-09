@@ -1,0 +1,708 @@
+{
+ "board": "a100",
+ "cells": [
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "8388608",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "256",
+    "shape_a": "1024",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_fp32_matmul/v1/c1",
+   "candidate_id": "c1",
+   "cell_id": "a100/validation_fp32_matmul/v1/c1",
+   "controls": {
+    "K": 512,
+    "M": 1024,
+    "N": 1024,
+    "tile": 64
+   },
+   "family": "sgemm",
+   "footprint_bytes": 8388608,
+   "footprint_over_l2": 0.2,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      16,
+      1
+     ],
+     "kid": "sg64"
+    }
+   ],
+   "logical_bytes_per_launch": 8388608,
+   "operator_id": "validation_fp32_matmul",
+   "regime": "v1",
+   "set": "validation",
+   "shape_a": 1024,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "8388608",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "64",
+    "shape_a": "1024",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_fp32_matmul/v1/c2",
+   "candidate_id": "c2",
+   "cell_id": "a100/validation_fp32_matmul/v1/c2",
+   "controls": {
+    "K": 512,
+    "M": 1024,
+    "N": 1024,
+    "tile": 128
+   },
+   "family": "sgemm",
+   "footprint_bytes": 8388608,
+   "footprint_over_l2": 0.2,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      8,
+      1
+     ],
+     "kid": "sg128"
+    }
+   ],
+   "logical_bytes_per_launch": 8388608,
+   "operator_id": "validation_fp32_matmul",
+   "regime": "v1",
+   "set": "validation",
+   "shape_a": 1024,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "78653440",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "3840",
+    "shape_a": "3840",
+    "shape_b": "2560",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_rmsnorm/v6/c1",
+   "candidate_id": "c1",
+   "cell_id": "a100/validation_rmsnorm/v6/c1",
+   "controls": {
+    "cols": 2560,
+    "rows": 3840,
+    "threads": 256
+   },
+   "family": "rmsnorm",
+   "footprint_bytes": 78653440,
+   "footprint_over_l2": 1.875244140625,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "cols": 2560,
+      "eps": 1e-05,
+      "inv_cols": 0.000390625
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      3840,
+      1,
+      1
+     ],
+     "kid": "rms_s"
+    }
+   ],
+   "logical_bytes_per_launch": 78653440,
+   "operator_id": "validation_rmsnorm",
+   "regime": "v6",
+   "set": "validation",
+   "shape_a": 3840,
+   "shape_b": 2560,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "78653440",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "3840",
+    "shape_a": "3840",
+    "shape_b": "2560",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_rmsnorm/v6/c2",
+   "candidate_id": "c2",
+   "cell_id": "a100/validation_rmsnorm/v6/c2",
+   "controls": {
+    "cols": 2560,
+    "rows": 3840,
+    "threads": 128
+   },
+   "family": "rmsnorm",
+   "footprint_bytes": 78653440,
+   "footprint_over_l2": 1.875244140625,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "cols4": 640,
+      "eps": 1e-05,
+      "inv_cols": 0.000390625
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      3840,
+      1,
+      1
+     ],
+     "kid": "rms_v4"
+    }
+   ],
+   "logical_bytes_per_launch": 78653440,
+   "operator_id": "validation_rmsnorm",
+   "regime": "v6",
+   "set": "validation",
+   "shape_a": 3840,
+   "shape_b": 2560,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "68812800",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "928",
+    "shape_a": "3712",
+    "shape_b": "4096",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_tensor_matmul/v2/c1",
+   "candidate_id": "c1",
+   "cell_id": "a100/validation_tensor_matmul/v2/c1",
+   "controls": {
+    "K": 512,
+    "M": 3712,
+    "N": 4096,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 68812800,
+   "footprint_over_l2": 1.640625,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 4096
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      29,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 68812800,
+   "operator_id": "validation_tensor_matmul",
+   "regime": "v2",
+   "set": "validation",
+   "shape_a": 3712,
+   "shape_b": 4096,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "68812800",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "3712",
+    "shape_a": "3712",
+    "shape_b": "4096",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_tensor_matmul/v2/c2",
+   "candidate_id": "c2",
+   "cell_id": "a100/validation_tensor_matmul/v2/c2",
+   "controls": {
+    "K": 512,
+    "M": 3712,
+    "N": 4096,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 68812800,
+   "footprint_over_l2": 1.640625,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 4096
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      64,
+      58,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 68812800,
+   "operator_id": "validation_tensor_matmul",
+   "regime": "v2",
+   "set": "validation",
+   "shape_a": 3712,
+   "shape_b": 4096,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "78643200",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "1920",
+    "shape_a": "80",
+    "shape_b": "1536",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_fused_attention/v3/c1",
+   "candidate_id": "c1",
+   "cell_id": "a100/validation_fused_attention/v3/c1",
+   "controls": {
+    "BH": 80,
+    "D": 64,
+    "S": 1536,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 78643200,
+   "footprint_over_l2": 1.875,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "S": 1536
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      24,
+      80,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 78643200,
+   "operator_id": "validation_fused_attention",
+   "regime": "v3",
+   "set": "validation",
+   "shape_a": 80,
+   "shape_b": 1536,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "78643200",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "960",
+    "shape_a": "80",
+    "shape_b": "1536",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_fused_attention/v3/c2",
+   "candidate_id": "c2",
+   "cell_id": "a100/validation_fused_attention/v3/c2",
+   "controls": {
+    "BH": 80,
+    "D": 64,
+    "S": 1536,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 78643200,
+   "footprint_over_l2": 1.875,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "S": 1536
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      12,
+      80,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 78643200,
+   "operator_id": "validation_fused_attention",
+   "regime": "v3",
+   "set": "validation",
+   "shape_a": 80,
+   "shape_b": 1536,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "81792000",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "64",
+    "shape_a": "768",
+    "shape_b": "13312",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_scalar_product/v4/c1",
+   "candidate_id": "c1",
+   "cell_id": "a100/validation_scalar_product/v4/c1",
+   "controls": {
+    "elementN": 13312,
+    "grid": 64,
+    "vectorN": 768
+   },
+   "family": "sp",
+   "footprint_bytes": 81792000,
+   "footprint_over_l2": 1.9500732421875,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "elementN": 13312,
+      "vectorN": 768
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      64,
+      1,
+      1
+     ],
+     "kid": "sp"
+    }
+   ],
+   "logical_bytes_per_launch": 81792000,
+   "operator_id": "validation_scalar_product",
+   "regime": "v4",
+   "set": "validation",
+   "shape_a": 768,
+   "shape_b": 13312,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "81792000",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "128",
+    "shape_a": "768",
+    "shape_b": "13312",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_scalar_product/v4/c2",
+   "candidate_id": "c2",
+   "cell_id": "a100/validation_scalar_product/v4/c2",
+   "controls": {
+    "elementN": 13312,
+    "grid": 128,
+    "vectorN": 768
+   },
+   "family": "sp",
+   "footprint_bytes": 81792000,
+   "footprint_over_l2": 1.9500732421875,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "elementN": 13312,
+      "vectorN": 768
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      128,
+      1,
+      1
+     ],
+     "kid": "sp"
+    }
+   ],
+   "logical_bytes_per_launch": 81792000,
+   "operator_id": "validation_scalar_product",
+   "regime": "v4",
+   "set": "validation",
+   "shape_a": 768,
+   "shape_b": 13312,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "96468992",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "5888",
+    "shape_a": "2944",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_separable_convolution/v5/c1",
+   "candidate_id": "c1",
+   "cell_id": "a100/validation_separable_convolution/v5/c1",
+   "controls": {
+    "imageH": 2048,
+    "imageW": 2944
+   },
+   "family": "conv",
+   "footprint_bytes": 72351744,
+   "footprint_over_l2": 1.725,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "imageH": 2048,
+      "imageW": 2944,
+      "pitch": 2944
+     },
+     "block": [
+      16,
+      4,
+      1
+     ],
+     "grid": [
+      23,
+      512,
+      1
+     ],
+     "kid": "conv_rows",
+     "sampling": "classes"
+    },
+    {
+     "args": {
+      "imageH": 2048,
+      "imageW": 2944,
+      "pitch": 2944
+     },
+     "block": [
+      16,
+      8,
+      1
+     ],
+     "grid": [
+      184,
+      32,
+      1
+     ],
+     "kid": "conv_cols",
+     "sampling": "classes"
+    }
+   ],
+   "logical_bytes_per_launch": 96468992,
+   "operator_id": "validation_separable_convolution",
+   "regime": "v5",
+   "set": "validation",
+   "shape_a": 2944,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "96468992",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to a100 hardware",
+    "grid_blocks": "5888",
+    "shape_a": "2048",
+    "shape_b": "2944",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/validation_separable_convolution/v5/c2",
+   "candidate_id": "c2",
+   "cell_id": "a100/validation_separable_convolution/v5/c2",
+   "controls": {
+    "imageH": 2944,
+    "imageW": 2048
+   },
+   "family": "conv",
+   "footprint_bytes": 72351744,
+   "footprint_over_l2": 1.725,
+   "group": "validation",
+   "kernels": [
+    {
+     "args": {
+      "imageH": 2944,
+      "imageW": 2048,
+      "pitch": 2048
+     },
+     "block": [
+      16,
+      4,
+      1
+     ],
+     "grid": [
+      16,
+      736,
+      1
+     ],
+     "kid": "conv_rows",
+     "sampling": "classes"
+    },
+    {
+     "args": {
+      "imageH": 2944,
+      "imageW": 2048,
+      "pitch": 2048
+     },
+     "block": [
+      16,
+      8,
+      1
+     ],
+     "grid": [
+      128,
+      46,
+      1
+     ],
+     "kid": "conv_cols",
+     "sampling": "classes"
+    }
+   ],
+   "logical_bytes_per_launch": 96468992,
+   "operator_id": "validation_separable_convolution",
+   "regime": "v5",
+   "set": "validation",
+   "shape_a": 2048,
+   "shape_b": 2944,
+   "tier": "DRAM"
+  }
+ ],
+ "derivation": {
+  "grid_candidates": {
+   "c1": 64,
+   "c2": 128
+  },
+  "l1_tier": "none: no verified target L1 capacity/residency gate",
+  "rule": "Unchanged complete-suite geometry/shape functions from the Ada replication and H100 generators, explicitly bound to a100's verified hardware; source-cell crosswalk below. No labels read.",
+  "tier_rule": "tier = L2 iff footprint / L2 < 1; no cell with ratio in [0.4, 1.5)"
+ },
+ "gpu": "NVIDIA A100-SXM4-80GB",
+ "group": "validation",
+ "hardware_from_ground_truth": {
+  "file": "HARDWARE_GROUND_TRUTH.md",
+  "note": "the resident-blocks row is parsed under the short label by an in-memory alias; the file is unchanged",
+  "rows_quoted": {
+   "L2 cache size": "| L2 cache size | 41,943,040 bytes = 40.0 MiB | `cudaDeviceProp.l2CacheSize` |",
+   "Max resident blocks per SM": "| Max resident blocks per SM | 32 | live `cudaGetDeviceProperties()`, cluster job j06 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/a100_j06/` |",
+   "Max threads per block / per SM": "| Max threads per block / per SM | 1,024 / 2,048 | live `cudaGetDeviceProperties()`, cluster job j06 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/a100_j06/` |",
+   "Name": "| Name | NVIDIA A100-SXM4-80GB | `nvidia-smi` + `cudaGetDeviceProperties()` |",
+   "Reserved shared memory per block": "| Reserved shared memory per block (driver carveout) | 1,024 bytes | live `cudaGetDeviceProperties()`, cluster job j06 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/a100_j06/` (`reservedSharedMemPerBlock`) |",
+   "SM count": "| SM count | 108 | `cudaDeviceProp.multiProcessorCount` |",
+   "Shared mem per SM": "| Shared mem per SM | 167,936 bytes | live `cudaGetDeviceProperties()`, cluster job j06 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/a100_j06/` |"
+  },
+  "section": "## A100",
+  "values": {
+   "l2_bytes": 41943040,
+   "max_blocks_per_sm": 32,
+   "max_registers_per_thread": 256,
+   "max_threads_per_block": 1024,
+   "max_threads_per_sm": 2048,
+   "max_warps_per_sm": 64,
+   "register_alloc_granularity_regs_per_warp": 256,
+   "register_sub_partitions_per_sm": 4,
+   "regs_per_block": 65536,
+   "regs_per_sm": 65536,
+   "reserved_shared_per_block_bytes": 1024,
+   "shared_alloc_granularity_bytes": 128,
+   "shared_per_block_bytes": 49152,
+   "shared_per_sm_bytes": 167936,
+   "sm_count": 108,
+   "warp_size": 32
+  }
+ },
+ "schema": "cluster_replication_cells/1",
+ "unplaceable": []
+}

@@ -1,0 +1,361 @@
+[build] matmul: /apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc -arch=sm_90 -Xcompiler -O2 -I /home/user/tiresias/app_sources/cuda-samples-5443602/Common -I /home/user/tiresias/app_sources/cuda-samples-5443602/cpp/0_Introduction/matrixMul -I /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_matmul.cu -o /home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_matmul
+[build] bs: /apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc -arch=sm_90 -Xcompiler -O2 -I /home/user/tiresias/app_sources/cuda-samples-5443602/Common -I /home/user/tiresias/app_sources/cuda-samples-5443602/cpp/5_Domain_Specific/BlackScholes -I /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_bs.cu -o /home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_bs
+[build] scan: /apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc -arch=sm_90 -Xcompiler -O2 -I /home/user/tiresias/app_sources/cuda-samples-5443602/Common -I /home/user/tiresias/app_sources/cuda-samples-5443602/cpp/2_Concepts_and_Techniques/scan -I /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_scan.cu -o /home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_scan
+[build] conv: /apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc -arch=sm_90 -Xcompiler -O2 -I /home/user/tiresias/app_sources/cuda-samples-5443602/Common -I /home/user/tiresias/app_sources/cuda-samples-5443602/cpp/2_Concepts_and_Techniques/convolutionSeparable -I /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_conv.cu -o /home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/bin/unseen_conv
+wrote /home/user/rep_eval_runs/rep_eval_h100_j21/run/unseen/manifest.json
+[build] sp: /apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc -arch=sm_90 -Xcompiler -O2 -I /home/user/tiresias/app_sources/cuda-samples-5443602/Common -I /home/user/tiresias/app_sources/cuda-samples-5443602/cpp/2_Concepts_and_Techniques/scalarProd -I /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/fresh_e/gpu/drivers /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_sp.cu -o /home/user/rep_eval_runs/rep_eval_h100_j21/run/set_e/bin/fresh_e_sp
+[build] fwt: /apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc -arch=sm_90 -Xcompiler -O2 -I /home/user/tiresias/app_sources/cuda-samples-5443602/Common -I /home/user/tiresias/app_sources/cuda-samples-5443602/cpp/5_Domain_Specific/fastWalshTransform -I /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/fresh_e/gpu/drivers /home/user/rep_eval_runs/rep_eval_h100_j21/src/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_fwt.cu -o /home/user/rep_eval_runs/rep_eval_h100_j21/run/set_e/bin/fresh_e_fwt
+wrote /home/user/rep_eval_runs/rep_eval_h100_j21/run/set_e/manifest.json
+built vectorAdd harness (copy_runner.build_binary) -> /home/user/rep_eval_runs/rep_eval_h100_j21/run/set_d/copy_runner/copy_harness
+built reduction harness (reduction_runner.build_binary) -> /home/user/rep_eval_runs/rep_eval_h100_j21/run/set_d/reduction_runner/reduction_harness
+built tile-family harness (tile_family.build_binary) -> /home/user/rep_eval_runs/rep_eval_h100_j21/run/set_d/tile_family/tile_family_harness
+built transpose harness (transpose_runner.build_binary) -> /home/user/rep_eval_runs/rep_eval_h100_j21/run/set_d/transpose_runner/transpose_harness
+built /home/user/rep_eval_runs/rep_eval_h100_j21/run/fresh/driver_ml a93e78a174203e1d
+[   44.4s] sass gate bs                         PASS identical to the analysed SASS
+[   44.4s] sass gate conv_cols                  PASS identical to the analysed SASS
+[   44.4s] sass gate conv_rows                  PASS identical to the analysed SASS
+[   44.4s] sass gate d_copy                     PASS identical to the analysed SASS
+[   44.4s] sass gate d_copySharedMem            PASS identical to the analysed SASS
+[   44.4s] sass gate d_reduce0                  PASS identical to the analysed SASS
+[   44.4s] sass gate d_reduce1                  PASS identical to the analysed SASS
+[   44.4s] sass gate d_reduce2                  PASS identical to the analysed SASS
+[   44.4s] sass gate d_reduce6                  PASS identical to the analysed SASS
+[   44.4s] sass gate d_transposeCoalesced       PASS identical to the analysed SASS
+[   44.4s] sass gate d_transposeCoarseGrained   PASS identical to the analysed SASS
+[   44.4s] sass gate d_transposeDiagonal        PASS identical to the analysed SASS
+[   44.4s] sass gate d_transposeFineGrained     PASS identical to the analysed SASS
+[   44.4s] sass gate d_transposeNaive           PASS identical to the analysed SASS
+[   44.4s] sass gate d_transposeNoBankConflicts PASS identical to the analysed SASS
+[   44.4s] sass gate d_vecAdd                   PASS identical to the analysed SASS
+[   44.4s] sass gate fwt1                       PASS identical to the analysed SASS
+[   44.4s] sass gate fwt2                       PASS identical to the analysed SASS
+[   44.4s] sass gate gelu_s                     PASS identical to the analysed SASS
+[   44.4s] sass gate gelu_v4                    PASS identical to the analysed SASS
+[   44.4s] sass gate mm16                       PASS identical to the analysed SASS
+[   44.4s] sass gate mm32                       PASS identical to the analysed SASS
+[   44.4s] sass gate rms_s                      PASS identical to the analysed SASS
+[   44.4s] sass gate rms_v4                     PASS identical to the analysed SASS
+[   44.4s] sass gate rope_all                   PASS identical to the analysed SASS
+[   44.4s] sass gate rope_one                   PASS identical to the analysed SASS
+[   44.4s] sass gate scan_bottom                PASS identical to the analysed SASS
+[   44.4s] sass gate scan_top                   PASS identical to the analysed SASS
+[   44.4s] sass gate scan_update                PASS identical to the analysed SASS
+[   44.4s] sass gate sg128                      PASS identical to the analysed SASS
+[   44.4s] sass gate sg64                       PASS identical to the analysed SASS
+[   44.4s] sass gate sp                         PASS identical to the analysed SASS
+[   44.4s] sass gate swiglu_s                   PASS identical to the analysed SASS
+[   44.4s] sass gate swiglu_v4                  PASS identical to the analysed SASS
+[    0.0s] cell 1/34 h100/unseen_cuda_samples_matrix_multiply/small/c1
+          OK per_launch=6.920 us repeat=4332 graph_batch=722 check=CHECK_OK matmul N=256 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00177 rep
+[    4.3s] cell 2/34 h100/unseen_cuda_samples_matrix_multiply/small/c2
+          OK per_launch=9.436 us repeat=3180 graph_batch=530 check=CHECK_OK matmul N=256 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00177 rep
+[    8.1s] cell 3/34 h100/unseen_cuda_samples_matrix_multiply/medium/c1
+          OK per_launch=107.534 us repeat=282 graph_batch=47 check=CHECK_OK matmul N=736 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00145 rep
+[   12.0s] cell 4/34 h100/unseen_cuda_samples_matrix_multiply/medium/c2
+          OK per_launch=108.349 us repeat=282 graph_batch=47 check=CHECK_OK matmul N=736 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00145 rep
+[   16.0s] cell 5/34 h100/unseen_cuda_samples_matrix_multiply/large/c1
+          OK per_launch=522.020 us repeat=60 graph_batch=10 check=CHECK_OK matmul N=1280 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00134 re
+[   20.3s] cell 6/34 h100/unseen_cuda_samples_matrix_multiply/large/c2
+          OK per_launch=479.478 us repeat=66 graph_batch=11 check=CHECK_OK matmul N=1280 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00134 re
+[   25.0s] cell 7/34 h100/unseen_cuda_samples_matrix_multiply/xlarge/c1
+          OK per_launch=6228.038 us repeat=5 graph_batch=1 check=CHECK_OK matmul N=2944 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00162 re
+[   30.4s] cell 8/34 h100/unseen_cuda_samples_matrix_multiply/xlarge/c2
+          OK per_launch=5715.744 us repeat=6 graph_batch=1 check=CHECK_OK matmul N=2944 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00162 re
+[   35.8s] cell 9/34 h100/unseen_cuda_samples_black_scholes/small/c1
+          OK per_launch=1.503 us repeat=20480 graph_batch=2048 check=CHECK_OK bs optN=40960 block=128 l1_rel=7.87e-08 max_abs=1.56e-05 finite=1 repea
+[   40.0s] cell 10/34 h100/unseen_cuda_samples_black_scholes/small/c2
+          OK per_launch=1.534 us repeat=20480 graph_batch=2048 check=CHECK_OK bs optN=40960 block=64 l1_rel=7.87e-08 max_abs=1.56e-05 finite=1 repeat
+[   44.4s] cell 11/34 h100/unseen_cuda_samples_black_scholes/medium/c1
+          OK per_launch=2.737 us repeat=10956 graph_batch=1826 check=CHECK_OK bs optN=327680 block=128 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repe
+[   48.7s] cell 12/34 h100/unseen_cuda_samples_black_scholes/medium/c2
+          OK per_launch=2.820 us repeat=10620 graph_batch=1770 check=CHECK_OK bs optN=327680 block=64 l1_rel=7.91e-08 max_abs=1.86e-05 finite=1 repea
+[   52.8s] cell 13/34 h100/unseen_cuda_samples_black_scholes/large/c1
+          OK per_launch=5.035 us repeat=5952 graph_batch=992 check=CHECK_OK bs optN=983040 block=128 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repea
+[   57.3s] cell 14/34 h100/unseen_cuda_samples_black_scholes/large/c2
+          OK per_launch=5.903 us repeat=5076 graph_batch=846 check=CHECK_OK bs optN=983040 block=64 l1_rel=7.9e-08 max_abs=2.04e-05 finite=1 repeat
+[   62.0s] cell 15/34 h100/unseen_cuda_samples_black_scholes/xlarge/c1
+          OK per_launch=36.112 us repeat=834 graph_batch=139 check=CHECK_OK bs optN=5242880 block=128 l1_rel=7.89e-08 max_abs=2.16e-05 finite=1 rep
+[   70.5s] cell 16/34 h100/unseen_cuda_samples_black_scholes/xlarge/c2
+          OK per_launch=36.141 us repeat=834 graph_batch=139 check=CHECK_OK bs optN=5242880 block=64 l1_rel=7.89e-08 max_abs=2.16e-05 finite=1 repe
+[   77.6s] cell 17/34 h100/unseen_cuda_samples_scan/small/c1
+          OK per_launch=5.121 us repeat=5844 graph_batch=974 check=CHECK_OK scan N=262144 arrayLength=4096 mismatches=0 first_bad=-1 repeat=5844 gr
+[   82.1s] cell 18/34 h100/unseen_cuda_samples_scan/small/c2
+          OK per_launch=5.433 us repeat=5514 graph_batch=919 check=CHECK_OK scan N=262144 arrayLength=262144 mismatches=0 first_bad=-1 repeat=5514 
+[   86.4s] cell 19/34 h100/unseen_cuda_samples_scan/medium/c1
+          OK per_launch=6.449 us repeat=4644 graph_batch=774 check=CHECK_OK scan N=786432 arrayLength=4096 mismatches=0 first_bad=-1 repeat=4644 gr
+[   91.1s] cell 20/34 h100/unseen_cuda_samples_scan/medium/c2
+          OK per_launch=6.762 us repeat=4434 graph_batch=739 check=CHECK_OK scan N=786432 arrayLength=262144 mismatches=0 first_bad=-1 repeat=4434 
+[   95.6s] cell 21/34 h100/unseen_cuda_samples_scan/large/c1
+          OK per_launch=11.230 us repeat=2670 graph_batch=445 check=CHECK_OK scan N=2359296 arrayLength=4096 mismatches=0 first_bad=-1 repeat=2670 g
+[  100.2s] cell 22/34 h100/unseen_cuda_samples_scan/large/c2
+          OK per_launch=11.552 us repeat=2598 graph_batch=433 check=CHECK_OK scan N=2359296 arrayLength=262144 mismatches=0 first_bad=-1 repeat=2598
+[  104.8s] cell 23/34 h100/unseen_cuda_samples_scan/xlarge/c1
+          OK per_launch=75.157 us repeat=402 graph_batch=67 check=CHECK_OK scan N=13107200 arrayLength=4096 mismatches=0 first_bad=-1 repeat=402 g
+[  109.2s] cell 24/34 h100/unseen_cuda_samples_scan/xlarge/c2
+          OK per_launch=75.465 us repeat=402 graph_batch=67 check=CHECK_OK scan N=13107200 arrayLength=262144 mismatches=0 first_bad=-1 repeat=402
+[  113.5s] cell 25/34 h100/unseen_cuda_samples_separable_convolution/small/c1
+          OK per_launch=3.612 us repeat=8292 graph_batch=1382 check=CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=8292 graph_batch=1382
+[  117.5s] cell 26/34 h100/unseen_cuda_samples_separable_convolution/small/c2
+          OK per_launch=3.612 us repeat=8292 graph_batch=1382 check=CHECK_OK conv W=256 H=256 mismatches=0 first_bad=-1 repeat=8292 graph_batch=1382
+[  121.6s] cell 27/34 h100/unseen_cuda_samples_separable_convolution/medium/c1
+          OK per_launch=7.379 us repeat=4062 graph_batch=677 check=CHECK_OK conv W=1024 H=512 mismatches=0 first_bad=-1 repeat=4062 graph_batch=677
+[  125.6s] cell 28/34 h100/unseen_cuda_samples_separable_convolution/medium/c2
+          OK per_launch=7.340 us repeat=4080 graph_batch=680 check=CHECK_OK conv W=512 H=1024 mismatches=0 first_bad=-1 repeat=4080 graph_batch=680
+[  129.6s] cell 29/34 h100/unseen_cuda_samples_separable_convolution/large/c1
+          OK per_launch=16.607 us repeat=1806 graph_batch=301 check=CHECK_OK conv W=1280 H=1280 mismatches=0 first_bad=-1 repeat=1806 graph_batch=30
+[  133.8s] cell 30/34 h100/unseen_cuda_samples_separable_convolution/large/c2
+          OK per_launch=16.599 us repeat=1812 graph_batch=302 check=CHECK_OK conv W=1280 H=1280 mismatches=0 first_bad=-1 repeat=1812 graph_batch=30
+[  138.0s] cell 31/34 h100/unseen_cuda_samples_separable_convolution/xlarge/c1
+          OK per_launch=79.882 us repeat=378 graph_batch=63 check=CHECK_OK conv W=3584 H=2432 mismatches=0 first_bad=-1 repeat=378 graph_batch=63
+[  143.7s] cell 32/34 h100/unseen_cuda_samples_separable_convolution/xlarge/c2
+          OK per_launch=79.939 us repeat=378 graph_batch=63 check=CHECK_OK conv W=2432 H=3584 mismatches=0 first_bad=-1 repeat=378 graph_batch=63
+[  148.9s] cell 33/34 h100/validation_separable_convolution/v5/c1
+          OK per_launch=71.463 us repeat=420 graph_batch=70 check=CHECK_OK conv W=3328 H=2304 mismatches=0 first_bad=-1 repeat=420 graph_batch=70
+[  154.3s] cell 34/34 h100/validation_separable_convolution/v5/c2
+          OK per_launch=71.628 us repeat=420 graph_batch=70 check=CHECK_OK conv W=2304 H=3328 mismatches=0 first_bad=-1 repeat=420 graph_batch=70
+wrote /home/user/rep_eval_runs/rep_eval_h100_j21/results/timing_unseen_engine.json
+[    0.0s] cell 1/18 h100/fresh_e_cuda_samples_scalar_product/small/c1
+          OK per_launch=4.944 us repeat=6060 graph_batch=1010 check=CHECK_OK scalarProd vectorN=256 elementN=1024 grid=128 bad=0 first_bad=-1 worst_
+[    4.3s] cell 2/18 h100/fresh_e_cuda_samples_scalar_product/small/c2
+          OK per_launch=3.184 us repeat=9408 graph_batch=1568 check=CHECK_OK scalarProd vectorN=256 elementN=1024 grid=256 bad=0 first_bad=-1 worst_
+[    8.5s] cell 3/18 h100/fresh_e_cuda_samples_scalar_product/medium/c1
+          OK per_launch=6.292 us repeat=4764 graph_batch=794 check=CHECK_OK scalarProd vectorN=256 elementN=3072 grid=128 bad=0 first_bad=-1 worst_
+[   12.5s] cell 4/18 h100/fresh_e_cuda_samples_scalar_product/medium/c2
+          OK per_launch=3.864 us repeat=7752 graph_batch=1292 check=CHECK_OK scalarProd vectorN=256 elementN=3072 grid=256 bad=0 first_bad=-1 worst_
+[   16.3s] cell 5/18 h100/fresh_e_cuda_samples_scalar_product/large/c1
+          OK per_launch=8.455 us repeat=3546 graph_batch=591 check=CHECK_OK scalarProd vectorN=256 elementN=9216 grid=128 bad=0 first_bad=-1 worst_
+[   20.3s] cell 6/18 h100/fresh_e_cuda_samples_scalar_product/large/c2
+          OK per_launch=5.556 us repeat=5394 graph_batch=899 check=CHECK_OK scalarProd vectorN=256 elementN=9216 grid=256 bad=0 first_bad=-1 worst_
+[   24.4s] cell 7/18 h100/fresh_e_cuda_samples_scalar_product/xlarge/c1
+          OK per_launch=54.622 us repeat=552 graph_batch=92 check=CHECK_OK scalarProd vectorN=256 elementN=51200 grid=128 bad=0 first_bad=-1 worst
+[   28.6s] cell 8/18 h100/fresh_e_cuda_samples_scalar_product/xlarge/c2
+          OK per_launch=39.533 us repeat=762 graph_batch=127 check=CHECK_OK scalarProd vectorN=256 elementN=51200 grid=256 bad=0 first_bad=-1 worst
+[   32.8s] cell 9/18 h100/fresh_e_cuda_samples_fast_walsh_transform/small/c1
+          OK per_launch=8.616 us repeat=3480 graph_batch=580 check=CHECK_OK fastWalshTransform mode=inplace log2N=18 batches=1 rel_l2_error=0 repea
+[   36.8s] cell 10/18 h100/fresh_e_cuda_samples_fast_walsh_transform/small/c2
+          OK per_launch=7.565 us repeat=3960 graph_batch=660 check=CHECK_OK fastWalshTransform mode=inplace log2N=17 batches=2 rel_l2_error=0 repea
+[   41.2s] cell 11/18 h100/fresh_e_cuda_samples_fast_walsh_transform/medium/c1
+          OK per_launch=30.807 us repeat=972 graph_batch=162 check=CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=1 rel_l2_error=0 repea
+[   45.7s] cell 12/18 h100/fresh_e_cuda_samples_fast_walsh_transform/medium/c2
+          OK per_launch=30.244 us repeat=996 graph_batch=166 check=CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=2 rel_l2_error=0 repea
+[   50.3s] cell 13/18 h100/fresh_e_cuda_samples_fast_walsh_transform/large/c1
+          OK per_launch=60.717 us repeat=498 graph_batch=83 check=CHECK_OK fastWalshTransform mode=inplace log2N=22 batches=1 rel_l2_error=0 repea
+[   55.9s] cell 14/18 h100/fresh_e_cuda_samples_fast_walsh_transform/large/c2
+          OK per_launch=54.767 us repeat=552 graph_batch=92 check=CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=2 rel_l2_error=0 repea
+[   60.6s] cell 15/18 h100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1
+          OK per_launch=797.857 us repeat=42 graph_batch=7 check=CHECK_OK fastWalshTransform mode=inplace log2N=25 batches=1 rel_l2_error=0 repea
+[   68.1s] cell 16/18 h100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2
+          OK per_launch=786.205 us repeat=42 graph_batch=7 check=CHECK_OK fastWalshTransform mode=inplace log2N=24 batches=2 rel_l2_error=0 repea
+[   75.2s] cell 17/18 h100/validation_scalar_product/v4/c1
+          OK per_launch=53.172 us repeat=564 graph_batch=94 check=CHECK_OK scalarProd vectorN=768 elementN=16384 grid=128 bad=0 first_bad=-1 worst
+[   79.6s] cell 18/18 h100/validation_scalar_product/v4/c2
+          OK per_launch=38.758 us repeat=774 graph_batch=129 check=CHECK_OK scalarProd vectorN=768 elementN=16384 grid=256 bad=0 first_bad=-1 worst
+wrote /home/user/rep_eval_runs/rep_eval_h100_j21/results/timing_set_e_engine.json
+[  294.9s] h100/fresh_d_cuda_samples_vector_add/l2/c1                         repeat=29000   3.413 us/launch correct=True
+[  301.3s] h100/fresh_d_cuda_samples_vector_add/l2/c2                         repeat=47000   2.128 us/launch correct=True
+[  318.2s] h100/fresh_d_cuda_samples_vector_add/dram/c1                       repeat=2000    42.560 us/launch correct=True
+[  335.2s] h100/fresh_d_cuda_samples_vector_add/dram/c2                       repeat=2000    42.132 us/launch correct=True
+[  341.4s] h100/fresh_d_cuda_samples_transpose/l2/c1                          repeat=6000    15.562 us/launch correct=True
+[  347.6s] h100/fresh_d_cuda_samples_transpose/l2/c2                          repeat=20000   4.936 us/launch correct=True
+[  353.5s] h100/fresh_d_cuda_samples_transpose/l2/c3                          repeat=46000   2.150 us/launch correct=True
+[  359.5s] h100/fresh_d_cuda_samples_transpose/l2/c4                          repeat=42000   2.348 us/launch correct=True
+[  371.0s] h100/fresh_d_cuda_samples_transpose/dram/c1                        repeat=1000    228.514 us/launch correct=True
+[  380.3s] h100/fresh_d_cuda_samples_transpose/dram/c2                        repeat=1000    77.040 us/launch correct=True
+[  389.3s] h100/fresh_d_cuda_samples_transpose/dram/c3                        repeat=2000    44.822 us/launch correct=True
+[  398.1s] h100/fresh_d_cuda_samples_transpose/dram/c4                        repeat=2000    47.717 us/launch correct=True
+[  404.3s] h100/fresh_d_cuda_samples_copy/l2/c1                               repeat=47000   2.124 us/launch correct=True
+[  410.5s] h100/fresh_d_cuda_samples_copy/l2/c2                               repeat=46000   2.186 us/launch correct=True
+[  423.3s] h100/fresh_d_cuda_samples_copy/dram/c1                             repeat=2000    45.531 us/launch correct=True
+[  482.3s] h100/fresh_d_cuda_samples_copy/dram/c2                             repeat=2000    42.494 us/launch correct=True
+[  488.9s] h100/fresh_d_cuda_samples_transposefine/l2/c1                      repeat=47000   2.119 us/launch correct=True
+[  495.7s] h100/fresh_d_cuda_samples_transposefine/l2/c2                      repeat=46000   2.145 us/launch correct=True
+[  516.4s] h100/fresh_d_cuda_samples_transposefine/dram/c1                    repeat=2000    42.420 us/launch correct=True
+[  657.8s] h100/fresh_d_cuda_samples_transposefine/dram/c2                    repeat=2000    44.834 us/launch correct=True
+[  664.5s] h100/fresh_d_cuda_samples_reduction/l2/c1                          repeat=6000    16.806 us/launch correct=True
+[  671.7s] h100/fresh_d_cuda_samples_reduction/l2/c2                          repeat=10000   10.498 us/launch correct=True
+[  679.2s] h100/fresh_d_cuda_samples_reduction/l2/c3                          repeat=8000    12.711 us/launch correct=True
+[  695.5s] h100/fresh_d_cuda_samples_reduction/dram/c1                        repeat=1000    247.889 us/launch correct=True
+[  710.4s] h100/fresh_d_cuda_samples_reduction/dram/c2                        repeat=1000    154.104 us/launch correct=True
+[  731.0s] h100/fresh_d_cuda_samples_reduction/dram/c3                        repeat=1000    406.145 us/launch correct=True
+[  738.7s] h100/fresh_d_cuda_samples_reduce2/l2/c1                            repeat=12000   8.008 us/launch correct=True
+[  753.4s] h100/fresh_d_cuda_samples_reduce2/dram/c1                          repeat=1000    119.939 us/launch correct=True
+[    6.8s] 1/44 h100/fresh_f_ml_gelu/small/c1                                  batch=1903  repeat=55187   1.815 us/launch correct=True
+[   13.6s] 2/44 h100/fresh_f_ml_gelu/small/c2                                  batch=2048  repeat=63488   1.593 us/launch correct=True
+[   20.3s] 3/44 h100/fresh_f_ml_gelu/medium/c1                                 batch=906   repeat=21744   4.696 us/launch correct=True
+[   27.1s] 4/44 h100/fresh_f_ml_gelu/medium/c2                                 batch=1284  repeat=33384   3.031 us/launch correct=True
+[   35.5s] 5/44 h100/fresh_f_ml_gelu/large/c1                                  batch=56    repeat=1176    89.034 us/launch correct=True
+[   43.9s] 6/44 h100/fresh_f_ml_gelu/large/c2                                  batch=71    repeat=1491    70.291 us/launch correct=True
+[   53.0s] 7/44 h100/fresh_f_ml_gelu/xlarge/c1                                 batch=29    repeat=580     176.750 us/launch correct=True
+[   61.7s] 8/44 h100/fresh_f_ml_gelu/xlarge/c2                                 batch=36    repeat=720     138.921 us/launch correct=True
+[   68.4s] 9/44 h100/fresh_f_ml_swiglu/small/c1                                batch=2048  repeat=75776   1.340 us/launch correct=True
+[   75.2s] 10/44 h100/fresh_f_ml_swiglu/small/c2                                batch=2048  repeat=73728   1.382 us/launch correct=True
+[   81.9s] 11/44 h100/fresh_f_ml_swiglu/medium/c1                               batch=1389  repeat=36114   2.771 us/launch correct=True
+[   88.8s] 12/44 h100/fresh_f_ml_swiglu/medium/c2                               batch=1749  repeat=47223   2.121 us/launch correct=True
+[  147.8s] 13/44 h100/fresh_f_ml_swiglu/large/c1                                batch=87    repeat=1827    57.060 us/launch correct=True
+[  156.2s] 14/44 h100/fresh_f_ml_swiglu/large/c2                                batch=94    repeat=1974    52.626 us/launch correct=True
+[  165.3s] 15/44 h100/fresh_f_ml_swiglu/xlarge/c1                               batch=44    repeat=924     112.907 us/launch correct=True
+[  174.4s] 16/44 h100/fresh_f_ml_swiglu/xlarge/c2                               batch=49    repeat=980     103.165 us/launch correct=True
+[  181.5s] 17/44 h100/fresh_f_ml_rmsnorm/small/c1                               batch=1729  repeat=46683   2.156 us/launch correct=True
+[  188.1s] 18/44 h100/fresh_f_ml_rmsnorm/small/c2                               batch=1656  repeat=44712   2.241 us/launch correct=True
+[  195.2s] 19/44 h100/fresh_f_ml_rmsnorm/medium/c1                              batch=1080  repeat=25920   4.030 us/launch correct=True
+[  201.9s] 20/44 h100/fresh_f_ml_rmsnorm/medium/c2                              batch=1038  repeat=25950   3.964 us/launch correct=True
+[  209.7s] 21/44 h100/fresh_f_ml_rmsnorm/large/c1                               batch=64    repeat=1344    77.839 us/launch correct=True
+[  218.1s] 22/44 h100/fresh_f_ml_rmsnorm/large/c2                               batch=50    repeat=1050    99.409 us/launch correct=True
+[  227.4s] 23/44 h100/fresh_f_ml_rmsnorm/xlarge/c1                              batch=32    repeat=640     158.163 us/launch correct=True
+[  236.7s] 24/44 h100/fresh_f_ml_rmsnorm/xlarge/c2                              batch=26    repeat=520     199.344 us/launch correct=True
+[  243.4s] 25/44 h100/fresh_f_ml_rotary_embedding/small/c1                      batch=2048  repeat=75776   1.342 us/launch correct=True
+[  250.1s] 26/44 h100/fresh_f_ml_rotary_embedding/small/c2                      batch=1924  repeat=61568   1.648 us/launch correct=True
+[  257.1s] 27/44 h100/fresh_f_ml_rotary_embedding/medium/c1                     batch=1262  repeat=32812   3.133 us/launch correct=True
+[  263.9s] 28/44 h100/fresh_f_ml_rotary_embedding/medium/c2                     batch=540   repeat=11880   8.480 us/launch correct=True
+[  272.0s] 29/44 h100/fresh_f_ml_rotary_embedding/large/c1                      batch=65    repeat=1300    77.121 us/launch correct=True
+[  280.7s] 30/44 h100/fresh_f_ml_rotary_embedding/large/c2                      batch=40    repeat=840     124.120 us/launch correct=True
+[  289.9s] 31/44 h100/fresh_f_ml_rotary_embedding/xlarge/c1                     batch=33    repeat=660     152.977 us/launch correct=True
+[  298.9s] 32/44 h100/fresh_f_ml_rotary_embedding/xlarge/c2                     batch=21    repeat=420     247.192 us/launch correct=True
+[  305.6s] 33/44 h100/fresh_f_ml_fp32_matmul/small/c1                           batch=190   repeat=3990    25.643 us/launch correct=True
+[  312.5s] 34/44 h100/fresh_f_ml_fp32_matmul/small/c2                           batch=76    repeat=1596    65.549 us/launch correct=True
+[  319.4s] 35/44 h100/fresh_f_ml_fp32_matmul/medium/c1                          batch=61    repeat=1220    81.885 us/launch correct=True
+[  326.1s] 36/44 h100/fresh_f_ml_fp32_matmul/medium/c2                          batch=26    repeat=520     192.853 us/launch correct=True
+[  333.7s] 37/44 h100/fresh_f_ml_fp32_matmul/large/c1                           batch=6     repeat=120     851.322 us/launch correct=True
+[  341.4s] 38/44 h100/fresh_f_ml_fp32_matmul/large/c2                           batch=6     repeat=114     910.351 us/launch correct=True
+[  349.4s] 39/44 h100/fresh_f_ml_fp32_matmul/xlarge/c1                          batch=4     repeat=68      1502.020 us/launch correct=True
+[  357.3s] 40/44 h100/fresh_f_ml_fp32_matmul/xlarge/c2                          batch=4     repeat=64      1628.044 us/launch correct=True
+[  364.1s] 41/44 h100/validation_fp32_matmul/v1/c1                              batch=81    repeat=1620    61.608 us/launch correct=True
+[  370.9s] 42/44 h100/validation_fp32_matmul/v1/c2                              batch=54    repeat=1134    91.979 us/launch correct=True
+[  469.4s] 43/44 h100/validation_rmsnorm/v6/c1                                  batch=137   repeat=2877    35.617 us/launch correct=True
+[  528.0s] 44/44 h100/validation_rmsnorm/v6/c2                                  batch=128   repeat=2688    38.695 us/launch correct=True
+wrote /home/user/rep_eval_runs/rep_eval_h100_j21/results/timing_fresh_engine.json
+[ 1281.6s] wrote /home/user/rep_eval_runs/rep_eval_h100_j21/results/timing_replication_h100_result.json (124 cells timed, 0 refused by the SASS gate)
+cell 1/34 h100/unseen_cuda_samples_matrix_multiply/small/c1 run_id=REP-H100-UNSEEN-matmul-small-c1
+  RAW 
+cell 2/34 h100/unseen_cuda_samples_matrix_multiply/small/c2 run_id=REP-H100-UNSEEN-matmul-small-c2
+  RAW 
+cell 3/34 h100/unseen_cuda_samples_matrix_multiply/medium/c1 run_id=REP-H100-UNSEEN-matmul-medium-c1
+  RAW 
+cell 4/34 h100/unseen_cuda_samples_matrix_multiply/medium/c2 run_id=REP-H100-UNSEEN-matmul-medium-c2
+  RAW 
+cell 5/34 h100/unseen_cuda_samples_matrix_multiply/large/c1 run_id=REP-H100-UNSEEN-matmul-large-c1
+  RAW 
+cell 6/34 h100/unseen_cuda_samples_matrix_multiply/large/c2 run_id=REP-H100-UNSEEN-matmul-large-c2
+  RAW 
+cell 7/34 h100/unseen_cuda_samples_matrix_multiply/xlarge/c1 run_id=REP-H100-UNSEEN-matmul-xlarge-c1
+  RAW 
+cell 8/34 h100/unseen_cuda_samples_matrix_multiply/xlarge/c2 run_id=REP-H100-UNSEEN-matmul-xlarge-c2
+  RAW 
+cell 9/34 h100/unseen_cuda_samples_black_scholes/small/c1 run_id=REP-H100-UNSEEN-bs-small-c1
+  RAW 
+cell 10/34 h100/unseen_cuda_samples_black_scholes/small/c2 run_id=REP-H100-UNSEEN-bs-small-c2
+  RAW 
+cell 11/34 h100/unseen_cuda_samples_black_scholes/medium/c1 run_id=REP-H100-UNSEEN-bs-medium-c1
+  RAW 
+cell 12/34 h100/unseen_cuda_samples_black_scholes/medium/c2 run_id=REP-H100-UNSEEN-bs-medium-c2
+  RAW 
+cell 13/34 h100/unseen_cuda_samples_black_scholes/large/c1 run_id=REP-H100-UNSEEN-bs-large-c1
+  RAW 
+cell 14/34 h100/unseen_cuda_samples_black_scholes/large/c2 run_id=REP-H100-UNSEEN-bs-large-c2
+  RAW 
+cell 15/34 h100/unseen_cuda_samples_black_scholes/xlarge/c1 run_id=REP-H100-UNSEEN-bs-xlarge-c1
+  RAW 
+cell 16/34 h100/unseen_cuda_samples_black_scholes/xlarge/c2 run_id=REP-H100-UNSEEN-bs-xlarge-c2
+  RAW 
+cell 17/34 h100/unseen_cuda_samples_scan/small/c1 run_id=REP-H100-UNSEEN-scan-small-c1
+  RAW 
+cell 18/34 h100/unseen_cuda_samples_scan/small/c2 run_id=REP-H100-UNSEEN-scan-small-c2
+  RAW 
+cell 19/34 h100/unseen_cuda_samples_scan/medium/c1 run_id=REP-H100-UNSEEN-scan-medium-c1
+  RAW 
+cell 20/34 h100/unseen_cuda_samples_scan/medium/c2 run_id=REP-H100-UNSEEN-scan-medium-c2
+  RAW 
+cell 21/34 h100/unseen_cuda_samples_scan/large/c1 run_id=REP-H100-UNSEEN-scan-large-c1
+  RAW 
+cell 22/34 h100/unseen_cuda_samples_scan/large/c2 run_id=REP-H100-UNSEEN-scan-large-c2
+  RAW 
+cell 23/34 h100/unseen_cuda_samples_scan/xlarge/c1 run_id=REP-H100-UNSEEN-scan-xlarge-c1
+  RAW 
+cell 24/34 h100/unseen_cuda_samples_scan/xlarge/c2 run_id=REP-H100-UNSEEN-scan-xlarge-c2
+  RAW 
+cell 25/34 h100/unseen_cuda_samples_separable_convolution/small/c1 run_id=REP-H100-UNSEEN-conv-small-c1
+  RAW 
+cell 26/34 h100/unseen_cuda_samples_separable_convolution/small/c2 run_id=REP-H100-UNSEEN-conv-small-c2
+  RAW 
+cell 27/34 h100/unseen_cuda_samples_separable_convolution/medium/c1 run_id=REP-H100-UNSEEN-conv-medium-c1
+  RAW 
+cell 28/34 h100/unseen_cuda_samples_separable_convolution/medium/c2 run_id=REP-H100-UNSEEN-conv-medium-c2
+  RAW 
+cell 29/34 h100/unseen_cuda_samples_separable_convolution/large/c1 run_id=REP-H100-UNSEEN-conv-large-c1
+  RAW 
+cell 30/34 h100/unseen_cuda_samples_separable_convolution/large/c2 run_id=REP-H100-UNSEEN-conv-large-c2
+  RAW 
+cell 31/34 h100/unseen_cuda_samples_separable_convolution/xlarge/c1 run_id=REP-H100-UNSEEN-conv-xlarge-c1
+  RAW 
+cell 32/34 h100/unseen_cuda_samples_separable_convolution/xlarge/c2 run_id=REP-H100-UNSEEN-conv-xlarge-c2
+  RAW 
+cell 33/34 h100/validation_separable_convolution/v5/c1 run_id=REP-H100-UNSEEN-conv-v5-c1
+  RAW 
+cell 34/34 h100/validation_separable_convolution/v5/c2 run_id=REP-H100-UNSEEN-conv-v5-c2
+  RAW 
+cell 1/18 h100/fresh_e_cuda_samples_scalar_product/small/c1 run_id=REP-H100-SET_E-sp-small-c1
+  RAW 
+cell 2/18 h100/fresh_e_cuda_samples_scalar_product/small/c2 run_id=REP-H100-SET_E-sp-small-c2
+  RAW 
+cell 3/18 h100/fresh_e_cuda_samples_scalar_product/medium/c1 run_id=REP-H100-SET_E-sp-medium-c1
+  RAW 
+cell 4/18 h100/fresh_e_cuda_samples_scalar_product/medium/c2 run_id=REP-H100-SET_E-sp-medium-c2
+  RAW 
+cell 5/18 h100/fresh_e_cuda_samples_scalar_product/large/c1 run_id=REP-H100-SET_E-sp-large-c1
+  RAW 
+cell 6/18 h100/fresh_e_cuda_samples_scalar_product/large/c2 run_id=REP-H100-SET_E-sp-large-c2
+  RAW 
+cell 7/18 h100/fresh_e_cuda_samples_scalar_product/xlarge/c1 run_id=REP-H100-SET_E-sp-xlarge-c1
+  RAW 
+cell 8/18 h100/fresh_e_cuda_samples_scalar_product/xlarge/c2 run_id=REP-H100-SET_E-sp-xlarge-c2
+  RAW 
+cell 9/18 h100/fresh_e_cuda_samples_fast_walsh_transform/small/c1 run_id=REP-H100-SET_E-fwt-small-c1
+  RAW 
+cell 10/18 h100/fresh_e_cuda_samples_fast_walsh_transform/small/c2 run_id=REP-H100-SET_E-fwt-small-c2
+  RAW 
+cell 11/18 h100/fresh_e_cuda_samples_fast_walsh_transform/medium/c1 run_id=REP-H100-SET_E-fwt-medium-c1
+  RAW 
+cell 12/18 h100/fresh_e_cuda_samples_fast_walsh_transform/medium/c2 run_id=REP-H100-SET_E-fwt-medium-c2
+  RAW 
+cell 13/18 h100/fresh_e_cuda_samples_fast_walsh_transform/large/c1 run_id=REP-H100-SET_E-fwt-large-c1
+  RAW 
+cell 14/18 h100/fresh_e_cuda_samples_fast_walsh_transform/large/c2 run_id=REP-H100-SET_E-fwt-large-c2
+  RAW 
+cell 15/18 h100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1 run_id=REP-H100-SET_E-fwt-xlarge-c1
+  RAW 
+cell 16/18 h100/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2 run_id=REP-H100-SET_E-fwt-xlarge-c2
+  RAW 
+cell 17/18 h100/validation_scalar_product/v4/c1 run_id=REP-H100-SET_E-sp-v4-c1
+  RAW 
+cell 18/18 h100/validation_scalar_product/v4/c2 run_id=REP-H100-SET_E-sp-v4-c2
+  RAW 
+[ 9999.7s]   RAW 
+[10164.7s]   RAW 
+[10338.7s]   RAW 
+[10512.7s]   RAW 
+[10676.8s]   RAW 
+[10841.9s]   RAW 
+[11006.4s]   RAW 
+[11170.7s]   RAW 
+[11337.1s]   RAW 
+[11502.4s]   RAW 
+[11668.4s]   RAW 
+[11834.3s]   RAW 
+[11999.1s]   RAW 
+[12164.0s]   RAW 
+[12331.6s]   RAW 
+[12498.9s]   RAW 
+[12663.6s]   RAW 
+[12828.3s]   RAW 
+[12993.7s]   RAW 
+[13159.0s]   RAW 
+[13323.7s]   RAW 
+[13488.1s]   RAW 
+[13652.7s]   RAW 
+[13823.1s]   RAW 
+[13992.9s]   RAW 
+[14165.4s]   RAW 
+[14329.9s]   RAW 
+[14500.6s]   RAW 
+[14507.6s] window gate: 80 windows, 80 below cap, 0 near cap, 0 above the cap rule, 0 clock-throttled, 0 without trace
+done; exit code 0

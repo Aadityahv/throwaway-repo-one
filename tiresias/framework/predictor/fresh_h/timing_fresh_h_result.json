@@ -1,0 +1,237 @@
+{
+ "schema": "fresh_f_timing/1",
+ "booking_ref": "fresh_fh_20261003",
+ "started_utc": "2026-10-03T03:03:13Z",
+ "manifest": {
+  "schema": "fresh_f_build/1",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Thu_Mar_19_11:12:51_PM_PDT_2026\nCuda compilation tools, release 13.2, V13.2.78\nBuild cuda_13.2.r13.2/compiler.37668154_0",
+  "command": [
+   "/usr/local/cuda-13.2/bin/nvcc",
+   "-arch=sm_120",
+   "-Xcompiler",
+   "-O2",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_f/src",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_g/src",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_h/src",
+   "-I",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_f/gpu/drivers",
+   "/home/user/fresh_d_run_20261002/tiresias/framework/predictor/fresh_f/gpu/drivers/driver_ml.cu",
+   "-o",
+   "/home/user/fresh_fgh_work/driver_ml"
+  ],
+  "driver_ml_cu_sha256": "0064caef8dfd6019ad7d544dc7da6d395b8ed72275c458e280e2a97da4be87b4",
+  "driver_common_h_sha256": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+  "ml_kernels_cuh_sha256": "0e307a8f09f8d739fc8a1f8665cbbe38a9915ce3bf1e903c4893ac59fd047dc1",
+  "tc_kernels_cuh_sha256": "ae5de3f3b1d763f6424b7beae2b099dc33694a6a21f6d9d178a9b67408256651",
+  "attn_kernels_cuh_sha256": "17c4367f20d8d9fccd38059b9e8c483c63e3e85d0ecc0968764f46455f7c3994",
+  "binary": "/home/user/fresh_fgh_work/driver_ml",
+  "binary_sha256": "997276269b06dbce38bea9be23ddfb6a6156252c30de6bfb61d868d8f40c3b4a"
+ },
+ "cells": [
+  {
+   "cell_id": "blackwell/fresh_h_ml_fused_attention/large/c1",
+   "argv": [
+    "attn",
+    "0",
+    "256",
+    "2048"
+   ],
+   "graph_batch": 4,
+   "repeat_per_window": 80,
+   "probe_per_launch_s": 0.001256672,
+   "calibration_per_launch_s": 0.001259824,
+   "window_per_launch_s": [
+    0.0012618991875,
+    0.00126105805,
+    0.0012619584125,
+    0.0012603108375,
+    0.0012604940375
+   ],
+   "per_launch_runtime_s": 0.00126105805,
+   "per_launch_min_s": 0.0012603108375,
+   "per_launch_max_s": 0.0012619584125,
+   "correct": true,
+   "check": "CHECK_OK attn variant=0 BH=256 S=2048 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00695 repeat=80 graph_batch=4"
+  },
+  {
+   "cell_id": "blackwell/fresh_h_ml_fused_attention/large/c2",
+   "argv": [
+    "attn",
+    "1",
+    "256",
+    "2048"
+   ],
+   "graph_batch": 5,
+   "repeat_per_window": 95,
+   "probe_per_launch_s": 0.001073888,
+   "calibration_per_launch_s": 0.0010744384,
+   "window_per_launch_s": [
+    0.0010789662421052631,
+    0.0010808417894736843,
+    0.0010802078210526316,
+    0.0010804106105263159,
+    0.0010800717789473684
+   ],
+   "per_launch_runtime_s": 0.0010802078210526316,
+   "per_launch_min_s": 0.0010789662421052631,
+   "per_launch_max_s": 0.0010808417894736843,
+   "correct": true,
+   "check": "CHECK_OK attn variant=1 BH=256 S=2048 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00695 repeat=95 graph_batch=5"
+  },
+  {
+   "cell_id": "blackwell/fresh_h_ml_fused_attention/medium/c1",
+   "argv": [
+    "attn",
+    "0",
+    "64",
+    "1024"
+   ],
+   "graph_batch": 56,
+   "repeat_per_window": 1176,
+   "probe_per_launch_s": 9.0404e-05,
+   "calibration_per_launch_s": 8.915371428571428e-05,
+   "window_per_launch_s": [
+    8.932574234693878e-05,
+    8.926595918367347e-05,
+    8.932416581632653e-05,
+    8.93029906462585e-05,
+    8.931950850340136e-05
+   ],
+   "per_launch_runtime_s": 8.931950850340136e-05,
+   "per_launch_min_s": 8.926595918367347e-05,
+   "per_launch_max_s": 8.932574234693878e-05,
+   "correct": true,
+   "check": "CHECK_OK attn variant=0 BH=64 S=1024 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00947 repeat=1176 graph_batch=56"
+  },
+  {
+   "cell_id": "blackwell/fresh_h_ml_fused_attention/medium/c2",
+   "argv": [
+    "attn",
+    "1",
+    "64",
+    "1024"
+   ],
+   "graph_batch": 66,
+   "repeat_per_window": 1386,
+   "probe_per_launch_s": 7.5908e-05,
+   "calibration_per_launch_s": 7.507781818181818e-05,
+   "window_per_launch_s": [
+    7.52323253968254e-05,
+    7.522514213564214e-05,
+    7.53768326118326e-05,
+    7.522525757575757e-05,
+    7.521920779220778e-05
+   ],
+   "per_launch_runtime_s": 7.522525757575757e-05,
+   "per_launch_min_s": 7.521920779220778e-05,
+   "per_launch_max_s": 7.53768326118326e-05,
+   "correct": true,
+   "check": "CHECK_OK attn variant=1 BH=64 S=1024 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00947 repeat=1386 graph_batch=66"
+  },
+  {
+   "cell_id": "blackwell/fresh_h_ml_fused_attention/small/c1",
+   "argv": [
+    "attn",
+    "0",
+    "16",
+    "512"
+   ],
+   "graph_batch": 398,
+   "repeat_per_window": 8756,
+   "probe_per_launch_s": 1.2588e-05,
+   "calibration_per_launch_s": 1.1688683417085426e-05,
+   "window_per_launch_s": [
+    1.169065737779808e-05,
+    1.1700451119232527e-05,
+    1.1701017473732299e-05,
+    1.1690674737322979e-05,
+    1.1722452261306532e-05
+   ],
+   "per_launch_runtime_s": 1.1700451119232527e-05,
+   "per_launch_min_s": 1.169065737779808e-05,
+   "per_launch_max_s": 1.1722452261306532e-05,
+   "correct": true,
+   "check": "CHECK_OK attn variant=0 BH=16 S=512 D=64 checked=5760 bad=0 first_bad=-1 worst=0.0141 repeat=8756 graph_batch=398"
+  },
+  {
+   "cell_id": "blackwell/fresh_h_ml_fused_attention/small/c2",
+   "argv": [
+    "attn",
+    "1",
+    "16",
+    "512"
+   ],
+   "graph_batch": 316,
+   "repeat_per_window": 6636,
+   "probe_per_launch_s": 1.5832e-05,
+   "calibration_per_launch_s": 1.5297113924050633e-05,
+   "window_per_launch_s": [
+    1.5320246232670283e-05,
+    1.5336525919228452e-05,
+    1.5324995629897528e-05,
+    1.532210292344786e-05,
+    1.5336950120554553e-05
+   ],
+   "per_launch_runtime_s": 1.5324995629897528e-05,
+   "per_launch_min_s": 1.5320246232670283e-05,
+   "per_launch_max_s": 1.5336950120554553e-05,
+   "correct": true,
+   "check": "CHECK_OK attn variant=1 BH=16 S=512 D=64 checked=5760 bad=0 first_bad=-1 worst=0.0141 repeat=6636 graph_batch=316"
+  },
+  {
+   "cell_id": "blackwell/fresh_h_ml_fused_attention/xlarge/c1",
+   "argv": [
+    "attn",
+    "0",
+    "512",
+    "2048"
+   ],
+   "graph_batch": 2,
+   "repeat_per_window": 40,
+   "probe_per_launch_s": 0.002502856,
+   "calibration_per_launch_s": 0.002500784,
+   "window_per_launch_s": [
+    0.0025119344750000002,
+    0.002509412775,
+    0.002510443125,
+    0.002509894375,
+    0.002511008075
+   ],
+   "per_launch_runtime_s": 0.002510443125,
+   "per_launch_min_s": 0.002509412775,
+   "per_launch_max_s": 0.0025119344750000002,
+   "correct": true,
+   "check": "CHECK_OK attn variant=0 BH=512 S=2048 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00712 repeat=40 graph_batch=2"
+  },
+  {
+   "cell_id": "blackwell/fresh_h_ml_fused_attention/xlarge/c2",
+   "argv": [
+    "attn",
+    "1",
+    "512",
+    "2048"
+   ],
+   "graph_batch": 3,
+   "repeat_per_window": 48,
+   "probe_per_launch_s": 0.002136456,
+   "calibration_per_launch_s": 0.0021315946666666664,
+   "window_per_launch_s": [
+    0.0021449419583333333,
+    0.0021459113749999997,
+    0.0021438180625,
+    0.0021445453958333334,
+    0.0021471899375
+   ],
+   "per_launch_runtime_s": 0.0021449419583333333,
+   "per_launch_min_s": 0.0021438180625,
+   "per_launch_max_s": 0.0021471899375,
+   "correct": true,
+   "check": "CHECK_OK attn variant=1 BH=512 S=2048 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00712 repeat=48 graph_batch=3"
+  }
+ ],
+ "finished_utc": "2026-10-03T03:04:38Z",
+ "all_correct": true
+}

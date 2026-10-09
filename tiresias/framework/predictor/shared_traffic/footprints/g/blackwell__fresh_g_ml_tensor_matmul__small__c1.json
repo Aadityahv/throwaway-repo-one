@@ -1,0 +1,87 @@
+{
+ "cell_id": "blackwell/fresh_g_ml_tensor_matmul/small/c1",
+ "kernels": [
+  {
+   "blocks": 16,
+   "first_touch_sectors_per_sampled_block": [
+    8192,
+    8192
+   ],
+   "kernel_id": "tc128",
+   "pointers": {
+    "0": {
+     "read": {
+      "footprint": 16384,
+      "mean_per_block": 4096.0,
+      "naive": 65536.0,
+      "reused": true,
+      "sampled_blocks": 2,
+      "span": 16384,
+      "union": 8192
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     }
+    },
+    "1": {
+     "read": {
+      "footprint": 16384,
+      "mean_per_block": 4096.0,
+      "naive": 65536.0,
+      "reused": true,
+      "sampled_blocks": 2,
+      "span": 16384,
+      "union": 8192
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     }
+    },
+    "2": {
+     "read": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     },
+     "write": {
+      "footprint": 32768.0,
+      "mean_per_block": 2048.0,
+      "naive": 32768.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 32768,
+      "union": 4096
+     }
+    }
+   },
+   "read_footprint_sectors": 32768,
+   "read_naive_sectors": 131072.0,
+   "reuse_working_set_bytes": 1048576,
+   "sampled_block_ids": [
+    0,
+    15
+   ],
+   "sampled_blocks": 2,
+   "write_footprint_sectors": 32768.0,
+   "write_naive_sectors": 32768.0
+  }
+ ],
+ "seconds": 119.9,
+ "status": "ok"
+}

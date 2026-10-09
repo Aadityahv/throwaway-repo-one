@@ -1,0 +1,87 @@
+{
+ "cell_id": "blackwell/fresh_e_cuda_samples_scalar_product/medium/c1",
+ "kernels": [
+  {
+   "blocks": 128,
+   "first_touch_sectors_per_sampled_block": [
+    8192,
+    8192
+   ],
+   "kernel_id": "sp",
+   "pointers": {
+    "0": {
+     "read": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     },
+     "write": {
+      "footprint": 32,
+      "mean_per_block": 2.0,
+      "naive": 256.0,
+      "reused": true,
+      "sampled_blocks": 2,
+      "span": 32,
+      "union": 4
+     }
+    },
+    "1": {
+     "read": {
+      "footprint": 524288.0,
+      "mean_per_block": 4096.0,
+      "naive": 524288.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 524288,
+      "union": 8192
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     }
+    },
+    "2": {
+     "read": {
+      "footprint": 524288.0,
+      "mean_per_block": 4096.0,
+      "naive": 524288.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 524288,
+      "union": 8192
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     }
+    }
+   },
+   "read_footprint_sectors": 1048576.0,
+   "read_naive_sectors": 1048576.0,
+   "reuse_working_set_bytes": 0,
+   "sampled_block_ids": [
+    0,
+    127
+   ],
+   "sampled_blocks": 2,
+   "write_footprint_sectors": 32,
+   "write_naive_sectors": 256.0
+  }
+ ],
+ "seconds": 68.1,
+ "status": "ok"
+}

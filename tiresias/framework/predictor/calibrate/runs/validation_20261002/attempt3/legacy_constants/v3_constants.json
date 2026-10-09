@@ -1,0 +1,40 @@
+{
+ "composition_rule": "issue cycles = max(0.25 * total warp instructions, busiest pipe) per phase",
+ "l1": {
+  "bandwidth_bytes_per_s_per_sm": 86231578947.36842,
+  "capacity_bytes_per_sm": 98304,
+  "capacity_rule": "largest one-block-per-SM footprint whose re-read pass ratio is at most hit_ratio + 0.25 * (1 - hit_ratio)",
+  "points_gbps": [
+   81.9,
+   86.2,
+   136.5
+  ]
+ },
+ "l1_reread_l2_fraction_curve": {
+  "hit_cost_ratio": 0.07441860465116279,
+  "p_l2": [
+   0.0,
+   0.0848,
+   0.3447,
+   0.4443,
+   0.52,
+   0.5682,
+   1.0
+  ],
+  "per_sm_kb": [
+   64,
+   128,
+   192,
+   256,
+   384,
+   512,
+   1024
+  ]
+ },
+ "launch_us_per_kernel": {
+  "check_at_sm_blocks_measured": 0.5234666666666666,
+  "check_at_sm_blocks_pred": 0.5507703305650545,
+  "intercept_at_one_block": 0.48456666666666665,
+  "per_extra_block": 0.00035403028822667324
+ }
+}

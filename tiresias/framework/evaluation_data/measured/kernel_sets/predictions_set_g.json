@@ -1,0 +1,586 @@
+{
+ "assets": {
+  "tc128": {
+   "counts": {
+    "alu_insts": 46,
+    "fp_insts": 0,
+    "int_insts": 124,
+    "local_insts": 0,
+    "mem_coal": 36,
+    "mem_partial": 0,
+    "mem_uncoal": 0,
+    "sfu_insts": 0,
+    "shared_insts": 52,
+    "synch_insts": 2,
+    "total_insts": 383
+   },
+   "ptx_sha256": "6f9647ec8d77aee6ca25dd7196c962eeb6926dbc3a1ae5b1075b192e141e411d",
+   "registers": 102,
+   "static_smem": 20480
+  },
+  "tc64": {
+   "counts": {
+    "alu_insts": 36,
+    "fp_insts": 0,
+    "int_insts": 76,
+    "local_insts": 0,
+    "mem_coal": 20,
+    "mem_partial": 0,
+    "mem_uncoal": 0,
+    "sfu_insts": 0,
+    "shared_insts": 36,
+    "synch_insts": 2,
+    "total_insts": 241
+   },
+   "ptx_sha256": "66f3477df8401c56e5f0d2297f434033e8b14f040812ab28d89c5c2df8cdc8e0",
+   "registers": 64,
+   "static_smem": 10240
+  }
+ },
+ "inputs_sha256": {
+  "tiresias/framework/evaluation_data/measured/kernel_sets/alavani_fitted.json": "68989d7eba850e0fc95d2fa17e0fc8244a4a9fcac95e5fe457f0415f36c67b1f",
+  "tiresias/framework/evaluation_data/measured/kernel_sets/predict_set.py": "52feba4f8a25bd804f2e1ae838063a77ff9841c918f388f6b76d85cbb2c83723",
+  "tiresias/framework/evaluation_data/measured/kernel_sets/recipe.json": "d013983f6a31fd10de775150f340f113bdd54b0ea4d60fcf99d1c040cc2e6687",
+  "tiresias/framework/predictor/fresh_g/calibration_with_tensor.json": "b7aaf71ba6f20b64214cb0aedb40e070d1b5c240f243fa714d8d2e38c3c5a7c8",
+  "tiresias/framework/predictor/fresh_g/compiled/log/tck.compile.log": "fee49e865dbbc194153dc545099f8c9751f7bd1a355bc562b4e333928f0d1540",
+  "tiresias/framework/predictor/fresh_g/compiled/tck.ptx": "dffecd00aa9fc87665b6d6c19d8296e0732a61b0ff4be4f097d5848f17ba0080",
+  "tiresias/framework/predictor/fresh_g/features_fresh_g.json": "af6156b7551add0f4332d2966262d0a38656304161796344f25160abba0c4dab",
+  "tiresias/framework/predictor/fresh_g/fresh_cells_g.json": "35070e996cea9fd568722e46f7e97a4f5366e3623a68b40cd95ad67fe104bfd1",
+  "tiresias/framework/predictor/fresh_g/isolated/tc128.isolated.sass": "7825876b7af3f1835f80f606f52b1b5467c86690a08d1094f31f3bea080cedf6",
+  "tiresias/framework/predictor/fresh_g/isolated/tc64.isolated.sass": "18597d738e1e75e8d698c0f3db3054b9963bd13ddd100f5082c7b5987b865f1e",
+  "tiresias/framework/predictor/fresh_g/predictions_fresh_g_v3i.json": "4a6ca7bb08e0bb1feadfc96e8379d6c103642205526e2a7b9c02de53a240f5d4",
+  "tiresias/framework/predictor/fresh_g/src/tc_kernels.cuh": "ae5de3f3b1d763f6424b7beae2b099dc33694a6a21f6d9d178a9b67408256651"
+ },
+ "note": "Frozen before any set-G timing or energy value existed.  Static-runtime evaluations here; measured-runtime evaluations are computed from these parameters by materialize_measured_f.py after timing.",
+ "rows": {
+  "blackwell/fresh_g_ml_tensor_matmul/large/c1": {
+   "candidate": "c1",
+   "energy_j": {
+    "alavani_predicted": 0.12006296735746966,
+    "component_predicted": 0.5579652879702102,
+    "delestrac": 0.01862795264,
+    "flipflop_predicted": 0.5557161403015517,
+    "flipflop_static": 2.3686161065405646,
+    "literature": 0.00905835446272,
+    "ours_predicted": 0.26423706309277933
+   },
+   "family": "tcgemm",
+   "logical_bytes": 285212672,
+   "operator": "fresh_g_ml_tensor_matmul",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 129.1079964428323,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 1.8892595621034856
+    },
+    "flipflop": {
+     "energy_j": 2.3686161065405646,
+     "runtime_s": 0.003965807401421988,
+     "stages": [
+      {
+       "block": [
+        256,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 46,
+        "fp_insts": 0,
+        "int_insts": 124,
+        "local_insts": 0,
+        "mem_coal": 36,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 0,
+        "shared_insts": 52,
+        "synch_insts": 2,
+        "total_insts": 383
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        64,
+        64,
+        1
+       ],
+       "kid": "_Z7tc_gemmILi128ELi128ELi2ELi4EEvP5uint4S1_Pfjj",
+       "ptx_sha256": "6f9647ec8d77aee6ca25dd7196c962eeb6926dbc3a1ae5b1075b192e141e411d",
+       "registers": 102,
+       "static_energy_j": 2.3686161065405646,
+       "static_power_w": 597.2594901334011,
+       "static_smem": 20480,
+       "static_time_s": 0.003965807401421988
+      }
+     ]
+    }
+   },
+   "regime": "large",
+   "source_operation_proxy": 68719476736,
+   "static_runtime_s": 0.0009299421466170169,
+   "tier": "DRAM"
+  },
+  "blackwell/fresh_g_ml_tensor_matmul/large/c2": {
+   "candidate": "c2",
+   "energy_j": {
+    "alavani_predicted": 0.3457724225085558,
+    "component_predicted": 0.9432912601618172,
+    "delestrac": 0.01862795264,
+    "flipflop_predicted": 0.9199544571643418,
+    "flipflop_static": 5.760512069327477,
+    "literature": 0.00905835446272,
+    "ours_predicted": 0.3675397501008709
+   },
+   "family": "tcgemm",
+   "logical_bytes": 285212672,
+   "operator": "fresh_g_ml_tensor_matmul",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 219.93573169494232,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 1.8892595621034856
+    },
+    "flipflop": {
+     "energy_j": 5.760512069327477,
+     "runtime_s": 0.009848784753706968,
+     "stages": [
+      {
+       "block": [
+        128,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 36,
+        "fp_insts": 0,
+        "int_insts": 76,
+        "local_insts": 0,
+        "mem_coal": 20,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 0,
+        "shared_insts": 36,
+        "synch_insts": 2,
+        "total_insts": 241
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        128,
+        128,
+        1
+       ],
+       "kid": "_Z7tc_gemmILi64ELi64ELi2ELi2EEvP5uint4S1_Pfjj",
+       "ptx_sha256": "66f3477df8401c56e5f0d2297f434033e8b14f040812ab28d89c5c2df8cdc8e0",
+       "registers": 64,
+       "static_energy_j": 5.760512069327477,
+       "static_power_w": 584.8957219985225,
+       "static_smem": 10240,
+       "static_time_s": 0.009848784753706968
+      }
+     ]
+    }
+   },
+   "regime": "large",
+   "source_operation_proxy": 68719476736,
+   "static_runtime_s": 0.0015721521002696954,
+   "tier": "DRAM"
+  },
+  "blackwell/fresh_g_ml_tensor_matmul/medium/c1": {
+   "candidate": "c1",
+   "energy_j": {
+    "alavani_predicted": 0.005791532057551588,
+    "component_predicted": 0.026914825806855516,
+    "delestrac": 0.000144703488,
+    "flipflop_predicted": 0.01666129958186556,
+    "flipflop_static": 0.13411725412258238,
+    "literature": 2.214592512e-05,
+    "ours_predicted": 0.01190282686522997
+   },
+   "family": "tcgemm",
+   "logical_bytes": 12582912,
+   "operator": "fresh_g_ml_tensor_matmul",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 129.1079964428323,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 0.11581925719230057
+    },
+    "flipflop": {
+     "energy_j": 0.13411725412258238,
+     "runtime_s": 0.00036869147250454996,
+     "stages": [
+      {
+       "block": [
+        256,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 46,
+        "fp_insts": 0,
+        "int_insts": 124,
+        "local_insts": 0,
+        "mem_coal": 36,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 0,
+        "shared_insts": 52,
+        "synch_insts": 2,
+        "total_insts": 383
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        8,
+        8,
+        1
+       ],
+       "kid": "_Z7tc_gemmILi128ELi128ELi2ELi4EEvP5uint4S1_Pfjj",
+       "ptx_sha256": "6f9647ec8d77aee6ca25dd7196c962eeb6926dbc3a1ae5b1075b192e141e411d",
+       "registers": 102,
+       "static_energy_j": 0.13411725412258238,
+       "static_power_w": 363.765544159493,
+       "static_smem": 20480,
+       "static_time_s": 0.00036869147250454996
+      }
+     ]
+    }
+   },
+   "regime": "medium",
+   "source_operation_proxy": 4294967296,
+   "static_runtime_s": 4.485804301142586e-05,
+   "tier": "L2"
+  },
+  "blackwell/fresh_g_ml_tensor_matmul/medium/c2": {
+   "candidate": "c2",
+   "energy_j": {
+    "alavani_predicted": 0.004464031325694898,
+    "component_predicted": 0.012178188486134618,
+    "delestrac": 0.000144703488,
+    "flipflop_predicted": 0.012357802097837465,
+    "flipflop_static": 0.5289002628201775,
+    "literature": 2.214592512e-05,
+    "ours_predicted": 0.009435813919480052
+   },
+   "family": "tcgemm",
+   "logical_bytes": 12582912,
+   "operator": "fresh_g_ml_tensor_matmul",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 219.93573169494232,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 0.11581925719230057
+    },
+    "flipflop": {
+     "energy_j": 0.5289002628201775,
+     "runtime_s": 0.000903507664339483,
+     "stages": [
+      {
+       "block": [
+        128,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 36,
+        "fp_insts": 0,
+        "int_insts": 76,
+        "local_insts": 0,
+        "mem_coal": 20,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 0,
+        "shared_insts": 36,
+        "synch_insts": 2,
+        "total_insts": 241
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        16,
+        16,
+        1
+       ],
+       "kid": "_Z7tc_gemmILi64ELi64ELi2ELi2EEvP5uint4S1_Pfjj",
+       "ptx_sha256": "66f3477df8401c56e5f0d2297f434033e8b14f040812ab28d89c5c2df8cdc8e0",
+       "registers": 64,
+       "static_energy_j": 0.5289002628201775,
+       "static_power_w": 585.3854745181765,
+       "static_smem": 10240,
+       "static_time_s": 0.000903507664339483
+      }
+     ]
+    }
+   },
+   "regime": "medium",
+   "source_operation_proxy": 4294967296,
+   "static_runtime_s": 2.0296980810224362e-05,
+   "tier": "L2"
+  },
+  "blackwell/fresh_g_ml_tensor_matmul/small/c1": {
+   "candidate": "c1",
+   "energy_j": {
+    "alavani_predicted": 0.0016340420944007008,
+    "component_predicted": 0.007593838365190206,
+    "delestrac": 2.4117247999999998e-05,
+    "flipflop_predicted": 0.0029921900193813533,
+    "flipflop_static": 0.07616426720199677,
+    "literature": 3.69098752e-06,
+    "ours_predicted": 0.0021823648083101515
+   },
+   "family": "tcgemm",
+   "logical_bytes": 2097152,
+   "operator": "fresh_g_ml_tensor_matmul",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 129.1079964428323,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 0.007323676981484051
+    },
+    "flipflop": {
+     "energy_j": 0.07616426720199677,
+     "runtime_s": 0.0003686933556365508,
+     "stages": [
+      {
+       "block": [
+        256,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 46,
+        "fp_insts": 0,
+        "int_insts": 124,
+        "local_insts": 0,
+        "mem_coal": 36,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 0,
+        "shared_insts": 52,
+        "synch_insts": 2,
+        "total_insts": 383
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        4,
+        4,
+        1
+       ],
+       "kid": "_Z7tc_gemmILi128ELi128ELi2ELi4EEvP5uint4S1_Pfjj",
+       "ptx_sha256": "6f9647ec8d77aee6ca25dd7196c962eeb6926dbc3a1ae5b1075b192e141e411d",
+       "registers": 102,
+       "static_energy_j": 0.07616426720199677,
+       "static_power_w": 206.57889825678797,
+       "static_smem": 20480,
+       "static_time_s": 0.0003686933556365508
+      }
+     ]
+    }
+   },
+   "regime": "small",
+   "source_operation_proxy": 268435456,
+   "static_runtime_s": 1.2656397275317009e-05,
+   "tier": "L2"
+  },
+  "blackwell/fresh_g_ml_tensor_matmul/small/c2": {
+   "candidate": "c2",
+   "energy_j": {
+    "alavani_predicted": 0.0016593787366512784,
+    "component_predicted": 0.004526900810149998,
+    "delestrac": 2.4117247999999998e-05,
+    "flipflop_predicted": 0.0031715899429602765,
+    "flipflop_static": 0.32194983901216234,
+    "literature": 3.69098752e-06,
+    "ours_predicted": 0.0015377984247282317
+   },
+   "family": "tcgemm",
+   "logical_bytes": 2097152,
+   "operator": "fresh_g_ml_tensor_matmul",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 219.93573169494232,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 0.007323676981484051
+    },
+    "flipflop": {
+     "energy_j": 0.32194983901216234,
+     "runtime_s": 0.0009035097574522377,
+     "stages": [
+      {
+       "block": [
+        128,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 36,
+        "fp_insts": 0,
+        "int_insts": 76,
+        "local_insts": 0,
+        "mem_coal": 20,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 0,
+        "shared_insts": 36,
+        "synch_insts": 2,
+        "total_insts": 241
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        8,
+        8,
+        1
+       ],
+       "kid": "_Z7tc_gemmILi64ELi64ELi2ELi2EEvP5uint4S1_Pfjj",
+       "ptx_sha256": "66f3477df8401c56e5f0d2297f434033e8b14f040812ab28d89c5c2df8cdc8e0",
+       "registers": 64,
+       "static_energy_j": 0.32194983901216234,
+       "static_power_w": 356.3324428504377,
+       "static_smem": 10240,
+       "static_time_s": 0.0009035097574522377
+      }
+     ]
+    }
+   },
+   "regime": "small",
+   "source_operation_proxy": 268435456,
+   "static_runtime_s": 7.54483468358333e-06,
+   "tier": "L2"
+  },
+  "blackwell/fresh_g_ml_tensor_matmul/xlarge/c1": {
+   "candidate": "c1",
+   "energy_j": {
+    "alavani_predicted": 0.2138311397903979,
+    "component_predicted": 0.9937315070259655,
+    "delestrac": 0.01972371456,
+    "flipflop_predicted": 0.9894203714999552,
+    "flipflop_static": 2.3686161065405646,
+    "literature": 0.00959119884288,
+    "ours_predicted": 0.44736448016603303
+   },
+   "family": "tcgemm",
+   "logical_bytes": 301989888,
+   "operator": "fresh_g_ml_tensor_matmul",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 129.1079964428323,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 3.7322100773019913
+    },
+    "flipflop": {
+     "energy_j": 2.3686161065405646,
+     "runtime_s": 0.003965807401421988,
+     "stages": [
+      {
+       "block": [
+        256,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 46,
+        "fp_insts": 0,
+        "int_insts": 124,
+        "local_insts": 0,
+        "mem_coal": 36,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 0,
+        "shared_insts": 52,
+        "synch_insts": 2,
+        "total_insts": 383
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        64,
+        64,
+        1
+       ],
+       "kid": "_Z7tc_gemmILi128ELi128ELi2ELi4EEvP5uint4S1_Pfjj",
+       "ptx_sha256": "6f9647ec8d77aee6ca25dd7196c962eeb6926dbc3a1ae5b1075b192e141e411d",
+       "registers": 102,
+       "static_energy_j": 2.3686161065405646,
+       "static_power_w": 597.2594901334011,
+       "static_smem": 20480,
+       "static_time_s": 0.003965807401421988
+      }
+     ]
+    }
+   },
+   "regime": "xlarge",
+   "source_operation_proxy": 137438953472,
+   "static_runtime_s": 0.001656219178376609,
+   "tier": "DRAM"
+  },
+  "blackwell/fresh_g_ml_tensor_matmul/xlarge/c2": {
+   "candidate": "c2",
+   "energy_j": {
+    "alavani_predicted": 0.6469897808637889,
+    "component_predicted": 1.765033200956679,
+    "delestrac": 0.01972371456,
+    "flipflop_predicted": 1.720942285045517,
+    "flipflop_static": 5.760512069327477,
+    "literature": 0.00959119884288,
+    "ours_predicted": 0.6535937243267538
+   },
+   "family": "tcgemm",
+   "logical_bytes": 301989888,
+   "operator": "fresh_g_ml_tensor_matmul",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 219.93573169494232,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 3.7322100773019913
+    },
+    "flipflop": {
+     "energy_j": 5.760512069327477,
+     "runtime_s": 0.009848784753706968,
+     "stages": [
+      {
+       "block": [
+        128,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 36,
+        "fp_insts": 0,
+        "int_insts": 76,
+        "local_insts": 0,
+        "mem_coal": 20,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 0,
+        "shared_insts": 36,
+        "synch_insts": 2,
+        "total_insts": 241
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        128,
+        128,
+        1
+       ],
+       "kid": "_Z7tc_gemmILi64ELi64ELi2ELi2EEvP5uint4S1_Pfjj",
+       "ptx_sha256": "66f3477df8401c56e5f0d2297f434033e8b14f040812ab28d89c5c2df8cdc8e0",
+       "registers": 64,
+       "static_energy_j": 5.760512069327477,
+       "static_power_w": 584.8957219985225,
+       "static_smem": 10240,
+       "static_time_s": 0.009848784753706968
+      }
+     ]
+    }
+   },
+   "regime": "xlarge",
+   "source_operation_proxy": 137438953472,
+   "static_runtime_s": 0.002941722001594465,
+   "tier": "DRAM"
+  }
+ },
+ "schema": "published_set_g_predictions/1"
+}

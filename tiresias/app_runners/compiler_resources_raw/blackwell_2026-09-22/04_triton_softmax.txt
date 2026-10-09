@@ -1,0 +1,52 @@
+M328: dev_triton_softmax compiler resources, from the Triton compile cache -- same method as
+03_triton_vector_add.txt (pure filesystem read of /home/user/.triton/cache, no recompile, no GPU
+context). Cross-check confirmed (00_platform_limits.txt) that Triton's own "shared" json field is the
+real per-launch dynamic shared size for a kernel using extern __shared__, NOT subject to the
+cuobjdump reserve artifact -- used directly here, no correction applied.
+
+12 cache entries with name=="softmax_kernel" matched, out of ~13 found (one extra ignored: same
+(BLOCK_SIZE,num_warps,num_stages) triple as an admitted cell, an earlier/duplicate compile, not a
+13th catalog cell -- workload_cells.csv has exactly 12 dev_triton_softmax rows). Matched by the
+BLOCK_SIZE/num_warps/num_stages triple, which workload_cells.csv's native_controls_json records
+per (regime, candidate) and is unique across all 12 admitted cells:
+
+  small  (BLOCK_SIZE=128): c1=(warps=2,stages=2) c2=(warps=4,stages=2) c3=(warps=8,stages=2) c4=(warps=8,stages=4)
+  medium (BLOCK_SIZE=512): c1=(warps=2,stages=2) c2=(warps=4,stages=2) c3=(warps=8,stages=2) c4=(warps=8,stages=4)
+  large  (BLOCK_SIZE=1024):c1=(warps=2,stages=2) c2=(warps=4,stages=2) c3=(warps=8,stages=2) c4=(warps=8,stages=4)
+
+Raw (dir, num_warps, num_stages, shared [from json], REG [from cuobjdump --dump-resource-usage on the
+entry's own .cubin], BLOCK_SIZE [from the entry's .source tt.make_range end bound]):
+
+dir=2CBZOB4U542ITVQWU6KZZJUI2HKPVJXTQBD6SQ5JE47EANYQL3DA warps=8 stages=4 shared=6176  REG=30 BLOCK_SIZE=512
+dir=2KDNEKKPSKTPTFFRKKAIA5J3UYEZCSKATZ2UVGGVYSNNOATWRVGA warps=2 stages=2 shared=520   REG=22 BLOCK_SIZE=128
+dir=75332WF4Z5A5YVTKKHILYF5TK2JEG7OZCMP2TH6EVWHMGQ4OZDGA warps=2 stages=2 shared=2056  REG=27 BLOCK_SIZE=512
+dir=G52GECJLA3SNB7T7ZVG5XYJHO2EB2NGZK4JVGRFRTX4H2XO3FNQQ warps=4 stages=2 shared=2064  REG=23 BLOCK_SIZE=512
+dir=GP6JZZL2L5EC4ZM5KEHRYOZPVJLJFOBAHS2ICK2BXLUKNCISAWEQ warps=8 stages=2 shared=528   REG=24 BLOCK_SIZE=128
+dir=GUKD34WZ2YY3XIP2ODQ3SWXEEWI37AIVXBUNRPQPMAW6LE7TK4CA warps=4 stages=2 shared=4112  REG=30 BLOCK_SIZE=1024
+dir=IZSWWLQPS3Z64IZRLI4C2FWDLIWIS54757TV7CUCG4QLUUEZHEVA warps=8 stages=4 shared=1552  REG=32 BLOCK_SIZE=128
+dir=KZPAOTYV7BORYN6BOLXU2L5TWH56KG63XG2YIOFVIL52A2YCOY2A warps=2 stages=2 shared=4104  REG=37 BLOCK_SIZE=1024
+dir=PW4NOMNDJORJUR2HSYIH4XUAZU3IGMJEW7PXHIC4WIBL5SSMY5OA warps=8 stages=4 shared=12320 REG=31 BLOCK_SIZE=1024
+dir=R4FMBPPYTOPGOTQZ7SVQC7HKPX3KGWVZNJVLFOCZNU7F2NB23VAQ warps=8 stages=2 shared=4128  REG=23 BLOCK_SIZE=1024
+dir=UNBYV3EDXHEWKPCYC2LEEW6TMKIQOQQ7HTAERXTZAJSI6TPTDJTQ warps=8 stages=2 shared=2080  REG=22 BLOCK_SIZE=512
+dir=XCJAWMJSDWSAHHAWR4HZOCINSAQXPHCFPCEN63I5LOSEHFAZO3TA warps=4 stages=2 shared=528   REG=22 BLOCK_SIZE=128
+
+Cross-check (2KDNE... dir, BLOCK_SIZE=128 warps=2 stages=2, shared=520 per Triton's own json):
+  cuobjdump --dump-resource-usage 2KDNE.../softmax_kernel.cubin ->
+    Function softmax_kernel: REG:22 STACK:0 SHARED:1024 ...
+  1024 == exactly the live-queried reserve (00_platform_limits.txt), NOT 520+1024=1544 -- confirms
+  Triton's dynamic-shared kernels are the reserve-only cuobjdump artifact, and Triton's own "shared"
+  field (520) is the real value to use, unmodified.
+
+Resolved compiler resources (dev_triton_softmax), matched to catalog cells by (BLOCK_SIZE,num_warps,num_stages):
+  small  c1 (2,2): registers_per_thread=22, shared_bytes_per_block=520
+  small  c2 (4,2): registers_per_thread=22, shared_bytes_per_block=528
+  small  c3 (8,2): registers_per_thread=24, shared_bytes_per_block=528
+  small  c4 (8,4): registers_per_thread=32, shared_bytes_per_block=1552
+  medium c1 (2,2): registers_per_thread=27, shared_bytes_per_block=2056
+  medium c2 (4,2): registers_per_thread=23, shared_bytes_per_block=2064
+  medium c3 (8,2): registers_per_thread=22, shared_bytes_per_block=2080
+  medium c4 (8,4): registers_per_thread=30, shared_bytes_per_block=6176
+  large  c1 (2,2): registers_per_thread=37, shared_bytes_per_block=4104
+  large  c2 (4,2): registers_per_thread=30, shared_bytes_per_block=4112
+  large  c3 (8,2): registers_per_thread=23, shared_bytes_per_block=4128
+  large  c4 (8,4): registers_per_thread=31, shared_bytes_per_block=12320

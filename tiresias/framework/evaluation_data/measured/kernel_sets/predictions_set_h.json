@@ -1,0 +1,586 @@
+{
+ "assets": {
+  "at4": {
+   "counts": {
+    "alu_insts": 68,
+    "fp_insts": 178,
+    "int_insts": 47,
+    "local_insts": 0,
+    "mem_coal": 40,
+    "mem_partial": 0,
+    "mem_uncoal": 0,
+    "sfu_insts": 34,
+    "shared_insts": 164,
+    "synch_insts": 2,
+    "total_insts": 717
+   },
+   "ptx_sha256": "fc1c9dce86949beb0e171fa40dd58ae312f9a32635a32f4457731c778d6aa380",
+   "registers": 119,
+   "static_smem": 18432
+  },
+  "at8": {
+   "counts": {
+    "alu_insts": 47,
+    "fp_insts": 178,
+    "int_insts": 35,
+    "local_insts": 0,
+    "mem_coal": 36,
+    "mem_partial": 0,
+    "mem_uncoal": 0,
+    "sfu_insts": 34,
+    "shared_insts": 146,
+    "synch_insts": 2,
+    "total_insts": 655
+   },
+   "ptx_sha256": "42324e65603a083da39b709c16e34b561590147476381f1489c2679a3bea2769",
+   "registers": 119,
+   "static_smem": 18432
+  }
+ },
+ "inputs_sha256": {
+  "tiresias/framework/evaluation_data/measured/kernel_sets/alavani_fitted.json": "68989d7eba850e0fc95d2fa17e0fc8244a4a9fcac95e5fe457f0415f36c67b1f",
+  "tiresias/framework/evaluation_data/measured/kernel_sets/predict_set.py": "4441e1e079f67764879e2760d05b12aed0b9fc1d1a4584259e5a148732193e40",
+  "tiresias/framework/evaluation_data/measured/kernel_sets/recipe.json": "d013983f6a31fd10de775150f340f113bdd54b0ea4d60fcf99d1c040cc2e6687",
+  "tiresias/framework/predictor/fresh_g/calibration_with_tensor.json": "b7aaf71ba6f20b64214cb0aedb40e070d1b5c240f243fa714d8d2e38c3c5a7c8",
+  "tiresias/framework/predictor/fresh_h/compiled/atk.ptx": "60fd3d77f5868c801fbabbd89093dfda3e0a6ea8d8662ad9d36c10809fb6a251",
+  "tiresias/framework/predictor/fresh_h/compiled/log/atk.compile.log": "22fbf4ae0c09b2c4d48a50e1516f5be18515959883b88610eff4f3e6018f5b1d",
+  "tiresias/framework/predictor/fresh_h/features_fresh_h.json": "3e1d51b68708fff8c43050608431064c83aa4948360651b895d3cddc8acbd6f4",
+  "tiresias/framework/predictor/fresh_h/fresh_cells_h.json": "2df2c681a286cb749280675515bfa40a583254b914803cdd85d3ba0b0f1a0598",
+  "tiresias/framework/predictor/fresh_h/isolated/at4.isolated.sass": "bebb054af995f152118e3914d80063bfa7ff3a1e41a9980267d14113a8a3a6f7",
+  "tiresias/framework/predictor/fresh_h/isolated/at8.isolated.sass": "546eae595bc739c519232b57c3be5363fa74dda808c55ae6c5b9981a5d71eec6",
+  "tiresias/framework/predictor/fresh_h/predictions_fresh_h_v3i.json": "43c0ff59c92e120604aa4c8193c9ab9603214e96ce03ef000aea45fab0185c1a",
+  "tiresias/framework/predictor/fresh_h/src/attn_kernels.cuh": "17c4367f20d8d9fccd38059b9e8c483c63e3e85d0ecc0968764f46455f7c3994"
+ },
+ "note": "Frozen before any set-H timing or energy value existed.  Static-runtime evaluations here; measured-runtime evaluations are computed from these parameters by materialize_measured_f.py after timing.",
+ "rows": {
+  "blackwell/fresh_h_ml_fused_attention/large/c1": {
+   "candidate": "c1",
+   "energy_j": {
+    "alavani_predicted": 0.16823843083134815,
+    "component_predicted": 1.8098320463450168,
+    "delestrac": 0.0219152384,
+    "flipflop_predicted": 1.7983334166194218,
+    "flipflop_static": 5.459831328827648,
+    "literature": 0.0106568876032,
+    "ours_predicted": 0.9314239082696556
+   },
+   "family": "attn",
+   "logical_bytes": 335544320,
+   "operator": "fresh_h_ml_fused_attention",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 55.774821040805925,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 7.418111107699003
+    },
+    "flipflop": {
+     "energy_j": 5.459831328827648,
+     "runtime_s": 0.009160529280395674,
+     "stages": [
+      {
+       "block": [
+        128,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 68,
+        "fp_insts": 178,
+        "int_insts": 47,
+        "local_insts": 0,
+        "mem_coal": 40,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 34,
+        "shared_insts": 164,
+        "synch_insts": 2,
+        "total_insts": 717
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        32,
+        256,
+        1
+       ],
+       "kid": "_Z8attn_fwdILi4EEvP5uint4S1_S1_Pfj",
+       "ptx_sha256": "fc1c9dce86949beb0e171fa40dd58ae312f9a32635a32f4457731c778d6aa380",
+       "registers": 119,
+       "static_energy_j": 5.459831328827648,
+       "static_power_w": 596.0170162342213,
+       "static_smem": 18432,
+       "static_time_s": 0.009160529280395674
+      }
+     ]
+    }
+   },
+   "regime": "large",
+   "source_operation_proxy": 274877906944,
+   "static_runtime_s": 0.0030163867439083614,
+   "tier": "DRAM"
+  },
+  "blackwell/fresh_h_ml_fused_attention/large/c2": {
+   "candidate": "c2",
+   "energy_j": {
+    "alavani_predicted": 0.1634108286236053,
+    "component_predicted": 1.0376024356746314,
+    "delestrac": 0.0219152384,
+    "flipflop_predicted": 1.051189354775573,
+    "flipflop_static": 5.0728008204230415,
+    "literature": 0.0106568876032,
+    "ours_predicted": 0.7248066089140555
+   },
+   "family": "attn",
+   "logical_bytes": 335544320,
+   "operator": "fresh_h_ml_fused_attention",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 94.49331825287689,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 7.418111107699003
+    },
+    "flipflop": {
+     "energy_j": 5.0728008204230415,
+     "runtime_s": 0.008349880191327538,
+     "stages": [
+      {
+       "block": [
+        256,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 47,
+        "fp_insts": 178,
+        "int_insts": 35,
+        "local_insts": 0,
+        "mem_coal": 36,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 34,
+        "shared_insts": 146,
+        "synch_insts": 2,
+        "total_insts": 655
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        16,
+        256,
+        1
+       ],
+       "kid": "_Z8attn_fwdILi8EEvP5uint4S1_S1_Pfj",
+       "ptx_sha256": "42324e65603a083da39b709c16e34b561590147476381f1489c2679a3bea2769",
+       "registers": 119,
+       "static_energy_j": 5.0728008204230415,
+       "static_power_w": 607.5297733842721,
+       "static_smem": 18432,
+       "static_time_s": 0.008349880191327538
+      }
+     ]
+    }
+   },
+   "regime": "large",
+   "source_operation_proxy": 274877906944,
+   "static_runtime_s": 0.0017293373927910523,
+   "tier": "DRAM"
+  },
+  "blackwell/fresh_h_ml_fused_attention/medium/c1": {
+   "candidate": "c1",
+   "energy_j": {
+    "alavani_predicted": 0.003826985234504115,
+    "component_predicted": 0.041168955773475846,
+    "delestrac": 0.00048234496,
+    "flipflop_predicted": 0.04165861752699594,
+    "flipflop_static": 0.9977036163750992,
+    "literature": 7.381975040000001e-05,
+    "ours_predicted": 0.040367087229502066
+   },
+   "family": "attn",
+   "logical_bytes": 41943040,
+   "operator": "fresh_h_ml_fused_attention",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 55.774821040805925,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 0.4627331989646246
+    },
+    "flipflop": {
+     "energy_j": 0.9977036163750992,
+     "runtime_s": 0.0016728973497839351,
+     "stages": [
+      {
+       "block": [
+        128,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 68,
+        "fp_insts": 178,
+        "int_insts": 47,
+        "local_insts": 0,
+        "mem_coal": 40,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 34,
+        "shared_insts": 164,
+        "synch_insts": 2,
+        "total_insts": 717
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        16,
+        64,
+        1
+       ],
+       "kid": "_Z8attn_fwdILi4EEvP5uint4S1_S1_Pfj",
+       "ptx_sha256": "fc1c9dce86949beb0e171fa40dd58ae312f9a32635a32f4457731c778d6aa380",
+       "registers": 119,
+       "static_energy_j": 0.9977036163750992,
+       "static_power_w": 596.3926098059505,
+       "static_smem": 18432,
+       "static_time_s": 0.0016728973497839351
+      }
+     ]
+    }
+   },
+   "regime": "medium",
+   "source_operation_proxy": 17179869184,
+   "static_runtime_s": 6.86149262891264e-05,
+   "tier": "L2"
+  },
+  "blackwell/fresh_h_ml_fused_attention/medium/c2": {
+   "candidate": "c2",
+   "energy_j": {
+    "alavani_predicted": 0.004909587726485774,
+    "component_predicted": 0.03117418977718861,
+    "delestrac": 0.00048234496,
+    "flipflop_predicted": 0.03227406433862567,
+    "flipflop_static": 0.9273734905212103,
+    "literature": 7.381975040000001e-05,
+    "ours_predicted": 0.03117418977718861
+   },
+   "family": "attn",
+   "logical_bytes": 41943040,
+   "operator": "fresh_h_ml_fused_attention",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 94.49331825287689,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 0.4627331989646246
+    },
+    "flipflop": {
+     "energy_j": 0.9273734905212103,
+     "runtime_s": 0.0015255066061932185,
+     "stages": [
+      {
+       "block": [
+        256,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 47,
+        "fp_insts": 178,
+        "int_insts": 35,
+        "local_insts": 0,
+        "mem_coal": 36,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 34,
+        "shared_insts": 146,
+        "synch_insts": 2,
+        "total_insts": 655
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        8,
+        64,
+        1
+       ],
+       "kid": "_Z8attn_fwdILi8EEvP5uint4S1_S1_Pfj",
+       "ptx_sha256": "42324e65603a083da39b709c16e34b561590147476381f1489c2679a3bea2769",
+       "registers": 119,
+       "static_energy_j": 0.9273734905212103,
+       "static_power_w": 607.9118154954424,
+       "static_smem": 18432,
+       "static_time_s": 0.0015255066061932185
+      }
+     ]
+    }
+   },
+   "regime": "medium",
+   "source_operation_proxy": 17179869184,
+   "static_runtime_s": 5.195698296198102e-05,
+   "tier": "L2"
+  },
+  "blackwell/fresh_h_ml_fused_attention/small/c1": {
+   "candidate": "c1",
+   "energy_j": {
+    "alavani_predicted": 0.000410125362290964,
+    "component_predicted": 0.004411940957991511,
+    "delestrac": 6.029312e-05,
+    "flipflop_predicted": 0.00442066024731065,
+    "flipflop_static": 0.4184165377754497,
+    "literature": 9.227468800000001e-06,
+    "ours_predicted": 0.0030993514666883314
+   },
+   "family": "attn",
+   "logical_bytes": 5242880,
+   "operator": "fresh_h_ml_fused_attention",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 55.774821040805925,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 0.029090771749219566
+    },
+    "flipflop": {
+     "energy_j": 0.4184165377754497,
+     "runtime_s": 0.0008409380885076353,
+     "stages": [
+      {
+       "block": [
+        128,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 68,
+        "fp_insts": 178,
+        "int_insts": 47,
+        "local_insts": 0,
+        "mem_coal": 40,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 34,
+        "shared_insts": 164,
+        "synch_insts": 2,
+        "total_insts": 717
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        8,
+        16,
+        1
+       ],
+       "kid": "_Z8attn_fwdILi4EEvP5uint4S1_S1_Pfj",
+       "ptx_sha256": "fc1c9dce86949beb0e171fa40dd58ae312f9a32635a32f4457731c778d6aa380",
+       "registers": 119,
+       "static_energy_j": 0.4184165377754497,
+       "static_power_w": 497.559265650566,
+       "static_smem": 18432,
+       "static_time_s": 0.0008409380885076353
+      }
+     ]
+    }
+   },
+   "regime": "small",
+   "source_operation_proxy": 1073741824,
+   "static_runtime_s": 7.3532349299858525e-06,
+   "tier": "L2"
+  },
+  "blackwell/fresh_h_ml_fused_attention/small/c2": {
+   "candidate": "c2",
+   "energy_j": {
+    "alavani_predicted": 0.0010383589250538459,
+    "component_predicted": 0.006593221262111192,
+    "delestrac": 6.029312e-05,
+    "flipflop_predicted": 0.004762165812469396,
+    "flipflop_static": 0.2834239907360562,
+    "literature": 9.227468800000001e-06,
+    "ours_predicted": 0.0034830397951143856
+   },
+   "family": "attn",
+   "logical_bytes": 5242880,
+   "operator": "fresh_h_ml_fused_attention",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 94.49331825287689,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 0.029090771749219566
+    },
+    "flipflop": {
+     "energy_j": 0.2834239907360562,
+     "runtime_s": 0.0007672427162171468,
+     "stages": [
+      {
+       "block": [
+        256,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 47,
+        "fp_insts": 178,
+        "int_insts": 35,
+        "local_insts": 0,
+        "mem_coal": 36,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 34,
+        "shared_insts": 146,
+        "synch_insts": 2,
+        "total_insts": 655
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        4,
+        16,
+        1
+       ],
+       "kid": "_Z8attn_fwdILi8EEvP5uint4S1_S1_Pfj",
+       "ptx_sha256": "42324e65603a083da39b709c16e34b561590147476381f1489c2679a3bea2769",
+       "registers": 119,
+       "static_energy_j": 0.2834239907360562,
+       "static_power_w": 369.4059060390491,
+       "static_smem": 18432,
+       "static_time_s": 0.0007672427162171468
+      }
+     ]
+    }
+   },
+   "regime": "small",
+   "source_operation_proxy": 1073741824,
+   "static_runtime_s": 1.0988702103518654e-05,
+   "tier": "L2"
+  },
+  "blackwell/fresh_h_ml_fused_attention/xlarge/c1": {
+   "candidate": "c1",
+   "energy_j": {
+    "alavani_predicted": 0.3364322250734173,
+    "component_predicted": 3.619183912690033,
+    "delestrac": 0.0438304768,
+    "flipflop_predicted": 3.595421196221374,
+    "flipflop_static": 10.913542965262353,
+    "literature": 0.0213137752064,
+    "ours_predicted": 1.862737742137416
+   },
+   "family": "attn",
+   "logical_bytes": 671088640,
+   "operator": "fresh_h_ml_fused_attention",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 55.774821040805925,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 14.836222215398006
+    },
+    "flipflop": {
+     "energy_j": 10.913542965262353,
+     "runtime_s": 0.018312079397474836,
+     "stages": [
+      {
+       "block": [
+        128,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 68,
+        "fp_insts": 178,
+        "int_insts": 47,
+        "local_insts": 0,
+        "mem_coal": 40,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 34,
+        "shared_insts": 164,
+        "synch_insts": 2,
+        "total_insts": 717
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        32,
+        512,
+        1
+       ],
+       "kid": "_Z8attn_fwdILi4EEvP5uint4S1_S1_Pfj",
+       "ptx_sha256": "fc1c9dce86949beb0e171fa40dd58ae312f9a32635a32f4457731c778d6aa380",
+       "registers": 119,
+       "static_energy_j": 10.913542965262353,
+       "static_power_w": 595.975078983509,
+       "static_smem": 18432,
+       "static_time_s": 0.018312079397474836
+      }
+     ]
+    }
+   },
+   "regime": "xlarge",
+   "source_operation_proxy": 549755813888,
+   "static_runtime_s": 0.006031973187816722,
+   "tier": "DRAM"
+  },
+  "blackwell/fresh_h_ml_fused_attention/xlarge/c2": {
+   "candidate": "c2",
+   "energy_j": {
+    "alavani_predicted": 0.3267460342446128,
+    "component_predicted": 2.074724691349263,
+    "delestrac": 0.0438304768,
+    "flipflop_predicted": 2.1011794843918503,
+    "flipflop_static": 10.139434211251071,
+    "literature": 0.0213137752064,
+    "ours_predicted": 1.4495031434262156
+   },
+   "family": "attn",
+   "logical_bytes": 671088640,
+   "operator": "fresh_h_ml_fused_attention",
+   "parameters_for_measured_runtime": {
+    "alavani_native_power_w": 94.49331825287689,
+    "component": {
+     "P_const_w": 144.22424342858156,
+     "cap_w": 600.0,
+     "variable_j": 14.836222215398006
+    },
+    "flipflop": {
+     "energy_j": 10.139434211251071,
+     "runtime_s": 0.016690781219435815,
+     "stages": [
+      {
+       "block": [
+        256,
+        1,
+        1
+       ],
+       "counts": {
+        "alu_insts": 47,
+        "fp_insts": 178,
+        "int_insts": 35,
+        "local_insts": 0,
+        "mem_coal": 36,
+        "mem_partial": 0,
+        "mem_uncoal": 0,
+        "sfu_insts": 34,
+        "shared_insts": 146,
+        "synch_insts": 2,
+        "total_insts": 655
+       },
+       "dynamic_smem": 0,
+       "grid": [
+        16,
+        512,
+        1
+       ],
+       "kid": "_Z8attn_fwdILi8EEvP5uint4S1_S1_Pfj",
+       "ptx_sha256": "42324e65603a083da39b709c16e34b561590147476381f1489c2679a3bea2769",
+       "registers": 119,
+       "static_energy_j": 10.139434211251071,
+       "static_power_w": 607.4870958972289,
+       "static_smem": 18432,
+       "static_time_s": 0.016690781219435815
+      }
+     ]
+    }
+   },
+   "regime": "xlarge",
+   "source_operation_proxy": 549755813888,
+   "static_runtime_s": 0.0034578744855821046,
+   "tier": "DRAM"
+  }
+ },
+ "schema": "published_set_h_predictions/1"
+}

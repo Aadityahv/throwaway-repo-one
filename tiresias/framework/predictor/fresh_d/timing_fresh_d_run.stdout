@@ -1,0 +1,104 @@
+built vectorAdd harness (copy_runner.build_binary) -> /tmp/fresh_d_rrrq0vnn/copy_runner/copy_harness
+built reduction harness (reduction_runner.build_binary) -> /tmp/fresh_d_rrrq0vnn/reduction_runner/reduction_harness
+built tile-family harness (tile_family.build_binary) -> /tmp/fresh_d_rrrq0vnn/tile_family/tile_family_harness
+built transpose harness (transpose_runner.build_binary) -> /tmp/fresh_d_rrrq0vnn/transpose_runner/transpose_harness
+hash gate copy_runner      _Z6vecAddPfS_S_i                         PASS identical (32 instructions)
+hash gate transpose_runner _Z14transposeNaivePfS_ii                 PASS identical (32 instructions)
+hash gate transpose_runner _Z18transposeCoalescedPfS_ii             PASS identical (48 instructions)
+hash gate transpose_runner _Z24transposeNoBankConflictsPfS_ii       PASS identical (48 instructions)
+hash gate transpose_runner _Z17transposeDiagonalPfS_ii              PASS identical (120 instructions)
+hash gate tile_family      _Z4copyPfS_ii                            PASS identical (32 instructions)
+hash gate tile_family      _Z13copySharedMemPfS_ii                  PASS identical (48 instructions)
+hash gate tile_family      _Z20transposeFineGrainedPfS_ii           PASS identical (48 instructions)
+hash gate tile_family      _Z22transposeCoarseGrainedPfS_ii         PASS identical (48 instructions)
+hash gate reduction_runner _Z7reduce0IfEvPT_S1_j                    PASS identical (56 instructions)
+hash gate reduction_runner _Z7reduce1IfEvPT_S1_j                    PASS identical (64 instructions)
+hash gate reduction_runner _Z7reduce6IfLj256ELb1EEvPT_S1_j          PASS identical (120 instructions)
+hash gate reduction_runner _Z7reduce2IfEvPT_S1_j                    PASS identical (56 instructions)
+[   27.6s] hash gate passed for 13 kernel/binary pairs
+[   27.6s] cell 1/28 blackwell/fresh_d_cuda_samples_vector_add/l2/c1: generating input (3145728 elements)
+[   31.8s]   reference check
+[   32.6s] blackwell/fresh_d_cuda_samples_vector_add/l2/c1                    repeat=9000    11.713 us/launch correct=True
+[   32.6s] cell 2/28 blackwell/fresh_d_cuda_samples_vector_add/l2/c2: generating input (3145728 elements)
+[   36.4s]   reference check
+[   37.2s] blackwell/fresh_d_cuda_samples_vector_add/l2/c2                    repeat=13000   7.694 us/launch correct=True
+[   37.2s] cell 3/28 blackwell/fresh_d_cuda_samples_vector_add/dram/c1: generating input (25165824 elements)
+[   49.0s]   reference check
+[   56.1s] blackwell/fresh_d_cuda_samples_vector_add/dram/c1                  repeat=1000    193.003 us/launch correct=True
+[   56.2s] cell 4/28 blackwell/fresh_d_cuda_samples_vector_add/dram/c2: generating input (25165824 elements)
+[   68.2s]   reference check
+[   74.5s] blackwell/fresh_d_cuda_samples_vector_add/dram/c2                  repeat=1000    193.414 us/launch correct=True
+[   74.6s] cell 5/28 blackwell/fresh_d_cuda_samples_transpose/l2/c1: generating input (2359296 elements)
+[   77.4s]   reference check
+[   77.4s] blackwell/fresh_d_cuda_samples_transpose/l2/c1                     repeat=5000    19.958 us/launch correct=True
+[   77.4s] cell 6/28 blackwell/fresh_d_cuda_samples_transpose/l2/c2: generating input (2359296 elements)
+[   80.6s]   reference check
+[   80.6s] blackwell/fresh_d_cuda_samples_transpose/l2/c2                     repeat=14000   7.101 us/launch correct=True
+[   80.7s] cell 7/28 blackwell/fresh_d_cuda_samples_transpose/l2/c3: generating input (2359296 elements)
+[   83.8s]   reference check
+[   83.8s] blackwell/fresh_d_cuda_samples_transpose/l2/c3                     repeat=29000   3.479 us/launch correct=True
+[   83.9s] cell 8/28 blackwell/fresh_d_cuda_samples_transpose/l2/c4: generating input (2359296 elements)
+[   86.7s]   reference check
+[   86.7s] blackwell/fresh_d_cuda_samples_transpose/l2/c4                     repeat=29000   3.486 us/launch correct=True
+[   86.8s] cell 9/28 blackwell/fresh_d_cuda_samples_transpose/dram/c1: generating input (26214400 elements)
+[   94.4s]   reference check
+[   94.8s] blackwell/fresh_d_cuda_samples_transpose/dram/c1                   repeat=1000    206.651 us/launch correct=True
+[   94.8s] cell 10/28 blackwell/fresh_d_cuda_samples_transpose/dram/c2: generating input (26214400 elements)
+[  101.6s]   reference check
+[  102.1s] blackwell/fresh_d_cuda_samples_transpose/dram/c2                   repeat=1000    141.446 us/launch correct=True
+[  102.1s] cell 11/28 blackwell/fresh_d_cuda_samples_transpose/dram/c3: generating input (26214400 elements)
+[  109.0s]   reference check
+[  109.5s] blackwell/fresh_d_cuda_samples_transpose/dram/c3                   repeat=1000    140.215 us/launch correct=True
+[  109.5s] cell 12/28 blackwell/fresh_d_cuda_samples_transpose/dram/c4: generating input (26214400 elements)
+[  116.4s]   reference check
+[  116.8s] blackwell/fresh_d_cuda_samples_transpose/dram/c4                   repeat=1000    149.896 us/launch correct=True
+[  116.8s] cell 13/28 blackwell/fresh_d_cuda_samples_copy/l2/c1: generating input (2359296 elements)
+[  119.6s]   reference check
+[  119.6s] blackwell/fresh_d_cuda_samples_copy/l2/c1                          repeat=31000   3.194 us/launch correct=True
+[  119.6s] cell 14/28 blackwell/fresh_d_cuda_samples_copy/l2/c2: generating input (2359296 elements)
+[  123.2s]   reference check
+[  123.3s] blackwell/fresh_d_cuda_samples_copy/l2/c2                          repeat=29000   3.453 us/launch correct=True
+[  123.3s] cell 15/28 blackwell/fresh_d_cuda_samples_copy/dram/c1: generating input (26214400 elements)
+[  131.9s]   reference check
+[  132.2s] blackwell/fresh_d_cuda_samples_copy/dram/c1                        repeat=1000    139.928 us/launch correct=True
+[  132.2s] cell 16/28 blackwell/fresh_d_cuda_samples_copy/dram/c2: generating input (26214400 elements)
+[  140.1s]   reference check
+[  140.4s] blackwell/fresh_d_cuda_samples_copy/dram/c2                        repeat=1000    138.338 us/launch correct=True
+[  140.5s] cell 17/28 blackwell/fresh_d_cuda_samples_transposefine/l2/c1: generating input (2359296 elements)
+[  143.0s]   reference check
+[  143.0s] blackwell/fresh_d_cuda_samples_transposefine/l2/c1                 repeat=29000   3.440 us/launch correct=True
+[  143.1s] cell 18/28 blackwell/fresh_d_cuda_samples_transposefine/l2/c2: generating input (2359296 elements)
+[  145.7s]   reference check
+[  145.8s] blackwell/fresh_d_cuda_samples_transposefine/l2/c2                 repeat=28000   3.511 us/launch correct=True
+[  145.8s] cell 19/28 blackwell/fresh_d_cuda_samples_transposefine/dram/c1: generating input (26214400 elements)
+[  151.4s]   reference check
+[  151.8s] blackwell/fresh_d_cuda_samples_transposefine/dram/c1               repeat=1000    138.360 us/launch correct=True
+[  151.8s] cell 20/28 blackwell/fresh_d_cuda_samples_transposefine/dram/c2: generating input (26214400 elements)
+[  157.4s]   reference check
+[  157.9s] blackwell/fresh_d_cuda_samples_transposefine/dram/c2               repeat=1000    140.208 us/launch correct=True
+[  157.9s] cell 21/28 blackwell/fresh_d_cuda_samples_reduction/l2/c1: generating input (6291456 elements)
+[  161.4s]   reference check
+[  161.4s] blackwell/fresh_d_cuda_samples_reduction/l2/c1                     repeat=4000    22.922 us/launch correct=True
+[  161.4s] cell 22/28 blackwell/fresh_d_cuda_samples_reduction/l2/c2: generating input (6291456 elements)
+[  164.8s]   reference check
+[  164.8s] blackwell/fresh_d_cuda_samples_reduction/l2/c2                     repeat=5000    21.478 us/launch correct=True
+[  164.9s] cell 23/28 blackwell/fresh_d_cuda_samples_reduction/l2/c3: generating input (8388608 elements)
+[  168.6s]   reference check
+[  168.7s] blackwell/fresh_d_cuda_samples_reduction/l2/c3                     repeat=3000    39.389 us/launch correct=True
+[  168.7s] cell 24/28 blackwell/fresh_d_cuda_samples_reduction/dram/c1: generating input (50331648 elements)
+[  179.6s]   reference check
+[  180.4s] blackwell/fresh_d_cuda_samples_reduction/dram/c1                   repeat=1000    188.401 us/launch correct=True
+[  180.5s] cell 25/28 blackwell/fresh_d_cuda_samples_reduction/dram/c2: generating input (50331648 elements)
+[  191.7s]   reference check
+[  192.2s] blackwell/fresh_d_cuda_samples_reduction/dram/c2                   repeat=1000    203.976 us/launch correct=True
+[  192.2s] cell 26/28 blackwell/fresh_d_cuda_samples_reduction/dram/c3: generating input (67108864 elements)
+[  211.8s]   reference check
+[  212.4s] blackwell/fresh_d_cuda_samples_reduction/dram/c3                   repeat=1000    694.724 us/launch correct=False
+[  212.5s] cell 27/28 blackwell/fresh_d_cuda_samples_reduce2/l2/c1: generating input (6291456 elements)
+[  215.8s]   reference check
+[  215.8s] blackwell/fresh_d_cuda_samples_reduce2/l2/c1                       repeat=4000    22.562 us/launch correct=True
+[  215.8s] cell 28/28 blackwell/fresh_d_cuda_samples_reduce2/dram/c1: generating input (50331648 elements)
+[  226.4s]   reference check
+[  226.8s] blackwell/fresh_d_cuda_samples_reduce2/dram/c1                     repeat=1000    186.036 us/launch correct=True
+CORRECTNESS FAILURE in at least one cell; do not use this file
+wrote timing_fresh_d_result.json

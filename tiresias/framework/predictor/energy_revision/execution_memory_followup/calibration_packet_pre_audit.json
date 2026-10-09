@@ -1,0 +1,139 @@
+{
+  "approval": "NEW shared-machine approval required after initial booking closes; compile/count/two correctness gates then maximum two energy windows.",
+  "attempts_per_slot": 1,
+  "booking": "Wait for every open GPU 1 booking to close; exact packet booking in the booking log pushed; fresh idle/UUID check; serial full grid; no GPU 0 or settings changes",
+  "cap_w": 600,
+  "compile": {
+    "cpu_only_env": {
+      "CUDA_VISIBLE_DEVICES": ""
+    },
+    "flags": [
+      "-O3",
+      "-std=c++17",
+      "-arch=sm_120",
+      "-Xptxas=-v"
+    ],
+    "nvcc": "/usr/local/cuda-13.2/bin/nvcc",
+    "priority": "nice -n 19, one compiler at a time"
+  },
+  "correctness_gate": "Both replacement configurations, full output arrays and versioned CPU oracle",
+  "cost_qualification": "3.5-minute new device-time floor, plus serial compilation/counts, two CPU oracle gates, probes and cooldown. Original 30 windows remain charged.",
+  "count_gate": "Complete actual compiled lane-instruction census and ABI/trip proof; six-column rank/conditioning after real calibration time is known; no transplanted hand counts",
+  "counted_target_s": 15,
+  "dose_change": "Memory checksum folds nine times per load instead of once; all added native work is counted. No machine-setting change.",
+  "energy_windows_maximum": 2,
+  "excluded_initial_controls": [
+    "memory/low/dram_candidate",
+    "memory/high/dram_candidate"
+  ],
+  "exclusion_reason": "Explicit retirement of two near-cap calibration controls; never a silent exclusion or target-driven fit.",
+  "fit_windows": 24,
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894",
+  "heldout_windows": 6,
+  "inputs_sha256": {
+    "HARDWARE_GROUND_TRUTH.md": "e370f88d39868edb4980ee6390d486a3773a7fac0b5be79bb7bef4d1d31d494d",
+    "energy_harness/application_energy_harness.py": "3ed91f66e983e866bda744b07fe1d1546291d22560f228c0df72c3716e209556",
+    "energy_harness/measurement_runner.py": "73a697ccbc2af9922613fd22411f32bf473cde57134be139345fdd3b0d89d48d",
+    "energy_harness/nvml_sampler.py": "876538f469ee78d40076bf74c97816c3fe99a228b00bc1bde913d5e737a22bc6",
+    "energy_harness/verify_b_stabilization_trace.py": "a66ea804ac44efadcd4eaf0e48f8a879bce7720e43391edab379f362bfbb7657",
+    "tiresias/framework/predictor/energy_revision/component_candidate.py": "a881d5f2022adc1ae553777ae86fe7e08efda62a663aaddb71c2e0b32a0ee205",
+    "tiresias/framework/predictor/energy_revision/execution/fit.py": "55cac13f828139901aeb558b5c90c634475655f28b4232c9a1c0bc9e32aada5c",
+    "tiresias/framework/predictor/energy_revision/execution_memory_followup/acquire.py": "e3a8600501b1460ee40200fae6ea54883928647955cd4035da36c68515865eb3",
+    "tiresias/framework/predictor/energy_revision/execution_memory_followup/calibration.cu": "daed2f6b38aec187d73c7424704a95167115d35e35256931565d9cdc615f7c39",
+    "tiresias/framework/predictor/energy_revision/execution_memory_followup/compile.py": "1ea0698735cb1cc41f4f88d748f2ac1b8a525f59cbf1d435541b10fef7ce91fc",
+    "tiresias/framework/predictor/energy_revision/execution_memory_followup/count.py": "556e4c3167dd9ec43548df32a771968dcde65fa7e6704f79806564b442ab93bd",
+    "tiresias/framework/predictor/energy_revision/execution_memory_followup/fit_followup.py": "6d48150472426325f55b320526206e0b980b221da894780c9ba8988ee7ac0540",
+    "tiresias/framework/predictor/energy_revision/execution_memory_followup/fit_policy.json": "c295353bf199bdab59d613b0d10b07a37d267a86c0f3d26a26aa93bb280a405b",
+    "tiresias/framework/predictor/energy_revision/execution_memory_followup/oracle.hpp": "b04603ff87501ed4971c91686eea7a7fcf40974886b88110cb93457bd4edf3ad",
+    "tiresias/framework/predictor/energy_revision/execution_memory_followup/prepare.py": "c3ec22f864bc7676bb6a8c9523c4bc34c7f9f9b06a0b3c4a08d8d1d2119151e2",
+    "tiresias/framework/predictor/extract_features.py": "0158fc7e7c7732a62da213c64a95f4f91553e27f74fb1f1aea7ab2bbc1468376",
+    "tiresias/framework/predictor/fresh_e/gpu/drivers/driver_common.h": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+    "tiresias/framework/predictor/port_common/port_ext.py": "3a7a3e2fdbeed45362dcd8bd4ca75ad7fc7e20f4e2034c5d73a2a78ac1e6f997"
+  },
+  "max_energy_windows": 2,
+  "planned_device_floor_s": 210,
+  "precondition_target_s": 90,
+  "prerequisite": "Original 30 windows complete and accepted; exactly these two controls fail the 95%-cap fit gate; all other 28 pass it. Otherwise refuse this proposal.",
+  "retained_initial_windows": 28,
+  "rows": [
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "memory",
+        "16",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "dependent_checksum_steps_per_memory_load": 9,
+      "design_id": "memory/low/dram_candidate",
+      "dose": 16,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536916028,
+      "logical_bytes": 8591233024,
+      "mix": "memory",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493564,
+      "work": null
+    },
+    {
+      "abi_status": "PENDING",
+      "argv_prefix": [
+        "memory",
+        "64",
+        "dram_candidate",
+        "CELL_OUTPUT.bin"
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cache_policy": "ld.global.cg",
+      "count_status": "PENDING_COMPILE_AND_ABI_AUDIT",
+      "dependent_checksum_steps_per_memory_load": 9,
+      "design_id": "memory/high/dram_candidate",
+      "dose": 64,
+      "footprint_candidate": "dram_candidate",
+      "grid": [
+        188,
+        1,
+        1
+      ],
+      "input_bytes": 536916220,
+      "logical_bytes": 34363199488,
+      "mix": "memory",
+      "n": 134228992,
+      "role": "fit",
+      "tier": "DRAM",
+      "touched_bytes": 537493756,
+      "work": null
+    }
+  ],
+  "schema": "energy_component_calibration_packet/1",
+  "sfu_reference": "https://docs.nvidia.com/cuda/parallel-thread-execution/#floating-point-instructions-ex2",
+  "sfu_reference_checked_date": "2026-10-02",
+  "small_candidate_qualification": "Not verified L1. cg bypasses L1; small and L2 rows share lookup coefficient. No L1 inference or physical L1 coefficient claimed.",
+  "status": "SOURCE_READY_NOT_COMPILED_OR_ADMITTED",
+  "total_acquired_if_completed": 32,
+  "traffic_qualification": "Declared logical tier/byte proxy from footprint/cache policy; not observed physical hierarchy traffic",
+  "window_budget": {
+    "counted_s_per_slot": 15,
+    "device_time_floor_s": 210,
+    "precondition_s_per_slot": 90
+  }
+}

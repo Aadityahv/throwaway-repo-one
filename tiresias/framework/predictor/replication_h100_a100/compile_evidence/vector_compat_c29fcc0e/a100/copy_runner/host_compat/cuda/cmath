@@ -1,0 +1,6 @@
+// Host-only compatibility for the pinned sample's launch-grid helper.
+// vecAdd itself uses no symbols from this header; its source is untouched.
+#pragma once
+namespace cuda {
+constexpr int ceil_div(int n, int d) { return n / d + (n % d != 0); }
+}

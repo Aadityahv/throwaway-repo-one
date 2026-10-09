@@ -1,0 +1,1292 @@
+{
+ "board": "h100",
+ "cells": [
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "5242880",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "32",
+    "shape_a": "512",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_new_tiles/small/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_tensor_matmul_new_tiles/small/c1",
+   "controls": {
+    "K": 2048,
+    "M": 512,
+    "N": 512,
+    "tile_m": 128,
+    "tile_n": 64
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 5242880,
+   "footprint_over_l2": 0.1,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 512
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      4,
+      1
+     ],
+     "kid": "tc128x64"
+    }
+   ],
+   "logical_bytes_per_launch": 5242880,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "small",
+   "set": "prospective",
+   "shape_a": 512,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "5242880",
+    "block_threads": "512",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "8",
+    "shape_a": "512",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_new_tiles/small/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_tensor_matmul_new_tiles/small/c2",
+   "controls": {
+    "K": 2048,
+    "M": 512,
+    "N": 512,
+    "tile_m": 256,
+    "tile_n": 128
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 5242880,
+   "footprint_over_l2": 0.1,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 512
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      2,
+      1
+     ],
+     "kid": "tc256x128"
+    }
+   ],
+   "logical_bytes_per_launch": 5242880,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "small",
+   "set": "prospective",
+   "shape_a": 512,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "5242880",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "16",
+    "shape_a": "512",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_bias_relu/small/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_tensor_matmul_bias_relu/small/c1",
+   "controls": {
+    "K": 2048,
+    "M": 512,
+    "N": 512,
+    "tile": 128
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 5242880,
+   "footprint_over_l2": 0.1,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 512
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      4,
+      1
+     ],
+     "kid": "tcr128"
+    }
+   ],
+   "logical_bytes_per_launch": 5242880,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "small",
+   "set": "prospective",
+   "shape_a": 512,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "5242880",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "64",
+    "shape_a": "512",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_bias_relu/small/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_tensor_matmul_bias_relu/small/c2",
+   "controls": {
+    "K": 2048,
+    "M": 512,
+    "N": 512,
+    "tile": 64
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 5242880,
+   "footprint_over_l2": 0.1,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 512
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      8,
+      1
+     ],
+     "kid": "tcr64"
+    }
+   ],
+   "logical_bytes_per_launch": 5242880,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "small",
+   "set": "prospective",
+   "shape_a": 512,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "20185088",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "392",
+    "shape_a": "1792",
+    "shape_b": "1792",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_new_tiles/medium/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_tensor_matmul_new_tiles/medium/c1",
+   "controls": {
+    "K": 1024,
+    "M": 1792,
+    "N": 1792,
+    "tile_m": 128,
+    "tile_n": 64
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 20185088,
+   "footprint_over_l2": 0.385,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 1792
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      28,
+      14,
+      1
+     ],
+     "kid": "tc128x64"
+    }
+   ],
+   "logical_bytes_per_launch": 20185088,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "medium",
+   "set": "prospective",
+   "shape_a": 1792,
+   "shape_b": 1792,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "20185088",
+    "block_threads": "512",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "98",
+    "shape_a": "1792",
+    "shape_b": "1792",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_new_tiles/medium/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_tensor_matmul_new_tiles/medium/c2",
+   "controls": {
+    "K": 1024,
+    "M": 1792,
+    "N": 1792,
+    "tile_m": 256,
+    "tile_n": 128
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 20185088,
+   "footprint_over_l2": 0.385,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 1792
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      14,
+      7,
+      1
+     ],
+     "kid": "tc256x128"
+    }
+   ],
+   "logical_bytes_per_launch": 20185088,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "medium",
+   "set": "prospective",
+   "shape_a": 1792,
+   "shape_b": 1792,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "20185088",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "196",
+    "shape_a": "1792",
+    "shape_b": "1792",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_bias_relu/medium/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_tensor_matmul_bias_relu/medium/c1",
+   "controls": {
+    "K": 1024,
+    "M": 1792,
+    "N": 1792,
+    "tile": 128
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 20185088,
+   "footprint_over_l2": 0.385,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 1792
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      14,
+      14,
+      1
+     ],
+     "kid": "tcr128"
+    }
+   ],
+   "logical_bytes_per_launch": 20185088,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "medium",
+   "set": "prospective",
+   "shape_a": 1792,
+   "shape_b": 1792,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "20185088",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "784",
+    "shape_a": "1792",
+    "shape_b": "1792",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_bias_relu/medium/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_tensor_matmul_bias_relu/medium/c2",
+   "controls": {
+    "K": 1024,
+    "M": 1792,
+    "N": 1792,
+    "tile": 64
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 20185088,
+   "footprint_over_l2": 0.385,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 1792
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      28,
+      28,
+      1
+     ],
+     "kid": "tcr64"
+    }
+   ],
+   "logical_bytes_per_launch": 20185088,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "medium",
+   "set": "prospective",
+   "shape_a": 1792,
+   "shape_b": 1792,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "109576192",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "2888",
+    "shape_a": "4864",
+    "shape_b": "4864",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_new_tiles/large/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_tensor_matmul_new_tiles/large/c1",
+   "controls": {
+    "K": 768,
+    "M": 4864,
+    "N": 4864,
+    "tile_m": 128,
+    "tile_n": 64
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 109576192,
+   "footprint_over_l2": 2.09,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 768,
+      "N": 4864
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      76,
+      38,
+      1
+     ],
+     "kid": "tc128x64"
+    }
+   ],
+   "logical_bytes_per_launch": 109576192,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "large",
+   "set": "prospective",
+   "shape_a": 4864,
+   "shape_b": 4864,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "109576192",
+    "block_threads": "512",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "722",
+    "shape_a": "4864",
+    "shape_b": "4864",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_new_tiles/large/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_tensor_matmul_new_tiles/large/c2",
+   "controls": {
+    "K": 768,
+    "M": 4864,
+    "N": 4864,
+    "tile_m": 256,
+    "tile_n": 128
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 109576192,
+   "footprint_over_l2": 2.09,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 768,
+      "N": 4864
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      38,
+      19,
+      1
+     ],
+     "kid": "tc256x128"
+    }
+   ],
+   "logical_bytes_per_launch": 109576192,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "large",
+   "set": "prospective",
+   "shape_a": 4864,
+   "shape_b": 4864,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "109576192",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "1444",
+    "shape_a": "4864",
+    "shape_b": "4864",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_bias_relu/large/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_tensor_matmul_bias_relu/large/c1",
+   "controls": {
+    "K": 768,
+    "M": 4864,
+    "N": 4864,
+    "tile": 128
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 109576192,
+   "footprint_over_l2": 2.09,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 768,
+      "N": 4864
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      38,
+      38,
+      1
+     ],
+     "kid": "tcr128"
+    }
+   ],
+   "logical_bytes_per_launch": 109576192,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "large",
+   "set": "prospective",
+   "shape_a": 4864,
+   "shape_b": 4864,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "109576192",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "5776",
+    "shape_a": "4864",
+    "shape_b": "4864",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_tensor_matmul_bias_relu/large/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_tensor_matmul_bias_relu/large/c2",
+   "controls": {
+    "K": 768,
+    "M": 4864,
+    "N": 4864,
+    "tile": 64
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 109576192,
+   "footprint_over_l2": 2.09,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "K": 768,
+      "N": 4864
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      76,
+      76,
+      1
+     ],
+     "kid": "tcr64"
+    }
+   ],
+   "logical_bytes_per_launch": 109576192,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "large",
+   "set": "prospective",
+   "shape_a": 4864,
+   "shape_b": 4864,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "6389760",
+    "block_threads": "64",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "312",
+    "shape_a": "13",
+    "shape_b": "768",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_fused_attention_new_blocks/small/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_fused_attention_new_blocks/small/c1",
+   "controls": {
+    "BH": 13,
+    "D": 64,
+    "S": 768,
+    "query_rows_per_block": 32
+   },
+   "family": "attn2",
+   "footprint_bytes": 6389760,
+   "footprint_over_l2": 0.121875,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 768
+     },
+     "block": [
+      64,
+      1,
+      1
+     ],
+     "grid": [
+      24,
+      13,
+      1
+     ],
+     "kid": "at2"
+    }
+   ],
+   "logical_bytes_per_launch": 6389760,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "small",
+   "set": "prospective",
+   "shape_a": 13,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "6389760",
+    "block_threads": "512",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "39",
+    "shape_a": "13",
+    "shape_b": "768",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_fused_attention_new_blocks/small/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_fused_attention_new_blocks/small/c2",
+   "controls": {
+    "BH": 13,
+    "D": 64,
+    "S": 768,
+    "query_rows_per_block": 256
+   },
+   "family": "attn2",
+   "footprint_bytes": 6389760,
+   "footprint_over_l2": 0.121875,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 768
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      3,
+      13,
+      1
+     ],
+     "kid": "at16"
+    }
+   ],
+   "logical_bytes_per_launch": 6389760,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "small",
+   "set": "prospective",
+   "shape_a": 13,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "6389760",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "156",
+    "shape_a": "13",
+    "shape_b": "768",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_attention_no_max/small/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_attention_no_max/small/c1",
+   "controls": {
+    "BH": 13,
+    "D": 64,
+    "S": 768,
+    "query_rows_per_block": 64
+   },
+   "family": "attnnm",
+   "footprint_bytes": 6389760,
+   "footprint_over_l2": 0.121875,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 768
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      12,
+      13,
+      1
+     ],
+     "kid": "nm4"
+    }
+   ],
+   "logical_bytes_per_launch": 6389760,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "small",
+   "set": "prospective",
+   "shape_a": 13,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "6389760",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "78",
+    "shape_a": "13",
+    "shape_b": "768",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_attention_no_max/small/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_attention_no_max/small/c2",
+   "controls": {
+    "BH": 13,
+    "D": 64,
+    "S": 768,
+    "query_rows_per_block": 128
+   },
+   "family": "attnnm",
+   "footprint_bytes": 6389760,
+   "footprint_over_l2": 0.121875,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 768
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      6,
+      13,
+      1
+     ],
+     "kid": "nm8"
+    }
+   ],
+   "logical_bytes_per_launch": 6389760,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "small",
+   "set": "prospective",
+   "shape_a": 13,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "18350080",
+    "block_threads": "64",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "896",
+    "shape_a": "28",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_fused_attention_new_blocks/medium/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_fused_attention_new_blocks/medium/c1",
+   "controls": {
+    "BH": 28,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 32
+   },
+   "family": "attn2",
+   "footprint_bytes": 18350080,
+   "footprint_over_l2": 0.35,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      64,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      28,
+      1
+     ],
+     "kid": "at2"
+    }
+   ],
+   "logical_bytes_per_launch": 18350080,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "medium",
+   "set": "prospective",
+   "shape_a": 28,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "18350080",
+    "block_threads": "512",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "112",
+    "shape_a": "28",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_fused_attention_new_blocks/medium/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_fused_attention_new_blocks/medium/c2",
+   "controls": {
+    "BH": 28,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 256
+   },
+   "family": "attn2",
+   "footprint_bytes": 18350080,
+   "footprint_over_l2": 0.35,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      28,
+      1
+     ],
+     "kid": "at16"
+    }
+   ],
+   "logical_bytes_per_launch": 18350080,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "medium",
+   "set": "prospective",
+   "shape_a": 28,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "18350080",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "448",
+    "shape_a": "28",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_attention_no_max/medium/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_attention_no_max/medium/c1",
+   "controls": {
+    "BH": 28,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 64
+   },
+   "family": "attnnm",
+   "footprint_bytes": 18350080,
+   "footprint_over_l2": 0.35,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      28,
+      1
+     ],
+     "kid": "nm4"
+    }
+   ],
+   "logical_bytes_per_launch": 18350080,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "medium",
+   "set": "prospective",
+   "shape_a": 28,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "18350080",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "224",
+    "shape_a": "28",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_attention_no_max/medium/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_attention_no_max/medium/c2",
+   "controls": {
+    "BH": 28,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 128
+   },
+   "family": "attnnm",
+   "footprint_bytes": 18350080,
+   "footprint_over_l2": 0.35,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      28,
+      1
+     ],
+     "kid": "nm8"
+    }
+   ],
+   "logical_bytes_per_launch": 18350080,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "medium",
+   "set": "prospective",
+   "shape_a": 28,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "98304000",
+    "block_threads": "64",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "4800",
+    "shape_a": "150",
+    "shape_b": "1024",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_fused_attention_new_blocks/large/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_fused_attention_new_blocks/large/c1",
+   "controls": {
+    "BH": 150,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 32
+   },
+   "family": "attn2",
+   "footprint_bytes": 98304000,
+   "footprint_over_l2": 1.875,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      64,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      150,
+      1
+     ],
+     "kid": "at2"
+    }
+   ],
+   "logical_bytes_per_launch": 98304000,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "large",
+   "set": "prospective",
+   "shape_a": 150,
+   "shape_b": 1024,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "98304000",
+    "block_threads": "512",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "600",
+    "shape_a": "150",
+    "shape_b": "1024",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_fused_attention_new_blocks/large/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_fused_attention_new_blocks/large/c2",
+   "controls": {
+    "BH": 150,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 256
+   },
+   "family": "attn2",
+   "footprint_bytes": 98304000,
+   "footprint_over_l2": 1.875,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      150,
+      1
+     ],
+     "kid": "at16"
+    }
+   ],
+   "logical_bytes_per_launch": 98304000,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "large",
+   "set": "prospective",
+   "shape_a": 150,
+   "shape_b": 1024,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "98304000",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "2400",
+    "shape_a": "150",
+    "shape_b": "1024",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_attention_no_max/large/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/prosp_attention_no_max/large/c1",
+   "controls": {
+    "BH": 150,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 64
+   },
+   "family": "attnnm",
+   "footprint_bytes": 98304000,
+   "footprint_over_l2": 1.875,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      150,
+      1
+     ],
+     "kid": "nm4"
+    }
+   ],
+   "logical_bytes_per_launch": 98304000,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "large",
+   "set": "prospective",
+   "shape_a": 150,
+   "shape_b": 1024,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "98304000",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "1200",
+    "shape_a": "150",
+    "shape_b": "1024",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/prosp_attention_no_max/large/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/prosp_attention_no_max/large/c2",
+   "controls": {
+    "BH": 150,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 128
+   },
+   "family": "attnnm",
+   "footprint_bytes": 98304000,
+   "footprint_over_l2": 1.875,
+   "group": "prospective",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      150,
+      1
+     ],
+     "kid": "nm8"
+    }
+   ],
+   "logical_bytes_per_launch": 98304000,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "large",
+   "set": "prospective",
+   "shape_a": 150,
+   "shape_b": 1024,
+   "tier": "DRAM"
+  }
+ ],
+ "derivation": {
+  "grid_candidates": {
+   "c1": 128,
+   "c2": 256
+  },
+  "l1_tier": "none: no verified target L1 capacity/residency gate",
+  "rule": "Unchanged complete-suite geometry/shape functions from the Ada replication and H100 generators, explicitly bound to h100's verified hardware; source-cell crosswalk below. No labels read.",
+  "tier_rule": "tier = L2 iff footprint / L2 < 1; no cell with ratio in [0.4, 1.5)"
+ },
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "group": "prospective",
+ "hardware_from_ground_truth": {
+  "file": "HARDWARE_GROUND_TRUTH.md",
+  "note": "the resident-blocks row is parsed under the short label by an in-memory alias; the file is unchanged",
+  "rows_quoted": {
+   "L2 cache size": "| L2 cache size | 52,428,800 bytes = 50.0 MiB | `cudaDeviceProp.l2CacheSize` |",
+   "Max resident blocks per SM": "| Max resident blocks per SM | 32 | live `cudaGetDeviceProperties()`, cluster job j07 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/h100_j07/` |",
+   "Max threads per block / per SM": "| Max threads per block / per SM | 1,024 / 2,048 | live `cudaGetDeviceProperties()`, cluster job j07 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/h100_j07/` |",
+   "Name": "| Name | NVIDIA H100 80GB HBM3 | `nvidia-smi` + `cudaGetDeviceProperties()` |",
+   "Reserved shared memory per block": "| Reserved shared memory per block (driver carveout) | 1,024 bytes | live `cudaGetDeviceProperties()`, cluster job j07 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/h100_j07/` (`reservedSharedMemPerBlock`) |",
+   "SM count": "| SM count | 132 | `cudaDeviceProp.multiProcessorCount` |",
+   "Shared mem per SM": "| Shared mem per SM | 233,472 bytes | live `cudaGetDeviceProperties()`, cluster job j07 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/h100_j07/` |"
+  },
+  "section": "## H100",
+  "values": {
+   "l2_bytes": 52428800,
+   "max_blocks_per_sm": 32,
+   "max_registers_per_thread": 256,
+   "max_threads_per_block": 1024,
+   "max_threads_per_sm": 2048,
+   "max_warps_per_sm": 64,
+   "register_alloc_granularity_regs_per_warp": 256,
+   "register_sub_partitions_per_sm": 4,
+   "regs_per_block": 65536,
+   "regs_per_sm": 65536,
+   "reserved_shared_per_block_bytes": 1024,
+   "shared_alloc_granularity_bytes": 128,
+   "shared_per_block_bytes": 49152,
+   "shared_per_sm_bytes": 233472,
+   "sm_count": 132,
+   "warp_size": 32
+  }
+ },
+ "schema": "cluster_replication_cells/1",
+ "unplaceable": []
+}

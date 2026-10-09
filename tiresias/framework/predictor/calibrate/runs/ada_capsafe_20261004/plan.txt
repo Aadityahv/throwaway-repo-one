@@ -1,0 +1,14 @@
+Device facts used: NVIDIA RTX 5000 Ada Generation, GPU-4640d904-c754-5243-df67-37761e91b400, compute capability 8.9, 100 SMs, L2 67108864 bytes, shared memory per SM 102400, max threads per SM 1536
+Pointer-chase tables (bytes per block): {"L1": 65536, "L2": 200704, "DRAM": 2097152}
+  stage launch_chain   program micro_launch   chain          ~0.1 min (Blackwell)  kernel launch gap by grid size
+  stage launch_reuse   program micro_launch   reuse          ~0.2 min (Blackwell)  L1 capacity, L1 bandwidth, re-read L2-share curve
+  stage stream         program micro_stream                  ~0.1 min (Blackwell)  L2 and DRAM bandwidth by read fraction, fixed kernel overhead
+  stage mlp            program micro_mlp                     ~0.1 min (Blackwell)  memory-level-parallelism service latency per tier
+  stage smem_volatile  program micro_smem     volatile       ~0.1 min (Blackwell)  shared-memory request cost versus bank-conflict degree (volatile)
+  stage smem_plain     program micro_smem     plain          ~0.1 min (Blackwell)  shared-memory request cost, plain loads of 32, 64 and 128 bits
+  stage overlap        program micro_overlap                 ~10.0 min (Blackwell)  phase-overlap fraction by resident blocks per SM
+  stage store          program micro_store                   ~0.1 min (Blackwell)  store and triad fixtures: launch floor, per-sector and per-line costs
+  stage pipes          program micro_pipes    135 cells      ~1.0 min (Blackwell)  pipe issue costs, dependent latencies, barrier cost, effective clock, pointer-chase latency
+  stage tensor         program micro_tensor                  ~6.0 min (Blackwell)  tensor-core MMA issue cost and dependent latency, and three tensor energy windows (1, 4, 16 warps per SM; 60 s warm-up + 20 s measurement); the tensor energy rate is derived from them and the energy stage fit
+  stage energy         program micro_energy                  ~43.0 min (Blackwell)  energy per byte by tier, per instruction class and base power (27 windows of 60 s warm-up + 20 s measurement)
+Expected total about 61 minutes (measured 11 on Blackwell; scales with the GPU), idle GPU required before every stage, no retries.

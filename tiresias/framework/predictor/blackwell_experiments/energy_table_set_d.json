@@ -1,0 +1,136 @@
+{
+ "cells": 27,
+ "measured": 27,
+ "missing": [],
+ "not_measured_correctness_failed": [
+  "blackwell/fresh_d_cuda_samples_reduction/dram/c3"
+ ],
+ "below_cap": 23,
+ "tables": {
+  "static runtime": {
+   "Ours (calibrator only)": {
+    "Copy": 5.413367785459733,
+    "Fine- and coarse-grained transpose": 9.36620083691313,
+    "Reduce2": 19.963485355687062,
+    "Reductions (reduce0/1/6)": 14.54066542342044,
+    "Transposes (naive, coalesced, padded, diagonal)": 8.447027057448553,
+    "Vector add": 7.574070288040968,
+    "ALL 27": 8.741793999119674,
+    "below cap (23)": 8.741793999119674,
+    "p90 all": 25.161912468940503,
+    "p90 below cap": 25.602007616001522,
+    "signed median all": 2.4189368502203656
+   },
+   "AccelWattch-style": {
+    "Copy": 6.239635507893104,
+    "Fine- and coarse-grained transpose": 4.831013691571545,
+    "Reduce2": 50.26877314524275,
+    "Reductions (reduce0/1/6)": 54.63894321612659,
+    "Transposes (naive, coalesced, padded, diagonal)": 8.85923205380617,
+    "Vector add": 4.052663916397947,
+    "ALL 27": 8.547329631424583,
+    "below cap (23)": 6.373746532621927,
+    "p90 all": 55.66205181108456,
+    "p90 below cap": 56.68516040604252,
+    "signed median all": -6.373746532621927
+   },
+   "FlipFlop": {
+    "Copy": 19.442353171705918,
+    "Fine- and coarse-grained transpose": 18.465837455269146,
+    "Reduce2": 4.018369772691005,
+    "Reductions (reduce0/1/6)": 6.328378706109206,
+    "Transposes (naive, coalesced, padded, diagonal)": 26.946601121073055,
+    "Vector add": 36.60653323204356,
+    "ALL 27": 17.419541737276223,
+    "below cap (23)": 26.062355024661432,
+    "p90 all": 44.56527570836197,
+    "p90 below cap": 48.90103354366938,
+    "signed median all": 17.419541737276223
+   },
+   "Alavani": {
+    "Copy": 19.06477938443087,
+    "Fine- and coarse-grained transpose": 16.085657151405485,
+    "Reduce2": 39.845984968574676,
+    "Reductions (reduce0/1/6)": 39.013265047925785,
+    "Transposes (naive, coalesced, padded, diagonal)": 10.199304087966032,
+    "Vector add": 15.562326300342288,
+    "ALL 27": 26.108885780357692,
+    "below cap (23)": 17.1348478181355,
+    "p90 all": 42.79635280036266,
+    "p90 below cap": 44.021323868011955,
+    "signed median all": -9.735586107733429
+   }
+  },
+  "measured runtime": {
+   "Ours (calibrator only)": {
+    "Copy": 4.165532295567265,
+    "Fine- and coarse-grained transpose": 9.998320695593277,
+    "Reduce2": 14.24745479286832,
+    "Reductions (reduce0/1/6)": 6.354558215730077,
+    "Transposes (naive, coalesced, padded, diagonal)": 8.851748674971416,
+    "Vector add": 3.347266346570432,
+    "ALL 27": 7.289396851532803,
+    "below cap (23)": 7.289396851532803,
+    "p90 all": 19.238492644607355,
+    "p90 below cap": 22.606236717934024,
+    "signed median all": 1.2359141284116637
+   },
+   "AccelWattch-style": {
+    "Copy": 6.501913477175392,
+    "Fine- and coarse-grained transpose": 3.1876055182032292,
+    "Reduce2": 44.27501390271789,
+    "Reductions (reduce0/1/6)": 44.10298646555966,
+    "Transposes (naive, coalesced, padded, diagonal)": 5.721510955310533,
+    "Vector add": 1.1901565355840582,
+    "ALL 27": 5.6596197317501655,
+    "below cap (23)": 4.329237875862713,
+    "p90 all": 45.38475438335577,
+    "p90 below cap": 45.96204941714173,
+    "signed median all": -4.329237875862713
+   },
+   "FlipFlop": {
+    "Copy": 15.56180727506435,
+    "Fine- and coarse-grained transpose": 18.06415618466788,
+    "Reduce2": 20.41835428158313,
+    "Reductions (reduce0/1/6)": 16.409698793397443,
+    "Transposes (naive, coalesced, padded, diagonal)": 28.468654987405774,
+    "Vector add": 40.64399676711952,
+    "ALL 27": 27.41873861591573,
+    "below cap (23)": 29.51857135889582,
+    "p90 all": 54.72151382423977,
+    "p90 below cap": 55.32519888793036,
+    "signed median all": 27.41873861591573
+   },
+   "Alavani": {
+    "Copy": 19.09894462954146,
+    "Fine- and coarse-grained transpose": 14.245952779134418,
+    "Reduce2": 24.423912752520017,
+    "Reductions (reduce0/1/6)": 36.378554430323796,
+    "Transposes (naive, coalesced, padded, diagonal)": 16.232782005683916,
+    "Vector add": 11.586661139354637,
+    "ALL 27": 21.674800928908013,
+    "below cap (23)": 13.913005154824088,
+    "p90 all": 36.71092960115314,
+    "p90 below cap": 34.44684223456144,
+    "signed median all": -10.623511379622242
+   }
+  },
+  "no runtime input": {
+   "FlipFlop as published (own time model)": {
+    "median_all": 16236.926653410985,
+    "median_below_cap": 10947.68293502598,
+    "p90_all": 34053.196860956545
+   },
+   "Delestrac per-level energies": {
+    "median_all": 88.25699767582991,
+    "median_below_cap": 87.85159572121944,
+    "p90_all": 96.82683919379119
+   },
+   "O'Connor / Keckler constants": {
+    "median_all": 98.19527186514877,
+    "median_below_cap": 94.09250419300945,
+    "p90_all": 99.51436843313674
+   }
+  }
+ }
+}

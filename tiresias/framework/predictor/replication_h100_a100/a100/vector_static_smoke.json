@@ -1,0 +1,2757 @@
+{
+ "board": "a100",
+ "cells": [
+  {
+   "bank": {
+    "kernels": [
+     {
+      "gate": "passed: shared request counts equal frozen shared warp counts per phase",
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "index": 0,
+        "shared": {
+         "shared_conflict_degree_histogram": {},
+         "shared_cost_cycles": 0.0,
+         "shared_cost_cycles_known": 0.0,
+         "shared_request_wavefront_histogram": {},
+         "shared_requests": 0,
+         "shared_requests_all_lanes_predicated_off": 0,
+         "shared_requests_by_opcode": {},
+         "shared_requests_degree_gt2": 0,
+         "shared_requests_unknown": 0,
+         "shared_unknown_reasons": {}
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "cell": {
+    "_dev": {
+     "active_sm_fraction": "",
+     "actual_logical_bytes_per_launch": "83890176",
+     "block_threads": "128",
+     "blocks_per_sm": "",
+     "geometry_source": "complete-suite generators bound to a100 hardware",
+     "grid_blocks": "54616",
+     "shape_a": "6990848",
+     "shape_b": "1",
+     "tier": "DRAM"
+    },
+    "blackwell_source_cell_id": "blackwell/fresh_d_cuda_samples_vector_add/dram/c1",
+    "candidate_id": "c1",
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/dram/c1",
+    "controls": {
+     "kernel": "vecAdd"
+    },
+    "family": "vecadd",
+    "footprint_bytes": 83890176,
+    "footprint_over_l2": 2.00009765625,
+    "geometry": {
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "blocks": 54616,
+     "grid": [
+      54616,
+      1,
+      1
+     ],
+     "n": 6990848,
+     "threads": 128
+    },
+    "group": "samples",
+    "kernel": "vecAdd",
+    "kernels": [
+     {
+      "args": {
+       "vectorLength": 6990848
+      },
+      "block": [
+       128,
+       1,
+       1
+      ],
+      "dynamic_smem": 0,
+      "grid": [
+       54616,
+       1,
+       1
+      ],
+      "kid": "d_vecAdd",
+      "sample_blocks": [
+       0,
+       27308,
+       54615
+      ]
+     }
+    ],
+    "logical_bytes_per_launch": 83890176,
+    "operator_id": "fresh_d_cuda_samples_vector_add",
+    "regime": "dram",
+    "set": "set_d",
+    "shape_a": 6990848,
+    "shape_b": 1,
+    "tier": "DRAM",
+    "timing": {
+     "elements": 6990848,
+     "file_args": [
+      "x.bin",
+      "y.bin",
+      "out.bin"
+     ],
+     "input_kind": "vecadd_uniform_pair",
+     "numeric_args": [
+      6990848,
+      128
+     ],
+     "oracle": "vector_add",
+     "runner": "copy_runner"
+    }
+   },
+   "features": {
+    "cell": "dram/c1",
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/dram/c1",
+    "corpus": "cuda_samples_unseen",
+    "geometry": {
+     "block_threads": 128,
+     "dev_table_active_sm_fraction": null,
+     "dev_table_blocks_per_sm": null,
+     "dev_table_blocks_per_sm_is_grid_over_sm_count": null,
+     "geometry_source": "complete-suite generators bound to a100 hardware",
+     "grid_blocks": 54616
+    },
+    "inputs": {
+     "cubin_sha256": "9c1a0a4b90c2f07d236df11138d78dade05911281915e4a75b8d51a29966c76b",
+     "isolated_sass_sha256": "14560fb1d1a553c241f7992db317b250c2f13a6ef734f0ce05f77838e307cb68",
+     "kernel_symbol": "_Z6vecAddPfS_S_i",
+     "secondary_kernel_symbols": []
+    },
+    "kernels_per_launch": 1,
+    "main_kernel": {
+     "abi": {
+      "all_constant_bank_accesses_on_declared_fields": true,
+      "bound_values": {
+       "A": {
+        "offset": "0x160",
+        "source": "distinct aligned synthetic base 0 (pointer value; only address differences matter)",
+        "value": 139637976727552
+       },
+       "B": {
+        "offset": "0x168",
+        "source": "distinct aligned synthetic base 1 (pointer value; only address differences matter)",
+        "value": 139642271694848
+       },
+       "C": {
+        "offset": "0x170",
+        "source": "distinct aligned synthetic base 2 (pointer value; only address differences matter)",
+        "value": 139646566662144
+       },
+       "vectorLength": {
+        "offset": "0x178",
+        "source": "launch argument from the sample's host code",
+        "value": 6990848
+       }
+      },
+      "parameter_fields": [
+       {
+        "bytes": 8,
+        "name": "A",
+        "offset": "0x160"
+       },
+       {
+        "bytes": 8,
+        "name": "B",
+        "offset": "0x168"
+       },
+       {
+        "bytes": 8,
+        "name": "C",
+        "offset": "0x170"
+       },
+       {
+        "bytes": 4,
+        "name": "vectorLength",
+        "offset": "0x178"
+       }
+      ],
+      "problems": []
+     },
+     "interpreter_outcomes": {
+      "extended_interpreter": {
+       "assumptions_applied": [],
+       "shared_addresses_touched_min_max": null,
+       "status": "ok"
+      },
+      "frozen_derive_run_lane_unmodified": {
+       "reason": "frozen derive.run_lane comparison skipped for new kernels",
+       "status": "not_run"
+      }
+     },
+     "kernel_id": "d_vecAdd",
+     "kernel_symbol": "_Z6vecAddPfS_S_i",
+     "role": "main",
+     "shape_problems": []
+    },
+    "memory": {
+     "executed_async_copy_global_to_shared_bytes_lane_level": 0,
+     "executed_bytes_scope": "main kernel only; per-launch sums are in per_launch_totals",
+     "executed_global_bytes_exact": true,
+     "executed_global_bytes_per_thread": 12.0,
+     "executed_global_load_bytes_lane_level": 55926784,
+     "executed_global_store_bytes_lane_level": 27963392,
+     "global_load_width_bits_histogram": {
+      "32": 13981696
+     },
+     "global_store_width_bits_histogram": {
+      "32": 6990848
+     },
+     "logical_bytes_per_launch": 83890176,
+     "shape_a": 6990848,
+     "shape_b": 1,
+     "tier": "DRAM",
+     "tier_source_note": "tier from the footprint-over-verified-L2 rule written in cells.py, not a counter"
+    },
+    "missing_features": [],
+    "occupancy": {
+     "active_sm_fraction": 1.0,
+     "blocks_per_sm": 16,
+     "blocks_per_sm_if_shared_were_static": 16,
+     "blocks_per_sm_ignoring_shared_by_warp_alloc_multiple": {
+      "1": 16,
+      "2": 16,
+      "4": 16
+     },
+     "first_wave_active_warps_per_sm_avg": 64,
+     "first_wave_resident_blocks_per_sm_avg": 16,
+     "last_wave_fill_fraction": 0.6064814814814815,
+     "limit_by_max_blocks": 32,
+     "limit_by_registers_by_warp_alloc_multiple": {
+      "1": 32,
+      "2": 32,
+      "4": 32
+     },
+     "limit_by_registers_if_multiple_1": 32,
+     "limit_by_shared": 164,
+     "limit_by_threads": 16,
+     "limit_by_warps": 16,
+     "limiter": [
+      "threads",
+      "warps"
+     ],
+     "max_resident_warps_per_sm": 64,
+     "occupancy_fraction_of_max_warps": 1.0,
+     "reasons": [],
+     "registers_per_warp_allocated": 512,
+     "resident_block_slots": 1728,
+     "shared_allocated_bytes_per_block": 1024,
+     "shared_decision_changes_occupancy": false,
+     "shared_nonbinding_up_to_dynamic_bytes": 9472,
+     "tail_idle_fraction_of_last_wave": 0.3935185185185185,
+     "warps_per_block": 4,
+     "waves": 32,
+     "waves_fractional": 31.60648148148148
+    },
+    "operator_id": "fresh_d_cuda_samples_vector_add",
+    "per_launch_totals": {
+     "all_counts_exact": true,
+     "assumptions_applied": [],
+     "barrier_releases_per_launch_estimate": 0,
+     "executed_global_load_bytes_lane_level": 55926784,
+     "executed_global_store_bytes_lane_level": 27963392,
+     "families": {
+      "control": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "fp32_add": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "fp_other": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "global_load": {
+       "exact": true,
+       "lane_instructions": 13981696,
+       "width_bits_histogram": {
+        "32": 13981696
+       }
+      },
+      "global_store": {
+       "exact": true,
+       "lane_instructions": 6990848,
+       "width_bits_histogram": {
+        "32": 6990848
+       }
+      },
+      "integer_alu": {
+       "exact": true,
+       "lane_instructions": 34954240
+      },
+      "move_const_special": {
+       "exact": true,
+       "lane_instructions": 20972544
+      },
+      "other": {
+       "exact": true,
+       "lane_instructions": 6990848
+      }
+     },
+     "grid_blocks_sum": 54616,
+     "kernels_per_launch": 1,
+     "note": "sum over the kernels of one measured launch; occupancy, waves and tail stay per kernel in each kernel block",
+     "opcode_lane_counts": {
+      "EXIT": 6990848,
+      "FADD": 6990848,
+      "HFMA2.MMA": 6990848,
+      "IMAD": 6990848,
+      "IMAD.WIDE": 20972544,
+      "ISETP.GE.AND": 6990848,
+      "LDG.E": 13981696,
+      "MOV": 6990848,
+      "S2R": 13981696,
+      "STG.E": 6990848,
+      "ULDC.64": 6990848
+     },
+     "six_class_counts": {
+      "barrier": 0,
+      "exponential": 0,
+      "fma": 0,
+      "shared_load": 0,
+      "shared_store": 0,
+      "shuffle": 0
+     },
+     "total_lane_instructions": 104862720
+    },
+    "resources": {
+     "constant_bank0_bytes": 380,
+     "dynamic_shared_bytes_per_launch": 0,
+     "dynamic_shared_source": "dispatch_trace.json dynamic_smem_bytes = 0 (no extern __shared__ in the kernel source)",
+     "frame_size_bytes": 0,
+     "local_memory_bytes_per_thread": 0,
+     "max_register_index_in_isolated_sass": 9,
+     "max_threads_attr": null,
+     "maxreg_count_attr": null,
+     "min_stack_size_bytes": null,
+     "register_count_consistent_with_sass": true,
+     "registers_per_thread": 12,
+     "reqntid": null,
+     "shared_decision": "SHARED:1024 is the 1024-byte driver reserve, not declared static shared memory (ADAPTER.md)",
+     "shared_section_bytes_raw": 1024,
+     "source_of_resources": "cuobjdump --dump-resource-usage line in libtorch_sm120/isolated_index.json (no cubin ELF retained for libtorch kernels); STACK is cuobjdump's STACK field",
+     "static_shared_bytes_per_block": 0
+    },
+    "secondary_kernels": [],
+    "status": "supported",
+    "structure": {
+     "barrier_arrivals_per_block": 0,
+     "barrier_participants_per_release_assumed": 128,
+     "barrier_participation_uniform": true,
+     "barrier_releases_per_block_estimate": 0,
+     "barrier_releases_per_launch_estimate": 0,
+     "hot_region": "whole_kernel_no_loop",
+     "hot_region_chain": {
+      "async_copies": 0,
+      "critical_path_instructions": 6,
+      "dependency_waits": 0,
+      "dependent_global_load_depth": 1,
+      "global_load_to_use_edges": 2,
+      "global_loads": 2,
+      "global_loads_with_a_consumer": 2,
+      "instructions": 15,
+      "shared_loads": 0,
+      "shared_loads_with_a_consumer": 0
+     },
+     "innermost_loops": 0,
+     "iterations_note": "iterations = visits of the loop header per thread; equals the trip count if the loop is entered once",
+     "loop_back_edge_pc": null,
+     "loop_body_dynamic_instructions_per_iteration_per_thread_mean": 15.0,
+     "loop_body_static_instructions": 15,
+     "loop_header_pc": null,
+     "loop_iterations_per_thread_max": 1,
+     "loop_iterations_per_thread_mean": 1.0,
+     "loop_iterations_per_thread_min": 1,
+     "note": "releases = max per-lane visit count summed over barrier sites; assumes every barrier is block-wide (BAR.SYNC with the default thread count)",
+     "static_backward_branches_executed": 0,
+     "static_barrier_sites": 0,
+     "whole_kernel_chain": {
+      "async_copies": 0,
+      "critical_path_instructions": 6,
+      "dependency_waits": 0,
+      "dependent_global_load_depth": 1,
+      "global_load_to_use_edges": 2,
+      "global_loads": 2,
+      "global_loads_with_a_consumer": 2,
+      "instructions": 15,
+      "shared_loads": 0,
+      "shared_loads_with_a_consumer": 0
+     }
+    },
+    "work": {
+     "all_counts_exact": true,
+     "assumption_log_lane_visits": {},
+     "assumptions_applied": [],
+     "executed_async_copy_global_to_shared_bytes": 0,
+     "executed_global_bytes_exact": true,
+     "executed_global_bytes_per_thread": 12.0,
+     "executed_global_load_bytes": 55926784,
+     "executed_global_store_bytes": 27963392,
+     "families": {
+      "control": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "fp32_add": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "fp_other": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "global_load": {
+       "exact": true,
+       "lane_instructions": 13981696,
+       "width_bits_histogram": {
+        "32": 13981696
+       }
+      },
+      "global_store": {
+       "exact": true,
+       "lane_instructions": 6990848,
+       "width_bits_histogram": {
+        "32": 6990848
+       }
+      },
+      "integer_alu": {
+       "exact": true,
+       "lane_instructions": 34954240
+      },
+      "move_const_special": {
+       "exact": true,
+       "lane_instructions": 20972544
+      },
+      "other": {
+       "exact": true,
+       "lane_instructions": 6990848
+      }
+     },
+     "float_variant_lane_counts": {
+      "FADD": 6990848
+     },
+     "note": "lane-level predicate-true instruction counts per launch of this kernel; counts are CONDITIONAL on `assumptions_applied` and are not warp-issued counts. FFMA modifier variants (.SAT/.RM/.RZ/.RP) are in opcode_lane_counts and float_variant_lane_counts, not in the six-class fma count (FFMA only), and families.other.",
+     "opcode_lane_counts": {
+      "EXIT": 6990848,
+      "FADD": 6990848,
+      "HFMA2.MMA": 6990848,
+      "IMAD": 6990848,
+      "IMAD.WIDE": 20972544,
+      "ISETP.GE.AND": 6990848,
+      "LDG.E": 13981696,
+      "MOV": 6990848,
+      "S2R": 13981696,
+      "STG.E": 6990848,
+      "ULDC.64": 6990848
+     },
+     "opcodes_with_unknown_guard_upper_bound": [],
+     "six_class_counts": {
+      "barrier": 0,
+      "exponential": 0,
+      "fma": 0,
+      "shared_load": 0,
+      "shared_store": 0,
+      "shuffle": 0
+     },
+     "six_class_counts_from_frozen_derivation": null,
+     "six_class_cross_check": {
+      "barrier": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "exponential": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "fma": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shared_load": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shared_store": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shuffle": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      }
+     },
+     "six_class_cross_check_all_equal": true,
+     "six_class_width_histograms": {
+      "barrier": {},
+      "exponential": {},
+      "fma": {},
+      "shared_load": {},
+      "shared_store": {},
+      "shuffle": {}
+     },
+     "source_of_six_class_counts": "pytorch_features/pt_interp.py (extended interpreter); the frozen derivation refuses these kernels, so there is no frozen reference",
+     "static_global_access_width_sites": {
+      "global_load": {
+       "32": 2
+      },
+      "global_store": {
+       "32": 1
+      }
+     },
+     "total_lane_instructions": 104862720,
+     "total_lane_instructions_per_thread": 15.0,
+     "upper_bound_note": "opcodes_with_unknown_guard_upper_bound lists opcodes with a guard predicate the interpreter could not decide; they are counted as executed"
+    }
+   },
+   "footprints": {
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/dram/c1",
+    "kernels": [
+     {
+      "blocks": 54616,
+      "first_touch_sectors_per_sampled_block": [
+       32,
+       32,
+       32
+      ],
+      "kernel_id": "d_vecAdd",
+      "pointers": {
+       "0": {
+        "read": {
+         "footprint": 873856.0,
+         "mean_per_block": 16.0,
+         "naive": 873856.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 873856,
+         "union": 48
+        },
+        "write": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        }
+       },
+       "1": {
+        "read": {
+         "footprint": 873856.0,
+         "mean_per_block": 16.0,
+         "naive": 873856.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 873856,
+         "union": 48
+        },
+        "write": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        }
+       },
+       "2": {
+        "read": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        },
+        "write": {
+         "footprint": 873856.0,
+         "mean_per_block": 16.0,
+         "naive": 873856.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 873856,
+         "union": 48
+        }
+       }
+      },
+      "read_footprint_sectors": 1747712.0,
+      "read_naive_sectors": 1747712.0,
+      "reuse_working_set_bytes": 0,
+      "sampled_block_ids": [
+       0,
+       27308,
+       54615
+      ],
+      "sampled_blocks": 3,
+      "write_footprint_sectors": 873856.0,
+      "write_naive_sectors": 873856.0
+     }
+    ],
+    "status": "ok"
+   },
+   "origin": "base",
+   "phases": {
+    "kernels": [
+     {
+      "barrier_sequence": [],
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "critical_path_compute_instructions": 5,
+        "dependent_global_load_depth": 1,
+        "index": 0,
+        "issue_warp_instructions": {
+         "EXIT": 436928,
+         "FADD": 218464,
+         "HFMA2.MMA": 218464,
+         "IMAD": 218464,
+         "IMAD.WIDE": 655392,
+         "ISETP.GE.AND": 218464,
+         "LDG.E": 436928,
+         "MOV": 218464,
+         "S2R": 436928,
+         "STG.E": 218464,
+         "ULDC.64": 218464
+        },
+        "lines": 655392,
+        "read_bytes": 55926784,
+        "read_sectors": 1747712,
+        "repetitions": 1,
+        "write_bytes": 27963392,
+        "write_sectors": 873856
+       }
+      ],
+      "unknown_guard_upper_bounds": []
+     }
+    ],
+    "reason": null,
+    "status": "conditional_static_phases"
+   },
+   "unique": {
+    "kernels": [
+     {
+      "blocks": 54616,
+      "blocks_per_sm": 16,
+      "first_touch_read_sectors_per_block": 32,
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "index": 0,
+        "lines": 655392,
+        "read_sectors": 1747712,
+        "read_sectors_also_written_same_phase_per_block": 0,
+        "read_sectors_first_touch": 1747712,
+        "read_sectors_first_touch_per_block": 32,
+        "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+        "read_sectors_total_requested": 1747712,
+        "read_sectors_unique_in_phase_per_block": 32,
+        "repetitions": 1,
+        "write_sectors": 873856
+       }
+      ],
+      "read_sectors_shared_across_blocks_note": {
+       "block0_distinct_read_sectors": 32,
+       "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+       "sampled_blocks_compared": 2,
+       "shared_with_at_least_one_other_sampled_block": 0
+      },
+      "status": "ok",
+      "total_requested_read_sectors_per_block": 32,
+      "unique_read_bytes_per_block": 1024,
+      "unique_read_or_written_bytes_per_block": 1536,
+      "unique_read_sectors_per_block": 32
+     }
+    ],
+    "kernels_per_launch": 1,
+    "reason": null,
+    "status": "ok"
+   }
+  },
+  {
+   "bank": {
+    "kernels": [
+     {
+      "gate": "passed: shared request counts equal frozen shared warp counts per phase",
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "index": 0,
+        "shared": {
+         "shared_conflict_degree_histogram": {},
+         "shared_cost_cycles": 0.0,
+         "shared_cost_cycles_known": 0.0,
+         "shared_request_wavefront_histogram": {},
+         "shared_requests": 0,
+         "shared_requests_all_lanes_predicated_off": 0,
+         "shared_requests_by_opcode": {},
+         "shared_requests_degree_gt2": 0,
+         "shared_requests_unknown": 0,
+         "shared_unknown_reasons": {}
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "cell": {
+    "_dev": {
+     "active_sm_fraction": "",
+     "actual_logical_bytes_per_launch": "83890176",
+     "block_threads": "1024",
+     "blocks_per_sm": "",
+     "geometry_source": "complete-suite generators bound to a100 hardware",
+     "grid_blocks": "6827",
+     "shape_a": "6990848",
+     "shape_b": "1",
+     "tier": "DRAM"
+    },
+    "blackwell_source_cell_id": "blackwell/fresh_d_cuda_samples_vector_add/dram/c2",
+    "candidate_id": "c2",
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/dram/c2",
+    "controls": {
+     "kernel": "vecAdd"
+    },
+    "family": "vecadd",
+    "footprint_bytes": 83890176,
+    "footprint_over_l2": 2.00009765625,
+    "geometry": {
+     "block": [
+      1024,
+      1,
+      1
+     ],
+     "blocks": 6827,
+     "grid": [
+      6827,
+      1,
+      1
+     ],
+     "n": 6990848,
+     "threads": 1024
+    },
+    "group": "samples",
+    "kernel": "vecAdd",
+    "kernels": [
+     {
+      "args": {
+       "vectorLength": 6990848
+      },
+      "block": [
+       1024,
+       1,
+       1
+      ],
+      "dynamic_smem": 0,
+      "grid": [
+       6827,
+       1,
+       1
+      ],
+      "kid": "d_vecAdd",
+      "sample_blocks": [
+       0,
+       3413,
+       6826
+      ]
+     }
+    ],
+    "logical_bytes_per_launch": 83890176,
+    "operator_id": "fresh_d_cuda_samples_vector_add",
+    "regime": "dram",
+    "set": "set_d",
+    "shape_a": 6990848,
+    "shape_b": 1,
+    "tier": "DRAM",
+    "timing": {
+     "elements": 6990848,
+     "file_args": [
+      "x.bin",
+      "y.bin",
+      "out.bin"
+     ],
+     "input_kind": "vecadd_uniform_pair",
+     "numeric_args": [
+      6990848,
+      1024
+     ],
+     "oracle": "vector_add",
+     "runner": "copy_runner"
+    }
+   },
+   "features": {
+    "cell": "dram/c2",
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/dram/c2",
+    "corpus": "cuda_samples_unseen",
+    "geometry": {
+     "block_threads": 1024,
+     "dev_table_active_sm_fraction": null,
+     "dev_table_blocks_per_sm": null,
+     "dev_table_blocks_per_sm_is_grid_over_sm_count": null,
+     "geometry_source": "complete-suite generators bound to a100 hardware",
+     "grid_blocks": 6827
+    },
+    "inputs": {
+     "cubin_sha256": "9c1a0a4b90c2f07d236df11138d78dade05911281915e4a75b8d51a29966c76b",
+     "isolated_sass_sha256": "14560fb1d1a553c241f7992db317b250c2f13a6ef734f0ce05f77838e307cb68",
+     "kernel_symbol": "_Z6vecAddPfS_S_i",
+     "secondary_kernel_symbols": []
+    },
+    "kernels_per_launch": 1,
+    "main_kernel": {
+     "abi": {
+      "all_constant_bank_accesses_on_declared_fields": true,
+      "bound_values": {
+       "A": {
+        "offset": "0x160",
+        "source": "distinct aligned synthetic base 0 (pointer value; only address differences matter)",
+        "value": 139637976727552
+       },
+       "B": {
+        "offset": "0x168",
+        "source": "distinct aligned synthetic base 1 (pointer value; only address differences matter)",
+        "value": 139642271694848
+       },
+       "C": {
+        "offset": "0x170",
+        "source": "distinct aligned synthetic base 2 (pointer value; only address differences matter)",
+        "value": 139646566662144
+       },
+       "vectorLength": {
+        "offset": "0x178",
+        "source": "launch argument from the sample's host code",
+        "value": 6990848
+       }
+      },
+      "parameter_fields": [
+       {
+        "bytes": 8,
+        "name": "A",
+        "offset": "0x160"
+       },
+       {
+        "bytes": 8,
+        "name": "B",
+        "offset": "0x168"
+       },
+       {
+        "bytes": 8,
+        "name": "C",
+        "offset": "0x170"
+       },
+       {
+        "bytes": 4,
+        "name": "vectorLength",
+        "offset": "0x178"
+       }
+      ],
+      "problems": []
+     },
+     "interpreter_outcomes": {
+      "extended_interpreter": {
+       "assumptions_applied": [],
+       "shared_addresses_touched_min_max": null,
+       "status": "ok"
+      },
+      "frozen_derive_run_lane_unmodified": {
+       "reason": "frozen derive.run_lane comparison skipped for new kernels",
+       "status": "not_run"
+      }
+     },
+     "kernel_id": "d_vecAdd",
+     "kernel_symbol": "_Z6vecAddPfS_S_i",
+     "role": "main",
+     "shape_problems": []
+    },
+    "memory": {
+     "executed_async_copy_global_to_shared_bytes_lane_level": 0,
+     "executed_bytes_scope": "main kernel only; per-launch sums are in per_launch_totals",
+     "executed_global_bytes_exact": true,
+     "executed_global_bytes_per_thread": 12.0,
+     "executed_global_load_bytes_lane_level": 55926784,
+     "executed_global_store_bytes_lane_level": 27963392,
+     "global_load_width_bits_histogram": {
+      "32": 13981696
+     },
+     "global_store_width_bits_histogram": {
+      "32": 6990848
+     },
+     "logical_bytes_per_launch": 83890176,
+     "shape_a": 6990848,
+     "shape_b": 1,
+     "tier": "DRAM",
+     "tier_source_note": "tier from the footprint-over-verified-L2 rule written in cells.py, not a counter"
+    },
+    "missing_features": [],
+    "occupancy": {
+     "active_sm_fraction": 1.0,
+     "blocks_per_sm": 2,
+     "blocks_per_sm_if_shared_were_static": 2,
+     "blocks_per_sm_ignoring_shared_by_warp_alloc_multiple": {
+      "1": 2,
+      "2": 2,
+      "4": 2
+     },
+     "first_wave_active_warps_per_sm_avg": 64,
+     "first_wave_resident_blocks_per_sm_avg": 2,
+     "last_wave_fill_fraction": 0.6064814814814815,
+     "limit_by_max_blocks": 32,
+     "limit_by_registers_by_warp_alloc_multiple": {
+      "1": 4,
+      "2": 4,
+      "4": 4
+     },
+     "limit_by_registers_if_multiple_1": 4,
+     "limit_by_shared": 164,
+     "limit_by_threads": 2,
+     "limit_by_warps": 2,
+     "limiter": [
+      "threads",
+      "warps"
+     ],
+     "max_resident_warps_per_sm": 64,
+     "occupancy_fraction_of_max_warps": 1.0,
+     "reasons": [],
+     "registers_per_warp_allocated": 512,
+     "resident_block_slots": 216,
+     "shared_allocated_bytes_per_block": 1024,
+     "shared_decision_changes_occupancy": false,
+     "shared_nonbinding_up_to_dynamic_bytes": 82944,
+     "tail_idle_fraction_of_last_wave": 0.3935185185185185,
+     "warps_per_block": 32,
+     "waves": 32,
+     "waves_fractional": 31.60648148148148
+    },
+    "operator_id": "fresh_d_cuda_samples_vector_add",
+    "per_launch_totals": {
+     "all_counts_exact": true,
+     "assumptions_applied": [],
+     "barrier_releases_per_launch_estimate": 0,
+     "executed_global_load_bytes_lane_level": 55926784,
+     "executed_global_store_bytes_lane_level": 27963392,
+     "families": {
+      "control": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "fp32_add": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "fp_other": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "global_load": {
+       "exact": true,
+       "lane_instructions": 13981696,
+       "width_bits_histogram": {
+        "32": 13981696
+       }
+      },
+      "global_store": {
+       "exact": true,
+       "lane_instructions": 6990848,
+       "width_bits_histogram": {
+        "32": 6990848
+       }
+      },
+      "integer_alu": {
+       "exact": true,
+       "lane_instructions": 34954240
+      },
+      "move_const_special": {
+       "exact": true,
+       "lane_instructions": 20972544
+      },
+      "other": {
+       "exact": true,
+       "lane_instructions": 6990848
+      }
+     },
+     "grid_blocks_sum": 6827,
+     "kernels_per_launch": 1,
+     "note": "sum over the kernels of one measured launch; occupancy, waves and tail stay per kernel in each kernel block",
+     "opcode_lane_counts": {
+      "EXIT": 6990848,
+      "FADD": 6990848,
+      "HFMA2.MMA": 6990848,
+      "IMAD": 6990848,
+      "IMAD.WIDE": 20972544,
+      "ISETP.GE.AND": 6990848,
+      "LDG.E": 13981696,
+      "MOV": 6990848,
+      "S2R": 13981696,
+      "STG.E": 6990848,
+      "ULDC.64": 6990848
+     },
+     "six_class_counts": {
+      "barrier": 0,
+      "exponential": 0,
+      "fma": 0,
+      "shared_load": 0,
+      "shared_store": 0,
+      "shuffle": 0
+     },
+     "total_lane_instructions": 104862720
+    },
+    "resources": {
+     "constant_bank0_bytes": 380,
+     "dynamic_shared_bytes_per_launch": 0,
+     "dynamic_shared_source": "dispatch_trace.json dynamic_smem_bytes = 0 (no extern __shared__ in the kernel source)",
+     "frame_size_bytes": 0,
+     "local_memory_bytes_per_thread": 0,
+     "max_register_index_in_isolated_sass": 9,
+     "max_threads_attr": null,
+     "maxreg_count_attr": null,
+     "min_stack_size_bytes": null,
+     "register_count_consistent_with_sass": true,
+     "registers_per_thread": 12,
+     "reqntid": null,
+     "shared_decision": "SHARED:1024 is the 1024-byte driver reserve, not declared static shared memory (ADAPTER.md)",
+     "shared_section_bytes_raw": 1024,
+     "source_of_resources": "cuobjdump --dump-resource-usage line in libtorch_sm120/isolated_index.json (no cubin ELF retained for libtorch kernels); STACK is cuobjdump's STACK field",
+     "static_shared_bytes_per_block": 0
+    },
+    "secondary_kernels": [],
+    "status": "supported",
+    "structure": {
+     "barrier_arrivals_per_block": 0,
+     "barrier_participants_per_release_assumed": 1024,
+     "barrier_participation_uniform": true,
+     "barrier_releases_per_block_estimate": 0,
+     "barrier_releases_per_launch_estimate": 0,
+     "hot_region": "whole_kernel_no_loop",
+     "hot_region_chain": {
+      "async_copies": 0,
+      "critical_path_instructions": 6,
+      "dependency_waits": 0,
+      "dependent_global_load_depth": 1,
+      "global_load_to_use_edges": 2,
+      "global_loads": 2,
+      "global_loads_with_a_consumer": 2,
+      "instructions": 15,
+      "shared_loads": 0,
+      "shared_loads_with_a_consumer": 0
+     },
+     "innermost_loops": 0,
+     "iterations_note": "iterations = visits of the loop header per thread; equals the trip count if the loop is entered once",
+     "loop_back_edge_pc": null,
+     "loop_body_dynamic_instructions_per_iteration_per_thread_mean": 15.0,
+     "loop_body_static_instructions": 15,
+     "loop_header_pc": null,
+     "loop_iterations_per_thread_max": 1,
+     "loop_iterations_per_thread_mean": 1.0,
+     "loop_iterations_per_thread_min": 1,
+     "note": "releases = max per-lane visit count summed over barrier sites; assumes every barrier is block-wide (BAR.SYNC with the default thread count)",
+     "static_backward_branches_executed": 0,
+     "static_barrier_sites": 0,
+     "whole_kernel_chain": {
+      "async_copies": 0,
+      "critical_path_instructions": 6,
+      "dependency_waits": 0,
+      "dependent_global_load_depth": 1,
+      "global_load_to_use_edges": 2,
+      "global_loads": 2,
+      "global_loads_with_a_consumer": 2,
+      "instructions": 15,
+      "shared_loads": 0,
+      "shared_loads_with_a_consumer": 0
+     }
+    },
+    "work": {
+     "all_counts_exact": true,
+     "assumption_log_lane_visits": {},
+     "assumptions_applied": [],
+     "executed_async_copy_global_to_shared_bytes": 0,
+     "executed_global_bytes_exact": true,
+     "executed_global_bytes_per_thread": 12.0,
+     "executed_global_load_bytes": 55926784,
+     "executed_global_store_bytes": 27963392,
+     "families": {
+      "control": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "fp32_add": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "fp_other": {
+       "exact": true,
+       "lane_instructions": 6990848
+      },
+      "global_load": {
+       "exact": true,
+       "lane_instructions": 13981696,
+       "width_bits_histogram": {
+        "32": 13981696
+       }
+      },
+      "global_store": {
+       "exact": true,
+       "lane_instructions": 6990848,
+       "width_bits_histogram": {
+        "32": 6990848
+       }
+      },
+      "integer_alu": {
+       "exact": true,
+       "lane_instructions": 34954240
+      },
+      "move_const_special": {
+       "exact": true,
+       "lane_instructions": 20972544
+      },
+      "other": {
+       "exact": true,
+       "lane_instructions": 6990848
+      }
+     },
+     "float_variant_lane_counts": {
+      "FADD": 6990848
+     },
+     "note": "lane-level predicate-true instruction counts per launch of this kernel; counts are CONDITIONAL on `assumptions_applied` and are not warp-issued counts. FFMA modifier variants (.SAT/.RM/.RZ/.RP) are in opcode_lane_counts and float_variant_lane_counts, not in the six-class fma count (FFMA only), and families.other.",
+     "opcode_lane_counts": {
+      "EXIT": 6990848,
+      "FADD": 6990848,
+      "HFMA2.MMA": 6990848,
+      "IMAD": 6990848,
+      "IMAD.WIDE": 20972544,
+      "ISETP.GE.AND": 6990848,
+      "LDG.E": 13981696,
+      "MOV": 6990848,
+      "S2R": 13981696,
+      "STG.E": 6990848,
+      "ULDC.64": 6990848
+     },
+     "opcodes_with_unknown_guard_upper_bound": [],
+     "six_class_counts": {
+      "barrier": 0,
+      "exponential": 0,
+      "fma": 0,
+      "shared_load": 0,
+      "shared_store": 0,
+      "shuffle": 0
+     },
+     "six_class_counts_from_frozen_derivation": null,
+     "six_class_cross_check": {
+      "barrier": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "exponential": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "fma": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shared_load": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shared_store": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shuffle": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      }
+     },
+     "six_class_cross_check_all_equal": true,
+     "six_class_width_histograms": {
+      "barrier": {},
+      "exponential": {},
+      "fma": {},
+      "shared_load": {},
+      "shared_store": {},
+      "shuffle": {}
+     },
+     "source_of_six_class_counts": "pytorch_features/pt_interp.py (extended interpreter); the frozen derivation refuses these kernels, so there is no frozen reference",
+     "static_global_access_width_sites": {
+      "global_load": {
+       "32": 2
+      },
+      "global_store": {
+       "32": 1
+      }
+     },
+     "total_lane_instructions": 104862720,
+     "total_lane_instructions_per_thread": 15.0,
+     "upper_bound_note": "opcodes_with_unknown_guard_upper_bound lists opcodes with a guard predicate the interpreter could not decide; they are counted as executed"
+    }
+   },
+   "footprints": {
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/dram/c2",
+    "kernels": [
+     {
+      "blocks": 6827,
+      "first_touch_sectors_per_sampled_block": [
+       256,
+       256,
+       256
+      ],
+      "kernel_id": "d_vecAdd",
+      "pointers": {
+       "0": {
+        "read": {
+         "footprint": 873856.0,
+         "mean_per_block": 128.0,
+         "naive": 873856.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 873856,
+         "union": 384
+        },
+        "write": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        }
+       },
+       "1": {
+        "read": {
+         "footprint": 873856.0,
+         "mean_per_block": 128.0,
+         "naive": 873856.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 873856,
+         "union": 384
+        },
+        "write": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        }
+       },
+       "2": {
+        "read": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        },
+        "write": {
+         "footprint": 873856.0,
+         "mean_per_block": 128.0,
+         "naive": 873856.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 873856,
+         "union": 384
+        }
+       }
+      },
+      "read_footprint_sectors": 1747712.0,
+      "read_naive_sectors": 1747712.0,
+      "reuse_working_set_bytes": 0,
+      "sampled_block_ids": [
+       0,
+       3413,
+       6826
+      ],
+      "sampled_blocks": 3,
+      "write_footprint_sectors": 873856.0,
+      "write_naive_sectors": 873856.0
+     }
+    ],
+    "status": "ok"
+   },
+   "origin": "base",
+   "phases": {
+    "kernels": [
+     {
+      "barrier_sequence": [],
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "critical_path_compute_instructions": 5,
+        "dependent_global_load_depth": 1,
+        "index": 0,
+        "issue_warp_instructions": {
+         "EXIT": 436928,
+         "FADD": 218464,
+         "HFMA2.MMA": 218464,
+         "IMAD": 218464,
+         "IMAD.WIDE": 655392,
+         "ISETP.GE.AND": 218464,
+         "LDG.E": 436928,
+         "MOV": 218464,
+         "S2R": 436928,
+         "STG.E": 218464,
+         "ULDC.64": 218464
+        },
+        "lines": 655392,
+        "read_bytes": 55926784,
+        "read_sectors": 1747712,
+        "repetitions": 1,
+        "write_bytes": 27963392,
+        "write_sectors": 873856
+       }
+      ],
+      "unknown_guard_upper_bounds": []
+     }
+    ],
+    "reason": null,
+    "status": "conditional_static_phases"
+   },
+   "unique": {
+    "kernels": [
+     {
+      "blocks": 6827,
+      "blocks_per_sm": 2,
+      "first_touch_read_sectors_per_block": 256,
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "index": 0,
+        "lines": 655392,
+        "read_sectors": 1747712,
+        "read_sectors_also_written_same_phase_per_block": 0,
+        "read_sectors_first_touch": 1747712,
+        "read_sectors_first_touch_per_block": 256,
+        "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+        "read_sectors_total_requested": 1747712,
+        "read_sectors_unique_in_phase_per_block": 256,
+        "repetitions": 1,
+        "write_sectors": 873856
+       }
+      ],
+      "read_sectors_shared_across_blocks_note": {
+       "block0_distinct_read_sectors": 256,
+       "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+       "sampled_blocks_compared": 2,
+       "shared_with_at_least_one_other_sampled_block": 0
+      },
+      "status": "ok",
+      "total_requested_read_sectors_per_block": 256,
+      "unique_read_bytes_per_block": 8192,
+      "unique_read_or_written_bytes_per_block": 12288,
+      "unique_read_sectors_per_block": 256
+     }
+    ],
+    "kernels_per_launch": 1,
+    "reason": null,
+    "status": "ok"
+   }
+  },
+  {
+   "bank": {
+    "kernels": [
+     {
+      "gate": "passed: shared request counts equal frozen shared warp counts per phase",
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "index": 0,
+        "shared": {
+         "shared_conflict_degree_histogram": {},
+         "shared_cost_cycles": 0.0,
+         "shared_cost_cycles_known": 0.0,
+         "shared_request_wavefront_histogram": {},
+         "shared_requests": 0,
+         "shared_requests_all_lanes_predicated_off": 0,
+         "shared_requests_by_opcode": {},
+         "shared_requests_degree_gt2": 0,
+         "shared_requests_unknown": 0,
+         "shared_unknown_reasons": {}
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "cell": {
+    "_dev": {
+     "active_sm_fraction": "",
+     "actual_logical_bytes_per_launch": "5246976",
+     "block_threads": "128",
+     "blocks_per_sm": "",
+     "geometry_source": "complete-suite generators bound to a100 hardware",
+     "grid_blocks": "3416",
+     "shape_a": "437248",
+     "shape_b": "1",
+     "tier": "L2"
+    },
+    "blackwell_source_cell_id": "blackwell/fresh_d_cuda_samples_vector_add/l2/c1",
+    "candidate_id": "c1",
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/l2/c1",
+    "controls": {
+     "kernel": "vecAdd"
+    },
+    "family": "vecadd",
+    "footprint_bytes": 5246976,
+    "footprint_over_l2": 0.12509765625,
+    "geometry": {
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "blocks": 3416,
+     "grid": [
+      3416,
+      1,
+      1
+     ],
+     "n": 437248,
+     "threads": 128
+    },
+    "group": "samples",
+    "kernel": "vecAdd",
+    "kernels": [
+     {
+      "args": {
+       "vectorLength": 437248
+      },
+      "block": [
+       128,
+       1,
+       1
+      ],
+      "dynamic_smem": 0,
+      "grid": [
+       3416,
+       1,
+       1
+      ],
+      "kid": "d_vecAdd",
+      "sample_blocks": [
+       0,
+       1708,
+       3415
+      ]
+     }
+    ],
+    "logical_bytes_per_launch": 5246976,
+    "operator_id": "fresh_d_cuda_samples_vector_add",
+    "regime": "l2",
+    "set": "set_d",
+    "shape_a": 437248,
+    "shape_b": 1,
+    "tier": "L2",
+    "timing": {
+     "elements": 437248,
+     "file_args": [
+      "x.bin",
+      "y.bin",
+      "out.bin"
+     ],
+     "input_kind": "vecadd_uniform_pair",
+     "numeric_args": [
+      437248,
+      128
+     ],
+     "oracle": "vector_add",
+     "runner": "copy_runner"
+    }
+   },
+   "features": {
+    "cell": "l2/c1",
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/l2/c1",
+    "corpus": "cuda_samples_unseen",
+    "geometry": {
+     "block_threads": 128,
+     "dev_table_active_sm_fraction": null,
+     "dev_table_blocks_per_sm": null,
+     "dev_table_blocks_per_sm_is_grid_over_sm_count": null,
+     "geometry_source": "complete-suite generators bound to a100 hardware",
+     "grid_blocks": 3416
+    },
+    "inputs": {
+     "cubin_sha256": "9c1a0a4b90c2f07d236df11138d78dade05911281915e4a75b8d51a29966c76b",
+     "isolated_sass_sha256": "14560fb1d1a553c241f7992db317b250c2f13a6ef734f0ce05f77838e307cb68",
+     "kernel_symbol": "_Z6vecAddPfS_S_i",
+     "secondary_kernel_symbols": []
+    },
+    "kernels_per_launch": 1,
+    "main_kernel": {
+     "abi": {
+      "all_constant_bank_accesses_on_declared_fields": true,
+      "bound_values": {
+       "A": {
+        "offset": "0x160",
+        "source": "distinct aligned synthetic base 0 (pointer value; only address differences matter)",
+        "value": 139637976727552
+       },
+       "B": {
+        "offset": "0x168",
+        "source": "distinct aligned synthetic base 1 (pointer value; only address differences matter)",
+        "value": 139642271694848
+       },
+       "C": {
+        "offset": "0x170",
+        "source": "distinct aligned synthetic base 2 (pointer value; only address differences matter)",
+        "value": 139646566662144
+       },
+       "vectorLength": {
+        "offset": "0x178",
+        "source": "launch argument from the sample's host code",
+        "value": 437248
+       }
+      },
+      "parameter_fields": [
+       {
+        "bytes": 8,
+        "name": "A",
+        "offset": "0x160"
+       },
+       {
+        "bytes": 8,
+        "name": "B",
+        "offset": "0x168"
+       },
+       {
+        "bytes": 8,
+        "name": "C",
+        "offset": "0x170"
+       },
+       {
+        "bytes": 4,
+        "name": "vectorLength",
+        "offset": "0x178"
+       }
+      ],
+      "problems": []
+     },
+     "interpreter_outcomes": {
+      "extended_interpreter": {
+       "assumptions_applied": [],
+       "shared_addresses_touched_min_max": null,
+       "status": "ok"
+      },
+      "frozen_derive_run_lane_unmodified": {
+       "reason": "frozen derive.run_lane comparison skipped for new kernels",
+       "status": "not_run"
+      }
+     },
+     "kernel_id": "d_vecAdd",
+     "kernel_symbol": "_Z6vecAddPfS_S_i",
+     "role": "main",
+     "shape_problems": []
+    },
+    "memory": {
+     "executed_async_copy_global_to_shared_bytes_lane_level": 0,
+     "executed_bytes_scope": "main kernel only; per-launch sums are in per_launch_totals",
+     "executed_global_bytes_exact": true,
+     "executed_global_bytes_per_thread": 12.0,
+     "executed_global_load_bytes_lane_level": 3497984,
+     "executed_global_store_bytes_lane_level": 1748992,
+     "global_load_width_bits_histogram": {
+      "32": 874496
+     },
+     "global_store_width_bits_histogram": {
+      "32": 437248
+     },
+     "logical_bytes_per_launch": 5246976,
+     "shape_a": 437248,
+     "shape_b": 1,
+     "tier": "L2",
+     "tier_source_note": "tier from the footprint-over-verified-L2 rule written in cells.py, not a counter"
+    },
+    "missing_features": [],
+    "occupancy": {
+     "active_sm_fraction": 1.0,
+     "blocks_per_sm": 16,
+     "blocks_per_sm_if_shared_were_static": 16,
+     "blocks_per_sm_ignoring_shared_by_warp_alloc_multiple": {
+      "1": 16,
+      "2": 16,
+      "4": 16
+     },
+     "first_wave_active_warps_per_sm_avg": 64,
+     "first_wave_resident_blocks_per_sm_avg": 16,
+     "last_wave_fill_fraction": 0.9768518518518519,
+     "limit_by_max_blocks": 32,
+     "limit_by_registers_by_warp_alloc_multiple": {
+      "1": 32,
+      "2": 32,
+      "4": 32
+     },
+     "limit_by_registers_if_multiple_1": 32,
+     "limit_by_shared": 164,
+     "limit_by_threads": 16,
+     "limit_by_warps": 16,
+     "limiter": [
+      "threads",
+      "warps"
+     ],
+     "max_resident_warps_per_sm": 64,
+     "occupancy_fraction_of_max_warps": 1.0,
+     "reasons": [],
+     "registers_per_warp_allocated": 512,
+     "resident_block_slots": 1728,
+     "shared_allocated_bytes_per_block": 1024,
+     "shared_decision_changes_occupancy": false,
+     "shared_nonbinding_up_to_dynamic_bytes": 9472,
+     "tail_idle_fraction_of_last_wave": 0.02314814814814814,
+     "warps_per_block": 4,
+     "waves": 2,
+     "waves_fractional": 1.9768518518518519
+    },
+    "operator_id": "fresh_d_cuda_samples_vector_add",
+    "per_launch_totals": {
+     "all_counts_exact": true,
+     "assumptions_applied": [],
+     "barrier_releases_per_launch_estimate": 0,
+     "executed_global_load_bytes_lane_level": 3497984,
+     "executed_global_store_bytes_lane_level": 1748992,
+     "families": {
+      "control": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "fp32_add": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "fp_other": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "global_load": {
+       "exact": true,
+       "lane_instructions": 874496,
+       "width_bits_histogram": {
+        "32": 874496
+       }
+      },
+      "global_store": {
+       "exact": true,
+       "lane_instructions": 437248,
+       "width_bits_histogram": {
+        "32": 437248
+       }
+      },
+      "integer_alu": {
+       "exact": true,
+       "lane_instructions": 2186240
+      },
+      "move_const_special": {
+       "exact": true,
+       "lane_instructions": 1311744
+      },
+      "other": {
+       "exact": true,
+       "lane_instructions": 437248
+      }
+     },
+     "grid_blocks_sum": 3416,
+     "kernels_per_launch": 1,
+     "note": "sum over the kernels of one measured launch; occupancy, waves and tail stay per kernel in each kernel block",
+     "opcode_lane_counts": {
+      "EXIT": 437248,
+      "FADD": 437248,
+      "HFMA2.MMA": 437248,
+      "IMAD": 437248,
+      "IMAD.WIDE": 1311744,
+      "ISETP.GE.AND": 437248,
+      "LDG.E": 874496,
+      "MOV": 437248,
+      "S2R": 874496,
+      "STG.E": 437248,
+      "ULDC.64": 437248
+     },
+     "six_class_counts": {
+      "barrier": 0,
+      "exponential": 0,
+      "fma": 0,
+      "shared_load": 0,
+      "shared_store": 0,
+      "shuffle": 0
+     },
+     "total_lane_instructions": 6558720
+    },
+    "resources": {
+     "constant_bank0_bytes": 380,
+     "dynamic_shared_bytes_per_launch": 0,
+     "dynamic_shared_source": "dispatch_trace.json dynamic_smem_bytes = 0 (no extern __shared__ in the kernel source)",
+     "frame_size_bytes": 0,
+     "local_memory_bytes_per_thread": 0,
+     "max_register_index_in_isolated_sass": 9,
+     "max_threads_attr": null,
+     "maxreg_count_attr": null,
+     "min_stack_size_bytes": null,
+     "register_count_consistent_with_sass": true,
+     "registers_per_thread": 12,
+     "reqntid": null,
+     "shared_decision": "SHARED:1024 is the 1024-byte driver reserve, not declared static shared memory (ADAPTER.md)",
+     "shared_section_bytes_raw": 1024,
+     "source_of_resources": "cuobjdump --dump-resource-usage line in libtorch_sm120/isolated_index.json (no cubin ELF retained for libtorch kernels); STACK is cuobjdump's STACK field",
+     "static_shared_bytes_per_block": 0
+    },
+    "secondary_kernels": [],
+    "status": "supported",
+    "structure": {
+     "barrier_arrivals_per_block": 0,
+     "barrier_participants_per_release_assumed": 128,
+     "barrier_participation_uniform": true,
+     "barrier_releases_per_block_estimate": 0,
+     "barrier_releases_per_launch_estimate": 0,
+     "hot_region": "whole_kernel_no_loop",
+     "hot_region_chain": {
+      "async_copies": 0,
+      "critical_path_instructions": 6,
+      "dependency_waits": 0,
+      "dependent_global_load_depth": 1,
+      "global_load_to_use_edges": 2,
+      "global_loads": 2,
+      "global_loads_with_a_consumer": 2,
+      "instructions": 15,
+      "shared_loads": 0,
+      "shared_loads_with_a_consumer": 0
+     },
+     "innermost_loops": 0,
+     "iterations_note": "iterations = visits of the loop header per thread; equals the trip count if the loop is entered once",
+     "loop_back_edge_pc": null,
+     "loop_body_dynamic_instructions_per_iteration_per_thread_mean": 15.0,
+     "loop_body_static_instructions": 15,
+     "loop_header_pc": null,
+     "loop_iterations_per_thread_max": 1,
+     "loop_iterations_per_thread_mean": 1.0,
+     "loop_iterations_per_thread_min": 1,
+     "note": "releases = max per-lane visit count summed over barrier sites; assumes every barrier is block-wide (BAR.SYNC with the default thread count)",
+     "static_backward_branches_executed": 0,
+     "static_barrier_sites": 0,
+     "whole_kernel_chain": {
+      "async_copies": 0,
+      "critical_path_instructions": 6,
+      "dependency_waits": 0,
+      "dependent_global_load_depth": 1,
+      "global_load_to_use_edges": 2,
+      "global_loads": 2,
+      "global_loads_with_a_consumer": 2,
+      "instructions": 15,
+      "shared_loads": 0,
+      "shared_loads_with_a_consumer": 0
+     }
+    },
+    "work": {
+     "all_counts_exact": true,
+     "assumption_log_lane_visits": {},
+     "assumptions_applied": [],
+     "executed_async_copy_global_to_shared_bytes": 0,
+     "executed_global_bytes_exact": true,
+     "executed_global_bytes_per_thread": 12.0,
+     "executed_global_load_bytes": 3497984,
+     "executed_global_store_bytes": 1748992,
+     "families": {
+      "control": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "fp32_add": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "fp_other": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "global_load": {
+       "exact": true,
+       "lane_instructions": 874496,
+       "width_bits_histogram": {
+        "32": 874496
+       }
+      },
+      "global_store": {
+       "exact": true,
+       "lane_instructions": 437248,
+       "width_bits_histogram": {
+        "32": 437248
+       }
+      },
+      "integer_alu": {
+       "exact": true,
+       "lane_instructions": 2186240
+      },
+      "move_const_special": {
+       "exact": true,
+       "lane_instructions": 1311744
+      },
+      "other": {
+       "exact": true,
+       "lane_instructions": 437248
+      }
+     },
+     "float_variant_lane_counts": {
+      "FADD": 437248
+     },
+     "note": "lane-level predicate-true instruction counts per launch of this kernel; counts are CONDITIONAL on `assumptions_applied` and are not warp-issued counts. FFMA modifier variants (.SAT/.RM/.RZ/.RP) are in opcode_lane_counts and float_variant_lane_counts, not in the six-class fma count (FFMA only), and families.other.",
+     "opcode_lane_counts": {
+      "EXIT": 437248,
+      "FADD": 437248,
+      "HFMA2.MMA": 437248,
+      "IMAD": 437248,
+      "IMAD.WIDE": 1311744,
+      "ISETP.GE.AND": 437248,
+      "LDG.E": 874496,
+      "MOV": 437248,
+      "S2R": 874496,
+      "STG.E": 437248,
+      "ULDC.64": 437248
+     },
+     "opcodes_with_unknown_guard_upper_bound": [],
+     "six_class_counts": {
+      "barrier": 0,
+      "exponential": 0,
+      "fma": 0,
+      "shared_load": 0,
+      "shared_store": 0,
+      "shuffle": 0
+     },
+     "six_class_counts_from_frozen_derivation": null,
+     "six_class_cross_check": {
+      "barrier": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "exponential": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "fma": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shared_load": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shared_store": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shuffle": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      }
+     },
+     "six_class_cross_check_all_equal": true,
+     "six_class_width_histograms": {
+      "barrier": {},
+      "exponential": {},
+      "fma": {},
+      "shared_load": {},
+      "shared_store": {},
+      "shuffle": {}
+     },
+     "source_of_six_class_counts": "pytorch_features/pt_interp.py (extended interpreter); the frozen derivation refuses these kernels, so there is no frozen reference",
+     "static_global_access_width_sites": {
+      "global_load": {
+       "32": 2
+      },
+      "global_store": {
+       "32": 1
+      }
+     },
+     "total_lane_instructions": 6558720,
+     "total_lane_instructions_per_thread": 15.0,
+     "upper_bound_note": "opcodes_with_unknown_guard_upper_bound lists opcodes with a guard predicate the interpreter could not decide; they are counted as executed"
+    }
+   },
+   "footprints": {
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/l2/c1",
+    "kernels": [
+     {
+      "blocks": 3416,
+      "first_touch_sectors_per_sampled_block": [
+       32,
+       32,
+       32
+      ],
+      "kernel_id": "d_vecAdd",
+      "pointers": {
+       "0": {
+        "read": {
+         "footprint": 54656.0,
+         "mean_per_block": 16.0,
+         "naive": 54656.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 54656,
+         "union": 48
+        },
+        "write": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        }
+       },
+       "1": {
+        "read": {
+         "footprint": 54656.0,
+         "mean_per_block": 16.0,
+         "naive": 54656.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 54656,
+         "union": 48
+        },
+        "write": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        }
+       },
+       "2": {
+        "read": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        },
+        "write": {
+         "footprint": 54656.0,
+         "mean_per_block": 16.0,
+         "naive": 54656.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 54656,
+         "union": 48
+        }
+       }
+      },
+      "read_footprint_sectors": 109312.0,
+      "read_naive_sectors": 109312.0,
+      "reuse_working_set_bytes": 0,
+      "sampled_block_ids": [
+       0,
+       1708,
+       3415
+      ],
+      "sampled_blocks": 3,
+      "write_footprint_sectors": 54656.0,
+      "write_naive_sectors": 54656.0
+     }
+    ],
+    "status": "ok"
+   },
+   "origin": "base",
+   "phases": {
+    "kernels": [
+     {
+      "barrier_sequence": [],
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "critical_path_compute_instructions": 5,
+        "dependent_global_load_depth": 1,
+        "index": 0,
+        "issue_warp_instructions": {
+         "EXIT": 27328,
+         "FADD": 13664,
+         "HFMA2.MMA": 13664,
+         "IMAD": 13664,
+         "IMAD.WIDE": 40992,
+         "ISETP.GE.AND": 13664,
+         "LDG.E": 27328,
+         "MOV": 13664,
+         "S2R": 27328,
+         "STG.E": 13664,
+         "ULDC.64": 13664
+        },
+        "lines": 40992,
+        "read_bytes": 3497984,
+        "read_sectors": 109312,
+        "repetitions": 1,
+        "write_bytes": 1748992,
+        "write_sectors": 54656
+       }
+      ],
+      "unknown_guard_upper_bounds": []
+     }
+    ],
+    "reason": null,
+    "status": "conditional_static_phases"
+   },
+   "unique": {
+    "kernels": [
+     {
+      "blocks": 3416,
+      "blocks_per_sm": 16,
+      "first_touch_read_sectors_per_block": 32,
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "index": 0,
+        "lines": 40992,
+        "read_sectors": 109312,
+        "read_sectors_also_written_same_phase_per_block": 0,
+        "read_sectors_first_touch": 109312,
+        "read_sectors_first_touch_per_block": 32,
+        "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+        "read_sectors_total_requested": 109312,
+        "read_sectors_unique_in_phase_per_block": 32,
+        "repetitions": 1,
+        "write_sectors": 54656
+       }
+      ],
+      "read_sectors_shared_across_blocks_note": {
+       "block0_distinct_read_sectors": 32,
+       "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+       "sampled_blocks_compared": 2,
+       "shared_with_at_least_one_other_sampled_block": 0
+      },
+      "status": "ok",
+      "total_requested_read_sectors_per_block": 32,
+      "unique_read_bytes_per_block": 1024,
+      "unique_read_or_written_bytes_per_block": 1536,
+      "unique_read_sectors_per_block": 32
+     }
+    ],
+    "kernels_per_launch": 1,
+    "reason": null,
+    "status": "ok"
+   }
+  },
+  {
+   "bank": {
+    "kernels": [
+     {
+      "gate": "passed: shared request counts equal frozen shared warp counts per phase",
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "index": 0,
+        "shared": {
+         "shared_conflict_degree_histogram": {},
+         "shared_cost_cycles": 0.0,
+         "shared_cost_cycles_known": 0.0,
+         "shared_request_wavefront_histogram": {},
+         "shared_requests": 0,
+         "shared_requests_all_lanes_predicated_off": 0,
+         "shared_requests_by_opcode": {},
+         "shared_requests_degree_gt2": 0,
+         "shared_requests_unknown": 0,
+         "shared_unknown_reasons": {}
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "cell": {
+    "_dev": {
+     "active_sm_fraction": "",
+     "actual_logical_bytes_per_launch": "5246976",
+     "block_threads": "1024",
+     "blocks_per_sm": "",
+     "geometry_source": "complete-suite generators bound to a100 hardware",
+     "grid_blocks": "427",
+     "shape_a": "437248",
+     "shape_b": "1",
+     "tier": "L2"
+    },
+    "blackwell_source_cell_id": "blackwell/fresh_d_cuda_samples_vector_add/l2/c2",
+    "candidate_id": "c2",
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/l2/c2",
+    "controls": {
+     "kernel": "vecAdd"
+    },
+    "family": "vecadd",
+    "footprint_bytes": 5246976,
+    "footprint_over_l2": 0.12509765625,
+    "geometry": {
+     "block": [
+      1024,
+      1,
+      1
+     ],
+     "blocks": 427,
+     "grid": [
+      427,
+      1,
+      1
+     ],
+     "n": 437248,
+     "threads": 1024
+    },
+    "group": "samples",
+    "kernel": "vecAdd",
+    "kernels": [
+     {
+      "args": {
+       "vectorLength": 437248
+      },
+      "block": [
+       1024,
+       1,
+       1
+      ],
+      "dynamic_smem": 0,
+      "grid": [
+       427,
+       1,
+       1
+      ],
+      "kid": "d_vecAdd",
+      "sample_blocks": [
+       0,
+       213,
+       426
+      ]
+     }
+    ],
+    "logical_bytes_per_launch": 5246976,
+    "operator_id": "fresh_d_cuda_samples_vector_add",
+    "regime": "l2",
+    "set": "set_d",
+    "shape_a": 437248,
+    "shape_b": 1,
+    "tier": "L2",
+    "timing": {
+     "elements": 437248,
+     "file_args": [
+      "x.bin",
+      "y.bin",
+      "out.bin"
+     ],
+     "input_kind": "vecadd_uniform_pair",
+     "numeric_args": [
+      437248,
+      1024
+     ],
+     "oracle": "vector_add",
+     "runner": "copy_runner"
+    }
+   },
+   "features": {
+    "cell": "l2/c2",
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/l2/c2",
+    "corpus": "cuda_samples_unseen",
+    "geometry": {
+     "block_threads": 1024,
+     "dev_table_active_sm_fraction": null,
+     "dev_table_blocks_per_sm": null,
+     "dev_table_blocks_per_sm_is_grid_over_sm_count": null,
+     "geometry_source": "complete-suite generators bound to a100 hardware",
+     "grid_blocks": 427
+    },
+    "inputs": {
+     "cubin_sha256": "9c1a0a4b90c2f07d236df11138d78dade05911281915e4a75b8d51a29966c76b",
+     "isolated_sass_sha256": "14560fb1d1a553c241f7992db317b250c2f13a6ef734f0ce05f77838e307cb68",
+     "kernel_symbol": "_Z6vecAddPfS_S_i",
+     "secondary_kernel_symbols": []
+    },
+    "kernels_per_launch": 1,
+    "main_kernel": {
+     "abi": {
+      "all_constant_bank_accesses_on_declared_fields": true,
+      "bound_values": {
+       "A": {
+        "offset": "0x160",
+        "source": "distinct aligned synthetic base 0 (pointer value; only address differences matter)",
+        "value": 139637976727552
+       },
+       "B": {
+        "offset": "0x168",
+        "source": "distinct aligned synthetic base 1 (pointer value; only address differences matter)",
+        "value": 139642271694848
+       },
+       "C": {
+        "offset": "0x170",
+        "source": "distinct aligned synthetic base 2 (pointer value; only address differences matter)",
+        "value": 139646566662144
+       },
+       "vectorLength": {
+        "offset": "0x178",
+        "source": "launch argument from the sample's host code",
+        "value": 437248
+       }
+      },
+      "parameter_fields": [
+       {
+        "bytes": 8,
+        "name": "A",
+        "offset": "0x160"
+       },
+       {
+        "bytes": 8,
+        "name": "B",
+        "offset": "0x168"
+       },
+       {
+        "bytes": 8,
+        "name": "C",
+        "offset": "0x170"
+       },
+       {
+        "bytes": 4,
+        "name": "vectorLength",
+        "offset": "0x178"
+       }
+      ],
+      "problems": []
+     },
+     "interpreter_outcomes": {
+      "extended_interpreter": {
+       "assumptions_applied": [],
+       "shared_addresses_touched_min_max": null,
+       "status": "ok"
+      },
+      "frozen_derive_run_lane_unmodified": {
+       "reason": "frozen derive.run_lane comparison skipped for new kernels",
+       "status": "not_run"
+      }
+     },
+     "kernel_id": "d_vecAdd",
+     "kernel_symbol": "_Z6vecAddPfS_S_i",
+     "role": "main",
+     "shape_problems": []
+    },
+    "memory": {
+     "executed_async_copy_global_to_shared_bytes_lane_level": 0,
+     "executed_bytes_scope": "main kernel only; per-launch sums are in per_launch_totals",
+     "executed_global_bytes_exact": true,
+     "executed_global_bytes_per_thread": 12.0,
+     "executed_global_load_bytes_lane_level": 3497984,
+     "executed_global_store_bytes_lane_level": 1748992,
+     "global_load_width_bits_histogram": {
+      "32": 874496
+     },
+     "global_store_width_bits_histogram": {
+      "32": 437248
+     },
+     "logical_bytes_per_launch": 5246976,
+     "shape_a": 437248,
+     "shape_b": 1,
+     "tier": "L2",
+     "tier_source_note": "tier from the footprint-over-verified-L2 rule written in cells.py, not a counter"
+    },
+    "missing_features": [],
+    "occupancy": {
+     "active_sm_fraction": 1.0,
+     "blocks_per_sm": 2,
+     "blocks_per_sm_if_shared_were_static": 2,
+     "blocks_per_sm_ignoring_shared_by_warp_alloc_multiple": {
+      "1": 2,
+      "2": 2,
+      "4": 2
+     },
+     "first_wave_active_warps_per_sm_avg": 64,
+     "first_wave_resident_blocks_per_sm_avg": 2,
+     "last_wave_fill_fraction": 0.9768518518518519,
+     "limit_by_max_blocks": 32,
+     "limit_by_registers_by_warp_alloc_multiple": {
+      "1": 4,
+      "2": 4,
+      "4": 4
+     },
+     "limit_by_registers_if_multiple_1": 4,
+     "limit_by_shared": 164,
+     "limit_by_threads": 2,
+     "limit_by_warps": 2,
+     "limiter": [
+      "threads",
+      "warps"
+     ],
+     "max_resident_warps_per_sm": 64,
+     "occupancy_fraction_of_max_warps": 1.0,
+     "reasons": [],
+     "registers_per_warp_allocated": 512,
+     "resident_block_slots": 216,
+     "shared_allocated_bytes_per_block": 1024,
+     "shared_decision_changes_occupancy": false,
+     "shared_nonbinding_up_to_dynamic_bytes": 82944,
+     "tail_idle_fraction_of_last_wave": 0.02314814814814814,
+     "warps_per_block": 32,
+     "waves": 2,
+     "waves_fractional": 1.9768518518518519
+    },
+    "operator_id": "fresh_d_cuda_samples_vector_add",
+    "per_launch_totals": {
+     "all_counts_exact": true,
+     "assumptions_applied": [],
+     "barrier_releases_per_launch_estimate": 0,
+     "executed_global_load_bytes_lane_level": 3497984,
+     "executed_global_store_bytes_lane_level": 1748992,
+     "families": {
+      "control": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "fp32_add": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "fp_other": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "global_load": {
+       "exact": true,
+       "lane_instructions": 874496,
+       "width_bits_histogram": {
+        "32": 874496
+       }
+      },
+      "global_store": {
+       "exact": true,
+       "lane_instructions": 437248,
+       "width_bits_histogram": {
+        "32": 437248
+       }
+      },
+      "integer_alu": {
+       "exact": true,
+       "lane_instructions": 2186240
+      },
+      "move_const_special": {
+       "exact": true,
+       "lane_instructions": 1311744
+      },
+      "other": {
+       "exact": true,
+       "lane_instructions": 437248
+      }
+     },
+     "grid_blocks_sum": 427,
+     "kernels_per_launch": 1,
+     "note": "sum over the kernels of one measured launch; occupancy, waves and tail stay per kernel in each kernel block",
+     "opcode_lane_counts": {
+      "EXIT": 437248,
+      "FADD": 437248,
+      "HFMA2.MMA": 437248,
+      "IMAD": 437248,
+      "IMAD.WIDE": 1311744,
+      "ISETP.GE.AND": 437248,
+      "LDG.E": 874496,
+      "MOV": 437248,
+      "S2R": 874496,
+      "STG.E": 437248,
+      "ULDC.64": 437248
+     },
+     "six_class_counts": {
+      "barrier": 0,
+      "exponential": 0,
+      "fma": 0,
+      "shared_load": 0,
+      "shared_store": 0,
+      "shuffle": 0
+     },
+     "total_lane_instructions": 6558720
+    },
+    "resources": {
+     "constant_bank0_bytes": 380,
+     "dynamic_shared_bytes_per_launch": 0,
+     "dynamic_shared_source": "dispatch_trace.json dynamic_smem_bytes = 0 (no extern __shared__ in the kernel source)",
+     "frame_size_bytes": 0,
+     "local_memory_bytes_per_thread": 0,
+     "max_register_index_in_isolated_sass": 9,
+     "max_threads_attr": null,
+     "maxreg_count_attr": null,
+     "min_stack_size_bytes": null,
+     "register_count_consistent_with_sass": true,
+     "registers_per_thread": 12,
+     "reqntid": null,
+     "shared_decision": "SHARED:1024 is the 1024-byte driver reserve, not declared static shared memory (ADAPTER.md)",
+     "shared_section_bytes_raw": 1024,
+     "source_of_resources": "cuobjdump --dump-resource-usage line in libtorch_sm120/isolated_index.json (no cubin ELF retained for libtorch kernels); STACK is cuobjdump's STACK field",
+     "static_shared_bytes_per_block": 0
+    },
+    "secondary_kernels": [],
+    "status": "supported",
+    "structure": {
+     "barrier_arrivals_per_block": 0,
+     "barrier_participants_per_release_assumed": 1024,
+     "barrier_participation_uniform": true,
+     "barrier_releases_per_block_estimate": 0,
+     "barrier_releases_per_launch_estimate": 0,
+     "hot_region": "whole_kernel_no_loop",
+     "hot_region_chain": {
+      "async_copies": 0,
+      "critical_path_instructions": 6,
+      "dependency_waits": 0,
+      "dependent_global_load_depth": 1,
+      "global_load_to_use_edges": 2,
+      "global_loads": 2,
+      "global_loads_with_a_consumer": 2,
+      "instructions": 15,
+      "shared_loads": 0,
+      "shared_loads_with_a_consumer": 0
+     },
+     "innermost_loops": 0,
+     "iterations_note": "iterations = visits of the loop header per thread; equals the trip count if the loop is entered once",
+     "loop_back_edge_pc": null,
+     "loop_body_dynamic_instructions_per_iteration_per_thread_mean": 15.0,
+     "loop_body_static_instructions": 15,
+     "loop_header_pc": null,
+     "loop_iterations_per_thread_max": 1,
+     "loop_iterations_per_thread_mean": 1.0,
+     "loop_iterations_per_thread_min": 1,
+     "note": "releases = max per-lane visit count summed over barrier sites; assumes every barrier is block-wide (BAR.SYNC with the default thread count)",
+     "static_backward_branches_executed": 0,
+     "static_barrier_sites": 0,
+     "whole_kernel_chain": {
+      "async_copies": 0,
+      "critical_path_instructions": 6,
+      "dependency_waits": 0,
+      "dependent_global_load_depth": 1,
+      "global_load_to_use_edges": 2,
+      "global_loads": 2,
+      "global_loads_with_a_consumer": 2,
+      "instructions": 15,
+      "shared_loads": 0,
+      "shared_loads_with_a_consumer": 0
+     }
+    },
+    "work": {
+     "all_counts_exact": true,
+     "assumption_log_lane_visits": {},
+     "assumptions_applied": [],
+     "executed_async_copy_global_to_shared_bytes": 0,
+     "executed_global_bytes_exact": true,
+     "executed_global_bytes_per_thread": 12.0,
+     "executed_global_load_bytes": 3497984,
+     "executed_global_store_bytes": 1748992,
+     "families": {
+      "control": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "fp32_add": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "fp_other": {
+       "exact": true,
+       "lane_instructions": 437248
+      },
+      "global_load": {
+       "exact": true,
+       "lane_instructions": 874496,
+       "width_bits_histogram": {
+        "32": 874496
+       }
+      },
+      "global_store": {
+       "exact": true,
+       "lane_instructions": 437248,
+       "width_bits_histogram": {
+        "32": 437248
+       }
+      },
+      "integer_alu": {
+       "exact": true,
+       "lane_instructions": 2186240
+      },
+      "move_const_special": {
+       "exact": true,
+       "lane_instructions": 1311744
+      },
+      "other": {
+       "exact": true,
+       "lane_instructions": 437248
+      }
+     },
+     "float_variant_lane_counts": {
+      "FADD": 437248
+     },
+     "note": "lane-level predicate-true instruction counts per launch of this kernel; counts are CONDITIONAL on `assumptions_applied` and are not warp-issued counts. FFMA modifier variants (.SAT/.RM/.RZ/.RP) are in opcode_lane_counts and float_variant_lane_counts, not in the six-class fma count (FFMA only), and families.other.",
+     "opcode_lane_counts": {
+      "EXIT": 437248,
+      "FADD": 437248,
+      "HFMA2.MMA": 437248,
+      "IMAD": 437248,
+      "IMAD.WIDE": 1311744,
+      "ISETP.GE.AND": 437248,
+      "LDG.E": 874496,
+      "MOV": 437248,
+      "S2R": 874496,
+      "STG.E": 437248,
+      "ULDC.64": 437248
+     },
+     "opcodes_with_unknown_guard_upper_bound": [],
+     "six_class_counts": {
+      "barrier": 0,
+      "exponential": 0,
+      "fma": 0,
+      "shared_load": 0,
+      "shared_store": 0,
+      "shuffle": 0
+     },
+     "six_class_counts_from_frozen_derivation": null,
+     "six_class_cross_check": {
+      "barrier": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "exponential": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "fma": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shared_load": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shared_store": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      },
+      "shuffle": {
+       "equal": true,
+       "from_events": 0,
+       "from_visits": 0
+      }
+     },
+     "six_class_cross_check_all_equal": true,
+     "six_class_width_histograms": {
+      "barrier": {},
+      "exponential": {},
+      "fma": {},
+      "shared_load": {},
+      "shared_store": {},
+      "shuffle": {}
+     },
+     "source_of_six_class_counts": "pytorch_features/pt_interp.py (extended interpreter); the frozen derivation refuses these kernels, so there is no frozen reference",
+     "static_global_access_width_sites": {
+      "global_load": {
+       "32": 2
+      },
+      "global_store": {
+       "32": 1
+      }
+     },
+     "total_lane_instructions": 6558720,
+     "total_lane_instructions_per_thread": 15.0,
+     "upper_bound_note": "opcodes_with_unknown_guard_upper_bound lists opcodes with a guard predicate the interpreter could not decide; they are counted as executed"
+    }
+   },
+   "footprints": {
+    "cell_id": "a100/fresh_d_cuda_samples_vector_add/l2/c2",
+    "kernels": [
+     {
+      "blocks": 427,
+      "first_touch_sectors_per_sampled_block": [
+       256,
+       256,
+       256
+      ],
+      "kernel_id": "d_vecAdd",
+      "pointers": {
+       "0": {
+        "read": {
+         "footprint": 54656.0,
+         "mean_per_block": 128.0,
+         "naive": 54656.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 54656,
+         "union": 384
+        },
+        "write": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        }
+       },
+       "1": {
+        "read": {
+         "footprint": 54656.0,
+         "mean_per_block": 128.0,
+         "naive": 54656.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 54656,
+         "union": 384
+        },
+        "write": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        }
+       },
+       "2": {
+        "read": {
+         "footprint": 0,
+         "mean_per_block": 0.0,
+         "naive": 0.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 0,
+         "union": 0
+        },
+        "write": {
+         "footprint": 54656.0,
+         "mean_per_block": 128.0,
+         "naive": 54656.0,
+         "reused": false,
+         "sampled_blocks": 3,
+         "span": 54656,
+         "union": 384
+        }
+       }
+      },
+      "read_footprint_sectors": 109312.0,
+      "read_naive_sectors": 109312.0,
+      "reuse_working_set_bytes": 0,
+      "sampled_block_ids": [
+       0,
+       213,
+       426
+      ],
+      "sampled_blocks": 3,
+      "write_footprint_sectors": 54656.0,
+      "write_naive_sectors": 54656.0
+     }
+    ],
+    "status": "ok"
+   },
+   "origin": "base",
+   "phases": {
+    "kernels": [
+     {
+      "barrier_sequence": [],
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "critical_path_compute_instructions": 5,
+        "dependent_global_load_depth": 1,
+        "index": 0,
+        "issue_warp_instructions": {
+         "EXIT": 27328,
+         "FADD": 13664,
+         "HFMA2.MMA": 13664,
+         "IMAD": 13664,
+         "IMAD.WIDE": 40992,
+         "ISETP.GE.AND": 13664,
+         "LDG.E": 27328,
+         "MOV": 13664,
+         "S2R": 27328,
+         "STG.E": 13664,
+         "ULDC.64": 13664
+        },
+        "lines": 40992,
+        "read_bytes": 3497984,
+        "read_sectors": 109312,
+        "repetitions": 1,
+        "write_bytes": 1748992,
+        "write_sectors": 54656
+       }
+      ],
+      "unknown_guard_upper_bounds": []
+     }
+    ],
+    "reason": null,
+    "status": "conditional_static_phases"
+   },
+   "unique": {
+    "kernels": [
+     {
+      "blocks": 427,
+      "blocks_per_sm": 2,
+      "first_touch_read_sectors_per_block": 256,
+      "kernel_id": "d_vecAdd",
+      "phases": [
+       {
+        "index": 0,
+        "lines": 40992,
+        "read_sectors": 109312,
+        "read_sectors_also_written_same_phase_per_block": 0,
+        "read_sectors_first_touch": 109312,
+        "read_sectors_first_touch_per_block": 256,
+        "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+        "read_sectors_total_requested": 109312,
+        "read_sectors_unique_in_phase_per_block": 256,
+        "repetitions": 1,
+        "write_sectors": 54656
+       }
+      ],
+      "read_sectors_shared_across_blocks_note": {
+       "block0_distinct_read_sectors": 256,
+       "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+       "sampled_blocks_compared": 2,
+       "shared_with_at_least_one_other_sampled_block": 0
+      },
+      "status": "ok",
+      "total_requested_read_sectors_per_block": 256,
+      "unique_read_bytes_per_block": 8192,
+      "unique_read_or_written_bytes_per_block": 12288,
+      "unique_read_sectors_per_block": 256
+     }
+    ],
+    "kernels_per_launch": 1,
+    "reason": null,
+    "status": "ok"
+   }
+  }
+ ]
+}

@@ -1,0 +1,248 @@
+{
+ "approved_entry": {
+  "compute_capability": "12.0",
+  "gpu": "RTX PRO 6000 Blackwell Workstation Edition (GPU 1)",
+  "ground_truth_section": "Blackwell",
+  "machine": "blackwell",
+  "sm_count": 188,
+  "uuid": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894"
+ },
+ "booking_ref": "tensor_stage_20261003",
+ "complete": false,
+ "constants": {
+  "tensor": {
+   "energy": {
+    "rate_pJ_per_lane_instruction": null,
+    "reason": "no energy profile in the document",
+    "status": "UNIDENTIFIED",
+    "windows": []
+   },
+   "issue": {
+    "reason": "tensor (1, 32, 1) cells do not lie on a line (max relative residual 0.124)",
+    "status": "failed"
+   },
+   "sass_verified": {
+    "tc_w1": {
+     "in_loop": {
+      "control": 1,
+      "global_load": 1,
+      "integer_alu": 13,
+      "tensor_core": 32
+     },
+     "loop_opcodes": {
+      "BRA.U": 1,
+      "HMMA.16816.F32.BF16": 32,
+      "IMAD.WIDE.U32": 1,
+      "LDG.E.STRONG.GPU": 1,
+      "LEA": 1,
+      "LEA.HI.X": 1,
+      "LOP3.LUT": 6,
+      "UIADD3": 2,
+      "UISETP.NE.U32.AND": 1,
+      "ULOP3.LUT": 1
+     },
+     "out_of_loop": {
+      "control": 3,
+      "fp32_add": 16,
+      "global_store": 1,
+      "integer_alu": 6,
+      "move_const_special": 37
+     }
+    },
+    "tc_w16": {
+     "in_loop": {
+      "control": 1,
+      "global_load": 1,
+      "integer_alu": 13,
+      "tensor_core": 32
+     },
+     "loop_opcodes": {
+      "BRA.U": 1,
+      "HMMA.16816.F32.BF16": 32,
+      "IMAD.WIDE.U32": 1,
+      "LDG.E.STRONG.GPU": 1,
+      "LEA": 1,
+      "LEA.HI.X": 1,
+      "LOP3.LUT": 6,
+      "UIADD3": 2,
+      "UISETP.NE.U32.AND": 1,
+      "ULOP3.LUT": 1
+     },
+     "out_of_loop": {
+      "control": 3,
+      "fp32_add": 16,
+      "global_store": 1,
+      "integer_alu": 6,
+      "move_const_special": 37
+     }
+    },
+    "tc_w4": {
+     "in_loop": {
+      "control": 1,
+      "global_load": 1,
+      "integer_alu": 13,
+      "tensor_core": 32
+     },
+     "loop_opcodes": {
+      "BRA.U": 1,
+      "HMMA.16816.F32.BF16": 32,
+      "IMAD.WIDE.U32": 1,
+      "LDG.E.STRONG.GPU": 1,
+      "LEA": 1,
+      "LEA.HI.X": 1,
+      "LOP3.LUT": 6,
+      "UIADD3": 2,
+      "UISETP.NE.U32.AND": 1,
+      "ULOP3.LUT": 1
+     },
+     "out_of_loop": {
+      "control": 3,
+      "fp32_add": 16,
+      "global_store": 1,
+      "integer_alu": 6,
+      "move_const_special": 37
+     }
+    }
+   },
+   "status": "incomplete",
+   "windows": [
+    {
+     "admitted": true,
+     "clock_median_mhz": 2842.0,
+     "columns": {
+      "B_dr": 0.0,
+      "B_l2": 49283072.0,
+      "B_wr": 0.0,
+      "bar": 0.0,
+      "ffma": 0.0,
+      "fpo": 96256.0,
+      "intc": 172767488.0,
+      "sfu": 0.0,
+      "shfl": 0.0,
+      "shm": 0.0,
+      "tc": 394264576.0
+     },
+     "design": "tc_w1",
+     "energy_j_per_launch": 0.1250944389173293,
+     "id": "tc_w1",
+     "power_w": 183.6606935567714,
+     "runtime_s_per_launch": 0.0006811170945945946,
+     "temp_end_c": 44,
+     "temp_start_c": 43
+    },
+    {
+     "admitted": true,
+     "clock_median_mhz": 2805.0,
+     "columns": {
+      "B_dr": 0.0,
+      "B_l2": 197132288.0,
+      "B_wr": 0.0,
+      "bar": 0.0,
+      "ffma": 0.0,
+      "fpo": 385024.0,
+      "intc": 691069952.0,
+      "sfu": 0.0,
+      "shfl": 0.0,
+      "shm": 0.0,
+      "tc": 1577058304.0
+     },
+     "design": "tc_w4",
+     "energy_j_per_launch": 0.2476186026648747,
+     "id": "tc_w4",
+     "power_w": 358.2715467339819,
+     "runtime_s_per_launch": 0.0006911478424657534,
+     "temp_end_c": 64,
+     "temp_start_c": 63
+    },
+    {
+     "admitted": true,
+     "clock_median_mhz": 2745.0,
+     "columns": {
+      "B_dr": 0.0,
+      "B_l2": 788529152.0,
+      "B_wr": 0.0,
+      "bar": 0.0,
+      "ffma": 0.0,
+      "fpo": 1540096.0,
+      "intc": 2764279808.0,
+      "sfu": 0.0,
+      "shfl": 0.0,
+      "shm": 0.0,
+      "tc": 6308233216.0
+     },
+     "design": "tc_w16",
+     "energy_j_per_launch": 0.899326826816275,
+     "id": "tc_w16",
+     "power_w": 495.1065394598271,
+     "runtime_s_per_launch": 0.0018164309437386568,
+     "temp_end_c": 79,
+     "temp_start_c": 78
+    }
+   ]
+  }
+ },
+ "created_utc": "2026-10-02T20:29:54+00:00",
+ "device": {
+  "compute_capability": "12.0",
+  "l2_bytes": 134217728,
+  "max_blocks_per_sm": 24,
+  "max_threads_per_block": 1024,
+  "max_threads_per_sm": 1536,
+  "mem_clock_khz_reported": 14001000,
+  "memory_bus_bits": 512,
+  "mode": "device_facts",
+  "name": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "regs_per_sm": 65536,
+  "shared_per_block": 49152,
+  "shared_per_block_optin": 101376,
+  "shared_per_sm": 102400,
+  "shared_reserved_per_block": 1024,
+  "sm_clock_khz_reported": 2617000,
+  "sm_count": 188,
+  "total_memory_bytes": 101973491712,
+  "uuid": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894"
+ },
+ "ground_truth_checked": {
+  "compute_capability": "12.0",
+  "l2_bytes": 134217728,
+  "sm_count": 188
+ },
+ "note": "All constants come from synthetic microbenchmarks (timing and energy windows); no operator kernel, application runtime or application energy value was read. Failed or missing stages are listed in `stages` and make `complete` false.",
+ "schema": "static_runtime_calibration/1",
+ "stages": [
+  {
+   "binary_sha256": "9c27724f592b4c3ccc3b06b2a640e05ee1b4e45a1bbd2ad978f3e05a2f96e676",
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_tensor_20261003/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_tensor_20261003/run_tensor/build/micro_tensor",
+    "/home/user/cal_tensor_20261003/tiresias/framework/predictor/calibrate/csrc/micro_tensor.cu",
+    "-ldl"
+   ],
+   "failed": [],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 4.0,
+    "utilization_pct": 0
+   },
+   "name": "tensor",
+   "not_admitted": [],
+   "program": "micro_tensor",
+   "source_sha256": "63fb121e23fb9b60c18ec11e659cd3b99981c6ed29433af992e403ba8c58f0c5",
+   "status": "ok"
+  }
+ ],
+ "tool_version": "1.0.0",
+ "toolchain": {
+  "arch": "sm_120",
+  "nvcc": "Cuda compilation tools, release 13.2, V13.2.78"
+ },
+ "warnings": [
+  "missing constants: launch_reuse, mlp, stream_curves, smem, overlap, store_legacy, pipes, chase_latency_ns, energy"
+ ]
+}

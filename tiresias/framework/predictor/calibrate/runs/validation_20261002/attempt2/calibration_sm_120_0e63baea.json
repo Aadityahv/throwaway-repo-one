@@ -1,0 +1,558 @@
+{
+ "approved_entry": {
+  "compute_capability": "12.0",
+  "gpu": "RTX PRO 6000 Blackwell Workstation Edition (GPU 1)",
+  "ground_truth_section": "Blackwell",
+  "machine": "blackwell",
+  "sm_count": 188,
+  "uuid": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894"
+ },
+ "booking_ref": "booking log 2026-10-02 BOOKING calibrate_tool_validation_20261002",
+ "complete": true,
+ "constants": {
+  "chase_latency_ns": {
+   "DRAM": 323.14,
+   "L1": 73.82,
+   "L2": 128.63
+  },
+  "launch_reuse": {
+   "composition_rule": "issue cycles = max(0.25 * total warp instructions, busiest pipe) per phase",
+   "l1": {
+    "bandwidth_bytes_per_s_per_sm": 126680412371.13403,
+    "capacity_bytes_per_sm": 98304,
+    "capacity_rule": "largest one-block-per-SM footprint whose re-read pass ratio is at most hit_ratio + 0.25 * (1 - hit_ratio)",
+    "points_gbps": [
+     96.0,
+     132.1,
+     126.7
+    ]
+   },
+   "l1_reread_l2_fraction_curve": {
+    "hit_cost_ratio": 0.07512953367875648,
+    "p_l2": [
+     0.0,
+     0.2043,
+     0.3606,
+     0.4197,
+     0.5744,
+     0.6328,
+     1.0
+    ],
+    "per_sm_kb": [
+     64,
+     128,
+     192,
+     256,
+     384,
+     512,
+     1024
+    ]
+   },
+   "launch_us_per_kernel": {
+    "check_at_sm_blocks_measured": 0.5235000000000001,
+    "check_at_sm_blocks_pred": 0.5503616837648592,
+    "intercept_at_one_block": 0.48406666666666665,
+    "per_extra_block": 0.0003545188080117245
+   }
+  },
+  "mlp": {
+   "linear_region_points": {
+    "DRAM": [
+     0.546,
+     0.63,
+     0.746,
+     0.588,
+     0.714,
+     0.663,
+     0.603,
+     0.731,
+     0.684,
+     0.727
+    ],
+    "L2": [
+     0.285,
+     0.299,
+     0.321,
+     0.295,
+     0.316,
+     0.358,
+     0.296,
+     0.32,
+     0.313,
+     0.322
+    ]
+   },
+   "rule": "per phase with global loads: read bytes / (active SMs x in-flight bytes per SM / service latency) is a lower bound on the stream stage; in-flight per SM = resident warps x (read bytes per load request) x min(loads per warp / dependent load depth, 1 or more)",
+   "service_latency_us": {
+    "DRAM": 0.6736536621093749,
+    "L2": 0.31442265625
+   }
+  },
+  "overlap": {
+   "alpha": [
+    0.006,
+    0.065,
+    0.021,
+    0.018
+   ],
+   "configs_per_point": [
+    6,
+    6,
+    6,
+    6
+   ],
+   "extrapolation": "clamped to the measured range",
+   "overlap_definition": "alpha = (Tm + Tc - T) / (Tm + Tc - max(Tm, Tc)); 0 = different blocks phases fully serialised, 1 = fully overlapped",
+   "resident_blocks_per_sm": [
+    1,
+    2,
+    3,
+    6
+   ]
+  },
+  "pipes": {
+   "barrier_latency_cycles_by_warps": {
+    "1": 13.999999999999995,
+    "12": 35.85747299464825,
+    "16": 43.85747299464823,
+    "2": 16.000000000000004,
+    "24": 59.857472994648234,
+    "32": 75.85692276547258,
+    "4": 20.0,
+    "8": 27.999999999999986
+   },
+   "dependent_latency_cycles": {
+    "fp32_add": 3.4050370193497255,
+    "fp32_fma": 3.4050370193497255,
+    "integer": 4.833443379168462,
+    "mufu_ex2": 17.76091434938861,
+    "shared_load": 33.99922967915411,
+    "shared_store_load": 37.999229679154105,
+    "shuffle": 28.99834931247308
+   },
+   "effective_sm_clock_hz": 2800442923.66759,
+   "fit_quality_max_relative_residual": {
+    "barrier/S1/t1024/b1": 0.012813823386359639,
+    "barrier/S1/t128/b1": 1.0448624350212349e-15,
+    "barrier/S1/t256/b1": 2.0256006721000628e-15,
+    "barrier/S1/t32/b1": 2.594438135009938e-15,
+    "barrier/S1/t384/b1": 0.02317605961031849,
+    "barrier/S1/t512/b1": 0.019932127189143996,
+    "barrier/S1/t64/b1": 1.2005650214075028e-15,
+    "barrier/S1/t768/b1": 0.015574396590118745,
+    "fp32_add/S1/t32/b1": 0.2113046587817053,
+    "fp32_add/S4/t1024/b188": 0.02730224680487854,
+    "fp32_fma/S1/t32/b1": 0.209587702181789,
+    "fp32_fma/S4/t1024/b188": 0.03609481560945123,
+    "integer/S1/t32/b1": 0.11478738979278857,
+    "integer/S4/t1024/b188": 0.012697289743679698,
+    "mufu_ex2/S1/t32/b1": 0.08197893090396621,
+    "mufu_ex2/S4/t1024/b188": 9.216521974737782e-05,
+    "shared_load/S1/t32/b1": 0.0009213374395018256,
+    "shared_load/S4/t1024/b188": 0.0013708052860657534,
+    "shared_store_load/S1/t32/b1": 0.00028644141809056306,
+    "shared_store_load/S4/t1024/b188": 0.00025865325268146507,
+    "shuffle/S1/t32/b1": 0.0016051544089411775,
+    "shuffle/S4/t1024/b188": 0.003007446025610194
+   },
+   "issue_cycles_per_warp_instruction_per_sm": {
+    "fp32_add": 0.2514839082923752,
+    "fp32_fma": 0.2509196627847041,
+    "integer": 0.3120337259501116,
+    "mufu_ex2": 1.9999689791148985,
+    "shared_load": 4.000017745325786,
+    "shared_store_load": 8.000112409939334,
+    "shuffle": 2.0000639797108843
+   },
+   "loop_overhead_cycles_per_iteration": {
+    "fp32_add": 15.498074197885273,
+    "fp32_fma": 15.49807419788526,
+    "integer": 10.665126024974866,
+    "mufu_ex2": 3.340266220946429,
+    "shared_load": 0.005392245921356675,
+    "shared_store_load": 0.005392245921413519,
+    "shuffle": 0.011554812688530092
+   }
+  },
+  "smem": {
+   "conflict_degree_rule": "cost = max(floor, slope * degree), degree = largest number of distinct 32-bit words mapping to one of 32 banks per request group",
+   "degree_slope_cycles": 1.0004125,
+   "ffma_interleave_changes_cost": false,
+   "floor_cycles": 2.00705,
+   "plain_128bit_conflict_free": 4.0284,
+   "plain_32bit_conflict_free": 2.01315,
+   "plain_64bit_conflict_free": 2.0206,
+   "volatile_by_stride": {
+    "0": 2.0077,
+    "1": 2.0072,
+    "16": 16.0038,
+    "2": 2.0074,
+    "3": 2.007,
+    "32": 32.002,
+    "33": 2.0071,
+    "4": 4.0061,
+    "5": 2.0069,
+    "8": 8.0046
+   }
+  },
+  "store_legacy": {
+   "DRAM_read_TBps": 1.5221571402649248,
+   "DRAM_write_TBps": 1.641670515480058,
+   "L2_read_sector_TBps": 17.460200856850435,
+   "L2_write_sector_TBps": 4.9351826703003905,
+   "active_sms_microbench": 188,
+   "c_line_ns": -9.4655354817718e-06,
+   "latency_ns": {
+    "DRAM": 323.14,
+    "L1": 73.82,
+    "L2": 128.63
+   },
+   "t0_us": 0.8192
+  },
+  "stream_curves": {
+   "dram_total_bandwidth_TBps": {
+    "read_fraction": [
+     0.0,
+     0.3333,
+     0.5,
+     0.6667,
+     0.75,
+     1.0
+    ],
+    "value": [
+     1.6411566302774192,
+     1.4064776893499062,
+     1.4753351272445874,
+     1.5165433705752613,
+     1.5429878968472945,
+     1.6338721489516896
+    ]
+   },
+   "kernel_fixed_overhead_us": 0.8001999999999999,
+   "l2_total_bandwidth_TBps": {
+    "read_fraction": [
+     0.0,
+     0.3333,
+     0.5,
+     0.6667,
+     0.75,
+     1.0
+    ],
+    "value": [
+     5.5750607000443075,
+     6.541561709354315,
+     8.218753755715218,
+     11.349589897775108,
+     11.885247945593655,
+     9.264226741899567
+    ]
+   },
+   "overhead_points_us": [
+    0.8,
+    1.066,
+    0.944,
+    0.636,
+    0.777,
+    0.85,
+    0.553
+   ]
+  }
+ },
+ "created_utc": "2026-10-02T09:56:32+00:00",
+ "device": {
+  "compute_capability": "12.0",
+  "l2_bytes": 134217728,
+  "max_blocks_per_sm": 24,
+  "max_threads_per_block": 1024,
+  "max_threads_per_sm": 1536,
+  "mem_clock_khz_reported": 14001000,
+  "memory_bus_bits": 512,
+  "mode": "device_facts",
+  "name": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "regs_per_sm": 65536,
+  "shared_per_block": 49152,
+  "shared_per_block_optin": 101376,
+  "shared_per_sm": 102400,
+  "shared_reserved_per_block": 1024,
+  "sm_clock_khz_reported": 2617000,
+  "sm_count": 188,
+  "total_memory_bytes": 101973491712,
+  "uuid": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894"
+ },
+ "ground_truth_checked": {
+  "compute_capability": "12.0",
+  "l2_bytes": 134217728,
+  "sm_count": 188
+ },
+ "note": "All constants come from synthetic microbenchmarks; no operator kernel, runtime or energy value was read. Failed or missing stages are listed in `stages` and make `complete` false.",
+ "schema": "static_runtime_calibration/1",
+ "stages": [
+  {
+   "args": [
+    "chain"
+   ],
+   "binary_sha256": "8ab27867641efa8424b1a42f7d3787a78216969bc74ba3ec394d0e9215b68216",
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_run_20261002/attempt2/out/build/micro_launch",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc/micro_launch.cu"
+   ],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 4.0,
+    "utilization_pct": 0
+   },
+   "name": "launch_chain",
+   "program": "micro_launch",
+   "returncode": 0,
+   "rows": 12,
+   "seconds": 0.7,
+   "source_sha256": "935dc4fbf17a460b01fa71146d2536035c6270b9671d87bd0c6b90aa4cbac58d",
+   "status": "ok",
+   "stdout_sha256": "9c6a676437e0c86a85c99d2fd9ee4381b2cd85ba885292669d74f2d696459d34"
+  },
+  {
+   "args": [
+    "reuse"
+   ],
+   "binary_sha256": "7f1bf323a9cbf5d4a38709e3892da5e6a9381852fdc4949bc1e73afae04bce74",
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_run_20261002/attempt2/out/build/micro_launch",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc/micro_launch.cu"
+   ],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 6.0,
+    "utilization_pct": 0
+   },
+   "name": "launch_reuse",
+   "program": "micro_launch",
+   "returncode": 0,
+   "rows": 27,
+   "seconds": 0.93,
+   "source_sha256": "935dc4fbf17a460b01fa71146d2536035c6270b9671d87bd0c6b90aa4cbac58d",
+   "status": "ok",
+   "stdout_sha256": "87913cce751e6a68975d8da3b81b087ce1beace29c0018f3be64ed5da3cf63bb"
+  },
+  {
+   "args": [],
+   "binary_sha256": "3099896b87bc14e74a6d1da1ac836561d7d4e1786273a4dfa19eb9602cf58d74",
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_run_20261002/attempt2/out/build/micro_stream",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc/micro_stream.cu"
+   ],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 4.0,
+    "utilization_pct": 0
+   },
+   "name": "stream",
+   "program": "micro_stream",
+   "returncode": 0,
+   "rows": 63,
+   "seconds": 0.84,
+   "source_sha256": "6831ce7b0625c5f1bea359f599cc0a21b8a95fd2c33e17be79cf2b945e5114ab",
+   "status": "ok",
+   "stdout_sha256": "66898dc6d8b0a6e10f87f20ae185939c24a693430d1ddb8607c1dfcd3645ec37"
+  },
+  {
+   "args": [],
+   "binary_sha256": "3aaa8297f88e858ef8eb6d19cf00455532e73210ca3e293df9333cec1e078423",
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_run_20261002/attempt2/out/build/micro_mlp",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc/micro_mlp.cu"
+   ],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 6.0,
+    "utilization_pct": 0
+   },
+   "name": "mlp",
+   "program": "micro_mlp",
+   "returncode": 0,
+   "rows": 120,
+   "seconds": 1.78,
+   "source_sha256": "edbb226bc50e3edfdd067f12b777bef6b783fb90f5bc2efc18a7df7341325ed9",
+   "status": "ok",
+   "stdout_sha256": "113f1cddffbf81eba67a752f26452df89496c53405e8878178c8536d22d91214"
+  },
+  {
+   "args": [
+    "volatile"
+   ],
+   "binary_sha256": "db524eb4470207c06da4d0c2e818bf6fe5d71993ea05d3b4bcf2b484420e8e5c",
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_run_20261002/attempt2/out/build/micro_smem",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc/micro_smem.cu"
+   ],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 6.0,
+    "utilization_pct": 0
+   },
+   "name": "smem_volatile",
+   "program": "micro_smem",
+   "returncode": 0,
+   "rows": 20,
+   "seconds": 0.34,
+   "source_sha256": "cfcc186d3cffe1703b18e9eab909796198923d505dc9a152e844915c3efca58c",
+   "status": "ok",
+   "stdout_sha256": "cc6e18f04fef71e23392d1f5044401d7820cf5f4a92a873f7acdd87b799649c0"
+  },
+  {
+   "args": [
+    "plain"
+   ],
+   "binary_sha256": "f998ffc4548d98b9389aa9fa1b03d095068cf4a122e7ff6ed9c018c6838826f2",
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_run_20261002/attempt2/out/build/micro_smem",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc/micro_smem.cu"
+   ],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 4.0,
+    "utilization_pct": 0
+   },
+   "name": "smem_plain",
+   "program": "micro_smem",
+   "returncode": 0,
+   "rows": 14,
+   "seconds": 0.31,
+   "source_sha256": "cfcc186d3cffe1703b18e9eab909796198923d505dc9a152e844915c3efca58c",
+   "status": "ok",
+   "stdout_sha256": "4509a5d8f9782907316787e1d0ccab4ea2cb76d81c9baf413e62ff9283d92c7a"
+  },
+  {
+   "args": [],
+   "binary_sha256": "06abcdd7acc2a46c0a687c433fcfd6ab87b0b97fc30de5e99073b6b750b0ead6",
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_run_20261002/attempt2/out/build/micro_overlap",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc/micro_overlap.cu"
+   ],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 4.0,
+    "utilization_pct": 0
+   },
+   "name": "overlap",
+   "program": "micro_overlap",
+   "returncode": 0,
+   "rows": 40,
+   "seconds": 596.81,
+   "source_sha256": "d035017078b901425400879fd9f2db95615e1317a5a89105f8429b1445269800",
+   "status": "ok",
+   "stdout_sha256": "7c7ef80b70c1fc373d6384591504e77b75107bc9544839c9cc201b25054cb0ed"
+  },
+  {
+   "args": [],
+   "binary_sha256": "e90f5d5d5a50340932644c4ac830565892068ce049591635f607f5a30f1ebd0c",
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_run_20261002/attempt2/out/build/micro_store",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc/micro_store.cu"
+   ],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 6.0,
+    "utilization_pct": 0
+   },
+   "name": "store",
+   "program": "micro_store",
+   "returncode": 0,
+   "rows": 7,
+   "seconds": 0.37,
+   "source_sha256": "fb2ac08f7d1b6fa39bbb1e38dd0534140e02a317f0e8fd5ad2f705fb9f60b100",
+   "status": "ok",
+   "stdout_sha256": "7baafa87795a4441cbc1b8c7f4f4d7785c0a8115842e3821b59b9e0dbd78a08a"
+  },
+  {
+   "binary_sha256": "188444173d82bb875ab2db78bd50346de0cf94da45d6430edd08733c2445a4c6",
+   "cells": 135,
+   "cells_failed": [],
+   "cells_ok": 135,
+   "compile_command": [
+    "/usr/local/cuda-13.2/bin/nvcc",
+    "-O3",
+    "-std=c++17",
+    "-arch=sm_120",
+    "-I",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc",
+    "-o",
+    "/home/user/cal_run_20261002/attempt2/out/build/micro_pipes",
+    "/home/user/cal_run_20261002/tiresias/framework/predictor/calibrate/csrc/micro_pipes.cu"
+   ],
+   "idle_before": {
+    "memory_used_mib": 15,
+    "settled_after_s": 4.0,
+    "utilization_pct": 0
+   },
+   "name": "pipes",
+   "program": "micro_pipes",
+   "seconds": 41.7,
+   "source_sha256": "091ca352b84c7efc426eecfe174cc84cb29b9f53aff0d6415430fbf2b7f6484c",
+   "status": "ok"
+  }
+ ],
+ "tool_version": "1.0.0",
+ "toolchain": {
+  "arch": "sm_120",
+  "nvcc": "Cuda compilation tools, release 13.2, V13.2.78"
+ },
+ "warnings": [
+  "nonpositive fitted coefficient [5.7273109753926706e-08, 2.0262674490610757e-07, -9.4655354817718e-09]"
+ ]
+}

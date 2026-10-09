@@ -1,0 +1,28 @@
+fma16        {'control': 1, 'fp32_fma': 16, 'global_load': 1, 'integer_alu': 9, 'move_const_special': 1}
+fma64        {'control': 1, 'fp32_fma': 64, 'global_load': 1, 'integer_alu': 8, 'move_const_special': 3}
+fpadd16      {'control': 1, 'fp32_add': 16, 'global_load': 1, 'integer_alu': 9, 'move_const_special': 1}
+fpadd64      {'control': 1, 'fp32_add': 64, 'global_load': 1, 'integer_alu': 8, 'move_const_special': 3}
+int16        {'control': 1, 'global_load': 1, 'integer_alu': 26, 'move_const_special': 1}
+int64        {'control': 1, 'global_load': 1, 'integer_alu': 74, 'move_const_special': 1}
+sfu16        {'control': 1, 'global_load': 1, 'integer_alu': 9, 'move_const_special': 1, 'special_function': 16}
+sfu64        {'control': 1, 'global_load': 1, 'integer_alu': 10, 'move_const_special': 1, 'special_function': 64}
+shared16     {'control': 1, 'global_load': 1, 'integer_alu': 24, 'move_const_special': 1, 'shared_load': 16, 'shared_store': 16}
+shared64     {'control': 1, 'global_load': 1, 'integer_alu': 72, 'move_const_special': 1, 'shared_load': 64, 'shared_store': 64}
+shfl16       {'control': 1, 'global_load': 1, 'integer_alu': 10, 'move_const_special': 1, 'shuffle': 16}
+shfl64       {'control': 1, 'global_load': 1, 'integer_alu': 10, 'move_const_special': 1, 'shuffle': 64}
+bar16        {'barrier': 16, 'control': 1, 'global_load': 1, 'integer_alu': 10, 'move_const_special': 1}
+bar64        {'barrier': 64, 'control': 1, 'global_load': 1, 'integer_alu': 10, 'move_const_special': 1}
+rd_l2_8      {'control': 1, 'global_load': 8, 'integer_alu': 20, 'move_const_special': 1}
+rd_l2_16     {'control': 1, 'global_load': 16, 'integer_alu': 32, 'move_const_special': 1}
+rd_dram_8    {'control': 1, 'global_load': 8, 'integer_alu': 20, 'move_const_special': 1}
+rd_dram_16   {'control': 1, 'global_load': 16, 'integer_alu': 32, 'move_const_special': 1}
+wr_l2_8      {'control': 1, 'global_load': 1, 'global_store': 8, 'integer_alu': 31, 'move_const_special': 1}
+wr_dram_8    {'control': 1, 'global_load': 1, 'global_store': 8, 'integer_alu': 31, 'move_const_special': 1}
+wr_dram_16   {'control': 1, 'global_load': 1, 'global_store': 16, 'integer_alu': 47, 'move_const_special': 1}
+copy_dram_8  {'control': 1, 'global_load': 8, 'global_store': 8, 'integer_alu': 42, 'move_const_special': 1}
+light_int64  {'control': 1, 'global_load': 1, 'integer_alu': 74, 'move_const_special': 1}
+mixed_a      {'control': 1, 'fp32_fma': 8, 'global_load': 1, 'integer_alu': 15, 'move_const_special': 2, 'shared_load': 8, 'shared_store': 8, 'special_function': 8}
+mixed_b      {'control': 1, 'fp32_fma': 24, 'global_load': 1, 'integer_alu': 19, 'move_const_special': 2, 'shared_load': 12, 'shared_store': 12, 'special_function': 4}
+mixed_app    {'barrier': 32, 'control': 1, 'fp32_add': 64, 'global_load': 8, 'integer_alu': 88, 'move_const_special': 1, 'shuffle': 32}
+
+all 26 designs verified against the real SASS

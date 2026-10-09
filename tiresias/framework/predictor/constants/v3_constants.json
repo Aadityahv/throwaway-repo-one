@@ -1,0 +1,90 @@
+{
+ "composition_rule": "issue cycles = max(0.25 * total warp instructions, busiest pipe) per phase",
+ "composition_validation": {
+  "all": {
+   "measured_over_max_rule": 1.267,
+   "measured_over_sum_rule": 0.494
+  },
+  "fp32": {
+   "measured_over_max_rule": 1.188,
+   "measured_over_sum_rule": 1.188
+  },
+  "fp32_int": {
+   "measured_over_max_rule": 1.097,
+   "measured_over_sum_rule": 0.94
+  },
+  "fp32_lds": {
+   "measured_over_max_rule": 1.002,
+   "measured_over_sum_rule": 0.801
+  },
+  "fp32_mufu": {
+   "measured_over_max_rule": 1.203,
+   "measured_over_sum_rule": 0.675
+  },
+  "fp32_shfl": {
+   "measured_over_max_rule": 1.165,
+   "measured_over_sum_rule": 0.654
+  },
+  "int_lds": {
+   "measured_over_max_rule": 1.002,
+   "measured_over_sum_rule": 0.617
+  },
+  "int_only": {
+   "measured_over_max_rule": 1.036,
+   "measured_over_sum_rule": 1.036
+  },
+  "lds_only": {
+   "measured_over_max_rule": 1.001,
+   "measured_over_sum_rule": 1.001
+  },
+  "mufu_only": {
+   "measured_over_max_rule": 1.002,
+   "measured_over_sum_rule": 1.002
+  },
+  "shfl_mufu": {
+   "measured_over_max_rule": 1.003,
+   "measured_over_sum_rule": 0.501
+  },
+  "shfl_only": {
+   "measured_over_max_rule": 1.002,
+   "measured_over_sum_rule": 1.002
+  }
+ },
+ "l1": {
+  "bandwidth_bytes_per_s_per_sm": 109714285714.28572,
+  "capacity_bytes_per_sm": 98304,
+  "points_gbps": [
+   109.7,
+   97.5,
+   113.8
+  ]
+ },
+ "l1_reread_l2_fraction_curve": {
+  "hit_cost_ratio": 0.030462184873949583,
+  "p_l2": [
+   0.0,
+   0.1263,
+   0.2912,
+   0.4522,
+   0.5135,
+   0.6247,
+   1.0
+  ],
+  "per_sm_kb": [
+   64,
+   128,
+   192,
+   256,
+   384,
+   512,
+   1024
+  ]
+ },
+ "launch_us_per_kernel": {
+  "check_at_188_blocks_measured": 0.5238666666666666,
+  "check_at_188_blocks_pred": 0.5507581501384139,
+  "intercept_at_one_block": 0.48456666666666665,
+  "per_extra_block": 0.000353965152255333
+ },
+ "source": "tiresias/framework/predictor/micro_v3/out_{chain,mix,reuse}.jsonl"
+}

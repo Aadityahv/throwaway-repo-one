@@ -1,0 +1,874 @@
+{
+ "board": "h100",
+ "cells": [
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "1179648",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "9",
+    "shape_a": "384",
+    "shape_b": "384",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_g_ml_tensor_matmul/small/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/fresh_g_ml_tensor_matmul/small/c1",
+   "controls": {
+    "K": 384,
+    "M": 384,
+    "N": 384,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 1179648,
+   "footprint_over_l2": 0.0225,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 384,
+      "N": 384
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      3,
+      3,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 1179648,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "small",
+   "set": "fresh_g",
+   "shape_a": 384,
+   "shape_b": 384,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "1179648",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "36",
+    "shape_a": "384",
+    "shape_b": "384",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_g_ml_tensor_matmul/small/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/fresh_g_ml_tensor_matmul/small/c2",
+   "controls": {
+    "K": 384,
+    "M": 384,
+    "N": 384,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 1179648,
+   "footprint_over_l2": 0.0225,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 384,
+      "N": 384
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      6,
+      6,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 1179648,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "small",
+   "set": "fresh_g",
+   "shape_a": 384,
+   "shape_b": 384,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "4915200",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "25",
+    "shape_a": "640",
+    "shape_b": "640",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_g_ml_tensor_matmul/medium/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/fresh_g_ml_tensor_matmul/medium/c1",
+   "controls": {
+    "K": 1280,
+    "M": 640,
+    "N": 640,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 4915200,
+   "footprint_over_l2": 0.09375,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 1280,
+      "N": 640
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      5,
+      5,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 4915200,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "medium",
+   "set": "fresh_g",
+   "shape_a": 640,
+   "shape_b": 640,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "4915200",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "100",
+    "shape_a": "640",
+    "shape_b": "640",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_g_ml_tensor_matmul/medium/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/fresh_g_ml_tensor_matmul/medium/c2",
+   "controls": {
+    "K": 1280,
+    "M": 640,
+    "N": 640,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 4915200,
+   "footprint_over_l2": 0.09375,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 1280,
+      "N": 640
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      10,
+      10,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 4915200,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "medium",
+   "set": "fresh_g",
+   "shape_a": 640,
+   "shape_b": 640,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "109903872",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "1521",
+    "shape_a": "4992",
+    "shape_b": "4992",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_g_ml_tensor_matmul/large/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/fresh_g_ml_tensor_matmul/large/c1",
+   "controls": {
+    "K": 512,
+    "M": 4992,
+    "N": 4992,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 109903872,
+   "footprint_over_l2": 2.09625,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 4992
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      39,
+      39,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 109903872,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "large",
+   "set": "fresh_g",
+   "shape_a": 4992,
+   "shape_b": 4992,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "109903872",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "6084",
+    "shape_a": "4992",
+    "shape_b": "4992",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_g_ml_tensor_matmul/large/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/fresh_g_ml_tensor_matmul/large/c2",
+   "controls": {
+    "K": 512,
+    "M": 4992,
+    "N": 4992,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 109903872,
+   "footprint_over_l2": 2.09625,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 4992
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      78,
+      78,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 109903872,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "large",
+   "set": "fresh_g",
+   "shape_a": 4992,
+   "shape_b": 4992,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "120127488",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "1521",
+    "shape_a": "4992",
+    "shape_b": "4992",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_g_ml_tensor_matmul/xlarge/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/fresh_g_ml_tensor_matmul/xlarge/c1",
+   "controls": {
+    "K": 1024,
+    "M": 4992,
+    "N": 4992,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 120127488,
+   "footprint_over_l2": 2.29125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 4992
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      39,
+      39,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 120127488,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "xlarge",
+   "set": "fresh_g",
+   "shape_a": 4992,
+   "shape_b": 4992,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "120127488",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "6084",
+    "shape_a": "4992",
+    "shape_b": "4992",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_g_ml_tensor_matmul/xlarge/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/fresh_g_ml_tensor_matmul/xlarge/c2",
+   "controls": {
+    "K": 1024,
+    "M": 4992,
+    "N": 4992,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 120127488,
+   "footprint_over_l2": 2.29125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 4992
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      78,
+      78,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 120127488,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "xlarge",
+   "set": "fresh_g",
+   "shape_a": 4992,
+   "shape_b": 4992,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "1966080",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "48",
+    "shape_a": "6",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_h_ml_fused_attention/small/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/fresh_h_ml_fused_attention/small/c1",
+   "controls": {
+    "BH": 6,
+    "D": 64,
+    "S": 512,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 1966080,
+   "footprint_over_l2": 0.0375,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 512
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      6,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 1966080,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "small",
+   "set": "fresh_h",
+   "shape_a": 6,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "1966080",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "24",
+    "shape_a": "6",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_h_ml_fused_attention/small/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/fresh_h_ml_fused_attention/small/c2",
+   "controls": {
+    "BH": 6,
+    "D": 64,
+    "S": 512,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 1966080,
+   "footprint_over_l2": 0.0375,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 512
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      6,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 1966080,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "small",
+   "set": "fresh_h",
+   "shape_a": 6,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "16384000",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "400",
+    "shape_a": "25",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_h_ml_fused_attention/medium/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/fresh_h_ml_fused_attention/medium/c1",
+   "controls": {
+    "BH": 25,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 16384000,
+   "footprint_over_l2": 0.3125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      25,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 16384000,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "medium",
+   "set": "fresh_h",
+   "shape_a": 25,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "16384000",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "200",
+    "shape_a": "25",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_h_ml_fused_attention/medium/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/fresh_h_ml_fused_attention/medium/c2",
+   "controls": {
+    "BH": 25,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 16384000,
+   "footprint_over_l2": 0.3125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      25,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 16384000,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "medium",
+   "set": "fresh_h",
+   "shape_a": 25,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "131072000",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "3200",
+    "shape_a": "100",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_h_ml_fused_attention/large/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/fresh_h_ml_fused_attention/large/c1",
+   "controls": {
+    "BH": 100,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 131072000,
+   "footprint_over_l2": 2.5,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      100,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 131072000,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "large",
+   "set": "fresh_h",
+   "shape_a": 100,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "131072000",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "1600",
+    "shape_a": "100",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_h_ml_fused_attention/large/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/fresh_h_ml_fused_attention/large/c2",
+   "controls": {
+    "BH": 100,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 131072000,
+   "footprint_over_l2": 2.5,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      100,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 131072000,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "large",
+   "set": "fresh_h",
+   "shape_a": 100,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "262144000",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "6400",
+    "shape_a": "200",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_h_ml_fused_attention/xlarge/c1",
+   "candidate_id": "c1",
+   "cell_id": "h100/fresh_h_ml_fused_attention/xlarge/c1",
+   "controls": {
+    "BH": 200,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 262144000,
+   "footprint_over_l2": 5.0,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      200,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 262144000,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "xlarge",
+   "set": "fresh_h",
+   "shape_a": 200,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "262144000",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "complete-suite generators bound to h100 hardware",
+    "grid_blocks": "3200",
+    "shape_a": "200",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "blackwell_source_cell_id": "blackwell/fresh_h_ml_fused_attention/xlarge/c2",
+   "candidate_id": "c2",
+   "cell_id": "h100/fresh_h_ml_fused_attention/xlarge/c2",
+   "controls": {
+    "BH": 200,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 262144000,
+   "footprint_over_l2": 5.0,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      200,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 262144000,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "xlarge",
+   "set": "fresh_h",
+   "shape_a": 200,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  }
+ ],
+ "derivation": {
+  "grid_candidates": {
+   "c1": 128,
+   "c2": 256
+  },
+  "l1_tier": "none: no verified target L1 capacity/residency gate",
+  "rule": "Unchanged complete-suite geometry/shape functions from the Ada replication and H100 generators, explicitly bound to h100's verified hardware; source-cell crosswalk below. No labels read.",
+  "tier_rule": "tier = L2 iff footprint / L2 < 1; no cell with ratio in [0.4, 1.5)"
+ },
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "group": "tensor",
+ "hardware_from_ground_truth": {
+  "file": "HARDWARE_GROUND_TRUTH.md",
+  "note": "the resident-blocks row is parsed under the short label by an in-memory alias; the file is unchanged",
+  "rows_quoted": {
+   "L2 cache size": "| L2 cache size | 52,428,800 bytes = 50.0 MiB | `cudaDeviceProp.l2CacheSize` |",
+   "Max resident blocks per SM": "| Max resident blocks per SM | 32 | live `cudaGetDeviceProperties()`, cluster job j07 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/h100_j07/` |",
+   "Max threads per block / per SM": "| Max threads per block / per SM | 1,024 / 2,048 | live `cudaGetDeviceProperties()`, cluster job j07 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/h100_j07/` |",
+   "Name": "| Name | NVIDIA H100 80GB HBM3 | `nvidia-smi` + `cudaGetDeviceProperties()` |",
+   "Reserved shared memory per block": "| Reserved shared memory per block (driver carveout) | 1,024 bytes | live `cudaGetDeviceProperties()`, cluster job j07 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/h100_j07/` (`reservedSharedMemPerBlock`) |",
+   "SM count": "| SM count | 132 | `cudaDeviceProp.multiProcessorCount` |",
+   "Shared mem per SM": "| Shared mem per SM | 233,472 bytes | live `cudaGetDeviceProperties()`, cluster job j07 (commit `b9f3a97e`, no kernel), 2026-10-02; raw `calibration/hardware_inventory/h100_j07/` |"
+  },
+  "section": "## H100",
+  "values": {
+   "l2_bytes": 52428800,
+   "max_blocks_per_sm": 32,
+   "max_registers_per_thread": 256,
+   "max_threads_per_block": 1024,
+   "max_threads_per_sm": 2048,
+   "max_warps_per_sm": 64,
+   "register_alloc_granularity_regs_per_warp": 256,
+   "register_sub_partitions_per_sm": 4,
+   "regs_per_block": 65536,
+   "regs_per_sm": 65536,
+   "reserved_shared_per_block_bytes": 1024,
+   "shared_alloc_granularity_bytes": 128,
+   "shared_per_block_bytes": 49152,
+   "shared_per_sm_bytes": 233472,
+   "sm_count": 132,
+   "warp_size": 32
+  }
+ },
+ "schema": "cluster_replication_cells/1",
+ "unplaceable": []
+}

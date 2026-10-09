@@ -1,0 +1,140 @@
+{
+  "alavani": {
+    "input_parity": "no new launch/shape/traffic features; native power primary",
+    "multi_kernel": "concatenate isolated bodies once per occurrence, classify ten existing features"
+  },
+  "cell_sets": {
+    "prospective_energy": "scalar product and fast Walsh transform (16 cells)",
+    "retrospective_runtime": "matrix multiply, Black-Scholes, scan and separable convolution (32 cells)"
+  },
+  "component_fit": {
+    "basis": "const + inst + logical_bytes + dram_extra (Amendment N3-1)",
+    "condition_number": 4.767280947753809,
+    "f_active_assumed": 1.0,
+    "n_windows": 22,
+    "note": "P_static folds into P_const (f_active unobservable without NCU on calibration)",
+    "params": {
+      "P_const": 144.22424342858156,
+      "e_B": 6.462037446966568e-11,
+      "e_DRAM": 1.0768507852589227e-10,
+      "e_inst": 2.6776341834439437e-11
+    },
+    "rmse_w": 12.009917148341334
+  },
+  "component_instruction_unit": "source on-chip arithmetic operation proxy + logical_bytes/128 (legacy operator convention; not lane instructions)",
+  "component_source_ops": {
+    "bs": "64 * optN, declared source-expression upper envelope: 2 sqrt/div + 9 d1 + 2 d2 + 2*19 CND + 3 expRT + 4 call + 6 put; includes optional complement on both CND branches; elementary arithmetic and each special function counted once",
+    "conv": "68 * imageW * imageH (17 multiply-plus-add taps for each of two passes)",
+    "fwt": "batches * 2**log2N * log2N",
+    "matmul": "2 * N**3 (multiply and accumulator add including initial zero)",
+    "scan": "6*n + (n/1024) * (2 + log2(array_length/1024)); bottom (n/4)*(12+8), update n, top sum/sub plus logarithmic scan steps",
+    "sp": "vectorN * (2 * elementN + 1023), including additions from zero and accumulator tree"
+  },
+  "constants": {
+    "X1a": {
+      "eps_DRAM_pj": 2090.0,
+      "eps_L1_pj": 107.0,
+      "eps_L2_pj": 368.0,
+      "source": "Delestrac et al. ASAP 2024 pp.143-151, A100 per-32B-sector lower bounds (Fig 6a/6b/7 + minima sentence; L2 368-vs-378 fnote in PUBLISHED_CONSTANTS_2026-09-26.md)",
+      "unit": "pJ per 32B sector access"
+    },
+    "X3": {
+      "DRAM": 3.97,
+      "L1": 0.22,
+      "L2": 0.22,
+      "source": "DRAM: O'Connor et al. MICRO 2017 Fig 1b/Table 3 (HBM2), applied uniformly, disclosed GDDR underestimate; on-chip: Keckler et al. IEEE Micro 31(5) 2011 (56 pJ per 256b SRAM access)",
+      "unit": "pJ per bit"
+    },
+    "protocol": "BASELINE_HEADTOHEAD_PROTOCOL_2026-09-26.md"
+  },
+  "flipflop": {
+    "coalescing": "all kernels contiguous/coalesced; one flag per kernel occurrence",
+    "device": "cached device info plus retained inventory; MAX_BLOCKS_PER_MULTIPROCESSOR=32 is the original package assumption, not hardware truth",
+    "external_runtime": "allocate sequence time in proportion to own frozen static occurrence time, recompute each power",
+    "multi_kernel": "sum per-occurrence time and energy"
+  },
+  "inputs_sha256": {
+    "BASELINE_CONTRACT.md": "0e2708cf955739bda229e2f46c56d76568d9cd97bbb007f9f8e296909bffcb19",
+    "HARDWARE_GROUND_TRUTH.md": "0820d51d4f4fc02df46e168b23fb0b35c0f66c018269878578cb224474379e3a",
+    "calibration/hardware_inventory/blackwell_gpu1_20260915/blackwell_gpu1_inventory.txt": "a03a38b7be94b87805303759af1c1965ccea8ad0e2beea0bbe8f2319608f8590",
+    "calibration/predictor/blackwell_r2_flipflop_calibration_20260905/calibration_blackwell_sm120_v2.json": "53cba784f99a2f2713a7db30720b9a3a9806bf3a4b2d3af35387f92502ce8c7d",
+    "tiresias/app_runners/PUBLISHED_CONSTANTS_2026-09-26.md": "5b18b28467888df54d8d2ac946aa3a33e5e447db5f8a16a65718a8572025efb9",
+    "tiresias/app_runners/alavani_baseline_reset.json": "c59600fdb4dd0bb6a721b76f0e5712b159806e4e0736b6ea45545966ef5e566c",
+    "tiresias/app_runners/alavani_baseline_reset.py": "88c08fb2da919b9bc34c9c07ad863d2cda57126fc7f08e4bb45b81682027e90d",
+    "tiresias/app_runners/baseline_headtohead.py": "cade6c4bbec5b82a5982fbfce5b59979ddf5764ea672242774044b2e75bf08f4",
+    "tiresias/app_runners/baseline_headtohead_constants.json": "c0dd40082a82eaa04d0a70ca37c3e360a639ac373ea94f770aed719a4c503f16",
+    "tiresias/app_runners/baseline_headtohead_results_blackwell.json": "aeaffd1326dec7919f2b6f8d56a7427cf2a403991ad0389d75fc45c846e98b8b",
+    "tiresias/app_runners/explore_onchip.py": "8fb4c23a2a17c325d2b64d4bc43fa2b5f9877736c7783fab1faa09161eefe9ca",
+    "tiresias/app_runners/extract_sass_mix_remote.py": "cfc57c54c4868c2f4f435e78c224f877ec7755fb8ebd1f18d18006b9886a0f97",
+    "tiresias/app_runners/model_dataset/model_dataset_blackwell_trainval.csv": "632bae601dbcbe3c6ee3241183964adf2c2a063d64653808cfddeef91188c1a6",
+    "tiresias/app_runners/sass_features_blackwell.json": "4ea9f00662410093547b3ed1ee2f9c0328682bfcb8b2711d0557a3ceb03fb018",
+    "tiresias/framework/evaluation_data/measured/flipflop/flipflop_common.py": "8052457473e4bcaa1606ed48bce5003174d5d98e4b02c54f5534e471d84c2fc8",
+    "tiresias/framework/evaluation_data/measured/flipflop/flipflop_predict.py": "9f3ba378a1b0136167b9cc4a3beda01b01be08d10dc8af9ad898b4dbf8b4f777",
+    "tiresias/framework/evaluation_data/measured/flipflop/raw_blackwell_20260928/attempt2_2daf924/flipflop_device_info.json": "a84cee27d4f1d2bb65e7d55c6e23ac0a5739b70634dea05be44a4e0799d854d4",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/CONTRACT.md": "54429c4874e9daa7964d1a0317dfdc608784a5ca8ce7a4155d23eaa2c37e89ce",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/alavani_fitted.json": "68989d7eba850e0fc95d2fa17e0fc8244a4a9fcac95e5fe457f0415f36c67b1f",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/flipflop_math/gpu_common.py": "4dc0afbc3ee9ca692f5e45180bbfdf22efbe39992648e448ceb5f5f804655938",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/flipflop_math/power_model.py": "aa3f9de8914197805df8c90571d57f0fff955a6400f58f499f8e159e42c18601",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/flipflop_math/time_model.py": "bb5c71d3d6ff7c9bbbe5bdc463d8c90c813a1a325c846a08872179880d577aec",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/freeze_recipe.py": "6144cfcd9685d71c23415082dba8fff07d9c6247a77a75d9a793b7138617b15c",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/source_samples/BlackScholes_kernel.cuh": "1576566f2f98439ae519739a62a48ed4d245040c1e2b0167c62e7857bd51bfd9",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/source_samples/convolutionSeparable.cu": "8664b64131d53fee99659124e62628c761294bffe177de3e202df6d1add71577",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/source_samples/fastWalshTransform_kernel.cuh": "e523e2dd6bc042efe2933bb49af5c9043affe1991a99511ff7fde2910940fb51",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/source_samples/scalarProd_kernel.cuh": "21d0d6936b7a50a52117ff30a5017ac17eafe1a0d98e85d2bcc404e40016c2fe",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/source_samples/scan.cu": "253d0b7c92d459cddee73d7b85aada42f820c07a89956407dba0b49487dc8f43",
+    "tiresias/framework/predictor/bank/energy_predictions_unseen_v3i.json": "522c3a9f94fe6191454b7988346473302e0ef73f60017ff0f215bae7d109773e",
+    "tiresias/framework/predictor/bank/predictions_unseen_v3i.json": "3794e57f1d39ff3a8cb9e91b3d6db8a121328cb6d5d5297191612813e6fff828",
+    "tiresias/framework/predictor/fresh_e/compiled/log/fastWalshTransform.compile.log": "ae49ca965dc9dd5f3f868b7566bc76ed7c9a57cdd2ca3a558d185bdff744aa64",
+    "tiresias/framework/predictor/fresh_e/compiled/log/fastWalshTransform.res": "909583f65bbbf9aacd5c3caff871bc22fc711e47e6e3b18bbb2927216c96c6c3",
+    "tiresias/framework/predictor/fresh_e/compiled/log/scalarProd.compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tiresias/framework/predictor/fresh_e/compiled/log/scalarProd.res": "37b33c39ccf6c2bfd6df2abf6220c5eaee05d3c676a5e6b20063048be9c4bd26",
+    "tiresias/framework/predictor/fresh_e/energy_predictions_fresh_e.json": "c20a242c59947d5b384e269f438f2c3ed730cfd1c7dddd062db31d56df54b9fc",
+    "tiresias/framework/predictor/fresh_e/features_fresh_e.json": "1b5e48c7d95f4d2c88d96d8b71f3bd9fe80030e4fd75e81bd7b587a35727849a",
+    "tiresias/framework/predictor/fresh_e/fresh_cells_e.json": "3bc897f012418dbd31eff74937bffbffb5eb53061affd611c95408219815d572",
+    "tiresias/framework/predictor/fresh_e/isolated/fwt1.isolated.sass": "e36a50ef9f8f113cba126c07eeeac91d7112fc7db69476dbdaa6291b1cc6fa25",
+    "tiresias/framework/predictor/fresh_e/isolated/fwt2.isolated.sass": "91c3af77cd20862f87752dd36ab175fc953d697bad6901fef9eaa8f7cf8dda23",
+    "tiresias/framework/predictor/fresh_e/isolated/sp.isolated.sass": "33ce473368a780e0b243179210ca3a39a292285b18675c3451d3e33ca7c6fa00",
+    "tiresias/framework/predictor/fresh_e/predictions_fresh_e_v3i.json": "6fcf4a7d571b001782268190c17ed356d8faa305cbafdb2312363eda71ff1708",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/BlackScholes.compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/BlackScholes.res": "1e2a502801ef4ff76c58afa086c9b69747704d0fef90d3d323058ed05c86dcde",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/BlackScholes.sass.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/convolutionSeparable.compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/convolutionSeparable.res": "8efd2e143e8051ea2dd9079df5ba260be8f454f8b5c9da93ea60b5b6e4f65c1f",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/convolutionSeparable.sass.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/matrixMul.compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/matrixMul.res": "925d6903170d55142f4fdf6ba23d42fb88ab298054e61d15d13ea667af1a741e",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/matrixMul.sass.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/scan.compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/scan.res": "f52d0cb5725826240ddc078336ec19a0d381515b659ef3b216d158b5c84104b6",
+    "tiresias/framework/predictor/unseen_kernels/compiled/log/scan.sass.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tiresias/framework/predictor/unseen_kernels/energy_model_frozen.json": "8f0f4563fa384455cd61f39cecfe85636d6a4faee466ef064a3821296ea6dee2",
+    "tiresias/framework/predictor/unseen_kernels/frozen/cells_unseen.json": "a381e446d6c3f5b064b937ab6471e3ad10796262d8107124ce1ce609fe1378aa",
+    "tiresias/framework/predictor/unseen_kernels/frozen/features_unseen.json": "e34ec4e53860abf4df0e4b0afc3daa4ea13d2079191569c3c7fd57d1a561c821",
+    "tiresias/framework/predictor/unseen_kernels/isolated/bs.isolated.sass": "2901f83cec3788d69b15a8a97e3331e063559fd8e3ebc07995751675253b158e",
+    "tiresias/framework/predictor/unseen_kernels/isolated/conv_cols.isolated.sass": "ab139c48c80101eb057df36505263a8b1bcb183b3a9f9192aaf06a4c57ef49d8",
+    "tiresias/framework/predictor/unseen_kernels/isolated/conv_rows.isolated.sass": "5704c4b530a2ca9f4d2ff1849f9ea36fa70264d870fd515291a765bde176f0bc",
+    "tiresias/framework/predictor/unseen_kernels/isolated/mm16.isolated.sass": "9a25ffcc3b9b1c92e7fcd35a36add45613d7e84dd879801776c7b5e30ae86a49",
+    "tiresias/framework/predictor/unseen_kernels/isolated/mm32.isolated.sass": "4037542469a723a7771705a2154817c99bdccab19544e0febdf9227d3f587e90",
+    "tiresias/framework/predictor/unseen_kernels/isolated/scan_bottom.isolated.sass": "f6ec415cbd4f52a35f17c5cc2a5d765b906d4206a11114f3c939ffc4bbc4f296",
+    "tiresias/framework/predictor/unseen_kernels/isolated/scan_top.isolated.sass": "d75aa8bad52dc398d5541f6737ccc460e9c53081bcc5ff3483cfff3cf357aed9",
+    "tiresias/framework/predictor/unseen_kernels/isolated/scan_update.isolated.sass": "300dc6986eafcc39d8be177aa84c7153016c69af6f5a84aaf513bc4d653e8c94"
+  },
+  "schema": "published_fresh_sets_recipe/1",
+  "scoring": {
+    "below_cap_fraction": 0.95,
+    "choice_tie": "first candidate sorted by identifier",
+    "metrics": [
+      "median absolute percentage error",
+      "90th percentile absolute percentage error",
+      "signed median percentage error",
+      "Spearman within two-candidate pairs and pooled pair-normalized ranking",
+      "top-1 regret percent",
+      "native power error",
+      "paired family bootstrap deltas"
+    ],
+    "power_limit_w": 600,
+    "total_cells": 48,
+    "unsupported": "failure in declared coverage; error summaries supported paired rows plus failure-aware percentiles"
+  },
+  "traffic": "logical bytes at declared tier; L2 lookup bytes = logical bytes for L2 and DRAM cells; extra DRAM bytes = logical bytes only for DRAM cells"
+}

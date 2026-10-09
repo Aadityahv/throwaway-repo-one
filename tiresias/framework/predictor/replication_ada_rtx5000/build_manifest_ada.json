@@ -1,0 +1,605 @@
+{
+ "arch": "sm_89",
+ "board": "ada",
+ "builds": [
+  {
+   "ada_sass_exists": false,
+   "binary": "<WORK>/driver_ml/driver_ml",
+   "covers": "cells_ada_ml.json (40), cells_ada_tensor.json (16), 8 validation cells (FP32 matrix multiply, RMSNorm, tensor-core matrix multiply, fused attention)",
+   "id": "driver_ml",
+   "kernels": [
+    "gelu_s",
+    "gelu_v4",
+    "swiglu_s",
+    "swiglu_v4",
+    "rms_s",
+    "rms_v4",
+    "rope_all",
+    "rope_one",
+    "sg64",
+    "sg128",
+    "tc128",
+    "tc64",
+    "at4",
+    "at8"
+   ],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/ (flat folder; the static side reads exactly these two files)",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "driver_ml.res",
+    "sass": "driver_ml.sass"
+   },
+   "role": "static_and_measurement_driver",
+   "source_of_command": "run_f.cmd_build",
+   "static_input": true,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-arch=sm_89",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_f/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_g/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_h/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_f/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/fresh_f/gpu/drivers/driver_ml.cu",
+      "-o",
+      "<WORK>/driver_ml/driver_ml"
+     ],
+     "cwd": "<WORK>/driver_ml"
+    }
+   ]
+  },
+  {
+   "ada_sass_exists": false,
+   "binary": "<WORK>/driver_prosp/driver_prosp",
+   "covers": "cells_ada_prospective.json (24)",
+   "id": "driver_prosp",
+   "kernels": [
+    "tc128x64",
+    "tc256x128",
+    "at2",
+    "at16",
+    "nm4",
+    "nm8",
+    "tcr128",
+    "tcr64"
+   ],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/ (flat folder; the static side reads exactly these two files)",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "driver_prosp.res",
+    "sass": "driver_prosp.sass"
+   },
+   "role": "static_and_measurement_driver",
+   "source_of_command": "run_prosp.cmd_build",
+   "static_input": true,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-arch=sm_89",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/prospective_test/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_g/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_h/src",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_f/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/prospective_test/gpu/driver_prosp.cu",
+      "-o",
+      "<WORK>/driver_prosp/driver_prosp"
+     ],
+     "cwd": "<WORK>/driver_prosp"
+    }
+   ]
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/run_e_fwt/driver_fwt",
+   "covers": "set E driver (scalar product, fast Walsh transform; also the validation scalar-product cells)",
+   "id": "run_e_fwt",
+   "kernels": [
+    "fwt"
+   ],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/run_e_fwt.res",
+    "sass": "meas/run_e_fwt.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_e.build_command(family='fwt')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-arch=sm_89",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/5_Domain_Specific/fastWalshTransform",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_e/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_fwt.cu",
+      "-o",
+      "<WORK>/run_e_fwt/driver_fwt"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/run_e_sp/driver_sp",
+   "covers": "set E driver (scalar product, fast Walsh transform; also the validation scalar-product cells)",
+   "id": "run_e_sp",
+   "kernels": [
+    "sp"
+   ],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/run_e_sp.res",
+    "sass": "meas/run_e_sp.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_e.build_command(family='sp')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-arch=sm_89",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/scalarProd",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/fresh_e/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_sp.cu",
+      "-o",
+      "<WORK>/run_e_sp/driver_sp"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/run_unseen_bs/driver_bs",
+   "covers": "classic-kernel drivers (matrix multiply, Black-Scholes, scan, separable convolution; also the validation convolution cells)",
+   "id": "run_unseen_bs",
+   "kernels": [
+    "bs"
+   ],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/run_unseen_bs.res",
+    "sass": "meas/run_unseen_bs.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_unseen.build_command(family='bs')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-arch=sm_89",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/5_Domain_Specific/BlackScholes",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_bs.cu",
+      "-o",
+      "<WORK>/run_unseen_bs/driver_bs"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/run_unseen_conv/driver_conv",
+   "covers": "classic-kernel drivers (matrix multiply, Black-Scholes, scan, separable convolution; also the validation convolution cells)",
+   "id": "run_unseen_conv",
+   "kernels": [
+    "conv"
+   ],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/run_unseen_conv.res",
+    "sass": "meas/run_unseen_conv.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_unseen.build_command(family='conv')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-arch=sm_89",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/convolutionSeparable",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_conv.cu",
+      "-o",
+      "<WORK>/run_unseen_conv/driver_conv"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/run_unseen_matmul/driver_matmul",
+   "covers": "classic-kernel drivers (matrix multiply, Black-Scholes, scan, separable convolution; also the validation convolution cells)",
+   "id": "run_unseen_matmul",
+   "kernels": [
+    "matmul"
+   ],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/run_unseen_matmul.res",
+    "sass": "meas/run_unseen_matmul.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_unseen.build_command(family='matmul')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-arch=sm_89",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/0_Introduction/matrixMul",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_matmul.cu",
+      "-o",
+      "<WORK>/run_unseen_matmul/driver_matmul"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/run_unseen_scan/driver_scan",
+   "covers": "classic-kernel drivers (matrix multiply, Black-Scholes, scan, separable convolution; also the validation convolution cells)",
+   "id": "run_unseen_scan",
+   "kernels": [
+    "scan"
+   ],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/run_unseen_scan.res",
+    "sass": "meas/run_unseen_scan.sass"
+   },
+   "role": "measurement_driver",
+   "source_of_command": "run_unseen.build_command(family='scan')",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-arch=sm_89",
+      "-Xcompiler",
+      "-O2",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/scan",
+      "-I",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers",
+      "<REPO>/tiresias/framework/predictor/unseen_kernels/gpu/drivers/driver_scan.cu",
+      "-o",
+      "<WORK>/run_unseen_scan/driver_scan"
+     ],
+     "cwd": "<REPO>"
+    }
+   ]
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/copy_runner/copy_harness",
+   "covers": "vector add (set D)",
+   "id": "copy_runner",
+   "kernels": [],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/copy_runner.res",
+    "sass": "meas/copy_runner.sass"
+   },
+   "python_entry": "copy_runner.build_binary(<SAMPLES>, <WORK>/copy_runner, nvcc)",
+   "role": "measurement_driver",
+   "source_of_command": "copy_runner.build_binary (HARNESS_CUDA_ARCH=sm_89)",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O2",
+      "-arch=sm_89",
+      "-Dmain=vectorAdd_sample_main_disabled",
+      "-c",
+      "<SAMPLES>/cpp/0_Introduction/vectorAdd/vectorAdd.cu",
+      "-o",
+      "<WORK>/copy_runner/vectorAdd_kernel.o"
+     ],
+     "cwd": "<WORK>/copy_runner"
+    },
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O2",
+      "-arch=sm_89",
+      "<WORK>/copy_runner/copy_driver.cu",
+      "<WORK>/copy_runner/vectorAdd_kernel.o",
+      "-o",
+      "<WORK>/copy_runner/copy_harness"
+     ],
+     "cwd": "<WORK>/copy_runner"
+    }
+   ],
+   "writes_driver_source": "<WORK>/%s/*_driver.cu from the runner's DRIVER_TEMPLATE (build_ada_eval_sass.py calls build_binary itself)"
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/transpose_runner/transpose_harness",
+   "covers": "transposes (set D)",
+   "id": "transpose_runner",
+   "kernels": [],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/transpose_runner.res",
+    "sass": "meas/transpose_runner.sass"
+   },
+   "python_entry": "transpose_runner.build_binary(<SAMPLES>, <WORK>/transpose_runner, nvcc)",
+   "role": "measurement_driver",
+   "source_of_command": "transpose_runner.build_binary (HARNESS_CUDA_ARCH=sm_89)",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O2",
+      "-arch=sm_89",
+      "-Dmain=transpose_sample_main_disabled",
+      "-I",
+      "<SAMPLES>/Common",
+      "-c",
+      "<SAMPLES>/cpp/6_Performance/transpose/transpose.cu",
+      "-o",
+      "<WORK>/transpose_runner/transpose_kernel.o"
+     ],
+     "cwd": "<WORK>/transpose_runner"
+    },
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O2",
+      "-arch=sm_89",
+      "<WORK>/transpose_runner/transpose_driver.cu",
+      "<WORK>/transpose_runner/transpose_kernel.o",
+      "-o",
+      "<WORK>/transpose_runner/transpose_harness"
+     ],
+     "cwd": "<WORK>/transpose_runner"
+    }
+   ],
+   "writes_driver_source": "<WORK>/%s/*_driver.cu from the runner's DRIVER_TEMPLATE (build_ada_eval_sass.py calls build_binary itself)"
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/reduction_runner/reduction_harness",
+   "covers": "reductions (set D)",
+   "id": "reduction_runner",
+   "kernels": [],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/reduction_runner.res",
+    "sass": "meas/reduction_runner.sass"
+   },
+   "python_entry": "reduction_runner.build_binary(<SAMPLES>, <WORK>/reduction_runner, nvcc)",
+   "role": "measurement_driver",
+   "source_of_command": "reduction_runner.build_binary (HARNESS_CUDA_ARCH=sm_89)",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O2",
+      "-arch=sm_89",
+      "--default-stream",
+      "per-thread",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction",
+      "-c",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction/reduction_kernel.cu",
+      "-o",
+      "<WORK>/reduction_runner/reduction_kernel.o"
+     ],
+     "cwd": "<WORK>/reduction_runner"
+    },
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O2",
+      "-arch=sm_89",
+      "--default-stream",
+      "per-thread",
+      "-I",
+      "<SAMPLES>/Common",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction",
+      "-Dmain=reduction_sample_main_disabled",
+      "-c",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction/reduction.cpp",
+      "-o",
+      "<WORK>/reduction_runner/reduction_util.o"
+     ],
+     "cwd": "<WORK>/reduction_runner"
+    },
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O2",
+      "-arch=sm_89",
+      "--default-stream",
+      "per-thread",
+      "-I",
+      "<SAMPLES>/cpp/2_Concepts_and_Techniques/reduction",
+      "<WORK>/reduction_runner/reduction_driver.cu",
+      "<WORK>/reduction_runner/reduction_kernel.o",
+      "<WORK>/reduction_runner/reduction_util.o",
+      "-o",
+      "<WORK>/reduction_runner/reduction_harness"
+     ],
+     "cwd": "<WORK>/reduction_runner"
+    }
+   ],
+   "writes_driver_source": "<WORK>/%s/*_driver.cu from the runner's DRIVER_TEMPLATE (build_ada_eval_sass.py calls build_binary itself)"
+  },
+  {
+   "ada_sass_exists": true,
+   "binary": "<WORK>/tile_family/tile_family_harness",
+   "covers": "copies and fine/coarse transposes (set D)",
+   "id": "tile_family",
+   "kernels": [],
+   "outputs": {
+    "deposit": "port_ada/compiled_ada_cuda13.2_eval/meas/",
+    "dump_res": "cuobjdump -res-usage -arch sm_89 <binary>",
+    "dump_sass": "cuobjdump -sass -arch sm_89 <binary>",
+    "res": "meas/tile_family.res",
+    "sass": "meas/tile_family.sass"
+   },
+   "python_entry": "tile_family.build_binary(<SAMPLES>, <WORK>/tile_family, nvcc)",
+   "role": "measurement_driver",
+   "source_of_command": "tile_family.build_binary (HARNESS_CUDA_ARCH=sm_89)",
+   "static_input": false,
+   "steps": [
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O2",
+      "-arch=sm_89",
+      "-Dmain=transpose_sample_main_disabled",
+      "-I",
+      "<SAMPLES>/Common",
+      "-c",
+      "<SAMPLES>/cpp/6_Performance/transpose/transpose.cu",
+      "-o",
+      "<WORK>/tile_family/transpose_kernel.o"
+     ],
+     "cwd": "<WORK>/tile_family"
+    },
+    {
+     "cmd": [
+      "/usr/local/cuda-13.2/bin/nvcc",
+      "-O2",
+      "-arch=sm_89",
+      "<WORK>/tile_family/tile_family_driver.cu",
+      "<WORK>/tile_family/transpose_kernel.o",
+      "-o",
+      "<WORK>/tile_family/tile_family_harness"
+     ],
+     "cwd": "<WORK>/tile_family"
+    }
+   ],
+   "writes_driver_source": "<WORK>/%s/*_driver.cu from the runner's DRIVER_TEMPLATE (build_ada_eval_sass.py calls build_binary itself)"
+  }
+ ],
+ "eval_sass_folder": "port_ada/compiled_ada_cuda13.2_eval/",
+ "existing_ada_sass": {
+  "command_log": "build.txt (`nvcc -std=c++17 -arch=sm_89 -cubin -Dmain=<sample>_main_disabled ...`, CUDA 13.2.86)",
+  "covers": "static analysis of every kernel of the CUDA-samples sets: classic kernels, scalar product, fast Walsh transform, set D (incl. vector add), validation scalar product and convolution",
+  "files": [
+   "BlackScholes.sass",
+   "convolutionSeparable.sass",
+   "fastWalshTransform.sass",
+   "matrixMul.sass",
+   "reduction.sass",
+   "scalarProd.sass",
+   "scan.sass",
+   "transpose.sass",
+   "vectorAdd.sass"
+  ],
+  "folder": "port_ada/compiled_ada_cuda13.2/",
+  "sha256_of_log": "c8c380e54877657f0bf9e88533a29540713ed08daa65deca018726bb7ba1f4cd"
+ },
+ "nvcc": "/usr/local/cuda-13.2/bin/nvcc",
+ "nvcc_note": "HARDWARE_GROUND_TRUTH.md Ada section: CUDA 13.2 at /usr/local/cuda-13.2 (re-checked 2026-10-02); the version string of the build host is recorded by build_ada_eval_sass.py",
+ "schema": "ada_build_manifest/1",
+ "source_sha256": {
+  "prospective_test/gpu/driver_prosp.cu": "46adc72dc4a8b65916dd5fc01b548552e0e46f601ac5b0d3e897d667f041ae60",
+  "prospective_test/src/prosp_kernels.cuh": "463c5a1b68402e4ce3b305230672da92536d623b193c29f6894d247a688258ab",
+  "fresh_e/gpu/drivers/driver_fwt.cu": "697e1a01cd0cbf7f6119203c9714dde765c35ee9a9f726171db0b9fee7df23f1",
+  "fresh_e/gpu/drivers/driver_sp.cu": "427c17fdbc82bd9730d3c96dc1bfba5f48cfe6d4c134b0e60ec9d7d8071f562c",
+  "fresh_f/gpu/drivers/driver_common.h": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+  "fresh_f/gpu/drivers/driver_ml.cu": "0064caef8dfd6019ad7d544dc7da6d395b8ed72275c458e280e2a97da4be87b4",
+  "fresh_f/src/ml_kernels.cuh": "0e307a8f09f8d739fc8a1f8665cbbe38a9915ce3bf1e903c4893ac59fd047dc1",
+  "fresh_g/src/tc_kernels.cuh": "ae5de3f3b1d763f6424b7beae2b099dc33694a6a21f6d9d178a9b67408256651",
+  "fresh_h/src/attn_kernels.cuh": "17c4367f20d8d9fccd38059b9e8c483c63e3e85d0ecc0968764f46455f7c3994",
+  "unseen_kernels/gpu/drivers/driver_bs.cu": "891f3cc69b5edf80eea31b64ccb09807b67f72d8929015cd1ad65fffb5d20742",
+  "unseen_kernels/gpu/drivers/driver_conv.cu": "b27143e66f402c9d55efffa1c5b4e16b5b29f428e2d042b3f264f59ab4eed8d4",
+  "unseen_kernels/gpu/drivers/driver_matmul.cu": "c72d5768dc682ad753a36c9786f5be03e320a5f9efad55d07dad33406fff6a65",
+  "unseen_kernels/gpu/drivers/driver_scan.cu": "c22d3cab255a384a9e433e6767769b2d6e13c08c3761b6b23afe399c1858dd33"
+ },
+ "static_pending": [
+  "driver_ml.sass",
+  "driver_ml.res",
+  "driver_prosp.sass",
+  "driver_prosp.res"
+ ],
+ "substitutions": [
+  "-arch=sm_120 -> -arch=sm_89",
+  "nvcc -> /usr/local/cuda-13.2/bin/nvcc"
+ ]
+}

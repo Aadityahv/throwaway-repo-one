@@ -1,0 +1,304 @@
+{
+ "calibration": {
+  "cap_w": 700.0,
+  "complete": true,
+  "device": "NVIDIA H100 80GB HBM3",
+  "file": "calibration_sm_90_90376b5d_store_stream_rates.json",
+  "sha256": "435bf9973fc35f94e5f4594bce818af7a27f5036c5a30e1dcc5deda83a266c29",
+  "uuid": "GPU-90376b5d-6fd8-1ffa-43fa-d42fd95159f1",
+  "windows_not_admitted_excluded_for_every_method": [],
+  "windows_used_in_every_fit": [
+   "fma16",
+   "fpadd16",
+   "int16",
+   "sfu16",
+   "shared16",
+   "shfl16",
+   "bar16",
+   "fma64",
+   "fpadd64",
+   "int64",
+   "sfu64",
+   "shared64",
+   "shfl64",
+   "bar64",
+   "light_int64",
+   "rd_l2_8",
+   "rd_l2_16",
+   "wr_l2_8",
+   "rd_dram_8",
+   "rd_dram_16",
+   "wr_dram_8",
+   "wr_dram_16",
+   "copy_dram_8"
+  ]
+ },
+ "code_sha256": {
+  "tiresias/framework/predictor/calibrate/predict.py": "6ffd5d8a90d530a7923bb1daeff7ad99ad173fb1e18b27c87257878ac9ba2c4a",
+  "tiresias/framework/predictor/h100_eval_freeze/baselines_h100.py": "bd7e4256f88a36f4f88cb05006f07a33c8762399df59f8d5443cdf9f4c9a64cc",
+  "tiresias/framework/predictor/h100_eval_freeze/cell_sets.py": "751ccd4466130db0095cfc74eba637fd1527f81123897b0cdea15b02578f05af",
+  "tiresias/framework/predictor/h100_eval_freeze/flipflop_h100.py": "707bd432789116976246d9679a501e24c548479ad078e430510817a5b4ef0b7d"
+ },
+ "inputs_sha256": {
+  "bank_conflicts_h100.json": "b097d98ef6bcb1f627ceee724b75f38e280c7db1f0e2d643ce19705d27ded6b5",
+  "cells_h100.json": "0014bb823084c6bfd15955a49860ec1f7608220e6d900d6f99f30b86a48daf22",
+  "features_h100.json": "047f28a468900a1153a36557d16ed7c24b472fbd303a540f08f99e5dfc61c7e4",
+  "footprints_h100.json": "b1d1c8bb8c380c35b7f821dd34ce7a076dbfa9d00ed82e77c549c377034418e0",
+  "ml_sets/bank_conflicts_ml_h100.json": "926adf8346d6e549bcfb37721f5228fdbb0bbb8f47cd908e7f4a3e1abe4c047a",
+  "ml_sets/cells_ml_h100.json": "63fb160ed649cbb9ab17866e8bcda0da1b67aeec52e9fbc1c29deea44683bf76",
+  "ml_sets/features_ml_h100.json": "fc72f094c47f89686ecd6c93db71ce0409083f782c798430b703e6bd3e1aeea5",
+  "ml_sets/phases_ml_h100.json": "92f50cc8b4620377938a8ce8345d330c2ef4ac5e81a448ccf1b663129b969502",
+  "ml_sets/phases_unique_ml_h100.json": "c46fe2c882fe780bd691694c33a045381e9d170b20a168cd594d34e28f91d2eb",
+  "ml_sets/sass_manifest_ml_h100.json": "0f96601e4dd166e75d8c42324530a6ccdc9e0537cc54b63a375fc88c35ae552f",
+  "ml_sets/static_support_ml_h100.json": "855f432233b475b6f56e949fa1f23eb442a85c8efbcdfbd3983040a6ac3afbca",
+  "phases_h100.json": "55c9006647fa70cdb10185416898b56f8891ea35da079a5049cd28ad71d1c75d",
+  "phases_unique_h100.json": "b3ea1815033814af8dc55437a5444fab41fbda03c4ac0c3ca1db5035fe79b896",
+  "sass_manifest_h100.json": "0ef81566f390c7be6cc91bd85cf2b2af2d71494db3bd2c2ff805ff4257f3cc80",
+  "static_support_h100.json": "e242012d879662062b6a9e133704378b0625a9a4023070cd369e5b0572af71c2"
+ },
+ "kind": "h100_frozen_baselines",
+ "methods": {
+  "alavani_thesis": {
+   "blackwell_trained_models_used": false,
+   "blockers": [
+    "PTX of every evaluation kernel compiled for sm_90 with CUDA 12.1 (nvcc -ptx): none in the repository (port_h100/ holds cubins, SASS and cuobjdump resource lines only)",
+    "ptxas -v resource records (physical registers, spills, shared bytes) of those builds: only cuobjdump resource lines exist; the method's resource parser reads the ptxas record",
+    "PTX of the calibrator's energy fixture (micro_energy) compiled for sm_90 with CUDA 12.1, to compute the fifteen features of each fit window: the repository has only the sm_120, CUDA 13.2 PTX",
+    "the loop-trip rules of the port protocol are tied to the exact basic-block label numbering of the Blackwell PTX (for example the RMSNorm suffixes); they must be re-derived from the sm_90 PTX before any score, which is a protocol step, not a mechanical port",
+    "H100 hardware row for the thesis equations (warp schedulers and dispatch units per SM are documentation assumptions on Blackwell and would need the same labelled treatment)"
+   ],
+   "cells_the_method_refuses_by_its_own_protocol": {
+    "by_family": {
+     "bs": 8,
+     "conv": 8,
+     "fwt": 8,
+     "scan": 8
+    },
+    "count": 32,
+    "reasons": {
+     "attn": "tensor instruction class: not defined in the thesis feature classes",
+     "bs": "unlowered floating-point division (div.approx.f32): its latency is absent from the permitted calibration",
+     "conv": "multi-kernel launch sequence: sequence-level power needs per-stage times the method does not provide",
+     "fwt": "multi-kernel launch sequence: sequence-level power needs per-stage times the method does not provide",
+     "scan": "multi-kernel launch sequence: sequence-level power needs per-stage times the method does not provide",
+     "tcgemm": "tensor instruction class: not defined in the thesis feature classes"
+    }
+   },
+   "cells_without_a_static_analysis": [],
+   "label": "Alavani et al. thesis reconstruction (fifteen PTX features; XGBoost and CatBoost), refit on the H100 calibration windows",
+   "planned_fit_windows": {
+    "count": 23,
+    "ids": [
+     "fma16",
+     "fpadd16",
+     "int16",
+     "sfu16",
+     "shared16",
+     "shfl16",
+     "bar16",
+     "fma64",
+     "fpadd64",
+     "int64",
+     "sfu64",
+     "shared64",
+     "shfl64",
+     "bar64",
+     "light_int64",
+     "rd_l2_8",
+     "rd_l2_16",
+     "wr_l2_8",
+     "rd_dram_8",
+     "rd_dram_16",
+     "wr_dram_8",
+     "wr_dram_16",
+     "copy_dram_8"
+    ],
+    "not_admitted_excluded": [],
+    "rule": "the admitted windows of role fit of the same calibration document as our energy fit, same count; held-out windows excluded"
+   },
+   "reason": "The thesis reconstruction cannot be set up faithfully for the H100 from what the repository holds: it needs PTX and ptxas resource records compiled for sm_90 with the CUDA 12.1 toolchain of the H100 binaries, for every evaluation kernel and for the calibrator's energy fixtures, and none exists (only cubins, SASS and cuobjdump resource lines). The Blackwell PTX is sm_120, CUDA 13.2 and its loop rules are fixed to that PTX's label numbering. Using the Blackwell-trained models, the Blackwell features or a CUDA 13.0 compile of different code than the executed binaries would not be this method on this board. Not added later (decision of 3 October 2026); the compile-only step on the login node is a decision for the user.",
+   "status": "not_run_on_h100"
+  },
+  "flipflop": {
+   "also_needed": [
+    "PTX of every evaluation kernel compiled for sm_90 with CUDA 12.1 (nvcc -ptx and -cubin -Xptxas -v, compile only, on the Cluster login node; none exists yet: the Blackwell PTX in measured/kernel_sets/compiled/ is sm_120 and covers six kernel groups, not the reduction, transpose and copy kernels)"
+   ],
+   "blockers": [
+    "Departure_del_coal_s",
+    "Departure_del_uncoal_s",
+    "Mem_LD_coal_ns",
+    "Mem_LD_local_ns",
+    "Mem_LD_partial_ns",
+    "Mem_LD_shared_ns",
+    "Mem_LD_uncoal_ns",
+    "baseline_kernel_overhead_ns",
+    "const_sm_power",
+    "idle_power",
+    "issue_cycles",
+    "max_power_alu",
+    "max_power_fds",
+    "max_power_fp",
+    "max_power_int",
+    "max_power_mem",
+    "max_power_reg",
+    "max_power_sfu",
+    "max_power_shm",
+    "power_alpha",
+    "power_beta"
+   ],
+   "constants": {
+    "different_definition": [
+     "Mem_LD_coal_ns",
+     "Mem_LD_shared_ns",
+     "baseline_kernel_overhead_ns",
+     "issue_cycles",
+     "max_power_fp",
+     "max_power_int",
+     "max_power_mem",
+     "max_power_sfu",
+     "max_power_shm"
+    ],
+    "not_measured": [
+     "Departure_del_coal_s",
+     "Departure_del_uncoal_s",
+     "Mem_LD_local_ns",
+     "Mem_LD_partial_ns",
+     "Mem_LD_uncoal_ns",
+     "const_sm_power",
+     "idle_power",
+     "max_power_alu",
+     "max_power_fds",
+     "max_power_reg",
+     "power_alpha",
+     "power_beta"
+    ],
+    "same_definition": [
+     "max_power_total"
+    ]
+   },
+   "counterparts": {
+    "Departure_del_coal_s": {
+     "flipflop_constant": "departure delay between coalesced memory requests",
+     "packaged_calibration": "stream bandwidth is measured, the per-request departure delay is not",
+     "status": "not_measured"
+    },
+    "Departure_del_uncoal_s": {
+     "flipflop_constant": "departure delay between uncoalesced requests",
+     "packaged_calibration": "no uncoalesced microbenchmark",
+     "status": "not_measured"
+    },
+    "Mem_LD_coal_ns": {
+     "flipflop_constant": "effective cost of a coalesced global load, from its load microbenchmark",
+     "packaged_calibration": "constants.chase_latency_ns (pointer-chase latency per tier, a dependent-load latency, not FlipFlop's per-load effective cost)",
+     "status": "different_definition"
+    },
+    "Mem_LD_local_ns": {
+     "flipflop_constant": "local-memory load cost",
+     "packaged_calibration": "no local-memory microbenchmark",
+     "status": "not_measured"
+    },
+    "Mem_LD_partial_ns": {
+     "flipflop_constant": "same for partially coalesced loads",
+     "packaged_calibration": "no partial-coalescing microbenchmark",
+     "status": "not_measured"
+    },
+    "Mem_LD_shared_ns": {
+     "flipflop_constant": "shared-memory load cost",
+     "packaged_calibration": "constants.smem floor and slope (issue cost per request versus bank-conflict degree)",
+     "status": "different_definition"
+    },
+    "Mem_LD_uncoal_ns": {
+     "flipflop_constant": "same for uncoalesced loads",
+     "packaged_calibration": "no uncoalesced-load microbenchmark in the packaged calibrator",
+     "status": "not_measured"
+    },
+    "baseline_kernel_overhead_ns": {
+     "flipflop_constant": "fixed kernel overhead of its timing harness",
+     "packaged_calibration": "constants.launch_reuse.launch_us_per_kernel (graph kernel gap), a different harness",
+     "status": "different_definition"
+    },
+    "const_sm_power": {
+     "flipflop_constant": "constant per-SM power",
+     "packaged_calibration": "needs an SM-count sweep",
+     "status": "not_measured"
+    },
+    "idle_power": {
+     "flipflop_constant": "board idle power",
+     "packaged_calibration": "the packaged calibrator takes no idle-power window (its base power is a fitted intercept, not an idle measurement)",
+     "status": "not_measured"
+    },
+    "issue_cycles": {
+     "flipflop_constant": "cycles per instruction issue",
+     "packaged_calibration": "constants.pipes (per-pipe issue cost); FlipFlop's single scalar is a different aggregate",
+     "status": "different_definition"
+    },
+    "max_power_alu": {
+     "flipflop_constant": "same, other ALU",
+     "packaged_calibration": "no isolated ALU window",
+     "status": "not_measured"
+    },
+    "max_power_fds": {
+     "flipflop_constant": "fetch-decode-schedule power",
+     "packaged_calibration": "not separable from the windows",
+     "status": "not_measured"
+    },
+    "max_power_fp": {
+     "flipflop_constant": "power at maximum floating-point activity",
+     "packaged_calibration": "energy windows are mixed designs; no isolated maximum-activity run per component",
+     "status": "different_definition"
+    },
+    "max_power_int": {
+     "flipflop_constant": "same, integer",
+     "packaged_calibration": "as above",
+     "status": "different_definition"
+    },
+    "max_power_mem": {
+     "flipflop_constant": "memory-system power at maximum activity",
+     "packaged_calibration": "rd_dram / wr_dram windows are mixed with instruction issue",
+     "status": "different_definition"
+    },
+    "max_power_reg": {
+     "flipflop_constant": "register-file power",
+     "packaged_calibration": "not separable from the windows",
+     "status": "not_measured"
+    },
+    "max_power_sfu": {
+     "flipflop_constant": "same, special function",
+     "packaged_calibration": "as above",
+     "status": "different_definition"
+    },
+    "max_power_shm": {
+     "flipflop_constant": "same, shared memory",
+     "packaged_calibration": "shared16/shared64 windows are mixed with global loads",
+     "status": "different_definition"
+    },
+    "max_power_total": {
+     "flipflop_constant": "board power ceiling used as a clamp",
+     "packaged_calibration": "constants.energy.cap_w (enforced power limit)",
+     "status": "same_definition"
+    },
+    "power_alpha": {
+     "flipflop_constant": "coefficient of its power-versus-active-SM-count law",
+     "packaged_calibration": "needs a power sweep over active SM counts; none in the packaged calibrator",
+     "status": "not_measured"
+    },
+    "power_beta": {
+     "flipflop_constant": "exponent of that law",
+     "packaged_calibration": "same sweep",
+     "status": "not_measured"
+    }
+   },
+   "label": "FlipFlop (Rajput et al., ICSE 2026)",
+   "reason": "FlipFlop's time and power models read 22 calibration constants that come from its own calibration program. The packaged H100 calibration measures 1 of them under the same definition, has only a differently defined counterpart for 9, and has none for 12 (including idle power and the power-versus-active-SM-count law). Filling them from another board, from defaults or by a new fit would be a different method; running FlipFlop's own calibration on the H100 would give it more calibration data than our model. So the row is not run on the H100 (decision of 3 October 2026: the row is not added after the freeze).",
+   "status": "not_run_on_h100"
+  }
+ },
+ "profile": "main",
+ "removed_rows": {
+  "accelwattch_style": "AccelWattch is excluded from the executable comparison (BASELINE_CONTRACT.md, 3 October 2026); the earlier four-coefficient proxy is a reduced component model and is not a published baseline",
+  "alavani_refit": "the ten-feature ridge adaptation is a historical adaptation, replaced by the thesis reconstruction (not run on the H100, see methods.alavani_thesis)"
+ },
+ "rules": "same calibration windows as our model; nothing fitted or tuned on the evaluation cells; windows not admitted are excluded for every method alike",
+ "schema": "h100_baselines/2",
+ "warning": null
+}

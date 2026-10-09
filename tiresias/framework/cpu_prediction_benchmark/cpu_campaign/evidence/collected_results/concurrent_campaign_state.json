@@ -1,0 +1,35 @@
+{
+  "status": "running",
+  "start_epoch": 1791217324.326103,
+  "runs": [],
+  "source_unchanged": null,
+  "adopted_existing_suites": [
+    1,
+    55
+  ],
+  "physical_cores_reserved": 8,
+  "new_suite_logical_cpus": {
+    "4": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "8": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "controller_sha256": "4d26650e46027462f58966379c813610eb8095178caa4356b7117d57a02d12b8",
+  "methodology": "Actual shared-host full-inventory wall times. The one-, four- and eight-worker suites overlap; the four/eight suites also overlap the final matrix-multiply case of the initial 55-worker suite. Four/eight/one use separate CPU masks; the initial suite mask includes the four/eight CPUs. Load and memory samples are retained. These are not isolated scaling guarantees. No active analysis process is stopped or duplicated.",
+  "launched_pids": {
+    "4": 1019270,
+    "8": 1019271
+  }
+}

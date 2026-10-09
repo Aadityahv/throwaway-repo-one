@@ -1,0 +1,16 @@
+sm_80 matrixMul rc=0 :: nvcc -arch=sm_80 -cubin -Dmain=matrixMul_main_disabled -I Common cpp/0_Introduction/matrixMul/matrixMul.cu -o /home/user/port_audit_cuda121_20261002/out/sm_80/matrixMul.cubin
+sm_80 BlackScholes rc=0 :: nvcc -arch=sm_80 -cubin -Dmain=BlackScholes_main_disabled -I Common cpp/5_Domain_Specific/BlackScholes/BlackScholes.cu -o /home/user/port_audit_cuda121_20261002/out/sm_80/BlackScholes.cubin
+sm_80 scan rc=0 :: nvcc -arch=sm_80 -cubin -Dmain=scan_main_disabled -I Common cpp/2_Concepts_and_Techniques/scan/scan.cu -o /home/user/port_audit_cuda121_20261002/out/sm_80/scan.cubin
+sm_80 convolutionSeparable rc=0 :: nvcc -arch=sm_80 -cubin -Dmain=convolutionSeparable_main_disabled -I Common cpp/2_Concepts_and_Techniques/convolutionSeparable/convolutionSeparable.cu -o /home/user/port_audit_cuda121_20261002/out/sm_80/convolutionSeparable.cubin
+sm_80 scalarProd rc=0 :: nvcc -arch=sm_80 -cubin -Dmain=scalarProd_main_disabled -I Common cpp/2_Concepts_and_Techniques/scalarProd/scalarProd.cu -o /home/user/port_audit_cuda121_20261002/out/sm_80/scalarProd.cubin
+sm_80 fastWalshTransform rc=0 :: nvcc -arch=sm_80 -cubin -Dmain=fastWalshTransform_main_disabled -I Common cpp/5_Domain_Specific/fastWalshTransform/fastWalshTransform.cu -o /home/user/port_audit_cuda121_20261002/out/sm_80/fastWalshTransform.cubin
+sm_80 vectorAdd rc=1 :: nvcc -arch=sm_80 -cubin -O3 cpp/0_Introduction/vectorAdd/vectorAdd.cu -o /home/user/port_audit_cuda121_20261002/out/sm_80/vectorAdd.cubin
+sm_80 reduction rc=0 :: nvcc -arch=sm_80 -cubin -O3 -I Common -I cpp/2_Concepts_and_Techniques/reduction cpp/2_Concepts_and_Techniques/reduction/reduction_kernel.cu -o /home/user/port_audit_cuda121_20261002/out/sm_80/reduction.cubin
+sm_80 transpose rc=0 :: nvcc -arch=sm_80 -cubin -O3 -I Common cpp/6_Performance/transpose/transpose.cu -o /home/user/port_audit_cuda121_20261002/out/sm_80/transpose.cubin
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2023 NVIDIA Corporation
+Built on Tue_Feb__7_19:32:13_PST_2023
+Cuda compilation tools, release 12.1, V12.1.66
+Build cuda_12.1.r12.1/compiler.32415258_0
+spack /s5o57xp nvcc=/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc
+sources: pinned cuda-samples 5443602d89ed99aede2e4b7bf329daddeadb320e, compiled on Cluster login node hpc01 2026-10-02 (nice 19, serial)

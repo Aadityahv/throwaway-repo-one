@@ -1,0 +1,304 @@
+{
+  "architecture": "sm_120",
+  "cell_metadata": {
+    "architecture": "sm_120",
+    "cell": "large/c2",
+    "compile_method": "JITFunction.warmup_with_MockTensor_specialization",
+    "compiler": "triton",
+    "compiler_version": "3.6.0",
+    "cubin_sha256": "a99fe5c2f43be461a2118031e060a2b1709fe04de5eadee1256bfe217bde75c3",
+    "flags": [],
+    "full_ptx_retained": true,
+    "function_names_in_cubin": [
+      "_layer_norm_fwd_fused"
+    ],
+    "grid": [
+      8192
+    ],
+    "isolated_function_section": "_layer_norm_fwd_fused",
+    "isolation_anchor": "_layer_norm_fwd_fused",
+    "num_warps": 2,
+    "operator_id": "final_triton_layer_norm",
+    "retained_compiler_events": [
+      {
+        "path": "compile_events/0026_triton/event.json",
+        "sha256": "da683b7a4f9d9efad9b2898e9f0832e726e2d24755d18a76c3ca2b04ae2742cc"
+      }
+    ],
+    "retained_source_path": "sources/241f9f74e2f18567b26f3b4cf9b9873ae859150ccd10976d65d38fe24896d1d2/05-layer-norm.py",
+    "sibling_instantiations_same_template_prefix": [],
+    "source_revision": "7369aa3d9b0fae7134bf47b16d83876b09ef8e9f",
+    "source_sha256": "241f9f74e2f18567b26f3b4cf9b9873ae859150ccd10976d65d38fe24896d1d2",
+    "static_mix": {
+      "static_arith_count": 175,
+      "static_arith_density": 0.4050925925925926,
+      "static_branch_count": 8,
+      "static_branch_density": 0.018518518518518517,
+      "static_load_count": 37,
+      "static_load_density": 0.08564814814814815,
+      "static_store_count": 10,
+      "static_store_density": 0.023148148148148147,
+      "static_total_instructions": 432,
+      "static_unique_opcodes": 42
+    },
+    "widths": {
+      "atomics": {
+        "by_opcode": {},
+        "count": 0,
+        "global_count": 0,
+        "shared_count": 0
+      },
+      "bar": {
+        "by_variant": {
+          "SYNC.DEFER_BLOCKING": 5
+        },
+        "count": 5
+      },
+      "classifier_instruction_lines": 432,
+      "conflicting_width_modifiers": {},
+      "fadd": 90,
+      "fence": {
+        "by_opcode": {},
+        "count": 0
+      },
+      "ffma": 32,
+      "flags": [],
+      "fmul": 16,
+      "full_opcode_histogram": {
+        "BAR.SYNC.DEFER_BLOCKING": 5,
+        "BRA": 2,
+        "BRA.U": 4,
+        "CS2R": 40,
+        "EXIT": 2,
+        "FADD": 90,
+        "FFMA": 32,
+        "FMUL": 16,
+        "FSEL": 16,
+        "HFMA2": 3,
+        "IADD.64": 11,
+        "IADD3": 9,
+        "IMAD.HI": 5,
+        "IMAD.WIDE": 4,
+        "ISETP.GE.AND": 13,
+        "ISETP.GE.U32.AND": 1,
+        "ISETP.LT.U32.AND": 2,
+        "LDC": 1,
+        "LDC.64": 2,
+        "LDCU": 4,
+        "LDCU.64": 6,
+        "LDG.E.128": 20,
+        "LDS": 4,
+        "LEA": 3,
+        "LEA.HI.X": 1,
+        "LOP3.LUT": 8,
+        "MOV": 4,
+        "MOV.64": 26,
+        "MUFU.RCP": 3,
+        "MUFU.SQRT": 1,
+        "NOP": 9,
+        "PLOP3.LUT": 1,
+        "R2UR": 6,
+        "S2R": 1,
+        "S2UR": 3,
+        "SGXT.U32": 1,
+        "SHF.L.U32": 7,
+        "SHF.L.U64.HI": 1,
+        "SHF.R.U32.HI": 1,
+        "SHFL.BFLY": 12,
+        "STG.E": 2,
+        "STG.E.128": 4,
+        "STS": 4,
+        "UFFMA": 1,
+        "UFMUL": 13,
+        "UFSEL": 2,
+        "UFSETP.GEU.AND": 3,
+        "UFSETP.GT.AND": 3,
+        "UI2FP.F32.S32": 1,
+        "UIADD3": 2,
+        "UIMAD": 1,
+        "UIMAD.WIDE": 2,
+        "UIMAD.WIDE.U32": 2,
+        "UISETP.GE.AND": 3,
+        "ULEA": 2,
+        "UMOV": 5,
+        "USHF.R.S32.HI": 2
+      },
+      "global_or_generic_load": {
+        "bytes_hist": {
+          "16": 20
+        },
+        "count": 20
+      },
+      "has_unknown_width_global_load": false,
+      "memory": {
+        "async_global_to_shared": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "constant_load": {
+          "bytes_hist": {
+            "4": 5,
+            "8": 8
+          },
+          "count": 13,
+          "default_width_used": 5,
+          "known_bytes_sum": 84
+        },
+        "generic_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "generic_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "global_load": {
+          "bytes_hist": {
+            "16": 20
+          },
+          "count": 20,
+          "default_width_used": 0,
+          "known_bytes_sum": 320
+        },
+        "global_store": {
+          "bytes_hist": {
+            "16": 4,
+            "4": 2
+          },
+          "count": 6,
+          "default_width_used": 2,
+          "known_bytes_sum": 72
+        },
+        "local_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "local_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_load": {
+          "bytes_hist": {
+            "4": 4
+          },
+          "count": 4,
+          "default_width_used": 4,
+          "known_bytes_sum": 16
+        },
+        "shared_matrix_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_matrix_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_store": {
+          "bytes_hist": {
+            "4": 4
+          },
+          "count": 4,
+          "default_width_used": 4,
+          "known_bytes_sum": 16
+        }
+      },
+      "mufu": {
+        "by_subop": {
+          "RCP": 3,
+          "SQRT": 1
+        },
+        "count": 4
+      },
+      "opcode_histogram": {
+        "BAR": 5,
+        "BRA": 6,
+        "CS2R": 40,
+        "EXIT": 2,
+        "FADD": 90,
+        "FFMA": 32,
+        "FMUL": 16,
+        "FSEL": 16,
+        "HFMA2": 3,
+        "IADD": 11,
+        "IADD3": 9,
+        "IMAD": 9,
+        "ISETP": 16,
+        "LDC": 3,
+        "LDCU": 10,
+        "LDG": 20,
+        "LDS": 4,
+        "LEA": 4,
+        "LOP3": 8,
+        "MOV": 30,
+        "MUFU": 4,
+        "NOP": 9,
+        "PLOP3": 1,
+        "R2UR": 6,
+        "S2R": 1,
+        "S2UR": 3,
+        "SGXT": 1,
+        "SHF": 9,
+        "SHFL": 12,
+        "STG": 6,
+        "STS": 4,
+        "UFFMA": 1,
+        "UFMUL": 13,
+        "UFSEL": 2,
+        "UFSETP": 6,
+        "UI2FP": 1,
+        "UIADD3": 2,
+        "UIMAD": 5,
+        "UISETP": 3,
+        "ULEA": 2,
+        "UMOV": 5,
+        "USHF": 2
+      },
+      "other_memory_opcodes": {},
+      "packed_fp32_ffma2_fmul2_fadd2": [
+        0,
+        0,
+        0
+      ],
+      "parser_version": "1",
+      "shfl": {
+        "by_variant": {
+          "BFLY": 12
+        },
+        "count": 12
+      },
+      "total_instructions": 432,
+      "unclassified_ld_st_opcodes": {},
+      "unknown_width_modifiers": {},
+      "widest_global_load_bytes": 16,
+      "widest_global_load_is_lower_bound": false,
+      "widest_global_store_bytes": 16,
+      "widest_global_store_is_lower_bound": false,
+      "widest_ldg_only_bytes": 16,
+      "widest_ldg_only_is_lower_bound": false,
+      "widest_shared_load_bytes": 4,
+      "widest_shared_load_is_lower_bound": false,
+      "widest_shared_store_bytes": 4,
+      "widest_shared_store_is_lower_bound": false,
+      "widest_stg_only_bytes": 16
+    }
+  },
+  "compile_argv_prefix": null,
+  "compile_flags": null,
+  "compiler": "triton",
+  "compiler_version": "3.6.0",
+  "note": "Header/toolchain transitive build closure still requires verification"
+}

@@ -1,0 +1,3268 @@
+{
+ "schema": "pytorch_dispatch_trace_v1",
+ "pytorch_commit": "70d99e998b4955e0049d13a98d77ae1b14db1f45",
+ "provenance_note": "Measured cells ran torch 2.11.0+cu128 built from this commit (CHANGELOG M443); the catalog pin 67faf385 is not the source that ran. No binary was inspected: this is static host-code analysis only.",
+ "device": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition (sm_120)",
+ "device_facts_used": {
+  "warp_size": {
+   "value": 32,
+   "source": "HARDWARE_GROUND_TRUTH.md Blackwell: Warp size"
+  },
+  "maxGridSize[1]": {
+   "value": "not in HARDWARE_GROUND_TRUTH.md",
+   "effect": "none: embedding grid_y = min(ceil(slice_bytes/4096)=1, maxGridSize[1]) = 1 for any maxGridSize[1] >= 1"
+  },
+  "sharedMemPerBlock/multiProcessorCount": "read only on branches NOT taken by any of these cells"
+ },
+ "source_files_sha256": {
+  "aten_src_ATen_native_Embedding.cpp": "ee962b129fccc1e48d96a24fccca65c0d34d99243509bc71088e0cfd487fb59a",
+  "aten_src_ATen_native_SoftMax.cpp": "8a0d0be6b730a8e2850c13e7f2618d87790276cc8d43c97fae4fe7608f6247dd",
+  "aten_src_ATen_native_cuda_CUDALoops.cuh": "774165c163f630fd4f8ff7d2316336bd3fea3c4b5078e98000d3c72169f53e40",
+  "aten_src_ATen_native_cuda_Copy.cu": "cf33fdfe65b79cb1a06f924103c3570f3e8e39609b217a1df664977d0c483c96",
+  "aten_src_ATen_native_cuda_Copy.h": "b9df5a102face3e365c7a508c56936e28a944286ccd15807bcae82747c4f49af",
+  "aten_src_ATen_native_cuda_DeviceSqrt.cuh": "28cab08ea3dbb82a82af8b2df15a5855accb571ffa235c221880c3ede6b833e7",
+  "aten_src_ATen_native_cuda_Embedding.cu": "223dbaa009e9035aef356427d0de24258b22c75ad8f2a029f79b864ca5cd1b27",
+  "aten_src_ATen_native_cuda_ForeachFunctors.cuh": "0bfb9e615908a5965be6215ff7bfe51526ee52fa9aef91626231af4a04e03aad",
+  "aten_src_ATen_native_cuda_IndexKernel.cu": "795fcac523abcab49b8d839d0d884e2cc6cf47da8e35282a64cf3ce6c91d2f8d",
+  "aten_src_ATen_native_cuda_Indexing.cu": "d6c46a9efe5232bef06cd89d3d7ffa75ec8b92ccd417600efae4d7b60131ba1a",
+  "aten_src_ATen_native_cuda_KernelUtils.cuh": "495e441f3f2f1cd34b5ef0cb12663efcc77e6f3eb89587288fd199e90beb9bc8",
+  "aten_src_ATen_native_cuda_Loops.cuh": "b22091fa58a032cd9acd89df3a903d54090cba3cdaae88f5239a2303c92b0ef6",
+  "aten_src_ATen_native_cuda_MemoryAccess.cuh": "54ef3a44589c225ea7562c544d1eee00c4d7d606ab6940f076038a62899058da",
+  "aten_src_ATen_native_cuda_PersistentSoftmax.cuh": "332061c98b3293713deb87debd495fced86b7d3a6bea3472dc8d09660270eb93",
+  "aten_src_ATen_native_cuda_SoftMax.cu": "e5cd9d7b9d2628058be783eeac0ad859e8fa5f242e940c09dc72dc70f15c45d3",
+  "aten_src_ATen_native_cuda_SortingCommon.cuh": "70e01e301e7c9066c5b247f5dfccacbe1b78078b8c0995c122a8fd10deac20d1",
+  "aten_src_ATen_native_cuda_block_reduce.cuh": "31ce6e510f68f23de06647114cf4eb4face8812778866b4d23e471b138c07bae",
+  "aten_src_ATen_native_cuda_layer_norm_kernel.cu": "6bc37b0cbeb94b534668c6c34b91067acf085ec7e4276a2776dec9351466e066",
+  "aten_src_ATen_native_cuda_thread_constants.h": "cf53b44ad55ef33337d809ed67103d425790a7fe024a669543c8d8f35eb9982a",
+  "aten_src_ATen_native_layer_norm.cpp": "a36a8d8520a279913fc2eb78250e60d0d1012a367e3b1f90e1a43ce79c31f08b",
+  "aten_src_ATen_native_layer_norm.h": "6cd8d6ac95f2bc8147bf60549bd52afd64e1552eaa0473d4595e054fc01617ae",
+  "aten_src_ATen_native_native_functions.yaml": "d1f2017fb46c4b34ef42c761844de6304b21b6f094d6daad6f2f5d1ca5f946aa",
+  "torch_nn_functional.py": "06f330c5ce12f7a7b5be938fb4fd1b78dadcc4a345c49aac58dbb923b3a3a405"
+ },
+ "source_dir": "src/ (local filename = repo path with / replaced by _)",
+ "measured_unit": "One launch_once() = one Python call (softmax / layer_norm / index_select). Energy harness captures 1000 launch_once calls in one CUDA graph (energy_harness/torch_graph_capture.py make_graph_replayer; launch_count = replays*1000), board_energy_j_per_launch = total / launch_count, so per-launch energy and runtime cover ALL kernels of a call, including the contiguous() copy kernel.",
+ "cells": [
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/large/c1",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "large",
+   "candidate_id": "c1",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     8192,
+     1024
+    ],
+    "strides": [
+     1024,
+     1
+    ],
+    "contiguous": true,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 1024,
+    "inner_size": 1,
+    "outer_size": 8192,
+    "row_stride": 1024
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 10,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 10, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 10, false, false>",
+     "grid": [
+      2048,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 8192,
+      "stride": 1024,
+      "element_count": 1024,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 1,
+      "WARP_ITERATIONS": 32,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 1,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/core/TensorBase.h:137-141 @70d99e99 -- view strides (1024,1) == contiguous: contiguous() returns self, NO copy kernel",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=1024 <= 2048 && 4096 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(1024)=10; warp=32; batches_per_warp=1; 128 threads/block; blocks=ceil(8192/4)=2048",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:345 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(10) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/large/c2",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "large",
+   "candidate_id": "c2",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     8192,
+     1024
+    ],
+    "strides": [
+     1025,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 1024,
+    "inner_size": 1,
+    "outer_size": 8192,
+    "row_stride": 1025
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      32768,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 8388608,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 10,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 10, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 10, false, false>",
+     "grid": [
+      2048,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 8192,
+      "stride": 1024,
+      "element_count": 1024,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 1,
+      "WARP_ITERATIONS": 32,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/native/TensorProperties.cpp:127 @70d99e99 -- view strides (1025,1) != contiguous strides (1024,1): contiguous() -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like(contiguous) then self.copy_(src)",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314 @70d99e99 -- copy_kernel_cuda -> copy_device_to_device: iter.is_contiguous() false (2-D, src row stride != cols, cannot coalesce) -> direct_copy_kernel_cuda",
+    "aten/src/ATen/native/cuda/Copy.cu:240 @70d99e99 -- float: gpu_kernel(iter, [](float x){return x;})",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- no dynamic cast -> gpu_kernel_impl_nocast; not contiguous -> launch_legacy_kernel<128, unroll=2 (sizeof(float)>=4)>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=1024 <= 2048 && 4096 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(1024)=10; warp=32; batches_per_warp=1; 128 threads/block; blocks=ceil(8192/4)=2048",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:345 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(10) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name ({lambda(float)#N}) is not determinable statically; match with the regex, not the literal."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/large/c3",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "large",
+   "candidate_id": "c3",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     8192,
+     1024
+    ],
+    "strides": [
+     1027,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 1024,
+    "inner_size": 1,
+    "outer_size": 8192,
+    "row_stride": 1027
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      32768,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 8388608,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 10,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 10, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 10, false, false>",
+     "grid": [
+      2048,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 8192,
+      "stride": 1024,
+      "element_count": 1024,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 1,
+      "WARP_ITERATIONS": 32,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/native/TensorProperties.cpp:127 @70d99e99 -- view strides (1027,1) != contiguous strides (1024,1): contiguous() -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like(contiguous) then self.copy_(src)",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314 @70d99e99 -- copy_kernel_cuda -> copy_device_to_device: iter.is_contiguous() false (2-D, src row stride != cols, cannot coalesce) -> direct_copy_kernel_cuda",
+    "aten/src/ATen/native/cuda/Copy.cu:240 @70d99e99 -- float: gpu_kernel(iter, [](float x){return x;})",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- no dynamic cast -> gpu_kernel_impl_nocast; not contiguous -> launch_legacy_kernel<128, unroll=2 (sizeof(float)>=4)>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=1024 <= 2048 && 4096 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(1024)=10; warp=32; batches_per_warp=1; 128 threads/block; blocks=ceil(8192/4)=2048",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:345 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(10) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name ({lambda(float)#N}) is not determinable statically; match with the regex, not the literal."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/large/c4",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "large",
+   "candidate_id": "c4",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     8192,
+     1024
+    ],
+    "strides": [
+     1031,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 1024,
+    "inner_size": 1,
+    "outer_size": 8192,
+    "row_stride": 1031
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      32768,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 8388608,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 10,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 10, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 10, false, false>",
+     "grid": [
+      2048,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 8192,
+      "stride": 1024,
+      "element_count": 1024,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 1,
+      "WARP_ITERATIONS": 32,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/native/TensorProperties.cpp:127 @70d99e99 -- view strides (1031,1) != contiguous strides (1024,1): contiguous() -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like(contiguous) then self.copy_(src)",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314 @70d99e99 -- copy_kernel_cuda -> copy_device_to_device: iter.is_contiguous() false (2-D, src row stride != cols, cannot coalesce) -> direct_copy_kernel_cuda",
+    "aten/src/ATen/native/cuda/Copy.cu:240 @70d99e99 -- float: gpu_kernel(iter, [](float x){return x;})",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- no dynamic cast -> gpu_kernel_impl_nocast; not contiguous -> launch_legacy_kernel<128, unroll=2 (sizeof(float)>=4)>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=1024 <= 2048 && 4096 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(1024)=10; warp=32; batches_per_warp=1; 128 threads/block; blocks=ceil(8192/4)=2048",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:345 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(10) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name ({lambda(float)#N}) is not determinable statically; match with the regex, not the literal."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/medium/c1",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     4096,
+     512
+    ],
+    "strides": [
+     512,
+     1
+    ],
+    "contiguous": true,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 512,
+    "inner_size": 1,
+    "outer_size": 4096,
+    "row_stride": 512
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 9,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 9, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 9, false, false>",
+     "grid": [
+      1024,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 4096,
+      "stride": 512,
+      "element_count": 512,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 1,
+      "WARP_ITERATIONS": 16,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 1,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/core/TensorBase.h:137-141 @70d99e99 -- view strides (512,1) == contiguous: contiguous() returns self, NO copy kernel",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=512 <= 2048 && 2048 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(512)=9; warp=32; batches_per_warp=1; 128 threads/block; blocks=ceil(4096/4)=1024",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:344 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(9) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/medium/c2",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     4096,
+     512
+    ],
+    "strides": [
+     513,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 512,
+    "inner_size": 1,
+    "outer_size": 4096,
+    "row_stride": 513
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 2097152,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 9,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 9, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 9, false, false>",
+     "grid": [
+      1024,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 4096,
+      "stride": 512,
+      "element_count": 512,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 1,
+      "WARP_ITERATIONS": 16,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/native/TensorProperties.cpp:127 @70d99e99 -- view strides (513,1) != contiguous strides (512,1): contiguous() -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like(contiguous) then self.copy_(src)",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314 @70d99e99 -- copy_kernel_cuda -> copy_device_to_device: iter.is_contiguous() false (2-D, src row stride != cols, cannot coalesce) -> direct_copy_kernel_cuda",
+    "aten/src/ATen/native/cuda/Copy.cu:240 @70d99e99 -- float: gpu_kernel(iter, [](float x){return x;})",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- no dynamic cast -> gpu_kernel_impl_nocast; not contiguous -> launch_legacy_kernel<128, unroll=2 (sizeof(float)>=4)>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=512 <= 2048 && 2048 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(512)=9; warp=32; batches_per_warp=1; 128 threads/block; blocks=ceil(4096/4)=1024",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:344 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(9) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name ({lambda(float)#N}) is not determinable statically; match with the regex, not the literal."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/medium/c3",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "medium",
+   "candidate_id": "c3",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     4096,
+     512
+    ],
+    "strides": [
+     515,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 512,
+    "inner_size": 1,
+    "outer_size": 4096,
+    "row_stride": 515
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 2097152,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 9,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 9, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 9, false, false>",
+     "grid": [
+      1024,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 4096,
+      "stride": 512,
+      "element_count": 512,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 1,
+      "WARP_ITERATIONS": 16,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/native/TensorProperties.cpp:127 @70d99e99 -- view strides (515,1) != contiguous strides (512,1): contiguous() -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like(contiguous) then self.copy_(src)",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314 @70d99e99 -- copy_kernel_cuda -> copy_device_to_device: iter.is_contiguous() false (2-D, src row stride != cols, cannot coalesce) -> direct_copy_kernel_cuda",
+    "aten/src/ATen/native/cuda/Copy.cu:240 @70d99e99 -- float: gpu_kernel(iter, [](float x){return x;})",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- no dynamic cast -> gpu_kernel_impl_nocast; not contiguous -> launch_legacy_kernel<128, unroll=2 (sizeof(float)>=4)>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=512 <= 2048 && 2048 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(512)=9; warp=32; batches_per_warp=1; 128 threads/block; blocks=ceil(4096/4)=1024",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:344 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(9) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name ({lambda(float)#N}) is not determinable statically; match with the regex, not the literal."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/medium/c4",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "medium",
+   "candidate_id": "c4",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     4096,
+     512
+    ],
+    "strides": [
+     519,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 512,
+    "inner_size": 1,
+    "outer_size": 4096,
+    "row_stride": 519
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 2097152,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 9,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 9, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 9, false, false>",
+     "grid": [
+      1024,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 4096,
+      "stride": 512,
+      "element_count": 512,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 1,
+      "WARP_ITERATIONS": 16,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/native/TensorProperties.cpp:127 @70d99e99 -- view strides (519,1) != contiguous strides (512,1): contiguous() -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like(contiguous) then self.copy_(src)",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314 @70d99e99 -- copy_kernel_cuda -> copy_device_to_device: iter.is_contiguous() false (2-D, src row stride != cols, cannot coalesce) -> direct_copy_kernel_cuda",
+    "aten/src/ATen/native/cuda/Copy.cu:240 @70d99e99 -- float: gpu_kernel(iter, [](float x){return x;})",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- no dynamic cast -> gpu_kernel_impl_nocast; not contiguous -> launch_legacy_kernel<128, unroll=2 (sizeof(float)>=4)>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=512 <= 2048 && 2048 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(512)=9; warp=32; batches_per_warp=1; 128 threads/block; blocks=ceil(4096/4)=1024",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:344 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(9) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name ({lambda(float)#N}) is not determinable statically; match with the regex, not the literal."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/small/c1",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "small",
+   "candidate_id": "c1",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     1024,
+     128
+    ],
+    "strides": [
+     128,
+     1
+    ],
+    "contiguous": true,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 128,
+    "inner_size": 1,
+    "outer_size": 1024,
+    "row_stride": 128
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 7,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 7, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 7, false, false>",
+     "grid": [
+      128,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 1024,
+      "stride": 128,
+      "element_count": 128,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 2,
+      "WARP_ITERATIONS": 4,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 1,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/core/TensorBase.h:137-141 @70d99e99 -- view strides (128,1) == contiguous: contiguous() returns self, NO copy kernel",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=128 <= 2048 && 512 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(128)=7; warp=32; batches_per_warp=2; 128 threads/block; blocks=ceil(1024/8)=128",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:342 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(7) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/small/c2",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "small",
+   "candidate_id": "c2",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     1024,
+     128
+    ],
+    "strides": [
+     129,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 128,
+    "inner_size": 1,
+    "outer_size": 1024,
+    "row_stride": 129
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      512,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 131072,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 7,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 7, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 7, false, false>",
+     "grid": [
+      128,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 1024,
+      "stride": 128,
+      "element_count": 128,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 2,
+      "WARP_ITERATIONS": 4,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/native/TensorProperties.cpp:127 @70d99e99 -- view strides (129,1) != contiguous strides (128,1): contiguous() -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like(contiguous) then self.copy_(src)",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314 @70d99e99 -- copy_kernel_cuda -> copy_device_to_device: iter.is_contiguous() false (2-D, src row stride != cols, cannot coalesce) -> direct_copy_kernel_cuda",
+    "aten/src/ATen/native/cuda/Copy.cu:240 @70d99e99 -- float: gpu_kernel(iter, [](float x){return x;})",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- no dynamic cast -> gpu_kernel_impl_nocast; not contiguous -> launch_legacy_kernel<128, unroll=2 (sizeof(float)>=4)>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=128 <= 2048 && 512 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(128)=7; warp=32; batches_per_warp=2; 128 threads/block; blocks=ceil(1024/8)=128",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:342 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(7) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name ({lambda(float)#N}) is not determinable statically; match with the regex, not the literal."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/small/c3",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "small",
+   "candidate_id": "c3",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     1024,
+     128
+    ],
+    "strides": [
+     131,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 128,
+    "inner_size": 1,
+    "outer_size": 1024,
+    "row_stride": 131
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      512,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 131072,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 7,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 7, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 7, false, false>",
+     "grid": [
+      128,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 1024,
+      "stride": 128,
+      "element_count": 128,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 2,
+      "WARP_ITERATIONS": 4,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/native/TensorProperties.cpp:127 @70d99e99 -- view strides (131,1) != contiguous strides (128,1): contiguous() -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like(contiguous) then self.copy_(src)",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314 @70d99e99 -- copy_kernel_cuda -> copy_device_to_device: iter.is_contiguous() false (2-D, src row stride != cols, cannot coalesce) -> direct_copy_kernel_cuda",
+    "aten/src/ATen/native/cuda/Copy.cu:240 @70d99e99 -- float: gpu_kernel(iter, [](float x){return x;})",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- no dynamic cast -> gpu_kernel_impl_nocast; not contiguous -> launch_legacy_kernel<128, unroll=2 (sizeof(float)>=4)>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=128 <= 2048 && 512 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(128)=7; warp=32; batches_per_warp=2; 128 threads/block; blocks=ceil(1024/8)=128",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:342 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(7) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name ({lambda(float)#N}) is not determinable statically; match with the regex, not the literal."
+   ]
+  },
+  {
+   "cell_id": "blackwell/dev_pytorch_rowwise_softmax/small/c4",
+   "operator_id": "dev_pytorch_rowwise_softmax",
+   "regime": "small",
+   "candidate_id": "c4",
+   "call": "torch.nn.functional.softmax(view, dim=1) where view = padded[:, :cols], padded = (rows, row_stride) float32 cuda tensor",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     1024,
+     128
+    ],
+    "strides": [
+     135,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "dim_size": 128,
+    "inner_size": 1,
+    "outer_size": 1024,
+    "row_stride": 135
+   },
+   "controls_from_sessions": [
+    "SOFTMAX-DEV-20260922T185912Z",
+    "SOFTMAX-DEV-20260922T185912Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "contiguous() materialisation of the padded view into a dense rows x cols float tensor (precedes softmax)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      512,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 131072,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "softmax",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/PersistentSoftmax.cuh",
+      "function": "softmax_warp_forward",
+      "line": 68
+     },
+     "template_args": {
+      "input_t": "float",
+      "output_t": "float",
+      "acc_t": "float",
+      "log2_elements": 7,
+      "is_log_softmax": false,
+      "is_masked": false
+     },
+     "demangled_name_pattern": "(anonymous namespace)::softmax_warp_forward<float, float, float, 7, false, false>(float*, float const*, int, int, int, bool const*, int, bool)",
+     "demangled_name_regex": "softmax_warp_forward<float, float, float, 7, false, false>",
+     "grid": [
+      128,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "batch_size": 1024,
+      "stride": 128,
+      "element_count": 128,
+      "mask": null,
+      "head_chunk_size": -1,
+      "is_transformer_mask": false,
+      "WARP_BATCH": 2,
+      "WARP_ITERATIONS": 4,
+      "WARP_SIZE": 32
+     },
+     "extra_control_flow": "rows beyond batch_size masked via local_batches; element_count == next_power_of_two so no tail predication on columns"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2159 @70d99e99 -- F.softmax(x, dim=1): dtype None -> input.softmax(dim)",
+    "aten/src/ATen/native/native_functions.yaml:5716 @70d99e99 -- softmax.int has no dispatch entry -> CompositeImplicitAutograd C++ softmax()",
+    "aten/src/ATen/native/SoftMax.cpp:411-418 @70d99e99 -- softmax(): not (CUDA half->float) -> at::_softmax(input, dim, half_to_float=false)",
+    "aten/src/ATen/native/native_functions.yaml:5727-5740 @70d99e99 -- _softmax structured_delegate _softmax.out; CUDA: softmax_cuda_out",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1435 @70d99e99 -- softmax_cuda_out -> host_softmax<SoftMaxForwardEpilogue, SoftMaxForwardWithMulEpilogue, is_log_softmax=false, use_fast_softmax=false>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1072 @70d99e99 -- host_softmax: input = input_.contiguous()",
+    "aten/src/ATen/native/TensorProperties.cpp:127 @70d99e99 -- view strides (135,1) != contiguous strides (128,1): contiguous() -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like(contiguous) then self.copy_(src)",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314 @70d99e99 -- copy_kernel_cuda -> copy_device_to_device: iter.is_contiguous() false (2-D, src row stride != cols, cannot coalesce) -> direct_copy_kernel_cuda",
+    "aten/src/ATen/native/cuda/Copy.cu:240 @70d99e99 -- float: gpu_kernel(iter, [](float x){return x;})",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- no dynamic cast -> gpu_kernel_impl_nocast; not contiguous -> launch_legacy_kernel<128, unroll=2 (sizeof(float)>=4)>",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1090 @70d99e99 -- inner_size == 1 (dim=1 of a 2-D tensor)",
+    "aten/src/ATen/native/cuda/SoftMax.cu:1097 @70d99e99 -- !half_to_float, dim_size=128 <= 2048 && 512 B <= 8192 B -> persistent warp softmax (dispatch_softmax_forward); block-softmax / smem / reg variants not reached",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:309-324 @70d99e99 -- log2_ceil(128)=7; warp=32; batches_per_warp=2; 128 threads/block; blocks=ceil(1024/8)=128",
+    "aten/src/ATen/native/cuda/PersistentSoftmax.cuh:342 @70d99e99 -- LAUNCH_SOFTMAX_WARP_FORWARD(7) single launch (chunk_size 2^30/dim >= batch)"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name ({lambda(float)#N}) is not determinable statically; match with the regex, not the literal."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_embedding/large/c1",
+   "operator_id": "final_pytorch_embedding",
+   "regime": "large",
+   "candidate_id": "c1",
+   "call": "torch.index_select(source, 0, index)",
+   "dtype": "float32 (source/out), int64 (index)",
+   "input": {
+    "shape": [
+     1048576,
+     512
+    ],
+    "strides": [
+     512,
+     1
+    ],
+    "contiguous": true,
+    "storage_offset": 0,
+    "index_shape": [
+     16384
+    ],
+    "index_dtype": "int64"
+   },
+   "controls": {
+    "dim": 0,
+    "feature_dim": 512,
+    "index_dtype": "int64",
+    "num_indices": 16384,
+    "num_weights": 1048576
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "row gather (index_select over dim 0)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/IndexKernelUtils.cu",
+      "function": "vectorized_gather_kernel",
+      "line": 11
+     },
+     "template_args": {
+      "Alignment": 16,
+      "index_t": "int64_t"
+     },
+     "demangled_name_pattern": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+     "demangled_name_regex": "vectorized_gather_kernel<16, long>",
+     "grid": [
+      16384,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "num_ind": 16384,
+      "slice_size_bytes": 2048,
+      "ind_dim_size": 1048576,
+      "inp_stride_bytes": 2048,
+      "out_stride_bytes": 2048,
+      "allow_neg_indices": false
+     },
+     "extra_control_flow": "one block per output row (blockIdx.x indexes idx[]); inner loop off=(blockDim.x*blockIdx.y+tid)*16 stepping blockDim.x*gridDim.y*16: exactly 1 iteration per thread since slice 2048 B == block 128 x 16 B; each thread one 16-B ld/st; random 16-B-aligned row gather, data-dependent index loads (int64) one per block"
+    }
+   ],
+   "kernels_per_call": 1,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "tiresias/app_runners/embedding_runner.py:launch_once @70d99e99 -- torch.index_select(source, 0, index): NOT nn.Embedding / F.embedding / aten::embedding; source = arange(vocab*dim).reshape(vocab, dim) float32 contiguous, index int64 1-D contiguous",
+    "aten/src/ATen/native/native_functions.yaml:9509-9515 @70d99e99 -- index_select CUDA: index_select_cuda",
+    "aten/src/ATen/native/cuda/Indexing.cu:1699 @70d99e99 -- index_select_cuda: out = at::empty({0}); index_select_out_cuda -> index_select_out_cuda_impl<float>",
+    "aten/src/ATen/native/cuda/Indexing.cu:1618 @70d99e99 -- numIndices=16384 > 16, so the indexSelectSmallIndex branch (needs numIndices <= 16) is NOT taken",
+    "aten/src/ATen/native/cuda/Indexing.cu:1649 @70d99e99 -- else: at::gather_out(out, self, dim=0, index.view({n,1}).expand({n,dim})) -- no kernel for view/expand",
+    "aten/src/ATen/native/TensorAdvancedIndexing.cpp:2069-2083 @70d99e99 -- gather_out: can_use_expanded_index_path false (returns false: FBGEMM-only/CPU-only, line 1995-2010) -> gather_stub (CUDA: gather_cuda_kernel)",
+    "aten/src/ATen/native/cuda/ScatterGatherKernel.cu:518-521,199-210 @70d99e99 -- gather_cuda_kernel -> cuda_scatter_gather_base_kernel<false>(TensorAssign): iter(out as_strided, src restrided with stride[0]=0, index expanded); AT_DISPATCH float, index_t=int64",
+    "aten/src/ATen/native/cuda/ScatterGatherKernel.cu:144-155 @70d99e99 -- !is_scatter_like: fast_gather_kernel_eligible<16> TRUE -> vectorized_gather_kernel_launch<16, int64_t>; generic _scatter_gather_elementwise_kernel (line 174) NOT launched",
+    "aten/src/ATen/native/cuda/IndexKernelUtils.h:20-27 @70d99e99 -- eligible: iter.ndim()==2 (src stride-0 dim prevents coalescing), index strides (0,8), out/src inner stride 4 B, out/src row-base ptrs 16-B aligned, slice 2048 B, index_stride 2048 B, out row stride 2048 B all multiples of 16",
+    "aten/src/ATen/native/cuda/IndexKernelUtils.cu:26-39 @70d99e99 -- num_threads=round_up(ceil(2048/16), 32)=128->128; block=min(256, that)=128; grid=(16384, grid_y=min(ceil(2048/4096)=1, maxGridSize[1]) = 1, 1)"
+   ],
+   "confidence": "high for the gather route (numIndices > 16 is unconditional); medium-high that the vectorized fast path (not the generic scatter-gather elementwise kernel) is taken, because it rests on TensorIterator keeping a 2-D, uncoalesced layout with the stated strides (derived by hand from TensorIterator.cpp reorder/coalesce rules, not observed)",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "If the fast-path predicate were false, the launched kernel would instead be at::native::_scatter_gather_elementwise_kernel<128, 8, ...> with grid=ceil(num_idx*dim/1024), block 128 (ScatterGatherKernel.cu:174, 94-112). Check by grepping the real symbol list / a one-call profile.",
+    "Indexing.cu is NOT where the kernel lives at this commit for >16 indices: the catalog's source_path (Indexing.cu) holds only the host function; the device code is IndexKernelUtils.cu and ScatterGatherKernel.cu."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_embedding/medium/c1",
+   "operator_id": "final_pytorch_embedding",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "call": "torch.index_select(source, 0, index)",
+   "dtype": "float32 (source/out), int64 (index)",
+   "input": {
+    "shape": [
+     65536,
+     256
+    ],
+    "strides": [
+     256,
+     1
+    ],
+    "contiguous": true,
+    "storage_offset": 0,
+    "index_shape": [
+     4096
+    ],
+    "index_dtype": "int64"
+   },
+   "controls": {
+    "dim": 0,
+    "feature_dim": 256,
+    "index_dtype": "int64",
+    "num_indices": 4096,
+    "num_weights": 65536
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "row gather (index_select over dim 0)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/IndexKernelUtils.cu",
+      "function": "vectorized_gather_kernel",
+      "line": 11
+     },
+     "template_args": {
+      "Alignment": 16,
+      "index_t": "int64_t"
+     },
+     "demangled_name_pattern": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+     "demangled_name_regex": "vectorized_gather_kernel<16, long>",
+     "grid": [
+      4096,
+      1,
+      1
+     ],
+     "block": [
+      64,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "num_ind": 4096,
+      "slice_size_bytes": 1024,
+      "ind_dim_size": 65536,
+      "inp_stride_bytes": 1024,
+      "out_stride_bytes": 1024,
+      "allow_neg_indices": false
+     },
+     "extra_control_flow": "one block per output row (blockIdx.x indexes idx[]); inner loop off=(blockDim.x*blockIdx.y+tid)*16 stepping blockDim.x*gridDim.y*16: exactly 1 iteration per thread since slice 1024 B == block 64 x 16 B; each thread one 16-B ld/st; random 16-B-aligned row gather, data-dependent index loads (int64) one per block"
+    }
+   ],
+   "kernels_per_call": 1,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "tiresias/app_runners/embedding_runner.py:launch_once @70d99e99 -- torch.index_select(source, 0, index): NOT nn.Embedding / F.embedding / aten::embedding; source = arange(vocab*dim).reshape(vocab, dim) float32 contiguous, index int64 1-D contiguous",
+    "aten/src/ATen/native/native_functions.yaml:9509-9515 @70d99e99 -- index_select CUDA: index_select_cuda",
+    "aten/src/ATen/native/cuda/Indexing.cu:1699 @70d99e99 -- index_select_cuda: out = at::empty({0}); index_select_out_cuda -> index_select_out_cuda_impl<float>",
+    "aten/src/ATen/native/cuda/Indexing.cu:1618 @70d99e99 -- numIndices=4096 > 16, so the indexSelectSmallIndex branch (needs numIndices <= 16) is NOT taken",
+    "aten/src/ATen/native/cuda/Indexing.cu:1649 @70d99e99 -- else: at::gather_out(out, self, dim=0, index.view({n,1}).expand({n,dim})) -- no kernel for view/expand",
+    "aten/src/ATen/native/TensorAdvancedIndexing.cpp:2069-2083 @70d99e99 -- gather_out: can_use_expanded_index_path false (returns false: FBGEMM-only/CPU-only, line 1995-2010) -> gather_stub (CUDA: gather_cuda_kernel)",
+    "aten/src/ATen/native/cuda/ScatterGatherKernel.cu:518-521,199-210 @70d99e99 -- gather_cuda_kernel -> cuda_scatter_gather_base_kernel<false>(TensorAssign): iter(out as_strided, src restrided with stride[0]=0, index expanded); AT_DISPATCH float, index_t=int64",
+    "aten/src/ATen/native/cuda/ScatterGatherKernel.cu:144-155 @70d99e99 -- !is_scatter_like: fast_gather_kernel_eligible<16> TRUE -> vectorized_gather_kernel_launch<16, int64_t>; generic _scatter_gather_elementwise_kernel (line 174) NOT launched",
+    "aten/src/ATen/native/cuda/IndexKernelUtils.h:20-27 @70d99e99 -- eligible: iter.ndim()==2 (src stride-0 dim prevents coalescing), index strides (0,8), out/src inner stride 4 B, out/src row-base ptrs 16-B aligned, slice 1024 B, index_stride 1024 B, out row stride 1024 B all multiples of 16",
+    "aten/src/ATen/native/cuda/IndexKernelUtils.cu:26-39 @70d99e99 -- num_threads=round_up(ceil(1024/16), 32)=64->64; block=min(256, that)=64; grid=(4096, grid_y=min(ceil(1024/4096)=1, maxGridSize[1]) = 1, 1)"
+   ],
+   "confidence": "high for the gather route (numIndices > 16 is unconditional); medium-high that the vectorized fast path (not the generic scatter-gather elementwise kernel) is taken, because it rests on TensorIterator keeping a 2-D, uncoalesced layout with the stated strides (derived by hand from TensorIterator.cpp reorder/coalesce rules, not observed)",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "If the fast-path predicate were false, the launched kernel would instead be at::native::_scatter_gather_elementwise_kernel<128, 8, ...> with grid=ceil(num_idx*dim/1024), block 128 (ScatterGatherKernel.cu:174, 94-112). Check by grepping the real symbol list / a one-call profile.",
+    "Indexing.cu is NOT where the kernel lives at this commit for >16 indices: the catalog's source_path (Indexing.cu) holds only the host function; the device code is IndexKernelUtils.cu and ScatterGatherKernel.cu."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_embedding/small/c1",
+   "operator_id": "final_pytorch_embedding",
+   "regime": "small",
+   "candidate_id": "c1",
+   "call": "torch.index_select(source, 0, index)",
+   "dtype": "float32 (source/out), int64 (index)",
+   "input": {
+    "shape": [
+     4096,
+     128
+    ],
+    "strides": [
+     128,
+     1
+    ],
+    "contiguous": true,
+    "storage_offset": 0,
+    "index_shape": [
+     1024
+    ],
+    "index_dtype": "int64"
+   },
+   "controls": {
+    "dim": 0,
+    "feature_dim": 128,
+    "index_dtype": "int64",
+    "num_indices": 1024,
+    "num_weights": 4096
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "row gather (index_select over dim 0)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/IndexKernelUtils.cu",
+      "function": "vectorized_gather_kernel",
+      "line": 11
+     },
+     "template_args": {
+      "Alignment": 16,
+      "index_t": "int64_t"
+     },
+     "demangled_name_pattern": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+     "demangled_name_regex": "vectorized_gather_kernel<16, long>",
+     "grid": [
+      1024,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "num_ind": 1024,
+      "slice_size_bytes": 512,
+      "ind_dim_size": 4096,
+      "inp_stride_bytes": 512,
+      "out_stride_bytes": 512,
+      "allow_neg_indices": false
+     },
+     "extra_control_flow": "one block per output row (blockIdx.x indexes idx[]); inner loop off=(blockDim.x*blockIdx.y+tid)*16 stepping blockDim.x*gridDim.y*16: exactly 1 iteration per thread since slice 512 B == block 32 x 16 B; each thread one 16-B ld/st; random 16-B-aligned row gather, data-dependent index loads (int64) one per block"
+    }
+   ],
+   "kernels_per_call": 1,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "tiresias/app_runners/embedding_runner.py:launch_once @70d99e99 -- torch.index_select(source, 0, index): NOT nn.Embedding / F.embedding / aten::embedding; source = arange(vocab*dim).reshape(vocab, dim) float32 contiguous, index int64 1-D contiguous",
+    "aten/src/ATen/native/native_functions.yaml:9509-9515 @70d99e99 -- index_select CUDA: index_select_cuda",
+    "aten/src/ATen/native/cuda/Indexing.cu:1699 @70d99e99 -- index_select_cuda: out = at::empty({0}); index_select_out_cuda -> index_select_out_cuda_impl<float>",
+    "aten/src/ATen/native/cuda/Indexing.cu:1618 @70d99e99 -- numIndices=1024 > 16, so the indexSelectSmallIndex branch (needs numIndices <= 16) is NOT taken",
+    "aten/src/ATen/native/cuda/Indexing.cu:1649 @70d99e99 -- else: at::gather_out(out, self, dim=0, index.view({n,1}).expand({n,dim})) -- no kernel for view/expand",
+    "aten/src/ATen/native/TensorAdvancedIndexing.cpp:2069-2083 @70d99e99 -- gather_out: can_use_expanded_index_path false (returns false: FBGEMM-only/CPU-only, line 1995-2010) -> gather_stub (CUDA: gather_cuda_kernel)",
+    "aten/src/ATen/native/cuda/ScatterGatherKernel.cu:518-521,199-210 @70d99e99 -- gather_cuda_kernel -> cuda_scatter_gather_base_kernel<false>(TensorAssign): iter(out as_strided, src restrided with stride[0]=0, index expanded); AT_DISPATCH float, index_t=int64",
+    "aten/src/ATen/native/cuda/ScatterGatherKernel.cu:144-155 @70d99e99 -- !is_scatter_like: fast_gather_kernel_eligible<16> TRUE -> vectorized_gather_kernel_launch<16, int64_t>; generic _scatter_gather_elementwise_kernel (line 174) NOT launched",
+    "aten/src/ATen/native/cuda/IndexKernelUtils.h:20-27 @70d99e99 -- eligible: iter.ndim()==2 (src stride-0 dim prevents coalescing), index strides (0,8), out/src inner stride 4 B, out/src row-base ptrs 16-B aligned, slice 512 B, index_stride 512 B, out row stride 512 B all multiples of 16",
+    "aten/src/ATen/native/cuda/IndexKernelUtils.cu:26-39 @70d99e99 -- num_threads=round_up(ceil(512/16), 32)=32->32; block=min(256, that)=32; grid=(1024, grid_y=min(ceil(512/4096)=1, maxGridSize[1]) = 1, 1)"
+   ],
+   "confidence": "high for the gather route (numIndices > 16 is unconditional); medium-high that the vectorized fast path (not the generic scatter-gather elementwise kernel) is taken, because it rests on TensorIterator keeping a 2-D, uncoalesced layout with the stated strides (derived by hand from TensorIterator.cpp reorder/coalesce rules, not observed)",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "If the fast-path predicate were false, the launched kernel would instead be at::native::_scatter_gather_elementwise_kernel<128, 8, ...> with grid=ceil(num_idx*dim/1024), block 128 (ScatterGatherKernel.cu:174, 94-112). Check by grepping the real symbol list / a one-call profile.",
+    "Indexing.cu is NOT where the kernel lives at this commit for >16 indices: the catalog's source_path (Indexing.cu) holds only the host function; the device code is IndexKernelUtils.cu and ScatterGatherKernel.cu."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/large/c1",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "large",
+   "candidate_id": "c1",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     8192,
+     1024
+    ],
+    "strides": [
+     1024,
+     1
+    ],
+    "contiguous": true,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 1024,
+    "eps": 1e-05,
+    "row_stride": 1024,
+    "rows": 8192
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 1024,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 256,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 2,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 1,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- view strides (1024,1) == contiguous: expect_contiguous borrows, NO copy kernel",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=1024 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=8192; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/large/c2",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "large",
+   "candidate_id": "c2",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     8192,
+     1024
+    ],
+    "strides": [
+     1025,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 1024,
+    "eps": 1e-05,
+    "row_stride": 1025,
+    "rows": 8192
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      32768,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 8388608,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 1024,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 256,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 2,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/core/TensorBase.h:1056-1064 @70d99e99 -- expect_contiguous on non-contiguous view -> owned __dispatch_contiguous -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like + copy_",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314,240 @70d99e99 -- non-contiguous same-dtype copy -> direct_copy_kernel_cuda float lambda",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- gpu_kernel_impl_nocast, not contiguous -> launch_legacy_kernel<128, 2>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=1024 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=8192; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name is not determinable statically; use the regex.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/large/c3",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "large",
+   "candidate_id": "c3",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     8192,
+     1024
+    ],
+    "strides": [
+     1027,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 1024,
+    "eps": 1e-05,
+    "row_stride": 1027,
+    "rows": 8192
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      32768,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 8388608,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 1024,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 256,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 2,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/core/TensorBase.h:1056-1064 @70d99e99 -- expect_contiguous on non-contiguous view -> owned __dispatch_contiguous -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like + copy_",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314,240 @70d99e99 -- non-contiguous same-dtype copy -> direct_copy_kernel_cuda float lambda",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- gpu_kernel_impl_nocast, not contiguous -> launch_legacy_kernel<128, 2>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=1024 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=8192; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name is not determinable statically; use the regex.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/large/c4",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "large",
+   "candidate_id": "c4",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     8192,
+     1024
+    ],
+    "strides": [
+     1031,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 1024,
+    "eps": 1e-05,
+    "row_stride": 1031,
+    "rows": 8192
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      32768,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 8388608,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 1024,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 256,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 2,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/core/TensorBase.h:1056-1064 @70d99e99 -- expect_contiguous on non-contiguous view -> owned __dispatch_contiguous -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like + copy_",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314,240 @70d99e99 -- non-contiguous same-dtype copy -> direct_copy_kernel_cuda float lambda",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- gpu_kernel_impl_nocast, not contiguous -> launch_legacy_kernel<128, 2>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=1024 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=8192; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name is not determinable statically; use the regex.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/medium/c1",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     4096,
+     512
+    ],
+    "strides": [
+     512,
+     1
+    ],
+    "contiguous": true,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 512,
+    "eps": 1e-05,
+    "row_stride": 512,
+    "rows": 4096
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      4096,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 512,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 128,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 1,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 1,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- view strides (512,1) == contiguous: expect_contiguous borrows, NO copy kernel",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=512 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=4096; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/medium/c2",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     4096,
+     512
+    ],
+    "strides": [
+     513,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 512,
+    "eps": 1e-05,
+    "row_stride": 513,
+    "rows": 4096
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 2097152,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      4096,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 512,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 128,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 1,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/core/TensorBase.h:1056-1064 @70d99e99 -- expect_contiguous on non-contiguous view -> owned __dispatch_contiguous -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like + copy_",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314,240 @70d99e99 -- non-contiguous same-dtype copy -> direct_copy_kernel_cuda float lambda",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- gpu_kernel_impl_nocast, not contiguous -> launch_legacy_kernel<128, 2>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=512 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=4096; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name is not determinable statically; use the regex.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/medium/c3",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "medium",
+   "candidate_id": "c3",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     4096,
+     512
+    ],
+    "strides": [
+     515,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 512,
+    "eps": 1e-05,
+    "row_stride": 515,
+    "rows": 4096
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 2097152,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      4096,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 512,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 128,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 1,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/core/TensorBase.h:1056-1064 @70d99e99 -- expect_contiguous on non-contiguous view -> owned __dispatch_contiguous -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like + copy_",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314,240 @70d99e99 -- non-contiguous same-dtype copy -> direct_copy_kernel_cuda float lambda",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- gpu_kernel_impl_nocast, not contiguous -> launch_legacy_kernel<128, 2>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=512 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=4096; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name is not determinable statically; use the regex.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/medium/c4",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "medium",
+   "candidate_id": "c4",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     4096,
+     512
+    ],
+    "strides": [
+     519,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 512,
+    "eps": 1e-05,
+    "row_stride": 519,
+    "rows": 4096
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      8192,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 2097152,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      4096,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 512,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 128,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 1,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/core/TensorBase.h:1056-1064 @70d99e99 -- expect_contiguous on non-contiguous view -> owned __dispatch_contiguous -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like + copy_",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314,240 @70d99e99 -- non-contiguous same-dtype copy -> direct_copy_kernel_cuda float lambda",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- gpu_kernel_impl_nocast, not contiguous -> launch_legacy_kernel<128, 2>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=512 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=4096; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name is not determinable statically; use the regex.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/small/c1",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "small",
+   "candidate_id": "c1",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     1024,
+     128
+    ],
+    "strides": [
+     128,
+     1
+    ],
+    "contiguous": true,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 128,
+    "eps": 1e-05,
+    "row_stride": 128,
+    "rows": 1024
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      1024,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 128,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 32,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 1,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 1,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- view strides (128,1) == contiguous: expect_contiguous borrows, NO copy kernel",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=128 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=1024; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/small/c2",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "small",
+   "candidate_id": "c2",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     1024,
+     128
+    ],
+    "strides": [
+     129,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 128,
+    "eps": 1e-05,
+    "row_stride": 129,
+    "rows": 1024
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      512,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 131072,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      1024,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 128,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 32,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 1,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/core/TensorBase.h:1056-1064 @70d99e99 -- expect_contiguous on non-contiguous view -> owned __dispatch_contiguous -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like + copy_",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314,240 @70d99e99 -- non-contiguous same-dtype copy -> direct_copy_kernel_cuda float lambda",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- gpu_kernel_impl_nocast, not contiguous -> launch_legacy_kernel<128, 2>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=128 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=1024; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name is not determinable statically; use the regex.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/small/c3",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "small",
+   "candidate_id": "c3",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     1024,
+     128
+    ],
+    "strides": [
+     131,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 128,
+    "eps": 1e-05,
+    "row_stride": 131,
+    "rows": 1024
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      512,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 131072,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      1024,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 128,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 32,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 1,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/core/TensorBase.h:1056-1064 @70d99e99 -- expect_contiguous on non-contiguous view -> owned __dispatch_contiguous -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like + copy_",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314,240 @70d99e99 -- non-contiguous same-dtype copy -> direct_copy_kernel_cuda float lambda",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- gpu_kernel_impl_nocast, not contiguous -> launch_legacy_kernel<128, 2>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=128 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=1024; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name is not determinable statically; use the regex.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  },
+  {
+   "cell_id": "blackwell/final_pytorch_layer_norm/small/c4",
+   "operator_id": "final_pytorch_layer_norm",
+   "regime": "small",
+   "candidate_id": "c4",
+   "call": "torch.nn.functional.layer_norm(view, [cols], weight=ones(cols), bias=zeros(cols), eps=1e-5) where view = padded[:, :cols], padded = (rows, row_stride) float32",
+   "dtype": "float32",
+   "input": {
+    "shape": [
+     1024,
+     128
+    ],
+    "strides": [
+     135,
+     1
+    ],
+    "contiguous": false,
+    "storage_offset": 0
+   },
+   "controls": {
+    "affine": true,
+    "cols": 128,
+    "eps": 1e-05,
+    "row_stride": 135,
+    "rows": 1024
+   },
+   "controls_from_sessions": [
+    "FINAL-PYTORCH-20260922T195700Z",
+    "FINAL-PYTORCH-S2-20260922T204600Z"
+   ],
+   "kernels": [
+    {
+     "order": 1,
+     "role": "expect_contiguous() materialisation of the padded view (precedes layer norm)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/CUDALoops.cuh",
+      "function": "elementwise_kernel<128, 2, ...> via gpu_kernel_impl_nocast (instantiated from direct_copy_kernel_cuda, Copy.cu:240)",
+      "line": 526
+     },
+     "template_args": {
+      "nt": 128,
+      "vt": 2,
+      "func_t": "gpu_kernel_impl_nocast<direct_copy_kernel_cuda(TensorIteratorBase&)::{lambda(float)#N}>::{lambda(int)#1}"
+     },
+     "demangled_name_pattern": "at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#N}>(at::TensorIteratorBase&, ...)::{lambda(int)#1}>(int, ...)",
+     "demangled_name_regex": "elementwise_kernel<128, 2, .*gpu_kernel_impl_nocast<.*direct_copy_kernel_cuda.*\\{lambda\\(float\\)#\\d+\\}.*\\{lambda\\(int\\)#1\\}>",
+     "grid": [
+      512,
+      1,
+      1
+     ],
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "dynamic_smem_bytes": 0,
+     "args": {
+      "N": 131072,
+      "offset_calculator": "OffsetCalculator<2> over dims [cols, rows]"
+     },
+     "extra_control_flow": "each thread handles vt=2 elements 128 apart (idx += nt); offset calculator does 2-D div/mod per element (non-vectorized scalar float loads/stores)"
+    },
+    {
+     "order": 2,
+     "role": "layer_norm_forward (single fused moments+normalize kernel)",
+     "source": {
+      "file": "aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+      "function": "vectorized_layer_norm_kernel -> vectorized_layer_norm_kernel_impl",
+      "line": 343
+     },
+     "template_args": {
+      "T": "float",
+      "T_ACC": "float",
+      "rms_norm": false
+     },
+     "demangled_name_pattern": "at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+     "demangled_name_regex": "vectorized_layer_norm_kernel<float, float, false>",
+     "grid": [
+      1024,
+      1,
+      1
+     ],
+     "block": [
+      32,
+      4,
+      1
+     ],
+     "dynamic_smem_bytes": 24,
+     "args": {
+      "N": 128,
+      "eps": 1e-05,
+      "gamma_defined": true,
+      "beta_defined": true,
+      "n_vec_to_read": 32,
+      "vec_size": 4,
+      "max_vec_iterations_per_thread": 1,
+      "block_threads_total": 128
+     },
+     "extra_control_flow": "compute_stats: float4 loads strided by 128 threads (Welford), intra-warp shuffle reduce over 5 steps, inter-warp (blockDim.y=4) 2-step smem reduce with __syncthreads; then normalize loop with gamma and beta both defined"
+    }
+   ],
+   "kernels_per_call": 2,
+   "measured_unit_covers_all_kernels": true,
+   "decision_path": [
+    "torch/nn/functional.py:2935 @70d99e99 -- F.layer_norm -> torch.layer_norm(input, [cols], weight, bias, eps=1e-5, cudnn_enabled)",
+    "aten/src/ATen/native/native_functions.yaml:3322-3324 @70d99e99 -- layer_norm: CompositeImplicitAutograd layer_norm_symint",
+    "aten/src/ATen/native/layer_norm.cpp:198 @70d99e99 -- layer_norm_symint -> std::get<0>(at::native_layer_norm_symint(...))",
+    "aten/src/ATen/native/native_functions.yaml:3326-3329 @70d99e99 -- native_layer_norm CUDA: layer_norm_cuda",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1725 @70d99e99 -- layer_norm_cuda: X = input.expect_contiguous(); gamma/beta expect_contiguous",
+    "aten/src/ATen/core/TensorBase.h:1056-1064 @70d99e99 -- expect_contiguous on non-contiguous view -> owned __dispatch_contiguous -> clone(Contiguous)",
+    "aten/src/ATen/native/TensorFactories.cpp:2284,2290 @70d99e99 -- clone: empty_like + copy_",
+    "aten/src/ATen/native/cuda/Copy.cu:264,314,240 @70d99e99 -- non-contiguous same-dtype copy -> direct_copy_kernel_cuda float lambda",
+    "aten/src/ATen/native/cuda/CUDALoops.cuh:960,659-667 @70d99e99 -- gpu_kernel_impl_nocast, not contiguous -> launch_legacy_kernel<128, 2>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1730-1737 @70d99e99 -- Y = empty_like(X); mean, rstd = at::empty({M}) (no fill kernels)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1144 @70d99e99 -- LayerNormKernelImpl dispatch float -> LayerNormKernelImplInternal<float, float(acc)>",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1104-1111 @70d99e99 -- fast-path test: T=float, N=128 <= 2^24, N % 4 == 0 (True), X/Y/gamma/beta all 16-B aligned (allocator-fresh, assumed) -> TRUE",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1114 @70d99e99 -- launch_vectorized_layer_norm_kernel<float, float, false> (RowwiseMoments + LayerNormForward fallback at 1117-1122 NOT taken)",
+    "aten/src/ATen/native/cuda/layer_norm_kernel.cu:1034-1048 @70d99e99 -- threads=(32, num_threads()/32=4, 1) (thread_constants.h num_threads()=32*4=128); blocks=M=1024; nshared = 4*3/2*sizeof(float) = 24 B"
+   ],
+   "confidence": "high",
+   "assumptions": [
+    "Tensors come from the CUDA caching allocator: block sizes are rounded to multiples of 512 B (c10/core/AllocatorConfig.h:18 kMinBlockSize=512; c10/cuda/CUDACachingAllocator.cpp:2600-2609 round_size), so freshly allocated tensors are >= 16 B aligned. Assumes no PYTORCH_CUDA_ALLOC_CONF that changes this and no cudaMallocAsync backend difference (not recorded in runtime_json).",
+    "torch.use_deterministic_algorithms is off (runners never enable it); otherwise at::empty would add a fill kernel.",
+    "Binary is the official-style cu128 build of this commit with USE_ROCM off; the host paths read are the non-ROCm branches.",
+    "Source-vs-binary identity (that libtorch_cuda.so's text was compiled from these files) is taken from M443 (torch.version.git_version) and is not re-verified here; kernels' demangled names should be grepped in the real binary to confirm.",
+    "Lambda ordinal in the copy kernel's demangled name is not determinable statically; use the regex.",
+    "The non-vectorized path (RowwiseMomentsCUDAKernel then LayerNormForwardCUDAKernel, 2 kernels) would be taken only if X/Y/gamma/beta were not 16-B aligned or N%4 != 0; neither holds here, so it is NOT launched for any cell."
+   ]
+  }
+ ]
+}

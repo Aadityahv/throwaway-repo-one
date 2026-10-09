@@ -1,0 +1,574 @@
+{
+  "scope": "Actual complete-inventory CPU benchmarks of frozen Blackwell predictions. Compilation/disassembly is a separate shared-unit cost. GPU cost scenarios are explicitly estimates based on the recorded calibration scope and median label cadence, not measured end-to-end campaigns.",
+  "configurations": 167,
+  "cold": {
+    "4": {
+      "wall_s": 6437.973785816226,
+      "throughput_cells_per_min": 1.5563903074715042,
+      "worker_cpu_s": 25313.65,
+      "child_cpu_s": 25315.499872,
+      "peak_aggregate_rss_bytes": 21446598656,
+      "max_cell_rss_kib": 13235636,
+      "cell_wall_s": {
+        "max": 4788.0481245690025,
+        "mean": 153.64837931099063,
+        "median": 19.247059658169746,
+        "p90": 335.50991809004927
+      },
+      "predictions_match_frozen": true,
+      "slowest_configurations": [
+        {
+          "analysis_s": 4783.25484695239,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/medium/c2",
+          "cpu_s": 4735.56,
+          "max_rss_kib": 13235636,
+          "prediction": {
+            "energy_j": 0.06355970143977263,
+            "reason": null,
+            "runtime_s": 0.00023107954460138209
+          },
+          "prediction_s": 0.1498706080019474,
+          "wall_s": 4788.0481245690025
+        },
+        {
+          "analysis_s": 2302.482290884014,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/xlarge/c2",
+          "cpu_s": 2276.7000000000003,
+          "max_rss_kib": 6672968,
+          "prediction": {
+            "energy_j": 1.847818157588081,
+            "reason": null,
+            "runtime_s": 0.003649105108753237
+          },
+          "prediction_s": 0.1497961999848485,
+          "wall_s": 2304.939019586891
+        },
+        {
+          "analysis_s": 1359.8247765209526,
+          "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c2",
+          "cpu_s": 1354.16,
+          "max_rss_kib": 6393944,
+          "prediction": {
+            "energy_j": null,
+            "reason": "inter-block reuse per-wave working set 138.2 MiB exceeds the L2 capacity 128.0 MiB; the L2-captures-reuse assumption fails (refused)",
+            "runtime_s": null
+          },
+          "prediction_s": 1.0174607541412115,
+          "wall_s": 1363.6162615199573
+        },
+        {
+          "analysis_s": 1326.16939318832,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/medium/c1",
+          "cpu_s": 1321.23,
+          "max_rss_kib": 5046600,
+          "prediction": {
+            "energy_j": 0.06439980665070039,
+            "reason": null,
+            "runtime_s": 0.00012979705989629814
+          },
+          "prediction_s": 0.19023201800882816,
+          "wall_s": 1327.8467956562527
+        },
+        {
+          "analysis_s": 1162.164097076282,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/large/c2",
+          "cpu_s": 1147.61,
+          "max_rss_kib": 3420056,
+          "prediction": {
+            "energy_j": 1.2020251450220802,
+            "reason": null,
+            "runtime_s": 0.002479886131535791
+          },
+          "prediction_s": 0.16197128174826503,
+          "wall_s": 1163.813916190993
+        },
+        {
+          "analysis_s": 1147.5872965403832,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/small/c2",
+          "cpu_s": 1133.99,
+          "max_rss_kib": 3420136,
+          "prediction": {
+            "energy_j": 0.011520967257715661,
+            "reason": null,
+            "runtime_s": 6.697249342885686e-05
+          },
+          "prediction_s": 0.1453879689797759,
+          "wall_s": 1148.9983646860346
+        },
+        {
+          "analysis_s": 1127.2960183271207,
+          "cell_id": "blackwell/validation_fp32_matmul/v1/c2",
+          "cpu_s": 1115.33,
+          "max_rss_kib": 3419276,
+          "prediction": {
+            "energy_j": 0.05284037428250777,
+            "reason": null,
+            "runtime_s": 0.00011551990562333875
+          },
+          "prediction_s": 0.1473104921169579,
+          "wall_s": 1128.6091904090717
+        },
+        {
+          "analysis_s": 670.9032478751615,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/xlarge/c1",
+          "cpu_s": 658.55,
+          "max_rss_kib": 2565424,
+          "prediction": {
+            "energy_j": 1.920044453710507,
+            "reason": null,
+            "runtime_s": 0.0032000740895175117
+          },
+          "prediction_s": 0.19263018015772104,
+          "wall_s": 671.9022395708598
+        },
+        {
+          "analysis_s": 656.373957936652,
+          "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/large/c2",
+          "cpu_s": 643.14,
+          "max_rss_kib": 3215756,
+          "prediction": {
+            "energy_j": 0.8841272489998973,
+            "reason": null,
+            "runtime_s": 0.0021253678545547073
+          },
+          "prediction_s": 0.18646446662023664,
+          "wall_s": 657.7923787427135
+        },
+        {
+          "analysis_s": 568.3118819743395,
+          "cell_id": "blackwell/fresh_d_cuda_samples_reduction/l2/c3",
+          "cpu_s": 555.78,
+          "max_rss_kib": 123260,
+          "prediction": {
+            "energy_j": 0.012760023409391648,
+            "reason": null,
+            "runtime_s": 7.905191746996335e-05
+          },
+          "prediction_s": 0.17751463828608394,
+          "wall_s": 568.5634700870141
+        }
+      ],
+      "compile_plus_analysis_wall_s": 6445.665545764379,
+      "recorded_calibration_plus_cpu_scenario_s": 9985.66554576438,
+      "median_label_cadence_times_inventory_scenario_s": 25217,
+      "scenario_predicted_pipeline_less_elapsed": true
+    },
+    "8": {
+      "wall_s": 4694.007242857013,
+      "throughput_cells_per_min": 2.13463667216272,
+      "worker_cpu_s": 25338.47,
+      "child_cpu_s": 25340.433075,
+      "peak_aggregate_rss_bytes": 25551208448,
+      "max_cell_rss_kib": 13234164,
+      "cell_wall_s": {
+        "max": 4657.775971925817,
+        "mean": 152.65435921628318,
+        "median": 18.97023008391261,
+        "p90": 336.3009065032937
+      },
+      "predictions_match_frozen": true,
+      "slowest_configurations": [
+        {
+          "analysis_s": 4652.914263877086,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/medium/c2",
+          "cpu_s": 4649.0,
+          "max_rss_kib": 13234164,
+          "prediction": {
+            "energy_j": 0.06355970143977263,
+            "reason": null,
+            "runtime_s": 0.00023107954460138209
+          },
+          "prediction_s": 0.1483180341310799,
+          "wall_s": 4657.775971925817
+        },
+        {
+          "analysis_s": 2317.743944554124,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/xlarge/c2",
+          "cpu_s": 2295.4,
+          "max_rss_kib": 6672164,
+          "prediction": {
+            "energy_j": 1.847818157588081,
+            "reason": null,
+            "runtime_s": 0.003649105108753237
+          },
+          "prediction_s": 0.1521091628819704,
+          "wall_s": 2320.155323369894
+        },
+        {
+          "analysis_s": 1392.374209057074,
+          "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c2",
+          "cpu_s": 1383.27,
+          "max_rss_kib": 6393464,
+          "prediction": {
+            "energy_j": null,
+            "reason": "inter-block reuse per-wave working set 138.2 MiB exceeds the L2 capacity 128.0 MiB; the L2-captures-reuse assumption fails (refused)",
+            "runtime_s": null
+          },
+          "prediction_s": 1.1044969586655498,
+          "wall_s": 1396.672403929755
+        },
+        {
+          "analysis_s": 1333.4101585811004,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/medium/c1",
+          "cpu_s": 1331.08,
+          "max_rss_kib": 5047092,
+          "prediction": {
+            "energy_j": 0.06439980665070039,
+            "reason": null,
+            "runtime_s": 0.00012979705989629814
+          },
+          "prediction_s": 0.19188558077439666,
+          "wall_s": 1335.1612764350139
+        },
+        {
+          "analysis_s": 1141.3756105806679,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/small/c2",
+          "cpu_s": 1140.28,
+          "max_rss_kib": 3420328,
+          "prediction": {
+            "energy_j": 0.011520967257715661,
+            "reason": null,
+            "runtime_s": 6.697249342885686e-05
+          },
+          "prediction_s": 0.1516262199729681,
+          "wall_s": 1142.746831477154
+        },
+        {
+          "analysis_s": 1140.6925434721634,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/large/c2",
+          "cpu_s": 1129.82,
+          "max_rss_kib": 3420960,
+          "prediction": {
+            "energy_j": 1.2020251450220802,
+            "reason": null,
+            "runtime_s": 0.002479886131535791
+          },
+          "prediction_s": 0.152555373031646,
+          "wall_s": 1142.046539335046
+        },
+        {
+          "analysis_s": 1117.581665577367,
+          "cell_id": "blackwell/validation_fp32_matmul/v1/c2",
+          "cpu_s": 1119.2,
+          "max_rss_kib": 3420860,
+          "prediction": {
+            "energy_j": 0.05284037428250777,
+            "reason": null,
+            "runtime_s": 0.00011551990562333875
+          },
+          "prediction_s": 0.14776911493390799,
+          "wall_s": 1119.249451132957
+        },
+        {
+          "analysis_s": 655.7469869782217,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/xlarge/c1",
+          "cpu_s": 656.63,
+          "max_rss_kib": 2565696,
+          "prediction": {
+            "energy_j": 1.920044453710507,
+            "reason": null,
+            "runtime_s": 0.0032000740895175117
+          },
+          "prediction_s": 0.19217310613021255,
+          "wall_s": 656.6967046703212
+        },
+        {
+          "analysis_s": 650.6494760499336,
+          "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/large/c2",
+          "cpu_s": 646.5600000000001,
+          "max_rss_kib": 3216516,
+          "prediction": {
+            "energy_j": 0.8841272489998973,
+            "reason": null,
+            "runtime_s": 0.0021253678545547073
+          },
+          "prediction_s": 0.1938869538716972,
+          "wall_s": 652.1648076460697
+        },
+        {
+          "analysis_s": 556.6631988589652,
+          "cell_id": "blackwell/fresh_d_cuda_samples_reduction/l2/c3",
+          "cpu_s": 556.87,
+          "max_rss_kib": 122976,
+          "prediction": {
+            "energy_j": 0.012760023409391648,
+            "reason": null,
+            "runtime_s": 7.905191746996335e-05
+          },
+          "prediction_s": 0.24914392409846187,
+          "wall_s": 557.0068087740801
+        }
+      ],
+      "compile_plus_analysis_wall_s": 4701.21272184886,
+      "recorded_calibration_plus_cpu_scenario_s": 8241.21272184886,
+      "median_label_cadence_times_inventory_scenario_s": 25217,
+      "scenario_predicted_pipeline_less_elapsed": true
+    },
+    "55": {
+      "wall_s": 4872.598127564881,
+      "throughput_cells_per_min": 2.0563977856732407,
+      "worker_cpu_s": 29048.9,
+      "child_cpu_s": 29050.763467,
+      "peak_aggregate_rss_bytes": 27229945856,
+      "max_cell_rss_kib": 13228208,
+      "cell_wall_s": {
+        "max": 4872.491152455099,
+        "mean": 176.6502552003304,
+        "median": 28.5368416281417,
+        "p90": 410.2132558273153
+      },
+      "predictions_match_frozen": true,
+      "slowest_configurations": [
+        {
+          "analysis_s": 4867.984671302605,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/medium/c2",
+          "cpu_s": 4832.679999999999,
+          "max_rss_kib": 13228208,
+          "prediction": {
+            "energy_j": 0.06355970143977263,
+            "reason": null,
+            "runtime_s": 0.00023107954460138209
+          },
+          "prediction_s": 0.14890382438898087,
+          "wall_s": 4872.491152455099
+        },
+        {
+          "analysis_s": 2381.6624347679317,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/xlarge/c2",
+          "cpu_s": 2334.2200000000003,
+          "max_rss_kib": 6669872,
+          "prediction": {
+            "energy_j": 1.847818157588081,
+            "reason": null,
+            "runtime_s": 0.003649105108753237
+          },
+          "prediction_s": 0.15511026419699192,
+          "wall_s": 2384.078321435023
+        },
+        {
+          "analysis_s": 1419.1907962239347,
+          "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c2",
+          "cpu_s": 1410.67,
+          "max_rss_kib": 6395652,
+          "prediction": {
+            "energy_j": null,
+            "reason": "inter-block reuse per-wave working set 138.2 MiB exceeds the L2 capacity 128.0 MiB; the L2-captures-reuse assumption fails (refused)",
+            "runtime_s": null
+          },
+          "prediction_s": 1.164001732133329,
+          "wall_s": 1423.0915046478622
+        },
+        {
+          "analysis_s": 1385.7248005410656,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/medium/c1",
+          "cpu_s": 1386.99,
+          "max_rss_kib": 5046692,
+          "prediction": {
+            "energy_j": 0.06439980665070039,
+            "reason": null,
+            "runtime_s": 0.00012979705989629814
+          },
+          "prediction_s": 0.3350074007175863,
+          "wall_s": 1387.8020309032872
+        },
+        {
+          "analysis_s": 1231.7900234162807,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/large/c2",
+          "cpu_s": 1190.8999999999999,
+          "max_rss_kib": 3417432,
+          "prediction": {
+            "energy_j": 1.2020251450220802,
+            "reason": null,
+            "runtime_s": 0.002479886131535791
+          },
+          "prediction_s": 0.14763187989592552,
+          "wall_s": 1233.0711441277526
+        },
+        {
+          "analysis_s": 1218.667458306998,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/small/c2",
+          "cpu_s": 1184.7,
+          "max_rss_kib": 3417804,
+          "prediction": {
+            "energy_j": 0.011520967257715661,
+            "reason": null,
+            "runtime_s": 6.697249342885686e-05
+          },
+          "prediction_s": 0.14789325930178165,
+          "wall_s": 1219.9759463523515
+        },
+        {
+          "analysis_s": 1167.9311176720075,
+          "cell_id": "blackwell/validation_fp32_matmul/v1/c2",
+          "cpu_s": 1168.31,
+          "max_rss_kib": 3420392,
+          "prediction": {
+            "energy_j": 0.05284037428250777,
+            "reason": null,
+            "runtime_s": 0.00011551990562333875
+          },
+          "prediction_s": 0.1493083699606359,
+          "wall_s": 1169.2343312627636
+        },
+        {
+          "analysis_s": 744.1981657291763,
+          "cell_id": "blackwell/fresh_f_ml_fp32_matmul/xlarge/c1",
+          "cpu_s": 745.51,
+          "max_rss_kib": 2563732,
+          "prediction": {
+            "energy_j": 1.920044453710507,
+            "reason": null,
+            "runtime_s": 0.0032000740895175117
+          },
+          "prediction_s": 0.32919452991336584,
+          "wall_s": 745.6101204338484
+        },
+        {
+          "analysis_s": 720.6006961897947,
+          "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/large/c2",
+          "cpu_s": 722.37,
+          "max_rss_kib": 3216236,
+          "prediction": {
+            "energy_j": 0.8841272489998973,
+            "reason": null,
+            "runtime_s": 0.0021253678545547073
+          },
+          "prediction_s": 0.22322456631809473,
+          "wall_s": 722.4351728730835
+        },
+        {
+          "analysis_s": 615.7249624156393,
+          "cell_id": "blackwell/fresh_d_cuda_samples_reduction/l2/c3",
+          "cpu_s": 602.11,
+          "max_rss_kib": 122636,
+          "prediction": {
+            "energy_j": 0.012760023409391648,
+            "reason": null,
+            "runtime_s": 7.905191746996335e-05
+          },
+          "prediction_s": 0.36554798763245344,
+          "wall_s": 616.2223557569087
+        }
+      ]
+    }
+  },
+  "pending_cold_workers": [
+    1
+  ],
+  "cached": {
+    "1": {
+      "wall_s": 0.7527188379317522,
+      "throughput_cells_per_min": 13311.74336958536,
+      "worker_cpu_s": 0.6350602800000007,
+      "peak_aggregate_rss_bytes": 110952448
+    },
+    "4": {
+      "wall_s": 0.5672728535719216,
+      "throughput_cells_per_min": 17663.457605819694,
+      "worker_cpu_s": 1.6398867420000003,
+      "peak_aggregate_rss_bytes": 281423872
+    },
+    "8": {
+      "wall_s": 0.548433911986649,
+      "throughput_cells_per_min": 18270.204998271376,
+      "worker_cpu_s": 2.905809872,
+      "peak_aggregate_rss_bytes": 509530112
+    },
+    "56": {
+      "wall_s": 0.7973444489762187,
+      "throughput_cells_per_min": 12566.714439243375,
+      "worker_cpu_s": 23.851547427,
+      "peak_aggregate_rss_bytes": 4157177856
+    }
+  },
+  "compilation": {
+    "1": {
+      "units": 13,
+      "wall_s": 28.447499420959502,
+      "cpu_s": 27.560000000000002,
+      "all_encoded_sass_exact": true,
+      "all_cubins_exact": false
+    },
+    "4": {
+      "units": 13,
+      "wall_s": 7.691759948153049,
+      "cpu_s": 25.32,
+      "all_encoded_sass_exact": true,
+      "all_cubins_exact": false
+    },
+    "8": {
+      "units": 13,
+      "wall_s": 7.205478991847485,
+      "cpu_s": 21.47,
+      "all_encoded_sass_exact": true,
+      "all_cubins_exact": false
+    }
+  },
+  "calibration_scope": "Blackwell reported 52-minute calibration and seven-minute tensor booking; excludes pair-program setup/compilation/staging. These records are not a complete invocation timer.",
+  "measurement_reference": "151 seconds is the median archived operator-window cadence (121 within-stream gaps), not the measured total for this exact 167-configuration campaign.",
+  "shared_host_scope": "One/four/eight-worker runs overlap; four/eight start during the initial 55-worker tail. Disjoint one/four/eight CPU masks, with initial mask overlap. Recorded host load is part of the actual throughput. No isolated scaling guarantee.",
+  "memory_scope": "RSS is the sampled sum across the coordinator/process tree and may double-count shared pages; no unique-memory or host-energy claim.",
+  "controller": {
+    "status": "running",
+    "start_epoch": 1791217324.326103,
+    "runs": [
+      {
+        "workers": 55,
+        "wall_s": 4872.598127564881,
+        "observed_finished_epoch": 1791219689.822552
+      },
+      {
+        "workers": 8,
+        "wall_s": 4694.007242857013,
+        "observed_finished_epoch": 1791222020.2376695
+      },
+      {
+        "workers": 4,
+        "wall_s": 6437.973785816226,
+        "observed_finished_epoch": 1791223765.535135
+      }
+    ],
+    "source_unchanged": null,
+    "adopted_existing_suites": [
+      1,
+      55
+    ],
+    "physical_cores_reserved": 8,
+    "new_suite_logical_cpus": {
+      "4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "8": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "controller_sha256": "4d26650e46027462f58966379c813610eb8095178caa4356b7117d57a02d12b8",
+    "methodology": "Actual shared-host full-inventory wall times. The one-, four- and eight-worker suites overlap; the four/eight suites also overlap the final matrix-multiply case of the initial 55-worker suite. Four/eight/one use separate CPU masks; the initial suite mask includes the four/eight CPUs. Load and memory samples are retained. These are not isolated scaling guarantees. No active analysis process is stopped or duplicated.",
+    "launched_pids": {
+      "4": 1019270,
+      "8": 1019271
+    }
+  },
+  "complete_required_worker_comparisons": false,
+  "sources_sha256": {
+    "/home/user/tiresias/tiresias/framework/cpu_prediction_benchmark/cpu_campaign/evidence/cached/one_worker.json": "4454a587521fb8112de2e013c212384cac0143a641b9ac8c132d0f15765e2906",
+    "/var/folders/px/ybx2fspj70s3j7g4956rbs280000gn/T/tiresias-verified-cpu-results-t9zcs7e0/results/cold_workers_4/report.json": "02927dacdf3aba6796c5ffe451544e4870767e3e324cf1e6918ef5bd2865d7f1",
+    "/var/folders/px/ybx2fspj70s3j7g4956rbs280000gn/T/tiresias-verified-cpu-results-t9zcs7e0/results/cold_workers_8/report.json": "1a63de003002c417aa7d6e7b3dc267b3111eaff908e007e174bb45abb79e2763",
+    "/var/folders/px/ybx2fspj70s3j7g4956rbs280000gn/T/tiresias-verified-cpu-results-t9zcs7e0/results/cold_workers_55/report.json": "5889857d3ef8c67a38b5496a050f9d17d1b694374a97b7197481f2fe3576cef9",
+    "/home/user/tiresias/tiresias/framework/cpu_prediction_benchmark/cpu_campaign/evidence/cached/four_workers.json": "fc90322793c4461ead81f7e65ca1f86ff53b3a2b5135bec8b96d92db8a4db37b",
+    "/home/user/tiresias/tiresias/framework/cpu_prediction_benchmark/cpu_campaign/evidence/cached/eight_workers.json": "880ea635306988e7e2e63891d8350eb944a7c3c3509dabc9b88414bfd4e9a4f5",
+    "/home/user/tiresias/tiresias/framework/cpu_prediction_benchmark/cpu_campaign/evidence/cached/fifty_six_workers.json": "f7cf562f688c1e3373a81ea0f5a9a8141901a7ac5375892bd6a72dd3329821b4",
+    "/home/user/tiresias/tiresias/framework/cpu_prediction_benchmark/cpu_campaign/evidence/compile_results.tar.gz": "0323c091e9dbbf5815d7eed3874c05026f1f027df99e0be920f046adb63594a1",
+    "/var/folders/px/ybx2fspj70s3j7g4956rbs280000gn/T/tiresias-verified-cpu-results-t9zcs7e0/results/concurrent_campaign_state.json": "ba1cb48fa29aca3375c0eb1ff44cfb9b960b6e8c47763321f0501c1099ee9a79"
+  }
+}

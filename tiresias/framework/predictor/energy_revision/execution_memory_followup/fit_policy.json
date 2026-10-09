@@ -1,0 +1,16 @@
+{
+  "schema": "component_calibration_admission_policy/1",
+  "cap_w": 600,
+  "below_cap_fraction": 0.95,
+  "max_normalized_condition": 10000,
+  "heldout_max_median_ape_pct": 15,
+  "heldout_max_cell_ape_pct": 30,
+  "heldout_max_median_degradation_vs_pooled_pct": 2,
+  "max_dose_prediction_shift_pct": 20,
+  "optimizer": "nonnegative least squares, column normalized, relative-joule squared loss; no intercept outside base-time coefficient, penalty search or target-label selection",
+  "candidate_features": ["base_time", "fp32_work", "other_non_global", "special_function", "lookup_bytes", "dram_bytes"],
+  "pooled_features": ["base_time", "pooled_activity", "lookup_bytes", "dram_bytes"],
+  "constant_fit": "arithmetic mean of measured calibration power on the same 24 fit windows",
+  "scope": "Blackwell GPU 1 pilot; only calibration labels; no target runtime used to fit energy coefficients",
+  "on_failure": "retain all raw failures and reject the profile; no row deletion, retry, regularization search or new acquisition without a revised preregistration"
+}

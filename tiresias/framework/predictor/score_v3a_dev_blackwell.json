@@ -1,0 +1,2558 @@
+{
+ "inputs": {
+  "tiresias/framework/predictor/predictions_v3_dev_blackwell.json": "863335fe2ac63f141c610e806be27c58a198c5599eddadade823eea3dfc5603f",
+  "tiresias/framework/compile_evidence/development/development_cells.csv": "1d6fc935ac8bbad64c7893d242f92dc28262615e732c3394d4967bc280e34815",
+  "tiresias/app_runners/iteration4_fit_score_blackwell.json": "89ae370d464135868ed907168141f2eeb61ad6f6101bae51ed1f5947349129d2",
+  "tiresias/framework/predictor/score_runtime.py": "ee11d0cd1a428d344cb9bf66d622c2492c0cfbde872945a847f60bbee179a4a8"
+ },
+ "kill_rule": {
+  "runtime_median_max_pct": 15.0,
+  "energy_margin_pp": 5.0,
+  "energy_p90_margin_pp": 10.0
+ },
+ "variants": {
+  "primary_s": {
+   "supported_cells": 84,
+   "unsupported_cells": 48,
+   "runtime_error": {
+    "n": 84,
+    "median_pct": 12.67,
+    "p90_pct": 75.44,
+    "unsupported_failures": 0
+   },
+   "energy_error_predicted_runtime": {
+    "all": {
+     "n": 84,
+     "median_pct": 13.07,
+     "p90_pct": 55.26,
+     "unsupported_failures": 0
+    },
+    "below_cap": {
+     "n": 54,
+     "median_pct": 8.31,
+     "p90_pct": 36.8,
+     "unsupported_failures": 0
+    },
+    "below_cap_onchip": {
+     "n": 20,
+     "median_pct": 18.21,
+     "p90_pct": 49.83,
+     "unsupported_failures": 0
+    }
+   },
+   "energy_error_measured_runtime_same_cells": {
+    "all": {
+     "n": 84,
+     "median_pct": 4.22,
+     "p90_pct": 44.62,
+     "unsupported_failures": 0
+    },
+    "below_cap": {
+     "n": 54,
+     "median_pct": 5.89,
+     "p90_pct": 46.41,
+     "unsupported_failures": 0
+    },
+    "below_cap_onchip": {
+     "n": 20,
+     "median_pct": 35.98,
+     "p90_pct": 53.59,
+     "unsupported_failures": 0
+    }
+   },
+   "signed_runtime_error_median_pct": 9.37,
+   "per_operator": {
+    "alt_cuda_samples_copy": {
+     "cells": 6,
+     "supported": 6,
+     "runtime_median_pct": 5.97,
+     "signed_runtime_median_pct": 0.6,
+     "unsupported_reasons": []
+    },
+    "alt_cuda_samples_reduction": {
+     "cells": 9,
+     "supported": 9,
+     "runtime_median_pct": 10.51,
+     "signed_runtime_median_pct": 1.0,
+     "unsupported_reasons": []
+    },
+    "alt_cuda_samples_transposefine": {
+     "cells": 6,
+     "supported": 6,
+     "runtime_median_pct": 6.07,
+     "signed_runtime_median_pct": -1.0,
+     "unsupported_reasons": []
+    },
+    "dev_pytorch_rowwise_softmax": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "dev_triton_softmax": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 22.47,
+     "signed_runtime_median_pct": 22.47,
+     "unsupported_reasons": []
+    },
+    "final_cuda_samples_copy": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 23.02,
+     "signed_runtime_median_pct": 13.57,
+     "unsupported_reasons": []
+    },
+    "final_pytorch_embedding": {
+     "cells": 3,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "data-dependent global address; transaction counts remain null"
+     ]
+    },
+    "final_pytorch_layer_norm": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "final_triton_layer_norm": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 60.6,
+     "signed_runtime_median_pct": 60.6,
+     "unsupported_reasons": []
+    },
+    "final_xformers_indexed_select": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "no retained binary"
+     ]
+    },
+    "train_cuda_samples_reduction": {
+     "cells": 12,
+     "supported": 3,
+     "runtime_median_pct": 97.68,
+     "signed_runtime_median_pct": 97.68,
+     "unsupported_reasons": [
+      "sampled blocks have different phase signatures; grid phase split unproved"
+     ]
+    },
+    "train_cuda_samples_transpose": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 7.84,
+     "signed_runtime_median_pct": -3.85,
+     "unsupported_reasons": []
+    },
+    "train_triton_vector_add": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 20.98,
+     "signed_runtime_median_pct": 20.98,
+     "unsupported_reasons": []
+    }
+   },
+   "per_lineage": {
+    "https://github.com/NVIDIA/cuda-samples|5443602d89ed99aede2e4b7bf329daddeadb320e|cpp/0_Introduction/vectorAdd/vectorAdd.cu": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 23.02,
+     "signed_runtime_median_pct": 13.57,
+     "unsupported_reasons": []
+    },
+    "https://github.com/NVIDIA/cuda-samples|5443602d89ed99aede2e4b7bf329daddeadb320e|cpp/2_Concepts_and_Techniques/reduction/reduction_kernel.cu": {
+     "cells": 21,
+     "supported": 12,
+     "runtime_median_pct": 13.81,
+     "signed_runtime_median_pct": 6.6,
+     "unsupported_reasons": [
+      "sampled blocks have different phase signatures; grid phase split unproved"
+     ]
+    },
+    "https://github.com/NVIDIA/cuda-samples|5443602d89ed99aede2e4b7bf329daddeadb320e|cpp/6_Performance/transpose/transpose.cu": {
+     "cells": 24,
+     "supported": 24,
+     "runtime_median_pct": 6.96,
+     "signed_runtime_median_pct": -1.55,
+     "unsupported_reasons": []
+    },
+    "https://github.com/facebookresearch/xformers|6d925b3a94312fb46249d83879cab045b6a0aaae|xformers/ops/_triton/k_index_select_cat.py": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "no retained binary"
+     ]
+    },
+    "https://github.com/pytorch/pytorch|67faf385dd4133d3e658f9b1c2a4c87dc9b61218|aten/src/ATen/native/cuda/Indexing.cu": {
+     "cells": 3,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "data-dependent global address; transaction counts remain null"
+     ]
+    },
+    "https://github.com/pytorch/pytorch|67faf385dd4133d3e658f9b1c2a4c87dc9b61218|aten/src/ATen/native/cuda/SoftMax.cu": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "https://github.com/pytorch/pytorch|67faf385dd4133d3e658f9b1c2a4c87dc9b61218|aten/src/ATen/native/cuda/layer_norm_kernel.cu": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "https://github.com/triton-lang/triton|7369aa3d9b0fae7134bf47b16d83876b09ef8e9f|python/tutorials/01-vector-add.py": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 20.98,
+     "signed_runtime_median_pct": 20.98,
+     "unsupported_reasons": []
+    },
+    "https://github.com/triton-lang/triton|7369aa3d9b0fae7134bf47b16d83876b09ef8e9f|python/tutorials/02-fused-softmax.py": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 22.47,
+     "signed_runtime_median_pct": 22.47,
+     "unsupported_reasons": []
+    },
+    "https://github.com/triton-lang/triton|7369aa3d9b0fae7134bf47b16d83876b09ef8e9f|python/tutorials/05-layer-norm.py": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 60.6,
+     "signed_runtime_median_pct": 60.6,
+     "unsupported_reasons": []
+    }
+   },
+   "runtime_median_unsupported_as_failure_pct": 47.32,
+   "runtime_unsupported_as_failure": {
+    "n": 132,
+    "median_pct": 47.32,
+    "p90_pct": null,
+    "unsupported_failures": 48
+   },
+   "energy_below_cap_unsupported_as_failure": {
+    "n": 85,
+    "median_pct": 29.81,
+    "p90_pct": null,
+    "unsupported_failures": 31
+   },
+   "energy_measured_runtime_full_below_cap": {
+    "n": 85,
+    "median_pct": 9.33,
+    "p90_pct": 45.49,
+    "unsupported_failures": 0
+   },
+   "per_cell": {
+    "blackwell/alt_cuda_samples_copy/large/c1": {
+     "runtime_error_pct": 0.3499380651744044,
+     "energy_error_pct": 2.3244979003701594
+    },
+    "blackwell/alt_cuda_samples_copy/large/c2": {
+     "runtime_error_pct": 0.8415754961120347,
+     "energy_error_pct": 5.108328581498944
+    },
+    "blackwell/alt_cuda_samples_copy/medium/c1": {
+     "runtime_error_pct": 9.713759687342893,
+     "energy_error_pct": 12.787705811001949
+    },
+    "blackwell/alt_cuda_samples_copy/medium/c2": {
+     "runtime_error_pct": 7.279941519834576,
+     "energy_error_pct": 10.267870249239518
+    },
+    "blackwell/alt_cuda_samples_copy/small/c1": {
+     "runtime_error_pct": 4.7582919191296424,
+     "energy_error_pct": 4.390578048335425
+    },
+    "blackwell/alt_cuda_samples_copy/small/c2": {
+     "runtime_error_pct": 7.1759994535752,
+     "energy_error_pct": 13.058792996854462
+    },
+    "blackwell/alt_cuda_samples_reduction/large/c1": {
+     "runtime_error_pct": 121.87678517615859,
+     "energy_error_pct": 18.72439246923745
+    },
+    "blackwell/alt_cuda_samples_reduction/large/c2": {
+     "runtime_error_pct": 9.289127162939547,
+     "energy_error_pct": 45.42338735606055
+    },
+    "blackwell/alt_cuda_samples_reduction/large/c3": {
+     "runtime_error_pct": 8.06805677873349,
+     "energy_error_pct": 4.709722498008229
+    },
+    "blackwell/alt_cuda_samples_reduction/medium/c1": {
+     "runtime_error_pct": 94.31908524226561,
+     "energy_error_pct": 21.936981002916166
+    },
+    "blackwell/alt_cuda_samples_reduction/medium/c2": {
+     "runtime_error_pct": 1.0026926454164364,
+     "energy_error_pct": 45.89545789693757
+    },
+    "blackwell/alt_cuda_samples_reduction/medium/c3": {
+     "runtime_error_pct": 10.506130544576608,
+     "energy_error_pct": 2.3414923151990896
+    },
+    "blackwell/alt_cuda_samples_reduction/small/c1": {
+     "runtime_error_pct": 5.672470360096371,
+     "energy_error_pct": 17.285730116268706
+    },
+    "blackwell/alt_cuda_samples_reduction/small/c2": {
+     "runtime_error_pct": 20.617402481207346,
+     "energy_error_pct": 31.796960939870555
+    },
+    "blackwell/alt_cuda_samples_reduction/small/c3": {
+     "runtime_error_pct": 17.122829365004876,
+     "energy_error_pct": 10.58412659598078
+    },
+    "blackwell/alt_cuda_samples_transposefine/large/c1": {
+     "runtime_error_pct": 0.8400158180886574,
+     "energy_error_pct": 3.917783163606958
+    },
+    "blackwell/alt_cuda_samples_transposefine/large/c2": {
+     "runtime_error_pct": 2.8346243598667886,
+     "energy_error_pct": 1.103458810702529
+    },
+    "blackwell/alt_cuda_samples_transposefine/medium/c1": {
+     "runtime_error_pct": 10.762368620895435,
+     "energy_error_pct": 14.568549742009695
+    },
+    "blackwell/alt_cuda_samples_transposefine/medium/c2": {
+     "runtime_error_pct": 11.508127783502232,
+     "energy_error_pct": 14.746761893662885
+    },
+    "blackwell/alt_cuda_samples_transposefine/small/c1": {
+     "runtime_error_pct": 6.738525609245527,
+     "energy_error_pct": 2.2828402408130444
+    },
+    "blackwell/alt_cuda_samples_transposefine/small/c2": {
+     "runtime_error_pct": 5.395003919610364,
+     "energy_error_pct": 0.7753076964879924
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_triton_softmax/large/c1": {
+     "runtime_error_pct": 48.602503004698946,
+     "energy_error_pct": 28.392272810363185
+    },
+    "blackwell/dev_triton_softmax/large/c2": {
+     "runtime_error_pct": 53.192269010958746,
+     "energy_error_pct": 27.618163110910988
+    },
+    "blackwell/dev_triton_softmax/large/c3": {
+     "runtime_error_pct": 36.68385048505527,
+     "energy_error_pct": 4.4948203777678275
+    },
+    "blackwell/dev_triton_softmax/large/c4": {
+     "runtime_error_pct": 33.16120389428869,
+     "energy_error_pct": 8.478097320796973
+    },
+    "blackwell/dev_triton_softmax/medium/c1": {
+     "runtime_error_pct": 62.796736453711446,
+     "energy_error_pct": 15.308974793680319
+    },
+    "blackwell/dev_triton_softmax/medium/c2": {
+     "runtime_error_pct": 51.22072790015084,
+     "energy_error_pct": 0.8165129346296318
+    },
+    "blackwell/dev_triton_softmax/medium/c3": {
+     "runtime_error_pct": 11.772724921136057,
+     "energy_error_pct": 34.31347900314387
+    },
+    "blackwell/dev_triton_softmax/medium/c4": {
+     "runtime_error_pct": 9.452046744745179,
+     "energy_error_pct": 42.408938133548425
+    },
+    "blackwell/dev_triton_softmax/small/c1": {
+     "runtime_error_pct": 6.113721336118183,
+     "energy_error_pct": 17.69412926085159
+    },
+    "blackwell/dev_triton_softmax/small/c2": {
+     "runtime_error_pct": 8.675722600273094,
+     "energy_error_pct": 36.36137330605443
+    },
+    "blackwell/dev_triton_softmax/small/c3": {
+     "runtime_error_pct": 5.1859726900437275,
+     "energy_error_pct": 51.6712034844113
+    },
+    "blackwell/dev_triton_softmax/small/c4": {
+     "runtime_error_pct": 2.7068204497331827,
+     "energy_error_pct": 56.80511150011844
+    },
+    "blackwell/final_cuda_samples_copy/large/c1": {
+     "runtime_error_pct": 32.761539983334195,
+     "energy_error_pct": 6.7004252955467525
+    },
+    "blackwell/final_cuda_samples_copy/large/c2": {
+     "runtime_error_pct": 15.111707862989675,
+     "energy_error_pct": 2.3402585967424727
+    },
+    "blackwell/final_cuda_samples_copy/large/c3": {
+     "runtime_error_pct": 6.3614307238687,
+     "energy_error_pct": 1.035617088244134
+    },
+    "blackwell/final_cuda_samples_copy/large/c4": {
+     "runtime_error_pct": 2.034402712471284,
+     "energy_error_pct": 0.47342404196559773
+    },
+    "blackwell/final_cuda_samples_copy/medium/c1": {
+     "runtime_error_pct": 11.689380316850606,
+     "energy_error_pct": 10.717089509916345
+    },
+    "blackwell/final_cuda_samples_copy/medium/c2": {
+     "runtime_error_pct": 44.515937032388585,
+     "energy_error_pct": 23.781416346045802
+    },
+    "blackwell/final_cuda_samples_copy/medium/c3": {
+     "runtime_error_pct": 36.21191213839037,
+     "energy_error_pct": 38.13766544223227
+    },
+    "blackwell/final_cuda_samples_copy/medium/c4": {
+     "runtime_error_pct": 26.651149139796182,
+     "energy_error_pct": 14.495925952760736
+    },
+    "blackwell/final_cuda_samples_copy/small/c1": {
+     "runtime_error_pct": 12.024355245500807,
+     "energy_error_pct": 8.918058814149443
+    },
+    "blackwell/final_cuda_samples_copy/small/c2": {
+     "runtime_error_pct": 35.058589842923624,
+     "energy_error_pct": 10.120215373910968
+    },
+    "blackwell/final_cuda_samples_copy/small/c3": {
+     "runtime_error_pct": 19.390088116104298,
+     "energy_error_pct": 10.057106041394137
+    },
+    "blackwell/final_cuda_samples_copy/small/c4": {
+     "runtime_error_pct": 28.913802429687387,
+     "energy_error_pct": 5.787383500276199
+    },
+    "blackwell/final_pytorch_embedding/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "data-dependent global address; transaction counts remain null"
+    },
+    "blackwell/final_pytorch_embedding/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "data-dependent global address; transaction counts remain null"
+    },
+    "blackwell/final_pytorch_embedding/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "data-dependent global address; transaction counts remain null"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_triton_layer_norm/large/c1": {
+     "runtime_error_pct": 78.8442621328104,
+     "energy_error_pct": 78.84738004927327
+    },
+    "blackwell/final_triton_layer_norm/large/c2": {
+     "runtime_error_pct": 88.91280957171332,
+     "energy_error_pct": 88.91690367448287
+    },
+    "blackwell/final_triton_layer_norm/large/c3": {
+     "runtime_error_pct": 106.13304038819655,
+     "energy_error_pct": 106.13488020882515
+    },
+    "blackwell/final_triton_layer_norm/large/c4": {
+     "runtime_error_pct": 60.00711179749712,
+     "energy_error_pct": 60.01055183283619
+    },
+    "blackwell/final_triton_layer_norm/medium/c1": {
+     "runtime_error_pct": 79.36370301907645,
+     "energy_error_pct": 79.3683156133545
+    },
+    "blackwell/final_triton_layer_norm/medium/c2": {
+     "runtime_error_pct": 85.98283968594987,
+     "energy_error_pct": 85.9883421140643
+    },
+    "blackwell/final_triton_layer_norm/medium/c3": {
+     "runtime_error_pct": 61.189460368284784,
+     "energy_error_pct": 61.192022812050226
+    },
+    "blackwell/final_triton_layer_norm/medium/c4": {
+     "runtime_error_pct": 31.77069912225816,
+     "energy_error_pct": 31.772563517856312
+    },
+    "blackwell/final_triton_layer_norm/small/c1": {
+     "runtime_error_pct": 37.74472813326453,
+     "energy_error_pct": 6.119859370485048
+    },
+    "blackwell/final_triton_layer_norm/small/c2": {
+     "runtime_error_pct": 22.254039776847712,
+     "energy_error_pct": 7.191992080394161
+    },
+    "blackwell/final_triton_layer_norm/small/c3": {
+     "runtime_error_pct": 20.993216865679376,
+     "energy_error_pct": 31.8289179751006
+    },
+    "blackwell/final_triton_layer_norm/small/c4": {
+     "runtime_error_pct": 12.192079087170393,
+     "energy_error_pct": 49.62176249061048
+    },
+    "blackwell/final_xformers_indexed_select/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/train_cuda_samples_reduction/large/c1": {
+     "runtime_error_pct": 125.64523130740794,
+     "energy_error_pct": 4.373792566135659
+    },
+    "blackwell/train_cuda_samples_reduction/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c1": {
+     "runtime_error_pct": 97.68127692735756,
+     "energy_error_pct": 7.655406905116613
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/small/c1": {
+     "runtime_error_pct": 7.525630505356684,
+     "energy_error_pct": 11.276955722400361
+    },
+    "blackwell/train_cuda_samples_reduction/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_transpose/large/c1": {
+     "runtime_error_pct": 2.687272013134101,
+     "energy_error_pct": 36.17158710327221
+    },
+    "blackwell/train_cuda_samples_transpose/large/c2": {
+     "runtime_error_pct": 0.11083809619552021,
+     "energy_error_pct": 0.49818346974196404
+    },
+    "blackwell/train_cuda_samples_transpose/large/c3": {
+     "runtime_error_pct": 0.41005599602927933,
+     "energy_error_pct": 3.9187177603380974
+    },
+    "blackwell/train_cuda_samples_transpose/large/c4": {
+     "runtime_error_pct": 10.72265958941847,
+     "energy_error_pct": 9.460760075355989
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c1": {
+     "runtime_error_pct": 1.1848867037520083,
+     "energy_error_pct": 36.688450436956344
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c2": {
+     "runtime_error_pct": 50.78095740058606,
+     "energy_error_pct": 19.43151852506758
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c3": {
+     "runtime_error_pct": 11.589730226867445,
+     "energy_error_pct": 13.089303414526011
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c4": {
+     "runtime_error_pct": 8.31914755573231,
+     "energy_error_pct": 9.79058847800285
+    },
+    "blackwell/train_cuda_samples_transpose/small/c1": {
+     "runtime_error_pct": 5.021574233364001,
+     "energy_error_pct": 36.85285951481879
+    },
+    "blackwell/train_cuda_samples_transpose/small/c2": {
+     "runtime_error_pct": 49.81364170960506,
+     "energy_error_pct": 17.665407503553975
+    },
+    "blackwell/train_cuda_samples_transpose/small/c3": {
+     "runtime_error_pct": 7.367921641172714,
+     "energy_error_pct": 3.3658816314901863
+    },
+    "blackwell/train_cuda_samples_transpose/small/c4": {
+     "runtime_error_pct": 9.717515144452548,
+     "energy_error_pct": 15.8078902516942
+    },
+    "blackwell/train_triton_vector_add/large/c1": {
+     "runtime_error_pct": 32.725180966090676,
+     "energy_error_pct": 3.994666418605042
+    },
+    "blackwell/train_triton_vector_add/large/c2": {
+     "runtime_error_pct": 15.132896776089888,
+     "energy_error_pct": 1.7394723917432353
+    },
+    "blackwell/train_triton_vector_add/large/c3": {
+     "runtime_error_pct": 6.134219797766871,
+     "energy_error_pct": 1.0033842744935573
+    },
+    "blackwell/train_triton_vector_add/large/c4": {
+     "runtime_error_pct": 1.4646830498868724,
+     "energy_error_pct": 2.455126605173119
+    },
+    "blackwell/train_triton_vector_add/medium/c1": {
+     "runtime_error_pct": 11.784623859152731,
+     "energy_error_pct": 7.69496218821657
+    },
+    "blackwell/train_triton_vector_add/medium/c2": {
+     "runtime_error_pct": 46.02992431219817,
+     "energy_error_pct": 29.806387639679734
+    },
+    "blackwell/train_triton_vector_add/medium/c3": {
+     "runtime_error_pct": 67.48983840666467,
+     "energy_error_pct": 67.4917243044496
+    },
+    "blackwell/train_triton_vector_add/medium/c4": {
+     "runtime_error_pct": 26.818745279189105,
+     "energy_error_pct": 26.821379383311992
+    },
+    "blackwell/train_triton_vector_add/small/c1": {
+     "runtime_error_pct": 13.154776369499842,
+     "energy_error_pct": 6.817616762304701
+    },
+    "blackwell/train_triton_vector_add/small/c2": {
+     "runtime_error_pct": 40.5945044120404,
+     "energy_error_pct": 7.784188579678508
+    },
+    "blackwell/train_triton_vector_add/small/c3": {
+     "runtime_error_pct": 35.064598224999656,
+     "energy_error_pct": 23.02354135697373
+    },
+    "blackwell/train_triton_vector_add/small/c4": {
+     "runtime_error_pct": 14.807436342746328,
+     "energy_error_pct": 15.286251136768335
+    }
+   }
+  },
+  "max_s": {
+   "supported_cells": 84,
+   "unsupported_cells": 48,
+   "runtime_error": {
+    "n": 84,
+    "median_pct": 11.72,
+    "p90_pct": 73.64,
+    "unsupported_failures": 0
+   },
+   "energy_error_predicted_runtime": {
+    "all": {
+     "n": 84,
+     "median_pct": 12.92,
+     "p90_pct": 49.38,
+     "unsupported_failures": 0
+    },
+    "below_cap": {
+     "n": 54,
+     "median_pct": 9.37,
+     "p90_pct": 37.38,
+     "unsupported_failures": 0
+    },
+    "below_cap_onchip": {
+     "n": 20,
+     "median_pct": 23.04,
+     "p90_pct": 50.24,
+     "unsupported_failures": 0
+    }
+   },
+   "energy_error_measured_runtime_same_cells": {
+    "all": {
+     "n": 84,
+     "median_pct": 4.22,
+     "p90_pct": 44.62,
+     "unsupported_failures": 0
+    },
+    "below_cap": {
+     "n": 54,
+     "median_pct": 5.89,
+     "p90_pct": 46.41,
+     "unsupported_failures": 0
+    },
+    "below_cap_onchip": {
+     "n": 20,
+     "median_pct": 35.98,
+     "p90_pct": 53.59,
+     "unsupported_failures": 0
+    }
+   },
+   "signed_runtime_error_median_pct": 6.82,
+   "per_operator": {
+    "alt_cuda_samples_copy": {
+     "cells": 6,
+     "supported": 6,
+     "runtime_median_pct": 5.97,
+     "signed_runtime_median_pct": 0.6,
+     "unsupported_reasons": []
+    },
+    "alt_cuda_samples_reduction": {
+     "cells": 9,
+     "supported": 9,
+     "runtime_median_pct": 11.19,
+     "signed_runtime_median_pct": -4.99,
+     "unsupported_reasons": []
+    },
+    "alt_cuda_samples_transposefine": {
+     "cells": 6,
+     "supported": 6,
+     "runtime_median_pct": 6.07,
+     "signed_runtime_median_pct": -1.0,
+     "unsupported_reasons": []
+    },
+    "dev_pytorch_rowwise_softmax": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "dev_triton_softmax": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 8.74,
+     "signed_runtime_median_pct": 8.74,
+     "unsupported_reasons": []
+    },
+    "final_cuda_samples_copy": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 23.02,
+     "signed_runtime_median_pct": 13.57,
+     "unsupported_reasons": []
+    },
+    "final_pytorch_embedding": {
+     "cells": 3,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "data-dependent global address; transaction counts remain null"
+     ]
+    },
+    "final_pytorch_layer_norm": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "final_triton_layer_norm": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 40.66,
+     "signed_runtime_median_pct": 40.66,
+     "unsupported_reasons": []
+    },
+    "final_xformers_indexed_select": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "no retained binary"
+     ]
+    },
+    "train_cuda_samples_reduction": {
+     "cells": 12,
+     "supported": 3,
+     "runtime_median_pct": 93.35,
+     "signed_runtime_median_pct": 93.35,
+     "unsupported_reasons": [
+      "sampled blocks have different phase signatures; grid phase split unproved"
+     ]
+    },
+    "train_cuda_samples_transpose": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 6.19,
+     "signed_runtime_median_pct": -3.85,
+     "unsupported_reasons": []
+    },
+    "train_triton_vector_add": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 20.98,
+     "signed_runtime_median_pct": 20.98,
+     "unsupported_reasons": []
+    }
+   },
+   "per_lineage": {
+    "https://github.com/NVIDIA/cuda-samples|5443602d89ed99aede2e4b7bf329daddeadb320e|cpp/0_Introduction/vectorAdd/vectorAdd.cu": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 23.02,
+     "signed_runtime_median_pct": 13.57,
+     "unsupported_reasons": []
+    },
+    "https://github.com/NVIDIA/cuda-samples|5443602d89ed99aede2e4b7bf329daddeadb320e|cpp/2_Concepts_and_Techniques/reduction/reduction_kernel.cu": {
+     "cells": 21,
+     "supported": 12,
+     "runtime_median_pct": 15.94,
+     "signed_runtime_median_pct": -3.62,
+     "unsupported_reasons": [
+      "sampled blocks have different phase signatures; grid phase split unproved"
+     ]
+    },
+    "https://github.com/NVIDIA/cuda-samples|5443602d89ed99aede2e4b7bf329daddeadb320e|cpp/6_Performance/transpose/transpose.cu": {
+     "cells": 24,
+     "supported": 24,
+     "runtime_median_pct": 6.07,
+     "signed_runtime_median_pct": -1.55,
+     "unsupported_reasons": []
+    },
+    "https://github.com/facebookresearch/xformers|6d925b3a94312fb46249d83879cab045b6a0aaae|xformers/ops/_triton/k_index_select_cat.py": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "no retained binary"
+     ]
+    },
+    "https://github.com/pytorch/pytorch|67faf385dd4133d3e658f9b1c2a4c87dc9b61218|aten/src/ATen/native/cuda/Indexing.cu": {
+     "cells": 3,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "data-dependent global address; transaction counts remain null"
+     ]
+    },
+    "https://github.com/pytorch/pytorch|67faf385dd4133d3e658f9b1c2a4c87dc9b61218|aten/src/ATen/native/cuda/SoftMax.cu": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "https://github.com/pytorch/pytorch|67faf385dd4133d3e658f9b1c2a4c87dc9b61218|aten/src/ATen/native/cuda/layer_norm_kernel.cu": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "https://github.com/triton-lang/triton|7369aa3d9b0fae7134bf47b16d83876b09ef8e9f|python/tutorials/01-vector-add.py": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 20.98,
+     "signed_runtime_median_pct": 20.98,
+     "unsupported_reasons": []
+    },
+    "https://github.com/triton-lang/triton|7369aa3d9b0fae7134bf47b16d83876b09ef8e9f|python/tutorials/02-fused-softmax.py": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 8.74,
+     "signed_runtime_median_pct": 8.74,
+     "unsupported_reasons": []
+    },
+    "https://github.com/triton-lang/triton|7369aa3d9b0fae7134bf47b16d83876b09ef8e9f|python/tutorials/05-layer-norm.py": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 40.66,
+     "signed_runtime_median_pct": 40.66,
+     "unsupported_reasons": []
+    }
+   },
+   "runtime_median_unsupported_as_failure_pct": 36.98,
+   "runtime_unsupported_as_failure": {
+    "n": 132,
+    "median_pct": 36.98,
+    "p90_pct": null,
+    "unsupported_failures": 48
+   },
+   "energy_below_cap_unsupported_as_failure": {
+    "n": 85,
+    "median_pct": 29.81,
+    "p90_pct": null,
+    "unsupported_failures": 31
+   },
+   "energy_measured_runtime_full_below_cap": {
+    "n": 85,
+    "median_pct": 9.33,
+    "p90_pct": 45.49,
+    "unsupported_failures": 0
+   },
+   "per_cell": {
+    "blackwell/alt_cuda_samples_copy/large/c1": {
+     "runtime_error_pct": 0.3499380651744044,
+     "energy_error_pct": 2.3244979003701594
+    },
+    "blackwell/alt_cuda_samples_copy/large/c2": {
+     "runtime_error_pct": 0.8415754961120347,
+     "energy_error_pct": 5.108328581498944
+    },
+    "blackwell/alt_cuda_samples_copy/medium/c1": {
+     "runtime_error_pct": 9.713759687342893,
+     "energy_error_pct": 12.787705811001949
+    },
+    "blackwell/alt_cuda_samples_copy/medium/c2": {
+     "runtime_error_pct": 7.279941519834576,
+     "energy_error_pct": 10.267870249239518
+    },
+    "blackwell/alt_cuda_samples_copy/small/c1": {
+     "runtime_error_pct": 4.7582919191296424,
+     "energy_error_pct": 4.390578048335425
+    },
+    "blackwell/alt_cuda_samples_copy/small/c2": {
+     "runtime_error_pct": 7.1759994535752,
+     "energy_error_pct": 13.058792996854462
+    },
+    "blackwell/alt_cuda_samples_reduction/large/c1": {
+     "runtime_error_pct": 117.35271020562408,
+     "energy_error_pct": 20.03410911381541
+    },
+    "blackwell/alt_cuda_samples_reduction/large/c2": {
+     "runtime_error_pct": 4.2873596438748995,
+     "energy_error_pct": 47.05086324871345
+    },
+    "blackwell/alt_cuda_samples_reduction/large/c3": {
+     "runtime_error_pct": 8.117353998650657,
+     "energy_error_pct": 4.672158238920754
+    },
+    "blackwell/alt_cuda_samples_reduction/medium/c1": {
+     "runtime_error_pct": 89.62845715804421,
+     "energy_error_pct": 23.444865979271036
+    },
+    "blackwell/alt_cuda_samples_reduction/medium/c2": {
+     "runtime_error_pct": 4.052175493512122,
+     "energy_error_pct": 47.73155287658339
+    },
+    "blackwell/alt_cuda_samples_reduction/medium/c3": {
+     "runtime_error_pct": 11.186661202206638,
+     "energy_error_pct": 1.800500484045875
+    },
+    "blackwell/alt_cuda_samples_reduction/small/c1": {
+     "runtime_error_pct": 4.992443609077157,
+     "energy_error_pct": 24.756401690699803
+    },
+    "blackwell/alt_cuda_samples_reduction/small/c2": {
+     "runtime_error_pct": 22.605689881544077,
+     "energy_error_pct": 33.2809437982578
+    },
+    "blackwell/alt_cuda_samples_reduction/small/c3": {
+     "runtime_error_pct": 20.699441078091617,
+     "energy_error_pct": 13.92309175349915
+    },
+    "blackwell/alt_cuda_samples_transposefine/large/c1": {
+     "runtime_error_pct": 0.8400158180886574,
+     "energy_error_pct": 3.917783163606958
+    },
+    "blackwell/alt_cuda_samples_transposefine/large/c2": {
+     "runtime_error_pct": 2.8346243598667886,
+     "energy_error_pct": 1.103458810702529
+    },
+    "blackwell/alt_cuda_samples_transposefine/medium/c1": {
+     "runtime_error_pct": 10.762368620895435,
+     "energy_error_pct": 14.568549742009695
+    },
+    "blackwell/alt_cuda_samples_transposefine/medium/c2": {
+     "runtime_error_pct": 11.508127783502232,
+     "energy_error_pct": 14.746761893662885
+    },
+    "blackwell/alt_cuda_samples_transposefine/small/c1": {
+     "runtime_error_pct": 6.738525609245527,
+     "energy_error_pct": 2.2828402408130444
+    },
+    "blackwell/alt_cuda_samples_transposefine/small/c2": {
+     "runtime_error_pct": 5.395003919610364,
+     "energy_error_pct": 0.7753076964879924
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_triton_softmax/large/c1": {
+     "runtime_error_pct": 10.163173483801756,
+     "energy_error_pct": 10.16444488183279
+    },
+    "blackwell/dev_triton_softmax/large/c2": {
+     "runtime_error_pct": 8.58954263477505,
+     "energy_error_pct": 8.591674996435362
+    },
+    "blackwell/dev_triton_softmax/large/c3": {
+     "runtime_error_pct": 8.536691190998425,
+     "energy_error_pct": 2.6606960012133696
+    },
+    "blackwell/dev_triton_softmax/large/c4": {
+     "runtime_error_pct": 8.893789136708552,
+     "energy_error_pct": 14.647361709109886
+    },
+    "blackwell/dev_triton_softmax/medium/c1": {
+     "runtime_error_pct": 25.868610920072687,
+     "energy_error_pct": 5.921162425623017
+    },
+    "blackwell/dev_triton_softmax/medium/c2": {
+     "runtime_error_pct": 26.049720122630315,
+     "energy_error_pct": 5.582470168191467
+    },
+    "blackwell/dev_triton_softmax/medium/c3": {
+     "runtime_error_pct": 11.75775646869035,
+     "energy_error_pct": 34.31728435390598
+    },
+    "blackwell/dev_triton_softmax/medium/c4": {
+     "runtime_error_pct": 9.281311893071598,
+     "energy_error_pct": 42.45234276629964
+    },
+    "blackwell/dev_triton_softmax/small/c1": {
+     "runtime_error_pct": 2.910123885352023,
+     "energy_error_pct": 22.641325498291064
+    },
+    "blackwell/dev_triton_softmax/small/c2": {
+     "runtime_error_pct": 5.758768822369453,
+     "energy_error_pct": 37.60732041285254
+    },
+    "blackwell/dev_triton_softmax/small/c3": {
+     "runtime_error_pct": 5.1859726900437275,
+     "energy_error_pct": 51.6712034844113
+    },
+    "blackwell/dev_triton_softmax/small/c4": {
+     "runtime_error_pct": 2.7068204497331827,
+     "energy_error_pct": 56.80511150011844
+    },
+    "blackwell/final_cuda_samples_copy/large/c1": {
+     "runtime_error_pct": 32.761539983334195,
+     "energy_error_pct": 6.7004252955467525
+    },
+    "blackwell/final_cuda_samples_copy/large/c2": {
+     "runtime_error_pct": 15.111707862989675,
+     "energy_error_pct": 2.3402585967424727
+    },
+    "blackwell/final_cuda_samples_copy/large/c3": {
+     "runtime_error_pct": 6.3614307238687,
+     "energy_error_pct": 1.035617088244134
+    },
+    "blackwell/final_cuda_samples_copy/large/c4": {
+     "runtime_error_pct": 2.034402712471284,
+     "energy_error_pct": 0.47342404196559773
+    },
+    "blackwell/final_cuda_samples_copy/medium/c1": {
+     "runtime_error_pct": 11.689380316850606,
+     "energy_error_pct": 10.717089509916345
+    },
+    "blackwell/final_cuda_samples_copy/medium/c2": {
+     "runtime_error_pct": 44.515937032388585,
+     "energy_error_pct": 23.781416346045802
+    },
+    "blackwell/final_cuda_samples_copy/medium/c3": {
+     "runtime_error_pct": 36.21191213839037,
+     "energy_error_pct": 38.13766544223227
+    },
+    "blackwell/final_cuda_samples_copy/medium/c4": {
+     "runtime_error_pct": 26.651149139796182,
+     "energy_error_pct": 14.495925952760736
+    },
+    "blackwell/final_cuda_samples_copy/small/c1": {
+     "runtime_error_pct": 12.024355245500807,
+     "energy_error_pct": 8.918058814149443
+    },
+    "blackwell/final_cuda_samples_copy/small/c2": {
+     "runtime_error_pct": 35.058589842923624,
+     "energy_error_pct": 10.120215373910968
+    },
+    "blackwell/final_cuda_samples_copy/small/c3": {
+     "runtime_error_pct": 19.390088116104298,
+     "energy_error_pct": 10.057106041394137
+    },
+    "blackwell/final_cuda_samples_copy/small/c4": {
+     "runtime_error_pct": 28.913802429687387,
+     "energy_error_pct": 5.787383500276199
+    },
+    "blackwell/final_pytorch_embedding/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "data-dependent global address; transaction counts remain null"
+    },
+    "blackwell/final_pytorch_embedding/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "data-dependent global address; transaction counts remain null"
+    },
+    "blackwell/final_pytorch_embedding/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "data-dependent global address; transaction counts remain null"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_triton_layer_norm/large/c1": {
+     "runtime_error_pct": 78.8442621328104,
+     "energy_error_pct": 78.84738004927327
+    },
+    "blackwell/final_triton_layer_norm/large/c2": {
+     "runtime_error_pct": 82.96487942659576,
+     "energy_error_pct": 82.96884462631557
+    },
+    "blackwell/final_triton_layer_norm/large/c3": {
+     "runtime_error_pct": 93.57609330225402,
+     "energy_error_pct": 93.57782104705896
+    },
+    "blackwell/final_triton_layer_norm/large/c4": {
+     "runtime_error_pct": 38.49321391842337,
+     "energy_error_pct": 38.4961914207653
+    },
+    "blackwell/final_triton_layer_norm/medium/c1": {
+     "runtime_error_pct": 79.36370301907645,
+     "energy_error_pct": 79.3683156133545
+    },
+    "blackwell/final_triton_layer_norm/medium/c2": {
+     "runtime_error_pct": 76.27110784228846,
+     "energy_error_pct": 76.27632294224706
+    },
+    "blackwell/final_triton_layer_norm/medium/c3": {
+     "runtime_error_pct": 42.8268606242304,
+     "energy_error_pct": 42.82913115604872
+    },
+    "blackwell/final_triton_layer_norm/medium/c4": {
+     "runtime_error_pct": 0.9306670749565704,
+     "energy_error_pct": 0.9320951215000095
+    },
+    "blackwell/final_triton_layer_norm/small/c1": {
+     "runtime_error_pct": 37.74472813326453,
+     "energy_error_pct": 6.119859370485048
+    },
+    "blackwell/final_triton_layer_norm/small/c2": {
+     "runtime_error_pct": 28.883082025502503,
+     "energy_error_pct": 10.907874863704304
+    },
+    "blackwell/final_triton_layer_norm/small/c3": {
+     "runtime_error_pct": 31.39196160166604,
+     "energy_error_pct": 36.17696332835172
+    },
+    "blackwell/final_triton_layer_norm/small/c4": {
+     "runtime_error_pct": 13.695195939593951,
+     "energy_error_pct": 50.08094078314835
+    },
+    "blackwell/final_xformers_indexed_select/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/train_cuda_samples_reduction/large/c1": {
+     "runtime_error_pct": 121.57662208692219,
+     "energy_error_pct": 5.737139954046544
+    },
+    "blackwell/train_cuda_samples_reduction/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c1": {
+     "runtime_error_pct": 93.34997579239834,
+     "energy_error_pct": 9.275203426561408
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/small/c1": {
+     "runtime_error_pct": 3.191957694381542,
+     "energy_error_pct": 19.191862504251223
+    },
+    "blackwell/train_cuda_samples_reduction/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_transpose/large/c1": {
+     "runtime_error_pct": 2.687272013134101,
+     "energy_error_pct": 36.17158710327221
+    },
+    "blackwell/train_cuda_samples_transpose/large/c2": {
+     "runtime_error_pct": 0.11083809619552021,
+     "energy_error_pct": 0.49818346974196404
+    },
+    "blackwell/train_cuda_samples_transpose/large/c3": {
+     "runtime_error_pct": 0.41005599602927933,
+     "energy_error_pct": 3.9187177603380974
+    },
+    "blackwell/train_cuda_samples_transpose/large/c4": {
+     "runtime_error_pct": 10.72265958941847,
+     "energy_error_pct": 9.460760075355989
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c1": {
+     "runtime_error_pct": 1.1848867037520083,
+     "energy_error_pct": 36.688450436956344
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c2": {
+     "runtime_error_pct": 50.78095740058606,
+     "energy_error_pct": 19.43151852506758
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c3": {
+     "runtime_error_pct": 11.589730226867445,
+     "energy_error_pct": 13.089303414526011
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c4": {
+     "runtime_error_pct": 3.867858355520748,
+     "energy_error_pct": 5.278831583631471
+    },
+    "blackwell/train_cuda_samples_transpose/small/c1": {
+     "runtime_error_pct": 5.021574233364001,
+     "energy_error_pct": 36.85285951481879
+    },
+    "blackwell/train_cuda_samples_transpose/small/c2": {
+     "runtime_error_pct": 49.81364170960506,
+     "energy_error_pct": 17.665407503553975
+    },
+    "blackwell/train_cuda_samples_transpose/small/c3": {
+     "runtime_error_pct": 7.367921641172714,
+     "energy_error_pct": 3.3658816314901863
+    },
+    "blackwell/train_cuda_samples_transpose/small/c4": {
+     "runtime_error_pct": 12.708156525194559,
+     "energy_error_pct": 16.635901840112055
+    },
+    "blackwell/train_triton_vector_add/large/c1": {
+     "runtime_error_pct": 32.725180966090676,
+     "energy_error_pct": 3.994666418605042
+    },
+    "blackwell/train_triton_vector_add/large/c2": {
+     "runtime_error_pct": 15.132896776089888,
+     "energy_error_pct": 1.7394723917432353
+    },
+    "blackwell/train_triton_vector_add/large/c3": {
+     "runtime_error_pct": 6.134219797766871,
+     "energy_error_pct": 1.0033842744935573
+    },
+    "blackwell/train_triton_vector_add/large/c4": {
+     "runtime_error_pct": 1.4646830498868724,
+     "energy_error_pct": 2.455126605173119
+    },
+    "blackwell/train_triton_vector_add/medium/c1": {
+     "runtime_error_pct": 11.784623859152731,
+     "energy_error_pct": 7.69496218821657
+    },
+    "blackwell/train_triton_vector_add/medium/c2": {
+     "runtime_error_pct": 46.02992431219817,
+     "energy_error_pct": 29.806387639679734
+    },
+    "blackwell/train_triton_vector_add/medium/c3": {
+     "runtime_error_pct": 67.48983840666467,
+     "energy_error_pct": 67.4917243044496
+    },
+    "blackwell/train_triton_vector_add/medium/c4": {
+     "runtime_error_pct": 26.818745279189105,
+     "energy_error_pct": 26.821379383311992
+    },
+    "blackwell/train_triton_vector_add/small/c1": {
+     "runtime_error_pct": 13.154776369499842,
+     "energy_error_pct": 6.817616762304701
+    },
+    "blackwell/train_triton_vector_add/small/c2": {
+     "runtime_error_pct": 40.5945044120404,
+     "energy_error_pct": 7.784188579678508
+    },
+    "blackwell/train_triton_vector_add/small/c3": {
+     "runtime_error_pct": 35.064598224999656,
+     "energy_error_pct": 23.02354135697373
+    },
+    "blackwell/train_triton_vector_add/small/c4": {
+     "runtime_error_pct": 14.807436342746328,
+     "energy_error_pct": 15.286251136768335
+    }
+   }
+  },
+  "sum_s": {
+   "supported_cells": 84,
+   "unsupported_cells": 48,
+   "runtime_error": {
+    "n": 84,
+    "median_pct": 36.18,
+    "p90_pct": 112.18,
+    "unsupported_failures": 0
+   },
+   "energy_error_predicted_runtime": {
+    "all": {
+     "n": 84,
+     "median_pct": 18.77,
+     "p90_pct": 57.62,
+     "unsupported_failures": 0
+    },
+    "below_cap": {
+     "n": 54,
+     "median_pct": 11.34,
+     "p90_pct": 35.36,
+     "unsupported_failures": 0
+    },
+    "below_cap_onchip": {
+     "n": 20,
+     "median_pct": 18.57,
+     "p90_pct": 38.74,
+     "unsupported_failures": 0
+    }
+   },
+   "energy_error_measured_runtime_same_cells": {
+    "all": {
+     "n": 84,
+     "median_pct": 4.22,
+     "p90_pct": 44.62,
+     "unsupported_failures": 0
+    },
+    "below_cap": {
+     "n": 54,
+     "median_pct": 5.89,
+     "p90_pct": 46.41,
+     "unsupported_failures": 0
+    },
+    "below_cap_onchip": {
+     "n": 20,
+     "median_pct": 35.98,
+     "p90_pct": 53.59,
+     "unsupported_failures": 0
+    }
+   },
+   "signed_runtime_error_median_pct": 36.18,
+   "per_operator": {
+    "alt_cuda_samples_copy": {
+     "cells": 6,
+     "supported": 6,
+     "runtime_median_pct": 27.72,
+     "signed_runtime_median_pct": 27.72,
+     "unsupported_reasons": []
+    },
+    "alt_cuda_samples_reduction": {
+     "cells": 9,
+     "supported": 9,
+     "runtime_median_pct": 23.39,
+     "signed_runtime_median_pct": 23.39,
+     "unsupported_reasons": []
+    },
+    "alt_cuda_samples_transposefine": {
+     "cells": 6,
+     "supported": 6,
+     "runtime_median_pct": 35.64,
+     "signed_runtime_median_pct": 35.64,
+     "unsupported_reasons": []
+    },
+    "dev_pytorch_rowwise_softmax": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "dev_triton_softmax": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 70.94,
+     "signed_runtime_median_pct": 70.94,
+     "unsupported_reasons": []
+    },
+    "final_cuda_samples_copy": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 34.37,
+     "signed_runtime_median_pct": 34.37,
+     "unsupported_reasons": []
+    },
+    "final_pytorch_embedding": {
+     "cells": 3,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "data-dependent global address; transaction counts remain null"
+     ]
+    },
+    "final_pytorch_layer_norm": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "final_triton_layer_norm": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 103.33,
+     "signed_runtime_median_pct": 103.33,
+     "unsupported_reasons": []
+    },
+    "final_xformers_indexed_select": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "no retained binary"
+     ]
+    },
+    "train_cuda_samples_reduction": {
+     "cells": 12,
+     "supported": 3,
+     "runtime_median_pct": 123.15,
+     "signed_runtime_median_pct": 123.15,
+     "unsupported_reasons": [
+      "sampled blocks have different phase signatures; grid phase split unproved"
+     ]
+    },
+    "train_cuda_samples_transpose": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 21.22,
+     "signed_runtime_median_pct": 14.84,
+     "unsupported_reasons": []
+    },
+    "train_triton_vector_add": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 36.97,
+     "signed_runtime_median_pct": 36.97,
+     "unsupported_reasons": []
+    }
+   },
+   "per_lineage": {
+    "https://github.com/NVIDIA/cuda-samples|5443602d89ed99aede2e4b7bf329daddeadb320e|cpp/0_Introduction/vectorAdd/vectorAdd.cu": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 34.37,
+     "signed_runtime_median_pct": 34.37,
+     "unsupported_reasons": []
+    },
+    "https://github.com/NVIDIA/cuda-samples|5443602d89ed99aede2e4b7bf329daddeadb320e|cpp/2_Concepts_and_Techniques/reduction/reduction_kernel.cu": {
+     "cells": 21,
+     "supported": 12,
+     "runtime_median_pct": 24.65,
+     "signed_runtime_median_pct": 24.65,
+     "unsupported_reasons": [
+      "sampled blocks have different phase signatures; grid phase split unproved"
+     ]
+    },
+    "https://github.com/NVIDIA/cuda-samples|5443602d89ed99aede2e4b7bf329daddeadb320e|cpp/6_Performance/transpose/transpose.cu": {
+     "cells": 24,
+     "supported": 24,
+     "runtime_median_pct": 25.04,
+     "signed_runtime_median_pct": 21.14,
+     "unsupported_reasons": []
+    },
+    "https://github.com/facebookresearch/xformers|6d925b3a94312fb46249d83879cab045b6a0aaae|xformers/ops/_triton/k_index_select_cat.py": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "no retained binary"
+     ]
+    },
+    "https://github.com/pytorch/pytorch|67faf385dd4133d3e658f9b1c2a4c87dc9b61218|aten/src/ATen/native/cuda/Indexing.cu": {
+     "cells": 3,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "data-dependent global address; transaction counts remain null"
+     ]
+    },
+    "https://github.com/pytorch/pytorch|67faf385dd4133d3e658f9b1c2a4c87dc9b61218|aten/src/ATen/native/cuda/SoftMax.cu": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "https://github.com/pytorch/pytorch|67faf385dd4133d3e658f9b1c2a4c87dc9b61218|aten/src/ATen/native/cuda/layer_norm_kernel.cu": {
+     "cells": 12,
+     "supported": 0,
+     "runtime_median_pct": null,
+     "signed_runtime_median_pct": null,
+     "unsupported_reasons": [
+      "unsupported operand type(s) for /: 'NoneType' and 'int'"
+     ]
+    },
+    "https://github.com/triton-lang/triton|7369aa3d9b0fae7134bf47b16d83876b09ef8e9f|python/tutorials/01-vector-add.py": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 36.97,
+     "signed_runtime_median_pct": 36.97,
+     "unsupported_reasons": []
+    },
+    "https://github.com/triton-lang/triton|7369aa3d9b0fae7134bf47b16d83876b09ef8e9f|python/tutorials/02-fused-softmax.py": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 70.94,
+     "signed_runtime_median_pct": 70.94,
+     "unsupported_reasons": []
+    },
+    "https://github.com/triton-lang/triton|7369aa3d9b0fae7134bf47b16d83876b09ef8e9f|python/tutorials/05-layer-norm.py": {
+     "cells": 12,
+     "supported": 12,
+     "runtime_median_pct": 103.33,
+     "signed_runtime_median_pct": 103.33,
+     "unsupported_reasons": []
+    }
+   },
+   "runtime_median_unsupported_as_failure_pct": 88.12,
+   "runtime_unsupported_as_failure": {
+    "n": 132,
+    "median_pct": 88.12,
+    "p90_pct": null,
+    "unsupported_failures": 48
+   },
+   "energy_below_cap_unsupported_as_failure": {
+    "n": 85,
+    "median_pct": 23.51,
+    "p90_pct": null,
+    "unsupported_failures": 31
+   },
+   "energy_measured_runtime_full_below_cap": {
+    "n": 85,
+    "median_pct": 9.33,
+    "p90_pct": 45.49,
+    "unsupported_failures": 0
+   },
+   "per_cell": {
+    "blackwell/alt_cuda_samples_copy/large/c1": {
+     "runtime_error_pct": 14.447279364706066,
+     "energy_error_pct": 2.676742286026834
+    },
+    "blackwell/alt_cuda_samples_copy/large/c2": {
+     "runtime_error_pct": 20.214371730930946,
+     "energy_error_pct": 1.5573522254304528
+    },
+    "blackwell/alt_cuda_samples_copy/medium/c1": {
+     "runtime_error_pct": 48.175993574720685,
+     "energy_error_pct": 28.5151819308056
+    },
+    "blackwell/alt_cuda_samples_copy/medium/c2": {
+     "runtime_error_pct": 66.24963075536962,
+     "energy_error_pct": 29.323799838834773
+    },
+    "blackwell/alt_cuda_samples_copy/small/c1": {
+     "runtime_error_pct": 21.81603596523678,
+     "energy_error_pct": 3.2478071142145737
+    },
+    "blackwell/alt_cuda_samples_copy/small/c2": {
+     "runtime_error_pct": 33.61427538102713,
+     "energy_error_pct": 1.982646261272214
+    },
+    "blackwell/alt_cuda_samples_reduction/large/c1": {
+     "runtime_error_pct": 152.20731766345733,
+     "energy_error_pct": 9.94372382509373
+    },
+    "blackwell/alt_cuda_samples_reduction/large/c2": {
+     "runtime_error_pct": 38.88979396151397,
+     "energy_error_pct": 35.79191779304908
+    },
+    "blackwell/alt_cuda_samples_reduction/large/c3": {
+     "runtime_error_pct": 23.386940330776575,
+     "energy_error_pct": 28.678288331996214
+    },
+    "blackwell/alt_cuda_samples_reduction/medium/c1": {
+     "runtime_error_pct": 119.93648208759224,
+     "energy_error_pct": 13.701817791761561
+    },
+    "blackwell/alt_cuda_samples_reduction/medium/c2": {
+     "runtime_error_pct": 25.903421585902198,
+     "energy_error_pct": 36.85069112151027
+    },
+    "blackwell/alt_cuda_samples_reduction/medium/c3": {
+     "runtime_error_pct": 17.271967374721765,
+     "energy_error_pct": 24.42385391173534
+    },
+    "blackwell/alt_cuda_samples_reduction/small/c1": {
+     "runtime_error_pct": 18.316348561112417,
+     "energy_error_pct": 8.428812775920026
+    },
+    "blackwell/alt_cuda_samples_reduction/small/c2": {
+     "runtime_error_pct": 8.482303813564762,
+     "energy_error_pct": 22.739780169842238
+    },
+    "blackwell/alt_cuda_samples_reduction/small/c3": {
+     "runtime_error_pct": 4.639882804208694,
+     "energy_error_pct": 1.0693955006884526
+    },
+    "blackwell/alt_cuda_samples_transposefine/large/c1": {
+     "runtime_error_pct": 20.461496680681357,
+     "energy_error_pct": 11.311324036580327
+    },
+    "blackwell/alt_cuda_samples_transposefine/large/c2": {
+     "runtime_error_pct": 15.905929454908762,
+     "energy_error_pct": 8.233641028432203
+    },
+    "blackwell/alt_cuda_samples_transposefine/medium/c1": {
+     "runtime_error_pct": 72.65784785895181,
+     "energy_error_pct": 34.633693489161274
+    },
+    "blackwell/alt_cuda_samples_transposefine/medium/c2": {
+     "runtime_error_pct": 73.07148847546819,
+     "energy_error_pct": 34.64721670821653
+    },
+    "blackwell/alt_cuda_samples_transposefine/small/c1": {
+     "runtime_error_pct": 34.92490345237431,
+     "energy_error_pct": 15.529982467435222
+    },
+    "blackwell/alt_cuda_samples_transposefine/small/c2": {
+     "runtime_error_pct": 36.36070930790487,
+     "energy_error_pct": 13.670346482160834
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_pytorch_rowwise_softmax/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/dev_triton_softmax/large/c1": {
+     "runtime_error_pct": 75.11452735939206,
+     "energy_error_pct": 35.13211082289105
+    },
+    "blackwell/dev_triton_softmax/large/c2": {
+     "runtime_error_pct": 88.30403481858318,
+     "energy_error_pct": 36.544283823284694
+    },
+    "blackwell/dev_triton_softmax/large/c3": {
+     "runtime_error_pct": 87.93466294261032,
+     "energy_error_pct": 17.523702764970594
+    },
+    "blackwell/dev_triton_softmax/large/c4": {
+     "runtime_error_pct": 88.68624413458359,
+     "energy_error_pct": 5.637483462569959
+    },
+    "blackwell/dev_triton_softmax/medium/c1": {
+     "runtime_error_pct": 91.74900448565151,
+     "energy_error_pct": 22.669176699026707
+    },
+    "blackwell/dev_triton_softmax/medium/c2": {
+     "runtime_error_pct": 96.78315062006702,
+     "energy_error_pct": 12.399409244753222
+    },
+    "blackwell/dev_triton_softmax/medium/c3": {
+     "runtime_error_pct": 65.45828869848518,
+     "energy_error_pct": 20.66528111653958
+    },
+    "blackwell/dev_triton_softmax/medium/c4": {
+     "runtime_error_pct": 66.76900195602056,
+     "energy_error_pct": 27.83768119932033
+    },
+    "blackwell/dev_triton_softmax/small/c1": {
+     "runtime_error_pct": 28.910707760549627,
+     "energy_error_pct": 5.19600205499382
+    },
+    "blackwell/dev_triton_softmax/small/c2": {
+     "runtime_error_pct": 38.76955212870976,
+     "energy_error_pct": 23.507100428141815
+    },
+    "blackwell/dev_triton_softmax/small/c3": {
+     "runtime_error_pct": 28.379015192393986,
+     "energy_error_pct": 43.27556583578234
+    },
+    "blackwell/dev_triton_softmax/small/c4": {
+     "runtime_error_pct": 34.18601784104638,
+     "energy_error_pct": 46.06102401641006
+    },
+    "blackwell/final_cuda_samples_copy/large/c1": {
+     "runtime_error_pct": 51.236836125167564,
+     "energy_error_pct": 13.010847045193996
+    },
+    "blackwell/final_cuda_samples_copy/large/c2": {
+     "runtime_error_pct": 33.575558130318626,
+     "energy_error_pct": 8.753702298091536
+    },
+    "blackwell/final_cuda_samples_copy/large/c3": {
+     "runtime_error_pct": 24.831100785533344,
+     "energy_error_pct": 7.561868328676535
+    },
+    "blackwell/final_cuda_samples_copy/large/c4": {
+     "runtime_error_pct": 27.486608965031365,
+     "energy_error_pct": 9.55056805290595
+    },
+    "blackwell/final_cuda_samples_copy/medium/c1": {
+     "runtime_error_pct": 34.78637673899074,
+     "energy_error_pct": 19.739845170407875
+    },
+    "blackwell/final_cuda_samples_copy/medium/c2": {
+     "runtime_error_pct": 89.4627788361625,
+     "energy_error_pct": 35.40357203096196
+    },
+    "blackwell/final_cuda_samples_copy/medium/c3": {
+     "runtime_error_pct": 92.84742836412167,
+     "energy_error_pct": 58.280516516032144
+    },
+    "blackwell/final_cuda_samples_copy/medium/c4": {
+     "runtime_error_pct": 20.072663762502806,
+     "energy_error_pct": 16.391752754712808
+    },
+    "blackwell/final_cuda_samples_copy/small/c1": {
+     "runtime_error_pct": 33.95030483125516,
+     "energy_error_pct": 17.798921430045468
+    },
+    "blackwell/final_cuda_samples_copy/small/c2": {
+     "runtime_error_pct": 73.10491229906242,
+     "energy_error_pct": 20.407028414503216
+    },
+    "blackwell/final_cuda_samples_copy/small/c3": {
+     "runtime_error_pct": 62.48867504712927,
+     "energy_error_pct": 21.14564261667833
+    },
+    "blackwell/final_cuda_samples_copy/small/c4": {
+     "runtime_error_pct": 9.949521896960768,
+     "energy_error_pct": 9.037593838586577
+    },
+    "blackwell/final_pytorch_embedding/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "data-dependent global address; transaction counts remain null"
+    },
+    "blackwell/final_pytorch_embedding/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "data-dependent global address; transaction counts remain null"
+    },
+    "blackwell/final_pytorch_embedding/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "data-dependent global address; transaction counts remain null"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_pytorch_layer_norm/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "unsupported operand type(s) for /: 'NoneType' and 'int'"
+    },
+    "blackwell/final_triton_layer_norm/large/c1": {
+     "runtime_error_pct": 103.93485404515484,
+     "energy_error_pct": 103.93840938336476
+    },
+    "blackwell/final_triton_layer_norm/large/c2": {
+     "runtime_error_pct": 121.56715457553418,
+     "energy_error_pct": 121.57195636056528
+    },
+    "blackwell/final_triton_layer_norm/large/c3": {
+     "runtime_error_pct": 150.64527157328982,
+     "energy_error_pct": 150.64750868355722
+    },
+    "blackwell/final_triton_layer_norm/large/c4": {
+     "runtime_error_pct": 122.83710315981824,
+     "energy_error_pct": 122.84189399380753
+    },
+    "blackwell/final_triton_layer_norm/medium/c1": {
+     "runtime_error_pct": 102.72007075391807,
+     "energy_error_pct": 102.72528399061346
+    },
+    "blackwell/final_triton_layer_norm/medium/c2": {
+     "runtime_error_pct": 120.01237465583729,
+     "energy_error_pct": 118.24860861323776
+    },
+    "blackwell/final_triton_layer_norm/medium/c3": {
+     "runtime_error_pct": 115.71008393696913,
+     "energy_error_pct": 108.28667380827399
+    },
+    "blackwell/final_triton_layer_norm/medium/c4": {
+     "runtime_error_pct": 95.9312247368544,
+     "energy_error_pct": 56.07558103163137
+    },
+    "blackwell/final_triton_layer_norm/small/c1": {
+     "runtime_error_pct": 21.96296233479972,
+     "energy_error_pct": 16.896100511004654
+    },
+    "blackwell/final_triton_layer_norm/small/c2": {
+     "runtime_error_pct": 0.5798136753767724,
+     "energy_error_pct": 4.957407575094619
+    },
+    "blackwell/final_triton_layer_norm/small/c3": {
+     "runtime_error_pct": 6.7002739101653,
+     "energy_error_pct": 20.249390162815118
+    },
+    "blackwell/final_triton_layer_norm/small/c4": {
+     "runtime_error_pct": 25.09084513820856,
+     "energy_error_pct": 38.23242209500158
+    },
+    "blackwell/final_xformers_indexed_select/large/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c1": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/final_xformers_indexed_select/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "no retained binary"
+    },
+    "blackwell/train_cuda_samples_reduction/large/c1": {
+     "runtime_error_pct": 155.8573471103283,
+     "energy_error_pct": 5.749963963682969
+    },
+    "blackwell/train_cuda_samples_reduction/large/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/large/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/large/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c1": {
+     "runtime_error_pct": 123.1459169512696,
+     "energy_error_pct": 1.867721144710166
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/medium/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/small/c1": {
+     "runtime_error_pct": 19.511252699452044,
+     "energy_error_pct": 2.42560963400853
+    },
+    "blackwell/train_cuda_samples_reduction/small/c2": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/small/c3": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_reduction/small/c4": {
+     "runtime_error_pct": null,
+     "energy_error_pct": null,
+     "unsupported_reason": "sampled blocks have different phase signatures; grid phase split unproved"
+    },
+    "blackwell/train_cuda_samples_transpose/large/c1": {
+     "runtime_error_pct": 7.484877619555563,
+     "energy_error_pct": 33.267455032013046
+    },
+    "blackwell/train_cuda_samples_transpose/large/c2": {
+     "runtime_error_pct": 19.49619076395066,
+     "energy_error_pct": 6.643295419740958
+    },
+    "blackwell/train_cuda_samples_transpose/large/c3": {
+     "runtime_error_pct": 19.138240025781926,
+     "energy_error_pct": 11.3772080169648
+    },
+    "blackwell/train_cuda_samples_transpose/large/c4": {
+     "runtime_error_pct": 10.53905137434561,
+     "energy_error_pct": 1.576561779323582
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c1": {
+     "runtime_error_pct": 7.686868897234778,
+     "energy_error_pct": 34.10379427321504
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c2": {
+     "runtime_error_pct": 22.946162345448194,
+     "energy_error_pct": 5.183480554995112
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c3": {
+     "runtime_error_pct": 74.69695676117558,
+     "energy_error_pct": 33.08844773947575
+    },
+    "blackwell/train_cuda_samples_transpose/medium/c4": {
+     "runtime_error_pct": 79.87577923402121,
+     "energy_error_pct": 28.346069374605378
+    },
+    "blackwell/train_cuda_samples_transpose/small/c1": {
+     "runtime_error_pct": 0.8076017805874747,
+     "energy_error_pct": 34.349665018564004
+    },
+    "blackwell/train_cuda_samples_transpose/small/c2": {
+     "runtime_error_pct": 27.124054865462753,
+     "energy_error_pct": 6.873705830903698
+    },
+    "blackwell/train_cuda_samples_transpose/small/c3": {
+     "runtime_error_pct": 34.51165795124138,
+     "energy_error_pct": 16.914181609360025
+    },
+    "blackwell/train_cuda_samples_transpose/small/c4": {
+     "runtime_error_pct": 38.358494779466355,
+     "energy_error_pct": 2.4972025850840907
+    },
+    "blackwell/train_triton_vector_add/large/c1": {
+     "runtime_error_pct": 51.72047462813718,
+     "energy_error_pct": 10.31990425728797
+    },
+    "blackwell/train_triton_vector_add/large/c2": {
+     "runtime_error_pct": 24.803930002368467,
+     "energy_error_pct": 5.078384055623064
+    },
+    "blackwell/train_triton_vector_add/large/c3": {
+     "runtime_error_pct": 11.107810938292584,
+     "energy_error_pct": 0.7222522361646888
+    },
+    "blackwell/train_triton_vector_add/large/c4": {
+     "runtime_error_pct": 4.245298429558941,
+     "energy_error_pct": 1.4869609278263973
+    },
+    "blackwell/train_triton_vector_add/medium/c1": {
+     "runtime_error_pct": 36.0239191662064,
+     "energy_error_pct": 16.897640016441606
+    },
+    "blackwell/train_triton_vector_add/medium/c2": {
+     "runtime_error_pct": 70.45090713904658,
+     "energy_error_pct": 36.35976452673055
+    },
+    "blackwell/train_triton_vector_add/medium/c3": {
+     "runtime_error_pct": 87.66256686981615,
+     "energy_error_pct": 79.3392859917244
+    },
+    "blackwell/train_triton_vector_add/medium/c4": {
+     "runtime_error_pct": 37.59610604965982,
+     "energy_error_pct": 37.598964006261106
+    },
+    "blackwell/train_triton_vector_add/small/c1": {
+     "runtime_error_pct": 36.34423646746292,
+     "energy_error_pct": 15.937093751180953
+    },
+    "blackwell/train_triton_vector_add/small/c2": {
+     "runtime_error_pct": 61.847161759952726,
+     "energy_error_pct": 13.18704308877865
+    },
+    "blackwell/train_triton_vector_add/small/c3": {
+     "runtime_error_pct": 48.65599083925183,
+     "energy_error_pct": 26.47873217998331
+    },
+    "blackwell/train_triton_vector_add/small/c4": {
+     "runtime_error_pct": 26.424473248584434,
+     "energy_error_pct": 20.3702208935872
+    }
+   }
+  }
+ },
+ "roofline_comparison": {
+  "shared_cells": 51,
+  "roofline_runtime": {
+   "n": 51,
+   "median_pct": 32.26,
+   "p90_pct": 57.91,
+   "unsupported_failures": 0
+  },
+  "primary_runtime": {
+   "n": 51,
+   "median_pct": 14.81,
+   "p90_pct": 51.22,
+   "unsupported_failures": 0
+  },
+  "roofline_energy_below_cap": {
+   "n": 33,
+   "median_pct": 11.59,
+   "p90_pct": 65.46,
+   "unsupported_failures": 0
+  },
+  "primary_energy_below_cap": {
+   "n": 33,
+   "median_pct": 8.92,
+   "p90_pct": 36.62,
+   "unsupported_failures": 0
+  }
+ },
+ "verdict": {
+  "checks_unsupported_as_failure": {
+   "runtime_median_le_15": false,
+   "runtime_beats_roofline_on_shared": true,
+   "energy_below_cap_within_5pp": false,
+   "energy_p90_within_10pp": false
+  },
+  "passes_kill_rule_unsupported_as_failure": false,
+  "checks": {
+   "runtime_median_le_15": true,
+   "runtime_beats_roofline_on_shared": true,
+   "energy_below_cap_within_5pp": true,
+   "energy_p90_within_10pp": true
+  },
+  "passes_kill_rule_on_supported_cells": true,
+  "note": "Unsupported cells are reported separately and also scored as failures (runtime_median_unsupported_as_failure_pct)."
+ }
+}

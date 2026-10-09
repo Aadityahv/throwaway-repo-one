@@ -1,0 +1,910 @@
+{
+ "cells": [
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_attention_no_max/large/c1",
+   "controls": {
+    "BH": 384,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 64
+   },
+   "family": "attnnm",
+   "footprint_bytes": 251658240,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      384,
+      1
+     ],
+     "kid": "nm4"
+    }
+   ],
+   "l2_ratio": 1.875,
+   "logical_bytes_per_launch": 251658240,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "large",
+   "shape_a": 384,
+   "shape_b": 1024,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_attention_no_max/large/c2",
+   "controls": {
+    "BH": 384,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 128
+   },
+   "family": "attnnm",
+   "footprint_bytes": 251658240,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      384,
+      1
+     ],
+     "kid": "nm8"
+    }
+   ],
+   "l2_ratio": 1.875,
+   "logical_bytes_per_launch": 251658240,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "large",
+   "shape_a": 384,
+   "shape_b": 1024,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_attention_no_max/medium/c1",
+   "controls": {
+    "BH": 72,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 64
+   },
+   "family": "attnnm",
+   "footprint_bytes": 47185920,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      72,
+      1
+     ],
+     "kid": "nm4"
+    }
+   ],
+   "l2_ratio": 0.3515625,
+   "logical_bytes_per_launch": 47185920,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "medium",
+   "shape_a": 72,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_attention_no_max/medium/c2",
+   "controls": {
+    "BH": 72,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 128
+   },
+   "family": "attnnm",
+   "footprint_bytes": 47185920,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      72,
+      1
+     ],
+     "kid": "nm8"
+    }
+   ],
+   "l2_ratio": 0.3515625,
+   "logical_bytes_per_launch": 47185920,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "medium",
+   "shape_a": 72,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_attention_no_max/small/c1",
+   "controls": {
+    "BH": 32,
+    "D": 64,
+    "S": 768,
+    "query_rows_per_block": 64
+   },
+   "family": "attnnm",
+   "footprint_bytes": 15728640,
+   "kernels": [
+    {
+     "args": {
+      "S": 768
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      12,
+      32,
+      1
+     ],
+     "kid": "nm4"
+    }
+   ],
+   "l2_ratio": 0.1171875,
+   "logical_bytes_per_launch": 15728640,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "small",
+   "shape_a": 32,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_attention_no_max/small/c2",
+   "controls": {
+    "BH": 32,
+    "D": 64,
+    "S": 768,
+    "query_rows_per_block": 128
+   },
+   "family": "attnnm",
+   "footprint_bytes": 15728640,
+   "kernels": [
+    {
+     "args": {
+      "S": 768
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      6,
+      32,
+      1
+     ],
+     "kid": "nm8"
+    }
+   ],
+   "l2_ratio": 0.1171875,
+   "logical_bytes_per_launch": 15728640,
+   "operator_id": "prosp_attention_no_max",
+   "regime": "small",
+   "shape_a": 32,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/large/c1",
+   "controls": {
+    "BH": 384,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 32
+   },
+   "family": "attn2",
+   "footprint_bytes": 251658240,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      64,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      384,
+      1
+     ],
+     "kid": "at2"
+    }
+   ],
+   "l2_ratio": 1.875,
+   "logical_bytes_per_launch": 251658240,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "large",
+   "shape_a": 384,
+   "shape_b": 1024,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/large/c2",
+   "controls": {
+    "BH": 384,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 256
+   },
+   "family": "attn2",
+   "footprint_bytes": 251658240,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      384,
+      1
+     ],
+     "kid": "at16"
+    }
+   ],
+   "l2_ratio": 1.875,
+   "logical_bytes_per_launch": 251658240,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "large",
+   "shape_a": 384,
+   "shape_b": 1024,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/medium/c1",
+   "controls": {
+    "BH": 72,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 32
+   },
+   "family": "attn2",
+   "footprint_bytes": 47185920,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      64,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      72,
+      1
+     ],
+     "kid": "at2"
+    }
+   ],
+   "l2_ratio": 0.3515625,
+   "logical_bytes_per_launch": 47185920,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "medium",
+   "shape_a": 72,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/medium/c2",
+   "controls": {
+    "BH": 72,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 256
+   },
+   "family": "attn2",
+   "footprint_bytes": 47185920,
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      72,
+      1
+     ],
+     "kid": "at16"
+    }
+   ],
+   "l2_ratio": 0.3515625,
+   "logical_bytes_per_launch": 47185920,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "medium",
+   "shape_a": 72,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/small/c1",
+   "controls": {
+    "BH": 32,
+    "D": 64,
+    "S": 768,
+    "query_rows_per_block": 32
+   },
+   "family": "attn2",
+   "footprint_bytes": 15728640,
+   "kernels": [
+    {
+     "args": {
+      "S": 768
+     },
+     "block": [
+      64,
+      1,
+      1
+     ],
+     "grid": [
+      24,
+      32,
+      1
+     ],
+     "kid": "at2"
+    }
+   ],
+   "l2_ratio": 0.1171875,
+   "logical_bytes_per_launch": 15728640,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "small",
+   "shape_a": 32,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_fused_attention_new_blocks/small/c2",
+   "controls": {
+    "BH": 32,
+    "D": 64,
+    "S": 768,
+    "query_rows_per_block": 256
+   },
+   "family": "attn2",
+   "footprint_bytes": 15728640,
+   "kernels": [
+    {
+     "args": {
+      "S": 768
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      3,
+      32,
+      1
+     ],
+     "kid": "at16"
+    }
+   ],
+   "l2_ratio": 0.1171875,
+   "logical_bytes_per_launch": 15728640,
+   "operator_id": "prosp_fused_attention_new_blocks",
+   "regime": "small",
+   "shape_a": 32,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/large/c1",
+   "controls": {
+    "K": 768,
+    "M": 8192,
+    "N": 8192,
+    "tile": 128
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 293601280,
+   "kernels": [
+    {
+     "args": {
+      "K": 768,
+      "N": 8192
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      64,
+      64,
+      1
+     ],
+     "kid": "tcr128"
+    }
+   ],
+   "l2_ratio": 2.1875,
+   "logical_bytes_per_launch": 293601280,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "large",
+   "shape_a": 8192,
+   "shape_b": 8192,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/large/c2",
+   "controls": {
+    "K": 768,
+    "M": 8192,
+    "N": 8192,
+    "tile": 64
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 293601280,
+   "kernels": [
+    {
+     "args": {
+      "K": 768,
+      "N": 8192
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      128,
+      128,
+      1
+     ],
+     "kid": "tcr64"
+    }
+   ],
+   "l2_ratio": 2.1875,
+   "logical_bytes_per_launch": 293601280,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "large",
+   "shape_a": 8192,
+   "shape_b": 8192,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/medium/c1",
+   "controls": {
+    "K": 1024,
+    "M": 3072,
+    "N": 3072,
+    "tile": 128
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 50331648,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 3072
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      24,
+      24,
+      1
+     ],
+     "kid": "tcr128"
+    }
+   ],
+   "l2_ratio": 0.375,
+   "logical_bytes_per_launch": 50331648,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "medium",
+   "shape_a": 3072,
+   "shape_b": 3072,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/medium/c2",
+   "controls": {
+    "K": 1024,
+    "M": 3072,
+    "N": 3072,
+    "tile": 64
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 50331648,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 3072
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      48,
+      48,
+      1
+     ],
+     "kid": "tcr64"
+    }
+   ],
+   "l2_ratio": 0.375,
+   "logical_bytes_per_launch": 50331648,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "medium",
+   "shape_a": 3072,
+   "shape_b": 3072,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/small/c1",
+   "controls": {
+    "K": 2048,
+    "M": 1024,
+    "N": 1024,
+    "tile": 128
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 12582912,
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      8,
+      1
+     ],
+     "kid": "tcr128"
+    }
+   ],
+   "l2_ratio": 0.09375,
+   "logical_bytes_per_launch": 12582912,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "small",
+   "shape_a": 1024,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_tensor_matmul_bias_relu/small/c2",
+   "controls": {
+    "K": 2048,
+    "M": 1024,
+    "N": 1024,
+    "tile": 64
+   },
+   "family": "tcrelu",
+   "footprint_bytes": 12582912,
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      16,
+      1
+     ],
+     "kid": "tcr64"
+    }
+   ],
+   "l2_ratio": 0.09375,
+   "logical_bytes_per_launch": 12582912,
+   "operator_id": "prosp_tensor_matmul_bias_relu",
+   "regime": "small",
+   "shape_a": 1024,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/large/c1",
+   "controls": {
+    "K": 768,
+    "M": 8192,
+    "N": 8192,
+    "tile_m": 128,
+    "tile_n": 64
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 293601280,
+   "kernels": [
+    {
+     "args": {
+      "K": 768,
+      "N": 8192
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      128,
+      64,
+      1
+     ],
+     "kid": "tc128x64"
+    }
+   ],
+   "l2_ratio": 2.1875,
+   "logical_bytes_per_launch": 293601280,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "large",
+   "shape_a": 8192,
+   "shape_b": 8192,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/large/c2",
+   "controls": {
+    "K": 768,
+    "M": 8192,
+    "N": 8192,
+    "tile_m": 256,
+    "tile_n": 128
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 293601280,
+   "kernels": [
+    {
+     "args": {
+      "K": 768,
+      "N": 8192
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      64,
+      32,
+      1
+     ],
+     "kid": "tc256x128"
+    }
+   ],
+   "l2_ratio": 2.1875,
+   "logical_bytes_per_launch": 293601280,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "large",
+   "shape_a": 8192,
+   "shape_b": 8192,
+   "tier": "DRAM"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/medium/c1",
+   "controls": {
+    "K": 1024,
+    "M": 3072,
+    "N": 3072,
+    "tile_m": 128,
+    "tile_n": 64
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 50331648,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 3072
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      48,
+      24,
+      1
+     ],
+     "kid": "tc128x64"
+    }
+   ],
+   "l2_ratio": 0.375,
+   "logical_bytes_per_launch": 50331648,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "medium",
+   "shape_a": 3072,
+   "shape_b": 3072,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/medium/c2",
+   "controls": {
+    "K": 1024,
+    "M": 3072,
+    "N": 3072,
+    "tile_m": 256,
+    "tile_n": 128
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 50331648,
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 3072
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      24,
+      12,
+      1
+     ],
+     "kid": "tc256x128"
+    }
+   ],
+   "l2_ratio": 0.375,
+   "logical_bytes_per_launch": 50331648,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "medium",
+   "shape_a": 3072,
+   "shape_b": 3072,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c1",
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/small/c1",
+   "controls": {
+    "K": 2048,
+    "M": 1024,
+    "N": 1024,
+    "tile_m": 128,
+    "tile_n": 64
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 12582912,
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      8,
+      1
+     ],
+     "kid": "tc128x64"
+    }
+   ],
+   "l2_ratio": 0.09375,
+   "logical_bytes_per_launch": 12582912,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "small",
+   "shape_a": 1024,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "candidate_id": "c2",
+   "cell_id": "blackwell/prosp_tensor_matmul_new_tiles/small/c2",
+   "controls": {
+    "K": 2048,
+    "M": 1024,
+    "N": 1024,
+    "tile_m": 256,
+    "tile_n": 128
+   },
+   "family": "tcgemm2",
+   "footprint_bytes": 12582912,
+   "kernels": [
+    {
+     "args": {
+      "K": 2048,
+      "N": 1024
+     },
+     "block": [
+      512,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      4,
+      1
+     ],
+     "kid": "tc256x128"
+    }
+   ],
+   "l2_ratio": 0.09375,
+   "logical_bytes_per_launch": 12582912,
+   "operator_id": "prosp_tensor_matmul_new_tiles",
+   "regime": "small",
+   "shape_a": 1024,
+   "shape_b": 1024,
+   "tier": "L2"
+  }
+ ]
+}

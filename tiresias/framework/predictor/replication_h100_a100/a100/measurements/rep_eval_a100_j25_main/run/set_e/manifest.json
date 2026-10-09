@@ -1,0 +1,73 @@
+{
+ "schema": "unseen_gpu_build/1",
+ "built_utc": "2026-10-06T19:35:57Z",
+ "samples_root": "/home/user/tiresias/app_sources/cuda-samples-5443602",
+ "samples_revision": "5443602d89ed99aede2e4b7bf329daddeadb320e",
+ "nvcc": {
+  "path": "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+  "version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2023 NVIDIA Corporation\nBuilt on Tue_Feb__7_19:32:13_PST_2023\nCuda compilation tools, release 12.1, V12.1.66\nBuild cuda_12.1.r12.1/compiler.32415258_0"
+ },
+ "arch": "sm_80",
+ "host_opt": true,
+ "driver_common_h_sha256": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+ "common_headers": {
+  "helper_cuda.h": "0494246768a4e3dbfcd688d79f4abad1fa39fc9f2d9dc3264a894f1c96d3785d",
+  "helper_string.h": "26e988c97fb3d77d498e384c685177ed7966e41d5d58ebc9b7d3d696859f5e57",
+  "helper_functions.h": "3fdcd18e41ffc2a9c88ade3595384e9cd05a2d84f80b86a2d5982035ca79c426",
+  "helper_image.h": "bc1fe7921bafad278ffa2e4bc8a99c18825208b9f5f47842a7cf7e86cae8b3f1",
+  "helper_timer.h": "c48552a7c7b7a5840fcfbc176bfb5a19b501fdc56796b64a63e78e39ab547078",
+  "exception.h": "ad043023a652bf3610671aad88237383c7bf2e17c66f8da5830d1d668fe7bbe7"
+ },
+ "families": {
+  "sp": {
+   "driver": "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/src/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_sp.cu",
+   "driver_sha256": "427c17fdbc82bd9730d3c96dc1bfba5f48cfe6d4c134b0e60ec9d7d8071f562c",
+   "sample_files": {
+    "cpp/2_Concepts_and_Techniques/scalarProd/scalarProd_kernel.cuh": "21d0d6936b7a50a52117ff30a5017ac17eafe1a0d98e85d2bcc404e40016c2fe"
+   },
+   "command": [
+    "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+    "-arch=sm_80",
+    "-Xcompiler",
+    "-O2",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/Common",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/cpp/2_Concepts_and_Techniques/scalarProd",
+    "-I",
+    "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/src/tiresias/framework/predictor/fresh_e/gpu/drivers",
+    "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/src/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_sp.cu",
+    "-o",
+    "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/run/set_e/bin/fresh_e_sp"
+   ],
+   "returncode": 0,
+   "binary": "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/run/set_e/bin/fresh_e_sp",
+   "binary_sha256": "41d7d524edd85995ecbe948aa59f51bead65701020802f38938ede0dd75830c1"
+  },
+  "fwt": {
+   "driver": "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/src/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_fwt.cu",
+   "driver_sha256": "697e1a01cd0cbf7f6119203c9714dde765c35ee9a9f726171db0b9fee7df23f1",
+   "sample_files": {
+    "cpp/5_Domain_Specific/fastWalshTransform/fastWalshTransform_kernel.cuh": "e523e2dd6bc042efe2933bb49af5c9043affe1991a99511ff7fde2910940fb51"
+   },
+   "command": [
+    "/apps/spack/opt/spack/linux-rocky8-zen2/gcc-11.2.0/cuda-12.1.0-s5o57xpc7sqqhfd6sxfealzbqxtmvh7p/bin/nvcc",
+    "-arch=sm_80",
+    "-Xcompiler",
+    "-O2",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/Common",
+    "-I",
+    "/home/user/tiresias/app_sources/cuda-samples-5443602/cpp/5_Domain_Specific/fastWalshTransform",
+    "-I",
+    "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/src/tiresias/framework/predictor/fresh_e/gpu/drivers",
+    "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/src/tiresias/framework/predictor/fresh_e/gpu/drivers/driver_fwt.cu",
+    "-o",
+    "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/run/set_e/bin/fresh_e_fwt"
+   ],
+   "returncode": 0,
+   "binary": "/home/user/replication_h100_a100/a100_full_j25/measure_main/rep_eval_a100_j25/run/set_e/bin/fresh_e_fwt",
+   "binary_sha256": "4ad60ea3db5e36dff98b06fc954f372835e2a225df9b58616b398ef8340f619e"
+  }
+ }
+}

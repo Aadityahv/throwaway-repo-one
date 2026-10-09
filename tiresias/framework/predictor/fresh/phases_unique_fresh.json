@@ -1,0 +1,2379 @@
+{
+ "derived_from": "tiresias/framework/predictor/fresh/phases_fresh_divider_corrected.json (unchanged)",
+ "interpretation": "corrected IMAD.HI.U32 (divider_fix.py); copy kernel by block class, grid-weighted",
+ "rows": {
+  "blackwell/fresh_pytorch_layer_norm/large/c1": {
+   "blocks_per_sm_note": "features occupancy",
+   "kernels": [
+    {
+     "blocks": 10920,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 288,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 262080,
+       "read_sectors": 1048320,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 1048320,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 1048320,
+       "read_sectors_unique_in_phase_per_block": 96,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 2642640,
+       "read_sectors": 9434880,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 2096640,
+       "read_sectors_first_touch_per_block": 192,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 9434880,
+       "read_sectors_unique_in_phase_per_block": 288,
+       "repetitions": 1,
+       "write_sectors": 1070160
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 288,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 192
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 960,
+     "unique_read_bytes_per_block": 9216,
+     "unique_read_or_written_bytes_per_block": 12352,
+     "unique_read_sectors_per_block": 288
+    }
+   ],
+   "kernels_per_launch": 1,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/large/c2": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 32760,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 32.875,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 96,
+      "period_blocks": 96
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 778032,
+       "read_sectors": 1277640,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 1076985,
+       "read_sectors_first_touch_per_block": 32.875,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 1277640,
+       "read_sectors_unique_in_phase_per_block": 32.875,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1052.0,
+     "unique_read_or_written_bytes_per_block": 2076.0,
+     "unique_read_sectors_per_block": 32.875
+    },
+    {
+     "blocks": 10920,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 288,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 262080,
+       "read_sectors": 1048320,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 1048320,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 1048320,
+       "read_sectors_unique_in_phase_per_block": 96,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 2642640,
+       "read_sectors": 9434880,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 2096640,
+       "read_sectors_first_touch_per_block": 192,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 9434880,
+       "read_sectors_unique_in_phase_per_block": 288,
+       "repetitions": 1,
+       "write_sectors": 1070160
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 288,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 192
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 960,
+     "unique_read_bytes_per_block": 9216,
+     "unique_read_or_written_bytes_per_block": 12352,
+     "unique_read_sectors_per_block": 288
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/large/c3": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 32760,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 32.875,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 96,
+      "period_blocks": 96
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 778032,
+       "read_sectors": 1277640,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 1076985,
+       "read_sectors_first_touch_per_block": 32.875,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 1277640,
+       "read_sectors_unique_in_phase_per_block": 32.875,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1052.0,
+     "unique_read_or_written_bytes_per_block": 2076.0,
+     "unique_read_sectors_per_block": 32.875
+    },
+    {
+     "blocks": 10920,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 288,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 262080,
+       "read_sectors": 1048320,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 1048320,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 1048320,
+       "read_sectors_unique_in_phase_per_block": 96,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 2642640,
+       "read_sectors": 9434880,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 2096640,
+       "read_sectors_first_touch_per_block": 192,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 9434880,
+       "read_sectors_unique_in_phase_per_block": 288,
+       "repetitions": 1,
+       "write_sectors": 1070160
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 288,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 192
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 960,
+     "unique_read_bytes_per_block": 9216,
+     "unique_read_or_written_bytes_per_block": 12352,
+     "unique_read_sectors_per_block": 288
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/large/c4": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 32760,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 32.875,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 96,
+      "period_blocks": 96
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 778032,
+       "read_sectors": 1277640,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 1076985,
+       "read_sectors_first_touch_per_block": 32.875,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 1277640,
+       "read_sectors_unique_in_phase_per_block": 32.875,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1052.0,
+     "unique_read_or_written_bytes_per_block": 2076.0,
+     "unique_read_sectors_per_block": 32.875
+    },
+    {
+     "blocks": 10920,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 288,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 262080,
+       "read_sectors": 1048320,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 1048320,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 1048320,
+       "read_sectors_unique_in_phase_per_block": 96,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 2642640,
+       "read_sectors": 9434880,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 2096640,
+       "read_sectors_first_touch_per_block": 192,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 9434880,
+       "read_sectors_unique_in_phase_per_block": 288,
+       "repetitions": 1,
+       "write_sectors": 1070160
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 288,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 192
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 960,
+     "unique_read_bytes_per_block": 9216,
+     "unique_read_or_written_bytes_per_block": 12352,
+     "unique_read_sectors_per_block": 288
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/medium/c1": {
+   "blocks_per_sm_note": "features occupancy",
+   "kernels": [
+    {
+     "blocks": 5464,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 144,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 65568,
+       "read_sectors": 262272,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 262272,
+       "read_sectors_first_touch_per_block": 48,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 262272,
+       "read_sectors_unique_in_phase_per_block": 48,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 666608,
+       "read_sectors": 2360448,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 524544,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 2360448,
+       "read_sectors_unique_in_phase_per_block": 144,
+       "repetitions": 1,
+       "write_sectors": 273200
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 144,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 96
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 480,
+     "unique_read_bytes_per_block": 4608,
+     "unique_read_or_written_bytes_per_block": 6208,
+     "unique_read_sectors_per_block": 144
+    }
+   ],
+   "kernels_per_launch": 1,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/medium/c2": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 8196,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 32.916666666666664,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 48,
+      "period_blocks": 48
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 194652,
+       "read_sectors": 319644,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 269785,
+       "read_sectors_first_touch_per_block": 32.916666666666664,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 319644,
+       "read_sectors_unique_in_phase_per_block": 32.916666666666664,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1053.3333333333333,
+     "unique_read_or_written_bytes_per_block": 2077.3333333333335,
+     "unique_read_sectors_per_block": 32.916666666666664
+    },
+    {
+     "blocks": 5464,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 144,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 65568,
+       "read_sectors": 262272,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 262272,
+       "read_sectors_first_touch_per_block": 48,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 262272,
+       "read_sectors_unique_in_phase_per_block": 48,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 666608,
+       "read_sectors": 2360448,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 524544,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 2360448,
+       "read_sectors_unique_in_phase_per_block": 144,
+       "repetitions": 1,
+       "write_sectors": 273200
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 144,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 96
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 480,
+     "unique_read_bytes_per_block": 4608,
+     "unique_read_or_written_bytes_per_block": 6208,
+     "unique_read_sectors_per_block": 144
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/medium/c3": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 8196,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 33.0,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 48,
+      "period_blocks": 48
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 194652,
+       "read_sectors": 319644,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 270468,
+       "read_sectors_first_touch_per_block": 33.0,
+       "read_sectors_first_touch_per_block_max": 34,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 319644,
+       "read_sectors_unique_in_phase_per_block": 33.0,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1056.0,
+     "unique_read_or_written_bytes_per_block": 2080.0,
+     "unique_read_sectors_per_block": 33.0
+    },
+    {
+     "blocks": 5464,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 144,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 65568,
+       "read_sectors": 262272,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 262272,
+       "read_sectors_first_touch_per_block": 48,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 262272,
+       "read_sectors_unique_in_phase_per_block": 48,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 666608,
+       "read_sectors": 2360448,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 524544,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 2360448,
+       "read_sectors_unique_in_phase_per_block": 144,
+       "repetitions": 1,
+       "write_sectors": 273200
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 144,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 96
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 480,
+     "unique_read_bytes_per_block": 4608,
+     "unique_read_or_written_bytes_per_block": 6208,
+     "unique_read_sectors_per_block": 144
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/medium/c4": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 8196,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 33.166666666666664,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 48,
+      "period_blocks": 48
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 194652,
+       "read_sectors": 319644,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 271834,
+       "read_sectors_first_touch_per_block": 33.166666666666664,
+       "read_sectors_first_touch_per_block_max": 34,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 319644,
+       "read_sectors_unique_in_phase_per_block": 33.166666666666664,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1061.3333333333333,
+     "unique_read_or_written_bytes_per_block": 2085.3333333333335,
+     "unique_read_sectors_per_block": 33.166666666666664
+    },
+    {
+     "blocks": 5464,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 144,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 65568,
+       "read_sectors": 262272,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 262272,
+       "read_sectors_first_touch_per_block": 48,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 262272,
+       "read_sectors_unique_in_phase_per_block": 48,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 666608,
+       "read_sectors": 2360448,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 524544,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 2360448,
+       "read_sectors_unique_in_phase_per_block": 144,
+       "repetitions": 1,
+       "write_sectors": 273200
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 144,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 96
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 480,
+     "unique_read_bytes_per_block": 4608,
+     "unique_read_or_written_bytes_per_block": 6208,
+     "unique_read_sectors_per_block": 144
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/small/c1": {
+   "blocks_per_sm_note": "features occupancy",
+   "kernels": [
+    {
+     "blocks": 1368,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 36,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 4104,
+       "read_sectors": 16416,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 16416,
+       "read_sectors_first_touch_per_block": 12,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 16416,
+       "read_sectors_unique_in_phase_per_block": 12,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 43776,
+       "read_sectors": 147744,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 32832,
+       "read_sectors_first_touch_per_block": 24,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 147744,
+       "read_sectors_unique_in_phase_per_block": 36,
+       "repetitions": 1,
+       "write_sectors": 19152
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 36,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 24
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 120,
+     "unique_read_bytes_per_block": 1152,
+     "unique_read_or_written_bytes_per_block": 1600,
+     "unique_read_sectors_per_block": 36
+    }
+   ],
+   "kernels_per_launch": 1,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/small/c2": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 513,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 33.0,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 12,
+      "period_blocks": 12
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 12183,
+       "read_sectors": 20007,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 16929,
+       "read_sectors_first_touch_per_block": 33.0,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 33,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 20007,
+       "read_sectors_unique_in_phase_per_block": 33.0,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1056.0,
+     "unique_read_or_written_bytes_per_block": 2080.0,
+     "unique_read_sectors_per_block": 33.0
+    },
+    {
+     "blocks": 1368,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 36,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 4104,
+       "read_sectors": 16416,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 16416,
+       "read_sectors_first_touch_per_block": 12,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 16416,
+       "read_sectors_unique_in_phase_per_block": 12,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 43776,
+       "read_sectors": 147744,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 32832,
+       "read_sectors_first_touch_per_block": 24,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 147744,
+       "read_sectors_unique_in_phase_per_block": 36,
+       "repetitions": 1,
+       "write_sectors": 19152
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 36,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 24
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 120,
+     "unique_read_bytes_per_block": 1152,
+     "unique_read_or_written_bytes_per_block": 1600,
+     "unique_read_sectors_per_block": 36
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/small/c3": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 513,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 33.666666666666664,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 12,
+      "period_blocks": 12
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 12183,
+       "read_sectors": 20007,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 17271,
+       "read_sectors_first_touch_per_block": 33.666666666666664,
+       "read_sectors_first_touch_per_block_max": 34,
+       "read_sectors_first_touch_per_block_min": 33,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 20007,
+       "read_sectors_unique_in_phase_per_block": 33.666666666666664,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1077.3333333333333,
+     "unique_read_or_written_bytes_per_block": 2101.3333333333335,
+     "unique_read_sectors_per_block": 33.666666666666664
+    },
+    {
+     "blocks": 1368,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 36,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 4104,
+       "read_sectors": 16416,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 16416,
+       "read_sectors_first_touch_per_block": 12,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 16416,
+       "read_sectors_unique_in_phase_per_block": 12,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 43776,
+       "read_sectors": 147744,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 32832,
+       "read_sectors_first_touch_per_block": 24,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 147744,
+       "read_sectors_unique_in_phase_per_block": 36,
+       "repetitions": 1,
+       "write_sectors": 19152
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 36,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 24
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 120,
+     "unique_read_bytes_per_block": 1152,
+     "unique_read_or_written_bytes_per_block": 1600,
+     "unique_read_sectors_per_block": 36
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_layer_norm/small/c4": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 513,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 35.0,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 12,
+      "period_blocks": 12
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 12183,
+       "read_sectors": 20007,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 17955,
+       "read_sectors_first_touch_per_block": 35.0,
+       "read_sectors_first_touch_per_block_max": 36,
+       "read_sectors_first_touch_per_block_min": 34,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 20007,
+       "read_sectors_unique_in_phase_per_block": 35.0,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1120.0,
+     "unique_read_or_written_bytes_per_block": 2144.0,
+     "unique_read_sectors_per_block": 35.0
+    },
+    {
+     "blocks": 1368,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 36,
+     "kernel_id": "k3",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 4104,
+       "read_sectors": 16416,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 16416,
+       "read_sectors_first_touch_per_block": 12,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 16416,
+       "read_sectors_unique_in_phase_per_block": 12,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 1,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 2,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 3,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 4,
+       "lines": 0,
+       "read_sectors": 0,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 0,
+       "read_sectors_first_touch_per_block": 0,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 0,
+       "read_sectors_unique_in_phase_per_block": 0,
+       "repetitions": 1,
+       "write_sectors": 0
+      },
+      {
+       "index": 5,
+       "lines": 43776,
+       "read_sectors": 147744,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 32832,
+       "read_sectors_first_touch_per_block": 24,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 147744,
+       "read_sectors_unique_in_phase_per_block": 36,
+       "repetitions": 1,
+       "write_sectors": 19152
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 36,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 24
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 120,
+     "unique_read_bytes_per_block": 1152,
+     "unique_read_or_written_bytes_per_block": 1600,
+     "unique_read_sectors_per_block": 36
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/large/c1": {
+   "blocks_per_sm_note": "features occupancy",
+   "kernels": [
+    {
+     "blocks": 2730,
+     "blocks_per_sm": 7,
+     "first_touch_read_sectors_per_block": 384,
+     "kernel_id": "k4",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524160,
+       "read_sectors": 1048320,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 1048320,
+       "read_sectors_first_touch_per_block": 384,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 1048320,
+       "read_sectors_unique_in_phase_per_block": 384,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 384,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 384,
+     "unique_read_bytes_per_block": 12288,
+     "unique_read_or_written_bytes_per_block": 24576,
+     "unique_read_sectors_per_block": 384
+    }
+   ],
+   "kernels_per_launch": 1,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/large/c2": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 32760,
+     "blocks_per_sm": 7,
+     "first_touch_read_sectors_per_block": 32.875,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 96,
+      "period_blocks": 96
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 778032,
+       "read_sectors": 1277640,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 1076985,
+       "read_sectors_first_touch_per_block": 32.875,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 1277640,
+       "read_sectors_unique_in_phase_per_block": 32.875,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1052.0,
+     "unique_read_or_written_bytes_per_block": 2076.0,
+     "unique_read_sectors_per_block": 32.875
+    },
+    {
+     "blocks": 2730,
+     "blocks_per_sm": 7,
+     "first_touch_read_sectors_per_block": 384,
+     "kernel_id": "k4",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524160,
+       "read_sectors": 1048320,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 1048320,
+       "read_sectors_first_touch_per_block": 384,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 1048320,
+       "read_sectors_unique_in_phase_per_block": 384,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 384,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 384,
+     "unique_read_bytes_per_block": 12288,
+     "unique_read_or_written_bytes_per_block": 24576,
+     "unique_read_sectors_per_block": 384
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/large/c3": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 32760,
+     "blocks_per_sm": 7,
+     "first_touch_read_sectors_per_block": 32.875,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 96,
+      "period_blocks": 96
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 778032,
+       "read_sectors": 1277640,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 1076985,
+       "read_sectors_first_touch_per_block": 32.875,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 1277640,
+       "read_sectors_unique_in_phase_per_block": 32.875,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1052.0,
+     "unique_read_or_written_bytes_per_block": 2076.0,
+     "unique_read_sectors_per_block": 32.875
+    },
+    {
+     "blocks": 2730,
+     "blocks_per_sm": 7,
+     "first_touch_read_sectors_per_block": 384,
+     "kernel_id": "k4",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524160,
+       "read_sectors": 1048320,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 1048320,
+       "read_sectors_first_touch_per_block": 384,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 1048320,
+       "read_sectors_unique_in_phase_per_block": 384,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 384,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 384,
+     "unique_read_bytes_per_block": 12288,
+     "unique_read_or_written_bytes_per_block": 24576,
+     "unique_read_sectors_per_block": 384
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/large/c4": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 32760,
+     "blocks_per_sm": 7,
+     "first_touch_read_sectors_per_block": 32.875,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 96,
+      "period_blocks": 96
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 778032,
+       "read_sectors": 1277640,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 1076985,
+       "read_sectors_first_touch_per_block": 32.875,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 1277640,
+       "read_sectors_unique_in_phase_per_block": 32.875,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1052.0,
+     "unique_read_or_written_bytes_per_block": 2076.0,
+     "unique_read_sectors_per_block": 32.875
+    },
+    {
+     "blocks": 2730,
+     "blocks_per_sm": 7,
+     "first_touch_read_sectors_per_block": 384,
+     "kernel_id": "k4",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 524160,
+       "read_sectors": 1048320,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 1048320,
+       "read_sectors_first_touch_per_block": 384,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 1048320,
+       "read_sectors_unique_in_phase_per_block": 384,
+       "repetitions": 1,
+       "write_sectors": 1048320
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 384,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 384,
+     "unique_read_bytes_per_block": 12288,
+     "unique_read_or_written_bytes_per_block": 24576,
+     "unique_read_sectors_per_block": 384
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/medium/c1": {
+   "blocks_per_sm_note": "features occupancy",
+   "kernels": [
+    {
+     "blocks": 1366,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 192,
+     "kernel_id": "k6",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131136,
+       "read_sectors": 262272,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 262272,
+       "read_sectors_first_touch_per_block": 192,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 262272,
+       "read_sectors_unique_in_phase_per_block": 192,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 192,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 192,
+     "unique_read_bytes_per_block": 6144,
+     "unique_read_or_written_bytes_per_block": 12288,
+     "unique_read_sectors_per_block": 192
+    }
+   ],
+   "kernels_per_launch": 1,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/medium/c2": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 8196,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 32.916666666666664,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 48,
+      "period_blocks": 48
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 194652,
+       "read_sectors": 319644,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 269785,
+       "read_sectors_first_touch_per_block": 32.916666666666664,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 319644,
+       "read_sectors_unique_in_phase_per_block": 32.916666666666664,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1053.3333333333333,
+     "unique_read_or_written_bytes_per_block": 2077.3333333333335,
+     "unique_read_sectors_per_block": 32.916666666666664
+    },
+    {
+     "blocks": 1366,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 192,
+     "kernel_id": "k6",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131136,
+       "read_sectors": 262272,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 262272,
+       "read_sectors_first_touch_per_block": 192,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 262272,
+       "read_sectors_unique_in_phase_per_block": 192,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 192,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 192,
+     "unique_read_bytes_per_block": 6144,
+     "unique_read_or_written_bytes_per_block": 12288,
+     "unique_read_sectors_per_block": 192
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/medium/c3": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 8196,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 33.0,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 48,
+      "period_blocks": 48
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 194652,
+       "read_sectors": 319644,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 270468,
+       "read_sectors_first_touch_per_block": 33.0,
+       "read_sectors_first_touch_per_block_max": 34,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 319644,
+       "read_sectors_unique_in_phase_per_block": 33.0,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1056.0,
+     "unique_read_or_written_bytes_per_block": 2080.0,
+     "unique_read_sectors_per_block": 33.0
+    },
+    {
+     "blocks": 1366,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 192,
+     "kernel_id": "k6",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131136,
+       "read_sectors": 262272,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 262272,
+       "read_sectors_first_touch_per_block": 192,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 262272,
+       "read_sectors_unique_in_phase_per_block": 192,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 192,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 192,
+     "unique_read_bytes_per_block": 6144,
+     "unique_read_or_written_bytes_per_block": 12288,
+     "unique_read_sectors_per_block": 192
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/medium/c4": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 8196,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 33.166666666666664,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 48,
+      "period_blocks": 48
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 194652,
+       "read_sectors": 319644,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 271834,
+       "read_sectors_first_touch_per_block": 33.166666666666664,
+       "read_sectors_first_touch_per_block_max": 34,
+       "read_sectors_first_touch_per_block_min": 32,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 319644,
+       "read_sectors_unique_in_phase_per_block": 33.166666666666664,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1061.3333333333333,
+     "unique_read_or_written_bytes_per_block": 2085.3333333333335,
+     "unique_read_sectors_per_block": 33.166666666666664
+    },
+    {
+     "blocks": 1366,
+     "blocks_per_sm": 10,
+     "first_touch_read_sectors_per_block": 192,
+     "kernel_id": "k6",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 131136,
+       "read_sectors": 262272,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 262272,
+       "read_sectors_first_touch_per_block": 192,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 262272,
+       "read_sectors_unique_in_phase_per_block": 192,
+       "repetitions": 1,
+       "write_sectors": 262272
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 192,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 192,
+     "unique_read_bytes_per_block": 6144,
+     "unique_read_or_written_bytes_per_block": 12288,
+     "unique_read_sectors_per_block": 192
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/small/c1": {
+   "blocks_per_sm_note": "features occupancy",
+   "kernels": [
+    {
+     "blocks": 171,
+     "blocks_per_sm": 12,
+     "first_touch_read_sectors_per_block": 96,
+     "kernel_id": "k5",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8208,
+       "read_sectors": 16416,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 16416,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 16416,
+       "read_sectors_unique_in_phase_per_block": 96,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 96,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 96,
+     "unique_read_bytes_per_block": 3072,
+     "unique_read_or_written_bytes_per_block": 6144,
+     "unique_read_sectors_per_block": 96
+    }
+   ],
+   "kernels_per_launch": 1,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/small/c2": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 513,
+     "blocks_per_sm": 12,
+     "first_touch_read_sectors_per_block": 33.0,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 12,
+      "period_blocks": 12
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 12183,
+       "read_sectors": 20007,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 16929,
+       "read_sectors_first_touch_per_block": 33.0,
+       "read_sectors_first_touch_per_block_max": 33,
+       "read_sectors_first_touch_per_block_min": 33,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 20007,
+       "read_sectors_unique_in_phase_per_block": 33.0,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1056.0,
+     "unique_read_or_written_bytes_per_block": 2080.0,
+     "unique_read_sectors_per_block": 33.0
+    },
+    {
+     "blocks": 171,
+     "blocks_per_sm": 12,
+     "first_touch_read_sectors_per_block": 96,
+     "kernel_id": "k5",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8208,
+       "read_sectors": 16416,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 16416,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 16416,
+       "read_sectors_unique_in_phase_per_block": 96,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 96,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 96,
+     "unique_read_bytes_per_block": 3072,
+     "unique_read_or_written_bytes_per_block": 6144,
+     "unique_read_sectors_per_block": 96
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/small/c3": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 513,
+     "blocks_per_sm": 12,
+     "first_touch_read_sectors_per_block": 33.666666666666664,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 12,
+      "period_blocks": 12
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 12183,
+       "read_sectors": 20007,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 17271,
+       "read_sectors_first_touch_per_block": 33.666666666666664,
+       "read_sectors_first_touch_per_block_max": 34,
+       "read_sectors_first_touch_per_block_min": 33,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 20007,
+       "read_sectors_unique_in_phase_per_block": 33.666666666666664,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1077.3333333333333,
+     "unique_read_or_written_bytes_per_block": 2101.3333333333335,
+     "unique_read_sectors_per_block": 33.666666666666664
+    },
+    {
+     "blocks": 171,
+     "blocks_per_sm": 12,
+     "first_touch_read_sectors_per_block": 96,
+     "kernel_id": "k5",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8208,
+       "read_sectors": 16416,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 16416,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 16416,
+       "read_sectors_unique_in_phase_per_block": 96,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 96,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 96,
+     "unique_read_bytes_per_block": 3072,
+     "unique_read_or_written_bytes_per_block": 6144,
+     "unique_read_sectors_per_block": 96
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  },
+  "blackwell/fresh_pytorch_rowwise_softmax/small/c4": {
+   "blocks_per_sm_note": "features occupancy, cell level (main kernel)",
+   "kernels": [
+    {
+     "blocks": 513,
+     "blocks_per_sm": 12,
+     "first_touch_read_sectors_per_block": 35.0,
+     "kernel_id": "k1",
+     "per_block_values_are_grid_weighted_means_over_block_classes": {
+      "classes": 12,
+      "period_blocks": 12
+     },
+     "phases": [
+      {
+       "index": 0,
+       "lines": 12183,
+       "read_sectors": 20007,
+       "read_sectors_also_written_same_phase_per_block": 0.0,
+       "read_sectors_first_touch": 17955,
+       "read_sectors_first_touch_per_block": 35.0,
+       "read_sectors_first_touch_per_block_max": 36,
+       "read_sectors_first_touch_per_block_min": 34,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0.0,
+       "read_sectors_total_requested": 20007,
+       "read_sectors_unique_in_phase_per_block": 35.0,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "note": "not computed for the block-class copy kernel (classes are not neighbouring blocks)"
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 39.0,
+     "unique_read_bytes_per_block": 1120.0,
+     "unique_read_or_written_bytes_per_block": 2144.0,
+     "unique_read_sectors_per_block": 35.0
+    },
+    {
+     "blocks": 171,
+     "blocks_per_sm": 12,
+     "first_touch_read_sectors_per_block": 96,
+     "kernel_id": "k5",
+     "phases": [
+      {
+       "index": 0,
+       "lines": 8208,
+       "read_sectors": 16416,
+       "read_sectors_also_written_same_phase_per_block": 0,
+       "read_sectors_first_touch": 16416,
+       "read_sectors_first_touch_per_block": 96,
+       "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+       "read_sectors_total_requested": 16416,
+       "read_sectors_unique_in_phase_per_block": 96,
+       "repetitions": 1,
+       "write_sectors": 16416
+      }
+     ],
+     "read_sectors_shared_across_blocks_note": {
+      "block0_distinct_read_sectors": 96,
+      "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+      "sampled_blocks_compared": 1,
+      "shared_with_at_least_one_other_sampled_block": 0
+     },
+     "status": "ok",
+     "total_requested_read_sectors_per_block": 96,
+     "unique_read_bytes_per_block": 3072,
+     "unique_read_or_written_bytes_per_block": 6144,
+     "unique_read_sectors_per_block": 96
+    }
+   ],
+   "kernels_per_launch": 2,
+   "reason": null,
+   "status": "ok"
+  }
+ },
+ "schema": "first_touch_unique_sectors/1",
+ "sector_bytes": 32,
+ "uses_measured_runtime_or_energy": false
+}

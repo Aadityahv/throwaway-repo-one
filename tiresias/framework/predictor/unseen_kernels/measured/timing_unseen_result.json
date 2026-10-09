@@ -1,0 +1,2306 @@
+{
+ "schema": "unseen_timing_raw/1",
+ "booking_ref": "booking log 2026-10-02 10:45 unseen_kernels_timing_20261002",
+ "started_utc": "2026-10-02T05:09:17Z",
+ "device": {
+  "cuda_visible_devices": "1",
+  "uuid": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894",
+  "nvidia_smi_index": "1"
+ },
+ "cell_definitions": "tiresias/framework/predictor/unseen_kernels/cells.py",
+ "cells_py_sha256": "847f6bf2803c68859b6bbf99b5d0ac1e1dde92c3113b10a79bfa37be02a813bf",
+ "manifest_binaries": {
+  "matmul": "cb084ce15f4f9933227bc872d04e926cf0a18127d5e88dee54423916005b3814",
+  "bs": "e065656803c2d6639bab42c99a19364b423f6b1b2028b499385606e44763b91f",
+  "scan": "9c754f48c0117b7dd51f0f3dfde833bcd369358e8e19653072be8907ab481df7",
+  "conv": "4cf50c0444d14cc42813c0f6675bf311a7f31253dd081ba532905fc79dd45294"
+ },
+ "nvcc": "Build cuda_13.2.r13.2/compiler.37668154_0",
+ "method": {
+  "probe_batch": 16,
+  "target_graph_s": 0.005,
+  "target_window_s": 0.03,
+  "max_graph_batch": 2048,
+  "windows": 3,
+  "per_launch_runtime_s": "median over windows of cuda_seconds / launches (cudaEvents around repeat operator calls)",
+  "clocks_set": false,
+  "persistence_set": false,
+  "power_limit_set": false
+ },
+ "cells": [
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/small/c1",
+   "family": "matmul",
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "regime": "small",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "352",
+    "16"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.2814e-05
+    },
+    {
+     "repeat": 391,
+     "graph_batch": 391,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.2339805626598466e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=352 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00145 repeat=2436 graph_batch=406",
+     "check_ok": true,
+     "launches": 2436,
+     "cuda_seconds": 0.029959393,
+     "per_launch_s": 1.2298601395730707e-05,
+     "host_begin_monotonic_ns": 2751009248306684,
+     "host_end_monotonic_ns": 2751009278277917
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=352 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00145 repeat=2436 graph_batch=406",
+     "check_ok": true,
+     "launches": 2436,
+     "cuda_seconds": 0.029966751,
+     "per_launch_s": 1.2301621921182266e-05,
+     "host_begin_monotonic_ns": 2751009627922761,
+     "host_end_monotonic_ns": 2751009657900786
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=352 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00145 repeat=2436 graph_batch=406",
+     "check_ok": true,
+     "launches": 2436,
+     "cuda_seconds": 0.0299632,
+     "per_launch_s": 1.230016420361248e-05,
+     "host_begin_monotonic_ns": 2751010009267202,
+     "host_end_monotonic_ns": 2751010039243018
+    }
+   ],
+   "per_launch_runtime_s": 1.230016420361248e-05,
+   "launches": 2436,
+   "repeat": 2436,
+   "graph_batch": 406,
+   "check": "CHECK_OK matmul N=352 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00145 repeat=2436 graph_batch=406",
+   "correct": true,
+   "per_launch_min_s": 1.2298601395730707e-05,
+   "per_launch_max_s": 1.2301621921182266e-05
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/small/c2",
+   "family": "matmul",
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "regime": "small",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "352",
+    "32"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.4264e-05
+    },
+    {
+     "repeat": 351,
+     "graph_batch": 351,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.3661447293447293e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=352 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00145 repeat=2196 graph_batch=366",
+     "check_ok": true,
+     "launches": 2196,
+     "cuda_seconds": 0.029873568,
+     "per_launch_s": 1.3603628415300547e-05,
+     "host_begin_monotonic_ns": 2751011046531893,
+     "host_end_monotonic_ns": 2751011076417194
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=352 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00145 repeat=2196 graph_batch=366",
+     "check_ok": true,
+     "launches": 2196,
+     "cuda_seconds": 0.029882689,
+     "per_launch_s": 1.3607781876138434e-05,
+     "host_begin_monotonic_ns": 2751011424271788,
+     "host_end_monotonic_ns": 2751011454166288
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=352 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00145 repeat=2196 graph_batch=366",
+     "check_ok": true,
+     "launches": 2196,
+     "cuda_seconds": 0.0298848,
+     "per_launch_s": 1.3608743169398907e-05,
+     "host_begin_monotonic_ns": 2751011801296641,
+     "host_end_monotonic_ns": 2751011831192607
+    }
+   ],
+   "per_launch_runtime_s": 1.3607781876138434e-05,
+   "launches": 2196,
+   "repeat": 2196,
+   "graph_batch": 366,
+   "check": "CHECK_OK matmul N=352 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00145 repeat=2196 graph_batch=366",
+   "correct": true,
+   "per_launch_min_s": 1.3603628415300547e-05,
+   "per_launch_max_s": 1.3608743169398907e-05
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/medium/c1",
+   "family": "matmul",
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "1056",
+    "16"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000228878
+    },
+    {
+     "repeat": 22,
+     "graph_batch": 22,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00022820072727272727
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=1056 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00144 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.029930847,
+     "per_launch_s": 0.0002267488409090909,
+     "host_begin_monotonic_ns": 2751012876127179,
+     "host_end_monotonic_ns": 2751012906069425
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=1056 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00144 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.029935808,
+     "per_launch_s": 0.00022678642424242427,
+     "host_begin_monotonic_ns": 2751013290449647,
+     "host_end_monotonic_ns": 2751013320396887
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=1056 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00144 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.029954592,
+     "per_launch_s": 0.00022692872727272725,
+     "host_begin_monotonic_ns": 2751013703434073,
+     "host_end_monotonic_ns": 2751013733399766
+    }
+   ],
+   "per_launch_runtime_s": 0.00022678642424242427,
+   "launches": 132,
+   "repeat": 132,
+   "graph_batch": 22,
+   "check": "CHECK_OK matmul N=1056 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00144 repeat=132 graph_batch=22",
+   "correct": true,
+   "per_launch_min_s": 0.0002267488409090909,
+   "per_launch_max_s": 0.00022692872727272725
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/medium/c2",
+   "family": "matmul",
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "1056",
+    "32"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00022978
+    },
+    {
+     "repeat": 22,
+     "graph_batch": 22,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00022960145454545454
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=1056 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00144 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.03026848,
+     "per_launch_s": 0.00022930666666666667,
+     "host_begin_monotonic_ns": 2751014844182390,
+     "host_end_monotonic_ns": 2751014874461937
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=1056 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00144 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.030250273,
+     "per_launch_s": 0.00022916873484848485,
+     "host_begin_monotonic_ns": 2751015255577745,
+     "host_end_monotonic_ns": 2751015285839230
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=1056 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00144 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.030251232,
+     "per_launch_s": 0.000229176,
+     "host_begin_monotonic_ns": 2751015718507317,
+     "host_end_monotonic_ns": 2751015748769678
+    }
+   ],
+   "per_launch_runtime_s": 0.000229176,
+   "launches": 132,
+   "repeat": 132,
+   "graph_batch": 22,
+   "check": "CHECK_OK matmul N=1056 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00144 repeat=132 graph_batch=22",
+   "correct": true,
+   "per_launch_min_s": 0.00022916873484848485,
+   "per_launch_max_s": 0.00022930666666666667
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/large/c1",
+   "family": "matmul",
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "regime": "large",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "2080",
+    "16"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.001641438
+    },
+    {
+     "repeat": 4,
+     "graph_batch": 4,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.001641216
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=2080 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.002 repeat=20 graph_batch=4",
+     "check_ok": true,
+     "launches": 20,
+     "cuda_seconds": 0.032799553,
+     "per_launch_s": 0.0016399776500000001,
+     "host_begin_monotonic_ns": 2751017191337422,
+     "host_end_monotonic_ns": 2751017224148384
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=2080 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.002 repeat=20 graph_batch=4",
+     "check_ok": true,
+     "launches": 20,
+     "cuda_seconds": 0.03277232,
+     "per_launch_s": 0.001638616,
+     "host_begin_monotonic_ns": 2751017707690079,
+     "host_end_monotonic_ns": 2751017740474142
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=2080 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.002 repeat=20 graph_batch=4",
+     "check_ok": true,
+     "launches": 20,
+     "cuda_seconds": 0.03277533,
+     "per_launch_s": 0.0016387665,
+     "host_begin_monotonic_ns": 2751018168156357,
+     "host_end_monotonic_ns": 2751018200942602
+    }
+   ],
+   "per_launch_runtime_s": 0.0016387665,
+   "launches": 20,
+   "repeat": 20,
+   "graph_batch": 4,
+   "check": "CHECK_OK matmul N=2080 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.002 repeat=20 graph_batch=4",
+   "correct": true,
+   "per_launch_min_s": 0.001638616,
+   "per_launch_max_s": 0.0016399776500000001
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/large/c2",
+   "family": "matmul",
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "regime": "large",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "2080",
+    "32"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.001716468
+    },
+    {
+     "repeat": 3,
+     "graph_batch": 3,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.0017127146666666667
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=2080 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.002 repeat=18 graph_batch=3",
+     "check_ok": true,
+     "launches": 18,
+     "cuda_seconds": 0.030762209,
+     "per_launch_s": 0.001709011611111111,
+     "host_begin_monotonic_ns": 2751019636760347,
+     "host_end_monotonic_ns": 2751019667534089
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=2080 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.002 repeat=18 graph_batch=3",
+     "check_ok": true,
+     "launches": 18,
+     "cuda_seconds": 0.030818399,
+     "per_launch_s": 0.0017121332777777778,
+     "host_begin_monotonic_ns": 2751020148271633,
+     "host_end_monotonic_ns": 2751020179101504
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=2080 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.002 repeat=18 graph_batch=3",
+     "check_ok": true,
+     "launches": 18,
+     "cuda_seconds": 0.03081856,
+     "per_launch_s": 0.0017121422222222222,
+     "host_begin_monotonic_ns": 2751020669483654,
+     "host_end_monotonic_ns": 2751020700312777
+    }
+   ],
+   "per_launch_runtime_s": 0.0017121332777777778,
+   "launches": 18,
+   "repeat": 18,
+   "graph_batch": 3,
+   "check": "CHECK_OK matmul N=2080 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.002 repeat=18 graph_batch=3",
+   "correct": true,
+   "per_launch_min_s": 0.001709011611111111,
+   "per_launch_max_s": 0.0017121422222222222
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c1",
+   "family": "matmul",
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "regime": "xlarge",
+   "candidate_id": "c1",
+   "tier": "DRAM",
+   "argv": [
+    "4256",
+    "16"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.01404765225
+    },
+    {
+     "repeat": 1,
+     "graph_batch": 1,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.013979136
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=4256 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00151 repeat=3 graph_batch=1",
+     "check_ok": true,
+     "launches": 3,
+     "cuda_seconds": 0.042064034,
+     "per_launch_s": 0.014021344666666666,
+     "host_begin_monotonic_ns": 2751023360534743,
+     "host_end_monotonic_ns": 2751023402606860
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=4256 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00151 repeat=3 graph_batch=1",
+     "check_ok": true,
+     "launches": 3,
+     "cuda_seconds": 0.042064159,
+     "per_launch_s": 0.014021386333333332,
+     "host_begin_monotonic_ns": 2751024101015438,
+     "host_end_monotonic_ns": 2751024143092057
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=4256 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00151 repeat=3 graph_batch=1",
+     "check_ok": true,
+     "launches": 3,
+     "cuda_seconds": 0.042069759,
+     "per_launch_s": 0.014023253,
+     "host_begin_monotonic_ns": 2751024741532083,
+     "host_end_monotonic_ns": 2751024783608597
+    }
+   ],
+   "per_launch_runtime_s": 0.014021386333333332,
+   "launches": 3,
+   "repeat": 3,
+   "graph_batch": 1,
+   "check": "CHECK_OK matmul N=4256 tile=16 sampled=4096 bad=0 worst_diff_over_tol=0.00151 repeat=3 graph_batch=1",
+   "correct": true,
+   "per_launch_min_s": 0.014021344666666666,
+   "per_launch_max_s": 0.014023253
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c2",
+   "family": "matmul",
+   "operator_id": "unseen_cuda_samples_matrix_multiply",
+   "regime": "xlarge",
+   "candidate_id": "c2",
+   "tier": "DRAM",
+   "argv": [
+    "4256",
+    "32"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.0151263141875
+    },
+    {
+     "repeat": 1,
+     "graph_batch": 1,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.015027296
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=4256 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00151 repeat=2 graph_batch=1",
+     "check_ok": true,
+     "launches": 2,
+     "cuda_seconds": 0.030187361,
+     "per_launch_s": 0.0150936805,
+     "host_begin_monotonic_ns": 2751026743792281,
+     "host_end_monotonic_ns": 2751026773986755
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=4256 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00151 repeat=2 graph_batch=1",
+     "check_ok": true,
+     "launches": 2,
+     "cuda_seconds": 0.030158304,
+     "per_launch_s": 0.015079152,
+     "host_begin_monotonic_ns": 2751027247174657,
+     "host_end_monotonic_ns": 2751027277340626
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK matmul N=4256 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00151 repeat=2 graph_batch=1",
+     "check_ok": true,
+     "launches": 2,
+     "cuda_seconds": 0.030169727,
+     "per_launch_s": 0.0150848635,
+     "host_begin_monotonic_ns": 2751027808187295,
+     "host_end_monotonic_ns": 2751027838366613
+    }
+   ],
+   "per_launch_runtime_s": 0.0150848635,
+   "launches": 2,
+   "repeat": 2,
+   "graph_batch": 1,
+   "check": "CHECK_OK matmul N=4256 tile=32 sampled=4096 bad=0 worst_diff_over_tol=0.00151 repeat=2 graph_batch=1",
+   "correct": true,
+   "per_launch_min_s": 0.015079152,
+   "per_launch_max_s": 0.0150936805
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_black_scholes/small/c1",
+   "family": "bs",
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "regime": "small",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "262144",
+    "128"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 2.286e-06
+    },
+    {
+     "repeat": 2048,
+     "graph_batch": 2048,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.57634375e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=262144 block=128 l1_rel=7.6e-08 max_abs=1.66e-05 finite=1 repeat=20480 graph_batch=2048",
+     "check_ok": true,
+     "launches": 20480,
+     "cuda_seconds": 0.032051552,
+     "per_launch_s": 1.5650171874999998e-06,
+     "host_begin_monotonic_ns": 2751028927369840,
+     "host_end_monotonic_ns": 2751028959435492
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=262144 block=128 l1_rel=7.6e-08 max_abs=1.66e-05 finite=1 repeat=20480 graph_batch=2048",
+     "check_ok": true,
+     "launches": 20480,
+     "cuda_seconds": 0.032013985,
+     "per_launch_s": 1.563182861328125e-06,
+     "host_begin_monotonic_ns": 2751029362664818,
+     "host_end_monotonic_ns": 2751029394691592
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=262144 block=128 l1_rel=7.6e-08 max_abs=1.66e-05 finite=1 repeat=20480 graph_batch=2048",
+     "check_ok": true,
+     "launches": 20480,
+     "cuda_seconds": 0.031995232,
+     "per_launch_s": 1.5622671874999999e-06,
+     "host_begin_monotonic_ns": 2751029796720554,
+     "host_end_monotonic_ns": 2751029828729445
+    }
+   ],
+   "per_launch_runtime_s": 1.563182861328125e-06,
+   "launches": 20480,
+   "repeat": 20480,
+   "graph_batch": 2048,
+   "check": "CHECK_OK bs optN=262144 block=128 l1_rel=7.6e-08 max_abs=1.66e-05 finite=1 repeat=20480 graph_batch=2048",
+   "correct": true,
+   "per_launch_min_s": 1.5622671874999999e-06,
+   "per_launch_max_s": 1.5650171874999998e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_black_scholes/small/c2",
+   "family": "bs",
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "regime": "small",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "262144",
+    "64"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 2.236e-06
+    },
+    {
+     "repeat": 2048,
+     "graph_batch": 2048,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.60815625e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=262144 block=64 l1_rel=7.6e-08 max_abs=1.66e-05 finite=1 repeat=20480 graph_batch=2048",
+     "check_ok": true,
+     "launches": 20480,
+     "cuda_seconds": 0.032864864,
+     "per_launch_s": 1.6047296875e-06,
+     "host_begin_monotonic_ns": 2751030787509027,
+     "host_end_monotonic_ns": 2751030820386476
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=262144 block=64 l1_rel=7.6e-08 max_abs=1.66e-05 finite=1 repeat=20480 graph_batch=2048",
+     "check_ok": true,
+     "launches": 20480,
+     "cuda_seconds": 0.032840321,
+     "per_launch_s": 1.6035312988281249e-06,
+     "host_begin_monotonic_ns": 2751031217287177,
+     "host_end_monotonic_ns": 2751031250142600
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=262144 block=64 l1_rel=7.6e-08 max_abs=1.66e-05 finite=1 repeat=20480 graph_batch=2048",
+     "check_ok": true,
+     "launches": 20480,
+     "cuda_seconds": 0.032875519,
+     "per_launch_s": 1.605249951171875e-06,
+     "host_begin_monotonic_ns": 2751031647923803,
+     "host_end_monotonic_ns": 2751031680813033
+    }
+   ],
+   "per_launch_runtime_s": 1.6047296875e-06,
+   "launches": 20480,
+   "repeat": 20480,
+   "graph_batch": 2048,
+   "check": "CHECK_OK bs optN=262144 block=64 l1_rel=7.6e-08 max_abs=1.66e-05 finite=1 repeat=20480 graph_batch=2048",
+   "correct": true,
+   "per_launch_min_s": 1.6035312988281249e-06,
+   "per_launch_max_s": 1.605249951171875e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_black_scholes/medium/c1",
+   "family": "bs",
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "1048576",
+    "128"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.638e-06
+    },
+    {
+     "repeat": 1375,
+     "graph_batch": 1375,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.1008814545454546e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=1048576 block=128 l1_rel=7.58e-08 max_abs=1.76e-05 finite=1 repeat=9678 graph_batch=1613",
+     "check_ok": true,
+     "launches": 9678,
+     "cuda_seconds": 0.029875904,
+     "per_launch_s": 3.086991527175036e-06,
+     "host_begin_monotonic_ns": 2751033048302890,
+     "host_end_monotonic_ns": 2751033078191322
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=1048576 block=128 l1_rel=7.58e-08 max_abs=1.76e-05 finite=1 repeat=9678 graph_batch=1613",
+     "check_ok": true,
+     "launches": 9678,
+     "cuda_seconds": 0.029839104,
+     "per_launch_s": 3.083189088654681e-06,
+     "host_begin_monotonic_ns": 2751033501342868,
+     "host_end_monotonic_ns": 2751033531190699
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=1048576 block=128 l1_rel=7.58e-08 max_abs=1.76e-05 finite=1 repeat=9678 graph_batch=1613",
+     "check_ok": true,
+     "launches": 9678,
+     "cuda_seconds": 0.029856384,
+     "per_launch_s": 3.0849745815251085e-06,
+     "host_begin_monotonic_ns": 2751033891416161,
+     "host_end_monotonic_ns": 2751033921280025
+    }
+   ],
+   "per_launch_runtime_s": 3.0849745815251085e-06,
+   "launches": 9678,
+   "repeat": 9678,
+   "graph_batch": 1613,
+   "check": "CHECK_OK bs optN=1048576 block=128 l1_rel=7.58e-08 max_abs=1.76e-05 finite=1 repeat=9678 graph_batch=1613",
+   "correct": true,
+   "per_launch_min_s": 3.083189088654681e-06,
+   "per_launch_max_s": 3.086991527175036e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_black_scholes/medium/c2",
+   "family": "bs",
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "1048576",
+    "64"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 4.864e-06
+    },
+    {
+     "repeat": 1028,
+     "graph_batch": 1028,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 4.280871595330739e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=1048576 block=64 l1_rel=7.58e-08 max_abs=1.76e-05 finite=1 repeat=7008 graph_batch=1168",
+     "check_ok": true,
+     "launches": 7008,
+     "cuda_seconds": 0.029881088,
+     "per_launch_s": 4.263853881278539e-06,
+     "host_begin_monotonic_ns": 2751035221543928,
+     "host_end_monotonic_ns": 2751035251437692
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=1048576 block=64 l1_rel=7.58e-08 max_abs=1.76e-05 finite=1 repeat=7008 graph_batch=1168",
+     "check_ok": true,
+     "launches": 7008,
+     "cuda_seconds": 0.029896,
+     "per_launch_s": 4.265981735159817e-06,
+     "host_begin_monotonic_ns": 2751035724230614,
+     "host_end_monotonic_ns": 2751035754139497
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=1048576 block=64 l1_rel=7.58e-08 max_abs=1.76e-05 finite=1 repeat=7008 graph_batch=1168",
+     "check_ok": true,
+     "launches": 7008,
+     "cuda_seconds": 0.029907904,
+     "per_launch_s": 4.267680365296803e-06,
+     "host_begin_monotonic_ns": 2751036229685437,
+     "host_end_monotonic_ns": 2751036259606024
+    }
+   ],
+   "per_launch_runtime_s": 4.265981735159817e-06,
+   "launches": 7008,
+   "repeat": 7008,
+   "graph_batch": 1168,
+   "check": "CHECK_OK bs optN=1048576 block=64 l1_rel=7.58e-08 max_abs=1.76e-05 finite=1 repeat=7008 graph_batch=1168",
+   "correct": true,
+   "per_launch_min_s": 4.263853881278539e-06,
+   "per_launch_max_s": 4.267680365296803e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_black_scholes/large/c1",
+   "family": "bs",
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "regime": "large",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "2621440",
+    "128"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.602e-06
+    },
+    {
+     "repeat": 658,
+     "graph_batch": 658,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 6.678711246200608e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=2621440 block=128 l1_rel=7.58e-08 max_abs=1.79e-05 finite=1 repeat=4494 graph_batch=749",
+     "check_ok": true,
+     "launches": 4494,
+     "cuda_seconds": 0.029991167,
+     "per_launch_s": 6.673601913662661e-06,
+     "host_begin_monotonic_ns": 2751037800477350,
+     "host_end_monotonic_ns": 2751037830475829
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=2621440 block=128 l1_rel=7.58e-08 max_abs=1.79e-05 finite=1 repeat=4494 graph_batch=749",
+     "check_ok": true,
+     "launches": 4494,
+     "cuda_seconds": 0.030043039,
+     "per_launch_s": 6.685144414775256e-06,
+     "host_begin_monotonic_ns": 2751038228555798,
+     "host_end_monotonic_ns": 2751038258606937
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=2621440 block=128 l1_rel=7.58e-08 max_abs=1.79e-05 finite=1 repeat=4494 graph_batch=749",
+     "check_ok": true,
+     "launches": 4494,
+     "cuda_seconds": 0.030009279,
+     "per_launch_s": 6.67763217623498e-06,
+     "host_begin_monotonic_ns": 2751038655780370,
+     "host_end_monotonic_ns": 2751038685797165
+    }
+   ],
+   "per_launch_runtime_s": 6.67763217623498e-06,
+   "launches": 4494,
+   "repeat": 4494,
+   "graph_batch": 749,
+   "check": "CHECK_OK bs optN=2621440 block=128 l1_rel=7.58e-08 max_abs=1.79e-05 finite=1 repeat=4494 graph_batch=749",
+   "correct": true,
+   "per_launch_min_s": 6.673601913662661e-06,
+   "per_launch_max_s": 6.685144414775256e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_black_scholes/large/c2",
+   "family": "bs",
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "regime": "large",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "2621440",
+    "64"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.0282e-05
+    },
+    {
+     "repeat": 487,
+     "graph_batch": 487,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 9.766373716632443e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=2621440 block=64 l1_rel=7.58e-08 max_abs=1.79e-05 finite=1 repeat=3072 graph_batch=512",
+     "check_ok": true,
+     "launches": 3072,
+     "cuda_seconds": 0.030002432,
+     "per_launch_s": 9.766416666666667e-06,
+     "host_begin_monotonic_ns": 2751039927535158,
+     "host_end_monotonic_ns": 2751039957547665
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=2621440 block=64 l1_rel=7.58e-08 max_abs=1.79e-05 finite=1 repeat=3072 graph_batch=512",
+     "check_ok": true,
+     "launches": 3072,
+     "cuda_seconds": 0.02999312,
+     "per_launch_s": 9.763385416666667e-06,
+     "host_begin_monotonic_ns": 2751040477865789,
+     "host_end_monotonic_ns": 2751040507865978
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=2621440 block=64 l1_rel=7.58e-08 max_abs=1.79e-05 finite=1 repeat=3072 graph_batch=512",
+     "check_ok": true,
+     "launches": 3072,
+     "cuda_seconds": 0.029980608,
+     "per_launch_s": 9.759312499999999e-06,
+     "host_begin_monotonic_ns": 2751040953801512,
+     "host_end_monotonic_ns": 2751040983789261
+    }
+   ],
+   "per_launch_runtime_s": 9.763385416666667e-06,
+   "launches": 3072,
+   "repeat": 3072,
+   "graph_batch": 512,
+   "check": "CHECK_OK bs optN=2621440 block=64 l1_rel=7.58e-08 max_abs=1.79e-05 finite=1 repeat=3072 graph_batch=512",
+   "correct": true,
+   "per_launch_min_s": 9.759312499999999e-06,
+   "per_launch_max_s": 9.766416666666667e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_black_scholes/xlarge/c1",
+   "family": "bs",
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "regime": "xlarge",
+   "candidate_id": "c1",
+   "tier": "DRAM",
+   "argv": [
+    "12582912",
+    "128"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000160108
+    },
+    {
+     "repeat": 32,
+     "graph_batch": 32,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000160366
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=12582912 block=128 l1_rel=7.58e-08 max_abs=1.91e-05 finite=1 repeat=192 graph_batch=32",
+     "check_ok": true,
+     "launches": 192,
+     "cuda_seconds": 0.030748928,
+     "per_launch_s": 0.00016015066666666666,
+     "host_begin_monotonic_ns": 2751043304741875,
+     "host_end_monotonic_ns": 2751043335497438
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=12582912 block=128 l1_rel=7.58e-08 max_abs=1.91e-05 finite=1 repeat=192 graph_batch=32",
+     "check_ok": true,
+     "launches": 192,
+     "cuda_seconds": 0.030716097,
+     "per_launch_s": 0.000159979671875,
+     "host_begin_monotonic_ns": 2751044235056588,
+     "host_end_monotonic_ns": 2751044265779672
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=12582912 block=128 l1_rel=7.58e-08 max_abs=1.91e-05 finite=1 repeat=192 graph_batch=32",
+     "check_ok": true,
+     "launches": 192,
+     "cuda_seconds": 0.030738497,
+     "per_launch_s": 0.00016009633854166666,
+     "host_begin_monotonic_ns": 2751045165030836,
+     "host_end_monotonic_ns": 2751045195777120
+    }
+   ],
+   "per_launch_runtime_s": 0.00016009633854166666,
+   "launches": 192,
+   "repeat": 192,
+   "graph_batch": 32,
+   "check": "CHECK_OK bs optN=12582912 block=128 l1_rel=7.58e-08 max_abs=1.91e-05 finite=1 repeat=192 graph_batch=32",
+   "correct": true,
+   "per_launch_min_s": 0.000159979671875,
+   "per_launch_max_s": 0.00016015066666666666
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_black_scholes/xlarge/c2",
+   "family": "bs",
+   "operator_id": "unseen_cuda_samples_black_scholes",
+   "regime": "xlarge",
+   "candidate_id": "c2",
+   "tier": "DRAM",
+   "argv": [
+    "12582912",
+    "64"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000161482
+    },
+    {
+     "repeat": 31,
+     "graph_batch": 31,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00016169600000000002
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=12582912 block=64 l1_rel=7.58e-08 max_abs=1.91e-05 finite=1 repeat=186 graph_batch=31",
+     "check_ok": true,
+     "launches": 186,
+     "cuda_seconds": 0.030042721,
+     "per_launch_s": 0.0001615200053763441,
+     "host_begin_monotonic_ns": 2751048052425788,
+     "host_end_monotonic_ns": 2751048082480089
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=12582912 block=64 l1_rel=7.58e-08 max_abs=1.91e-05 finite=1 repeat=186 graph_batch=31",
+     "check_ok": true,
+     "launches": 186,
+     "cuda_seconds": 0.030037184,
+     "per_launch_s": 0.0001614902365591398,
+     "host_begin_monotonic_ns": 2751049515875311,
+     "host_end_monotonic_ns": 2751049545920047
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK bs optN=12582912 block=64 l1_rel=7.58e-08 max_abs=1.91e-05 finite=1 repeat=186 graph_batch=31",
+     "check_ok": true,
+     "launches": 186,
+     "cuda_seconds": 0.030022528,
+     "per_launch_s": 0.00016141144086021506,
+     "host_begin_monotonic_ns": 2751050484663050,
+     "host_end_monotonic_ns": 2751050514693453
+    }
+   ],
+   "per_launch_runtime_s": 0.0001614902365591398,
+   "launches": 186,
+   "repeat": 186,
+   "graph_batch": 31,
+   "check": "CHECK_OK bs optN=12582912 block=64 l1_rel=7.58e-08 max_abs=1.91e-05 finite=1 repeat=186 graph_batch=31",
+   "correct": true,
+   "per_launch_min_s": 0.00016141144086021506,
+   "per_launch_max_s": 0.0001615200053763441
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_scan/small/c1",
+   "family": "scan",
+   "operator_id": "unseen_cuda_samples_scan",
+   "regime": "small",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "262144",
+    "4096"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.75e-06
+    },
+    {
+     "repeat": 1334,
+     "graph_batch": 1334,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.469025487256372e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=262144 arrayLength=4096 mismatches=0 first_bad=-1 repeat=8652 graph_batch=1442",
+     "check_ok": true,
+     "launches": 8652,
+     "cuda_seconds": 0.029936447,
+     "per_launch_s": 3.460060910772076e-06,
+     "host_begin_monotonic_ns": 2751051779018669,
+     "host_end_monotonic_ns": 2751051808963334
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=262144 arrayLength=4096 mismatches=0 first_bad=-1 repeat=8652 graph_batch=1442",
+     "check_ok": true,
+     "launches": 8652,
+     "cuda_seconds": 0.029934336,
+     "per_launch_s": 3.459816920943134e-06,
+     "host_begin_monotonic_ns": 2751052069022611,
+     "host_end_monotonic_ns": 2751052098965260
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=262144 arrayLength=4096 mismatches=0 first_bad=-1 repeat=8652 graph_batch=1442",
+     "check_ok": true,
+     "launches": 8652,
+     "cuda_seconds": 0.029933216,
+     "per_launch_s": 3.4596874711049466e-06,
+     "host_begin_monotonic_ns": 2751052367671732,
+     "host_end_monotonic_ns": 2751052397612564
+    }
+   ],
+   "per_launch_runtime_s": 3.459816920943134e-06,
+   "launches": 8652,
+   "repeat": 8652,
+   "graph_batch": 1442,
+   "check": "CHECK_OK scan N=262144 arrayLength=4096 mismatches=0 first_bad=-1 repeat=8652 graph_batch=1442",
+   "correct": true,
+   "per_launch_min_s": 3.4596874711049466e-06,
+   "per_launch_max_s": 3.460060910772076e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_scan/small/c2",
+   "family": "scan",
+   "operator_id": "unseen_cuda_samples_scan",
+   "regime": "small",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "262144",
+    "262144"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.97e-06
+    },
+    {
+     "repeat": 1260,
+     "graph_batch": 1260,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.6659301587301588e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=262144 arrayLength=262144 mismatches=0 first_bad=-1 repeat=8184 graph_batch=1364",
+     "check_ok": true,
+     "launches": 8184,
+     "cuda_seconds": 0.029926176,
+     "per_launch_s": 3.6566686217008796e-06,
+     "host_begin_monotonic_ns": 2751053159476878,
+     "host_end_monotonic_ns": 2751053189411169
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=262144 arrayLength=262144 mismatches=0 first_bad=-1 repeat=8184 graph_batch=1364",
+     "check_ok": true,
+     "launches": 8184,
+     "cuda_seconds": 0.029924543,
+     "per_launch_s": 3.6564690860215057e-06,
+     "host_begin_monotonic_ns": 2751053452080892,
+     "host_end_monotonic_ns": 2751053482012891
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=262144 arrayLength=262144 mismatches=0 first_bad=-1 repeat=8184 graph_batch=1364",
+     "check_ok": true,
+     "launches": 8184,
+     "cuda_seconds": 0.029926399,
+     "per_launch_s": 3.656695869990225e-06,
+     "host_begin_monotonic_ns": 2751053741702285,
+     "host_end_monotonic_ns": 2751053771635966
+    }
+   ],
+   "per_launch_runtime_s": 3.6566686217008796e-06,
+   "launches": 8184,
+   "repeat": 8184,
+   "graph_batch": 1364,
+   "check": "CHECK_OK scan N=262144 arrayLength=262144 mismatches=0 first_bad=-1 repeat=8184 graph_batch=1364",
+   "correct": true,
+   "per_launch_min_s": 3.6564690860215057e-06,
+   "per_launch_max_s": 3.656695869990225e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_scan/medium/c1",
+   "family": "scan",
+   "operator_id": "unseen_cuda_samples_scan",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "2097152",
+    "4096"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.622e-06
+    },
+    {
+     "repeat": 656,
+     "graph_batch": 656,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.199073170731708e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=2097152 arrayLength=4096 mismatches=0 first_bad=-1 repeat=4170 graph_batch=695",
+     "check_ok": true,
+     "launches": 4170,
+     "cuda_seconds": 0.029975489,
+     "per_launch_s": 7.188366666666667e-06,
+     "host_begin_monotonic_ns": 2751054582181152,
+     "host_end_monotonic_ns": 2751054612164490
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=2097152 arrayLength=4096 mismatches=0 first_bad=-1 repeat=4170 graph_batch=695",
+     "check_ok": true,
+     "launches": 4170,
+     "cuda_seconds": 0.029988865,
+     "per_launch_s": 7.191574340527578e-06,
+     "host_begin_monotonic_ns": 2751054868269145,
+     "host_end_monotonic_ns": 2751054898265869
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=2097152 arrayLength=4096 mismatches=0 first_bad=-1 repeat=4170 graph_batch=695",
+     "check_ok": true,
+     "launches": 4170,
+     "cuda_seconds": 0.030000864,
+     "per_launch_s": 7.194451798561151e-06,
+     "host_begin_monotonic_ns": 2751055201861806,
+     "host_end_monotonic_ns": 2751055231873859
+    }
+   ],
+   "per_launch_runtime_s": 7.191574340527578e-06,
+   "launches": 4170,
+   "repeat": 4170,
+   "graph_batch": 695,
+   "check": "CHECK_OK scan N=2097152 arrayLength=4096 mismatches=0 first_bad=-1 repeat=4170 graph_batch=695",
+   "correct": true,
+   "per_launch_min_s": 7.188366666666667e-06,
+   "per_launch_max_s": 7.194451798561151e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_scan/medium/c2",
+   "family": "scan",
+   "operator_id": "unseen_cuda_samples_scan",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "2097152",
+    "262144"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.682e-06
+    },
+    {
+     "repeat": 651,
+     "graph_batch": 651,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.39794777265745e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=2097152 arrayLength=262144 mismatches=0 first_bad=-1 repeat=4056 graph_batch=676",
+     "check_ok": true,
+     "launches": 4056,
+     "cuda_seconds": 0.029984159,
+     "per_launch_s": 7.3925441321499015e-06,
+     "host_begin_monotonic_ns": 2751056068417112,
+     "host_end_monotonic_ns": 2751056098408874
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=2097152 arrayLength=262144 mismatches=0 first_bad=-1 repeat=4056 graph_batch=676",
+     "check_ok": true,
+     "launches": 4056,
+     "cuda_seconds": 0.02998336,
+     "per_launch_s": 7.392347140039448e-06,
+     "host_begin_monotonic_ns": 2751056410381671,
+     "host_end_monotonic_ns": 2751056440372611
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=2097152 arrayLength=262144 mismatches=0 first_bad=-1 repeat=4056 graph_batch=676",
+     "check_ok": true,
+     "launches": 4056,
+     "cuda_seconds": 0.029982592,
+     "per_launch_s": 7.392157790927021e-06,
+     "host_begin_monotonic_ns": 2751056702768869,
+     "host_end_monotonic_ns": 2751056732759338
+    }
+   ],
+   "per_launch_runtime_s": 7.392347140039448e-06,
+   "launches": 4056,
+   "repeat": 4056,
+   "graph_batch": 676,
+   "check": "CHECK_OK scan N=2097152 arrayLength=262144 mismatches=0 first_bad=-1 repeat=4056 graph_batch=676",
+   "correct": true,
+   "per_launch_min_s": 7.392157790927021e-06,
+   "per_launch_max_s": 7.3925441321499015e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_scan/large/c1",
+   "family": "scan",
+   "operator_id": "unseen_cuda_samples_scan",
+   "regime": "large",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "6291456",
+    "4096"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.6204e-05
+    },
+    {
+     "repeat": 309,
+     "graph_batch": 309,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.56469644012945e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=6291456 arrayLength=4096 mismatches=0 first_bad=-1 repeat=1920 graph_batch=320",
+     "check_ok": true,
+     "launches": 1920,
+     "cuda_seconds": 0.029965952,
+     "per_launch_s": 1.5607266666666665e-05,
+     "host_begin_monotonic_ns": 2751057686093380,
+     "host_end_monotonic_ns": 2751057716067724
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=6291456 arrayLength=4096 mismatches=0 first_bad=-1 repeat=1920 graph_batch=320",
+     "check_ok": true,
+     "launches": 1920,
+     "cuda_seconds": 0.029978527,
+     "per_launch_s": 1.5613816145833334e-05,
+     "host_begin_monotonic_ns": 2751058077336911,
+     "host_end_monotonic_ns": 2751058107328377
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=6291456 arrayLength=4096 mismatches=0 first_bad=-1 repeat=1920 graph_batch=320",
+     "check_ok": true,
+     "launches": 1920,
+     "cuda_seconds": 0.029979872,
+     "per_launch_s": 1.5614516666666668e-05,
+     "host_begin_monotonic_ns": 2751058470329693,
+     "host_end_monotonic_ns": 2751058500317330
+    }
+   ],
+   "per_launch_runtime_s": 1.5613816145833334e-05,
+   "launches": 1920,
+   "repeat": 1920,
+   "graph_batch": 320,
+   "check": "CHECK_OK scan N=6291456 arrayLength=4096 mismatches=0 first_bad=-1 repeat=1920 graph_batch=320",
+   "correct": true,
+   "per_launch_min_s": 1.5607266666666665e-05,
+   "per_launch_max_s": 1.5614516666666668e-05
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_scan/large/c2",
+   "family": "scan",
+   "operator_id": "unseen_cuda_samples_scan",
+   "regime": "large",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "6291456",
+    "262144"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.6206e-05
+    },
+    {
+     "repeat": 309,
+     "graph_batch": 309,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.585315210355987e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=6291456 arrayLength=262144 mismatches=0 first_bad=-1 repeat=1896 graph_batch=316",
+     "check_ok": true,
+     "launches": 1896,
+     "cuda_seconds": 0.02997728,
+     "per_launch_s": 1.5810801687763713e-05,
+     "host_begin_monotonic_ns": 2751059400599696,
+     "host_end_monotonic_ns": 2751059430584038
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=6291456 arrayLength=262144 mismatches=0 first_bad=-1 repeat=1896 graph_batch=316",
+     "check_ok": true,
+     "launches": 1896,
+     "cuda_seconds": 0.029981825,
+     "per_launch_s": 1.5813198839662447e-05,
+     "host_begin_monotonic_ns": 2751059718947070,
+     "host_end_monotonic_ns": 2751059748936311
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=6291456 arrayLength=262144 mismatches=0 first_bad=-1 repeat=1896 graph_batch=316",
+     "check_ok": true,
+     "launches": 1896,
+     "cuda_seconds": 0.029984833,
+     "per_launch_s": 1.5814785337552742e-05,
+     "host_begin_monotonic_ns": 2751060048560616,
+     "host_end_monotonic_ns": 2751060078552658
+    }
+   ],
+   "per_launch_runtime_s": 1.5813198839662447e-05,
+   "launches": 1896,
+   "repeat": 1896,
+   "graph_batch": 316,
+   "check": "CHECK_OK scan N=6291456 arrayLength=262144 mismatches=0 first_bad=-1 repeat=1896 graph_batch=316",
+   "correct": true,
+   "per_launch_min_s": 1.5810801687763713e-05,
+   "per_launch_max_s": 1.5814785337552742e-05
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_scan/xlarge/c1",
+   "family": "scan",
+   "operator_id": "unseen_cuda_samples_scan",
+   "regime": "xlarge",
+   "candidate_id": "c1",
+   "tier": "DRAM",
+   "argv": [
+    "33554432",
+    "4096"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00036061
+    },
+    {
+     "repeat": 14,
+     "graph_batch": 14,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.0003606537142857143
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=33554432 arrayLength=4096 mismatches=0 first_bad=-1 repeat=84 graph_batch=14",
+     "check_ok": true,
+     "launches": 84,
+     "cuda_seconds": 0.030247871,
+     "per_launch_s": 0.00036009370238095236,
+     "host_begin_monotonic_ns": 2751061594281594,
+     "host_end_monotonic_ns": 2751061624537560
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=33554432 arrayLength=4096 mismatches=0 first_bad=-1 repeat=84 graph_batch=14",
+     "check_ok": true,
+     "launches": 84,
+     "cuda_seconds": 0.030258881,
+     "per_launch_s": 0.0003602247738095238,
+     "host_begin_monotonic_ns": 2751062054654237,
+     "host_end_monotonic_ns": 2751062084920539
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=33554432 arrayLength=4096 mismatches=0 first_bad=-1 repeat=84 graph_batch=14",
+     "check_ok": true,
+     "launches": 84,
+     "cuda_seconds": 0.030282784,
+     "per_launch_s": 0.00036050933333333333,
+     "host_begin_monotonic_ns": 2751062510695919,
+     "host_end_monotonic_ns": 2751062540986931
+    }
+   ],
+   "per_launch_runtime_s": 0.0003602247738095238,
+   "launches": 84,
+   "repeat": 84,
+   "graph_batch": 14,
+   "check": "CHECK_OK scan N=33554432 arrayLength=4096 mismatches=0 first_bad=-1 repeat=84 graph_batch=14",
+   "correct": true,
+   "per_launch_min_s": 0.00036009370238095236,
+   "per_launch_max_s": 0.00036050933333333333
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_scan/xlarge/c2",
+   "family": "scan",
+   "operator_id": "unseen_cuda_samples_scan",
+   "regime": "xlarge",
+   "candidate_id": "c2",
+   "tier": "DRAM",
+   "argv": [
+    "33554432",
+    "262144"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000360308
+    },
+    {
+     "repeat": 14,
+     "graph_batch": 14,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000360048
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=33554432 arrayLength=262144 mismatches=0 first_bad=-1 repeat=84 graph_batch=14",
+     "check_ok": true,
+     "launches": 84,
+     "cuda_seconds": 0.030270945,
+     "per_launch_s": 0.0003603683928571429,
+     "host_begin_monotonic_ns": 2751064199630251,
+     "host_end_monotonic_ns": 2751064229912714
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=33554432 arrayLength=262144 mismatches=0 first_bad=-1 repeat=84 graph_batch=14",
+     "check_ok": true,
+     "launches": 84,
+     "cuda_seconds": 0.030280256,
+     "per_launch_s": 0.00036047923809523805,
+     "host_begin_monotonic_ns": 2751064695425421,
+     "host_end_monotonic_ns": 2751064725712768
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scan N=33554432 arrayLength=262144 mismatches=0 first_bad=-1 repeat=84 graph_batch=14",
+     "check_ok": true,
+     "launches": 84,
+     "cuda_seconds": 0.03025024,
+     "per_launch_s": 0.00036012190476190475,
+     "host_begin_monotonic_ns": 2751065290912517,
+     "host_end_monotonic_ns": 2751065321173614
+    }
+   ],
+   "per_launch_runtime_s": 0.0003603683928571429,
+   "launches": 84,
+   "repeat": 84,
+   "graph_batch": 14,
+   "check": "CHECK_OK scan N=33554432 arrayLength=262144 mismatches=0 first_bad=-1 repeat=84 graph_batch=14",
+   "correct": true,
+   "per_launch_min_s": 0.00036012190476190475,
+   "per_launch_max_s": 0.00036047923809523805
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/small/c1",
+   "family": "conv",
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "regime": "small",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "512",
+    "384"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.204e-06
+    },
+    {
+     "repeat": 1561,
+     "graph_batch": 1561,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 2.9952901985906473e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=512 H=384 mismatches=0 first_bad=-1 repeat=10020 graph_batch=1670",
+     "check_ok": true,
+     "launches": 10020,
+     "cuda_seconds": 0.029907295,
+     "per_launch_s": 2.98475998003992e-06,
+     "host_begin_monotonic_ns": 2751066200716465,
+     "host_end_monotonic_ns": 2751066230632150
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=512 H=384 mismatches=0 first_bad=-1 repeat=10020 graph_batch=1670",
+     "check_ok": true,
+     "launches": 10020,
+     "cuda_seconds": 0.029912512,
+     "per_launch_s": 2.9852806387225546e-06,
+     "host_begin_monotonic_ns": 2751066498275753,
+     "host_end_monotonic_ns": 2751066528196220
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=512 H=384 mismatches=0 first_bad=-1 repeat=10020 graph_batch=1670",
+     "check_ok": true,
+     "launches": 10020,
+     "cuda_seconds": 0.029906431,
+     "per_launch_s": 2.98467375249501e-06,
+     "host_begin_monotonic_ns": 2751066792075191,
+     "host_end_monotonic_ns": 2751066821989273
+    }
+   ],
+   "per_launch_runtime_s": 2.98475998003992e-06,
+   "launches": 10020,
+   "repeat": 10020,
+   "graph_batch": 1670,
+   "check": "CHECK_OK conv W=512 H=384 mismatches=0 first_bad=-1 repeat=10020 graph_batch=1670",
+   "correct": true,
+   "per_launch_min_s": 2.98467375249501e-06,
+   "per_launch_max_s": 2.9852806387225546e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/small/c2",
+   "family": "conv",
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "regime": "small",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "384",
+    "512"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.464e-06
+    },
+    {
+     "repeat": 1444,
+     "graph_batch": 1444,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 2.990382271468144e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=384 H=512 mismatches=0 first_bad=-1 repeat=10038 graph_batch=1673",
+     "check_ok": true,
+     "launches": 10038,
+     "cuda_seconds": 0.02997584,
+     "per_launch_s": 2.9862363020522014e-06,
+     "host_begin_monotonic_ns": 2751067726222914,
+     "host_end_monotonic_ns": 2751067756209339
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=384 H=512 mismatches=0 first_bad=-1 repeat=10038 graph_batch=1673",
+     "check_ok": true,
+     "launches": 10038,
+     "cuda_seconds": 0.029954975,
+     "per_launch_s": 2.9841577007371986e-06,
+     "host_begin_monotonic_ns": 2751068084930907,
+     "host_end_monotonic_ns": 2751068114894353
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=384 H=512 mismatches=0 first_bad=-1 repeat=10038 graph_batch=1673",
+     "check_ok": true,
+     "launches": 10038,
+     "cuda_seconds": 0.029977119,
+     "per_launch_s": 2.986363717872086e-06,
+     "host_begin_monotonic_ns": 2751068417616080,
+     "host_end_monotonic_ns": 2751068447603922
+    }
+   ],
+   "per_launch_runtime_s": 2.9862363020522014e-06,
+   "launches": 10038,
+   "repeat": 10038,
+   "graph_batch": 1673,
+   "check": "CHECK_OK conv W=384 H=512 mismatches=0 first_bad=-1 repeat=10038 graph_batch=1673",
+   "correct": true,
+   "per_launch_min_s": 2.9841577007371986e-06,
+   "per_launch_max_s": 2.986363717872086e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/medium/c1",
+   "family": "conv",
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "1280",
+    "1024"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.816e-06
+    },
+    {
+     "repeat": 640,
+     "graph_batch": 640,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.4756e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=1280 H=1024 mismatches=0 first_bad=-1 repeat=4014 graph_batch=669",
+     "check_ok": true,
+     "launches": 4014,
+     "cuda_seconds": 0.029941248,
+     "per_launch_s": 7.459204783258595e-06,
+     "host_begin_monotonic_ns": 2751069255483839,
+     "host_end_monotonic_ns": 2751069285432660
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=1280 H=1024 mismatches=0 first_bad=-1 repeat=4014 graph_batch=669",
+     "check_ok": true,
+     "launches": 4014,
+     "cuda_seconds": 0.029954592,
+     "per_launch_s": 7.462529147982063e-06,
+     "host_begin_monotonic_ns": 2751069558534608,
+     "host_end_monotonic_ns": 2751069588496689
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=1280 H=1024 mismatches=0 first_bad=-1 repeat=4014 graph_batch=669",
+     "check_ok": true,
+     "launches": 4014,
+     "cuda_seconds": 0.029966623,
+     "per_launch_s": 7.4655264075734935e-06,
+     "host_begin_monotonic_ns": 2751069899281196,
+     "host_end_monotonic_ns": 2751069929257730
+    }
+   ],
+   "per_launch_runtime_s": 7.462529147982063e-06,
+   "launches": 4014,
+   "repeat": 4014,
+   "graph_batch": 669,
+   "check": "CHECK_OK conv W=1280 H=1024 mismatches=0 first_bad=-1 repeat=4014 graph_batch=669",
+   "correct": true,
+   "per_launch_min_s": 7.459204783258595e-06,
+   "per_launch_max_s": 7.4655264075734935e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/medium/c2",
+   "family": "conv",
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "1024",
+    "1280"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.854e-06
+    },
+    {
+     "repeat": 637,
+     "graph_batch": 637,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.371554160125588e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=1024 H=1280 mismatches=0 first_bad=-1 repeat=4074 graph_batch=679",
+     "check_ok": true,
+     "launches": 4074,
+     "cuda_seconds": 0.02993648,
+     "per_launch_s": 7.348178694158076e-06,
+     "host_begin_monotonic_ns": 2751071052406851,
+     "host_end_monotonic_ns": 2751071082350731
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=1024 H=1280 mismatches=0 first_bad=-1 repeat=4074 graph_batch=679",
+     "check_ok": true,
+     "launches": 4074,
+     "cuda_seconds": 0.029943424,
+     "per_launch_s": 7.349883161512027e-06,
+     "host_begin_monotonic_ns": 2751071358629599,
+     "host_end_monotonic_ns": 2751071388581022
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=1024 H=1280 mismatches=0 first_bad=-1 repeat=4074 graph_batch=679",
+     "check_ok": true,
+     "launches": 4074,
+     "cuda_seconds": 0.029952032,
+     "per_launch_s": 7.351996072655866e-06,
+     "host_begin_monotonic_ns": 2751071662245722,
+     "host_end_monotonic_ns": 2751071692205221
+    }
+   ],
+   "per_launch_runtime_s": 7.349883161512027e-06,
+   "launches": 4074,
+   "repeat": 4074,
+   "graph_batch": 679,
+   "check": "CHECK_OK conv W=1024 H=1280 mismatches=0 first_bad=-1 repeat=4074 graph_batch=679",
+   "correct": true,
+   "per_launch_min_s": 7.348178694158076e-06,
+   "per_launch_max_s": 7.351996072655866e-06
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/large/c1",
+   "family": "conv",
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "regime": "large",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "2304",
+    "1792"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.9752e-05
+    },
+    {
+     "repeat": 254,
+     "graph_batch": 254,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.934740157480315e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=2304 H=1792 mismatches=0 first_bad=-1 repeat=1554 graph_batch=259",
+     "check_ok": true,
+     "launches": 1554,
+     "cuda_seconds": 0.029994881,
+     "per_launch_s": 1.9301725225225227e-05,
+     "host_begin_monotonic_ns": 2751072633453800,
+     "host_end_monotonic_ns": 2751072663455813
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=2304 H=1792 mismatches=0 first_bad=-1 repeat=1554 graph_batch=259",
+     "check_ok": true,
+     "launches": 1554,
+     "cuda_seconds": 0.030007711,
+     "per_launch_s": 1.930998133848134e-05,
+     "host_begin_monotonic_ns": 2751073007645722,
+     "host_end_monotonic_ns": 2751073037660543
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=2304 H=1792 mismatches=0 first_bad=-1 repeat=1554 graph_batch=259",
+     "check_ok": true,
+     "launches": 1554,
+     "cuda_seconds": 0.030005407,
+     "per_launch_s": 1.9308498712998712e-05,
+     "host_begin_monotonic_ns": 2751073371601981,
+     "host_end_monotonic_ns": 2751073401614487
+    }
+   ],
+   "per_launch_runtime_s": 1.9308498712998712e-05,
+   "launches": 1554,
+   "repeat": 1554,
+   "graph_batch": 259,
+   "check": "CHECK_OK conv W=2304 H=1792 mismatches=0 first_bad=-1 repeat=1554 graph_batch=259",
+   "correct": true,
+   "per_launch_min_s": 1.9301725225225227e-05,
+   "per_launch_max_s": 1.930998133848134e-05
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/large/c2",
+   "family": "conv",
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "regime": "large",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "1792",
+    "2304"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.9942e-05
+    },
+    {
+     "repeat": 251,
+     "graph_batch": 251,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.9328637450199205e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=1792 H=2304 mismatches=0 first_bad=-1 repeat=1554 graph_batch=259",
+     "check_ok": true,
+     "launches": 1554,
+     "cuda_seconds": 0.029983904,
+     "per_launch_s": 1.9294661518661516e-05,
+     "host_begin_monotonic_ns": 2751074586362204,
+     "host_end_monotonic_ns": 2751074616352712
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=1792 H=2304 mismatches=0 first_bad=-1 repeat=1554 graph_batch=259",
+     "check_ok": true,
+     "launches": 1554,
+     "cuda_seconds": 0.029984545,
+     "per_launch_s": 1.9295074002574004e-05,
+     "host_begin_monotonic_ns": 2751074949857154,
+     "host_end_monotonic_ns": 2751074979848233
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=1792 H=2304 mismatches=0 first_bad=-1 repeat=1554 graph_batch=259",
+     "check_ok": true,
+     "launches": 1554,
+     "cuda_seconds": 0.029983521,
+     "per_launch_s": 1.929441505791506e-05,
+     "host_begin_monotonic_ns": 2751075316475641,
+     "host_end_monotonic_ns": 2751075346465850
+    }
+   ],
+   "per_launch_runtime_s": 1.9294661518661516e-05,
+   "launches": 1554,
+   "repeat": 1554,
+   "graph_batch": 259,
+   "check": "CHECK_OK conv W=1792 H=2304 mismatches=0 first_bad=-1 repeat=1554 graph_batch=259",
+   "correct": true,
+   "per_launch_min_s": 1.929441505791506e-05,
+   "per_launch_max_s": 1.9295074002574004e-05
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/xlarge/c1",
+   "family": "conv",
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "regime": "xlarge",
+   "candidate_id": "c1",
+   "tier": "DRAM",
+   "argv": [
+    "6144",
+    "4096"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000270434
+    },
+    {
+     "repeat": 19,
+     "graph_batch": 19,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00027040505263157893
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=6144 H=4096 mismatches=0 first_bad=-1 repeat=114 graph_batch=19",
+     "check_ok": true,
+     "launches": 114,
+     "cuda_seconds": 0.030783968,
+     "per_launch_s": 0.0002700348070175438,
+     "host_begin_monotonic_ns": 2751078681190271,
+     "host_end_monotonic_ns": 2751078711981320
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=6144 H=4096 mismatches=0 first_bad=-1 repeat=114 graph_batch=19",
+     "check_ok": true,
+     "launches": 114,
+     "cuda_seconds": 0.030785919,
+     "per_launch_s": 0.00027005192105263156,
+     "host_begin_monotonic_ns": 2751079497193855,
+     "host_end_monotonic_ns": 2751079527987216
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=6144 H=4096 mismatches=0 first_bad=-1 repeat=114 graph_batch=19",
+     "check_ok": true,
+     "launches": 114,
+     "cuda_seconds": 0.030797567,
+     "per_launch_s": 0.0002701540964912281,
+     "host_begin_monotonic_ns": 2751080366256644,
+     "host_end_monotonic_ns": 2751080397061183
+    }
+   ],
+   "per_launch_runtime_s": 0.00027005192105263156,
+   "launches": 114,
+   "repeat": 114,
+   "graph_batch": 19,
+   "check": "CHECK_OK conv W=6144 H=4096 mismatches=0 first_bad=-1 repeat=114 graph_batch=19",
+   "correct": true,
+   "per_launch_min_s": 0.0002700348070175438,
+   "per_launch_max_s": 0.0002701540964912281
+  },
+  {
+   "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/xlarge/c2",
+   "family": "conv",
+   "operator_id": "unseen_cuda_samples_separable_convolution",
+   "regime": "xlarge",
+   "candidate_id": "c2",
+   "tier": "DRAM",
+   "argv": [
+    "4096",
+    "6144"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000268288
+    },
+    {
+     "repeat": 19,
+     "graph_batch": 19,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00026852547368421054
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=4096 H=6144 mismatches=0 first_bad=-1 repeat=114 graph_batch=19",
+     "check_ok": true,
+     "launches": 114,
+     "cuda_seconds": 0.030614559,
+     "per_launch_s": 0.00026854876315789475,
+     "host_begin_monotonic_ns": 2751083467615716,
+     "host_end_monotonic_ns": 2751083498242090
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=4096 H=6144 mismatches=0 first_bad=-1 repeat=114 graph_batch=19",
+     "check_ok": true,
+     "launches": 114,
+     "cuda_seconds": 0.030607008,
+     "per_launch_s": 0.00026848252631578946,
+     "host_begin_monotonic_ns": 2751084625351458,
+     "host_end_monotonic_ns": 2751084655966348
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=4096 H=6144 mismatches=0 first_bad=-1 repeat=114 graph_batch=19",
+     "check_ok": true,
+     "launches": 114,
+     "cuda_seconds": 0.030606337,
+     "per_launch_s": 0.0002684766403508772,
+     "host_begin_monotonic_ns": 2751085596279879,
+     "host_end_monotonic_ns": 2751085626897400
+    }
+   ],
+   "per_launch_runtime_s": 0.00026848252631578946,
+   "launches": 114,
+   "repeat": 114,
+   "graph_batch": 19,
+   "check": "CHECK_OK conv W=4096 H=6144 mismatches=0 first_bad=-1 repeat=114 graph_batch=19",
+   "correct": true,
+   "per_launch_min_s": 0.0002684766403508772,
+   "per_launch_max_s": 0.00026854876315789475
+  }
+ ],
+ "finished_utc": "2026-10-02T05:10:35Z",
+ "all_correct": true
+}

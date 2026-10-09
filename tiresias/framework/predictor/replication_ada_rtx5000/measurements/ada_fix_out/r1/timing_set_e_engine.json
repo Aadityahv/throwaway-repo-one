@@ -1,0 +1,176 @@
+{
+ "schema": "unseen_timing_raw/1",
+ "booking_ref": "BOOKING Ada GPU 0, missing measurements of the booked evaluation (ada_eval_main_20261004 scope), commit dcc9cc7 (r1_validation)",
+ "started_utc": "2026-10-05T04:27:14Z",
+ "device": {
+  "cuda_visible_devices": "0",
+  "uuid": "GPU-4640d904-c754-5243-df67-37761e91b400",
+  "nvidia_smi_index": "0"
+ },
+ "cell_definitions": "tiresias/framework/predictor/fresh_e/cells_e.py",
+ "cells_py_sha256": "c0b5dff4ef0dd3d06962f19ff486151b69dbbab3685b73a61585cca9074e90da",
+ "manifest_binaries": {
+  "sp": "7b6d257381d36e43366cf8e9de36283468f1c7c9619cf9d9db84475d41dfaaae",
+  "fwt": "1574ee00efd9f62a14b16a6eb57a593cc5aae919d0ffe91c9d533936b188215a"
+ },
+ "nvcc": "Build cuda_13.2.r13.2/compiler.37953736_0",
+ "method": {
+  "probe_batch": 16,
+  "target_graph_s": 0.005,
+  "target_window_s": 0.03,
+  "max_graph_batch": 2048,
+  "windows": 3,
+  "per_launch_runtime_s": "median over windows of cuda_seconds / launches (cudaEvents around repeat operator calls)",
+  "clocks_set": false,
+  "persistence_set": false,
+  "power_limit_set": false
+ },
+ "cells": [
+  {
+   "cell_id": "ada/validation_scalar_product/v4/c1",
+   "family": "sp",
+   "operator_id": "validation_scalar_product",
+   "regime": "v4",
+   "candidate_id": "c1",
+   "tier": "DRAM",
+   "argv": [
+    "768",
+    "20480",
+    "64"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00023712
+    },
+    {
+     "repeat": 22,
+     "graph_batch": 22,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00023700945454545452
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.031283199,
+     "per_launch_s": 0.0002369939318181818,
+     "host_begin_monotonic_ns": 4990480964544080,
+     "host_end_monotonic_ns": 4990480995834446
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.031281984,
+     "per_launch_s": 0.00023698472727272726,
+     "host_begin_monotonic_ns": 4990481363373884,
+     "host_end_monotonic_ns": 4990481394662254
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.031291391,
+     "per_launch_s": 0.00023705599242424243,
+     "host_begin_monotonic_ns": 4990481760161996,
+     "host_end_monotonic_ns": 4990481791459333
+    }
+   ],
+   "per_launch_runtime_s": 0.0002369939318181818,
+   "launches": 132,
+   "repeat": 132,
+   "graph_batch": 22,
+   "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+   "correct": true,
+   "per_launch_min_s": 0.00023698472727272726,
+   "per_launch_max_s": 0.00023705599242424243
+  },
+  {
+   "cell_id": "ada/validation_scalar_product/v4/c2",
+   "family": "sp",
+   "operator_id": "validation_scalar_product",
+   "regime": "v4",
+   "candidate_id": "c2",
+   "tier": "DRAM",
+   "argv": [
+    "768",
+    "20480",
+    "128"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000237234
+    },
+    {
+     "repeat": 22,
+     "graph_batch": 22,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00023719563636363637
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.031301632,
+     "per_launch_s": 0.00023713357575757578,
+     "host_begin_monotonic_ns": 4990482955001262,
+     "host_end_monotonic_ns": 4990482986309695
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.0313016,
+     "per_launch_s": 0.00023713333333333331,
+     "host_begin_monotonic_ns": 4990483403424634,
+     "host_end_monotonic_ns": 4990483434732513
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+     "check_ok": true,
+     "launches": 132,
+     "cuda_seconds": 0.031305729,
+     "per_launch_s": 0.0002371646136363636,
+     "host_begin_monotonic_ns": 4990483846465297,
+     "host_end_monotonic_ns": 4990483877777646
+    }
+   ],
+   "per_launch_runtime_s": 0.00023713357575757578,
+   "launches": 132,
+   "repeat": 132,
+   "graph_batch": 22,
+   "check": "CHECK_OK scalarProd vectorN=768 elementN=20480 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.11e-07 repeat=132 graph_batch=22",
+   "correct": true,
+   "per_launch_min_s": 0.00023713333333333331,
+   "per_launch_max_s": 0.0002371646136363636
+  }
+ ],
+ "finished_utc": "2026-10-05T04:27:18Z",
+ "all_correct": true
+}

@@ -1,0 +1,176 @@
+{
+ "schema": "unseen_timing_raw/1",
+ "booking_ref": "BOOKING Ada GPU 0, missing measurements of the booked evaluation (ada_eval_main_20261004 scope), commit dcc9cc7 (r1_validation)",
+ "started_utc": "2026-10-05T04:27:10Z",
+ "device": {
+  "cuda_visible_devices": "0",
+  "uuid": "GPU-4640d904-c754-5243-df67-37761e91b400",
+  "nvidia_smi_index": "0"
+ },
+ "cell_definitions": "tiresias/framework/predictor/unseen_kernels/cells.py",
+ "cells_py_sha256": "847f6bf2803c68859b6bbf99b5d0ac1e1dde92c3113b10a79bfa37be02a813bf",
+ "manifest_binaries": {
+  "matmul": "2f1e8fb0c58c475496bab1958c8dedd26685c405919b7673e1fcec3c304e10b0",
+  "bs": "922b73b3617921488302b773f76508a62842a0748e6ae39029be3eca09ae533b",
+  "scan": "85ec09da0243b489c8f0fa50fec26b4a9929673fb4f7f39cbc4174c6146068fd",
+  "conv": "1e708479b697550373031df74a34c2dacb965807e3c4515452bda4b975701b74"
+ },
+ "nvcc": "Build cuda_13.2.r13.2/compiler.37953736_0",
+ "method": {
+  "probe_batch": 16,
+  "target_graph_s": 0.005,
+  "target_window_s": 0.03,
+  "max_graph_batch": 2048,
+  "windows": 3,
+  "per_launch_runtime_s": "median over windows of cuda_seconds / launches (cudaEvents around repeat operator calls)",
+  "clocks_set": false,
+  "persistence_set": false,
+  "power_limit_set": false
+ },
+ "cells": [
+  {
+   "cell_id": "ada/validation_separable_convolution/v5/c1",
+   "family": "conv",
+   "operator_id": "validation_separable_convolution",
+   "regime": "v5",
+   "candidate_id": "c1",
+   "tier": "DRAM",
+   "argv": [
+    "3712",
+    "2560"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00024704
+    },
+    {
+     "repeat": 21,
+     "graph_batch": 21,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000246784
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=3712 H=2560 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "launches": 126,
+     "cuda_seconds": 0.031451136,
+     "per_launch_s": 0.00024961219047619045,
+     "host_begin_monotonic_ns": 4990476380554900,
+     "host_end_monotonic_ns": 4990476412013465
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=3712 H=2560 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "launches": 126,
+     "cuda_seconds": 0.031145697,
+     "per_launch_s": 0.0002471880714285714,
+     "host_begin_monotonic_ns": 4990476838989229,
+     "host_end_monotonic_ns": 4990476870142119
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=3712 H=2560 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "launches": 126,
+     "cuda_seconds": 0.03111936,
+     "per_launch_s": 0.00024697904761904763,
+     "host_begin_monotonic_ns": 4990477295346386,
+     "host_end_monotonic_ns": 4990477326472425
+    }
+   ],
+   "per_launch_runtime_s": 0.0002471880714285714,
+   "launches": 126,
+   "repeat": 126,
+   "graph_batch": 21,
+   "check": "CHECK_OK conv W=3712 H=2560 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+   "correct": true,
+   "per_launch_min_s": 0.00024697904761904763,
+   "per_launch_max_s": 0.00024961219047619045
+  },
+  {
+   "cell_id": "ada/validation_separable_convolution/v5/c2",
+   "family": "conv",
+   "operator_id": "validation_separable_convolution",
+   "regime": "v5",
+   "candidate_id": "c2",
+   "tier": "DRAM",
+   "argv": [
+    "2560",
+    "3712"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000246966
+    },
+    {
+     "repeat": 21,
+     "graph_batch": 21,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000247072
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=2560 H=3712 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "launches": 126,
+     "cuda_seconds": 0.031105888,
+     "per_launch_s": 0.000246872126984127,
+     "host_begin_monotonic_ns": 4990478670687132,
+     "host_end_monotonic_ns": 4990478701799428
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=2560 H=3712 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "launches": 126,
+     "cuda_seconds": 0.0311264,
+     "per_launch_s": 0.0002470349206349206,
+     "host_begin_monotonic_ns": 4990479123123563,
+     "host_end_monotonic_ns": 4990479154255708
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=2560 H=3712 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+     "check_ok": true,
+     "launches": 126,
+     "cuda_seconds": 0.031129601,
+     "per_launch_s": 0.0002470603253968254,
+     "host_begin_monotonic_ns": 4990479637144577,
+     "host_end_monotonic_ns": 4990479668280231
+    }
+   ],
+   "per_launch_runtime_s": 0.0002470349206349206,
+   "launches": 126,
+   "repeat": 126,
+   "graph_batch": 21,
+   "check": "CHECK_OK conv W=2560 H=3712 mismatches=0 first_bad=-1 repeat=126 graph_batch=21",
+   "correct": true,
+   "per_launch_min_s": 0.000246872126984127,
+   "per_launch_max_s": 0.0002470603253968254
+  }
+ ],
+ "finished_utc": "2026-10-05T04:27:14Z",
+ "all_correct": true
+}

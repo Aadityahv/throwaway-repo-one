@@ -1,0 +1,1337 @@
+{
+ "cell": {
+  "candidate_id": "c2",
+  "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/small/c2",
+  "controls": {
+   "N": 352,
+   "tile": 32
+  },
+  "family": "matmul",
+  "footprint_bytes": 1486848,
+  "kernels": [
+   {
+    "args": {
+     "wA": 352,
+     "wB": 352
+    },
+    "block": [
+     32,
+     32,
+     1
+    ],
+    "grid": [
+     11,
+     11,
+     1
+    ],
+    "kid": "mm32"
+   }
+  ],
+  "l2_ratio": 0.011077880859375,
+  "logical_bytes_per_launch": 1486848,
+  "operator_id": "unseen_cuda_samples_matrix_multiply",
+  "regime": "small",
+  "shape_a": 352,
+  "shape_b": 32,
+  "tier": "L2"
+ },
+ "features": {
+  "build_seconds": 166.6,
+  "cell": "small/c2",
+  "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/small/c2",
+  "corpus": "cuda_samples_unseen",
+  "geometry": {
+   "block_threads": 1024,
+   "dev_table_active_sm_fraction": null,
+   "dev_table_blocks_per_sm": null,
+   "dev_table_blocks_per_sm_is_grid_over_sm_count": null,
+   "geometry_source": "host code of the sample (cells.py)",
+   "grid_blocks": 121
+  },
+  "inputs": {
+   "cubin_sha256": "f60ad7a5fd1b8a4de4a144208b3fa7e516565995c34637ad07a467fa2acf9552",
+   "isolated_sass_sha256": "4037542469a723a7771705a2154817c99bdccab19544e0febdf9227d3f587e90",
+   "kernel_symbol": "_Z13MatrixMulCUDAILi32EEvPfS0_S0_ii",
+   "secondary_kernel_symbols": []
+  },
+  "kernels_per_launch": 1,
+  "main_kernel": {
+   "abi": {
+    "all_constant_bank_accesses_on_declared_fields": true,
+    "bound_values": {
+     "A": {
+      "offset": "0x388",
+      "source": "distinct aligned synthetic base 1 (pointer value; only address differences matter)",
+      "value": 139642271694848
+     },
+     "B": {
+      "offset": "0x390",
+      "source": "distinct aligned synthetic base 2 (pointer value; only address differences matter)",
+      "value": 139646566662144
+     },
+     "C": {
+      "offset": "0x380",
+      "source": "distinct aligned synthetic base 0 (pointer value; only address differences matter)",
+      "value": 139637976727552
+     },
+     "wA": {
+      "offset": "0x398",
+      "source": "launch argument from the sample's host code",
+      "value": 352
+     },
+     "wB": {
+      "offset": "0x39c",
+      "source": "launch argument from the sample's host code",
+      "value": 352
+     }
+    },
+    "parameter_fields": [
+     {
+      "bytes": 8,
+      "name": "C",
+      "offset": "0x380"
+     },
+     {
+      "bytes": 8,
+      "name": "A",
+      "offset": "0x388"
+     },
+     {
+      "bytes": 8,
+      "name": "B",
+      "offset": "0x390"
+     },
+     {
+      "bytes": 4,
+      "name": "wA",
+      "offset": "0x398"
+     },
+     {
+      "bytes": 4,
+      "name": "wB",
+      "offset": "0x39c"
+     }
+    ],
+    "problems": []
+   },
+   "interpreter_outcomes": {
+    "extended_interpreter": {
+     "assumptions_applied": [],
+     "shared_addresses_touched_min_max": [
+      1024,
+      9212
+     ],
+     "status": "ok"
+    },
+    "frozen_derive_run_lane_unmodified": {
+     "reason": "frozen derive.run_lane comparison skipped for new kernels",
+     "status": "not_run"
+    }
+   },
+   "kernel_id": "mm32",
+   "kernel_symbol": "_Z13MatrixMulCUDAILi32EEvPfS0_S0_ii",
+   "role": "main",
+   "shape_problems": []
+  },
+  "memory": {
+   "executed_async_copy_global_to_shared_bytes_lane_level": 0,
+   "executed_bytes_scope": "main kernel only; per-launch sums are in per_launch_totals",
+   "executed_global_bytes_exact": true,
+   "executed_global_bytes_per_thread": 92.0,
+   "executed_global_load_bytes_lane_level": 10903552,
+   "executed_global_store_bytes_lane_level": 495616,
+   "global_load_width_bits_histogram": {
+    "32": 2725888
+   },
+   "global_store_width_bits_histogram": {
+    "32": 123904
+   },
+   "logical_bytes_per_launch": 1486848,
+   "shape_a": 352,
+   "shape_b": 32,
+   "tier": "L2",
+   "tier_source_note": "tier from the footprint-over-verified-L2 rule written in cells.py, not a counter"
+  },
+  "missing_features": [],
+  "occupancy": {
+   "active_sm_fraction": 0.6436170212765957,
+   "blocks_per_sm": 1,
+   "blocks_per_sm_if_shared_were_static": 1,
+   "blocks_per_sm_ignoring_shared_by_warp_alloc_multiple": {
+    "1": 1,
+    "2": 1,
+    "4": 1
+   },
+   "first_wave_active_warps_per_sm_avg": 20.595744680851062,
+   "first_wave_resident_blocks_per_sm_avg": 0.6436170212765957,
+   "last_wave_fill_fraction": 0.6436170212765957,
+   "limit_by_max_blocks": 24,
+   "limit_by_registers_by_warp_alloc_multiple": {
+    "1": 1,
+    "2": 1,
+    "4": 1
+   },
+   "limit_by_registers_if_multiple_1": 1,
+   "limit_by_shared": 11,
+   "limit_by_threads": 1,
+   "limit_by_warps": 1,
+   "limiter": [
+    "registers",
+    "threads",
+    "warps"
+   ],
+   "max_resident_warps_per_sm": 32,
+   "occupancy_fraction_of_max_warps": 0.6666666666666666,
+   "reasons": [],
+   "registers_per_warp_allocated": 1280,
+   "resident_block_slots": 188,
+   "shared_allocated_bytes_per_block": 9216,
+   "shared_decision_changes_occupancy": false,
+   "shared_nonbinding_up_to_dynamic_bytes": 93184,
+   "tail_idle_fraction_of_last_wave": 0.3563829787234043,
+   "warps_per_block": 32,
+   "waves": 1,
+   "waves_fractional": 0.6436170212765957
+  },
+  "operator_id": "unseen_cuda_samples_matrix_multiply",
+  "per_launch_totals": {
+   "all_counts_exact": true,
+   "assumptions_applied": [],
+   "barrier_releases_per_launch_estimate": 2662,
+   "executed_global_load_bytes_lane_level": 10903552,
+   "executed_global_store_bytes_lane_level": 495616,
+   "families": {
+    "barrier": {
+     "exact": true,
+     "lane_instructions": 2725888
+    },
+    "control": {
+     "exact": true,
+     "lane_instructions": 1486848
+    },
+    "fp32_fma": {
+     "exact": true,
+     "lane_instructions": 43614208
+    },
+    "fp_other": {
+     "exact": true,
+     "lane_instructions": 123904
+    },
+    "global_load": {
+     "exact": true,
+     "lane_instructions": 2725888,
+     "width_bits_histogram": {
+      "32": 2725888
+     }
+    },
+    "global_store": {
+     "exact": true,
+     "lane_instructions": 123904,
+     "width_bits_histogram": {
+      "32": 123904
+     }
+    },
+    "integer_alu": {
+     "exact": true,
+     "lane_instructions": 10655744
+    },
+    "move_const_special": {
+     "exact": true,
+     "lane_instructions": 1610752
+    },
+    "shared_load": {
+     "exact": true,
+     "lane_instructions": 54517760,
+     "width_bits_histogram": {
+      "128": 10903552,
+      "32": 43614208
+     }
+    },
+    "shared_store": {
+     "exact": true,
+     "lane_instructions": 2725888,
+     "width_bits_histogram": {
+      "32": 2725888
+     }
+    }
+   },
+   "grid_blocks_sum": 121,
+   "kernels_per_launch": 1,
+   "note": "sum over the kernels of one measured launch; occupancy, waves and tail stay per kernel in each kernel block",
+   "opcode_lane_counts": {
+    "BAR.SYNC.DEFER_BLOCKING": 2725888,
+    "BRA": 1239040,
+    "BRA.U": 123904,
+    "EXIT": 123904,
+    "FFMA": 43614208,
+    "HFMA2": 123904,
+    "IADD": 4212736,
+    "IMAD": 619520,
+    "IMAD.WIDE": 2849792,
+    "ISETP.GE.AND": 1362944,
+    "LDC": 123904,
+    "LDC.64": 371712,
+    "LDCU.64": 247808,
+    "LDG.E": 2725888,
+    "LDS": 43614208,
+    "LDS.128": 10903552,
+    "LEA": 867328,
+    "MOV": 123904,
+    "S2R": 495616,
+    "S2UR": 123904,
+    "SHF.L.U32": 123904,
+    "STG.E": 123904,
+    "STS": 2725888,
+    "UIADD3": 123904,
+    "UISETP.GE.AND": 123904,
+    "ULEA": 247808,
+    "UMOV": 123904,
+    "USHF.L.U32": 123904
+   },
+   "six_class_counts": {
+    "barrier": 2725888,
+    "exponential": 0,
+    "fma": 43614208,
+    "shared_load": 54517760,
+    "shared_store": 2725888,
+    "shuffle": 0
+   },
+   "total_lane_instructions": 120310784
+  },
+  "resources": {
+   "constant_bank0_bytes": 928,
+   "dynamic_shared_bytes_per_launch": 0,
+   "dynamic_shared_source": "dispatch_trace.json dynamic_smem_bytes = 0 (no extern __shared__ in the kernel source)",
+   "frame_size_bytes": 0,
+   "local_memory_bytes_per_thread": 0,
+   "max_register_index_in_isolated_sass": 37,
+   "max_threads_attr": null,
+   "maxreg_count_attr": null,
+   "min_stack_size_bytes": null,
+   "register_count_consistent_with_sass": true,
+   "registers_per_thread": 40,
+   "reqntid": null,
+   "shared_decision": "SHARED:9216 is the 1024-byte driver reserve, not declared static shared memory (ADAPTER.md)",
+   "shared_section_bytes_raw": 9216,
+   "source_of_resources": "cuobjdump --dump-resource-usage line in libtorch_sm120/isolated_index.json (no cubin ELF retained for libtorch kernels); STACK is cuobjdump's STACK field",
+   "static_shared_bytes_per_block": 8192
+  },
+  "secondary_kernels": [],
+  "status": "supported",
+  "structure": {
+   "barrier_arrivals_per_block": 22528,
+   "barrier_participants_per_release_assumed": 1024,
+   "barrier_participation_uniform": true,
+   "barrier_releases_per_block_estimate": 22,
+   "barrier_releases_per_launch_estimate": 2662,
+   "hot_region": "innermost_hottest_loop",
+   "hot_region_chain": {
+    "async_copies": 0,
+    "critical_path_instructions": 33,
+    "dependency_waits": 0,
+    "dependent_global_load_depth": 1,
+    "global_load_to_use_edges": 2,
+    "global_loads": 2,
+    "global_loads_with_a_consumer": 2,
+    "instructions": 85,
+    "shared_loads": 40,
+    "shared_loads_with_a_consumer": 40
+   },
+   "innermost_loops": 1,
+   "iterations_note": "iterations = visits of the loop header per thread; equals the trip count if the loop is entered once",
+   "loop_back_edge_pc": "0x740",
+   "loop_body_dynamic_instructions_per_iteration_per_thread_mean": 84.9090909090909,
+   "loop_body_executed_static_instructions": 85,
+   "loop_body_static_instructions": 85,
+   "loop_header_pc": "0x200",
+   "loop_iterations_per_thread_max": 11,
+   "loop_iterations_per_thread_mean": 11.0,
+   "loop_iterations_per_thread_min": 11,
+   "note": "releases = max per-lane visit count summed over barrier sites; assumes every barrier is block-wide (BAR.SYNC with the default thread count)",
+   "static_backward_branches_executed": 1,
+   "static_barrier_sites": 2,
+   "whole_kernel_chain": {
+    "async_copies": 0,
+    "critical_path_instructions": 38,
+    "dependency_waits": 0,
+    "dependent_global_load_depth": 1,
+    "global_load_to_use_edges": 2,
+    "global_loads": 2,
+    "global_loads_with_a_consumer": 2,
+    "instructions": 122,
+    "shared_loads": 40,
+    "shared_loads_with_a_consumer": 40
+   }
+  },
+  "work": {
+   "all_counts_exact": true,
+   "assumption_log_lane_visits": {},
+   "assumptions_applied": [],
+   "executed_async_copy_global_to_shared_bytes": 0,
+   "executed_global_bytes_exact": true,
+   "executed_global_bytes_per_thread": 92.0,
+   "executed_global_load_bytes": 10903552,
+   "executed_global_store_bytes": 495616,
+   "families": {
+    "barrier": {
+     "exact": true,
+     "lane_instructions": 2725888
+    },
+    "control": {
+     "exact": true,
+     "lane_instructions": 1486848
+    },
+    "fp32_fma": {
+     "exact": true,
+     "lane_instructions": 43614208
+    },
+    "fp_other": {
+     "exact": true,
+     "lane_instructions": 123904
+    },
+    "global_load": {
+     "exact": true,
+     "lane_instructions": 2725888,
+     "width_bits_histogram": {
+      "32": 2725888
+     }
+    },
+    "global_store": {
+     "exact": true,
+     "lane_instructions": 123904,
+     "width_bits_histogram": {
+      "32": 123904
+     }
+    },
+    "integer_alu": {
+     "exact": true,
+     "lane_instructions": 10655744
+    },
+    "move_const_special": {
+     "exact": true,
+     "lane_instructions": 1610752
+    },
+    "shared_load": {
+     "exact": true,
+     "lane_instructions": 54517760,
+     "width_bits_histogram": {
+      "128": 10903552,
+      "32": 43614208
+     }
+    },
+    "shared_store": {
+     "exact": true,
+     "lane_instructions": 2725888,
+     "width_bits_histogram": {
+      "32": 2725888
+     }
+    }
+   },
+   "float_variant_lane_counts": {
+    "FFMA": 43614208
+   },
+   "note": "lane-level predicate-true instruction counts per launch of this kernel; counts are CONDITIONAL on `assumptions_applied` and are not warp-issued counts. FFMA modifier variants (.SAT/.RM/.RZ/.RP) are in opcode_lane_counts and float_variant_lane_counts, not in the six-class fma count (FFMA only), and families.other.",
+   "opcode_lane_counts": {
+    "BAR.SYNC.DEFER_BLOCKING": 2725888,
+    "BRA": 1239040,
+    "BRA.U": 123904,
+    "EXIT": 123904,
+    "FFMA": 43614208,
+    "HFMA2": 123904,
+    "IADD": 4212736,
+    "IMAD": 619520,
+    "IMAD.WIDE": 2849792,
+    "ISETP.GE.AND": 1362944,
+    "LDC": 123904,
+    "LDC.64": 371712,
+    "LDCU.64": 247808,
+    "LDG.E": 2725888,
+    "LDS": 43614208,
+    "LDS.128": 10903552,
+    "LEA": 867328,
+    "MOV": 123904,
+    "S2R": 495616,
+    "S2UR": 123904,
+    "SHF.L.U32": 123904,
+    "STG.E": 123904,
+    "STS": 2725888,
+    "UIADD3": 123904,
+    "UISETP.GE.AND": 123904,
+    "ULEA": 247808,
+    "UMOV": 123904,
+    "USHF.L.U32": 123904
+   },
+   "opcodes_with_unknown_guard_upper_bound": [],
+   "six_class_counts": {
+    "barrier": 2725888,
+    "exponential": 0,
+    "fma": 43614208,
+    "shared_load": 54517760,
+    "shared_store": 2725888,
+    "shuffle": 0
+   },
+   "six_class_counts_from_frozen_derivation": null,
+   "six_class_cross_check": {
+    "barrier": {
+     "equal": true,
+     "from_events": 2725888,
+     "from_visits": 2725888
+    },
+    "exponential": {
+     "equal": true,
+     "from_events": 0,
+     "from_visits": 0
+    },
+    "fma": {
+     "equal": true,
+     "from_events": 43614208,
+     "from_visits": 43614208
+    },
+    "shared_load": {
+     "equal": true,
+     "from_events": 54517760,
+     "from_visits": 54517760
+    },
+    "shared_store": {
+     "equal": true,
+     "from_events": 2725888,
+     "from_visits": 2725888
+    },
+    "shuffle": {
+     "equal": true,
+     "from_events": 0,
+     "from_visits": 0
+    }
+   },
+   "six_class_cross_check_all_equal": true,
+   "six_class_width_histograms": {
+    "barrier": {},
+    "exponential": {},
+    "fma": {
+     "32": 43614208
+    },
+    "shared_load": {
+     "128": 10903552,
+     "32": 43614208
+    },
+    "shared_store": {
+     "32": 2725888
+    },
+    "shuffle": {}
+   },
+   "source_of_six_class_counts": "pytorch_features/pt_interp.py (extended interpreter); the frozen derivation refuses these kernels, so there is no frozen reference",
+   "static_global_access_width_sites": {
+    "global_load": {
+     "32": 2
+    },
+    "global_store": {
+     "32": 1
+    }
+   },
+   "total_lane_instructions": 120310784,
+   "total_lane_instructions_per_thread": 971.0,
+   "upper_bound_note": "opcodes_with_unknown_guard_upper_bound lists opcodes with a guard predicate the interpreter could not decide; they are counted as executed"
+  }
+ },
+ "phases": {
+  "kernels": [
+   {
+    "barrier_sequence": [
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730"
+    ],
+    "kernel_id": "mm32",
+    "phases": [
+     {
+      "critical_path_compute_instructions": 6,
+      "dependent_global_load_depth": 1,
+      "index": 0,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA.U": 3872,
+       "HFMA2": 3872,
+       "IADD": 15488,
+       "IMAD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDC": 3872,
+       "LDC.64": 11616,
+       "LDCU.64": 7744,
+       "LDG.E": 7744,
+       "LEA": 27104,
+       "MOV": 3872,
+       "S2R": 15488,
+       "S2UR": 3872,
+       "SHF.L.U32": 3872,
+       "STS": 7744,
+       "UIADD3": 3872,
+       "UISETP.GE.AND": 3872,
+       "ULEA": 7744,
+       "UMOV": 3872,
+       "USHF.L.U32": 3872
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 1,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 2,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 3,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 4,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 5,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 6,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 7,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 8,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 9,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 10,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 11,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 12,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 13,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 14,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 15,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 16,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 17,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 18,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 19,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 20,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "BRA": 3872,
+       "IADD": 11616,
+       "IMAD.WIDE": 7744,
+       "ISETP.GE.AND": 3872,
+       "LDG.E": 7744,
+       "STS": 7744
+      },
+      "lines": 7744,
+      "read_bytes": 991232,
+      "read_sectors": 30976,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 21,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 3872,
+       "FFMA": 123904,
+       "LDS": 123904,
+       "LDS.128": 30976
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 4,
+      "dependent_global_load_depth": 0,
+      "index": 22,
+      "issue_warp_instructions": {
+       "BRA": 3872,
+       "EXIT": 3872,
+       "IMAD": 7744,
+       "IMAD.WIDE": 3872,
+       "STG.E": 3872
+      },
+      "lines": 3872,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 495616,
+      "write_sectors": 15488
+     }
+    ],
+    "unknown_guard_upper_bounds": []
+   }
+  ],
+  "reason": null,
+  "status": "conditional_static_phases"
+ },
+ "unique": {
+  "kernels": [
+   {
+    "blocks": 121,
+    "blocks_per_sm": 1,
+    "first_touch_read_sectors_per_block": 2816,
+    "kernel_id": "mm32",
+    "phases": [
+     {
+      "index": 0,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 1,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 2,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 3,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 4,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 5,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 6,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 7,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 8,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 9,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 10,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 11,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 12,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 13,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 14,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 15,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 16,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 17,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 18,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 19,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 20,
+      "lines": 7744,
+      "read_sectors": 30976,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 30976,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 30976,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 21,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 22,
+      "lines": 3872,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 15488
+     }
+    ],
+    "read_sectors_shared_across_blocks_note": {
+     "block0_distinct_read_sectors": 2816,
+     "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+     "sampled_blocks_compared": 1,
+     "shared_with_at_least_one_other_sampled_block": 0
+    },
+    "status": "ok",
+    "total_requested_read_sectors_per_block": 2816,
+    "unique_read_bytes_per_block": 90112,
+    "unique_read_or_written_bytes_per_block": 94208,
+    "unique_read_sectors_per_block": 2816
+   }
+  ],
+  "kernels_per_launch": 1,
+  "reason": null,
+  "status": "ok"
+ }
+}

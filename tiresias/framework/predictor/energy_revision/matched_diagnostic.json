@@ -1,0 +1,2609 @@
+{
+  "all_targets_exposed": true,
+  "calibration_budget": {
+    "acquired_windows": 32,
+    "constant_power_w": 315.47929133812426,
+    "exclusion_counts": {
+      "mean power >= 0.95 x P_cap": 2,
+      "strided store: logical bytes do not represent sectors moved": 8
+    },
+    "note": "Actual summed device intervals; acquisition wall time and compile/idle/transfer overhead not reconstructed. Existing data reused, zero new calibration windows.",
+    "sum_counted_launch_interval_s": 481.2406,
+    "sum_precondition_cuda_s": 2868.3319,
+    "used_windows": 22
+  },
+  "inputs_sha256": {
+    "tiresias/app_runners/calibration_raw/CALIB-BLACKWELL-20260922T164827Z/manifest.jsonl": "5ef28c474f8c55198ccc87e3278335d8adfcf144c070e0a3eb4ecfa31343de8d",
+    "tiresias/app_runners/calibration_raw/CALIB-BLACKWELL-20260922T164827Z/raw_records.csv": "ac5346c9f9c04f4946d7fb8d4fa97322d134111ff42bd223a4212b8181151bae",
+    "tiresias/app_runners/operator_work_time_diagnostic.py": "895917546ae8ddfb2ee10e55c60cb67abf8af104f5f5030f0bb69c16f195e395",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/predictions_runtime.json": "0b5b05973f62af6d1b9b58cf57e959a333c032d4df889cc4b9bcf09ec342c0e7",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/predictions_static.json": "269145d87e15f80ca1b12a960bec67e601fe0d818e004fa6ad0679850bb751dc",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/recipe.json": "d013983f6a31fd10de775150f340f113bdd54b0ea4d60fcf99d1c040cc2e6687",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/score_prospective.json": "e8b70b9cbf5fbc234026a0fa6fb1ad3ddc9367994dd1e3fd22a2f24b68c4e61b",
+    "tiresias/framework/evaluation_data/measured/kernel_sets/score_retrospective.json": "aa5497f3d6433bbafab82e934123af427295f652dfa0f072968d486ff8fe1d53",
+    "tiresias/framework/predictor/bank/energy_predictions_unseen_v3i.json": "522c3a9f94fe6191454b7988346473302e0ef73f60017ff0f215bae7d109773e",
+    "tiresias/framework/predictor/energy_revision/DIAGNOSTIC_PROTOCOL.md": "83c13949da457acb08e47f74f062114c733217ac76a1c50765410dd2f5f88c71",
+    "tiresias/framework/predictor/energy_revision/diagnose.py": "4c0bbdad4914c9b76a1eeca76ddc93b5cf27ea9ecdbcf59ba62fec8ac7ea14e1",
+    "tiresias/framework/predictor/fresh_e/energy_predictions_fresh_e.json": "c20a242c59947d5b384e269f438f2c3ed730cfd1c7dddd062db31d56df54b9fc",
+    "tiresias/framework/predictor/unseen_kernels/energy_model_frozen.json": "8f0f4563fa384455cd61f39cecfe85636d6a4faee466ef064a3821296ea6dee2"
+  },
+  "max_relative_prediction_reproduction_error": 2.014529862423737e-16,
+  "note": "Exact prediction reproduction and additive per-cell error diagnosis, not a new validation. Same runtime/cap/coverage; different calibration and instruction conventions remain confounded.",
+  "per_cell": [
+    {
+      "actual_j": 0.04376222237726595,
+      "below_cap": false,
+      "candidate": "c1",
+      "cell_id": "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.0014373477719877778,
+      "component_measured_j": 0.04519957014925373,
+      "component_parts": {
+        "base": 0.011514451376495455,
+        "compute": 0.005264443015385469,
+        "memory": 0.030356199453397063
+      },
+      "component_predicted_j": 0.04713509384527799,
+      "component_runtime_error_j": 0.0019355236960242606,
+      "constant_measured_j": 0.023765880599124004,
+      "constant_predicted_j": 0.025186964923847144,
+      "difference_j": 0.0007671912467452496,
+      "difference_parts_j": {
+        "base": 0.0006630387919763676,
+        "cap_relief_difference": -0.0031556951398069508,
+        "compute": 0.006388393831819405,
+        "memory": -0.003128546237243568
+      },
+      "family": "fast Walsh transform",
+      "lane_nonmem_count": 1111490560,
+      "measured_short_runtime_s": 7.533261691542288e-05,
+      "own_cap_relief_j": 0.0031556951398069508,
+      "own_compute_to_component_compute": 2.213498524563598,
+      "own_energy_side_residual_j": 0.0014373477719877778,
+      "own_measured_j": 0.04519957014925373,
+      "own_parts": {
+        "base": 0.012177490168471822,
+        "compute": 0.011652836847204874,
+        "memory": 0.027227653216153495
+      },
+      "own_predicted_j": 0.04790228509202324,
+      "own_runtime_error_j": 0.00270271494276951,
+      "predicted_runtime_s": 7.983714182003873e-05,
+      "regime": "large",
+      "scope": "prospective",
+      "source_operation_proxy": 196608000.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.042582524290645525,
+      "below_cap": false,
+      "candidate": "c2",
+      "cell_id": "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c2",
+      "component_cap_relief_j": 0.0003957499161456393,
+      "component_energy_side_residual_j": 0.00052024142364019,
+      "component_measured_j": 0.043102765714285715,
+      "component_parts": {
+        "base": 0.01107537708812929,
+        "compute": 0.005039826780062356,
+        "memory": 0.030356199453397063
+      },
+      "component_predicted_j": 0.04607565340544307,
+      "component_runtime_error_j": 0.002972887691157354,
+      "constant_measured_j": 0.022663383303760096,
+      "constant_predicted_j": 0.024226524140483686,
+      "difference_j": 0.0,
+      "difference_parts_j": {
+        "base": 0.0006377554956883257,
+        "cap_relief_difference": -0.0027302377594195723,
+        "compute": 0.005221028500974813,
+        "memory": -0.003128546237243568
+      },
+      "family": "fast Walsh transform",
+      "lane_nonmem_count": 994050048,
+      "measured_short_runtime_s": 7.183794285714286e-05,
+      "own_cap_relief_j": 0.0031259876755652116,
+      "own_compute_to_component_compute": 2.0359539581061186,
+      "own_energy_side_residual_j": 0.00052024142364019,
+      "own_measured_j": 0.043102765714285715,
+      "own_parts": {
+        "base": 0.011713132583817615,
+        "compute": 0.010260855281037169,
+        "memory": 0.027227653216153495
+      },
+      "own_predicted_j": 0.04607565340544307,
+      "own_runtime_error_j": 0.002972887691157354,
+      "predicted_runtime_s": 7.679275567573845e-05,
+      "regime": "large",
+      "scope": "prospective",
+      "source_operation_proxy": 188219392.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.021802063399743,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.0015135426944429854,
+      "component_measured_j": 0.023315606094185985,
+      "component_parts": {
+        "base": 0.0059416678611202735,
+        "compute": 0.002519913390031178,
+        "memory": 0.015178099726698532
+      },
+      "component_predicted_j": 0.023639680977849985,
+      "component_runtime_error_j": 0.0003240748836640002,
+      "constant_measured_j": 0.012288046790354787,
+      "constant_predicted_j": 0.012996935339244495,
+      "difference_j": 0.0010787757248715488,
+      "difference_parts_j": {
+        "base": 0.0003421401638816976,
+        "cap_relief_difference": -0.0003096055708757678,
+        "compute": 0.0026105142504874064,
+        "memory": -0.001564273118621784
+      },
+      "family": "fast Walsh transform",
+      "lane_nonmem_count": 497025024,
+      "measured_short_runtime_s": 3.895040697674419e-05,
+      "own_cap_relief_j": 0.0003096055708757678,
+      "own_compute_to_component_compute": 2.0359539581061186,
+      "own_energy_side_residual_j": 0.0015681807863035142,
+      "own_measured_j": 0.023370244186046513,
+      "own_parts": {
+        "base": 0.006283808025001971,
+        "compute": 0.005130427640518584,
+        "memory": 0.013613826608076748
+      },
+      "own_predicted_j": 0.024718456702721534,
+      "own_runtime_error_j": 0.0013482125166750202,
+      "predicted_runtime_s": 4.119742783786922e-05,
+      "regime": "medium",
+      "scope": "prospective",
+      "source_operation_proxy": 94109696.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.02024192531691119,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00034520957310636355,
+      "component_measured_j": 0.020587134890017553,
+      "component_parts": {
+        "base": 0.005459655017993706,
+        "compute": 0.002400586015015774,
+        "memory": 0.0130097997657416
+      },
+      "component_predicted_j": 0.02087004079875108,
+      "component_runtime_error_j": 0.0002829059087335259,
+      "constant_measured_j": 0.011323735189038384,
+      "constant_predicted_j": 0.011942569814070186,
+      "difference_j": 0.0018431517472605394,
+      "difference_parts_j": {
+        "base": 0.00031438432882071373,
+        "cap_relief_difference": -0.00015578304070299615,
+        "compute": 0.003025355989390065,
+        "memory": -0.0013408055302472459
+      },
+      "family": "fast Walsh transform",
+      "lane_nonmem_count": 516947968,
+      "measured_short_runtime_s": 3.589375119047619e-05,
+      "own_cap_relief_j": 0.00015578304070299615,
+      "own_compute_to_component_compute": 2.260257274876354,
+      "own_energy_side_residual_j": 0.001294325397374528,
+      "own_measured_j": 0.021536250714285717,
+      "own_parts": {
+        "base": 0.00577403934681442,
+        "compute": 0.005425942004405839,
+        "memory": 0.011668994235494353
+      },
+      "own_predicted_j": 0.022713192546011618,
+      "own_runtime_error_j": 0.0011769418317259008,
+      "predicted_runtime_s": 3.7855320910019365e-05,
+      "regime": "medium",
+      "scope": "prospective",
+      "source_operation_proxy": 89653248.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0014372658017939,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00018806439874383758,
+      "component_measured_j": 0.0016253302005377376,
+      "component_parts": {
+        "base": 0.0009032977284165458,
+        "compute": 0.00012854015029232854,
+        "memory": 0.0006775937377990417
+      },
+      "component_predicted_j": 0.001709431616507916,
+      "component_runtime_error_j": 8.41014159701785e-05,
+      "constant_measured_j": 0.0017919280834734369,
+      "constant_predicted_j": 0.001975893375854695,
+      "difference_j": 0.00012423316432146124,
+      "difference_parts_j": {
+        "base": 5.20147608479972e-05,
+        "cap_relief_difference": 0.0,
+        "compute": 0.00014205202484050814,
+        "memory": -6.983362136704402e-05
+      },
+      "family": "fast Walsh transform",
+      "lane_nonmem_count": 26214400,
+      "measured_short_runtime_s": 5.680018095238096e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.1051179302144165,
+      "own_energy_side_residual_j": 0.0003074547356109055,
+      "own_measured_j": 0.0017447205374048055,
+      "own_parts": {
+        "base": 0.000955312489264543,
+        "compute": 0.0002705921751328367,
+        "memory": 0.0006077601164319977
+      },
+      "own_predicted_j": 0.0018336647808293773,
+      "own_runtime_error_j": 8.894424342457182e-05,
+      "predicted_runtime_s": 6.263147629988089e-06,
+      "regime": "small",
+      "scope": "prospective",
+      "source_operation_proxy": 4800512.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0012687999260771487,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00011464131360463289,
+      "component_measured_j": 0.0013834412396817816,
+      "component_parts": {
+        "base": 0.0008828331719086703,
+        "compute": 0.00012108218935386579,
+        "memory": 0.0005420749902392333
+      },
+      "component_predicted_j": 0.0015459903515017694,
+      "component_runtime_error_j": 0.00016254911181998784,
+      "constant_measured_j": 0.001575565240884407,
+      "constant_predicted_j": 0.0019311287535472767,
+      "difference_j": 0.00016294908291839406,
+      "difference_parts_j": {
+        "base": 5.0836346490104904e-05,
+        "cap_relief_difference": 0.0,
+        "compute": 0.0001679796335219243,
+        "memory": -5.586689709363523e-05
+      },
+      "family": "fast Walsh transform",
+      "lane_nonmem_count": 27459584,
+      "measured_short_runtime_s": 4.994195448460509e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.3873190963784072,
+      "own_energy_side_residual_j": 0.0002682303008298913,
+      "own_measured_j": 0.00153703022690704,
+      "own_parts": {
+        "base": 0.0009336695183987752,
+        "compute": 0.0002890618228757901,
+        "memory": 0.0004862080931455981
+      },
+      "own_predicted_j": 0.0017089394344201635,
+      "own_runtime_error_j": 0.00017190920751312348,
+      "predicted_runtime_s": 6.121253618125864e-06,
+      "regime": "small",
+      "scope": "prospective",
+      "source_operation_proxy": 4521984.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 1.2379182383341538,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.10791743891194994,
+      "component_measured_j": 1.3458356772461038,
+      "component_parts": {
+        "base": 0.481193529720136,
+        "compute": 0.047730950006161586,
+        "memory": 0.8325520712306851
+      },
+      "component_predicted_j": 1.3614765509569826,
+      "component_runtime_error_j": 0.015640873710878855,
+      "constant_measured_j": 1.0183601487991976,
+      "constant_predicted_j": 1.052573340956871,
+      "difference_j": 0.07467431030631055,
+      "difference_parts_j": {
+        "base": 0.027708656384946184,
+        "cap_relief_difference": 0.0,
+        "compute": 0.04717113765642691,
+        "memory": -0.00020548373506257267
+      },
+      "family": "fast Walsh transform",
+      "lane_nonmem_count": 9193914368,
+      "measured_short_runtime_s": 0.0032279778,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 1.9882715020408683,
+      "own_energy_side_residual_j": 0.18169109788268023,
+      "own_measured_j": 1.419609336216834,
+      "own_parts": {
+        "base": 0.5089021861050822,
+        "compute": 0.0949020876625885,
+        "memory": 0.8323465874956225
+      },
+      "own_predicted_j": 1.4361508612632932,
+      "own_runtime_error_j": 0.016541525046459116,
+      "predicted_runtime_s": 0.00333642609786626,
+      "regime": "xlarge",
+      "scope": "prospective",
+      "source_operation_proxy": 1782579200.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 1.1164815502998726,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.09077391893037423,
+      "component_measured_j": 1.2072554692302468,
+      "component_parts": {
+        "base": 0.4314036104369894,
+        "compute": 0.04582171200591512,
+        "memory": 0.7400462855383867
+      },
+      "component_predicted_j": 1.2172716079812913,
+      "component_runtime_error_j": 0.010016138751044457,
+      "constant_measured_j": 0.9217522504257473,
+      "constant_predicted_j": 0.9436617732632758,
+      "difference_j": 0.07846754748623952,
+      "difference_parts_j": {
+        "base": 0.024841594216314544,
+        "cap_relief_difference": 0.0,
+        "compute": 0.053808605478869447,
+        "memory": -0.0001826522089444227
+      },
+      "family": "fast Walsh transform",
+      "lane_nonmem_count": 9512681472,
+      "measured_short_runtime_s": 0.002921752,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.1743036897426116,
+      "own_energy_side_residual_j": 0.1686647052388024,
+      "own_measured_j": 1.285146255538675,
+      "own_parts": {
+        "base": 0.4562452046533039,
+        "compute": 0.09963031748478457,
+        "memory": 0.7398636333294423
+      },
+      "own_predicted_j": 1.2957391554675308,
+      "own_runtime_error_j": 0.010592899928855815,
+      "predicted_runtime_s": 0.0029912003709044676,
+      "regime": "xlarge",
+      "scope": "prospective",
+      "source_operation_proxy": 1711276032.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 0.004519541927144859,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/fresh_e_cuda_samples_scalar_product/large/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.0005591400070376028,
+      "component_measured_j": 0.005078681934182462,
+      "component_parts": {
+        "base": 0.0013209323972065024,
+        "compute": 0.0003544658558365133,
+        "memory": 0.0032525161126988568
+      },
+      "component_predicted_j": 0.004927914365741873,
+      "component_runtime_error_j": -0.0001507675684405893,
+      "constant_measured_j": 0.00321922896724779,
+      "constant_predicted_j": 0.0028894366624473656,
+      "difference_j": -0.00034439248830401767,
+      "difference_parts_j": {
+        "base": 7.60634955404029e-05,
+        "cap_relief_difference": 0.0,
+        "compute": -8.524778159302304e-05,
+        "memory": -0.0003352082022513975
+      },
+      "family": "scalar product",
+      "lane_nonmem_count": 26081280,
+      "measured_short_runtime_s": 1.020424812542604e-05,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.7595035454350192,
+      "own_energy_side_residual_j": 0.0002234291956263396,
+      "own_measured_j": 0.004742971122771199,
+      "own_parts": {
+        "base": 0.0013969958927469053,
+        "compute": 0.00026921807424349026,
+        "memory": 0.0029173079104474592
+      },
+      "own_predicted_j": 0.004583521877437855,
+      "own_runtime_error_j": -0.0001594492453333438,
+      "predicted_runtime_s": 9.158879019258752e-06,
+      "regime": "large",
+      "scope": "prospective",
+      "source_operation_proxy": 13238024.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.004319073612027715,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/fresh_e_cuda_samples_scalar_product/large/c2",
+      "component_cap_relief_j": 0.0006921318574254955,
+      "component_energy_side_residual_j": 0.000324200766854273,
+      "component_measured_j": 0.004643274378881988,
+      "component_parts": {
+        "base": 0.000922365979149364,
+        "compute": 0.0003544658558365133,
+        "memory": 0.0032525161126988568
+      },
+      "component_predicted_j": 0.0038372160902592385,
+      "component_runtime_error_j": -0.0008060582886227491,
+      "constant_measured_j": 0.002441428184230264,
+      "constant_predicted_j": 0.0020176036881103874,
+      "difference_j": 0.0,
+      "difference_parts_j": {
+        "base": 5.3112771471134496e-05,
+        "cap_relief_difference": 0.00036125488843279704,
+        "compute": -7.915945765253423e-05,
+        "memory": -0.0003352082022513975
+      },
+      "family": "scalar product",
+      "lane_nonmem_count": 26671104,
+      "measured_short_runtime_s": 7.73879063146998e-06,
+      "own_cap_relief_j": 0.0003308769689926985,
+      "own_compute_to_component_compute": 0.7766795973459172,
+      "own_energy_side_residual_j": 5.393173619043859e-05,
+      "own_measured_j": 0.004373005348218153,
+      "own_parts": {
+        "base": 0.0009754787506204985,
+        "compute": 0.00027530639818397907,
+        "memory": 0.0029173079104474592
+      },
+      "own_predicted_j": 0.0038372160902592385,
+      "own_runtime_error_j": -0.0005357892579589147,
+      "predicted_runtime_s": 6.395360150432064e-06,
+      "regime": "large",
+      "scope": "prospective",
+      "source_operation_proxy": 13238024.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.003131305755745444,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/fresh_e_cuda_samples_scalar_product/medium/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00034471947256537903,
+      "component_measured_j": 0.003476025228310823,
+      "component_parts": {
+        "base": 0.0009384992334736347,
+        "compute": 0.00023864810949803298,
+        "memory": 0.00216836613222039
+      },
+      "component_predicted_j": 0.003345513475192058,
+      "component_runtime_error_j": -0.0001305117531187651,
+      "constant_measured_j": 0.0023383782120503394,
+      "constant_predicted_j": 0.0020528939244826034,
+      "difference_j": -0.0001821574156889074,
+      "difference_parts_j": {
+        "base": 5.404177565101662e-05,
+        "cap_relief_difference": 0.0,
+        "compute": -1.2724783275796554e-05,
+        "memory": -0.0002234744080641274
+      },
+      "family": "scalar product",
+      "lane_nonmem_count": 21886976,
+      "measured_short_runtime_s": 7.412144873699851e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.9466797231180185,
+      "own_energy_side_residual_j": 0.00017007733939381582,
+      "own_measured_j": 0.00330138309513926,
+      "own_parts": {
+        "base": 0.0009925410091246513,
+        "compute": 0.00022592332622223642,
+        "memory": 0.0019448917241562628
+      },
+      "own_predicted_j": 0.0031633560595031507,
+      "own_runtime_error_j": -0.00013802703563610928,
+      "predicted_runtime_s": 6.5072224416858906e-06,
+      "regime": "medium",
+      "scope": "prospective",
+      "source_operation_proxy": 8912648.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.003019820513592173,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/fresh_e_cuda_samples_scalar_product/medium/c2",
+      "component_cap_relief_j": 0.0003150140068161429,
+      "component_energy_side_residual_j": 0.00018524394885197169,
+      "component_measured_j": 0.0032050644624441447,
+      "component_parts": {
+        "base": 0.0006619859586233132,
+        "compute": 0.00023864810949803298,
+        "memory": 0.00216836613222039
+      },
+      "component_predicted_j": 0.0027539861935255935,
+      "component_runtime_error_j": -0.0004510782689185512,
+      "constant_measured_j": 0.0017456726560084713,
+      "constant_predicted_j": 0.0014480426878140543,
+      "difference_j": 0.0,
+      "difference_parts_j": {
+        "base": 3.811926039367318e-05,
+        "cap_relief_difference": 0.00019199160700576192,
+        "compute": -6.636459335307741e-06,
+        "memory": -0.0002234744080641274
+      },
+      "family": "scalar product",
+      "lane_nonmem_count": 22476800,
+      "measured_short_runtime_s": 5.533398558758315e-06,
+      "own_cap_relief_j": 0.00012302239981038096,
+      "own_compute_to_component_compute": 0.9721914439244178,
+      "own_energy_side_residual_j": 1.0873555195225516e-06,
+      "own_measured_j": 0.0030209078691116956,
+      "own_parts": {
+        "base": 0.0007001052190169864,
+        "compute": 0.00023201165016272524,
+        "memory": 0.0019448917241562628
+      },
+      "own_predicted_j": 0.0027539861935255935,
+      "own_runtime_error_j": -0.0002669216755861021,
+      "predicted_runtime_s": 4.5899769892093225e-06,
+      "regime": "medium",
+      "scope": "prospective",
+      "source_operation_proxy": 8912648.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.001103707980531346,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/fresh_e_cuda_samples_scalar_product/small/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 6.582711377140535e-05,
+      "component_measured_j": 0.0011695350943027513,
+      "component_parts": {
+        "base": 0.0005261406237509448,
+        "compute": 6.492148999031251e-05,
+        "memory": 0.0005421411615026902
+      },
+      "component_predicted_j": 0.0011332032752439476,
+      "component_runtime_error_j": -3.633181905880376e-05,
+      "constant_measured_j": 0.0012303646282791135,
+      "constant_predicted_j": 0.0011508916058716688,
+      "difference_j": 0.00010024798992913837,
+      "difference_parts_j": {
+        "base": 3.0296853247705098e-05,
+        "cap_relief_difference": 0.0,
+        "compute": 0.00012582485346465514,
+        "memory": -5.587371678322182e-05
+      },
+      "family": "scalar product",
+      "lane_nonmem_count": 18479104,
+      "measured_short_runtime_s": 3.899985393844548e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.9381079128564447,
+      "own_energy_side_residual_j": 0.000168167205584636,
+      "own_measured_j": 0.001271875186115982,
+      "own_parts": {
+        "base": 0.0005564374769986499,
+        "compute": 0.00019074634345496764,
+        "memory": 0.0004862674447194684
+      },
+      "own_predicted_j": 0.001233451265173086,
+      "own_runtime_error_j": -3.842392094289605e-05,
+      "predicted_runtime_s": 3.648073383803081e-06,
+      "regime": "small",
+      "scope": "prospective",
+      "source_operation_proxy": 2424584.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0010956265219045185,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/fresh_e_cuda_samples_scalar_product/small/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": -0.00010696084243713429,
+      "component_measured_j": 0.0009886656794673842,
+      "component_parts": {
+        "base": 0.00027141611427900343,
+        "compute": 6.492148999031251e-05,
+        "memory": 0.0005421411615026902
+      },
+      "component_predicted_j": 0.0008784787657720062,
+      "component_runtime_error_j": -0.000110186913695378,
+      "constant_measured_j": 0.0008347268806957211,
+      "constant_predicted_j": 0.0005937015952029493,
+      "difference_j": 9.166846513548692e-05,
+      "difference_parts_j": {
+        "base": 1.5629004513564783e-05,
+        "cap_relief_difference": 0.0,
+        "compute": 0.00013191317740514396,
+        "memory": -5.587371678322182e-05
+      },
+      "family": "scalar product",
+      "lane_nonmem_count": 19068928,
+      "measured_short_runtime_s": 2.645900709219858e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 3.031887706594963,
+      "own_energy_side_residual_j": -8.947463787372474e-06,
+      "own_measured_j": 0.001086679058117146,
+      "own_parts": {
+        "base": 0.0002870451187925682,
+        "compute": 0.00019683466739545645,
+        "memory": 0.0004862674447194684
+      },
+      "own_predicted_j": 0.0009701472309074931,
+      "own_runtime_error_j": -0.0001165318272096529,
+      "predicted_runtime_s": 1.8819035401174147e-06,
+      "regime": "small",
+      "scope": "prospective",
+      "source_operation_proxy": 2424584.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0660156804201156,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.006248453027995343,
+      "component_measured_j": 0.07226413344811095,
+      "component_parts": {
+        "base": 0.03504039035503815,
+        "compute": 0.0018671091750578298,
+        "memory": 0.0462532457277169
+      },
+      "component_predicted_j": 0.08316074525781288,
+      "component_runtime_error_j": 0.010896611809701931,
+      "constant_measured_j": 0.052812633747522986,
+      "constant_predicted_j": 0.07664812277481468,
+      "difference_j": 0.0009421522796774079,
+      "difference_parts_j": {
+        "base": 0.002017737305210293,
+        "cap_relief_difference": 0.0,
+        "compute": -0.0010641691753785014,
+        "memory": -1.1415850154385121e-05
+      },
+      "family": "scalar product",
+      "lane_nonmem_count": 77787136,
+      "measured_short_runtime_s": 0.00016740443888888887,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.4300444828859346,
+      "own_energy_side_residual_j": 0.006563143686210832,
+      "own_measured_j": 0.07257882410632643,
+      "own_parts": {
+        "base": 0.03705812766024844,
+        "compute": 0.0008029399996793284,
+        "memory": 0.046241829877562514
+      },
+      "own_predicted_j": 0.08410289753749028,
+      "own_runtime_error_j": 0.01152407343116385,
+      "predicted_runtime_s": 0.00024295769921920104,
+      "regime": "xlarge",
+      "scope": "prospective",
+      "source_operation_proxy": 69729808.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 0.06608796784514745,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.006020730922818421,
+      "component_measured_j": 0.07210869876796587,
+      "component_parts": {
+        "base": 0.02386633728794631,
+        "compute": 0.0018671091750578298,
+        "memory": 0.0462532457277169
+      },
+      "component_predicted_j": 0.07198669219072104,
+      "component_runtime_error_j": -0.00012200657724482922,
+      "constant_measured_j": 0.052472632499634186,
+      "constant_predicted_j": 0.05220575262137815,
+      "difference_j": 0.0003048030307077204,
+      "difference_parts_j": {
+        "base": 0.0013742997323001223,
+        "cap_relief_difference": 0.0,
+        "compute": -0.0010580808514380126,
+        "memory": -1.1415850154385121e-05
+      },
+      "family": "scalar product",
+      "lane_nonmem_count": 78376960,
+      "measured_short_runtime_s": 0.00016632670967741935,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.43330531199106725,
+      "own_energy_side_residual_j": 0.0063325594809216235,
+      "own_measured_j": 0.07242052732606907,
+      "own_parts": {
+        "base": 0.025240637020246433,
+        "compute": 0.0008090283236198172,
+        "memory": 0.046241829877562514
+      },
+      "own_predicted_j": 0.07229149522142876,
+      "own_runtime_error_j": -0.00012903210464031145,
+      "predicted_runtime_s": 0.0001654807591330142,
+      "regime": "xlarge",
+      "scope": "prospective",
+      "source_operation_proxy": 69729808.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 0.004906941018591856,
+      "below_cap": false,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_black_scholes/large/c1",
+      "component_cap_relief_j": 0.005170575496997127,
+      "component_energy_side_residual_j": -0.0009003617128508683,
+      "component_measured_j": 0.004006579305740988,
+      "component_parts": {
+        "base": 0.0008609251380033813,
+        "compute": 0.004503292296077653,
+        "memory": 0.003387968688995208
+      },
+      "component_predicted_j": 0.0035816106260791155,
+      "component_runtime_error_j": -0.0004249686796618723,
+      "constant_measured_j": 0.0021066546667752677,
+      "constant_predicted_j": 0.0018832066369408914,
+      "difference_j": 0.0,
+      "difference_parts_j": {
+        "base": 4.957481210516744e-05,
+        "cap_relief_difference": -0.0003255288440144645,
+        "compute": 0.0006251221387445164,
+        "memory": -0.00034916810683521945
+      },
+      "family": "Black-Scholes",
+      "lane_nonmem_count": 279183360,
+      "measured_short_runtime_s": 6.67763217623498e-06,
+      "own_cap_relief_j": 0.005496104341011591,
+      "own_compute_to_component_compute": 1.1388144712012132,
+      "own_energy_side_residual_j": -0.0009003617128508683,
+      "own_measured_j": 0.004006579305740988,
+      "own_parts": {
+        "base": 0.0009104999501085487,
+        "compute": 0.005128414434822169,
+        "memory": 0.0030388005821599885
+      },
+      "own_predicted_j": 0.0035816106260791155,
+      "own_runtime_error_j": -0.0004249686796618723,
+      "predicted_runtime_s": 5.9693510434651926e-06,
+      "regime": "large",
+      "scope": "retrospective",
+      "source_operation_proxy": 168181760.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.006105773802268427,
+      "below_cap": false,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_black_scholes/large/c2",
+      "component_cap_relief_j": 0.004222652481608825,
+      "component_energy_side_residual_j": -0.00024774255226842675,
+      "component_measured_j": 0.00585803125,
+      "component_parts": {
+        "base": 0.001160882908358143,
+        "compute": 0.004503292296077653,
+        "memory": 0.003387968688995208
+      },
+      "component_predicted_j": 0.004829491411822178,
+      "component_runtime_error_j": -0.0010285398381778225,
+      "constant_measured_j": 0.003080145912310977,
+      "constant_predicted_j": 0.002539340880208697,
+      "difference_j": 0.0,
+      "difference_parts_j": {
+        "base": 6.68473361010505e-05,
+        "cap_relief_difference": -0.0003428013680103481,
+        "compute": 0.0006251221387445164,
+        "memory": -0.00034916810683521945
+      },
+      "family": "Black-Scholes",
+      "lane_nonmem_count": 279183360,
+      "measured_short_runtime_s": 9.763385416666667e-06,
+      "own_cap_relief_j": 0.004565453849619173,
+      "own_compute_to_component_compute": 1.1388144712012132,
+      "own_energy_side_residual_j": -0.00024774255226842675,
+      "own_measured_j": 0.00585803125,
+      "own_parts": {
+        "base": 0.0012277302444591936,
+        "compute": 0.005128414434822169,
+        "memory": 0.0030388005821599885
+      },
+      "own_predicted_j": 0.004829491411822178,
+      "own_runtime_error_j": -0.0010285398381778225,
+      "predicted_runtime_s": 8.049152353036964e-06,
+      "regime": "large",
+      "scope": "retrospective",
+      "source_operation_proxy": 168181760.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.002129048980979352,
+      "below_cap": false,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_black_scholes/medium/c1",
+      "component_cap_relief_j": 0.0018493757960083871,
+      "component_energy_side_residual_j": -0.000278064232064287,
+      "component_measured_j": 0.0018509847489150651,
+      "component_parts": {
+        "base": 0.00041362365241088883,
+        "compute": 0.0018013169184310613,
+        "memory": 0.0013551874755980834
+      },
+      "component_predicted_j": 0.0017207522504316462,
+      "component_runtime_error_j": -0.0001302324984834189,
+      "constant_measured_j": 0.0009732455947756676,
+      "constant_predicted_j": 0.0009047695008910972,
+      "difference_j": 0.0,
+      "difference_parts_j": {
+        "base": 2.3817767591358672e-05,
+        "cap_relief_difference": -0.0001341993803550775,
+        "compute": 0.0002500488554978066,
+        "memory": -0.00013966724273408804
+      },
+      "family": "Black-Scholes",
+      "lane_nonmem_count": 111673344,
+      "measured_short_runtime_s": 3.0849745815251085e-06,
+      "own_cap_relief_j": 0.0019835751763634646,
+      "own_compute_to_component_compute": 1.1388144712012132,
+      "own_energy_side_residual_j": -0.000278064232064287,
+      "own_measured_j": 0.0018509847489150651,
+      "own_parts": {
+        "base": 0.0004374414200022475,
+        "compute": 0.002051365773928868,
+        "memory": 0.0012155202328639953
+      },
+      "own_predicted_j": 0.0017207522504316462,
+      "own_runtime_error_j": -0.0001302324984834189,
+      "predicted_runtime_s": 2.867920417386077e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "source_operation_proxy": 67272704.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0026612476606788344,
+      "below_cap": false,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_black_scholes/medium/c2",
+      "component_cap_relief_j": 0.0014703033870941086,
+      "component_energy_side_residual_j": -0.00010165861958294411,
+      "component_measured_j": 0.0025595890410958903,
+      "component_parts": {
+        "base": 0.0005335761303390231,
+        "compute": 0.0018013169184310613,
+        "memory": 0.0013551874755980834
+      },
+      "component_predicted_j": 0.0022197771372740593,
+      "component_runtime_error_j": -0.00033981190382183094,
+      "constant_measured_j": 0.0013458288946696009,
+      "constant_predicted_j": 0.0011671561969929841,
+      "difference_j": 0.0,
+      "difference_parts_j": {
+        "base": 3.072501340442395e-05,
+        "cap_relief_difference": -0.0001411066261681423,
+        "compute": 0.0002500488554978066,
+        "memory": -0.00013966724273408804
+      },
+      "family": "Black-Scholes",
+      "lane_nonmem_count": 111673344,
+      "measured_short_runtime_s": 4.265981735159817e-06,
+      "own_cap_relief_j": 0.0016114100132622509,
+      "own_compute_to_component_compute": 1.1388144712012132,
+      "own_energy_side_residual_j": -0.00010165861958294411,
+      "own_measured_j": 0.0025595890410958903,
+      "own_parts": {
+        "base": 0.0005643011437434471,
+        "compute": 0.002051365773928868,
+        "memory": 0.0012155202328639953
+      },
+      "own_predicted_j": 0.0022197771372740593,
+      "own_runtime_error_j": -0.00033981190382183094,
+      "predicted_runtime_s": 3.6996285621234324e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "source_operation_proxy": 67272704.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0009488043796182787,
+      "below_cap": false,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_black_scholes/small/c1",
+      "component_cap_relief_j": 0.00018877594551401698,
+      "component_energy_side_residual_j": -1.0894662821403674e-05,
+      "component_measured_j": 0.000937909716796875,
+      "component_parts": {
+        "base": 0.0001899729096146426,
+        "compute": 0.00045032922960776533,
+        "memory": 0.00033879686889952084
+      },
+      "component_predicted_j": 0.0007903230626079117,
+      "component_runtime_error_j": -0.00014758665418896331,
+      "constant_measured_j": 0.0004931518213236982,
+      "constant_predicted_j": 0.00041555093286619997,
+      "difference_j": 0.0,
+      "difference_parts_j": {
+        "base": 1.0939245334454261e-05,
+        "cap_relief_difference": -3.853464852538401e-05,
+        "compute": 6.251221387445165e-05,
+        "memory": -3.491681068352201e-05
+      },
+      "family": "Black-Scholes",
+      "lane_nonmem_count": 27918336,
+      "measured_short_runtime_s": 1.563182861328125e-06,
+      "own_cap_relief_j": 0.000227310594039401,
+      "own_compute_to_component_compute": 1.1388144712012132,
+      "own_energy_side_residual_j": -1.0894662821403674e-05,
+      "own_measured_j": 0.000937909716796875,
+      "own_parts": {
+        "base": 0.00020091215494909685,
+        "compute": 0.000512841443482217,
+        "memory": 0.00030388005821599883
+      },
+      "own_predicted_j": 0.0007903230626079117,
+      "own_runtime_error_j": -0.00014758665418896331,
+      "predicted_runtime_s": 1.3172051043465194e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "source_operation_proxy": 16818176.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0009720506448012627,
+      "below_cap": false,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_black_scholes/small/c2",
+      "component_cap_relief_j": 9.412883983674926e-05,
+      "component_energy_side_residual_j": -9.21283230126272e-06,
+      "component_measured_j": 0.0009628378125,
+      "component_parts": {
+        "base": 0.00021992274132946307,
+        "compute": 0.00045032922960776533,
+        "memory": 0.00033879686889952084
+      },
+      "component_predicted_j": 0.00091492,
+      "component_runtime_error_j": -4.791781250000008e-05,
+      "constant_measured_j": 0.0005062589846017496,
+      "constant_predicted_j": 0.0004810638553851277,
+      "difference_j": 0.0,
+      "difference_parts_j": {
+        "base": 1.2663852056110669e-05,
+        "cap_relief_difference": -4.0259255247040255e-05,
+        "compute": 6.251221387445165e-05,
+        "memory": -3.491681068352201e-05
+      },
+      "family": "Black-Scholes",
+      "lane_nonmem_count": 27918336,
+      "measured_short_runtime_s": 1.6047296875e-06,
+      "own_cap_relief_j": 0.00013438809508378952,
+      "own_compute_to_component_compute": 1.1388144712012132,
+      "own_energy_side_residual_j": -9.21283230126272e-06,
+      "own_measured_j": 0.0009628378125,
+      "own_parts": {
+        "base": 0.00023258659338557374,
+        "compute": 0.000512841443482217,
+        "memory": 0.00030388005821599883
+      },
+      "own_predicted_j": 0.00091492,
+      "own_runtime_error_j": -4.791781250000008e-05,
+      "predicted_runtime_s": 1.5248666666666666e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "source_operation_proxy": 16818176.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.07931117399411487,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_black_scholes/xlarge/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00875648937218064,
+      "component_measured_j": 0.08806766336629551,
+      "component_parts": {
+        "base": 0.024335763530098982,
+        "compute": 0.021615803021172737,
+        "memory": 0.043362087043264844
+      },
+      "component_predicted_j": 0.08931365359453657,
+      "component_runtime_error_j": 0.0012459902282410534,
+      "constant_measured_j": 0.050507079428953425,
+      "constant_predicted_j": 0.05323258593795006,
+      "difference_j": 0.004391214778885599,
+      "difference_parts_j": {
+        "base": 0.0014013307907797534,
+        "cap_relief_difference": 0.0,
+        "compute": 0.00300058626597368,
+        "memory": -1.0702277867834231e-05
+      },
+      "family": "Black-Scholes",
+      "lane_nonmem_count": 1340080128,
+      "measured_short_runtime_s": 0.00016009633854166666,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 1.1388144712012132,
+      "own_energy_side_residual_j": 0.013075956064358976,
+      "own_measured_j": 0.09238713005847385,
+      "own_parts": {
+        "base": 0.025737094320878735,
+        "compute": 0.024616389287146417,
+        "memory": 0.04335138476539701
+      },
+      "own_predicted_j": 0.09370486837342216,
+      "own_runtime_error_j": 0.0013177383149483163,
+      "predicted_runtime_s": 0.00016873559501215076,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "source_operation_proxy": 807272448.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 0.08033536589129185,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_black_scholes/xlarge/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.007933331361990328,
+      "component_measured_j": 0.08826869725328218,
+      "component_parts": {
+        "base": 0.024335763530098982,
+        "compute": 0.021615803021172737,
+        "memory": 0.043362087043264844
+      },
+      "component_predicted_j": 0.08931365359453657,
+      "component_runtime_error_j": 0.0010449563412543855,
+      "constant_measured_j": 0.05094682538770347,
+      "constant_predicted_j": 0.05323258593795006,
+      "difference_j": 0.004391214778885599,
+      "difference_parts_j": {
+        "base": 0.0014013307907797534,
+        "cap_relief_difference": 0.0,
+        "compute": 0.00300058626597368,
+        "memory": -1.0702277867834231e-05
+      },
+      "family": "Black-Scholes",
+      "lane_nonmem_count": 1340080128,
+      "measured_short_runtime_s": 0.0001614902365591398,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 1.1388144712012132,
+      "own_energy_side_residual_j": 0.01226437422581729,
+      "own_measured_j": 0.09259974011710914,
+      "own_parts": {
+        "base": 0.025737094320878735,
+        "compute": 0.024616389287146417,
+        "memory": 0.04335138476539701
+      },
+      "own_predicted_j": 0.09370486837342216,
+      "own_runtime_error_j": 0.0011051282563130232,
+      "predicted_runtime_s": 0.00016873559501215076,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "source_operation_proxy": 807272448.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 0.9975643057631632,
+      "below_cap": false,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/large/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": -0.2759328159029657,
+      "component_measured_j": 0.7216314898601975,
+      "component_parts": {
+        "base": 0.284743833023782,
+        "compute": 0.4819267481843262,
+        "memory": 0.0033548830572667394
+      },
+      "component_predicted_j": 0.7700254642653749,
+      "component_runtime_error_j": 0.04839397440517734,
+      "constant_measured_j": 0.5169968940886582,
+      "constant_predicted_j": 0.622854941164779,
+      "difference_j": -0.20551828342029876,
+      "difference_parts_j": {
+        "base": 0.016396457017153254,
+        "cap_relief_difference": 0.0,
+        "compute": -0.22156898217541016,
+        "memory": -0.00034575826204190753
+      },
+      "family": "tiled matrix multiply",
+      "lane_nonmem_count": 25222912000,
+      "measured_short_runtime_s": 0.0016387665,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.5402434436142461,
+      "own_energy_side_residual_j": -0.4842377785387453,
+      "own_measured_j": 0.513326527224418,
+      "own_parts": {
+        "base": 0.30114029004093523,
+        "compute": 0.260357766008916,
+        "memory": 0.003009124795224832
+      },
+      "own_predicted_j": 0.5645071808450761,
+      "own_runtime_error_j": 0.051180653620658156,
+      "predicted_runtime_s": 0.0019743132378765736,
+      "regime": "large",
+      "scope": "retrospective",
+      "source_operation_proxy": 17998229600.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.8512033889614531,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/large/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": -0.11899063108346275,
+      "component_measured_j": 0.7322127578779903,
+      "component_parts": {
+        "base": 0.3010791762832815,
+        "compute": 0.4819267481843262,
+        "memory": 0.0033548830572667394
+      },
+      "component_predicted_j": 0.7863608075248745,
+      "component_runtime_error_j": 0.05414804964688413,
+      "constant_measured_j": 0.5401425931497532,
+      "constant_predicted_j": 0.6585872313315418,
+      "difference_j": -0.22244095387723306,
+      "difference_parts_j": {
+        "base": 0.017337098121722738,
+        "cap_relief_difference": 0.0,
+        "compute": -0.2394322937369138,
+        "memory": -0.00034575826204190753
+      },
+      "family": "tiled matrix multiply",
+      "lane_nonmem_count": 23492352000,
+      "measured_short_runtime_s": 0.0017121332777777778,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.5031769980832517,
+      "own_energy_side_residual_j": -0.34454960215941643,
+      "own_measured_j": 0.5066537868020367,
+      "own_parts": {
+        "base": 0.31841627440500425,
+        "compute": 0.24249445444741238,
+        "memory": 0.003009124795224832
+      },
+      "own_predicted_j": 0.5639198536476414,
+      "own_runtime_error_j": 0.05726606684560476,
+      "predicted_runtime_s": 0.002087576742480005,
+      "regime": "large",
+      "scope": "retrospective",
+      "source_operation_proxy": 17998229600.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.1371167905014917,
+      "below_cap": false,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/medium/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": -0.04047840178721619,
+      "component_measured_j": 0.0966383887142755,
+      "component_parts": {
+        "base": 0.03743626988727218,
+        "compute": 0.06306556218718327,
+        "memory": 0.0008647260708552613
+      },
+      "component_predicted_j": 0.10136655814531072,
+      "component_runtime_error_j": 0.004728169431035212,
+      "constant_measured_j": 0.07154642040510721,
+      "constant_predicted_j": 0.08188892251133748,
+      "difference_j": -0.026673963133584194,
+      "difference_parts_j": {
+        "base": 0.002155699681256805,
+        "cap_relief_difference": 0.0,
+        "compute": -0.028740543111322972,
+        "memory": -8.911970351802067e-05
+      },
+      "family": "tiled matrix multiply",
+      "lane_nonmem_count": 3325335552,
+      "measured_short_runtime_s": 0.00022678642424242427,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.5442751619969881,
+      "own_energy_side_residual_j": -0.06742462797922213,
+      "own_measured_j": 0.06969216252226956,
+      "own_parts": {
+        "base": 0.039591969568528985,
+        "compute": 0.0343250190758603,
+        "memory": 0.0007756063673372407
+      },
+      "own_predicted_j": 0.07469259501172652,
+      "own_runtime_error_j": 0.00500043248945696,
+      "predicted_runtime_s": 0.00025956988227024576,
+      "regime": "medium",
+      "scope": "retrospective",
+      "source_operation_proxy": 2355271776.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.11292138878393528,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/medium/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": -0.01593836531390813,
+      "component_measured_j": 0.09698302347002714,
+      "component_parts": {
+        "base": 0.03955272029278753,
+        "compute": 0.06306556218718327,
+        "memory": 0.0008647260708552613
+      },
+      "component_predicted_j": 0.10348300855082607,
+      "component_runtime_error_j": 0.006499985080798923,
+      "constant_measured_j": 0.07230028207170595,
+      "constant_predicted_j": 0.08651849281249772,
+      "difference_j": -0.028946324566431897,
+      "difference_parts_j": {
+        "base": 0.0022775716380063274,
+        "cap_relief_difference": 0.0,
+        "compute": -0.031134776500920204,
+        "memory": -8.911970351802067e-05
+      },
+      "family": "tiled matrix multiply",
+      "lane_nonmem_count": 3093387264,
+      "measured_short_runtime_s": 0.000229176,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.5063109655867354,
+      "own_energy_side_residual_j": -0.0452589797283683,
+      "own_measured_j": 0.06766240905556697,
+      "own_parts": {
+        "base": 0.04183029193079386,
+        "compute": 0.03193078568626307,
+        "memory": 0.0007756063673372407
+      },
+      "own_predicted_j": 0.07453668398439417,
+      "own_runtime_error_j": 0.006874274928827195,
+      "predicted_runtime_s": 0.00027424460238110836,
+      "regime": "medium",
+      "scope": "retrospective",
+      "source_operation_proxy": 2355271776.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.005818386290423353,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/small/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": -0.0016123548210911125,
+      "component_measured_j": 0.0042060314693322404,
+      "component_parts": {
+        "base": 0.0017734222702529719,
+        "compute": 0.002335968918479435,
+        "memory": 9.608067453947349e-05
+      },
+      "component_predicted_j": 0.004205471863271881,
+      "component_runtime_error_j": -5.596060603596867e-07,
+      "constant_measured_j": 0.0038804470862982285,
+      "constant_predicted_j": 0.003879222991658147,
+      "difference_j": -0.0009340856761837699,
+      "difference_parts_j": {
+        "base": 0.000102119303932516,
+        "cap_relief_difference": 0.0,
+        "compute": -0.0010263027908365054,
+        "memory": -9.90218927978007e-06
+      },
+      "family": "tiled matrix multiply",
+      "lane_nonmem_count": 126877696,
+      "measured_short_runtime_s": 1.230016420361248e-05,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.5606522061498309,
+      "own_energy_side_residual_j": -0.0025464082733751836,
+      "own_measured_j": 0.0032719780170481693,
+      "own_parts": {
+        "base": 0.0018755415741854879,
+        "compute": 0.0013096661276429298,
+        "memory": 8.617848525969342e-05
+      },
+      "own_predicted_j": 0.003271386187088111,
+      "own_runtime_error_j": -5.918299600584515e-07,
+      "predicted_runtime_s": 1.2296284092702856e-05,
+      "regime": "small",
+      "scope": "retrospective",
+      "source_operation_proxy": 87240032.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.004757885707219254,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/small/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": -0.0003632640683731156,
+      "component_measured_j": 0.004394621638846139,
+      "component_parts": {
+        "base": 0.0023897212351952205,
+        "compute": 0.002335968918479435,
+        "memory": 9.608067453947349e-05
+      },
+      "component_predicted_j": 0.00482177082821413,
+      "component_runtime_error_j": 0.00042714918936799084,
+      "constant_measured_j": 0.004292973382967924,
+      "constant_predicted_j": 0.005227328941741913,
+      "difference_j": -0.0009957990013428225,
+      "difference_parts_j": {
+        "base": 0.00013760776168446212,
+        "cap_relief_difference": 0.0,
+        "compute": -0.0011235045737475041,
+        "memory": -9.90218927978007e-06
+      },
+      "family": "tiled matrix multiply",
+      "lane_nonmem_count": 117460992,
+      "measured_short_runtime_s": 1.3607781876138434e-05,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.5190413002246481,
+      "own_energy_side_residual_j": -0.0013836596808137424,
+      "own_measured_j": 0.003374226026405512,
+      "own_parts": {
+        "base": 0.0025273289968796827,
+        "compute": 0.001212464344731931,
+        "memory": 8.617848525969342e-05
+      },
+      "own_predicted_j": 0.003825971826871307,
+      "own_runtime_error_j": 0.00045174580046579513,
+      "predicted_runtime_s": 1.6569483592948e-05,
+      "regime": "small",
+      "scope": "retrospective",
+      "source_operation_proxy": 87240032.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 8.480777985863886,
+      "below_cap": false,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": -2.292614806929021,
+      "component_measured_j": 6.1881631789348654,
+      "component_parts": {
+        "base": 4.2818015258885715,
+        "compute": 4.128486610880036,
+        "memory": 0.03745273230997616
+      },
+      "component_predicted_j": 8.447740869078583,
+      "component_runtime_error_j": 2.2595776901437175,
+      "constant_measured_j": 4.42345702401806,
+      "constant_predicted_j": 9.36610710464041,
+      "difference_j": -1.6603246664821398,
+      "difference_parts_j": {
+        "base": 0.2465597724441313,
+        "cap_relief_difference": 0.0,
+        "compute": -1.906875195147307,
+        "memory": -9.243778965044303e-06
+      },
+      "family": "tiled matrix multiply",
+      "lane_nonmem_count": 215225034752,
+      "measured_short_runtime_s": 0.014021386333333332,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.5381176264149652,
+      "own_energy_side_residual_j": -4.083053155171799,
+      "own_measured_j": 4.397724830692088,
+      "own_parts": {
+        "base": 4.528361298332703,
+        "compute": 2.221611415732729,
+        "memory": 0.037443488531011114
+      },
+      "own_predicted_j": 6.787416202596443,
+      "own_runtime_error_j": 2.3896913719043553,
+      "predicted_runtime_s": 0.029688500519046774,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "source_operation_proxy": 154184116576.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 7.348090635111881,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/xlarge/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": -1.0065482664109444,
+      "component_measured_j": 6.341542368700937,
+      "component_parts": {
+        "base": 3.5904346319063154,
+        "compute": 4.128486610880036,
+        "memory": 0.03745273230997616
+      },
+      "component_predicted_j": 7.756373975096327,
+      "component_runtime_error_j": 1.4148316063953903,
+      "constant_measured_j": 4.758962046912337,
+      "constant_predicted_j": 7.853795910744848,
+      "difference_j": -1.8512098383512097,
+      "difference_parts_j": {
+        "base": 0.20674866419331206,
+        "cap_relief_difference": 0.0,
+        "compute": -2.057949258765557,
+        "memory": -9.243778965044303e-06
+      },
+      "family": "tiled matrix multiply",
+      "lane_nonmem_count": 200589297664,
+      "measured_short_runtime_s": 0.0150848635,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.5015245408954153,
+      "own_energy_side_residual_j": -2.939228615903424,
+      "own_measured_j": 4.408862019208457,
+      "own_parts": {
+        "base": 3.7971832960996275,
+        "compute": 2.070537352114479,
+        "memory": 0.037443488531011114
+      },
+      "own_predicted_j": 5.9051641367451175,
+      "own_runtime_error_j": 1.4963021175366604,
+      "predicted_runtime_s": 0.02489480649405704,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "source_operation_proxy": 154184116576.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 0.00852159710247995,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_scan/large/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.0008466925850200493,
+      "component_measured_j": 0.0093682896875,
+      "component_parts": {
+        "base": 0.0028072016047852775,
+        "compute": 0.001032488886392475,
+        "memory": 0.0065048998828708
+      },
+      "component_predicted_j": 0.010344590374048552,
+      "component_runtime_error_j": 0.0009763006865485518,
+      "constant_measured_j": 0.004925835652771262,
+      "constant_predicted_j": 0.006140534710861229,
+      "difference_j": 0.0007516441238257978,
+      "difference_parts_j": {
+        "base": 0.0001616476113373848,
+        "cap_relief_difference": 0.0,
+        "compute": 0.0012603992776120357,
+        "memory": -0.0006704027651236229
+      },
+      "family": "prefix-sum scan",
+      "lane_nonmem_count": 222130176,
+      "measured_short_runtime_s": 1.5613816145833334e-05,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.2207388323722124,
+      "own_energy_side_residual_j": 0.0008466925850200493,
+      "own_measured_j": 0.0093682896875,
+      "own_parts": {
+        "base": 0.0029688492161226623,
+        "compute": 0.002292888164004511,
+        "memory": 0.005834497117747177
+      },
+      "own_predicted_j": 0.01109623449787435,
+      "own_runtime_error_j": 0.0017279448103743496,
+      "predicted_runtime_s": 1.9464145126026446e-05,
+      "regime": "large",
+      "scope": "retrospective",
+      "source_operation_proxy": 38559744.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.008618692435441559,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_scan/large/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.0008692268683559087,
+      "component_measured_j": 0.009487919303797467,
+      "component_parts": {
+        "base": 0.0028375482250520747,
+        "compute": 0.0010334759694578598,
+        "memory": 0.0065048998828708
+      },
+      "component_predicted_j": 0.010375924077380734,
+      "component_runtime_error_j": 0.0008880047735832664,
+      "constant_measured_j": 0.004988736763725557,
+      "constant_predicted_j": 0.0062069155774110134,
+      "difference_j": 0.000756590218540033,
+      "difference_parts_j": {
+        "base": 0.00016339506640791757,
+        "cap_relief_difference": 0.0,
+        "compute": 0.001263597917255737,
+        "memory": -0.0006704027651236229
+      },
+      "family": "prefix-sum scan",
+      "lane_nonmem_count": 222535680,
+      "measured_short_runtime_s": 1.5813198839662447e-05,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.2226679232015374,
+      "own_energy_side_residual_j": 0.0008692268683559087,
+      "own_measured_j": 0.009487919303797467,
+      "own_parts": {
+        "base": 0.0030009432914599923,
+        "compute": 0.002297073886713597,
+        "memory": 0.005834497117747177
+      },
+      "own_predicted_j": 0.011132514295920767,
+      "own_runtime_error_j": 0.0016445949921232994,
+      "predicted_runtime_s": 1.9674557880119517e-05,
+      "regime": "large",
+      "scope": "retrospective",
+      "source_operation_proxy": 38596608.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0031615811793024176,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_scan/medium/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00038808111210833105,
+      "component_measured_j": 0.0035496622914107487,
+      "component_parts": {
+        "base": 0.0012078655446898594,
+        "compute": 0.000344162962130825,
+        "memory": 0.0021682999609569332
+      },
+      "component_predicted_j": 0.0037203284677776176,
+      "component_runtime_error_j": 0.0001706661763668689,
+      "constant_measured_j": 0.002268792776555079,
+      "constant_predicted_j": 0.002642111735251985,
+      "difference_j": 0.00026621825013695014,
+      "difference_parts_j": {
+        "base": 6.95527459741458e-05,
+        "cap_relief_difference": 0.0,
+        "compute": 0.0004201330925373452,
+        "memory": -0.0002234675883745409
+      },
+      "family": "prefix-sum scan",
+      "lane_nonmem_count": 74043392,
+      "measured_short_runtime_s": 7.191574340527578e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.2207388323722124,
+      "own_energy_side_residual_j": 0.0006444718601169115,
+      "own_measured_j": 0.003806053039419329,
+      "own_parts": {
+        "base": 0.0012774182906640052,
+        "compute": 0.0007642960546681702,
+        "memory": 0.0019448323725823923
+      },
+      "own_predicted_j": 0.003986546717914568,
+      "own_runtime_error_j": 0.0001804936784952386,
+      "predicted_runtime_s": 8.374913370843805e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "source_operation_proxy": 12853248.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0032645312429960024,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_scan/medium/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.0003144163812138453,
+      "component_measured_j": 0.0035789476242098477,
+      "component_parts": {
+        "base": 0.0012382121649566575,
+        "compute": 0.00034449198981928664,
+        "memory": 0.0021682999609569332
+      },
+      "component_predicted_j": 0.0037510041157328773,
+      "component_runtime_error_j": 0.0001720564915230296,
+      "constant_measured_j": 0.0023321324370650545,
+      "constant_predicted_j": 0.0027084926018017715,
+      "difference_j": 0.0002690319184220501,
+      "difference_parts_j": {
+        "base": 7.130020104467879e-05,
+        "cap_relief_difference": 0.0,
+        "compute": 0.00042119930575191226,
+        "memory": -0.0002234675883745409
+      },
+      "family": "prefix-sum scan",
+      "lane_nonmem_count": 74178560,
+      "measured_short_runtime_s": 7.392347140039448e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.222667923201537,
+      "own_energy_side_residual_j": 0.0005735407387316917,
+      "own_measured_j": 0.003838071981727694,
+      "own_parts": {
+        "base": 0.0013095123660013363,
+        "compute": 0.0007656912955711989,
+        "memory": 0.0019448323725823923
+      },
+      "own_predicted_j": 0.004020036034154927,
+      "own_runtime_error_j": 0.0001819640524272333,
+      "predicted_runtime_s": 8.58532612493688e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "source_operation_proxy": 12865536.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0006764718125414723,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_scan/small/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00013657553066892558,
+      "component_measured_j": 0.0008130473432103978,
+      "component_parts": {
+        "base": 0.000560943504357778,
+        "compute": 4.3020370266353126e-05,
+        "memory": 0.00027103749511961665
+      },
+      "component_predicted_j": 0.0008750013697437478,
+      "component_runtime_error_j": 6.195402653334998e-05,
+      "constant_measured_j": 0.001091500590378791,
+      "constant_predicted_j": 0.0012270201945843294,
+      "difference_j": 5.688410200532681e-05,
+      "difference_parts_j": {
+        "base": 3.2300913984976217e-05,
+        "cap_relief_difference": 0.0,
+        "compute": 5.251663656716815e-05,
+        "memory": -2.7933448546817614e-05
+      },
+      "family": "prefix-sum scan",
+      "lane_nonmem_count": 9255424,
+      "measured_short_runtime_s": 3.459816920943134e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.2207388323722124,
+      "own_energy_side_residual_j": 0.0001898921224588202,
+      "own_measured_j": 0.0008663639350002925,
+      "own_parts": {
+        "base": 0.0005932444183427543,
+        "compute": 9.553700683352127e-05,
+        "memory": 0.00024310404657279904
+      },
+      "own_predicted_j": 0.0009318854717490746,
+      "own_runtime_error_j": 6.552153674878216e-05,
+      "predicted_runtime_s": 3.8893842742572734e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "source_operation_proxy": 1606656.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0006950877115524394,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_scan/small/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00014639154772843157,
+      "component_measured_j": 0.000841479259280871,
+      "component_parts": {
+        "base": 0.000591290124624576,
+        "compute": 4.306149872741083e-05,
+        "memory": 0.00027103749511961665
+      },
+      "component_predicted_j": 0.0009053891184716036,
+      "component_runtime_error_j": 6.390985919073257e-05,
+      "constant_measured_j": 0.0011536032254325492,
+      "constant_predicted_j": 0.0012934010611341158,
+      "difference_j": 5.876483372768064e-05,
+      "difference_parts_j": {
+        "base": 3.404836905550931e-05,
+        "cap_relief_difference": 0.0,
+        "compute": 5.264991321898903e-05,
+        "memory": -2.7933448546817614e-05
+      },
+      "family": "prefix-sum scan",
+      "lane_nonmem_count": 9272320,
+      "measured_short_runtime_s": 3.6566686217008796e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.222667923201537,
+      "own_energy_side_residual_j": 0.00020147624816554987,
+      "own_measured_j": 0.0008965639597179893,
+      "own_parts": {
+        "base": 0.0006253384936800853,
+        "compute": 9.571141194639986e-05,
+        "memory": 0.00024310404657279904
+      },
+      "own_predicted_j": 0.0009641539521992842,
+      "own_runtime_error_j": 6.758999248129491e-05,
+      "predicted_runtime_s": 4.099797028350349e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "source_operation_proxy": 1608192.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.13797492994912258,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_scan/xlarge/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.011990608604179442,
+      "component_measured_j": 0.14996553855330202,
+      "component_parts": {
+        "base": 0.05802528415628542,
+        "compute": 0.0055066073940932,
+        "memory": 0.09250578569229834
+      },
+      "component_predicted_j": 0.15603767724267695,
+      "component_runtime_error_j": 0.006072138689374923,
+      "constant_measured_j": 0.11364345636386468,
+      "constant_predicted_j": 0.12692578647072644,
+      "difference_j": 0.010040578668001288,
+      "difference_parts_j": {
+        "base": 0.003341280713521813,
+        "cap_relief_difference": 0.0,
+        "compute": 0.006722129480597523,
+        "memory": -2.2831526118052836e-05
+      },
+      "family": "prefix-sum scan",
+      "lane_nonmem_count": 1184694272,
+      "measured_short_runtime_s": 0.0003602247738095238,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.2207388323722124,
+      "own_energy_side_residual_j": 0.021681534182365736,
+      "own_measured_j": 0.15965646413148832,
+      "own_parts": {
+        "base": 0.06136656486980723,
+        "compute": 0.012228736874690723,
+        "memory": 0.09248295416618028
+      },
+      "own_predicted_j": 0.16607825591067824,
+      "own_runtime_error_j": 0.006421791779189917,
+      "predicted_runtime_s": 0.00040232684032084367,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "source_operation_proxy": 205651968.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 0.1378446907237908,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_scan/xlarge/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.012146825621011409,
+      "component_measured_j": 0.1499915163448022,
+      "component_parts": {
+        "base": 0.05805563077655222,
+        "compute": 0.005511871837108586,
+        "memory": 0.09250578569229834
+      },
+      "component_predicted_j": 0.15607328830595915,
+      "component_runtime_error_j": 0.006081771961156945,
+      "constant_measured_j": 0.1136887651992302,
+      "constant_predicted_j": 0.12699216733727622,
+      "difference_j": 0.010059385534504889,
+      "difference_parts_j": {
+        "base": 0.0033430281685923463,
+        "cap_relief_difference": 0.0,
+        "compute": 0.006739188892030596,
+        "memory": -2.2831526118052836e-05
+      },
+      "family": "prefix-sum scan",
+      "lane_nonmem_count": 1186856960,
+      "measured_short_runtime_s": 0.0003603683928571429,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 2.222667923201537,
+      "own_energy_side_residual_j": 0.021856003351223285,
+      "own_measured_j": 0.15970069407501408,
+      "own_parts": {
+        "base": 0.06139865894514457,
+        "compute": 0.012251060729139182,
+        "memory": 0.09248295416618028
+      },
+      "own_predicted_j": 0.16613267384046404,
+      "own_runtime_error_j": 0.006431979765449958,
+      "predicted_runtime_s": 0.0004025372530749368,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "source_operation_proxy": 205848576.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 0.011648333125395144,
+      "below_cap": false,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/large/c1",
+      "component_cap_relief_j": 0.004249365417285026,
+      "component_energy_side_residual_j": -6.323389759591708e-05,
+      "component_measured_j": 0.011585099227799227,
+      "component_parts": {
+        "base": 0.002389388976240257,
+        "compute": 0.0075314437888858365,
+        "memory": 0.004268840548133962
+      },
+      "component_predicted_j": 0.009940307895975031,
+      "component_runtime_error_j": -0.0016447913318241962,
+      "constant_measured_j": 0.006091431490779918,
+      "constant_predicted_j": 0.00522660215117494,
+      "difference_j": -0.00034031619739299107,
+      "difference_parts_j": {
+        "base": 0.00013758862915535424,
+        "cap_relief_difference": 0.004249365417285026,
+        "compute": -0.004287318429220994,
+        "memory": -0.0004399518146123772
+      },
+      "family": "separable convolution",
+      "lane_nonmem_count": 314284032,
+      "measured_short_runtime_s": 1.9308498712998712e-05,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.43074415086947926,
+      "own_energy_side_residual_j": -0.001630210428803321,
+      "own_measured_j": 0.010018122696591823,
+      "own_parts": {
+        "base": 0.0025269776053956114,
+        "compute": 0.003244125359664843,
+        "memory": 0.003828888733521585
+      },
+      "own_predicted_j": 0.00959999169858204,
+      "own_runtime_error_j": -0.0004181309980097834,
+      "predicted_runtime_s": 1.6567179826625053e-05,
+      "regime": "large",
+      "scope": "retrospective",
+      "source_operation_proxy": 281272320.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.011685845482794943,
+      "below_cap": false,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/large/c2",
+      "component_cap_relief_j": 0.004249697367497911,
+      "component_energy_side_residual_j": -0.00010904857159803327,
+      "component_measured_j": 0.01157679691119691,
+      "component_parts": {
+        "base": 0.002389283934961472,
+        "compute": 0.0075314437888858365,
+        "memory": 0.004268840548133962
+      },
+      "component_predicted_j": 0.00993987090448336,
+      "component_runtime_error_j": -0.0016369260067135502,
+      "constant_measured_j": 0.006087066142516312,
+      "constant_predicted_j": 0.005226372381564751,
+      "difference_j": -0.00033994801576420555,
+      "difference_parts_j": {
+        "base": 0.00013758258054389055,
+        "cap_relief_difference": 0.004249697367497911,
+        "compute": -0.004287276149193629,
+        "memory": -0.0004399518146123772
+      },
+      "family": "separable convolution",
+      "lane_nonmem_count": 314288128,
+      "measured_short_runtime_s": 1.9294661518661516e-05,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.430749764670571,
+      "own_energy_side_residual_j": -0.0016697910814563732,
+      "own_measured_j": 0.01001605440133857,
+      "own_parts": {
+        "base": 0.0025268665155053624,
+        "compute": 0.0032441676396922077,
+        "memory": 0.003828888733521585
+      },
+      "own_predicted_j": 0.009599922888719154,
+      "own_runtime_error_j": -0.0004161315126194158,
+      "predicted_runtime_s": 1.6566451507472266e-05,
+      "regime": "large",
+      "scope": "retrospective",
+      "source_operation_proxy": 281272320.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.004023865567551662,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/medium/c1",
+      "component_cap_relief_j": 0.0008498871290745598,
+      "component_energy_side_residual_j": 0.00045365192123757603,
+      "component_measured_j": 0.004477517488789238,
+      "component_parts": {
+        "base": 0.0009164754349548495,
+        "compute": 0.002390934536154234,
+        "memory": 0.0013551874755980834
+      },
+      "component_predicted_j": 0.0038127103176326073,
+      "component_runtime_error_j": -0.0006648071711566304,
+      "constant_measured_j": 0.0023542734071954775,
+      "constant_predicted_j": 0.0020047185818071493,
+      "difference_j": -0.0005981053081119728,
+      "difference_parts_j": {
+        "base": 5.2773575170841176e-05,
+        "cap_relief_difference": 0.0008498871290745598,
+        "compute": -0.0013610987696232853,
+        "memory": -0.00013966724273408804
+      },
+      "family": "separable convolution",
+      "lane_nonmem_count": 99768320,
+      "measured_short_runtime_s": 7.462529147982063e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.4307252042907946,
+      "own_energy_side_residual_j": -0.0006402564536310568,
+      "own_measured_j": 0.003383609113920605,
+      "own_parts": {
+        "base": 0.0009692490101256907,
+        "compute": 0.0010298357665309485,
+        "memory": 0.0012155202328639953
+      },
+      "own_predicted_j": 0.0032146050095206344,
+      "own_runtime_error_j": -0.00016900410439997038,
+      "predicted_runtime_s": 6.354517196054346e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "source_operation_proxy": 89292800.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.003993204733471478,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/medium/c2",
+      "component_cap_relief_j": 0.0008500528102636123,
+      "component_energy_side_residual_j": 0.00041672516343573777,
+      "component_measured_j": 0.004409929896907216,
+      "component_parts": {
+        "base": 0.0009164230073217493,
+        "compute": 0.002390934536154234,
+        "memory": 0.0013551874755980834
+      },
+      "component_predicted_j": 0.0038124922088104544,
+      "component_runtime_error_j": -0.0005974376880967616,
+      "constant_measured_j": 0.0023187359312118266,
+      "constant_predicted_j": 0.0020046039004460703,
+      "difference_j": -0.0005979215058593708,
+      "difference_parts_j": {
+        "base": 5.2770556220708e-05,
+        "cap_relief_difference": 0.0008500528102636123,
+        "compute": -0.001361077629609603,
+        "memory": -0.00013966724273408804
+      },
+      "family": "separable convolution",
+      "lane_nonmem_count": 99770368,
+      "measured_short_runtime_s": 7.349883161512027e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.4307340460275141,
+      "own_energy_side_residual_j": -0.0006267562743946364,
+      "own_measured_j": 0.003366448459076842,
+      "own_parts": {
+        "base": 0.0009691935635424573,
+        "compute": 0.0010298569065446308,
+        "memory": 0.0012155202328639953
+      },
+      "own_predicted_j": 0.0032145707029510836,
+      "own_runtime_error_j": -0.00015187775612575827,
+      "predicted_runtime_s": 6.354153681350757e-06,
+      "regime": "medium",
+      "scope": "retrospective",
+      "source_operation_proxy": 89292800.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.000858218703882847,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/small/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00013417434781716627,
+      "component_measured_j": 0.0009923930517000132,
+      "component_parts": {
+        "base": 0.00034856258129985814,
+        "compute": 0.00035864018042313506,
+        "memory": 0.0002032781213397125
+      },
+      "component_predicted_j": 0.0009104808830627057,
+      "component_runtime_error_j": -8.191216863730753e-05,
+      "constant_measured_j": 0.0009416299633173879,
+      "constant_predicted_j": 0.0007624534788419244,
+      "difference_j": -0.00020506998301971218,
+      "difference_parts_j": {
+        "base": 2.00713438509967e-05,
+        "cap_relief_difference": 0.0,
+        "compute": -0.0002041912404605956,
+        "memory": -2.0950086410113217e-05
+      },
+      "family": "separable convolution",
+      "lane_nonmem_count": 14962688,
+      "measured_short_runtime_s": 2.98475998003992e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.4306515231514653,
+      "own_energy_side_residual_j": -6.617887158388922e-05,
+      "own_measured_j": 0.0007920398322989578,
+      "own_parts": {
+        "base": 0.00036863392515085484,
+        "compute": 0.00015444893996253945,
+        "memory": 0.00018232803492959927
+      },
+      "own_predicted_j": 0.0007054109000429935,
+      "own_runtime_error_j": -8.662893225596421e-05,
+      "predicted_runtime_s": 2.4168099136014046e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "source_operation_proxy": 13393920.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.0008528602195835704,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/small/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.00013974575354172103,
+      "component_measured_j": 0.0009926059731252914,
+      "component_parts": {
+        "base": 0.00034856258129985814,
+        "compute": 0.00035864018042313506,
+        "memory": 0.0002032781213397125
+      },
+      "component_predicted_j": 0.0009104808830627057,
+      "component_runtime_error_j": -8.21250900625857e-05,
+      "constant_measured_j": 0.0009420957123396093,
+      "constant_predicted_j": 0.0007624534788419244,
+      "difference_j": -0.00020505941301287103,
+      "difference_parts_j": {
+        "base": 2.00713438509967e-05,
+        "cap_relief_difference": 0.0,
+        "compute": -0.00020418067045375449,
+        "memory": -2.0950086410113217e-05
+      },
+      "family": "separable convolution",
+      "lane_nonmem_count": 14963712,
+      "measured_short_runtime_s": 2.9862363020522014e-06,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.430680995607197,
+      "own_energy_side_residual_j": -6.0584635158519667e-05,
+      "own_measured_j": 0.0007922755844250507,
+      "own_parts": {
+        "base": 0.00036863392515085484,
+        "compute": 0.00015445950996938057,
+        "memory": 0.00018232803492959927
+      },
+      "own_predicted_j": 0.0007054214700498347,
+      "own_runtime_error_j": -8.685411437521604e-05,
+      "predicted_runtime_s": 2.4168099136014046e-06,
+      "regime": "small",
+      "scope": "retrospective",
+      "source_operation_proxy": 13393920.0,
+      "tier": "L2"
+    },
+    {
+      "actual_j": 0.1364568594256589,
+      "below_cap": true,
+      "candidate": "c1",
+      "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/xlarge/c1",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.017776456937976942,
+      "component_measured_j": 0.15423331636363585,
+      "component_parts": {
+        "base": 0.04409290224823233,
+        "compute": 0.04590594309416129,
+        "memory": 0.06937933926922375
+      },
+      "component_predicted_j": 0.15937818461161737,
+      "component_runtime_error_j": 0.005144868247981521,
+      "constant_measured_j": 0.08519578867818328,
+      "constant_predicted_j": 0.09644978696804059,
+      "difference_j": -0.023609688161660758,
+      "difference_parts_j": {
+        "base": 0.002539009778709758,
+        "cap_relief_difference": 0.0,
+        "compute": -0.026131574295781956,
+        "memory": -1.7123644588543097e-05
+      },
+      "family": "separable convolution",
+      "lane_nonmem_count": 1915699200,
+      "measured_short_runtime_s": 0.00027005192105263156,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.4307583608034927,
+      "own_energy_side_residual_j": -0.006129489127467441,
+      "own_measured_j": 0.13032737029819147,
+      "own_parts": {
+        "base": 0.046631912026942085,
+        "compute": 0.019774368798379332,
+        "memory": 0.06936221562463521
+      },
+      "own_predicted_j": 0.13576849644995662,
+      "own_runtime_error_j": 0.005441126151765147,
+      "predicted_runtime_s": 0.00030572462160334855,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "source_operation_proxy": 1714421760.0,
+      "tier": "DRAM"
+    },
+    {
+      "actual_j": 0.13609283540778247,
+      "below_cap": true,
+      "candidate": "c2",
+      "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/xlarge/c2",
+      "component_cap_relief_j": 0.0,
+      "component_energy_side_residual_j": 0.01791413618729154,
+      "component_measured_j": 0.154006971595074,
+      "component_parts": {
+        "base": 0.044081147597427074,
+        "compute": 0.04590594309416129,
+        "memory": 0.06937933926922375
+      },
+      "component_predicted_j": 0.15936642996081213,
+      "component_runtime_error_j": 0.005359458365738118,
+      "constant_measured_j": 0.08470067713877455,
+      "constant_predicted_j": 0.09642407458558802,
+      "difference_j": -0.023610195911791587,
+      "difference_parts_j": {
+        "base": 0.0025383329084694636,
+        "cap_relief_difference": 0.0,
+        "compute": -0.026131405175672494,
+        "memory": -1.7123644588543097e-05
+      },
+      "family": "separable convolution",
+      "lane_nonmem_count": 1915715584,
+      "measured_short_runtime_s": 0.00026848252631578946,
+      "own_cap_relief_j": 0.0,
+      "own_compute_to_component_compute": 0.43076204486045927,
+      "own_energy_side_residual_j": -0.006004674410886257,
+      "own_measured_j": 0.1300881609968962,
+      "own_parts": {
+        "base": 0.04661948050589654,
+        "compute": 0.019774537918488794,
+        "memory": 0.06936221562463521
+      },
+      "own_predicted_j": 0.13575623404902054,
+      "own_runtime_error_j": 0.005668073052124328,
+      "predicted_runtime_s": 0.00030564311900346786,
+      "regime": "xlarge",
+      "scope": "retrospective",
+      "source_operation_proxy": 1714421760.0,
+      "tier": "DRAM"
+    }
+  ],
+  "per_family_below_cap": {
+    "Black-Scholes": {
+      "cap_activated_cells": {
+        "component_cap_relief_j": 0,
+        "own_cap_relief_j": 0
+      },
+      "component_measured_j": {
+        "median_ape_pct": 10.457970939587646,
+        "n": 2,
+        "p90_ape_pct": 10.92413460430869,
+        "signed_median_pct": 10.457970939587646
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 11.893849614874041,
+        "n": 2,
+        "p90_ape_pct": 12.46812212564316,
+        "signed_median_pct": 11.893849614874041
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 33.309200488062864,
+        "n": 2,
+        "p90_ape_pct": 33.651477503401416,
+        "signed_median_pct": -33.309200488062864
+      },
+      "difference_parts_median_pct_of_actual": {
+        "base": 1.7556139565854008,
+        "cap_relief_difference": 0.0,
+        "compute": 3.7591917348441504,
+        "memory": -0.013408017946690429
+      },
+      "energy_side_signed_median_pct": {
+        "component_energy_side_residual_j": 10.457970939587646,
+        "own_energy_side_residual_j": 15.87668614465261
+      },
+      "own_compute_to_component_compute_median": 1.1388144712012132,
+      "own_measured_j": {
+        "median_ape_pct": 15.87668614465262,
+        "n": 2,
+        "p90_ape_pct": 16.364859366458592,
+        "signed_median_pct": 15.87668614465262
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 17.3952472883569,
+        "n": 2,
+        "p90_ape_pct": 17.99775460796998,
+        "signed_median_pct": 17.3952472883569
+      },
+      "runtime_error_signed_median_pct": {
+        "component_runtime_error_j": 1.4358786752863886,
+        "own_runtime_error_j": 1.5185611437042867
+      }
+    },
+    "fast Walsh transform": {
+      "cap_activated_cells": {
+        "component_cap_relief_j": 0,
+        "own_cap_relief_j": 2
+      },
+      "component_measured_j": {
+        "median_ape_pct": 8.424005148585012,
+        "n": 6,
+        "p90_ape_pct": 11.06014279353551,
+        "signed_median_pct": 8.424005148585012
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 9.504304317007605,
+        "n": 6,
+        "p90_ape_pct": 20.39151036221906,
+        "signed_median_pct": 9.504304317007605
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 38.93126145150688,
+        "n": 6,
+        "p90_ape_pct": 46.601011938013244,
+        "signed_median_pct": -15.225634615534522
+      },
+      "difference_parts_median_pct_of_actual": {
+        "base": 2.231658041571355,
+        "cap_relief_difference": 0.0,
+        "compute": 10.928596448049838,
+        "memory": -4.630955807539223
+      },
+      "energy_side_signed_median_pct": {
+        "component_energy_side_residual_j": 8.424005148585014,
+        "own_energy_side_residual_j": 14.891977391924202
+      },
+      "own_compute_to_component_compute_median": 2.139710809978514,
+      "own_measured_j": {
+        "median_ape_pct": 14.891977391924193,
+        "n": 6,
+        "p90_ape_pct": 21.266056632965878,
+        "signed_median_pct": 14.891977391924193
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 16.034483627985807,
+        "n": 6,
+        "p90_ape_pct": 31.134754073297245,
+        "signed_median_pct": 16.034483627985807
+      },
+      "runtime_error_signed_median_pct": {
+        "component_runtime_error_j": 1.4420324297481761,
+        "own_runtime_error_j": 5.999126341594257
+      }
+    },
+    "prefix-sum scan": {
+      "cap_activated_cells": {
+        "component_cap_relief_j": 0,
+        "own_cap_relief_j": 0
+      },
+      "component_measured_j": {
+        "median_ape_pct": 10.010606057755776,
+        "n": 8,
+        "p90_ape_pct": 20.450835039487117,
+        "signed_median_pct": 10.010606057755776
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 19.030821867049532,
+        "n": 8,
+        "p90_ape_pct": 29.62006920019352,
+        "signed_median_pct": 19.030821867049532
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 22.487114663013685,
+        "n": 8,
+        "p90_ape_pct": 82.79290252885485,
+        "signed_median_pct": -12.21938274807362
+      },
+      "difference_parts_median_pct_of_actual": {
+        "base": 2.3107966600037337,
+        "cap_relief_difference": 0.0,
+        "compute": 10.33280268690312,
+        "memory": -5.48730212776759
+      },
+      "energy_side_signed_median_pct": {
+        "component_energy_side_residual_j": 10.010606057755783,
+        "own_energy_side_residual_j": 16.71219110003566
+      },
+      "own_compute_to_component_compute_median": 2.2217033777868744,
+      "own_measured_j": {
+        "median_ape_pct": 16.712191100035657,
+        "n": 8,
+        "p90_ape_pct": 28.34539005793137,
+        "signed_median_pct": 16.712191100035657
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 27.630269432222665,
+        "n": 8,
+        "p90_ape_pct": 38.042617932144026,
+        "signed_median_pct": 27.630269432222665
+      },
+      "runtime_error_signed_median_pct": {
+        "component_runtime_error_j": 7.278266013087031,
+        "own_runtime_error_j": 7.6973717565748085
+      }
+    },
+    "scalar product": {
+      "cap_activated_cells": {
+        "component_cap_relief_j": 2,
+        "own_cap_relief_j": 2
+      },
+      "component_measured_j": {
+        "median_ape_pct": 9.287640724388035,
+        "n": 8,
+        "p90_ape_pct": 11.41764873677466,
+        "signed_median_pct": 8.308217075372115
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 8.980634450035009,
+        "n": 8,
+        "p90_ape_pct": 21.665013883561773,
+        "signed_median_pct": 4.756612700521878
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 35.25380789173802,
+        "n": 8,
+        "p90_ape_pct": 52.419959793103985,
+        "signed_median_pct": -35.25380789173802
+      },
+      "difference_parts_median_pct_of_actual": {
+        "base": 1.7044227889437484,
+        "cap_relief_difference": 0.0,
+        "compute": -1.0036959808027999,
+        "memory": -6.118242411740942
+      },
+      "energy_side_signed_median_pct": {
+        "component_energy_side_residual_j": 8.30821707537211,
+        "own_energy_side_residual_j": 5.187569862042447
+      },
+      "own_compute_to_component_compute_median": 0.8616796602319678,
+      "own_measured_j": {
+        "median_ape_pct": 5.187569862042441,
+        "n": 8,
+        "p90_ape_pct": 11.530226665667236,
+        "signed_median_pct": 5.187569862042441
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 10.271637249275372,
+        "n": 8,
+        "p90_ape_pct": 16.448162463013816,
+        "signed_median_pct": 1.2195867302128405
+      },
+      "runtime_error_signed_median_pct": {
+        "component_runtime_error_j": -3.751934774909344,
+        "own_runtime_error_j": -3.9679831318296053
+      }
+    },
+    "separable convolution": {
+      "cap_activated_cells": {
+        "component_cap_relief_j": 2,
+        "own_cap_relief_j": 0
+      },
+      "component_measured_j": {
+        "median_ape_pct": 13.095168095295307,
+        "n": 6,
+        "p90_ape_pct": 16.00979544671365,
+        "signed_median_pct": 13.095168095295307
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 6.422889079760685,
+        "n": 6,
+        "p90_ape_pct": 16.949376030133312,
+        "signed_median_pct": 6.422889079760685
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 29.233393052889873,
+        "n": 6,
+        "p90_ape_pct": 49.98945330648701,
+        "signed_median_pct": -29.233393052889873
+      },
+      "difference_parts_median_pct_of_actual": {
+        "base": 1.86290828308786,
+        "cap_relief_difference": 0.0,
+        "compute": -23.86657197544988,
+        "memory": -2.448781477690101
+      },
+      "energy_side_signed_median_pct": {
+        "component_energy_side_residual_j": 13.095168095295307,
+        "own_energy_side_residual_j": -7.407445027697201
+      },
+      "own_compute_to_component_compute_median": 0.43072962515915436,
+      "own_measured_j": {
+        "median_ape_pct": 7.407445027697202,
+        "n": 6,
+        "p90_ape_pct": 15.803523994305985,
+        "signed_median_pct": -7.407445027697202
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 17.546396004375175,
+        "n": 6,
+        "p90_ape_pct": 19.805248342129225,
+        "signed_median_pct": -17.546396004375175
+      },
+      "runtime_error_signed_median_pct": {
+        "component_runtime_error_j": -9.586906366952967,
+        "own_runtime_error_j": -4.001724347823243
+      }
+    },
+    "tiled matrix multiply": {
+      "cap_activated_cells": {
+        "component_cap_relief_j": 0,
+        "own_cap_relief_j": 0
+      },
+      "component_measured_j": {
+        "median_ape_pct": 13.979106829995391,
+        "n": 5,
+        "p90_ape_pct": 22.272651648752372,
+        "signed_median_pct": -13.979106829995391
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 7.617754144011646,
+        "n": 5,
+        "p90_ape_pct": 19.97594093124257,
+        "signed_median_pct": -7.617754144011646
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 22.628687823355687,
+        "n": 5,
+        "p90_ape_pct": 29.349583029310004,
+        "signed_median_pct": -22.628687823355687
+      },
+      "difference_parts_median_pct_of_actual": {
+        "base": 2.036775034798158,
+        "cap_relief_difference": 0.0,
+        "compute": -27.572080751232832,
+        "memory": -0.0789218982141134
+      },
+      "energy_side_signed_median_pct": {
+        "component_energy_side_residual_j": -13.979106829995395,
+        "own_energy_side_residual_j": -40.08007713664168
+      },
+      "own_compute_to_component_compute_median": 0.5063109655867354,
+      "own_measured_j": {
+        "median_ape_pct": 40.08007713664168,
+        "n": 5,
+        "p90_ape_pct": 42.450088724267665,
+        "signed_median_pct": -40.08007713664168
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 33.750280959797884,
+        "n": 5,
+        "p90_ape_pct": 39.86198070209359,
+        "signed_median_pct": -33.750280959797884
+      },
+      "runtime_error_signed_median_pct": {
+        "component_runtime_error_j": 6.3613526859837535,
+        "own_runtime_error_j": 6.727659639075763
+      }
+    }
+  },
+  "schema": "runtime_matched_exposed_energy_diagnosis/1",
+  "summaries": {
+    "prospective/all": {
+      "component_measured_j": {
+        "median_ape_pct": 8.424005148585012,
+        "n": 16,
+        "p90_ape_pct": 11.69020850360789,
+        "signed_median_pct": 7.818306258555651
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 8.976518288379719,
+        "n": 16,
+        "p90_ape_pct": 20.833083397929936,
+        "signed_median_pct": 8.315919716662345
+      },
+      "constant_measured_j": {
+        "median_ape_pct": 24.99938170432908,
+        "n": 16,
+        "p90_ape_pct": 44.875586014266204,
+        "signed_median_pct": -24.567705393668753
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 38.93126145150688,
+        "n": 16,
+        "p90_ape_pct": 52.12495997433989,
+        "signed_median_pct": -35.25380789173802
+      },
+      "own_measured_j": {
+        "median_ape_pct": 6.793544555716135,
+        "n": 16,
+        "p90_ape_pct": 18.188519788276537,
+        "signed_median_pct": 6.793544555716135
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 11.603980801674984,
+        "n": 16,
+        "p90_ape_pct": 27.48921978405442,
+        "signed_median_pct": 10.607788028656806
+      }
+    },
+    "prospective/below_cap": {
+      "component_measured_j": {
+        "median_ape_pct": 8.876533913094597,
+        "n": 14,
+        "p90_ape_pct": 11.96276827044112,
+        "signed_median_pct": 8.424005148585012
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 9.031588013236524,
+        "n": 14,
+        "p90_ape_pct": 21.23851465333224,
+        "signed_median_pct": 8.677102687262238
+      },
+      "constant_measured_j": {
+        "median_ape_pct": 24.426887278829312,
+        "n": 14,
+        "p90_ape_pct": 43.5887044382299,
+        "signed_median_pct": -22.207331629351998
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 36.77189044312287,
+        "n": 14,
+        "p90_ape_pct": 52.155457260100334,
+        "signed_median_pct": -27.722673438952228
+      },
+      "own_measured_j": {
+        "median_ape_pct": 8.387412387933523,
+        "n": 14,
+        "p90_ape_pct": 19.369300916393783,
+        "signed_median_pct": 8.387412387933523
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 11.981937739251002,
+        "n": 14,
+        "p90_ape_pct": 27.525561674264853,
+        "signed_median_pct": 11.981937739251002
+      }
+    },
+    "retrospective/all": {
+      "component_measured_j": {
+        "median_ape_pct": 11.774469275578593,
+        "n": 32,
+        "p90_ape_pct": 26.435852079824297,
+        "signed_median_pct": 4.07378383491685
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 14.921351511720633,
+        "n": 32,
+        "p90_ape_pct": 26.91565282642864,
+        "signed_median_pct": 0.47658394844761753
+      },
+      "constant_measured_j": {
+        "median_ape_pct": 41.71260073759862,
+        "n": 32,
+        "p90_ape_pct": 53.8139329099992,
+        "signed_median_pct": -37.66417250471329
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 33.104776070671676,
+        "n": 32,
+        "p90_ape_pct": 58.320102005470034,
+        "signed_median_pct": -29.233393052889873
+      },
+      "own_measured_j": {
+        "median_ape_pct": 15.784819628579406,
+        "n": 32,
+        "p90_ape_pct": 43.43616278696468,
+        "signed_median_pct": -5.797794158343028
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 20.039288920102326,
+        "n": 32,
+        "p90_ape_pct": 38.614386872207874,
+        "signed_median_pct": -17.436204540081107
+      }
+    },
+    "retrospective/below_cap": {
+      "component_measured_j": {
+        "median_ape_pct": 12.274905817662995,
+        "n": 21,
+        "p90_ape_pct": 20.18938973315352,
+        "signed_median_pct": 10.085368225712488
+      },
+      "component_predicted_j": {
+        "median_ape_pct": 13.09132557647603,
+        "n": 21,
+        "p90_ape_pct": 27.720992499350096,
+        "signed_median_pct": 12.61169025333544
+      },
+      "constant_measured_j": {
+        "median_ape_pct": 36.317826498569794,
+        "n": 21,
+        "p90_ape_pct": 42.19586312831255,
+        "signed_median_pct": -35.23539265870967
+      },
+      "constant_predicted_j": {
+        "median_ape_pct": 27.941503957348402,
+        "n": 21,
+        "p90_ape_pct": 50.179285362484684,
+        "signed_median_pct": -22.628687823355687
+      },
+      "own_measured_j": {
+        "median_ape_pct": 15.911477232094107,
+        "n": 21,
+        "p90_ape_pct": 40.08007713664168,
+        "signed_median_pct": -4.412189953199319
+      },
+      "own_predicted_j": {
+        "median_ape_pct": 20.368429229801798,
+        "n": 21,
+        "p90_ape_pct": 37.7567334621121,
+        "signed_median_pct": -0.24733216686488868
+      }
+    }
+  }
+}

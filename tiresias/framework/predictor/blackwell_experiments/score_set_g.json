@@ -1,0 +1,133 @@
+{
+ "set": "g",
+ "cells": 8,
+ "energy_measured": 8,
+ "below_cap": 3,
+ "cap_pinned": 0,
+ "missing_energy": [],
+ "runtime": {
+  "Tensor-core matrix multiply (bf16, fp32 accumulate)": {
+   "cells": 8,
+   "no_prediction": 0,
+   "median_ape_pct": 121.68268322596012,
+   "signed_median_pct": 103.58302706325362
+  },
+  "ALL": {
+   "cells": 8,
+   "no_prediction": 0,
+   "median_ape_pct": 121.68268322596012,
+   "p90_ape_pct": 327.7120332138523,
+   "signed_median_pct": 103.58302706325362
+  }
+ },
+ "energy": {
+  "static runtime": {
+   "Ours (calibrator only)": {
+    "Tensor-core matrix multiply (bf16, fp32 accumulate)": 30.38289987924997,
+    "ALL 8": 30.38289987924997,
+    "below cap (3)": 19.565342138522503,
+    "p90 all": 42.210350041532976,
+    "no prediction": 0
+   },
+   "AccelWattch-style (refit)": {
+    "Tensor-core matrix multiply (bf16, fp32 accumulate)": 167.6566453810356,
+    "ALL 8": 167.6566453810356,
+    "below cap (3)": 136.7798743854284,
+    "p90 all": 256.46725935970227,
+    "no prediction": 0
+   },
+   "FlipFlop": {
+    "Tensor-core matrix multiply (bf16, fp32 accumulate)": 115.11448336326129,
+    "ALL 8": 115.11448336326129,
+    "below cap (3)": 14.600115256233014,
+    "p90 all": 247.62231040300847,
+    "no prediction": 0
+   },
+   "Alavani": {
+    "Tensor-core matrix multiply (bf16, fp32 accumulate)": 39.67806999750263,
+    "ALL 8": 39.67806999750263,
+    "below cap (3)": 37.416604179913115,
+    "p90 all": 70.31616023500807,
+    "no prediction": 0
+   }
+  },
+  "measured runtime": {
+   "Ours (calibrator only)": {
+    "Tensor-core matrix multiply (bf16, fp32 accumulate)": 22.638992164123856,
+    "ALL 8": 22.638992164123856,
+    "below cap (3)": 19.82527386048719,
+    "p90 all": 33.95819716798546,
+    "no prediction": 0
+   },
+   "AccelWattch-style (refit)": {
+    "Tensor-core matrix multiply (bf16, fp32 accumulate)": 16.56939177335714,
+    "ALL 8": 16.56939177335714,
+    "below cap (3)": 135.64596848084008,
+    "p90 all": 172.5337753259766,
+    "no prediction": 0
+   },
+   "FlipFlop": {
+    "Tensor-core matrix multiply (bf16, fp32 accumulate)": 18.21661202414014,
+    "ALL 8": 18.21661202414014,
+    "below cap (3)": 37.811084736283675,
+    "p90 all": 46.033113723325116,
+    "no prediction": 0
+   },
+   "Alavani": {
+    "Tensor-core matrix multiply (bf16, fp32 accumulate)": 66.61482782759444,
+    "ALL 8": 66.61482782759444,
+    "below cap (3)": 22.835308371870035,
+    "p90 all": 81.40882525445748,
+    "no prediction": 0
+   }
+  },
+  "no runtime input": {
+   "FlipFlop as published (own time model)": {
+    "median_all": 1571.5681320720778,
+    "median_below_cap": 2817.0720252452397
+   },
+   "Delestrac per-level energies": {
+    "median_all": 97.35287075149498,
+    "median_below_cap": 99.0763155472878
+   },
+   "O'Connor / Keckler constants": {
+    "median_all": 98.92294034446093,
+    "median_below_cap": 99.85863611854143
+   }
+  }
+ },
+ "decision": {
+  "ours (static runtime, calibrator only)": {
+   "pairs": 4,
+   "failures": 0,
+   "top1_optimal": 3,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 2.4830461566237694,
+   "max_regret_pct": 9.932184626495077
+  },
+  "faster by the static runtime model": {
+   "pairs": 4,
+   "failures": 0,
+   "top1_optimal": 3,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 2.4830461566237694,
+   "max_regret_pct": 9.932184626495077
+  },
+  "always the first candidate": {
+   "pairs": 4,
+   "failures": 0,
+   "top1_optimal": 3,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 9.14191929293846,
+   "max_regret_pct": 36.56767717175384
+  },
+  "AccelWattch-style refit (static runtime)": {
+   "pairs": 4,
+   "failures": 0,
+   "top1_optimal": 3,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 2.4830461566237694,
+   "max_regret_pct": 9.932184626495077
+  }
+ }
+}

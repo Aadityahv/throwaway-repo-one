@@ -1,0 +1,8 @@
+
+Resource usage:
+ Common:
+  GLOBAL:0 CONSTANT[3]:68
+ Function _Z24convolutionColumnsKernelPfS_iii:
+  REG:38 STACK:0 SHARED:5184 LOCAL:0 CONSTANT[0]:380 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z21convolutionRowsKernelPfS_iii:
+  REG:39 STACK:0 SHARED:2560 LOCAL:0 CONSTANT[0]:380 TEXTURE:0 SURFACE:0 SAMPLER:0

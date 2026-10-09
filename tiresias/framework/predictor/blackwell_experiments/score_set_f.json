@@ -1,0 +1,189 @@
+{
+ "set": "f",
+ "cells": 40,
+ "energy_measured": 40,
+ "below_cap": 28,
+ "cap_pinned": 0,
+ "missing_energy": [],
+ "runtime": {
+  "FP32 matrix multiply (register-tiled)": {
+   "cells": 8,
+   "no_prediction": 0,
+   "median_ape_pct": 50.59910600208559,
+   "signed_median_pct": 41.27371451128241
+  },
+  "GELU (tanh form)": {
+   "cells": 8,
+   "no_prediction": 0,
+   "median_ape_pct": 1.6899652541090049,
+   "signed_median_pct": 0.31399521070155645
+  },
+  "RMSNorm": {
+   "cells": 8,
+   "no_prediction": 0,
+   "median_ape_pct": 12.273579873270297,
+   "signed_median_pct": -12.273579873270297
+  },
+  "Rotary position embedding": {
+   "cells": 8,
+   "no_prediction": 0,
+   "median_ape_pct": 5.771993607640724,
+   "signed_median_pct": 4.3158120204611405
+  },
+  "SwiGLU gate": {
+   "cells": 8,
+   "no_prediction": 0,
+   "median_ape_pct": 0.9704733547474031,
+   "signed_median_pct": 0.6080059182463238
+  },
+  "ALL": {
+   "cells": 40,
+   "no_prediction": 0,
+   "median_ape_pct": 5.734158376791354,
+   "p90_ape_pct": 48.01803400173756,
+   "signed_median_pct": 0.6080059182463238
+  }
+ },
+ "energy": {
+  "static runtime": {
+   "Ours (calibrator only)": {
+    "FP32 matrix multiply (register-tiled)": 20.257063517287484,
+    "GELU (tanh form)": 2.530127140151067,
+    "RMSNorm": 12.300861507390355,
+    "Rotary position embedding": 6.044925072594076,
+    "SwiGLU gate": 1.676094632335201,
+    "ALL 40": 8.225260839580539,
+    "below cap (28)": 8.15994371858732,
+    "p90 all": 27.701504467598923,
+    "no prediction": 0
+   },
+   "AccelWattch-style (refit)": {
+    "FP32 matrix multiply (register-tiled)": 66.50889133287603,
+    "GELU (tanh form)": 10.37907705136693,
+    "RMSNorm": 15.023471590785647,
+    "Rotary position embedding": 4.1545387464919035,
+    "SwiGLU gate": 2.516668174111114,
+    "ALL 40": 13.093911041296057,
+    "below cap (28)": 10.901700346061055,
+    "p90 all": 66.23376932853687,
+    "no prediction": 0
+   },
+   "FlipFlop": {
+    "FP32 matrix multiply (register-tiled)": 43.43716836208183,
+    "GELU (tanh form)": 18.521457850197955,
+    "RMSNorm": 22.291594160532355,
+    "Rotary position embedding": 46.781826741891734,
+    "SwiGLU gate": 30.625210578062134,
+    "ALL 40": 24.09635735431952,
+    "below cap (28)": 25.057164755710115,
+    "p90 all": 74.83384919274681,
+    "no prediction": 0
+   },
+   "Alavani": {
+    "FP32 matrix multiply (register-tiled)": 53.03629800308912,
+    "GELU (tanh form)": 20.841325197853834,
+    "RMSNorm": 69.07537308185556,
+    "Rotary position embedding": 24.04514923027426,
+    "SwiGLU gate": 23.792967083746973,
+    "ALL 40": 26.404009249462923,
+    "below cap (28)": 30.30885935203222,
+    "p90 all": 72.08881390055913,
+    "no prediction": 0
+   }
+  },
+  "measured runtime": {
+   "Ours (calibrator only)": {
+    "FP32 matrix multiply (register-tiled)": 30.537919023068696,
+    "GELU (tanh form)": 2.913003346891796,
+    "RMSNorm": 8.759155958049696,
+    "Rotary position embedding": 8.57331165430718,
+    "SwiGLU gate": 2.171610425226167,
+    "ALL 40": 8.928818099134734,
+    "below cap (28)": 8.080849775416265,
+    "p90 all": 32.7893862624501,
+    "no prediction": 0
+   },
+   "AccelWattch-style (refit)": {
+    "FP32 matrix multiply (register-tiled)": 17.983779553613477,
+    "GELU (tanh form)": 10.603273258671823,
+    "RMSNorm": 12.644015039964607,
+    "Rotary position embedding": 13.04719652289622,
+    "SwiGLU gate": 2.985970741939392,
+    "ALL 40": 11.497165666642882,
+    "below cap (28)": 12.192416480819373,
+    "p90 all": 36.886963155944244,
+    "no prediction": 0
+   },
+   "FlipFlop": {
+    "FP32 matrix multiply (register-tiled)": 12.607420150039678,
+    "GELU (tanh form)": 15.320520585136398,
+    "RMSNorm": 29.657052714430144,
+    "Rotary position embedding": 36.157152853834745,
+    "SwiGLU gate": 29.945501127820627,
+    "ALL 40": 21.434450059225874,
+    "below cap (28)": 25.78909782816283,
+    "p90 all": 39.7025654835455,
+    "no prediction": 0
+   },
+   "Alavani": {
+    "FP32 matrix multiply (register-tiled)": 60.53014645584481,
+    "GELU (tanh form)": 17.270716287887346,
+    "RMSNorm": 64.37376046896057,
+    "Rotary position embedding": 14.424745053983468,
+    "SwiGLU gate": 20.882943632355456,
+    "ALL 40": 26.60689157998236,
+    "below cap (28)": 24.24723138704409,
+    "p90 all": 82.22686972592386,
+    "no prediction": 0
+   }
+  },
+  "no runtime input": {
+   "FlipFlop as published (own time model)": {
+    "median_all": 7277.225624300077,
+    "median_below_cap": 7949.534099761657
+   },
+   "Delestrac per-level energies": {
+    "median_all": 88.59300372042165,
+    "median_below_cap": 79.15919806828921
+   },
+   "O'Connor / Keckler constants": {
+    "median_all": 98.25423361286454,
+    "median_below_cap": 89.86558668936061
+   }
+  }
+ },
+ "decision": {
+  "ours (static runtime, calibrator only)": {
+   "pairs": 20,
+   "failures": 0,
+   "top1_optimal": 19,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 0.2751526760087619,
+   "max_regret_pct": 5.503053520175238
+  },
+  "faster by the static runtime model": {
+   "pairs": 20,
+   "failures": 0,
+   "top1_optimal": 13,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 2.1397788795631487,
+   "max_regret_pct": 18.9118654936131
+  },
+  "always the first candidate": {
+   "pairs": 20,
+   "failures": 0,
+   "top1_optimal": 7,
+   "median_regret_pct": 2.481996036541745,
+   "mean_regret_pct": 8.691209985405115,
+   "max_regret_pct": 49.88652265472906
+  },
+  "AccelWattch-style refit (static runtime)": {
+   "pairs": 20,
+   "failures": 0,
+   "top1_optimal": 13,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 2.1397788795631487,
+   "max_regret_pct": 18.9118654936131
+  }
+ }
+}

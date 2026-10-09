@@ -1,0 +1,87 @@
+{
+ "schema": "fresh_f_timing/1",
+ "booking_ref": "shared_traffic_validation_20261003",
+ "started_utc": "2026-10-03T14:02:17Z",
+ "manifest": {
+  "schema": "fresh_f_build/1",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Thu_Mar_19_11:12:51_PM_PDT_2026\nCuda compilation tools, release 13.2, V13.2.78\nBuild cuda_13.2.r13.2/compiler.37668154_0",
+  "command": [
+   "/usr/local/cuda-13.2/bin/nvcc",
+   "-arch=sm_120",
+   "-Xcompiler",
+   "-O2",
+   "-I",
+   "/home/user/shared_traffic_val_20261003/tiresias/framework/predictor/fresh_f/src",
+   "-I",
+   "/home/user/shared_traffic_val_20261003/tiresias/framework/predictor/fresh_g/src",
+   "-I",
+   "/home/user/shared_traffic_val_20261003/tiresias/framework/predictor/fresh_h/src",
+   "-I",
+   "/home/user/shared_traffic_val_20261003/tiresias/framework/predictor/fresh_f/gpu/drivers",
+   "/home/user/shared_traffic_val_20261003/tiresias/framework/predictor/fresh_f/gpu/drivers/driver_ml.cu",
+   "-o",
+   "/home/user/shared_traffic_val_20261003/work/h/driver_ml"
+  ],
+  "driver_ml_cu_sha256": "0064caef8dfd6019ad7d544dc7da6d395b8ed72275c458e280e2a97da4be87b4",
+  "driver_common_h_sha256": "19d27468a6109f204d52b6800194bb0f0d8336781c7f25a3fb31fd4589530085",
+  "ml_kernels_cuh_sha256": "0e307a8f09f8d739fc8a1f8665cbbe38a9915ce3bf1e903c4893ac59fd047dc1",
+  "tc_kernels_cuh_sha256": "ae5de3f3b1d763f6424b7beae2b099dc33694a6a21f6d9d178a9b67408256651",
+  "attn_kernels_cuh_sha256": "17c4367f20d8d9fccd38059b9e8c483c63e3e85d0ecc0968764f46455f7c3994",
+  "binary": "/home/user/shared_traffic_val_20261003/work/h/driver_ml",
+  "binary_sha256": "023b4b431c441f8d7744f682fba47a05180c4d5036c6712b808ec8f249eacf0f"
+ },
+ "cells": [
+  {
+   "cell_id": "blackwell/validation_fused_attention/v3/c1",
+   "argv": [
+    "attn",
+    "0",
+    "256",
+    "1536"
+   ],
+   "graph_batch": 7,
+   "repeat_per_window": 140,
+   "probe_per_launch_s": 0.000716272,
+   "calibration_per_launch_s": 0.000715744,
+   "window_per_launch_s": [
+    0.0007163438,
+    0.0007163120285714285,
+    0.0007160523571428571,
+    0.0007170690285714286,
+    0.0007168134928571429
+   ],
+   "per_launch_runtime_s": 0.0007163438,
+   "per_launch_min_s": 0.0007160523571428571,
+   "per_launch_max_s": 0.0007170690285714286,
+   "correct": true,
+   "check": "CHECK_OK attn variant=0 BH=256 S=1536 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00768 repeat=140 graph_batch=7"
+  },
+  {
+   "cell_id": "blackwell/validation_fused_attention/v3/c2",
+   "argv": [
+    "attn",
+    "1",
+    "256",
+    "1536"
+   ],
+   "graph_batch": 8,
+   "repeat_per_window": 160,
+   "probe_per_launch_s": 0.00063292,
+   "calibration_per_launch_s": 0.00063334,
+   "window_per_launch_s": [
+    0.0006345697875000001,
+    0.0006346119875,
+    0.00063401441875,
+    0.0006341693875,
+    0.000633916375
+   ],
+   "per_launch_runtime_s": 0.0006341693875,
+   "per_launch_min_s": 0.000633916375,
+   "per_launch_max_s": 0.0006346119875,
+   "correct": true,
+   "check": "CHECK_OK attn variant=1 BH=256 S=1536 D=64 checked=5056 bad=0 first_bad=-1 worst=0.00768 repeat=160 graph_batch=8"
+  }
+ ],
+ "finished_utc": "2026-10-03T14:02:41Z",
+ "all_correct": true
+}

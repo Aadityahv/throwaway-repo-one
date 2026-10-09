@@ -1,0 +1,79 @@
+{
+ "constants": {
+  "t0_us": 0.7,
+  "L2_read_sector_TBps": 13.257854468402673,
+  "L2_write_sector_TBps": 10.993007438015002,
+  "c_line_ns": 0.003582657952306151,
+  "DRAM_read_TBps": 1.5262427689874574,
+  "DRAM_write_TBps": 1.6471245643849783,
+  "latency_ns": {
+   "L1": 16,
+   "L2": 134,
+   "DRAM": 311
+  },
+  "source": "tiresias/app_runners/iteration4_fit_score_blackwell.json",
+  "active_sms_microbench": 188
+ },
+ "microbenchmark_fit": {
+  "store/coalesced_dense/above_l2": {
+   "measured_us": 960.613,
+   "pred_us": 958.161,
+   "err_pct": -0.3,
+   "role": "heldout_check"
+  },
+  "store/coalesced_s1/above_l2": {
+   "measured_us": 479.431,
+   "pred_us": 479.431,
+   "err_pct": 0.0,
+   "role": "fit"
+  },
+  "store/coalesced_s1/below_l2": {
+   "measured_us": 1.24,
+   "pred_us": 1.066,
+   "err_pct": -14.0,
+   "role": "fit"
+  },
+  "store/strided_s33/above_l2": {
+   "measured_us": 1504.558,
+   "pred_us": 1280.798,
+   "err_pct": -14.9,
+   "role": "heldout_check"
+  },
+  "store/strided_s33/below_l2": {
+   "measured_us": 5.7,
+   "pred_us": 5.7,
+   "err_pct": 0.0,
+   "role": "fit"
+  },
+  "store/strided_s7/above_l2": {
+   "measured_us": 796.336,
+   "pred_us": 657.304,
+   "err_pct": -17.5,
+   "role": "heldout_check"
+  },
+  "store/strided_s7/below_l2": {
+   "measured_us": 3.24,
+   "pred_us": 3.265,
+   "err_pct": 0.8,
+   "role": "fit"
+  },
+  "triad/c1/above_l2": {
+   "measured_us": 691.312,
+   "pred_us": 691.312,
+   "err_pct": 0.0,
+   "role": "fit"
+  },
+  "triad/c1/below_l2": {
+   "measured_us": 2.5,
+   "pred_us": 2.5,
+   "err_pct": 0.0,
+   "role": "fit"
+  },
+  "triad/triad/tiny": {
+   "measured_us": 0.689,
+   "pred_us": 0.702,
+   "err_pct": 1.9,
+   "role": "heldout_check"
+  }
+ }
+}

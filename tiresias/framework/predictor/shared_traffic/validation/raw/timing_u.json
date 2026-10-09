@@ -1,0 +1,176 @@
+{
+ "schema": "unseen_timing_raw/1",
+ "booking_ref": "shared_traffic_validation_20261003",
+ "started_utc": "2026-10-03T14:02:53Z",
+ "device": {
+  "cuda_visible_devices": "1",
+  "uuid": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894",
+  "nvidia_smi_index": "1"
+ },
+ "cell_definitions": "tiresias/framework/predictor/unseen_kernels/cells.py",
+ "cells_py_sha256": "a4eaaa843ccb8ae6c7337f8874060e567881c458f4f3bd985bd0220625c4a713",
+ "manifest_binaries": {
+  "matmul": "4d7bceb913ac1271f4f1bf6cb3c937fe437e69e4f08b03da479c22d9b3de0df9",
+  "bs": "a2e1b398b6f10ba3a83de666d0bd9da2d0e65b697dcf42943d8d660167b34dd8",
+  "scan": "4ad5b649890920ac2264e68f3e49b60e8284c45d6e16b5889f9c2d75ebe74a85",
+  "conv": "3f793cff88c509b0fbe2f3bcd157839738a7d5a13bf924658b5ae51bb69c3b65"
+ },
+ "nvcc": "Build cuda_13.2.r13.2/compiler.37668154_0",
+ "method": {
+  "probe_batch": 16,
+  "target_graph_s": 0.005,
+  "target_window_s": 0.03,
+  "max_graph_batch": 2048,
+  "windows": 3,
+  "per_launch_runtime_s": "median over windows of cuda_seconds / launches (cudaEvents around repeat operator calls)",
+  "clocks_set": false,
+  "persistence_set": false,
+  "power_limit_set": false
+ },
+ "cells": [
+  {
+   "cell_id": "blackwell/validation_separable_convolution/v5/c1",
+   "family": "conv",
+   "operator_id": "validation_separable_convolution",
+   "regime": "v5",
+   "candidate_id": "c1",
+   "tier": "DRAM",
+   "argv": [
+    "5120",
+    "3584"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000156274
+    },
+    {
+     "repeat": 32,
+     "graph_batch": 32,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000156344
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=5120 H=3584 mismatches=0 first_bad=-1 repeat=192 graph_batch=32",
+     "check_ok": true,
+     "launches": 192,
+     "cuda_seconds": 0.029990561,
+     "per_launch_s": 0.00015620083854166666,
+     "host_begin_monotonic_ns": 2869429182092160,
+     "host_end_monotonic_ns": 2869429212091553
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=5120 H=3584 mismatches=0 first_bad=-1 repeat=192 graph_batch=32",
+     "check_ok": true,
+     "launches": 192,
+     "cuda_seconds": 0.029986336,
+     "per_launch_s": 0.00015617883333333334,
+     "host_begin_monotonic_ns": 2869429881857979,
+     "host_end_monotonic_ns": 2869429911851329
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=5120 H=3584 mismatches=0 first_bad=-1 repeat=192 graph_batch=32",
+     "check_ok": true,
+     "launches": 192,
+     "cuda_seconds": 0.029980513,
+     "per_launch_s": 0.00015614850520833333,
+     "host_begin_monotonic_ns": 2869430624908389,
+     "host_end_monotonic_ns": 2869430654896514
+    }
+   ],
+   "per_launch_runtime_s": 0.00015617883333333334,
+   "launches": 192,
+   "repeat": 192,
+   "graph_batch": 32,
+   "check": "CHECK_OK conv W=5120 H=3584 mismatches=0 first_bad=-1 repeat=192 graph_batch=32",
+   "correct": true,
+   "per_launch_min_s": 0.00015614850520833333,
+   "per_launch_max_s": 0.00015620083854166666
+  },
+  {
+   "cell_id": "blackwell/validation_separable_convolution/v5/c2",
+   "family": "conv",
+   "operator_id": "validation_separable_convolution",
+   "regime": "v5",
+   "candidate_id": "c2",
+   "tier": "DRAM",
+   "argv": [
+    "3584",
+    "5120"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000154904
+    },
+    {
+     "repeat": 33,
+     "graph_batch": 33,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00015466084848484848
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=3584 H=5120 mismatches=0 first_bad=-1 repeat=198 graph_batch=33",
+     "check_ok": true,
+     "launches": 198,
+     "cuda_seconds": 0.030594368,
+     "per_launch_s": 0.0001545170101010101,
+     "host_begin_monotonic_ns": 2869433108380697,
+     "host_end_monotonic_ns": 2869433138987217
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=3584 H=5120 mismatches=0 first_bad=-1 repeat=198 graph_batch=33",
+     "check_ok": true,
+     "launches": 198,
+     "cuda_seconds": 0.030601215,
+     "per_launch_s": 0.00015455159090909092,
+     "host_begin_monotonic_ns": 2869433878497034,
+     "host_end_monotonic_ns": 2869433909109965
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK conv W=3584 H=5120 mismatches=0 first_bad=-1 repeat=198 graph_batch=33",
+     "check_ok": true,
+     "launches": 198,
+     "cuda_seconds": 0.03059664,
+     "per_launch_s": 0.00015452848484848484,
+     "host_begin_monotonic_ns": 2869434980863825,
+     "host_end_monotonic_ns": 2869435011471467
+    }
+   ],
+   "per_launch_runtime_s": 0.00015452848484848484,
+   "launches": 198,
+   "repeat": 198,
+   "graph_batch": 33,
+   "check": "CHECK_OK conv W=3584 H=5120 mismatches=0 first_bad=-1 repeat=198 graph_batch=33",
+   "correct": true,
+   "per_launch_min_s": 0.0001545170101010101,
+   "per_launch_max_s": 0.00015455159090909092
+  }
+ ],
+ "finished_utc": "2026-10-03T14:03:02Z",
+ "all_correct": true
+}

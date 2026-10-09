@@ -1,0 +1,6 @@
+
+Resource usage:
+ Common:
+  GLOBAL:0
+ Function _Z15BlackScholesGPUP6float2S0_S0_S0_S0_ffi:
+  REG:25 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:948 TEXTURE:0 SURFACE:0 SAMPLER:0

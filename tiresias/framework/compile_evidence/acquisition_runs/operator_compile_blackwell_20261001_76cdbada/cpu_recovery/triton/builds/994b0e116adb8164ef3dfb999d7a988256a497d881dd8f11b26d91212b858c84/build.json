@@ -1,0 +1,233 @@
+{
+  "architecture": "sm_120",
+  "cell_metadata": {
+    "architecture": "sm_120",
+    "cell": "large/c2",
+    "compile_method": "JITFunction.warmup_with_MockTensor_specialization",
+    "compiler": "triton",
+    "compiler_version": "3.6.0",
+    "cubin_sha256": "f09a158cfbc80273a2d3d76e7df0bc6e6a2d08a83a7c514c20182dd10cc7a15e",
+    "flags": [],
+    "full_ptx_retained": true,
+    "function_names_in_cubin": [
+      "add_kernel"
+    ],
+    "grid": [
+      262144
+    ],
+    "isolated_function_section": "add_kernel",
+    "isolation_anchor": "add_kernel",
+    "num_warps": 4,
+    "operator_id": "train_triton_vector_add",
+    "retained_compiler_events": [
+      {
+        "path": "compile_events/0002_triton/event.json",
+        "sha256": "672df4cadecae2e7fc426672b095357edb7d9138f8080c4f4c1675e88c4d1917"
+      },
+      {
+        "path": "compile_events/0006_triton/event.json",
+        "sha256": "77732273ee1eca6c7c4038d8afccf80962c45433f15a86a5fdb4c78e8589adb5"
+      },
+      {
+        "path": "compile_events/0010_triton/event.json",
+        "sha256": "502e820e224e8b2ded88aef7c0242a55d6d2c7904504bde4084e84ad0c25a6a4"
+      }
+    ],
+    "retained_source_path": "sources/842430949e0ccde4fbce07606cce3ac4bac36bf21b2b12619a31b795ca4029b3/01-vector-add.py",
+    "sibling_instantiations_same_template_prefix": [],
+    "source_revision": "7369aa3d9b0fae7134bf47b16d83876b09ef8e9f",
+    "source_sha256": "842430949e0ccde4fbce07606cce3ac4bac36bf21b2b12619a31b795ca4029b3",
+    "static_mix": {
+      "static_arith_count": 6,
+      "static_arith_density": 0.15,
+      "static_branch_count": 3,
+      "static_branch_density": 0.075,
+      "static_load_count": 8,
+      "static_load_density": 0.2,
+      "static_store_count": 1,
+      "static_store_density": 0.025,
+      "static_total_instructions": 40,
+      "static_unique_opcodes": 15
+    },
+    "widths": {
+      "atomics": {
+        "by_opcode": {},
+        "count": 0,
+        "global_count": 0,
+        "shared_count": 0
+      },
+      "bar": {
+        "by_variant": {},
+        "count": 0
+      },
+      "classifier_instruction_lines": 40,
+      "conflicting_width_modifiers": {},
+      "fadd": 2,
+      "fence": {
+        "by_opcode": {},
+        "count": 0
+      },
+      "ffma": 0,
+      "flags": [],
+      "fmul": 0,
+      "full_opcode_histogram": {
+        "BRA": 1,
+        "CS2R": 2,
+        "EXIT": 2,
+        "FADD": 2,
+        "IMAD.WIDE": 3,
+        "ISETP.GE.AND": 1,
+        "LDC": 1,
+        "LDC.64": 3,
+        "LDCU": 1,
+        "LDCU.64": 1,
+        "LDG.E.64": 2,
+        "LEA": 1,
+        "LOP3.LUT": 1,
+        "NOP": 15,
+        "S2R": 2,
+        "SHF.L.U32": 1,
+        "STG.E.64": 1
+      },
+      "global_or_generic_load": {
+        "bytes_hist": {
+          "8": 2
+        },
+        "count": 2
+      },
+      "has_unknown_width_global_load": false,
+      "memory": {
+        "async_global_to_shared": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "constant_load": {
+          "bytes_hist": {
+            "4": 2,
+            "8": 4
+          },
+          "count": 6,
+          "default_width_used": 2,
+          "known_bytes_sum": 40
+        },
+        "generic_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "generic_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "global_load": {
+          "bytes_hist": {
+            "8": 2
+          },
+          "count": 2,
+          "default_width_used": 0,
+          "known_bytes_sum": 16
+        },
+        "global_store": {
+          "bytes_hist": {
+            "8": 1
+          },
+          "count": 1,
+          "default_width_used": 0,
+          "known_bytes_sum": 8
+        },
+        "local_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "local_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_matrix_load": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_matrix_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        },
+        "shared_store": {
+          "bytes_hist": {},
+          "count": 0,
+          "default_width_used": 0,
+          "known_bytes_sum": 0
+        }
+      },
+      "mufu": {
+        "by_subop": {},
+        "count": 0
+      },
+      "opcode_histogram": {
+        "BRA": 1,
+        "CS2R": 2,
+        "EXIT": 2,
+        "FADD": 2,
+        "IMAD": 3,
+        "ISETP": 1,
+        "LDC": 4,
+        "LDCU": 2,
+        "LDG": 2,
+        "LEA": 1,
+        "LOP3": 1,
+        "NOP": 15,
+        "S2R": 2,
+        "SHF": 1,
+        "STG": 1
+      },
+      "other_memory_opcodes": {},
+      "packed_fp32_ffma2_fmul2_fadd2": [
+        0,
+        0,
+        0
+      ],
+      "parser_version": "1",
+      "shfl": {
+        "by_variant": {},
+        "count": 0
+      },
+      "total_instructions": 40,
+      "unclassified_ld_st_opcodes": {},
+      "unknown_width_modifiers": {},
+      "widest_global_load_bytes": 8,
+      "widest_global_load_is_lower_bound": false,
+      "widest_global_store_bytes": 8,
+      "widest_global_store_is_lower_bound": false,
+      "widest_ldg_only_bytes": 8,
+      "widest_ldg_only_is_lower_bound": false,
+      "widest_shared_load_bytes": null,
+      "widest_shared_load_is_lower_bound": false,
+      "widest_shared_store_bytes": null,
+      "widest_shared_store_is_lower_bound": false,
+      "widest_stg_only_bytes": 8
+    }
+  },
+  "compile_argv_prefix": null,
+  "compile_flags": null,
+  "compiler": "triton",
+  "compiler_version": "3.6.0",
+  "note": "Header/toolchain transitive build closure still requires verification"
+}

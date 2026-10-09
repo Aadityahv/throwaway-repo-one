@@ -1,0 +1,135 @@
+{
+ "cell_id": "blackwell/unseen_cuda_samples_separable_convolution/small/c2",
+ "kernels": [
+  {
+   "blocks": 384,
+   "first_touch_sectors_per_sampled_block": [
+    72,
+    72,
+    72,
+    72
+   ],
+   "kernel_id": "conv_rows",
+   "pointers": {
+    "0": {
+     "read": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 4,
+      "span": 0,
+      "union": 0
+     },
+     "write": {
+      "footprint": 24576.0,
+      "mean_per_block": 64.0,
+      "naive": 24576.0,
+      "reused": false,
+      "sampled_blocks": 4,
+      "span": 24576,
+      "union": 256
+     }
+    },
+    "1": {
+     "read": {
+      "footprint": 24576,
+      "mean_per_block": 72.0,
+      "naive": 27648.0,
+      "reused": true,
+      "sampled_blocks": 4,
+      "span": 24576,
+      "union": 288
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 4,
+      "span": 0,
+      "union": 0
+     }
+    }
+   },
+   "read_footprint_sectors": 24576,
+   "read_naive_sectors": 27648.0,
+   "reuse_working_set_bytes": 786432,
+   "sampled_block_ids": [
+    0,
+    2,
+    381,
+    383
+   ],
+   "sampled_blocks": 4,
+   "write_footprint_sectors": 24576.0,
+   "write_naive_sectors": 24576.0
+  },
+  {
+   "blocks": 192,
+   "first_touch_sectors_per_sampled_block": [
+    144,
+    144,
+    144,
+    144
+   ],
+   "kernel_id": "conv_cols",
+   "pointers": {
+    "0": {
+     "read": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 4,
+      "span": 0,
+      "union": 0
+     },
+     "write": {
+      "footprint": 24576.0,
+      "mean_per_block": 128.0,
+      "naive": 24576.0,
+      "reused": false,
+      "sampled_blocks": 4,
+      "span": 24576,
+      "union": 512
+     }
+    },
+    "1": {
+     "read": {
+      "footprint": 24576,
+      "mean_per_block": 144.0,
+      "naive": 27648.0,
+      "reused": true,
+      "sampled_blocks": 4,
+      "span": 24576,
+      "union": 576
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 4,
+      "span": 0,
+      "union": 0
+     }
+    }
+   },
+   "read_footprint_sectors": 24576,
+   "read_naive_sectors": 27648.0,
+   "reuse_working_set_bytes": 786432,
+   "sampled_block_ids": [
+    0,
+    23,
+    168,
+    191
+   ],
+   "sampled_blocks": 4,
+   "write_footprint_sectors": 24576.0,
+   "write_naive_sectors": 24576.0
+  }
+ ],
+ "seconds": 15.2,
+ "status": "ok"
+}

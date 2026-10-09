@@ -1,0 +1,858 @@
+{
+ "board": "ada",
+ "cells": [
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "1179648",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "9",
+    "shape_a": "384",
+    "shape_b": "384",
+    "tier": "L2"
+   },
+   "candidate_id": "c1",
+   "cell_id": "ada/fresh_g_ml_tensor_matmul/small/c1",
+   "controls": {
+    "K": 384,
+    "M": 384,
+    "N": 384,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 1179648,
+   "footprint_over_l2": 0.017578125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 384,
+      "N": 384
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      3,
+      3,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 1179648,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "small",
+   "set": "fresh_g",
+   "shape_a": 384,
+   "shape_b": 384,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "1179648",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "36",
+    "shape_a": "384",
+    "shape_b": "384",
+    "tier": "L2"
+   },
+   "candidate_id": "c2",
+   "cell_id": "ada/fresh_g_ml_tensor_matmul/small/c2",
+   "controls": {
+    "K": 384,
+    "M": 384,
+    "N": 384,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 1179648,
+   "footprint_over_l2": 0.017578125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 384,
+      "N": 384
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      6,
+      6,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 1179648,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "small",
+   "set": "fresh_g",
+   "shape_a": 384,
+   "shape_b": 384,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "7077888",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "36",
+    "shape_a": "768",
+    "shape_b": "768",
+    "tier": "L2"
+   },
+   "candidate_id": "c1",
+   "cell_id": "ada/fresh_g_ml_tensor_matmul/medium/c1",
+   "controls": {
+    "K": 1536,
+    "M": 768,
+    "N": 768,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 7077888,
+   "footprint_over_l2": 0.10546875,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 1536,
+      "N": 768
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      6,
+      6,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 7077888,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "medium",
+   "set": "fresh_g",
+   "shape_a": 768,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "7077888",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "144",
+    "shape_a": "768",
+    "shape_b": "768",
+    "tier": "L2"
+   },
+   "candidate_id": "c2",
+   "cell_id": "ada/fresh_g_ml_tensor_matmul/medium/c2",
+   "controls": {
+    "K": 1536,
+    "M": 768,
+    "N": 768,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 7077888,
+   "footprint_over_l2": 0.10546875,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 1536,
+      "N": 768
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      12,
+      12,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 7077888,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "medium",
+   "set": "fresh_g",
+   "shape_a": 768,
+   "shape_b": 768,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "144506880",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "2025",
+    "shape_a": "5760",
+    "shape_b": "5760",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c1",
+   "cell_id": "ada/fresh_g_ml_tensor_matmul/large/c1",
+   "controls": {
+    "K": 512,
+    "M": 5760,
+    "N": 5760,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 144506880,
+   "footprint_over_l2": 2.1533203125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 5760
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      45,
+      45,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 144506880,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "large",
+   "set": "fresh_g",
+   "shape_a": 5760,
+   "shape_b": 5760,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "144506880",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "8100",
+    "shape_a": "5760",
+    "shape_b": "5760",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c2",
+   "cell_id": "ada/fresh_g_ml_tensor_matmul/large/c2",
+   "controls": {
+    "K": 512,
+    "M": 5760,
+    "N": 5760,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 144506880,
+   "footprint_over_l2": 2.1533203125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 512,
+      "N": 5760
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      90,
+      90,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 144506880,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "large",
+   "set": "fresh_g",
+   "shape_a": 5760,
+   "shape_b": 5760,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "149946368",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "1936",
+    "shape_a": "5632",
+    "shape_b": "5632",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c1",
+   "cell_id": "ada/fresh_g_ml_tensor_matmul/xlarge/c1",
+   "controls": {
+    "K": 1024,
+    "M": 5632,
+    "N": 5632,
+    "tile": 128
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 149946368,
+   "footprint_over_l2": 2.234375,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 5632
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      44,
+      44,
+      1
+     ],
+     "kid": "tc128"
+    }
+   ],
+   "logical_bytes_per_launch": 149946368,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "xlarge",
+   "set": "fresh_g",
+   "shape_a": 5632,
+   "shape_b": 5632,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "149946368",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "7744",
+    "shape_a": "5632",
+    "shape_b": "5632",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c2",
+   "cell_id": "ada/fresh_g_ml_tensor_matmul/xlarge/c2",
+   "controls": {
+    "K": 1024,
+    "M": 5632,
+    "N": 5632,
+    "tile": 64
+   },
+   "family": "tcgemm",
+   "footprint_bytes": 149946368,
+   "footprint_over_l2": 2.234375,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "K": 1024,
+      "N": 5632
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      88,
+      88,
+      1
+     ],
+     "kid": "tc64"
+    }
+   ],
+   "logical_bytes_per_launch": 149946368,
+   "operator_id": "fresh_g_ml_tensor_matmul",
+   "regime": "xlarge",
+   "set": "fresh_g",
+   "shape_a": 5632,
+   "shape_b": 5632,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "2621440",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "64",
+    "shape_a": "8",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "candidate_id": "c1",
+   "cell_id": "ada/fresh_h_ml_fused_attention/small/c1",
+   "controls": {
+    "BH": 8,
+    "D": 64,
+    "S": 512,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 2621440,
+   "footprint_over_l2": 0.0390625,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 512
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      8,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 2621440,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "small",
+   "set": "fresh_h",
+   "shape_a": 8,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "2621440",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "32",
+    "shape_a": "8",
+    "shape_b": "512",
+    "tier": "L2"
+   },
+   "candidate_id": "c2",
+   "cell_id": "ada/fresh_h_ml_fused_attention/small/c2",
+   "controls": {
+    "BH": 8,
+    "D": 64,
+    "S": 512,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 2621440,
+   "footprint_over_l2": 0.0390625,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 512
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      4,
+      8,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 2621440,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "small",
+   "set": "fresh_h",
+   "shape_a": 8,
+   "shape_b": 512,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "20971520",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "512",
+    "shape_a": "32",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "candidate_id": "c1",
+   "cell_id": "ada/fresh_h_ml_fused_attention/medium/c1",
+   "controls": {
+    "BH": 32,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 20971520,
+   "footprint_over_l2": 0.3125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      32,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 20971520,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "medium",
+   "set": "fresh_h",
+   "shape_a": 32,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "20971520",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "256",
+    "shape_a": "32",
+    "shape_b": "1024",
+    "tier": "L2"
+   },
+   "candidate_id": "c2",
+   "cell_id": "ada/fresh_h_ml_fused_attention/medium/c2",
+   "controls": {
+    "BH": 32,
+    "D": 64,
+    "S": 1024,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 20971520,
+   "footprint_over_l2": 0.3125,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 1024
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      8,
+      32,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 20971520,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "medium",
+   "set": "fresh_h",
+   "shape_a": 32,
+   "shape_b": 1024,
+   "tier": "L2"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "167772160",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "4096",
+    "shape_a": "128",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c1",
+   "cell_id": "ada/fresh_h_ml_fused_attention/large/c1",
+   "controls": {
+    "BH": 128,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 167772160,
+   "footprint_over_l2": 2.5,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      128,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 167772160,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "large",
+   "set": "fresh_h",
+   "shape_a": 128,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "167772160",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "2048",
+    "shape_a": "128",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c2",
+   "cell_id": "ada/fresh_h_ml_fused_attention/large/c2",
+   "controls": {
+    "BH": 128,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 167772160,
+   "footprint_over_l2": 2.5,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      128,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 167772160,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "large",
+   "set": "fresh_h",
+   "shape_a": 128,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "335544320",
+    "block_threads": "128",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "8192",
+    "shape_a": "256",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c1",
+   "cell_id": "ada/fresh_h_ml_fused_attention/xlarge/c1",
+   "controls": {
+    "BH": 256,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 64
+   },
+   "family": "attn",
+   "footprint_bytes": 335544320,
+   "footprint_over_l2": 5.0,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      128,
+      1,
+      1
+     ],
+     "grid": [
+      32,
+      256,
+      1
+     ],
+     "kid": "at4"
+    }
+   ],
+   "logical_bytes_per_launch": 335544320,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "xlarge",
+   "set": "fresh_h",
+   "shape_a": 256,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  },
+  {
+   "_dev": {
+    "active_sm_fraction": "",
+    "actual_logical_bytes_per_launch": "335544320",
+    "block_threads": "256",
+    "blocks_per_sm": "",
+    "geometry_source": "make_cells_ml.py (derived from the board's L2 in HARDWARE_GROUND_TRUTH.md)",
+    "grid_blocks": "4096",
+    "shape_a": "256",
+    "shape_b": "2048",
+    "tier": "DRAM"
+   },
+   "candidate_id": "c2",
+   "cell_id": "ada/fresh_h_ml_fused_attention/xlarge/c2",
+   "controls": {
+    "BH": 256,
+    "D": 64,
+    "S": 2048,
+    "query_rows_per_block": 128
+   },
+   "family": "attn",
+   "footprint_bytes": 335544320,
+   "footprint_over_l2": 5.0,
+   "group": "tensor",
+   "kernels": [
+    {
+     "args": {
+      "S": 2048
+     },
+     "block": [
+      256,
+      1,
+      1
+     ],
+     "grid": [
+      16,
+      256,
+      1
+     ],
+     "kid": "at8"
+    }
+   ],
+   "logical_bytes_per_launch": 335544320,
+   "operator_id": "fresh_h_ml_fused_attention",
+   "regime": "xlarge",
+   "set": "fresh_h",
+   "shape_a": 256,
+   "shape_b": 2048,
+   "tier": "DRAM"
+  }
+ ],
+ "derivation": {
+  "grid_candidates": {
+   "c1": 64,
+   "c2": 128
+  },
+  "l1_tier": "none: no verified Ada L1 capacity row (same decision as H100)",
+  "rule": "(every hardware value is read from the Ada section at run time):\n  samples     the H100 generator (h100_eval_freeze/make_cells_h100.py: unseen_cells, set_e_cells, set_d_cells) with Ada's L2 and SM count. Footprint = bytes of every distinct buffer; per regime a target\n              footprint = TARGET_RATIO x L2 (small 1/64, medium 1/8, large 3/8, xlarge 2; set D l2 1/8, dram 2), the allowed dimension nearest to it in log ratio (bands: L2 tier < 0.4, DRAM tier >= 1.5 of L2).\n              Grid candidates c1/c2 = largest power of two <= SM count and twice that (64 and 128 on Ada's 100 SMs). Vector add (set D) uses the same rule: n elements, multiple of 1024, footprint 12 n bytes.\n  ml, tensor  h100_eval_freeze/ml_sets/make_cells_ml.py (define_ml, define_tensor) with Ada's L2: regime targets = footprint / L2 of the Blackwell cell of the same regime (Blackwell L2 read from its\n              section), the scaled dimension is the multiple of its tiling unit nearest the target in log ratio.\n  validation, prospective   the Blackwell cell's footprint / L2 ratio is the target and one dimension is re-derived from Ada's L2 (nearest multiple of its tiling unit, same bands); every other dimension\n              keeps its structural role. Validation: FP32 and tensor matmul scale M (M=N for FP32; K, N fixed), attention scales batch*heads (S=1536), scalar product scales elementN (vectorN 768),\n              RMSNorm scales rows (2560 columns), separable convolution scales the height with the Blackwell aspect ratio (width a multiple of 128). Prospective: matmul scales M=N (multiple of 256, K per\n              regime fixed), attention scales batch*heads (S per regime fixed). A cell that cannot land in its Blackwell tier is listed under `unplaceable` (never shrunk after a refusal).",
+  "tier_rule": "tier = L2 iff footprint / L2 < 1; no cell with ratio in [0.4, 1.5)"
+ },
+ "gpu": "NVIDIA RTX 5000 Ada Generation (sm_89)",
+ "group": "tensor",
+ "hardware_from_ground_truth": {
+  "file": "HARDWARE_GROUND_TRUTH.md",
+  "note": "the resident-blocks row is parsed under the short label by an in-memory alias; the file is unchanged",
+  "rows_quoted": {
+   "L2 cache size": "| L2 cache size | 67,108,864 bytes = exactly 64.0 MB | `cudaDeviceProp.l2CacheSize` |",
+   "Max resident blocks per SM": "| Max resident blocks per SM | 24 | Same verified value as the row above (live `maxBlocksPerMultiProcessor`, Ada booking `ada_hardware_inventory_20261002`), repeated under the label `predictor/extract_features.py` parses, as in the H100 and A100 sections (added 2026-10-04, the authors) |",
+   "Max threads per block / per SM": "| Max threads per block / per SM | 1,024 / 1,536 | same live query as above |",
+   "Name": "| Name | NVIDIA RTX 5000 Ada Generation | `nvidia-smi --query-gpu=name` |",
+   "Reserved shared memory per block": "| Reserved shared memory per block (driver carveout) | 1,024 bytes | same live query (`reservedSharedMemPerBlock`) |",
+   "SM count": "| SM count | 100 | `cudaDeviceProp.multiProcessorCount` |",
+   "Shared mem per SM": "| Shared mem per SM | 102,400 bytes | `cudaDeviceProp.sharedMemPerMultiprocessor` |"
+  },
+  "section": "## Ada",
+  "values": {
+   "l2_bytes": 67108864,
+   "max_blocks_per_sm": 24,
+   "max_registers_per_thread": 256,
+   "max_threads_per_block": 1024,
+   "max_threads_per_sm": 1536,
+   "max_warps_per_sm": 48,
+   "register_alloc_granularity_regs_per_warp": 256,
+   "register_sub_partitions_per_sm": 4,
+   "regs_per_block": 65536,
+   "regs_per_sm": 65536,
+   "reserved_shared_per_block_bytes": 1024,
+   "shared_alloc_granularity_bytes": 128,
+   "shared_per_block_bytes": 49152,
+   "shared_per_sm_bytes": 102400,
+   "sm_count": 100,
+   "warp_size": 32
+  }
+ },
+ "schema": "ada_eval_cells/1",
+ "unplaceable": []
+}

@@ -1,0 +1,54 @@
+{
+ "board": "a100",
+ "calibration_document": "calibration_sm_80_93eae1bb_store_stream_rates_store_stream_rates.json",
+ "calibration_sha256": "9851d731f34947b1eeb17e95be28bb46dcca13863749557ca7394140b74d9658",
+ "device_uuid": "GPU-93eae1bb-ce0c-8ace-8f12-a6b2a4376933",
+ "dram_peak_TBps": 2.039,
+ "pair_table": {
+  "beta_hmma": [
+   0.615,
+   0.33199999999999996,
+   0.1955,
+   0.14550000000000002
+  ],
+  "file": "pair_overlap_constants_injob.json",
+  "resident_warps_per_sm": [
+   4,
+   8,
+   16,
+   32
+  ],
+  "sha256": "a1c3aec6a2e02290ecce6255633217e1b2d2fddb682df5f205032e0190cf36bd"
+ },
+ "profiles": {
+  "main": {
+   "cells": 124,
+   "not_predicted": [
+    "a100/unseen_cuda_samples_matrix_multiply/xlarge/c1",
+    "a100/unseen_cuda_samples_matrix_multiply/xlarge/c2"
+   ],
+   "predicted": 122,
+   "predictions": "predictions_replication_a100_injob.json",
+   "predictions_sha256": "4ae5d39afe97498e1d375ea07d237aab2a55bb3d266b49cf04643144a03d55c7",
+   "record": "freeze_record_replication_a100_injob.json"
+  },
+  "tensor": {
+   "cells": 44,
+   "not_predicted": [
+    "a100/fresh_h_ml_fused_attention/xlarge/c1",
+    "a100/fresh_h_ml_fused_attention/xlarge/c2"
+   ],
+   "predicted": 42,
+   "predictions": "predictions_replication_a100_injob_tensor.json",
+   "predictions_sha256": "a0f1307e7b3f1b6f34d6f2641dd2473d1724c43e9cd5d5c7ec20b46109f51d5c",
+   "record": "freeze_record_replication_a100_injob_tensor.json"
+  }
+ },
+ "window": {
+  "file": "power_sensor_results_injob.json",
+  "padding_s": 0,
+  "sha256": "2bacc6fb141febb5ffa997a1a4992aee67a87cea194f5daea8fb9b5845d73c81",
+  "tolerance_pct": 3.0,
+  "window_s": 20.0
+ }
+}

@@ -1,0 +1,2199 @@
+{
+ "baseline": {
+  "summary": {
+   "all131": [
+    10.266332342125217,
+    28.874748263993144,
+    131
+   ],
+   "val12": [
+    12.803355783292435,
+    35.772370638321135,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     3.6858688082620383,
+     4.924668450701091,
+     4
+    ],
+    "FP32 matrix multiply": [
+     10.445238651838483,
+     30.74826394777895,
+     8
+    ],
+    "Fast Walsh transform": [
+     5.87422125770315,
+     13.95664126245681,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     4.468797231451493,
+     6.309553444822292,
+     4
+    ],
+    "Fused attention": [
+     29.613513392366226,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     14.276962744741816,
+     24.490934740339387,
+     8
+    ],
+    "RMSNorm": [
+     12.273579873270297,
+     21.360148798969995,
+     8
+    ],
+    "Reduce2": [
+     18.809272289283278,
+     27.99409420022374,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     13.597375630081853,
+     69.22848294932484,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     14.629115561015555,
+     33.75197557033577,
+     8
+    ],
+    "Separable convolution": [
+     14.168593629767596,
+     19.040342061305736,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     14.326139919726256,
+     25.66441621148478,
+     8
+    ],
+    "Tiled matrix multiply": [
+     21.120166047389755,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     6.117599507630345,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     21.429253925684282,
+     33.41212843115175,
+     2
+    ],
+    "fused_attention": [
+     17.718596373159755,
+     22.463188955542005,
+     2
+    ],
+    "rmsnorm": [
+     0.24714410070563742,
+     0.3189195808471157,
+     2
+    ],
+    "scalar_product": [
+     22.07620543724075,
+     39.15513250673204,
+     2
+    ],
+    "separable_convolution": [
+     29.365944590541616,
+     29.915655210543328,
+     2
+    ],
+    "tensor_matmul": [
+     11.07256949919625,
+     13.269598636961593,
+     2
+    ]
+   }
+  }
+ },
+ "pair overlap coefficient (shared load and MMA)": {
+  "summary": {
+   "all131": [
+    9.663073591928429,
+    24.736912184469173,
+    131
+   ],
+   "val12": [
+    13.05993902516197,
+    35.772370638321135,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     3.6858688082620383,
+     4.924668450701091,
+     4
+    ],
+    "FP32 matrix multiply": [
+     10.445238651838483,
+     30.74826394777895,
+     8
+    ],
+    "Fast Walsh transform": [
+     5.87422125770315,
+     13.95664126245681,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     4.468797231451493,
+     6.309553444822292,
+     4
+    ],
+    "Fused attention": [
+     20.15309413465205,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     14.276962744741816,
+     24.490934740339387,
+     8
+    ],
+    "RMSNorm": [
+     12.273579873270297,
+     21.360148798969995,
+     8
+    ],
+    "Reduce2": [
+     18.809272289283278,
+     27.99409420022374,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     13.597375630081853,
+     69.22848294932484,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     14.629115561015555,
+     33.75197557033577,
+     8
+    ],
+    "Separable convolution": [
+     14.168593629767596,
+     19.040342061305736,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     10.2244466993965,
+     21.942734083302042,
+     8
+    ],
+    "Tiled matrix multiply": [
+     21.120166047389755,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     6.117599507630345,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     21.429253925684282,
+     33.41212843115175,
+     2
+    ],
+    "fused_attention": [
+     10.176937111293348,
+     14.55442099760058,
+     2
+    ],
+    "rmsnorm": [
+     0.24714410070563742,
+     0.3189195808471157,
+     2
+    ],
+    "scalar_product": [
+     22.07620543724075,
+     39.15513250673204,
+     2
+    ],
+    "separable_convolution": [
+     29.365944590541616,
+     29.915655210543328,
+     2
+    ],
+    "tensor_matmul": [
+     13.05993902516197,
+     14.565587157094095,
+     2
+    ]
+   }
+  }
+ },
+ "pair overlap coefficient, also FP32 FMA pair": {
+  "summary": {
+   "all131": [
+    10.60677069471554,
+    24.736912184469173,
+    131
+   ],
+   "val12": [
+    13.05993902516197,
+    29.91565521054333,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     3.6858688082620383,
+     4.924668450701091,
+     4
+    ],
+    "FP32 matrix multiply": [
+     21.74980579480458,
+     29.853735336747476,
+     8
+    ],
+    "Fast Walsh transform": [
+     6.243754705617288,
+     14.08176456357841,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     4.468797231451493,
+     6.309553444822292,
+     4
+    ],
+    "Fused attention": [
+     20.15309413465205,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     14.276962744741816,
+     24.490934740339387,
+     8
+    ],
+    "RMSNorm": [
+     12.273579873270297,
+     21.360148798969995,
+     8
+    ],
+    "Reduce2": [
+     18.74328469612744,
+     27.90562388879833,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     13.597375630081853,
+     69.22886415135689,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     14.61366211572987,
+     33.74195608457121,
+     8
+    ],
+    "Separable convolution": [
+     11.714608295188395,
+     17.332398947055594,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     10.2244466993965,
+     21.942734083302042,
+     8
+    ],
+    "Tiled matrix multiply": [
+     22.74006598428846,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     6.117599507630345,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     14.228236483075113,
+     24.910112608755625,
+     2
+    ],
+    "fused_attention": [
+     10.176937111293348,
+     14.55442099760058,
+     2
+    ],
+    "rmsnorm": [
+     0.24714410070563742,
+     0.3189195808471157,
+     2
+    ],
+    "scalar_product": [
+     22.077470667452502,
+     39.15802697876087,
+     2
+    ],
+    "separable_convolution": [
+     29.365944590541616,
+     29.915655210543328,
+     2
+    ],
+    "tensor_matmul": [
+     13.05993902516197,
+     14.565587157094095,
+     2
+    ]
+   }
+  }
+ },
+ "pair overlap + stage serialisation (stage rule)": {
+  "summary": {
+   "all131": [
+    8.546341412963443,
+    24.659756104663778,
+    131
+   ],
+   "val12": [
+    8.866635296513635,
+    35.772370638321135,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     3.6858688082620383,
+     4.924668450701091,
+     4
+    ],
+    "FP32 matrix multiply": [
+     10.445238651838483,
+     30.74826394777895,
+     8
+    ],
+    "Fast Walsh transform": [
+     5.87422125770315,
+     13.95664126245681,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     4.468797231451493,
+     6.309553444822292,
+     4
+    ],
+    "Fused attention": [
+     9.776905976851008,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     14.276962744741816,
+     24.490934740339387,
+     8
+    ],
+    "RMSNorm": [
+     12.273579873270297,
+     21.360148798969995,
+     8
+    ],
+    "Reduce2": [
+     18.809272289283278,
+     27.99409420022374,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     13.597375630081853,
+     69.22848294932484,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     14.629115561015555,
+     33.75197557033577,
+     8
+    ],
+    "Separable convolution": [
+     14.168593629767596,
+     19.040342061305736,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     10.032292725882414,
+     21.942734083302042,
+     8
+    ],
+    "Tiled matrix multiply": [
+     21.120166047389755,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     6.117599507630345,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     21.429253925684282,
+     33.41212843115175,
+     2
+    ],
+    "fused_attention": [
+     4.7820661019029655,
+     5.709702629847001,
+     2
+    ],
+    "rmsnorm": [
+     0.24714410070563742,
+     0.3189195808471157,
+     2
+    ],
+    "scalar_product": [
+     22.07620543724075,
+     39.15513250673204,
+     2
+    ],
+    "separable_convolution": [
+     29.365944590541616,
+     29.915655210543328,
+     2
+    ],
+    "tensor_matmul": [
+     13.112304494627224,
+     14.576060250987146,
+     2
+    ]
+   }
+  }
+ },
+ "load latency added to load phases": {
+  "summary": {
+   "all131": [
+    11.040189499153119,
+    30.12966015859375,
+    131
+   ],
+   "val12": [
+    18.27348420127469,
+    31.305455359230514,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     4.211032146120852,
+     8.020706409598882,
+     4
+    ],
+    "FP32 matrix multiply": [
+     20.804339435772235,
+     33.9893908005389,
+     8
+    ],
+    "Fast Walsh transform": [
+     8.74561645966564,
+     20.47111574819021,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     6.530808972899682,
+     8.809022941183402,
+     4
+    ],
+    "Fused attention": [
+     24.729156678538118,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     22.446176175228505,
+     31.927279851247437,
+     8
+    ],
+    "RMSNorm": [
+     9.76071922099721,
+     15.132170498140416,
+     8
+    ],
+    "Reduce2": [
+     14.834949578563329,
+     22.624706961575974,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     16.020656849420888,
+     114.9136059248627,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     11.920649215018543,
+     30.69016328320103,
+     8
+    ],
+    "Separable convolution": [
+     12.906224111797187,
+     14.030831599381873,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     16.989550057931456,
+     23.89281478721352,
+     8
+    ],
+    "Tiled matrix multiply": [
+     30.825306303502774,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     6.555978393577355,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     13.748998819306706,
+     23.001404096202126,
+     2
+    ],
+    "fused_attention": [
+     12.593723946451203,
+     16.892928130958385,
+     2
+    ],
+    "rmsnorm": [
+     2.325564441894179,
+     3.516500832881575,
+     2
+    ],
+    "scalar_product": [
+     27.179247179766886,
+     47.344084777460914,
+     2
+    ],
+    "separable_convolution": [
+     30.74986409381948,
+     31.305455359230514,
+     2
+    ],
+    "tensor_matmul": [
+     19.535090030139415,
+     20.29977067387958,
+     2
+    ]
+   }
+  }
+ },
+ "loaded service latency added to load phases": {
+  "summary": {
+   "all131": [
+    12.440393689147378,
+    43.416877490294816,
+    131
+   ],
+   "val12": [
+    12.382403447376877,
+    32.70824761752211,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     9.072588923194846,
+     16.11556592736326,
+     4
+    ],
+    "FP32 matrix multiply": [
+     31.041370361775165,
+     55.41712405097296,
+     8
+    ],
+    "Fast Walsh transform": [
+     12.342633455085084,
+     28.221574040569195,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     14.7586229168579,
+     16.42988992015726,
+     4
+    ],
+    "Fused attention": [
+     18.43712159518362,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     31.61345005849239,
+     40.67421581319401,
+     8
+    ],
+    "RMSNorm": [
+     6.8182256362770755,
+     10.992582914303096,
+     8
+    ],
+    "Reduce2": [
+     18.00024380589128,
+     18.05572444852642,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     9.56661522675304,
+     176.99102465043862,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     9.952794911354273,
+     54.02305082079254,
+     8
+    ],
+    "Separable convolution": [
+     9.377642418180098,
+     11.529964396847143,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     18.477766628778724,
+     39.900522477659244,
+     8
+    ],
+    "Tiled matrix multiply": [
+     43.1119241083853,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     14.407984791204221,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     7.741703650305476,
+     11.658977369635373,
+     2
+    ],
+    "fused_attention": [
+     7.3438462545640455,
+     11.169978127141535,
+     2
+    ],
+    "rmsnorm": [
+     4.502793859527799,
+     6.7233131949646445,
+     2
+    ],
+    "scalar_product": [
+     32.54556721101193,
+     55.01442648321291,
+     2
+    ],
+    "separable_convolution": [
+     32.14672073333759,
+     32.70824761752211,
+     2
+    ],
+    "tensor_matmul": [
+     28.425781854787967,
+     29.167510994111034,
+     2
+    ]
+   }
+  }
+ },
+ "load phases: transfer and store issue additive": {
+  "summary": {
+   "all131": [
+    9.32941067645736,
+    25.634103363923487,
+    131
+   ],
+   "val12": [
+    13.688906506118727,
+    32.044019822043076,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     2.971854272861363,
+     5.337699910662327,
+     4
+    ],
+    "FP32 matrix multiply": [
+     16.45799680706196,
+     30.056868301648464,
+     8
+    ],
+    "Fast Walsh transform": [
+     7.487072803473371,
+     15.108371721415395,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     4.415039093450169,
+     5.9735296765245876,
+     4
+    ],
+    "Fused attention": [
+     16.024591228059478,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     16.53983425996105,
+     28.33289576699274,
+     8
+    ],
+    "RMSNorm": [
+     9.075449484694193,
+     14.826349038102949,
+     8
+    ],
+    "Reduce2": [
+     14.7929530063796,
+     23.929178702773985,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     10.369465417113044,
+     70.47467816433809,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     9.253012807993006,
+     30.359159341135925,
+     8
+    ],
+    "Separable convolution": [
+     11.531002599271044,
+     18.044301952638232,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     12.39986988547901,
+     25.572050638823526,
+     8
+    ],
+    "Tiled matrix multiply": [
+     24.749141980961742,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     5.929488173330605,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     17.20887267090281,
+     29.123808817889113,
+     2
+    ],
+    "fused_attention": [
+     9.20214431742159,
+     12.785463307716906,
+     2
+    ],
+    "rmsnorm": [
+     2.0812629046242703,
+     2.834363474103667,
+     2
+    ],
+    "scalar_product": [
+     22.600255563862735,
+     40.678508764083546,
+     2
+    ],
+    "separable_convolution": [
+     30.822437964626214,
+     31.37833761589292,
+     2
+    ],
+    "tensor_matmul": [
+     17.251517923157788,
+     20.095516296126647,
+     2
+    ]
+   }
+  }
+ },
+ "pair overlap + load latency": {
+  "summary": {
+   "all131": [
+    9.890585913535844,
+    31.546888364436597,
+    131
+   ],
+   "val12": [
+    15.699009526923213,
+    31.305455359230514,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     4.211032146120852,
+     8.020706409598882,
+     4
+    ],
+    "FP32 matrix multiply": [
+     20.804339435772235,
+     33.9893908005389,
+     8
+    ],
+    "Fast Walsh transform": [
+     8.74561645966564,
+     20.47111574819021,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     6.530808972899682,
+     8.809022941183402,
+     4
+    ],
+    "Fused attention": [
+     16.20610137677553,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     22.446176175228505,
+     31.927279851247437,
+     8
+    ],
+    "RMSNorm": [
+     9.76071922099721,
+     15.132170498140416,
+     8
+    ],
+    "Reduce2": [
+     14.834949578563329,
+     22.624706961575974,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     16.020656849420888,
+     114.9136059248627,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     11.920649215018543,
+     30.69016328320103,
+     8
+    ],
+    "Separable convolution": [
+     12.906224111797187,
+     14.030831599381873,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     15.402595305313904,
+     27.66089505204442,
+     8
+    ],
+    "Tiled matrix multiply": [
+     30.825306303502774,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     6.555978393577355,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     13.748998819306706,
+     23.001404096202126,
+     2
+    ],
+    "fused_attention": [
+     5.0520646845847725,
+     8.984160173016937,
+     2
+    ],
+    "rmsnorm": [
+     2.325564441894179,
+     3.516500832881575,
+     2
+    ],
+    "scalar_product": [
+     27.179247179766886,
+     47.344084777460914,
+     2
+    ],
+    "separable_convolution": [
+     30.74986409381948,
+     31.305455359230514,
+     2
+    ],
+    "tensor_matmul": [
+     21.522459556105133,
+     21.595759194012082,
+     2
+    ]
+   }
+  }
+ },
+ "stage rule + load latency": {
+  "summary": {
+   "all131": [
+    9.877513416675509,
+    31.546888364436597,
+    131
+   ],
+   "val12": [
+    16.022657319424837,
+    31.305455359230514,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     4.211032146120852,
+     8.020706409598882,
+     4
+    ],
+    "FP32 matrix multiply": [
+     20.804339435772235,
+     33.9893908005389,
+     8
+    ],
+    "Fast Walsh transform": [
+     8.74561645966564,
+     20.47111574819021,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     6.530808972899682,
+     8.809022941183402,
+     4
+    ],
+    "Fused attention": [
+     9.434357835654598,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     22.446176175228505,
+     31.927279851247437,
+     8
+    ],
+    "RMSNorm": [
+     9.76071922099721,
+     15.132170498140416,
+     8
+    ],
+    "Reduce2": [
+     14.834949578563329,
+     22.624706961575974,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     16.020656849420888,
+     114.9136059248627,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     11.920649215018543,
+     30.69016328320103,
+     8
+    ],
+    "Separable convolution": [
+     12.906224111797187,
+     14.030831599381873,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     15.402595305313904,
+     27.73730081220661,
+     8
+    ],
+    "Tiled matrix multiply": [
+     30.825306303502774,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     6.555978393577355,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     13.748998819306706,
+     23.001404096202126,
+     2
+    ],
+    "fused_attention": [
+     6.284418086638633,
+     9.664682570285937,
+     2
+    ],
+    "rmsnorm": [
+     2.325564441894179,
+     3.516500832881575,
+     2
+    ],
+    "scalar_product": [
+     27.179247179766886,
+     47.344084777460914,
+     2
+    ],
+    "separable_convolution": [
+     30.74986409381948,
+     31.305455359230514,
+     2
+    ],
+    "tensor_matmul": [
+     21.574825025570366,
+     21.606232287905126,
+     2
+    ]
+   }
+  }
+ },
+ "stage rule + additive store issue": {
+  "summary": {
+   "all131": [
+    8.705994922881555,
+    25.634103363923487,
+    131
+   ],
+   "val12": [
+    19.291252918588754,
+    32.044019822043076,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     2.971854272861363,
+     5.337699910662327,
+     4
+    ],
+    "FP32 matrix multiply": [
+     16.45799680706196,
+     30.056868301648464,
+     8
+    ],
+    "Fast Walsh transform": [
+     7.487072803473371,
+     15.108371721415395,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     4.415039093450169,
+     5.9735296765245876,
+     4
+    ],
+    "Fused attention": [
+     9.150150464881555,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     16.53983425996105,
+     28.33289576699274,
+     8
+    ],
+    "RMSNorm": [
+     9.075449484694193,
+     14.826349038102949,
+     8
+    ],
+    "Reduce2": [
+     14.7929530063796,
+     23.929178702773985,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     10.369465417113044,
+     70.47467816433809,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     9.253012807993006,
+     30.359159341135925,
+     8
+    ],
+    "Separable convolution": [
+     11.531002599271044,
+     18.044301952638232,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     15.163652456808885,
+     25.02600562386478,
+     8
+    ],
+    "Tiled matrix multiply": [
+     24.749141980961742,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     5.929488173330605,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     17.20887267090281,
+     29.123808817889113,
+     2
+    ],
+    "fused_attention": [
+     14.398993295220697,
+     20.841769048298115,
+     2
+    ],
+    "rmsnorm": [
+     2.0812629046242703,
+     2.834363474103667,
+     2
+    ],
+    "scalar_product": [
+     22.600255563862735,
+     40.678508764083546,
+     2
+    ],
+    "separable_convolution": [
+     30.822437964626214,
+     31.37833761589292,
+     2
+    ],
+    "tensor_matmul": [
+     19.291252918588754,
+     21.401977910152198,
+     2
+    ]
+   }
+  }
+ },
+ "stage rule + additive store issue + load latency": {
+  "summary": {
+   "all131": [
+    11.085019106842642,
+    35.65384780286103,
+    131
+   ],
+   "val12": [
+    23.957502020076113,
+    32.768137764580125,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     7.435136814952948,
+     12.492649401378452,
+     4
+    ],
+    "FP32 matrix multiply": [
+     25.47629568487807,
+     43.73773343994556,
+     8
+    ],
+    "Fast Walsh transform": [
+     10.510465041381511,
+     21.622846207148818,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     11.601432996197147,
+     13.395796465258854,
+     4
+    ],
+    "Fused attention": [
+     15.161663197154562,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     24.70904769044775,
+     35.7692408779008,
+     8
+    ],
+    "RMSNorm": [
+     6.406866129963257,
+     10.258945663337641,
+     8
+    ],
+    "Reduce2": [
+     14.774204310380734,
+     19.350906267070435,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     12.18877421841179,
+     119.17268897888215,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     9.531473726675378,
+     37.45231796163266,
+     8
+    ],
+    "Separable convolution": [
+     10.26863308130062,
+     13.034791490714362,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     18.52657186154069,
+     34.43088516286487,
+     8
+    ],
+    "Tiled matrix multiply": [
+     34.541159051015285,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     11.74114405500325,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     11.480583648017817,
+     19.103477699638063,
+     2
+    ],
+    "fused_attention": [
+     19.523865721929234,
+     25.521253077131586,
+     2
+    ],
+    "rmsnorm": [
+     4.317107996341607,
+     6.063429676243904,
+     2
+    ],
+    "scalar_product": [
+     28.430843906765503,
+     49.01297035488772,
+     2
+    ],
+    "separable_convolution": [
+     32.20635746790409,
+     32.768137764580125,
+     2
+    ],
+    "tensor_matmul": [
+     27.753773449531938,
+     28.432149947070204,
+     2
+    ]
+   }
+  }
+ },
+ "busiest-SM rule (issue terms)": {
+  "summary": {
+   "all131": [
+    9.301786232942067,
+    24.771352397291736,
+    131
+   ],
+   "val12": [
+    12.471713767735881,
+    29.91565521054333,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     3.6858688082620383,
+     4.924668450701091,
+     4
+    ],
+    "FP32 matrix multiply": [
+     9.352512546100455,
+     21.242133623386632,
+     8
+    ],
+    "Fast Walsh transform": [
+     6.095725746710046,
+     15.266886478047239,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     4.468797231451493,
+     6.309553444822292,
+     4
+    ],
+    "Fused attention": [
+     26.348533323603462,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     14.947293516848015,
+     24.601546079905706,
+     8
+    ],
+    "RMSNorm": [
+     12.273579873270297,
+     21.360148798969995,
+     8
+    ],
+    "Reduce2": [
+     18.759905515169173,
+     27.90781539683512,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     13.594049855597866,
+     69.18433559225254,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     14.366472987184881,
+     32.98300172025335,
+     8
+    ],
+    "Separable convolution": [
+     8.793294479986457,
+     13.40433749894807,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     14.50536215765511,
+     22.40744417581166,
+     8
+    ],
+    "Tiled matrix multiply": [
+     22.364455694931564,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     6.117599507630345,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     10.662689675622799,
+     18.061332874120232,
+     2
+    ],
+    "fused_attention": [
+     15.928766151398076,
+     19.881303968260926,
+     2
+    ],
+    "rmsnorm": [
+     0.24714410070563742,
+     0.3189195808471157,
+     2
+    ],
+    "scalar_product": [
+     22.04948753898493,
+     39.14978892708087,
+     2
+    ],
+    "separable_convolution": [
+     29.365944590541616,
+     29.915655210543328,
+     2
+    ],
+    "tensor_matmul": [
+     11.573622496920631,
+     13.478991423505924,
+     2
+    ]
+   }
+  }
+ },
+ "stage rule + busiest-SM rule": {
+  "summary": {
+   "all131": [
+    7.09747061114776,
+    24.13565474956958,
+    131
+   ],
+   "val12": [
+    9.591040907028592,
+    29.91565521054333,
+    12
+   ],
+   "predicted72": null,
+   "kernels": {
+    "Black-Scholes": [
+     8.821310023932039,
+     16.282321564357854,
+     8
+    ],
+    "Copy": [
+     3.6858688082620383,
+     4.924668450701091,
+     4
+    ],
+    "FP32 matrix multiply": [
+     9.352512546100455,
+     21.242133623386632,
+     8
+    ],
+    "Fast Walsh transform": [
+     6.095725746710046,
+     15.266886478047239,
+     8
+    ],
+    "Fine- and coarse-grained transpose": [
+     4.468797231451493,
+     6.309553444822292,
+     4
+    ],
+    "Fused attention": [
+     6.130969734702418,
+     NaN,
+     8
+    ],
+    "GELU": [
+     1.6899652541090049,
+     9.285866776793362,
+     8
+    ],
+    "Prefix-sum scan": [
+     14.947293516848015,
+     24.601546079905706,
+     8
+    ],
+    "RMSNorm": [
+     12.273579873270297,
+     21.360148798969995,
+     8
+    ],
+    "Reduce2": [
+     18.759905515169173,
+     27.90781539683512,
+     2
+    ],
+    "Reductions (reduce0/1/6)": [
+     13.594049855597866,
+     69.18433559225254,
+     5
+    ],
+    "Rotary embedding": [
+     1.4676037242646545,
+     8.448613696860475,
+     8
+    ],
+    "Scalar product": [
+     14.366472987184881,
+     32.98300172025335,
+     8
+    ],
+    "Separable convolution": [
+     8.793294479986457,
+     13.40433749894807,
+     8
+    ],
+    "SwiGLU gate": [
+     0.9704733547474031,
+     8.216582493640265,
+     8
+    ],
+    "Tensor-core matrix multiply": [
+     10.032292725882414,
+     16.21608297754573,
+     8
+    ],
+    "Tiled matrix multiply": [
+     22.364455694931564,
+     NaN,
+     8
+    ],
+    "Transposes (naive, coalesced, padded, diagonal)": [
+     6.117599507630345,
+     74.60445099552695,
+     8
+    ],
+    "Vector add": [
+     11.28902524069283,
+     22.986873295837228,
+     4
+    ],
+    "fp32_matmul": null,
+    "fused_attention": null,
+    "rmsnorm": null,
+    "scalar_product": null,
+    "separable_convolution": null,
+    "tensor_matmul": null
+   },
+   "kernels_val": {
+    "Black-Scholes": null,
+    "Copy": null,
+    "FP32 matrix multiply": null,
+    "Fast Walsh transform": null,
+    "Fine- and coarse-grained transpose": null,
+    "Fused attention": null,
+    "GELU": null,
+    "Prefix-sum scan": null,
+    "RMSNorm": null,
+    "Reduce2": null,
+    "Reductions (reduce0/1/6)": null,
+    "Rotary embedding": null,
+    "Scalar product": null,
+    "Separable convolution": null,
+    "SwiGLU gate": null,
+    "Tensor-core matrix multiply": null,
+    "Tiled matrix multiply": null,
+    "Transposes (naive, coalesced, padded, diagonal)": null,
+    "Vector add": null,
+    "fp32_matmul": [
+     10.662689675622799,
+     18.061332874120232,
+     2
+    ],
+    "fused_attention": [
+     3.4743802551069294,
+     6.226486336495086,
+     2
+    ],
+    "rmsnorm": [
+     0.24714410070563742,
+     0.3189195808471157,
+     2
+    ],
+    "scalar_product": [
+     22.04948753898493,
+     39.14978892708087,
+     2
+    ],
+    "separable_convolution": [
+     29.365944590541616,
+     29.915655210543328,
+     2
+    ],
+    "tensor_matmul": [
+     13.678507038512322,
+     14.807257503550133,
+     2
+    ]
+   }
+  }
+ }
+}

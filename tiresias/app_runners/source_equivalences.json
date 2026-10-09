@@ -1,0 +1,34 @@
+{
+  "entries": [
+    {
+      "approved_by": "the authors (instruction to the authors, 2026-09-21)",
+      "basis": "git diff 0dc8975 2141081 confined to the calibration-probe launch path (M306/M309); counted kernel and work unchanged",
+      "catalog_sha256": "380f3980996c4e5eb46f1c18ee180bfa829a4cad16241518a0d5a728f9b68455",
+      "catalog_source_path": "workloads/e2e_transpose.cu",
+      "measured_sha256": "7ac100df2d1193f3f5ec52f735fa292d5074bea164785d12ec1a3627980dc003",
+      "measured_source_path": "workloads/e2e_transpose.cu",
+      "parent_id": "dev_local_transpose",
+      "ratified_by_coordinator": false,
+      "run_ids": [
+        "B-FULL-GRAPH-20260920T065758Z-2141081"
+      ],
+      "status": "approved"
+    },
+    {
+      "approved_by": "the authors (instruction to the authors, 2026-09-21)",
+      "basis": "triad kernel is the same operation: out[i]=a[i]+0.25f*b[i]-0.125f*c[i] over n x n floats, tile 16, grid n/16, 3 reads + 1 write, no shared memory or barriers; identifiers and driver code differ only",
+      "catalog_sha256": "acb59dee00f8a51ed21c2f99657cbe9d284bbb619e20b060c7988fb380ab2ad0",
+      "catalog_source_path": "workloads/e2e_tile_triad_calibration.cu",
+      "measured_sha256": "5042c8ef061d26f8f94a1406f803464ad42d744c5b7e8741fd6914a3e3703a60",
+      "measured_source_path": "energy_harness/triad_stabilization.cu",
+      "parent_id": "dev_local_triad",
+      "ratified_by_coordinator": false,
+      "run_ids": [
+        "B-FULL-GRAPH-20260920T065758Z-2141081"
+      ],
+      "status": "approved"
+    }
+  ],
+  "note": "Approved reviewed-equivalent measured sources for D catalog cells. An entry lets a B label whose measured source_sha256 differs from D's catalog hash be admitted, ONLY for the listed parent, measured hash and run id. Evidence: source_equivalence_proposals_2026-09-21.md. Approvals here were given by the authors via instruction to the authors on 2026-09-21 and are PENDING coordinator ratification; revoke by setting status to revoked.",
+  "schema": "source-equivalences-v1"
+}

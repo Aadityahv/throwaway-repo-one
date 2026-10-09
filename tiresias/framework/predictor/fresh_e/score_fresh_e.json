@@ -1,0 +1,738 @@
+{
+ "correctness_failed_excluded": [],
+ "inputs": {
+  "predictions_fresh_e_v2.json": "056f0034d3f4961e5f46eee11b0405d939629cd6ee83d2910b9cad8b12b44fd4",
+  "predictions_fresh_e_v3e.json": "8e45f2b8602ce8802ee64a1cf94fa6f1306abaeabcabe7c3352c9039aba3cadb",
+  "predictions_fresh_e_v3f.json": "309eda379064305bb4a99006efdd0ee800fe1f9fc7b1bbace932fb23a94cabee",
+  "predictions_fresh_e_v3h.json": "bf25260a4a655fba744cf785c028670f8abc8747a09335e7ac4d5e82e9c2b053",
+  "predictions_fresh_e_v3i.json": "6fcf4a7d571b001782268190c17ed356d8faa305cbafdb2312363eda71ff1708",
+  "timing_fresh_e_result.json": "2a492899b2e53a0336d8011a710dba75274f2ffbb625eb83644803837383ab96"
+ },
+ "models": {
+  "roofline": {
+   "per_cell": {
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c1": {
+     "measured_us": 75.333,
+     "predicted_us": 36.133,
+     "signed_error_pct": -52.0
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c2": {
+     "measured_us": 71.838,
+     "predicted_us": 36.133,
+     "signed_error_pct": -49.7
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c1": {
+     "measured_us": 38.95,
+     "predicted_us": 18.416,
+     "signed_error_pct": -52.7
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c2": {
+     "measured_us": 35.894,
+     "predicted_us": 15.885,
+     "signed_error_pct": -55.7
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c1": {
+     "measured_us": 5.68,
+     "predicted_us": 1.491,
+     "signed_error_pct": -73.8
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c2": {
+     "measured_us": 4.994,
+     "predicted_us": 1.333,
+     "signed_error_pct": -73.3
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1": {
+     "measured_us": 3227.978,
+     "predicted_us": 3166.539,
+     "signed_error_pct": -1.9
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2": {
+     "measured_us": 2921.752,
+     "predicted_us": 2814.779,
+     "signed_error_pct": -3.7
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c1": {
+     "measured_us": 10.204,
+     "predicted_us": 4.496,
+     "signed_error_pct": -55.9
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c2": {
+     "measured_us": 7.739,
+     "predicted_us": 4.496,
+     "signed_error_pct": -41.9
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c1": {
+     "measured_us": 7.412,
+     "predicted_us": 3.231,
+     "signed_error_pct": -56.4
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c2": {
+     "measured_us": 5.533,
+     "predicted_us": 3.231,
+     "signed_error_pct": -41.6
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c1": {
+     "measured_us": 3.9,
+     "predicted_us": 1.333,
+     "signed_error_pct": -65.8
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c2": {
+     "measured_us": 2.646,
+     "predicted_us": 1.333,
+     "signed_error_pct": -49.6
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c1": {
+     "measured_us": 167.404,
+     "predicted_us": 176.581,
+     "signed_error_pct": 5.5
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c2": {
+     "measured_us": 166.327,
+     "predicted_us": 176.581,
+     "signed_error_pct": 6.2
+    }
+   },
+   "per_operator": {
+    "fresh_e_cuda_samples_fast_walsh_transform": {
+     "mean_pct": 45.35,
+     "median_pct": 52.38,
+     "n": 8,
+     "p90_pct": 73.45
+    },
+    "fresh_e_cuda_samples_scalar_product": {
+     "mean_pct": 40.37,
+     "median_pct": 45.76,
+     "n": 8,
+     "p90_pct": 59.23
+    }
+   },
+   "per_tier": {
+    "DRAM": {
+     "mean_pct": 4.3,
+     "median_pct": 4.57,
+     "n": 4,
+     "p90_pct": 5.96
+    },
+    "L2": {
+     "mean_pct": 55.71,
+     "median_pct": 54.23,
+     "n": 12,
+     "p90_pct": 72.57
+    }
+   },
+   "runtime_error": {
+    "mean_pct": 42.86,
+    "median_pct": 50.87,
+    "n": 16,
+    "p90_pct": 69.57
+   },
+   "signed_median_pct": -50.87,
+   "supported": 16
+  },
+  "v2": {
+   "per_cell": {
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c1": {
+     "measured_us": 75.333,
+     "predicted_us": 89.349,
+     "signed_error_pct": 18.6
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c2": {
+     "measured_us": 71.838,
+     "predicted_us": 82.108,
+     "signed_error_pct": 14.3
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c1": {
+     "measured_us": 38.95,
+     "predicted_us": 43.504,
+     "signed_error_pct": 11.7
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c2": {
+     "measured_us": 35.894,
+     "predicted_us": 42.694,
+     "signed_error_pct": 18.9
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c1": {
+     "measured_us": 5.68,
+     "predicted_us": 5.906,
+     "signed_error_pct": 4.0
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c2": {
+     "measured_us": 4.994,
+     "predicted_us": 5.737,
+     "signed_error_pct": 14.9
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1": {
+     "measured_us": 3227.978,
+     "predicted_us": 3246.446,
+     "signed_error_pct": 0.6
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2": {
+     "measured_us": 2921.752,
+     "predicted_us": 2964.576,
+     "signed_error_pct": 1.5
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c1": {
+     "measured_us": 10.204,
+     "predicted_us": 9.067,
+     "signed_error_pct": -11.1
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c2": {
+     "measured_us": 7.739,
+     "predicted_us": 6.367,
+     "signed_error_pct": -17.7
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c1": {
+     "measured_us": 7.412,
+     "predicted_us": 6.518,
+     "signed_error_pct": -12.1
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c2": {
+     "measured_us": 5.533,
+     "predicted_us": 4.632,
+     "signed_error_pct": -16.3
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c1": {
+     "measured_us": 3.9,
+     "predicted_us": 2.696,
+     "signed_error_pct": -30.9
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c2": {
+     "measured_us": 2.646,
+     "predicted_us": 2.03,
+     "signed_error_pct": -23.3
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c1": {
+     "measured_us": 167.404,
+     "predicted_us": 260.449,
+     "signed_error_pct": 55.6
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c2": {
+     "measured_us": 166.327,
+     "predicted_us": 177.482,
+     "signed_error_pct": 6.7
+    }
+   },
+   "per_operator": {
+    "fresh_e_cuda_samples_fast_walsh_transform": {
+     "mean_pct": 10.55,
+     "median_pct": 12.99,
+     "n": 8,
+     "p90_pct": 18.71
+    },
+    "fresh_e_cuda_samples_scalar_product": {
+     "mean_pct": 21.71,
+     "median_pct": 17.0,
+     "n": 8,
+     "p90_pct": 38.29
+    }
+   },
+   "per_tier": {
+    "DRAM": {
+     "mean_pct": 16.08,
+     "median_pct": 4.09,
+     "n": 4,
+     "p90_pct": 40.92
+    },
+    "L2": {
+     "mean_pct": 16.15,
+     "median_pct": 15.58,
+     "n": 12,
+     "p90_pct": 22.85
+    }
+   },
+   "runtime_error": {
+    "mean_pct": 16.13,
+    "median_pct": 14.58,
+    "n": 16,
+    "p90_pct": 27.08
+   },
+   "signed_median_pct": 2.72,
+   "supported": 16
+  },
+  "v3e": {
+   "per_cell": {
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c1": {
+     "measured_us": 75.333,
+     "predicted_us": 106.258,
+     "signed_error_pct": 41.1
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c2": {
+     "measured_us": 71.838,
+     "predicted_us": 101.872,
+     "signed_error_pct": 41.8
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c1": {
+     "measured_us": 38.95,
+     "predicted_us": 53.737,
+     "signed_error_pct": 38.0
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c2": {
+     "measured_us": 35.894,
+     "predicted_us": 50.126,
+     "signed_error_pct": 39.7
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c1": {
+     "measured_us": 5.68,
+     "predicted_us": 6.984,
+     "signed_error_pct": 23.0
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c2": {
+     "measured_us": 4.994,
+     "predicted_us": 6.887,
+     "signed_error_pct": 37.9
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1": {
+     "measured_us": 3227.978,
+     "predicted_us": 3413.214,
+     "signed_error_pct": 5.7
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2": {
+     "measured_us": 2921.752,
+     "predicted_us": 3082.878,
+     "signed_error_pct": 5.5
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c1": {
+     "measured_us": 10.204,
+     "predicted_us": 11.444,
+     "signed_error_pct": 12.1
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c2": {
+     "measured_us": 7.739,
+     "predicted_us": 8.003,
+     "signed_error_pct": 3.4
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c1": {
+     "measured_us": 7.412,
+     "predicted_us": 8.102,
+     "signed_error_pct": 9.3
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c2": {
+     "measured_us": 5.533,
+     "predicted_us": 5.728,
+     "signed_error_pct": 3.5
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c1": {
+     "measured_us": 3.9,
+     "predicted_us": 3.862,
+     "signed_error_pct": -1.0
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c2": {
+     "measured_us": 2.646,
+     "predicted_us": 2.316,
+     "signed_error_pct": -12.5
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c1": {
+     "measured_us": 167.404,
+     "predicted_us": 243.366,
+     "signed_error_pct": 45.4
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c2": {
+     "measured_us": 166.327,
+     "predicted_us": 165.857,
+     "signed_error_pct": -0.3
+    }
+   },
+   "per_operator": {
+    "fresh_e_cuda_samples_fast_walsh_transform": {
+     "mean_pct": 29.07,
+     "median_pct": 37.94,
+     "n": 8,
+     "p90_pct": 41.28
+    },
+    "fresh_e_cuda_samples_scalar_product": {
+     "mean_pct": 10.94,
+     "median_pct": 6.42,
+     "n": 8,
+     "p90_pct": 22.34
+    }
+   },
+   "per_tier": {
+    "DRAM": {
+     "mean_pct": 14.23,
+     "median_pct": 5.63,
+     "n": 4,
+     "p90_pct": 33.48
+    },
+    "L2": {
+     "mean_pct": 21.93,
+     "median_pct": 17.72,
+     "n": 12,
+     "p90_pct": 40.91
+    }
+   },
+   "runtime_error": {
+    "mean_pct": 20.01,
+    "median_pct": 12.31,
+    "n": 16,
+    "p90_pct": 41.43
+   },
+   "signed_median_pct": 10.73,
+   "supported": 16
+  },
+  "v3f": {
+   "per_cell": {
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c1": {
+     "measured_us": 75.333,
+     "predicted_us": 92.112,
+     "signed_error_pct": 22.3
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c2": {
+     "measured_us": 71.838,
+     "predicted_us": 87.726,
+     "signed_error_pct": 22.1
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c1": {
+     "measured_us": 38.95,
+     "predicted_us": 46.664,
+     "signed_error_pct": 19.8
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c2": {
+     "measured_us": 35.894,
+     "predicted_us": 43.993,
+     "signed_error_pct": 22.6
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c1": {
+     "measured_us": 5.68,
+     "predicted_us": 6.659,
+     "signed_error_pct": 17.2
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c2": {
+     "measured_us": 4.994,
+     "predicted_us": 6.579,
+     "signed_error_pct": 31.7
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1": {
+     "measured_us": 3227.978,
+     "predicted_us": 3449.603,
+     "signed_error_pct": 6.9
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2": {
+     "measured_us": 2921.752,
+     "predicted_us": 3119.266,
+     "signed_error_pct": 6.8
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c1": {
+     "measured_us": 10.204,
+     "predicted_us": 9.373,
+     "signed_error_pct": -8.1
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c2": {
+     "measured_us": 7.739,
+     "predicted_us": 6.594,
+     "signed_error_pct": -14.8
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c1": {
+     "measured_us": 7.412,
+     "predicted_us": 6.721,
+     "signed_error_pct": -9.3
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c2": {
+     "measured_us": 5.533,
+     "predicted_us": 4.788,
+     "signed_error_pct": -13.5
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c1": {
+     "measured_us": 3.9,
+     "predicted_us": 3.862,
+     "signed_error_pct": -1.0
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c2": {
+     "measured_us": 2.646,
+     "predicted_us": 2.08,
+     "signed_error_pct": -21.4
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c1": {
+     "measured_us": 167.404,
+     "predicted_us": 243.379,
+     "signed_error_pct": 45.4
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c2": {
+     "measured_us": 166.327,
+     "predicted_us": 165.864,
+     "signed_error_pct": -0.3
+    }
+   },
+   "per_operator": {
+    "fresh_e_cuda_samples_fast_walsh_transform": {
+     "mean_pct": 18.67,
+     "median_pct": 20.96,
+     "n": 8,
+     "p90_pct": 25.32
+    },
+    "fresh_e_cuda_samples_scalar_product": {
+     "mean_pct": 14.22,
+     "median_pct": 11.39,
+     "n": 8,
+     "p90_pct": 28.58
+    }
+   },
+   "per_tier": {
+    "DRAM": {
+     "mean_pct": 14.82,
+     "median_pct": 6.81,
+     "n": 4,
+     "p90_pct": 33.83
+    },
+    "L2": {
+     "mean_pct": 16.99,
+     "median_pct": 18.52,
+     "n": 12,
+     "p90_pct": 22.53
+    }
+   },
+   "runtime_error": {
+    "mean_pct": 16.44,
+    "median_pct": 16.02,
+    "n": 16,
+    "p90_pct": 27.15
+   },
+   "signed_median_pct": 6.81,
+   "supported": 16
+  },
+  "v3h": {
+   "per_cell": {
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c1": {
+     "measured_us": 75.333,
+     "predicted_us": 84.086,
+     "signed_error_pct": 11.6
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c2": {
+     "measured_us": 71.838,
+     "predicted_us": 81.744,
+     "signed_error_pct": 13.8
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c1": {
+     "measured_us": 38.95,
+     "predicted_us": 43.673,
+     "signed_error_pct": 12.1
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c2": {
+     "measured_us": 35.894,
+     "predicted_us": 39.98,
+     "signed_error_pct": 11.4
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c1": {
+     "measured_us": 5.68,
+     "predicted_us": 6.473,
+     "signed_error_pct": 14.0
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c2": {
+     "measured_us": 4.994,
+     "predicted_us": 6.211,
+     "signed_error_pct": 24.4
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1": {
+     "measured_us": 3227.978,
+     "predicted_us": 3401.747,
+     "signed_error_pct": 5.4
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2": {
+     "measured_us": 2921.752,
+     "predicted_us": 3055.062,
+     "signed_error_pct": 4.6
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c1": {
+     "measured_us": 10.204,
+     "predicted_us": 9.185,
+     "signed_error_pct": -10.0
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c2": {
+     "measured_us": 7.739,
+     "predicted_us": 6.459,
+     "signed_error_pct": -16.5
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c1": {
+     "measured_us": 7.412,
+     "predicted_us": 6.533,
+     "signed_error_pct": -11.9
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c2": {
+     "measured_us": 5.533,
+     "predicted_us": 4.654,
+     "signed_error_pct": -15.9
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c1": {
+     "measured_us": 3.9,
+     "predicted_us": 3.674,
+     "signed_error_pct": -5.8
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c2": {
+     "measured_us": 2.646,
+     "predicted_us": 1.945,
+     "signed_error_pct": -26.5
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c1": {
+     "measured_us": 167.404,
+     "predicted_us": 243.008,
+     "signed_error_pct": 45.2
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c2": {
+     "measured_us": 166.327,
+     "predicted_us": 165.603,
+     "signed_error_pct": -0.4
+    }
+   },
+   "per_operator": {
+    "fresh_e_cuda_samples_fast_walsh_transform": {
+     "mean_pct": 12.15,
+     "median_pct": 11.87,
+     "n": 8,
+     "p90_pct": 17.08
+    },
+    "fresh_e_cuda_samples_scalar_product": {
+     "mean_pct": 16.52,
+     "median_pct": 13.88,
+     "n": 8,
+     "p90_pct": 32.08
+    }
+   },
+   "per_tier": {
+    "DRAM": {
+     "mean_pct": 13.89,
+     "median_pct": 4.97,
+     "n": 4,
+     "p90_pct": 33.23
+    },
+    "L2": {
+     "mean_pct": 14.48,
+     "median_pct": 12.96,
+     "n": 12,
+     "p90_pct": 23.58
+    }
+   },
+   "runtime_error": {
+    "mean_pct": 14.33,
+    "median_pct": 11.99,
+    "n": 16,
+    "p90_pct": 25.42
+   },
+   "signed_median_pct": 4.97,
+   "supported": 16
+  },
+  "v3i": {
+   "per_cell": {
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c1": {
+     "measured_us": 75.333,
+     "predicted_us": 79.837,
+     "signed_error_pct": 6.0
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/large/c2": {
+     "measured_us": 71.838,
+     "predicted_us": 76.793,
+     "signed_error_pct": 6.9
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c1": {
+     "measured_us": 38.95,
+     "predicted_us": 41.197,
+     "signed_error_pct": 5.8
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/medium/c2": {
+     "measured_us": 35.894,
+     "predicted_us": 37.855,
+     "signed_error_pct": 5.5
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c1": {
+     "measured_us": 5.68,
+     "predicted_us": 6.263,
+     "signed_error_pct": 10.3
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/small/c2": {
+     "measured_us": 4.994,
+     "predicted_us": 6.121,
+     "signed_error_pct": 22.6
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1": {
+     "measured_us": 3227.978,
+     "predicted_us": 3336.426,
+     "signed_error_pct": 3.4
+    },
+    "blackwell/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2": {
+     "measured_us": 2921.752,
+     "predicted_us": 2991.2,
+     "signed_error_pct": 2.4
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c1": {
+     "measured_us": 10.204,
+     "predicted_us": 9.159,
+     "signed_error_pct": -10.2
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/large/c2": {
+     "measured_us": 7.739,
+     "predicted_us": 6.395,
+     "signed_error_pct": -17.4
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c1": {
+     "measured_us": 7.412,
+     "predicted_us": 6.507,
+     "signed_error_pct": -12.2
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/medium/c2": {
+     "measured_us": 5.533,
+     "predicted_us": 4.59,
+     "signed_error_pct": -17.0
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c1": {
+     "measured_us": 3.9,
+     "predicted_us": 3.648,
+     "signed_error_pct": -6.5
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/small/c2": {
+     "measured_us": 2.646,
+     "predicted_us": 1.882,
+     "signed_error_pct": -28.9
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c1": {
+     "measured_us": 167.404,
+     "predicted_us": 242.958,
+     "signed_error_pct": 45.1
+    },
+    "blackwell/fresh_e_cuda_samples_scalar_product/xlarge/c2": {
+     "measured_us": 166.327,
+     "predicted_us": 165.481,
+     "signed_error_pct": -0.5
+    }
+   },
+   "per_operator": {
+    "fresh_e_cuda_samples_fast_walsh_transform": {
+     "mean_pct": 7.84,
+     "median_pct": 5.87,
+     "n": 8,
+     "p90_pct": 13.96
+    },
+    "fresh_e_cuda_samples_scalar_product": {
+     "mean_pct": 17.23,
+     "median_pct": 14.63,
+     "n": 8,
+     "p90_pct": 33.75
+    }
+   },
+   "per_tier": {
+    "DRAM": {
+     "mean_pct": 12.84,
+     "median_pct": 2.87,
+     "n": 4,
+     "p90_pct": 32.6
+    },
+    "L2": {
+     "mean_pct": 12.43,
+     "median_pct": 10.26,
+     "n": 12,
+     "p90_pct": 22.05
+    }
+   },
+   "runtime_error": {
+    "mean_pct": 12.53,
+    "median_pct": 8.57,
+    "n": 16,
+    "p90_pct": 25.72
+   },
+   "signed_median_pct": 2.87,
+   "supported": 16
+  }
+ },
+ "verdict": {
+  "beats_bank_conflict_model": true,
+  "beats_roofline": true,
+  "current_model_median_le_15": true
+ }
+}

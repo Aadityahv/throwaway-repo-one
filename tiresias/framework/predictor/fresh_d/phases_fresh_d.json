@@ -1,0 +1,3114 @@
+{
+ "assumptions": [
+  "Aligned synthetic pointer bases.",
+  "Uniform phase signatures at sampled blocks, checked against separately frozen aggregate sectors for retained kernels.",
+  "PyTorch dispatch and fast-path assumptions from the committed adapter.",
+  "Copy TensorIterator keeps the traced two dimensions and argument order.",
+  "Last-writer register chains omit shared-memory and cross-lane def-use edges; executed loop trips charge separate chain segments.",
+  "Unknown non-control instruction guards contribute an explicit upper bound.",
+  "Fresh set D: retained CUDA Samples evidence of a development cell with the same kernel is hash-verified under that cell's own identity; only the launch binding (grid, block and scalar arguments) is new and explicit (fresh_d_lib.bind_fresh).",
+  "Frozen full-launch coalescing totals that phases.retained() cross-checks are, for fresh cells, the totals of coalescing.analyse_cell() on the same new cell."
+ ],
+ "input_sha256": {
+  "tiresias/framework/compile_evidence/operator_derivation/collective.py": "7a37646bd6d298b9d63463429dca063c8d04cb2b59c823f2becbb1eb1bc2ac90",
+  "tiresias/framework/compile_evidence/operator_derivation/derive.py": "d217d0eb0d39165b1adeccafa276b34519a6767447a364d98724ee784613887b",
+  "tiresias/framework/predictor/coalescing/coalescing.py": "ef93d7894b211e03ddfcb640da03619c153cc12ef6cdd53df7e703d087a7c338",
+  "tiresias/framework/predictor/extract_features.py": "0158fc7e7c7732a62da213c64a95f4f91553e27f74fb1f1aea7ab2bbc1468376",
+  "tiresias/framework/predictor/fresh_d/build_fresh_d.py": "1ff6d74043b78d330b9c29b1bd0e085bb93214b78e8e32719e0923498469e356",
+  "tiresias/framework/predictor/fresh_d/fresh_d_lib.py": "bb58d6d987e44b18fdb117b4d815c38d3ab52efaddeb00d7bb3f6f82e0f486b5",
+  "tiresias/framework/predictor/phases.py": "804c91e38e3bafca0331161255c9f3b0534a1bc953e0993f6016370c6f1a77e9",
+  "tiresias/framework/predictor/reuse/phases_unique.py": "e8c461b13587427d4eb269235c228f6dd07a37824eca22cdbed94e6add9a5037"
+ },
+ "rows": {
+  "blackwell/fresh_d_cuda_samples_copy/dram/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "EXIT": 409600,
+        "IMAD": 409600,
+        "IMAD.WIDE": 1638400,
+        "LDC": 819200,
+        "LDC.64": 819200,
+        "LDCU.64": 409600,
+        "LDG.E": 819200,
+        "LEA": 1228800,
+        "S2R": 1638400,
+        "STG.E": 819200
+       },
+       "lines": 1638400,
+       "read_bytes": 104857600,
+       "read_sectors": 3276800,
+       "repetitions": 1,
+       "write_bytes": 104857600,
+       "write_sectors": 3276800
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12800,
+      25599
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_copy/dram/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1b0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 409600,
+        "IMAD": 1228800,
+        "IMAD.WIDE": 819200,
+        "ISETP.GE.AND": 819200,
+        "ISETP.GE.OR": 819200,
+        "LDC": 409600,
+        "LDC.64": 819200,
+        "LDCU.64": 409600,
+        "LDG.E": 819200,
+        "LEA": 819200,
+        "S2R": 1638400,
+        "S2UR": 409600,
+        "SHF.L.U32": 409600,
+        "STS": 819200,
+        "ULEA": 409600,
+        "UMOV": 409600
+       },
+       "lines": 819200,
+       "read_bytes": 104857600,
+       "read_sectors": 3276800,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 4,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 819200,
+        "IMAD.WIDE": 819200,
+        "LDC.64": 409600,
+        "LDS": 819200,
+        "STG.E": 819200
+       },
+       "lines": 819200,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 104857600,
+       "write_sectors": 3276800
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12800,
+      25599
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_copy/l2/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "EXIT": 36864,
+        "IMAD": 36864,
+        "IMAD.WIDE": 147456,
+        "LDC": 73728,
+        "LDC.64": 73728,
+        "LDCU.64": 36864,
+        "LDG.E": 73728,
+        "LEA": 110592,
+        "S2R": 147456,
+        "STG.E": 73728
+       },
+       "lines": 147456,
+       "read_bytes": 9437184,
+       "read_sectors": 294912,
+       "repetitions": 1,
+       "write_bytes": 9437184,
+       "write_sectors": 294912
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      1152,
+      2303
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_copy/l2/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1b0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 36864,
+        "IMAD": 110592,
+        "IMAD.WIDE": 73728,
+        "ISETP.GE.AND": 73728,
+        "ISETP.GE.OR": 73728,
+        "LDC": 36864,
+        "LDC.64": 73728,
+        "LDCU.64": 36864,
+        "LDG.E": 73728,
+        "LEA": 73728,
+        "S2R": 147456,
+        "S2UR": 36864,
+        "SHF.L.U32": 36864,
+        "STS": 73728,
+        "ULEA": 36864,
+        "UMOV": 36864
+       },
+       "lines": 73728,
+       "read_bytes": 9437184,
+       "read_sectors": 294912,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 4,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 73728,
+        "IMAD.WIDE": 73728,
+        "LDC.64": 36864,
+        "LDS": 73728,
+        "STG.E": 73728
+       },
+       "lines": 73728,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 9437184,
+       "write_sectors": 294912
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      1152,
+      2303
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_reduce2/dram/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x140",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "HFMA2": 1572864,
+        "IMAD": 1572864,
+        "IMAD.WIDE.U32": 1572864,
+        "ISETP.GE.U32.AND": 3145728,
+        "ISETP.NE.U32.AND": 1572864,
+        "LDC": 1572864,
+        "LDC.64": 1572864,
+        "LDCU": 3145728,
+        "LDCU.64": 1572864,
+        "LDG.E": 1572864,
+        "LEA": 1572864,
+        "MOV": 1572864,
+        "S2R": 3145728,
+        "S2UR": 1572864,
+        "STS": 1572864,
+        "ULEA": 1572864,
+        "UMOV": 1572864
+       },
+       "lines": 1572864,
+       "read_bytes": 201326592,
+       "read_sectors": 6291456,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 3145728,
+        "SHF.R.U32.HI": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 2,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "ISETP.GT.U32.AND": 1572864,
+        "LDS": 3145728,
+        "MOV": 1572864,
+        "SHF.R.U32.HI": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 3,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "ISETP.GT.U32.AND": 1572864,
+        "LDS": 3145728,
+        "MOV": 1572864,
+        "SHF.R.U32.HI": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 4,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "ISETP.GT.U32.AND": 1572864,
+        "LDS": 3145728,
+        "MOV": 1572864,
+        "SHF.R.U32.HI": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 5,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "ISETP.GT.U32.AND": 1572864,
+        "LDS": 3145728,
+        "MOV": 1572864,
+        "SHF.R.U32.HI": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 6,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "ISETP.GT.U32.AND": 1572864,
+        "LDS": 3145728,
+        "MOV": 1572864,
+        "SHF.R.U32.HI": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 7,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "ISETP.GT.U32.AND": 1572864,
+        "LDS": 3145728,
+        "MOV": 1572864,
+        "SHF.R.U32.HI": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 8,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "ISETP.GT.U32.AND": 1572864,
+        "LDS": 3145728,
+        "MOV": 1572864,
+        "SHF.R.U32.HI": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 4,
+       "dependent_global_load_depth": 0,
+       "index": 9,
+       "issue_warp_instructions": {
+        "BRA": 1572864,
+        "EXIT": 1769472,
+        "IMAD.WIDE.U32": 196608,
+        "ISETP.GT.U32.AND": 1572864,
+        "LDC.64": 196608,
+        "LDS": 196608,
+        "MOV": 1572864,
+        "S2UR": 196608,
+        "STG.E": 196608,
+        "ULEA": 196608,
+        "UMOV": 196608
+       },
+       "lines": 196608,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 786432,
+       "write_sectors": 196608
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      98304,
+      196607
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_reduce2/l2/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x140",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0",
+      "0x1d0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "HFMA2": 196608,
+        "IMAD": 196608,
+        "IMAD.WIDE.U32": 196608,
+        "ISETP.GE.U32.AND": 393216,
+        "ISETP.NE.U32.AND": 196608,
+        "LDC": 196608,
+        "LDC.64": 196608,
+        "LDCU": 393216,
+        "LDCU.64": 196608,
+        "LDG.E": 196608,
+        "LEA": 196608,
+        "MOV": 196608,
+        "S2R": 393216,
+        "S2UR": 196608,
+        "STS": 196608,
+        "ULEA": 196608,
+        "UMOV": 196608
+       },
+       "lines": 196608,
+       "read_bytes": 25165824,
+       "read_sectors": 786432,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 393216,
+        "SHF.R.U32.HI": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 2,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "ISETP.GT.U32.AND": 196608,
+        "LDS": 393216,
+        "MOV": 196608,
+        "SHF.R.U32.HI": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 3,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "ISETP.GT.U32.AND": 196608,
+        "LDS": 393216,
+        "MOV": 196608,
+        "SHF.R.U32.HI": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 4,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "ISETP.GT.U32.AND": 196608,
+        "LDS": 393216,
+        "MOV": 196608,
+        "SHF.R.U32.HI": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 5,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "ISETP.GT.U32.AND": 196608,
+        "LDS": 393216,
+        "MOV": 196608,
+        "SHF.R.U32.HI": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 6,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "ISETP.GT.U32.AND": 196608,
+        "LDS": 393216,
+        "MOV": 196608,
+        "SHF.R.U32.HI": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 7,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "ISETP.GT.U32.AND": 196608,
+        "LDS": 393216,
+        "MOV": 196608,
+        "SHF.R.U32.HI": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 8,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "ISETP.GT.U32.AND": 196608,
+        "LDS": 393216,
+        "MOV": 196608,
+        "SHF.R.U32.HI": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 4,
+       "dependent_global_load_depth": 0,
+       "index": 9,
+       "issue_warp_instructions": {
+        "BRA": 196608,
+        "EXIT": 221184,
+        "IMAD.WIDE.U32": 24576,
+        "ISETP.GT.U32.AND": 196608,
+        "LDC.64": 24576,
+        "LDS": 24576,
+        "MOV": 196608,
+        "S2UR": 24576,
+        "STG.E": 24576,
+        "ULEA": 24576,
+        "UMOV": 24576
+       },
+       "lines": 24576,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 98304,
+       "write_sectors": 24576
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12288,
+      24575
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_reduction/dram/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x130",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "HFMA2": 1572864,
+        "IMAD": 1572864,
+        "IMAD.WIDE.U32": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "ISETP.NE.U32.AND": 1572864,
+        "LDC": 1572864,
+        "LDC.64": 1572864,
+        "LDCU": 3145728,
+        "LDCU.64": 1572864,
+        "LDG.E": 1572864,
+        "LEA": 1572864,
+        "S2R": 3145728,
+        "S2UR": 1572864,
+        "STS": 1572864,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 1572864,
+        "UMOV": 1572864
+       },
+       "lines": 1572864,
+       "read_bytes": 201326592,
+       "read_sectors": 6291456,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA.U": 1572864,
+        "FADD": 1572864,
+        "IADD": 1572864,
+        "IMAD": 1572864,
+        "IMAD.SHL.U32": 1572864,
+        "LDS": 3145728,
+        "LOP3.LUT": 1572864,
+        "MOV": 3145728,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 2,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IADD": 1572864,
+        "IMAD": 1572864,
+        "IMAD.SHL.U32": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 3145728,
+        "LOP3.LUT": 1572864,
+        "MOV": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 3,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IADD": 1572864,
+        "IMAD": 1572864,
+        "IMAD.SHL.U32": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 3145728,
+        "LOP3.LUT": 1572864,
+        "MOV": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 4,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IADD": 1572864,
+        "IMAD": 1572864,
+        "IMAD.SHL.U32": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 3145728,
+        "LOP3.LUT": 1572864,
+        "MOV": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 5,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IADD": 1572864,
+        "IMAD": 1572864,
+        "IMAD.SHL.U32": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 3145728,
+        "LOP3.LUT": 1572864,
+        "MOV": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 6,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IADD": 1572864,
+        "IMAD": 1572864,
+        "IMAD.SHL.U32": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 3145728,
+        "LOP3.LUT": 1572864,
+        "MOV": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 7,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IADD": 1572864,
+        "IMAD": 1572864,
+        "IMAD.SHL.U32": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 3145728,
+        "LOP3.LUT": 1572864,
+        "MOV": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 8,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "FADD": 1572864,
+        "IADD": 1572864,
+        "IMAD": 1572864,
+        "IMAD.SHL.U32": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 3145728,
+        "LOP3.LUT": 1572864,
+        "MOV": 1572864,
+        "STS": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 4,
+       "dependent_global_load_depth": 0,
+       "index": 9,
+       "issue_warp_instructions": {
+        "BRA": 1572864,
+        "EXIT": 1769472,
+        "IMAD.WIDE.U32": 196608,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDC.64": 196608,
+        "LDS": 196608,
+        "S2UR": 196608,
+        "STG.E": 196608,
+        "ULEA": 196608,
+        "UMOV": 196608
+       },
+       "lines": 196608,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 786432,
+       "write_sectors": 196608
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      98304,
+      196607
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_reduction/dram/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x120",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "HFMA2": 1572864,
+        "IMAD": 1572864,
+        "IMAD.WIDE.U32": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDC": 1572864,
+        "LDC.64": 1572864,
+        "LDCU": 3145728,
+        "LDCU.64": 1572864,
+        "LDG.E": 1572864,
+        "LEA": 1572864,
+        "S2R": 3145728,
+        "S2UR": 1572864,
+        "STS": 1572864,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 1572864,
+        "UMOV": 1572864
+       },
+       "lines": 1572864,
+       "read_bytes": 201326592,
+       "read_sectors": 6291456,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "BRA.U": 1572864,
+        "BSSY.RECONVERGENT": 1572864,
+        "BSYNC.RECONVERGENT": 1572864,
+        "FADD": 786432,
+        "IADD": 786432,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 1572864,
+        "LEA": 1572864,
+        "S2UR": 786432,
+        "STS": 786432,
+        "ULEA": 786432,
+        "UMOV": 2359296,
+        "USHF.L.U32": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 2,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "BRA.U": 1572864,
+        "BSSY.RECONVERGENT": 1572864,
+        "BSYNC.RECONVERGENT": 1572864,
+        "FADD": 393216,
+        "IADD": 393216,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 786432,
+        "LEA": 786432,
+        "S2UR": 393216,
+        "STS": 393216,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 393216,
+        "UMOV": 1966080,
+        "USHF.L.U32": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 3,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "BRA.U": 1572864,
+        "BSSY.RECONVERGENT": 1572864,
+        "BSYNC.RECONVERGENT": 1572864,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 393216,
+        "LEA": 393216,
+        "S2UR": 196608,
+        "STS": 196608,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 196608,
+        "UMOV": 1769472,
+        "USHF.L.U32": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 4,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "BRA.U": 1572864,
+        "BSSY.RECONVERGENT": 1572864,
+        "BSYNC.RECONVERGENT": 1572864,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 393216,
+        "LEA": 393216,
+        "S2UR": 196608,
+        "STS": 196608,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 196608,
+        "UMOV": 1769472,
+        "USHF.L.U32": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 5,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "BRA.U": 1572864,
+        "BSSY.RECONVERGENT": 1572864,
+        "BSYNC.RECONVERGENT": 1572864,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 393216,
+        "LEA": 393216,
+        "S2UR": 196608,
+        "STS": 196608,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 196608,
+        "UMOV": 1769472,
+        "USHF.L.U32": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 6,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "BRA.U": 1572864,
+        "BSSY.RECONVERGENT": 1572864,
+        "BSYNC.RECONVERGENT": 1572864,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 393216,
+        "LEA": 393216,
+        "S2UR": 196608,
+        "STS": 196608,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 196608,
+        "UMOV": 1769472,
+        "USHF.L.U32": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 7,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "BRA.U": 1572864,
+        "BSSY.RECONVERGENT": 1572864,
+        "BSYNC.RECONVERGENT": 1572864,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 393216,
+        "LEA": 393216,
+        "S2UR": 196608,
+        "STS": 196608,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 196608,
+        "UMOV": 1769472,
+        "USHF.L.U32": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 8,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 1572864,
+        "BRA": 1572864,
+        "BRA.U": 1572864,
+        "BSSY.RECONVERGENT": 1572864,
+        "BSYNC.RECONVERGENT": 1572864,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 1572864,
+        "ISETP.GE.U32.AND": 1572864,
+        "LDS": 393216,
+        "LEA": 393216,
+        "S2UR": 196608,
+        "STS": 196608,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 196608,
+        "UMOV": 1769472,
+        "USHF.L.U32": 1572864
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 4,
+       "dependent_global_load_depth": 0,
+       "index": 9,
+       "issue_warp_instructions": {
+        "BRA.U": 1572864,
+        "EXIT": 1769472,
+        "IMAD.WIDE.U32": 196608,
+        "ISETP.NE.U32.AND": 1572864,
+        "LDC.64": 196608,
+        "LDS": 196608,
+        "S2UR": 196608,
+        "STG.E": 196608,
+        "UISETP.GE.U32.AND": 1572864,
+        "ULEA": 196608,
+        "UMOV": 1769472
+       },
+       "lines": 196608,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 786432,
+       "write_sectors": 196608
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      98304,
+      196607
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_reduction/dram/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x270",
+      "0x280",
+      "0x2c0",
+      "0x330"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 8195,
+       "dependent_global_load_depth": 2048,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 512,
+        "BRA": 1049088,
+        "BSSY": 512,
+        "BSSY.RECONVERGENT": 512,
+        "BSYNC.RECONVERGENT": 512,
+        "FADD": 2097152,
+        "HFMA2": 512,
+        "IADD": 1048576,
+        "IMAD": 1049088,
+        "IMAD.WIDE.U32": 2097152,
+        "ISETP.GE.U32.AND": 2097664,
+        "ISETP.GT.U32.AND": 1024,
+        "LDC": 1024,
+        "LDC.64": 512,
+        "LDCU": 2048,
+        "LDCU.64": 512,
+        "LDG.E": 2097152,
+        "LEA": 512,
+        "MOV": 1024,
+        "S2R": 2048,
+        "S2UR": 512,
+        "STS": 512,
+        "ULEA": 512,
+        "UMOV": 512
+       },
+       "lines": 2097152,
+       "read_bytes": 268435456,
+       "read_sectors": 8388608,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 1,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 512
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 3,
+       "dependent_global_load_depth": 0,
+       "index": 2,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 512,
+        "FADD": 512,
+        "LDS": 512,
+        "STS": 512
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 3,
+       "dependent_global_load_depth": 0,
+       "index": 3,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 512,
+        "FADD": 512,
+        "IADD": 512,
+        "IMAD": 1024,
+        "LDS": 512,
+        "STS": 512
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 13,
+       "dependent_global_load_depth": 0,
+       "index": 4,
+       "issue_warp_instructions": {
+        "BRA": 512,
+        "BRA.DIV": 64,
+        "BSYNC": 512,
+        "EXIT": 576,
+        "FADD": 384,
+        "IMAD.WIDE.U32": 64,
+        "ISETP.GT.U32.AND": 512,
+        "LDC.64": 64,
+        "LDS": 64,
+        "LOP3.LUT": 512,
+        "SHFL.DOWN": 320,
+        "STG.E": 64,
+        "UMOV": 64
+       },
+       "lines": 64,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 256,
+       "write_sectors": 64
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      32,
+      63
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_reduction/l2/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x130",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0",
+      "0x1f0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "HFMA2": 196608,
+        "IMAD": 196608,
+        "IMAD.WIDE.U32": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "ISETP.NE.U32.AND": 196608,
+        "LDC": 196608,
+        "LDC.64": 196608,
+        "LDCU": 393216,
+        "LDCU.64": 196608,
+        "LDG.E": 196608,
+        "LEA": 196608,
+        "S2R": 393216,
+        "S2UR": 196608,
+        "STS": 196608,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 196608,
+        "UMOV": 196608
+       },
+       "lines": 196608,
+       "read_bytes": 25165824,
+       "read_sectors": 786432,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA.U": 196608,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 196608,
+        "IMAD.SHL.U32": 196608,
+        "LDS": 393216,
+        "LOP3.LUT": 196608,
+        "MOV": 393216,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 2,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 196608,
+        "IMAD.SHL.U32": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 393216,
+        "LOP3.LUT": 196608,
+        "MOV": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 3,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 196608,
+        "IMAD.SHL.U32": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 393216,
+        "LOP3.LUT": 196608,
+        "MOV": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 4,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 196608,
+        "IMAD.SHL.U32": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 393216,
+        "LOP3.LUT": 196608,
+        "MOV": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 5,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 196608,
+        "IMAD.SHL.U32": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 393216,
+        "LOP3.LUT": 196608,
+        "MOV": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 6,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 196608,
+        "IMAD.SHL.U32": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 393216,
+        "LOP3.LUT": 196608,
+        "MOV": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 7,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 196608,
+        "IMAD.SHL.U32": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 393216,
+        "LOP3.LUT": 196608,
+        "MOV": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 8,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "FADD": 196608,
+        "IADD": 196608,
+        "IMAD": 196608,
+        "IMAD.SHL.U32": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 393216,
+        "LOP3.LUT": 196608,
+        "MOV": 196608,
+        "STS": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 4,
+       "dependent_global_load_depth": 0,
+       "index": 9,
+       "issue_warp_instructions": {
+        "BRA": 196608,
+        "EXIT": 221184,
+        "IMAD.WIDE.U32": 24576,
+        "ISETP.GE.U32.AND": 196608,
+        "LDC.64": 24576,
+        "LDS": 24576,
+        "S2UR": 24576,
+        "STG.E": 24576,
+        "ULEA": 24576,
+        "UMOV": 24576
+       },
+       "lines": 24576,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 98304,
+       "write_sectors": 24576
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12288,
+      24575
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_reduction/l2/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x120",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250",
+      "0x250"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "HFMA2": 196608,
+        "IMAD": 196608,
+        "IMAD.WIDE.U32": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDC": 196608,
+        "LDC.64": 196608,
+        "LDCU": 393216,
+        "LDCU.64": 196608,
+        "LDG.E": 196608,
+        "LEA": 196608,
+        "S2R": 393216,
+        "S2UR": 196608,
+        "STS": 196608,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 196608,
+        "UMOV": 196608
+       },
+       "lines": 196608,
+       "read_bytes": 25165824,
+       "read_sectors": 786432,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 8,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "BRA.U": 196608,
+        "BSSY.RECONVERGENT": 196608,
+        "BSYNC.RECONVERGENT": 196608,
+        "FADD": 98304,
+        "IADD": 98304,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 196608,
+        "LEA": 196608,
+        "S2UR": 98304,
+        "STS": 98304,
+        "ULEA": 98304,
+        "UMOV": 294912,
+        "USHF.L.U32": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 2,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "BRA.U": 196608,
+        "BSSY.RECONVERGENT": 196608,
+        "BSYNC.RECONVERGENT": 196608,
+        "FADD": 49152,
+        "IADD": 49152,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 98304,
+        "LEA": 98304,
+        "S2UR": 49152,
+        "STS": 49152,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 49152,
+        "UMOV": 245760,
+        "USHF.L.U32": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 3,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "BRA.U": 196608,
+        "BSSY.RECONVERGENT": 196608,
+        "BSYNC.RECONVERGENT": 196608,
+        "FADD": 24576,
+        "IADD": 24576,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 49152,
+        "LEA": 49152,
+        "S2UR": 24576,
+        "STS": 24576,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 24576,
+        "UMOV": 221184,
+        "USHF.L.U32": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 4,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "BRA.U": 196608,
+        "BSSY.RECONVERGENT": 196608,
+        "BSYNC.RECONVERGENT": 196608,
+        "FADD": 24576,
+        "IADD": 24576,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 49152,
+        "LEA": 49152,
+        "S2UR": 24576,
+        "STS": 24576,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 24576,
+        "UMOV": 221184,
+        "USHF.L.U32": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 5,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "BRA.U": 196608,
+        "BSSY.RECONVERGENT": 196608,
+        "BSYNC.RECONVERGENT": 196608,
+        "FADD": 24576,
+        "IADD": 24576,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 49152,
+        "LEA": 49152,
+        "S2UR": 24576,
+        "STS": 24576,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 24576,
+        "UMOV": 221184,
+        "USHF.L.U32": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 6,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "BRA.U": 196608,
+        "BSSY.RECONVERGENT": 196608,
+        "BSYNC.RECONVERGENT": 196608,
+        "FADD": 24576,
+        "IADD": 24576,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 49152,
+        "LEA": 49152,
+        "S2UR": 24576,
+        "STS": 24576,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 24576,
+        "UMOV": 221184,
+        "USHF.L.U32": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 7,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "BRA.U": 196608,
+        "BSSY.RECONVERGENT": 196608,
+        "BSYNC.RECONVERGENT": 196608,
+        "FADD": 24576,
+        "IADD": 24576,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 49152,
+        "LEA": 49152,
+        "S2UR": 24576,
+        "STS": 24576,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 24576,
+        "UMOV": 221184,
+        "USHF.L.U32": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 9,
+       "dependent_global_load_depth": 0,
+       "index": 8,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 196608,
+        "BRA": 196608,
+        "BRA.U": 196608,
+        "BSSY.RECONVERGENT": 196608,
+        "BSYNC.RECONVERGENT": 196608,
+        "FADD": 24576,
+        "IADD": 24576,
+        "IMAD": 196608,
+        "ISETP.GE.U32.AND": 196608,
+        "LDS": 49152,
+        "LEA": 49152,
+        "S2UR": 24576,
+        "STS": 24576,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 24576,
+        "UMOV": 221184,
+        "USHF.L.U32": 196608
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 4,
+       "dependent_global_load_depth": 0,
+       "index": 9,
+       "issue_warp_instructions": {
+        "BRA.U": 196608,
+        "EXIT": 221184,
+        "IMAD.WIDE.U32": 24576,
+        "ISETP.NE.U32.AND": 196608,
+        "LDC.64": 24576,
+        "LDS": 24576,
+        "S2UR": 24576,
+        "STG.E": 24576,
+        "UISETP.GE.U32.AND": 196608,
+        "ULEA": 24576,
+        "UMOV": 221184
+       },
+       "lines": 24576,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 98304,
+       "write_sectors": 24576
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12288,
+      24575
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_reduction/l2/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x270",
+      "0x280",
+      "0x2c0",
+      "0x330"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 1027,
+       "dependent_global_load_depth": 256,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 512,
+        "BRA": 131584,
+        "BSSY": 512,
+        "BSSY.RECONVERGENT": 512,
+        "BSYNC.RECONVERGENT": 512,
+        "FADD": 262144,
+        "HFMA2": 512,
+        "IADD": 131072,
+        "IMAD": 131584,
+        "IMAD.WIDE.U32": 262144,
+        "ISETP.GE.U32.AND": 262656,
+        "ISETP.GT.U32.AND": 1024,
+        "LDC": 1024,
+        "LDC.64": 512,
+        "LDCU": 2048,
+        "LDCU.64": 512,
+        "LDG.E": 262144,
+        "LEA": 512,
+        "MOV": 1024,
+        "S2R": 2048,
+        "S2UR": 512,
+        "STS": 512,
+        "ULEA": 512,
+        "UMOV": 512
+       },
+       "lines": 262144,
+       "read_bytes": 33554432,
+       "read_sectors": 1048576,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 1,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 512
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 3,
+       "dependent_global_load_depth": 0,
+       "index": 2,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 512,
+        "FADD": 512,
+        "LDS": 512,
+        "STS": 512
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 3,
+       "dependent_global_load_depth": 0,
+       "index": 3,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 512,
+        "FADD": 512,
+        "IADD": 512,
+        "IMAD": 1024,
+        "LDS": 512,
+        "STS": 512
+       },
+       "lines": 0,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 13,
+       "dependent_global_load_depth": 0,
+       "index": 4,
+       "issue_warp_instructions": {
+        "BRA": 512,
+        "BRA.DIV": 64,
+        "BSYNC": 512,
+        "EXIT": 576,
+        "FADD": 384,
+        "IMAD.WIDE.U32": 64,
+        "ISETP.GT.U32.AND": 512,
+        "LDC.64": 64,
+        "LDS": 64,
+        "LOP3.LUT": 512,
+        "SHFL.DOWN": 320,
+        "STG.E": 64,
+        "UMOV": 64
+       },
+       "lines": 64,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 256,
+       "write_sectors": 64
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      32,
+      63
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transpose/dram/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "EXIT": 409600,
+        "IMAD": 819200,
+        "IMAD.WIDE": 1228800,
+        "LDC": 409600,
+        "LDC.64": 1228800,
+        "LDCU.64": 409600,
+        "LDG.E": 819200,
+        "LEA": 1228800,
+        "S2R": 1638400,
+        "STG.E": 819200
+       },
+       "lines": 27033600,
+       "read_bytes": 104857600,
+       "read_sectors": 3276800,
+       "repetitions": 1,
+       "write_bytes": 104857600,
+       "write_sectors": 26214400
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12800,
+      25599
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transpose/dram/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1f0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 409600,
+        "IMAD": 1228800,
+        "IMAD.WIDE": 819200,
+        "LDC": 1228800,
+        "LDC.64": 819200,
+        "LDCU.64": 409600,
+        "LDG.E": 819200,
+        "LEA": 3686400,
+        "S2R": 1638400,
+        "S2UR": 409600,
+        "STS": 819200,
+        "ULEA": 409600,
+        "UMOV": 409600
+       },
+       "lines": 819200,
+       "read_bytes": 104857600,
+       "read_sectors": 3276800,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 409600,
+        "IMAD.WIDE": 819200,
+        "LDS": 819200,
+        "STG.E": 819200
+       },
+       "lines": 819200,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 104857600,
+       "write_sectors": 3276800
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12800,
+      25599
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transpose/dram/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1f0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 409600,
+        "IMAD": 1228800,
+        "IMAD.WIDE": 819200,
+        "LDC": 1228800,
+        "LDC.64": 819200,
+        "LDCU.64": 409600,
+        "LDG.E": 819200,
+        "LEA": 3686400,
+        "S2R": 1638400,
+        "S2UR": 409600,
+        "STS": 819200,
+        "ULEA": 409600,
+        "UMOV": 409600
+       },
+       "lines": 819200,
+       "read_bytes": 104857600,
+       "read_sectors": 3276800,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 409600,
+        "IMAD.WIDE": 819200,
+        "LDS": 819200,
+        "STG.E": 819200
+       },
+       "lines": 819200,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 104857600,
+       "write_sectors": 3276800
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12800,
+      25599
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transpose/dram/c4": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x630"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 17,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 409600,
+        "BRA": 819200,
+        "F2I.FTZ.U32.TRUNC.NTZ": 409600,
+        "HFMA2": 409600,
+        "I2F.U32.RP": 409600,
+        "IADD": 2048000,
+        "IMAD": 5324800,
+        "IMAD.HI.U32": 819200,
+        "IMAD.WIDE": 1638400,
+        "ISETP.GE.U32.AND": 819200,
+        "ISETP.NE.U32.AND": 819200,
+        "LDC": 819200,
+        "LDC.64": 1228800,
+        "LDCU.64": 409600,
+        "LDG.E": 819200,
+        "LEA": 409600,
+        "LOP3.LUT": 409600,
+        "MOV": 819200,
+        "MUFU.RCP": 409600,
+        "S2R": 819200,
+        "S2UR": 1228800,
+        "STS": 819200,
+        "UIADD3": 409600,
+        "ULEA": 409600,
+        "UMOV": 409600
+       },
+       "lines": 819200,
+       "read_bytes": 104857600,
+       "read_sectors": 3276800,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 409600,
+        "LDS": 819200,
+        "STG.E": 819200
+       },
+       "lines": 819200,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 104857600,
+       "write_sectors": 3276800
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12800,
+      25599
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transpose/l2/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "EXIT": 36864,
+        "IMAD": 73728,
+        "IMAD.WIDE": 110592,
+        "LDC": 36864,
+        "LDC.64": 110592,
+        "LDCU.64": 36864,
+        "LDG.E": 73728,
+        "LEA": 110592,
+        "S2R": 147456,
+        "STG.E": 73728
+       },
+       "lines": 2433024,
+       "read_bytes": 9437184,
+       "read_sectors": 294912,
+       "repetitions": 1,
+       "write_bytes": 9437184,
+       "write_sectors": 2359296
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      1152,
+      2303
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transpose/l2/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1f0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 36864,
+        "IMAD": 110592,
+        "IMAD.WIDE": 73728,
+        "LDC": 110592,
+        "LDC.64": 73728,
+        "LDCU.64": 36864,
+        "LDG.E": 73728,
+        "LEA": 331776,
+        "S2R": 147456,
+        "S2UR": 36864,
+        "STS": 73728,
+        "ULEA": 36864,
+        "UMOV": 36864
+       },
+       "lines": 73728,
+       "read_bytes": 9437184,
+       "read_sectors": 294912,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 36864,
+        "IMAD.WIDE": 73728,
+        "LDS": 73728,
+        "STG.E": 73728
+       },
+       "lines": 73728,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 9437184,
+       "write_sectors": 294912
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      1152,
+      2303
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transpose/l2/c3": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1f0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 36864,
+        "IMAD": 110592,
+        "IMAD.WIDE": 73728,
+        "LDC": 110592,
+        "LDC.64": 73728,
+        "LDCU.64": 36864,
+        "LDG.E": 73728,
+        "LEA": 331776,
+        "S2R": 147456,
+        "S2UR": 36864,
+        "STS": 73728,
+        "ULEA": 36864,
+        "UMOV": 36864
+       },
+       "lines": 73728,
+       "read_bytes": 9437184,
+       "read_sectors": 294912,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 36864,
+        "IMAD.WIDE": 73728,
+        "LDS": 73728,
+        "STG.E": 73728
+       },
+       "lines": 73728,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 9437184,
+       "write_sectors": 294912
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      1152,
+      2303
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transpose/l2/c4": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x630"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 17,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 36864,
+        "BRA": 73728,
+        "F2I.FTZ.U32.TRUNC.NTZ": 36864,
+        "HFMA2": 36864,
+        "I2F.U32.RP": 36864,
+        "IADD": 184320,
+        "IMAD": 479232,
+        "IMAD.HI.U32": 73728,
+        "IMAD.WIDE": 147456,
+        "ISETP.GE.U32.AND": 73728,
+        "ISETP.NE.U32.AND": 73728,
+        "LDC": 73728,
+        "LDC.64": 110592,
+        "LDCU.64": 36864,
+        "LDG.E": 73728,
+        "LEA": 36864,
+        "LOP3.LUT": 36864,
+        "MOV": 73728,
+        "MUFU.RCP": 36864,
+        "S2R": 73728,
+        "S2UR": 110592,
+        "STS": 73728,
+        "UIADD3": 36864,
+        "ULEA": 36864,
+        "UMOV": 36864
+       },
+       "lines": 73728,
+       "read_bytes": 9437184,
+       "read_sectors": 294912,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 36864,
+        "LDS": 73728,
+        "STG.E": 73728
+       },
+       "lines": 73728,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 9437184,
+       "write_sectors": 294912
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      1152,
+      2303
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transposefine/dram/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1e0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 409600,
+        "IMAD": 819200,
+        "IMAD.WIDE": 1638400,
+        "LDC": 1228800,
+        "LDC.64": 819200,
+        "LDCU.64": 409600,
+        "LDG.E": 819200,
+        "LEA": 2048000,
+        "S2R": 1638400,
+        "S2UR": 409600,
+        "SHF.L.U32": 819200,
+        "STS": 819200,
+        "ULEA": 409600,
+        "UMOV": 409600
+       },
+       "lines": 819200,
+       "read_bytes": 104857600,
+       "read_sectors": 3276800,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 409600,
+        "LDS": 819200,
+        "STG.E": 819200
+       },
+       "lines": 819200,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 104857600,
+       "write_sectors": 3276800
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12800,
+      25599
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transposefine/dram/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1d0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 409600,
+        "IMAD": 1228800,
+        "IMAD.WIDE": 819200,
+        "LDC": 1228800,
+        "LDC.64": 819200,
+        "LDCU.64": 409600,
+        "LDG.E": 819200,
+        "LEA": 2867200,
+        "S2R": 1638400,
+        "S2UR": 409600,
+        "STS": 819200,
+        "ULEA": 409600,
+        "UMOV": 409600
+       },
+       "lines": 819200,
+       "read_bytes": 104857600,
+       "read_sectors": 3276800,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 409600,
+        "IMAD.WIDE": 819200,
+        "LDS": 819200,
+        "STG.E": 819200
+       },
+       "lines": 819200,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 104857600,
+       "write_sectors": 3276800
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12800,
+      25599
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transposefine/l2/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1e0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 36864,
+        "IMAD": 73728,
+        "IMAD.WIDE": 147456,
+        "LDC": 110592,
+        "LDC.64": 73728,
+        "LDCU.64": 36864,
+        "LDG.E": 73728,
+        "LEA": 184320,
+        "S2R": 147456,
+        "S2UR": 36864,
+        "SHF.L.U32": 73728,
+        "STS": 73728,
+        "ULEA": 36864,
+        "UMOV": 36864
+       },
+       "lines": 73728,
+       "read_bytes": 9437184,
+       "read_sectors": 294912,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 36864,
+        "LDS": 73728,
+        "STG.E": 73728
+       },
+       "lines": 73728,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 9437184,
+       "write_sectors": 294912
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      1152,
+      2303
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_transposefine/l2/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [
+      "0x1d0"
+     ],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 6,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "BAR.SYNC.DEFER_BLOCKING": 36864,
+        "IMAD": 110592,
+        "IMAD.WIDE": 73728,
+        "LDC": 110592,
+        "LDC.64": 73728,
+        "LDCU.64": 36864,
+        "LDG.E": 73728,
+        "LEA": 258048,
+        "S2R": 147456,
+        "S2UR": 36864,
+        "STS": 73728,
+        "ULEA": 36864,
+        "UMOV": 36864
+       },
+       "lines": 73728,
+       "read_bytes": 9437184,
+       "read_sectors": 294912,
+       "repetitions": 1,
+       "write_bytes": 0,
+       "write_sectors": 0
+      },
+      {
+       "critical_path_compute_instructions": 2,
+       "dependent_global_load_depth": 0,
+       "index": 1,
+       "issue_warp_instructions": {
+        "EXIT": 36864,
+        "IMAD.WIDE": 73728,
+        "LDS": 73728,
+        "STG.E": 73728
+       },
+       "lines": 73728,
+       "read_bytes": 0,
+       "read_sectors": 0,
+       "repetitions": 1,
+       "write_bytes": 9437184,
+       "write_sectors": 294912
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      1152,
+      2303
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_vector_add/dram/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 5,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "EXIT": 1572864,
+        "FADD": 786432,
+        "IMAD": 786432,
+        "IMAD.WIDE": 2359296,
+        "ISETP.GE.AND": 786432,
+        "LDC": 1572864,
+        "LDC.64": 2359296,
+        "LDCU": 786432,
+        "LDCU.64": 786432,
+        "LDG.E": 1572864,
+        "S2R": 786432,
+        "S2UR": 786432,
+        "STG.E": 786432
+       },
+       "lines": 2359296,
+       "read_bytes": 201326592,
+       "read_sectors": 6291456,
+       "repetitions": 1,
+       "write_bytes": 100663296,
+       "write_sectors": 3145728
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      98304,
+      196607
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_vector_add/dram/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 5,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "EXIT": 1572864,
+        "FADD": 786432,
+        "IMAD": 786432,
+        "IMAD.WIDE": 2359296,
+        "ISETP.GE.AND": 786432,
+        "LDC": 1572864,
+        "LDC.64": 2359296,
+        "LDCU": 786432,
+        "LDCU.64": 786432,
+        "LDG.E": 1572864,
+        "S2R": 786432,
+        "S2UR": 786432,
+        "STG.E": 786432
+       },
+       "lines": 2359296,
+       "read_bytes": 201326592,
+       "read_sectors": 6291456,
+       "repetitions": 1,
+       "write_bytes": 100663296,
+       "write_sectors": 3145728
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12288,
+      24575
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_vector_add/l2/c1": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 5,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "EXIT": 196608,
+        "FADD": 98304,
+        "IMAD": 98304,
+        "IMAD.WIDE": 294912,
+        "ISETP.GE.AND": 98304,
+        "LDC": 196608,
+        "LDC.64": 294912,
+        "LDCU": 98304,
+        "LDCU.64": 98304,
+        "LDG.E": 196608,
+        "S2R": 98304,
+        "S2UR": 98304,
+        "STG.E": 98304
+       },
+       "lines": 294912,
+       "read_bytes": 25165824,
+       "read_sectors": 786432,
+       "repetitions": 1,
+       "write_bytes": 12582912,
+       "write_sectors": 393216
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      12288,
+      24575
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  },
+  "blackwell/fresh_d_cuda_samples_vector_add/l2/c2": {
+   "kernels": [
+    {
+     "barrier_sequence": [],
+     "grid_extrapolation": "conditional on uniform sampled signatures, checked against frozen full-launch memory totals",
+     "phases": [
+      {
+       "critical_path_compute_instructions": 5,
+       "dependent_global_load_depth": 1,
+       "index": 0,
+       "issue_warp_instructions": {
+        "EXIT": 196608,
+        "FADD": 98304,
+        "IMAD": 98304,
+        "IMAD.WIDE": 294912,
+        "ISETP.GE.AND": 98304,
+        "LDC": 196608,
+        "LDC.64": 294912,
+        "LDCU": 98304,
+        "LDCU.64": 98304,
+        "LDG.E": 196608,
+        "S2R": 98304,
+        "S2UR": 98304,
+        "STG.E": 98304
+       },
+       "lines": 294912,
+       "read_bytes": 25165824,
+       "read_sectors": 786432,
+       "repetitions": 1,
+       "write_bytes": 12582912,
+       "write_sectors": 393216
+      }
+     ],
+     "sampled_blocks": [
+      0,
+      1536,
+      3071
+     ],
+     "unknown_guard_upper_bounds": []
+    }
+   ],
+   "status": "conditional_static_phases"
+  }
+ },
+ "schema": "static_dynamic_barrier_phases/1",
+ "transaction_profiler_validation": false
+}

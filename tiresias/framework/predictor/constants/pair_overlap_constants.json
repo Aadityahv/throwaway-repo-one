@@ -1,0 +1,24 @@
+{
+ "schema": "pair_overlap_constants/1",
+ "rule": "phase time of the shared-load pipe (s) and the MMA pipe (m): max(s, m) + beta * min(s, m); beta linearly interpolated in resident warps per SM, held at the end values outside the measured range",
+ "resident_warps_per_sm": [
+  4,
+  8,
+  16,
+  32
+ ],
+ "beta_hmma": [
+  0.418,
+  0.328,
+  0.177,
+  0.08049999999999999
+ ],
+ "configurations_per_point": [
+  3,
+  6,
+  6,
+  4
+ ],
+ "source": "attention_diagnosis/raw/dep_frag.jsonl",
+ "source_sha256": "2863d0a351de6978b01e957d2d25cbe1a0f75165ead0b07bdaafcbde2ea41dd8"
+}

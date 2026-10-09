@@ -1,0 +1,133 @@
+{
+ "set": "h",
+ "cells": 8,
+ "energy_measured": 8,
+ "below_cap": 2,
+ "cap_pinned": 0,
+ "missing_energy": [],
+ "runtime": {
+  "Fused attention (bf16 tensor cores, online softmax)": {
+   "cells": 8,
+   "no_prediction": 0,
+   "median_ape_pct": 48.62364391093695,
+   "signed_median_pct": 18.456334018122096
+  },
+  "ALL": {
+   "cells": 8,
+   "no_prediction": 0,
+   "median_ape_pct": 48.62364391093695,
+   "p90_ape_pct": 139.51901256043467,
+   "signed_median_pct": 18.456334018122096
+  }
+ },
+ "energy": {
+  "static runtime": {
+   "Ours (calibrator only)": {
+    "Fused attention (bf16 tensor cores, online softmax)": 17.73147639716997,
+    "ALL 8": 17.73147639716997,
+    "below cap (2)": 30.71251239155245,
+    "p90 all": 35.227096875048765,
+    "no prediction": 0
+   },
+   "AccelWattch-style (refit)": {
+    "Fused attention (bf16 tensor cores, online softmax)": 44.2061659581195,
+    "ALL 8": 44.2061659581195,
+    "below cap (2)": 26.137078475100665,
+    "p90 all": 114.53247585725363,
+    "no prediction": 0
+   },
+   "FlipFlop": {
+    "Fused attention (bf16 tensor cores, online softmax)": 40.098886189820405,
+    "ALL 8": 40.098886189820405,
+    "below cap (2)": 6.270435151142156,
+    "p90 all": 113.15575813882526,
+    "no prediction": 0
+   },
+   "Alavani": {
+    "Fused attention (bf16 tensor cores, online softmax)": 80.04260586450684,
+    "ALL 8": 80.04260586450684,
+    "below cap (2)": 84.59418559952773,
+    "p90 all": 92.12368639506063,
+    "no prediction": 0
+   }
+  },
+  "measured runtime": {
+   "Ours (calibrator only)": {
+    "Fused attention (bf16 tensor cores, online softmax)": 17.69466000854902,
+    "ALL 8": 17.69466000854902,
+    "below cap (2)": 18.161409012793666,
+    "p90 all": 24.377853411172755,
+    "no prediction": 0
+   },
+   "AccelWattch-style (refit)": {
+    "Fused attention (bf16 tensor cores, online softmax)": 9.612237073039793,
+    "ALL 8": 9.612237073039793,
+    "below cap (2)": 71.04399886295522,
+    "p90 all": 60.00815104136444,
+    "no prediction": 0
+   },
+   "FlipFlop": {
+    "Fused attention (bf16 tensor cores, online softmax)": 9.254500606756533,
+    "ALL 8": 9.254500606756533,
+    "below cap (2)": 35.92101543500016,
+    "p90 all": 35.33312813823997,
+    "no prediction": 0
+   },
+   "Alavani": {
+    "Fused attention (bf16 tensor cores, online softmax)": 86.15195308236946,
+    "ALL 8": 86.15195308236946,
+    "below cap (2)": 77.69108995477514,
+    "p90 all": 91.673925206653,
+    "no prediction": 0
+   }
+  },
+  "no runtime input": {
+   "FlipFlop as published (own time model)": {
+    "median_all": 1133.2147919186293,
+    "median_below_cap": 7236.3395390697315
+   },
+   "Delestrac per-level energies": {
+    "median_all": 98.05133083785833,
+    "median_below_cap": 98.7327391218958
+   },
+   "O'Connor / Keckler constants": {
+    "median_all": 99.26942026044529,
+    "median_below_cap": 99.806053987351
+   }
+  }
+ },
+ "decision": {
+  "ours (static runtime, calibrator only)": {
+   "pairs": 4,
+   "failures": 0,
+   "top1_optimal": 3,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 1.429028496759982,
+   "max_regret_pct": 5.716113987039928
+  },
+  "faster by the static runtime model": {
+   "pairs": 4,
+   "failures": 0,
+   "top1_optimal": 3,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 1.429028496759982,
+   "max_regret_pct": 5.716113987039928
+  },
+  "always the first candidate": {
+   "pairs": 4,
+   "failures": 0,
+   "top1_optimal": 0,
+   "median_regret_pct": 19.139344841682203,
+   "mean_regret_pct": 15.953413693180833,
+   "max_regret_pct": 19.818851102319
+  },
+  "AccelWattch-style refit (static runtime)": {
+   "pairs": 4,
+   "failures": 0,
+   "top1_optimal": 3,
+   "median_regret_pct": 0.0,
+   "mean_regret_pct": 1.429028496759982,
+   "max_regret_pct": 5.716113987039928
+  }
+ }
+}

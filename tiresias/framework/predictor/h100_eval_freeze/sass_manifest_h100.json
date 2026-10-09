@@ -1,0 +1,156 @@
+{
+ "analysed_cubin_sha256": {
+  "BlackScholes.cubin": "73ab0984836c8c8f97ca9fad0f7358198c5bb51e521b72350dbb2ccdfd36a32d",
+  "convolutionSeparable.cubin": "ffd45666647eab3f56868bc27a952c7b658a6ed7bff9e14974b30dfad2ba066a",
+  "fastWalshTransform.cubin": "6f3e3f7ded5fe95082cd018de80fc6c8446c1b1a70371c0563ead99fc9ffadf4",
+  "matrixMul.cubin": "007b718fba70c260b4d3e62fbf614e9633e4138b465a070717a2fa34234f989d",
+  "reduction.cubin": "fa4c5382aa81e80fd51d76ca1e88d9736ab669e9f8a5772f1976bbb43a81f4ff",
+  "scalarProd.cubin": "fedfa2c5624bd5f7d1f123ee6d952d4fbb8664c83be2d5ac00d794e8ec2e9d6d",
+  "scan.cubin": "e20aa553577b5c5a95fa55ccb8990e45d3b87dd0695ac957ad6e52a275257632",
+  "transpose.cubin": "12d1f53f8f819474b82913310cd4faf432fba45a7e47d5ad2e673f09549818a5"
+ },
+ "arch": "sm_90",
+ "kernels": {
+  "bs": {
+   "instruction_sequence_sha256": "1a8dac85163350034c2cdcea059ae76fffdf434dde838bef92b51b94d88e1394",
+   "instructions": 344,
+   "source_sass_file": "BlackScholes.sass",
+   "symbol": "_Z15BlackScholesGPUP6float2S0_S0_S0_S0_ffi"
+  },
+  "conv_cols": {
+   "instruction_sequence_sha256": "0e25a441f4be997d118c7d8c10321e296374d746d911c1aba66fa4d766731d04",
+   "instructions": 328,
+   "source_sass_file": "convolutionSeparable.sass",
+   "symbol": "_Z24convolutionColumnsKernelPfS_iii"
+  },
+  "conv_rows": {
+   "instruction_sequence_sha256": "8117e21bb5c7f5668d660868ab15df8cf415d8bcf758cbc591f70990f8c5b117",
+   "instructions": 344,
+   "source_sass_file": "convolutionSeparable.sass",
+   "symbol": "_Z21convolutionRowsKernelPfS_iii"
+  },
+  "d_copy": {
+   "instruction_sequence_sha256": "0d4c41e0ee4cc25631fa350cf32d8ab5f5c28be1f33696d98cedf8cd7784d295",
+   "instructions": 32,
+   "source_sass_file": "transpose.sass",
+   "symbol": "_Z4copyPfS_ii"
+  },
+  "d_copySharedMem": {
+   "instruction_sequence_sha256": "6be40a20a2d5145dbbbf13a37ee6be28577124f344343e3becfcaeae4c9a7d8e",
+   "instructions": 48,
+   "source_sass_file": "transpose.sass",
+   "symbol": "_Z13copySharedMemPfS_ii"
+  },
+  "d_reduce0": {
+   "instruction_sequence_sha256": "a214f9bf3010fa42641ccd5bd61bea496bb80139e3cd3672766ce24d10f8b486",
+   "instructions": 72,
+   "source_sass_file": "reduction.sass",
+   "symbol": "_Z7reduce0IfEvPT_S1_j"
+  },
+  "d_reduce1": {
+   "instruction_sequence_sha256": "838df0ef17f18a1d5e9b7fbab5f021c90b2e4fbf4a1d9a2547fb4e99c870f3f5",
+   "instructions": 56,
+   "source_sass_file": "reduction.sass",
+   "symbol": "_Z7reduce1IfEvPT_S1_j"
+  },
+  "d_reduce2": {
+   "instruction_sequence_sha256": "1785c805ec6a84c32d7e1af5537516b0d17ffbb9be575b7ca105b606a5619fe0",
+   "instructions": 56,
+   "source_sass_file": "reduction.sass",
+   "symbol": "_Z7reduce2IfEvPT_S1_j"
+  },
+  "d_reduce6": {
+   "instruction_sequence_sha256": "3d9a8f038b0f2251195efdc50cc6a5097f1577309506fdf1c9c4a0fc15bb6b13",
+   "instructions": 128,
+   "source_sass_file": "reduction.sass",
+   "symbol": "_Z7reduce6IfLj256ELb1EEvPT_S1_j"
+  },
+  "d_transposeCoalesced": {
+   "instruction_sequence_sha256": "357ff00692a04743b05f51a8a121768910d2d5f85d73980439afb1db54f109d6",
+   "instructions": 48,
+   "source_sass_file": "transpose.sass",
+   "symbol": "_Z18transposeCoalescedPfS_ii"
+  },
+  "d_transposeCoarseGrained": {
+   "instruction_sequence_sha256": "a47d4847365be6839c667c0fdf96cc3c1124d38fc38e36fab599108adf6638c9",
+   "instructions": 48,
+   "source_sass_file": "transpose.sass",
+   "symbol": "_Z22transposeCoarseGrainedPfS_ii"
+  },
+  "d_transposeDiagonal": {
+   "instruction_sequence_sha256": "63a26e8383c491225cb6b57aca567cd8c394a8952a7fd858ac80148ba604650d",
+   "instructions": 112,
+   "source_sass_file": "transpose.sass",
+   "symbol": "_Z17transposeDiagonalPfS_ii"
+  },
+  "d_transposeFineGrained": {
+   "instruction_sequence_sha256": "f3ca063bd50ee60dc0e32d734ed955d561c9883aaeab16e58944212b0ea1aee8",
+   "instructions": 48,
+   "source_sass_file": "transpose.sass",
+   "symbol": "_Z20transposeFineGrainedPfS_ii"
+  },
+  "d_transposeNaive": {
+   "instruction_sequence_sha256": "6c6ede442a30b58de615d84f2e2a24fd9fbf6eae2d06ca2144d90416004f1d09",
+   "instructions": 32,
+   "source_sass_file": "transpose.sass",
+   "symbol": "_Z14transposeNaivePfS_ii"
+  },
+  "d_transposeNoBankConflicts": {
+   "instruction_sequence_sha256": "2d1c42d0f4a3c3083e338c9b45d8d85a8a7485f4289faf5aeccc8907a30ebd16",
+   "instructions": 48,
+   "source_sass_file": "transpose.sass",
+   "symbol": "_Z24transposeNoBankConflictsPfS_ii"
+  },
+  "fwt1": {
+   "instruction_sequence_sha256": "0e2752d759709194ffdd38a49c9cc1d41061ba4fd885b3101231dce582f5ab0b",
+   "instructions": 120,
+   "source_sass_file": "fastWalshTransform.sass",
+   "symbol": "_Z15fwtBatch1KernelPfS_i"
+  },
+  "fwt2": {
+   "instruction_sequence_sha256": "632e8ed5fb175dad23174471a2906b053d687ca6a2bf4ee2c51380b428781b72",
+   "instructions": 64,
+   "source_sass_file": "fastWalshTransform.sass",
+   "symbol": "_Z15fwtBatch2KernelPfS_i"
+  },
+  "mm16": {
+   "instruction_sequence_sha256": "532762e9cc19d46e43482a0bd72fbe7f307b94329f32e3d5d311109763de2aaf",
+   "instructions": 104,
+   "source_sass_file": "matrixMul.sass",
+   "symbol": "_Z13MatrixMulCUDAILi16EEvPfS0_S0_ii"
+  },
+  "mm32": {
+   "instruction_sequence_sha256": "5459de5b2c5b217d5f9b057743032daa1e27d6371a8cdf60328ec9336229ad93",
+   "instructions": 144,
+   "source_sass_file": "matrixMul.sass",
+   "symbol": "_Z13MatrixMulCUDAILi32EEvPfS0_S0_ii"
+  },
+  "scan_bottom": {
+   "instruction_sequence_sha256": "0330a0cb5a0143748340fea214d06c626c3bafbcba55f9c7f5f9deda98e04c56",
+   "instructions": 64,
+   "source_sass_file": "scan.sass",
+   "symbol": "_Z19scanExclusiveSharedP5uint4S0_j"
+  },
+  "scan_top": {
+   "instruction_sequence_sha256": "24b79a8dde9d375133bc1f3f7696871c68fe395a7eaf8937a860d3bd0c3e1a45",
+   "instructions": 64,
+   "source_sass_file": "scan.sass",
+   "symbol": "_Z20scanExclusiveShared2PjS_S_jj"
+  },
+  "scan_update": {
+   "instruction_sequence_sha256": "d1fc599d8390d5520e6385fbe57c435a7b3a4e414eebbce8062203353d652608",
+   "instructions": 40,
+   "source_sass_file": "scan.sass",
+   "symbol": "_Z13uniformUpdateP5uint4Pj"
+  },
+  "sp": {
+   "instruction_sequence_sha256": "5914d66bad955bb4b53ab6cd37486e96c8d51259dccdcd2fea7b683305c999d8",
+   "instructions": 384,
+   "source_sass_file": "scalarProd.sass",
+   "symbol": "_Z13scalarProdGPUPfS_S_ii"
+  }
+ },
+ "note": "The job compares sha256 of the normalised instruction sequence of each symbol dumped from its own binary; a mismatch refuses the cells of that kernel.",
+ "schema": "h100_sass_manifest/1",
+ "toolchain": "CUDA 12.1.66 (port_h100/compiled_cluster_cuda12.1/build.txt)"
+}

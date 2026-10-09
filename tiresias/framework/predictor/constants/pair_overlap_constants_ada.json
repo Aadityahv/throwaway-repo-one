@@ -1,0 +1,24 @@
+{
+ "schema": "pair_overlap_constants/1",
+ "rule": "phase time of the shared-load pipe (s) and the MMA pipe (m): max(s, m) + beta * min(s, m); beta linearly interpolated in resident warps per SM, held at the end values outside the measured range",
+ "resident_warps_per_sm": [
+  4,
+  8,
+  16,
+  32
+ ],
+ "beta_hmma": [
+  0.491,
+  0.2995,
+  0.13899999999999998,
+  0.053500000000000006
+ ],
+ "configurations_per_point": [
+  3,
+  6,
+  6,
+  4
+ ],
+ "source": "replication_ada_rtx5000/microbench_raw/raw/micro_dep_frag.jsonl",
+ "source_sha256": "94a0da7ca23d652b76ceea7b3c8050784bdef0fcae42fc2f29d7eeb7f37ec16f"
+}

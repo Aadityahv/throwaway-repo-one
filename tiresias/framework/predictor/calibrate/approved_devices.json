@@ -1,0 +1,14 @@
+{
+ "schema": "calibration_approved_devices/1",
+ "note": "Allow-list of GPUs this project may calibrate. A device is refused unless its UUID is listed here for the machine it is on, exactly one device is visible, a the booking log booking reference is given, and the live properties agree with HARDWARE_GROUND_TRUTH.md for that GPU. Add an entry (and its verified HARDWARE_GROUND_TRUTH.md section) before calibrating a new GPU; never edit another person's entry.",
+ "devices": [
+  {"uuid": "GPU-0e63baea-0bb1-e90c-f19d-8aa5f2995894", "machine": "blackwell", "gpu": "RTX PRO 6000 Blackwell Workstation Edition (GPU 1)", "ground_truth_section": "Blackwell", "compute_capability": "12.0", "sm_count": 188},
+  {"uuid": "GPU-4640d904-c754-5243-df67-37761e91b400", "machine": "ada", "gpu": "RTX 5000 Ada Generation", "ground_truth_section": "Ada", "compute_capability": "8.9", "sm_count": 100},
+  {"uuid": "TO-BE-ADDED-BY-the authors-AFTER-LIVE-CHECK", "machine": "cluster", "gpu": "A100-SXM4-80GB (Cluster GPU 4)", "ground_truth_section": "A100", "compute_capability": "8.0", "sm_count": 108, "pending": true},
+  {"uuid": "TO-BE-ADDED-BY-the authors-AFTER-LIVE-CHECK", "machine": "cluster", "gpu": "H100 80GB HBM3 (Cluster GPU 5)", "ground_truth_section": "H100", "compute_capability": "9.0", "sm_count": 132, "pending": true},
+ {"uuid": "GPU-74e7b308-137d-cdb1-3c89-ba3186450254", "machine": "cluster", "gpu": "H100 80GB HBM3 (Cluster node5, index 0)", "ground_truth_section": "H100", "compute_capability": "9.0", "sm_count": 132, "node": "node-5.cluster.example.org", "pci_bus": "00000000:04:00.0", "source_job": "j08"},
+ {"uuid": "GPU-90376b5d-6fd8-1ffa-43fa-d42fd95159f1", "machine": "cluster", "gpu": "H100 80GB HBM3 (Cluster node6, index 0)", "ground_truth_section": "H100", "compute_capability": "9.0", "sm_count": 132, "node": "node-6.cluster.example.org", "pci_bus": "00000000:03:00.0", "source_job": "j09"},
+ {"uuid": "GPU-6132e1b7-a6ba-9eea-9084-bcb0ec15009a", "machine": "cluster", "gpu": "H100 80GB HBM3 (Cluster node6, index 0)", "ground_truth_section": "H100", "compute_capability": "9.0", "sm_count": 132, "node": "node-6.cluster.example.org", "pci_bus": "00000000:E4:00.0", "source_job": "j11"},
+ {"uuid": "GPU-f593bab2-a5ab-0f04-b0ad-f9ace54dfff3", "machine": "cluster", "gpu": "A100-SXM4-80GB (Cluster node4, index 0)", "ground_truth_section": "A100", "compute_capability": "8.0", "sm_count": 108, "node": "node-4.cluster.example.org", "pci_bus": "00000000:4D:00.0", "source_job": "j10"}
+ ]
+}

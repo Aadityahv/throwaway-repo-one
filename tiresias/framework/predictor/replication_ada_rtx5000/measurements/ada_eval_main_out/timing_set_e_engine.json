@@ -1,0 +1,1184 @@
+{
+ "schema": "unseen_timing_raw/1",
+ "booking_ref": "ada_eval_main_20261004",
+ "started_utc": "2026-10-04T13:47:10Z",
+ "device": {
+  "cuda_visible_devices": "0",
+  "uuid": "GPU-4640d904-c754-5243-df67-37761e91b400",
+  "nvidia_smi_index": "0"
+ },
+ "cell_definitions": "tiresias/framework/predictor/fresh_e/cells_e.py",
+ "cells_py_sha256": "c0b5dff4ef0dd3d06962f19ff486151b69dbbab3685b73a61585cca9074e90da",
+ "manifest_binaries": {
+  "sp": "18b6796767507e822cc80d5d4b05f6c1753f8d64af59c3aba7bb2e9afe326bac",
+  "fwt": "0baf28f86c0bf880b8aeab854c9ed4ee80a358d3d5749750ac2aa754dc0dc1ba"
+ },
+ "nvcc": "Build cuda_13.2.r13.2/compiler.37953736_0",
+ "method": {
+  "probe_batch": 16,
+  "target_graph_s": 0.005,
+  "target_window_s": 0.03,
+  "max_graph_batch": 2048,
+  "windows": 3,
+  "per_launch_runtime_s": "median over windows of cuda_seconds / launches (cudaEvents around repeat operator calls)",
+  "clocks_set": false,
+  "persistence_set": false,
+  "power_limit_set": false
+ },
+ "cells": [
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_scalar_product/small/c1",
+   "family": "sp",
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "regime": "small",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "256",
+    "1024",
+    "64"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 6.588e-06
+    },
+    {
+     "repeat": 759,
+     "graph_batch": 759,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 6.425971014492754e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=4674 graph_batch=779",
+     "check_ok": true,
+     "launches": 4674,
+     "cuda_seconds": 0.030022655,
+     "per_launch_s": 6.423332263585793e-06,
+     "host_begin_monotonic_ns": 4937676372341520,
+     "host_end_monotonic_ns": 4937676402370384
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=4674 graph_batch=779",
+     "check_ok": true,
+     "launches": 4674,
+     "cuda_seconds": 0.030022655,
+     "per_launch_s": 6.423332263585793e-06,
+     "host_begin_monotonic_ns": 4937676670774974,
+     "host_end_monotonic_ns": 4937676700804391
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=4674 graph_batch=779",
+     "check_ok": true,
+     "launches": 4674,
+     "cuda_seconds": 0.030022655,
+     "per_launch_s": 6.423332263585793e-06,
+     "host_begin_monotonic_ns": 4937676969159230,
+     "host_end_monotonic_ns": 4937676999189174
+    }
+   ],
+   "per_launch_runtime_s": 6.423332263585793e-06,
+   "launches": 4674,
+   "repeat": 4674,
+   "graph_batch": 779,
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=4674 graph_batch=779",
+   "correct": true,
+   "per_launch_min_s": 6.423332263585793e-06,
+   "per_launch_max_s": 6.423332263585793e-06
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_scalar_product/small/c2",
+   "family": "sp",
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "regime": "small",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "256",
+    "1024",
+    "128"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.904e-06
+    },
+    {
+     "repeat": 1281,
+     "graph_batch": 1281,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.744274785323966e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=8016 graph_batch=1336",
+     "check_ok": true,
+     "launches": 8016,
+     "cuda_seconds": 0.030000128,
+     "per_launch_s": 3.7425309381237527e-06,
+     "host_begin_monotonic_ns": 4937677903770061,
+     "host_end_monotonic_ns": 4937677933777005
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=8016 graph_batch=1336",
+     "check_ok": true,
+     "launches": 8016,
+     "cuda_seconds": 0.030000128,
+     "per_launch_s": 3.7425309381237527e-06,
+     "host_begin_monotonic_ns": 4937678256673408,
+     "host_end_monotonic_ns": 4937678286680699
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=8016 graph_batch=1336",
+     "check_ok": true,
+     "launches": 8016,
+     "cuda_seconds": 0.029999104,
+     "per_launch_s": 3.742403193612774e-06,
+     "host_begin_monotonic_ns": 4937678610103689,
+     "host_end_monotonic_ns": 4937678640110198
+    }
+   ],
+   "per_launch_runtime_s": 3.7425309381237527e-06,
+   "launches": 8016,
+   "repeat": 8016,
+   "graph_batch": 1336,
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=1024 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.22e-07 repeat=8016 graph_batch=1336",
+   "correct": true,
+   "per_launch_min_s": 3.742403193612774e-06,
+   "per_launch_max_s": 3.7425309381237527e-06
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_scalar_product/medium/c1",
+   "family": "sp",
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "256",
+    "4096",
+    "64"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.936e-06
+    },
+    {
+     "repeat": 631,
+     "graph_batch": 631,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.815505546751189e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=4096 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.29e-07 repeat=3840 graph_batch=640",
+     "check_ok": true,
+     "launches": 3840,
+     "cuda_seconds": 0.029991936,
+     "per_launch_s": 7.8104e-06,
+     "host_begin_monotonic_ns": 4937679509647461,
+     "host_end_monotonic_ns": 4937679539646180
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=4096 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.29e-07 repeat=3840 graph_batch=640",
+     "check_ok": true,
+     "launches": 3840,
+     "cuda_seconds": 0.029991936,
+     "per_launch_s": 7.8104e-06,
+     "host_begin_monotonic_ns": 4937679812192519,
+     "host_end_monotonic_ns": 4937679842191776
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=4096 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.29e-07 repeat=3840 graph_batch=640",
+     "check_ok": true,
+     "launches": 3840,
+     "cuda_seconds": 0.029988865,
+     "per_launch_s": 7.809600260416667e-06,
+     "host_begin_monotonic_ns": 4937680114726181,
+     "host_end_monotonic_ns": 4937680144722098
+    }
+   ],
+   "per_launch_runtime_s": 7.8104e-06,
+   "launches": 3840,
+   "repeat": 3840,
+   "graph_batch": 640,
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=4096 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.29e-07 repeat=3840 graph_batch=640",
+   "correct": true,
+   "per_launch_min_s": 7.809600260416667e-06,
+   "per_launch_max_s": 7.8104e-06
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_scalar_product/medium/c2",
+   "family": "sp",
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "256",
+    "4096",
+    "128"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 4.992e-06
+    },
+    {
+     "repeat": 1002,
+     "graph_batch": 1002,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 4.8134131736526946e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=4096 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.29e-07 repeat=6234 graph_batch=1039",
+     "check_ok": true,
+     "launches": 6234,
+     "cuda_seconds": 0.030022655,
+     "per_launch_s": 4.815953641321784e-06,
+     "host_begin_monotonic_ns": 4937680972022892,
+     "host_end_monotonic_ns": 4937681002051931
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=4096 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.29e-07 repeat=6234 graph_batch=1039",
+     "check_ok": true,
+     "launches": 6234,
+     "cuda_seconds": 0.030014463,
+     "per_launch_s": 4.814639557266603e-06,
+     "host_begin_monotonic_ns": 4937681275873434,
+     "host_end_monotonic_ns": 4937681305894762
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=4096 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.29e-07 repeat=6234 graph_batch=1039",
+     "check_ok": true,
+     "launches": 6234,
+     "cuda_seconds": 0.030006271,
+     "per_launch_s": 4.813325473211422e-06,
+     "host_begin_monotonic_ns": 4937681587226744,
+     "host_end_monotonic_ns": 4937681617241225
+    }
+   ],
+   "per_launch_runtime_s": 4.814639557266603e-06,
+   "launches": 6234,
+   "repeat": 6234,
+   "graph_batch": 1039,
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=4096 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.29e-07 repeat=6234 graph_batch=1039",
+   "correct": true,
+   "per_launch_min_s": 4.813325473211422e-06,
+   "per_launch_max_s": 4.815953641321784e-06
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_scalar_product/large/c1",
+   "family": "sp",
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "regime": "large",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "256",
+    "12288",
+    "64"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.2032e-05
+    },
+    {
+     "repeat": 416,
+     "graph_batch": 416,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 1.1835076923076925e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=12288 grid=64 bad=0 first_bad=-1 worst_err_over_mag=9.71e-08 repeat=2538 graph_batch=423",
+     "check_ok": true,
+     "launches": 2538,
+     "cuda_seconds": 0.030034719,
+     "per_launch_s": 1.1834010638297872e-05,
+     "host_begin_monotonic_ns": 4937682491939869,
+     "host_end_monotonic_ns": 4937682521980480
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=12288 grid=64 bad=0 first_bad=-1 worst_err_over_mag=9.71e-08 repeat=2538 graph_batch=423",
+     "check_ok": true,
+     "launches": 2538,
+     "cuda_seconds": 0.030026752,
+     "per_launch_s": 1.1830871552403468e-05,
+     "host_begin_monotonic_ns": 4937682866248924,
+     "host_end_monotonic_ns": 4937682896282184
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=12288 grid=64 bad=0 first_bad=-1 worst_err_over_mag=9.71e-08 repeat=2538 graph_batch=423",
+     "check_ok": true,
+     "launches": 2538,
+     "cuda_seconds": 0.030085119,
+     "per_launch_s": 1.1853868794326242e-05,
+     "host_begin_monotonic_ns": 4937683190764044,
+     "host_end_monotonic_ns": 4937683220856313
+    }
+   ],
+   "per_launch_runtime_s": 1.1834010638297872e-05,
+   "launches": 2538,
+   "repeat": 2538,
+   "graph_batch": 423,
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=12288 grid=64 bad=0 first_bad=-1 worst_err_over_mag=9.71e-08 repeat=2538 graph_batch=423",
+   "correct": true,
+   "per_launch_min_s": 1.1830871552403468e-05,
+   "per_launch_max_s": 1.1853868794326242e-05
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_scalar_product/large/c2",
+   "family": "sp",
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "regime": "large",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "256",
+    "12288",
+    "128"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 9.216e-06
+    },
+    {
+     "repeat": 543,
+     "graph_batch": 543,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 9.055351749539596e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=12288 grid=128 bad=0 first_bad=-1 worst_err_over_mag=9.71e-08 repeat=3318 graph_batch=553",
+     "check_ok": true,
+     "launches": 3318,
+     "cuda_seconds": 0.03004208,
+     "per_launch_s": 9.05427365883062e-06,
+     "host_begin_monotonic_ns": 4937684092568450,
+     "host_end_monotonic_ns": 4937684122617320
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=12288 grid=128 bad=0 first_bad=-1 worst_err_over_mag=9.71e-08 repeat=3318 graph_batch=553",
+     "check_ok": true,
+     "launches": 3318,
+     "cuda_seconds": 0.029881344,
+     "per_launch_s": 9.005830018083183e-06,
+     "host_begin_monotonic_ns": 4937684414052576,
+     "host_end_monotonic_ns": 4937684443941383
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=12288 grid=128 bad=0 first_bad=-1 worst_err_over_mag=9.71e-08 repeat=3318 graph_batch=553",
+     "check_ok": true,
+     "launches": 3318,
+     "cuda_seconds": 0.02987184,
+     "per_launch_s": 9.002965641952983e-06,
+     "host_begin_monotonic_ns": 4937684731697716,
+     "host_end_monotonic_ns": 4937684761576392
+    }
+   ],
+   "per_launch_runtime_s": 9.005830018083183e-06,
+   "launches": 3318,
+   "repeat": 3318,
+   "graph_batch": 553,
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=12288 grid=128 bad=0 first_bad=-1 worst_err_over_mag=9.71e-08 repeat=3318 graph_batch=553",
+   "correct": true,
+   "per_launch_min_s": 9.002965641952983e-06,
+   "per_launch_max_s": 9.05427365883062e-06
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_scalar_product/xlarge/c1",
+   "family": "sp",
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "regime": "xlarge",
+   "candidate_id": "c1",
+   "tier": "DRAM",
+   "argv": [
+    "256",
+    "65536",
+    "64"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.000252988
+    },
+    {
+     "repeat": 20,
+     "graph_batch": 20,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.0002529792
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=65536 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.16e-07 repeat=120 graph_batch=20",
+     "check_ok": true,
+     "launches": 120,
+     "cuda_seconds": 0.030350336,
+     "per_launch_s": 0.0002529194666666667,
+     "host_begin_monotonic_ns": 4937685873245997,
+     "host_end_monotonic_ns": 4937685903603168
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=65536 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.16e-07 repeat=120 graph_batch=20",
+     "check_ok": true,
+     "launches": 120,
+     "cuda_seconds": 0.03035136,
+     "per_launch_s": 0.00025292800000000003,
+     "host_begin_monotonic_ns": 4937686275568870,
+     "host_end_monotonic_ns": 4937686305927942
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=65536 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.16e-07 repeat=120 graph_batch=20",
+     "check_ok": true,
+     "launches": 120,
+     "cuda_seconds": 0.030340096,
+     "per_launch_s": 0.0002528341333333333,
+     "host_begin_monotonic_ns": 4937686676546475,
+     "host_end_monotonic_ns": 4937686706894031
+    }
+   ],
+   "per_launch_runtime_s": 0.0002529194666666667,
+   "launches": 120,
+   "repeat": 120,
+   "graph_batch": 20,
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=65536 grid=64 bad=0 first_bad=-1 worst_err_over_mag=1.16e-07 repeat=120 graph_batch=20",
+   "correct": true,
+   "per_launch_min_s": 0.0002528341333333333,
+   "per_launch_max_s": 0.00025292800000000003
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_scalar_product/xlarge/c2",
+   "family": "sp",
+   "operator_id": "fresh_e_cuda_samples_scalar_product",
+   "regime": "xlarge",
+   "candidate_id": "c2",
+   "tier": "DRAM",
+   "argv": [
+    "256",
+    "65536",
+    "128"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.00025336
+    },
+    {
+     "repeat": 20,
+     "graph_batch": 20,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.0002530784
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=65536 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.16e-07 repeat=120 graph_batch=20",
+     "check_ok": true,
+     "launches": 120,
+     "cuda_seconds": 0.030365696,
+     "per_launch_s": 0.0002530474666666667,
+     "host_begin_monotonic_ns": 4937687940198066,
+     "host_end_monotonic_ns": 4937687970571703
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=65536 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.16e-07 repeat=120 graph_batch=20",
+     "check_ok": true,
+     "launches": 120,
+     "cuda_seconds": 0.030368769,
+     "per_launch_s": 0.000253073075,
+     "host_begin_monotonic_ns": 4937688348349098,
+     "host_end_monotonic_ns": 4937688378724581
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK scalarProd vectorN=256 elementN=65536 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.16e-07 repeat=120 graph_batch=20",
+     "check_ok": true,
+     "launches": 120,
+     "cuda_seconds": 0.030370815,
+     "per_launch_s": 0.00025309012499999997,
+     "host_begin_monotonic_ns": 4937688806089807,
+     "host_end_monotonic_ns": 4937688836467444
+    }
+   ],
+   "per_launch_runtime_s": 0.000253073075,
+   "launches": 120,
+   "repeat": 120,
+   "graph_batch": 20,
+   "check": "CHECK_OK scalarProd vectorN=256 elementN=65536 grid=128 bad=0 first_bad=-1 worst_err_over_mag=1.16e-07 repeat=120 graph_batch=20",
+   "correct": true,
+   "per_launch_min_s": 0.0002530474666666667,
+   "per_launch_max_s": 0.00025309012499999997
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_fast_walsh_transform/small/c1",
+   "family": "fwt",
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "regime": "small",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "18",
+    "1",
+    "inplace"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 8.64e-06
+    },
+    {
+     "repeat": 579,
+     "graph_batch": 579,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 8.496193436960277e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=18 batches=1 rel_l2_error=0 repeat=3534 graph_batch=589",
+     "check_ok": true,
+     "launches": 3534,
+     "cuda_seconds": 0.030012417,
+     "per_launch_s": 8.4924779286927e-06,
+     "host_begin_monotonic_ns": 4937689734149818,
+     "host_end_monotonic_ns": 4937689764170038
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=18 batches=1 rel_l2_error=0 repeat=3534 graph_batch=589",
+     "check_ok": true,
+     "launches": 3534,
+     "cuda_seconds": 0.03000832,
+     "per_launch_s": 8.491318619128467e-06,
+     "host_begin_monotonic_ns": 4937690047111361,
+     "host_end_monotonic_ns": 4937690077127325
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=18 batches=1 rel_l2_error=0 repeat=3534 graph_batch=589",
+     "check_ok": true,
+     "launches": 3534,
+     "cuda_seconds": 0.030006271,
+     "per_launch_s": 8.490738822863611e-06,
+     "host_begin_monotonic_ns": 4937690356966267,
+     "host_end_monotonic_ns": 4937690386980500
+    }
+   ],
+   "per_launch_runtime_s": 8.491318619128467e-06,
+   "launches": 3534,
+   "repeat": 3534,
+   "graph_batch": 589,
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=18 batches=1 rel_l2_error=0 repeat=3534 graph_batch=589",
+   "correct": true,
+   "per_launch_min_s": 8.490738822863611e-06,
+   "per_launch_max_s": 8.4924779286927e-06
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_fast_walsh_transform/small/c2",
+   "family": "fwt",
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "regime": "small",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "17",
+    "2",
+    "inplace"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.732e-06
+    },
+    {
+     "repeat": 647,
+     "graph_batch": 647,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.217063369397218e-06
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=17 batches=2 rel_l2_error=0 repeat=4158 graph_batch=693",
+     "check_ok": true,
+     "launches": 4158,
+     "cuda_seconds": 0.030121984,
+     "per_launch_s": 7.244344396344397e-06,
+     "host_begin_monotonic_ns": 4937691213574786,
+     "host_end_monotonic_ns": 4937691243704700
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=17 batches=2 rel_l2_error=0 repeat=4158 graph_batch=693",
+     "check_ok": true,
+     "launches": 4158,
+     "cuda_seconds": 0.029988865,
+     "per_launch_s": 7.2123292448292446e-06,
+     "host_begin_monotonic_ns": 4937691517591507,
+     "host_end_monotonic_ns": 4937691547587587
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=17 batches=2 rel_l2_error=0 repeat=4158 graph_batch=693",
+     "check_ok": true,
+     "launches": 4158,
+     "cuda_seconds": 0.029994848,
+     "per_launch_s": 7.213768157768158e-06,
+     "host_begin_monotonic_ns": 4937691828407076,
+     "host_end_monotonic_ns": 4937691858409132
+    }
+   ],
+   "per_launch_runtime_s": 7.213768157768158e-06,
+   "launches": 4158,
+   "repeat": 4158,
+   "graph_batch": 693,
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=17 batches=2 rel_l2_error=0 repeat=4158 graph_batch=693",
+   "correct": true,
+   "per_launch_min_s": 7.2123292448292446e-06,
+   "per_launch_max_s": 7.244344396344397e-06
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_fast_walsh_transform/medium/c1",
+   "family": "fwt",
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "regime": "medium",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "21",
+    "1",
+    "inplace"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.9744e-05
+    },
+    {
+     "repeat": 126,
+     "graph_batch": 126,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.948088888888889e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=1 rel_l2_error=0 repeat=762 graph_batch=127",
+     "check_ok": true,
+     "launches": 762,
+     "cuda_seconds": 0.031470592,
+     "per_launch_s": 4.1299989501312334e-05,
+     "host_begin_monotonic_ns": 4937692756821558,
+     "host_end_monotonic_ns": 4937692788300336
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=1 rel_l2_error=0 repeat=762 graph_batch=127",
+     "check_ok": true,
+     "launches": 762,
+     "cuda_seconds": 0.031470592,
+     "per_launch_s": 4.1299989501312334e-05,
+     "host_begin_monotonic_ns": 4937693094436008,
+     "host_end_monotonic_ns": 4937693125914644
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=1 rel_l2_error=0 repeat=762 graph_batch=127",
+     "check_ok": true,
+     "launches": 762,
+     "cuda_seconds": 0.031470592,
+     "per_launch_s": 4.1299989501312334e-05,
+     "host_begin_monotonic_ns": 4937693433848442,
+     "host_end_monotonic_ns": 4937693465326346
+    }
+   ],
+   "per_launch_runtime_s": 4.1299989501312334e-05,
+   "launches": 762,
+   "repeat": 762,
+   "graph_batch": 127,
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=1 rel_l2_error=0 repeat=762 graph_batch=127",
+   "correct": true,
+   "per_launch_min_s": 4.1299989501312334e-05,
+   "per_launch_max_s": 4.1299989501312334e-05
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_fast_walsh_transform/medium/c2",
+   "family": "fwt",
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "regime": "medium",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "20",
+    "2",
+    "inplace"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.9616e-05
+    },
+    {
+     "repeat": 127,
+     "graph_batch": 127,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 3.9387716535433066e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=2 rel_l2_error=0 repeat=762 graph_batch=127",
+     "check_ok": true,
+     "launches": 762,
+     "cuda_seconds": 0.030009344,
+     "per_launch_s": 3.938234120734908e-05,
+     "host_begin_monotonic_ns": 4937694386300356,
+     "host_end_monotonic_ns": 4937694416316889
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=2 rel_l2_error=0 repeat=762 graph_batch=127",
+     "check_ok": true,
+     "launches": 762,
+     "cuda_seconds": 0.030022655,
+     "per_launch_s": 3.9399809711286085e-05,
+     "host_begin_monotonic_ns": 4937694766732095,
+     "host_end_monotonic_ns": 4937694796762138
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=2 rel_l2_error=0 repeat=762 graph_batch=127",
+     "check_ok": true,
+     "launches": 762,
+     "cuda_seconds": 0.030017536,
+     "per_launch_s": 3.939309186351706e-05,
+     "host_begin_monotonic_ns": 4937695101210982,
+     "host_end_monotonic_ns": 4937695131235639
+    }
+   ],
+   "per_launch_runtime_s": 3.939309186351706e-05,
+   "launches": 762,
+   "repeat": 762,
+   "graph_batch": 127,
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=20 batches=2 rel_l2_error=0 repeat=762 graph_batch=127",
+   "correct": true,
+   "per_launch_min_s": 3.938234120734908e-05,
+   "per_launch_max_s": 3.9399809711286085e-05
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_fast_walsh_transform/large/c1",
+   "family": "fwt",
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "regime": "large",
+   "candidate_id": "c1",
+   "tier": "L2",
+   "argv": [
+    "22",
+    "1",
+    "inplace"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 8.2816e-05
+    },
+    {
+     "repeat": 61,
+     "graph_batch": 61,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 8.262504918032786e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=22 batches=1 rel_l2_error=0 repeat=366 graph_batch=61",
+     "check_ok": true,
+     "launches": 366,
+     "cuda_seconds": 0.030225409,
+     "per_launch_s": 8.258308469945355e-05,
+     "host_begin_monotonic_ns": 4937696298753884,
+     "host_end_monotonic_ns": 4937696328987151
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=22 batches=1 rel_l2_error=0 repeat=366 graph_batch=61",
+     "check_ok": true,
+     "launches": 366,
+     "cuda_seconds": 0.030230528,
+     "per_launch_s": 8.259707103825137e-05,
+     "host_begin_monotonic_ns": 4937696702069524,
+     "host_end_monotonic_ns": 4937696732308472
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=22 batches=1 rel_l2_error=0 repeat=366 graph_batch=61",
+     "check_ok": true,
+     "launches": 366,
+     "cuda_seconds": 0.030226433,
+     "per_launch_s": 8.25858825136612e-05,
+     "host_begin_monotonic_ns": 4937697107073292,
+     "host_end_monotonic_ns": 4937697137307170
+    }
+   ],
+   "per_launch_runtime_s": 8.25858825136612e-05,
+   "launches": 366,
+   "repeat": 366,
+   "graph_batch": 61,
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=22 batches=1 rel_l2_error=0 repeat=366 graph_batch=61",
+   "correct": true,
+   "per_launch_min_s": 8.258308469945355e-05,
+   "per_launch_max_s": 8.259707103825137e-05
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_fast_walsh_transform/large/c2",
+   "family": "fwt",
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "regime": "large",
+   "candidate_id": "c2",
+   "tier": "L2",
+   "argv": [
+    "21",
+    "2",
+    "inplace"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.5456e-05
+    },
+    {
+     "repeat": 67,
+     "graph_batch": 67,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 7.513408955223881e-05
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=2 rel_l2_error=0 repeat=402 graph_batch=67",
+     "check_ok": true,
+     "launches": 402,
+     "cuda_seconds": 0.030201857,
+     "per_launch_s": 7.51289975124378e-05,
+     "host_begin_monotonic_ns": 4937698165478530,
+     "host_end_monotonic_ns": 4937698195687865
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=2 rel_l2_error=0 repeat=402 graph_batch=67",
+     "check_ok": true,
+     "launches": 402,
+     "cuda_seconds": 0.030204927,
+     "per_launch_s": 7.513663432835821e-05,
+     "host_begin_monotonic_ns": 4937698542401582,
+     "host_end_monotonic_ns": 4937698572613294
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=2 rel_l2_error=0 repeat=402 graph_batch=67",
+     "check_ok": true,
+     "launches": 402,
+     "cuda_seconds": 0.03019968,
+     "per_launch_s": 7.512358208955224e-05,
+     "host_begin_monotonic_ns": 4937698919801182,
+     "host_end_monotonic_ns": 4937698950008732
+    }
+   ],
+   "per_launch_runtime_s": 7.51289975124378e-05,
+   "launches": 402,
+   "repeat": 402,
+   "graph_batch": 67,
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=21 batches=2 rel_l2_error=0 repeat=402 graph_batch=67",
+   "correct": true,
+   "per_launch_min_s": 7.512358208955224e-05,
+   "per_launch_max_s": 7.513663432835821e-05
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c1",
+   "family": "fwt",
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "regime": "xlarge",
+   "candidate_id": "c1",
+   "tier": "DRAM",
+   "argv": [
+    "25",
+    "1",
+    "inplace"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.0043759999375
+    },
+    {
+     "repeat": 2,
+     "graph_batch": 2,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.004389888
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=25 batches=1 rel_l2_error=0 repeat=8 graph_batch=2",
+     "check_ok": true,
+     "launches": 8,
+     "cuda_seconds": 0.035002369,
+     "per_launch_s": 0.004375296125,
+     "host_begin_monotonic_ns": 4937702642062872,
+     "host_end_monotonic_ns": 4937702677073251
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=25 batches=1 rel_l2_error=0 repeat=8 graph_batch=2",
+     "check_ok": true,
+     "launches": 8,
+     "cuda_seconds": 0.035032063,
+     "per_launch_s": 0.004379007875,
+     "host_begin_monotonic_ns": 4937703855498146,
+     "host_end_monotonic_ns": 4937703890538207
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=25 batches=1 rel_l2_error=0 repeat=8 graph_batch=2",
+     "check_ok": true,
+     "launches": 8,
+     "cuda_seconds": 0.035041279,
+     "per_launch_s": 0.004380159875,
+     "host_begin_monotonic_ns": 4937705062691839,
+     "host_end_monotonic_ns": 4937705097741602
+    }
+   ],
+   "per_launch_runtime_s": 0.004379007875,
+   "launches": 8,
+   "repeat": 8,
+   "graph_batch": 2,
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=25 batches=1 rel_l2_error=0 repeat=8 graph_batch=2",
+   "correct": true,
+   "per_launch_min_s": 0.004375296125,
+   "per_launch_max_s": 0.004380159875
+  },
+  {
+   "cell_id": "ada/fresh_e_cuda_samples_fast_walsh_transform/xlarge/c2",
+   "family": "fwt",
+   "operator_id": "fresh_e_cuda_samples_fast_walsh_transform",
+   "regime": "xlarge",
+   "candidate_id": "c2",
+   "tier": "DRAM",
+   "argv": [
+    "24",
+    "2",
+    "inplace"
+   ],
+   "probes": [
+    {
+     "repeat": 16,
+     "graph_batch": 16,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.004503232
+    },
+    {
+     "repeat": 2,
+     "graph_batch": 2,
+     "rc": 0,
+     "error": null,
+     "per_launch_s": 0.004496896
+    }
+   ],
+   "windows": [
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=24 batches=2 rel_l2_error=0 repeat=8 graph_batch=2",
+     "check_ok": true,
+     "launches": 8,
+     "cuda_seconds": 0.035993599,
+     "per_launch_s": 0.004499199875,
+     "host_begin_monotonic_ns": 4937708702158057,
+     "host_end_monotonic_ns": 4937708738159023
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=24 batches=2 rel_l2_error=0 repeat=8 graph_batch=2",
+     "check_ok": true,
+     "launches": 8,
+     "cuda_seconds": 0.035920895,
+     "per_launch_s": 0.004490111875,
+     "host_begin_monotonic_ns": 4937709878402001,
+     "host_end_monotonic_ns": 4937709914330128
+    },
+    {
+     "rc": 0,
+     "error": null,
+     "check": "CHECK_OK fastWalshTransform mode=inplace log2N=24 batches=2 rel_l2_error=0 repeat=8 graph_batch=2",
+     "check_ok": true,
+     "launches": 8,
+     "cuda_seconds": 0.0360448,
+     "per_launch_s": 0.0045056,
+     "host_begin_monotonic_ns": 4937711057196382,
+     "host_end_monotonic_ns": 4937711093248323
+    }
+   ],
+   "per_launch_runtime_s": 0.004499199875,
+   "launches": 8,
+   "repeat": 8,
+   "graph_batch": 2,
+   "check": "CHECK_OK fastWalshTransform mode=inplace log2N=24 batches=2 rel_l2_error=0 repeat=8 graph_batch=2",
+   "correct": true,
+   "per_launch_min_s": 0.004490111875,
+   "per_launch_max_s": 0.0045056
+  }
+ ],
+ "finished_utc": "2026-10-04T13:47:46Z",
+ "all_correct": true
+}

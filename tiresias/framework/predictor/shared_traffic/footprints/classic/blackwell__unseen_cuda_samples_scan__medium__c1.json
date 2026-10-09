@@ -1,0 +1,207 @@
+{
+ "cell_id": "blackwell/unseen_cuda_samples_scan/medium/c1",
+ "kernels": [
+  {
+   "blocks": 2048,
+   "first_touch_sectors_per_sampled_block": [
+    128,
+    128
+   ],
+   "kernel_id": "scan_bottom",
+   "pointers": {
+    "0": {
+     "read": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     },
+     "write": {
+      "footprint": 262144.0,
+      "mean_per_block": 128.0,
+      "naive": 262144.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 262144,
+      "union": 256
+     }
+    },
+    "1": {
+     "read": {
+      "footprint": 262144.0,
+      "mean_per_block": 128.0,
+      "naive": 262144.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 262144,
+      "union": 256
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     }
+    }
+   },
+   "read_footprint_sectors": 262144.0,
+   "read_naive_sectors": 262144.0,
+   "reuse_working_set_bytes": 0,
+   "sampled_block_ids": [
+    0,
+    2047
+   ],
+   "sampled_blocks": 2,
+   "write_footprint_sectors": 262144.0,
+   "write_naive_sectors": 262144.0
+  },
+  {
+   "blocks": 8,
+   "first_touch_sectors_per_sampled_block": [
+    512,
+    512
+   ],
+   "kernel_id": "scan_top",
+   "pointers": {
+    "0": {
+     "read": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     },
+     "write": {
+      "footprint": 256.0,
+      "mean_per_block": 32.0,
+      "naive": 256.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 256,
+      "union": 64
+     }
+    },
+    "1": {
+     "read": {
+      "footprint": 2048.0,
+      "mean_per_block": 256.0,
+      "naive": 2048.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 262017,
+      "union": 512
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     }
+    },
+    "2": {
+     "read": {
+      "footprint": 2048.0,
+      "mean_per_block": 256.0,
+      "naive": 2048.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 262017,
+      "union": 512
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     }
+    }
+   },
+   "read_footprint_sectors": 4096.0,
+   "read_naive_sectors": 4096.0,
+   "reuse_working_set_bytes": 0,
+   "sampled_block_ids": [
+    0,
+    7
+   ],
+   "sampled_blocks": 2,
+   "write_footprint_sectors": 256.0,
+   "write_naive_sectors": 256.0
+  },
+  {
+   "blocks": 2048,
+   "first_touch_sectors_per_sampled_block": [
+    129,
+    129
+   ],
+   "kernel_id": "scan_update",
+   "pointers": {
+    "0": {
+     "read": {
+      "footprint": 262144.0,
+      "mean_per_block": 128.0,
+      "naive": 262144.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 262144,
+      "union": 256
+     },
+     "write": {
+      "footprint": 262144.0,
+      "mean_per_block": 128.0,
+      "naive": 262144.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 262144,
+      "union": 256
+     }
+    },
+    "1": {
+     "read": {
+      "footprint": 256,
+      "mean_per_block": 1.0,
+      "naive": 2048.0,
+      "reused": true,
+      "sampled_blocks": 2,
+      "span": 256,
+      "union": 2
+     },
+     "write": {
+      "footprint": 0,
+      "mean_per_block": 0.0,
+      "naive": 0.0,
+      "reused": false,
+      "sampled_blocks": 2,
+      "span": 0,
+      "union": 0
+     }
+    }
+   },
+   "read_footprint_sectors": 262400.0,
+   "read_naive_sectors": 264192.0,
+   "reuse_working_set_bytes": 8192,
+   "sampled_block_ids": [
+    0,
+    2047
+   ],
+   "sampled_blocks": 2,
+   "write_footprint_sectors": 262144.0,
+   "write_naive_sectors": 262144.0
+  }
+ ],
+ "seconds": 5.6,
+ "status": "ok"
+}

@@ -1,0 +1,4847 @@
+{
+ "cell": {
+  "candidate_id": "c2",
+  "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/large/c2",
+  "controls": {
+   "N": 2080,
+   "tile": 32
+  },
+  "family": "matmul",
+  "footprint_bytes": 51916800,
+  "kernels": [
+   {
+    "args": {
+     "wA": 2080,
+     "wB": 2080
+    },
+    "block": [
+     32,
+     32,
+     1
+    ],
+    "grid": [
+     65,
+     65,
+     1
+    ],
+    "kid": "mm32"
+   }
+  ],
+  "l2_ratio": 0.386810302734375,
+  "logical_bytes_per_launch": 51916800,
+  "operator_id": "unseen_cuda_samples_matrix_multiply",
+  "regime": "large",
+  "shape_a": 2080,
+  "shape_b": 32,
+  "tier": "L2"
+ },
+ "features": {
+  "build_seconds": 1327.0,
+  "cell": "large/c2",
+  "cell_id": "blackwell/unseen_cuda_samples_matrix_multiply/large/c2",
+  "corpus": "cuda_samples_unseen",
+  "geometry": {
+   "block_threads": 1024,
+   "dev_table_active_sm_fraction": null,
+   "dev_table_blocks_per_sm": null,
+   "dev_table_blocks_per_sm_is_grid_over_sm_count": null,
+   "geometry_source": "host code of the sample (cells.py)",
+   "grid_blocks": 4225
+  },
+  "inputs": {
+   "cubin_sha256": "f60ad7a5fd1b8a4de4a144208b3fa7e516565995c34637ad07a467fa2acf9552",
+   "isolated_sass_sha256": "4037542469a723a7771705a2154817c99bdccab19544e0febdf9227d3f587e90",
+   "kernel_symbol": "_Z13MatrixMulCUDAILi32EEvPfS0_S0_ii",
+   "secondary_kernel_symbols": []
+  },
+  "kernels_per_launch": 1,
+  "main_kernel": {
+   "abi": {
+    "all_constant_bank_accesses_on_declared_fields": true,
+    "bound_values": {
+     "A": {
+      "offset": "0x388",
+      "source": "distinct aligned synthetic base 1 (pointer value; only address differences matter)",
+      "value": 139642271694848
+     },
+     "B": {
+      "offset": "0x390",
+      "source": "distinct aligned synthetic base 2 (pointer value; only address differences matter)",
+      "value": 139646566662144
+     },
+     "C": {
+      "offset": "0x380",
+      "source": "distinct aligned synthetic base 0 (pointer value; only address differences matter)",
+      "value": 139637976727552
+     },
+     "wA": {
+      "offset": "0x398",
+      "source": "launch argument from the sample's host code",
+      "value": 2080
+     },
+     "wB": {
+      "offset": "0x39c",
+      "source": "launch argument from the sample's host code",
+      "value": 2080
+     }
+    },
+    "parameter_fields": [
+     {
+      "bytes": 8,
+      "name": "C",
+      "offset": "0x380"
+     },
+     {
+      "bytes": 8,
+      "name": "A",
+      "offset": "0x388"
+     },
+     {
+      "bytes": 8,
+      "name": "B",
+      "offset": "0x390"
+     },
+     {
+      "bytes": 4,
+      "name": "wA",
+      "offset": "0x398"
+     },
+     {
+      "bytes": 4,
+      "name": "wB",
+      "offset": "0x39c"
+     }
+    ],
+    "problems": []
+   },
+   "interpreter_outcomes": {
+    "extended_interpreter": {
+     "assumptions_applied": [],
+     "shared_addresses_touched_min_max": [
+      1024,
+      9212
+     ],
+     "status": "ok"
+    },
+    "frozen_derive_run_lane_unmodified": {
+     "reason": "frozen derive.run_lane comparison skipped for new kernels",
+     "status": "not_run"
+    }
+   },
+   "kernel_id": "mm32",
+   "kernel_symbol": "_Z13MatrixMulCUDAILi32EEvPfS0_S0_ii",
+   "role": "main",
+   "shape_problems": []
+  },
+  "memory": {
+   "executed_async_copy_global_to_shared_bytes_lane_level": 0,
+   "executed_bytes_scope": "main kernel only; per-launch sums are in per_launch_totals",
+   "executed_global_bytes_exact": true,
+   "executed_global_bytes_per_thread": 524.0,
+   "executed_global_load_bytes_lane_level": 2249728000,
+   "executed_global_store_bytes_lane_level": 17305600,
+   "global_load_width_bits_histogram": {
+    "32": 562432000
+   },
+   "global_store_width_bits_histogram": {
+    "32": 4326400
+   },
+   "logical_bytes_per_launch": 51916800,
+   "shape_a": 2080,
+   "shape_b": 32,
+   "tier": "L2",
+   "tier_source_note": "tier from the footprint-over-verified-L2 rule written in cells.py, not a counter"
+  },
+  "missing_features": [],
+  "occupancy": {
+   "active_sm_fraction": 1.0,
+   "blocks_per_sm": 1,
+   "blocks_per_sm_if_shared_were_static": 1,
+   "blocks_per_sm_ignoring_shared_by_warp_alloc_multiple": {
+    "1": 1,
+    "2": 1,
+    "4": 1
+   },
+   "first_wave_active_warps_per_sm_avg": 32,
+   "first_wave_resident_blocks_per_sm_avg": 1,
+   "last_wave_fill_fraction": 0.4734042553191489,
+   "limit_by_max_blocks": 24,
+   "limit_by_registers_by_warp_alloc_multiple": {
+    "1": 1,
+    "2": 1,
+    "4": 1
+   },
+   "limit_by_registers_if_multiple_1": 1,
+   "limit_by_shared": 11,
+   "limit_by_threads": 1,
+   "limit_by_warps": 1,
+   "limiter": [
+    "registers",
+    "threads",
+    "warps"
+   ],
+   "max_resident_warps_per_sm": 32,
+   "occupancy_fraction_of_max_warps": 0.6666666666666666,
+   "reasons": [],
+   "registers_per_warp_allocated": 1280,
+   "resident_block_slots": 188,
+   "shared_allocated_bytes_per_block": 9216,
+   "shared_decision_changes_occupancy": false,
+   "shared_nonbinding_up_to_dynamic_bytes": 93184,
+   "tail_idle_fraction_of_last_wave": 0.5265957446808511,
+   "warps_per_block": 32,
+   "waves": 23,
+   "waves_fractional": 22.47340425531915
+  },
+  "operator_id": "unseen_cuda_samples_matrix_multiply",
+  "per_launch_totals": {
+   "all_counts_exact": true,
+   "assumptions_applied": [],
+   "barrier_releases_per_launch_estimate": 549250,
+   "executed_global_load_bytes_lane_level": 2249728000,
+   "executed_global_store_bytes_lane_level": 17305600,
+   "families": {
+    "barrier": {
+     "exact": true,
+     "lane_instructions": 562432000
+    },
+    "control": {
+     "exact": true,
+     "lane_instructions": 285542400
+    },
+    "fp32_fma": {
+     "exact": true,
+     "lane_instructions": 8998912000
+    },
+    "fp_other": {
+     "exact": true,
+     "lane_instructions": 4326400
+    },
+    "global_load": {
+     "exact": true,
+     "lane_instructions": 562432000,
+     "width_bits_histogram": {
+      "32": 562432000
+     }
+    },
+    "global_store": {
+     "exact": true,
+     "lane_instructions": 4326400,
+     "width_bits_histogram": {
+      "32": 4326400
+     }
+    },
+    "integer_alu": {
+     "exact": true,
+     "lane_instructions": 1773824000
+    },
+    "move_const_special": {
+     "exact": true,
+     "lane_instructions": 56243200
+    },
+    "shared_load": {
+     "exact": true,
+     "lane_instructions": 11248640000,
+     "width_bits_histogram": {
+      "128": 2249728000,
+      "32": 8998912000
+     }
+    },
+    "shared_store": {
+     "exact": true,
+     "lane_instructions": 562432000,
+     "width_bits_histogram": {
+      "32": 562432000
+     }
+    }
+   },
+   "grid_blocks_sum": 4225,
+   "kernels_per_launch": 1,
+   "note": "sum over the kernels of one measured launch; occupancy, waves and tail stay per kernel in each kernel block",
+   "opcode_lane_counts": {
+    "BAR.SYNC.DEFER_BLOCKING": 562432000,
+    "BRA": 276889600,
+    "BRA.U": 4326400,
+    "EXIT": 4326400,
+    "FFMA": 8998912000,
+    "HFMA2": 4326400,
+    "IADD": 847974400,
+    "IMAD": 21632000,
+    "IMAD.WIDE": 566758400,
+    "ISETP.GE.AND": 281216000,
+    "LDC": 4326400,
+    "LDC.64": 12979200,
+    "LDCU.64": 8652800,
+    "LDG.E": 562432000,
+    "LDS": 8998912000,
+    "LDS.128": 2249728000,
+    "LEA": 30284800,
+    "MOV": 4326400,
+    "S2R": 17305600,
+    "S2UR": 4326400,
+    "SHF.L.U32": 4326400,
+    "STG.E": 4326400,
+    "STS": 562432000,
+    "UIADD3": 4326400,
+    "UISETP.GE.AND": 4326400,
+    "ULEA": 8652800,
+    "UMOV": 4326400,
+    "USHF.L.U32": 4326400
+   },
+   "six_class_counts": {
+    "barrier": 562432000,
+    "exponential": 0,
+    "fma": 8998912000,
+    "shared_load": 11248640000,
+    "shared_store": 562432000,
+    "shuffle": 0
+   },
+   "total_lane_instructions": 24059110400
+  },
+  "resources": {
+   "constant_bank0_bytes": 928,
+   "dynamic_shared_bytes_per_launch": 0,
+   "dynamic_shared_source": "dispatch_trace.json dynamic_smem_bytes = 0 (no extern __shared__ in the kernel source)",
+   "frame_size_bytes": 0,
+   "local_memory_bytes_per_thread": 0,
+   "max_register_index_in_isolated_sass": 37,
+   "max_threads_attr": null,
+   "maxreg_count_attr": null,
+   "min_stack_size_bytes": null,
+   "register_count_consistent_with_sass": true,
+   "registers_per_thread": 40,
+   "reqntid": null,
+   "shared_decision": "SHARED:9216 is the 1024-byte driver reserve, not declared static shared memory (ADAPTER.md)",
+   "shared_section_bytes_raw": 9216,
+   "source_of_resources": "cuobjdump --dump-resource-usage line in libtorch_sm120/isolated_index.json (no cubin ELF retained for libtorch kernels); STACK is cuobjdump's STACK field",
+   "static_shared_bytes_per_block": 8192
+  },
+  "secondary_kernels": [],
+  "status": "supported",
+  "structure": {
+   "barrier_arrivals_per_block": 133120,
+   "barrier_participants_per_release_assumed": 1024,
+   "barrier_participation_uniform": true,
+   "barrier_releases_per_block_estimate": 130,
+   "barrier_releases_per_launch_estimate": 549250,
+   "hot_region": "innermost_hottest_loop",
+   "hot_region_chain": {
+    "async_copies": 0,
+    "critical_path_instructions": 33,
+    "dependency_waits": 0,
+    "dependent_global_load_depth": 1,
+    "global_load_to_use_edges": 2,
+    "global_loads": 2,
+    "global_loads_with_a_consumer": 2,
+    "instructions": 85,
+    "shared_loads": 40,
+    "shared_loads_with_a_consumer": 40
+   },
+   "innermost_loops": 1,
+   "iterations_note": "iterations = visits of the loop header per thread; equals the trip count if the loop is entered once",
+   "loop_back_edge_pc": "0x740",
+   "loop_body_dynamic_instructions_per_iteration_per_thread_mean": 84.98461538461538,
+   "loop_body_executed_static_instructions": 85,
+   "loop_body_static_instructions": 85,
+   "loop_header_pc": "0x200",
+   "loop_iterations_per_thread_max": 65,
+   "loop_iterations_per_thread_mean": 65.0,
+   "loop_iterations_per_thread_min": 65,
+   "note": "releases = max per-lane visit count summed over barrier sites; assumes every barrier is block-wide (BAR.SYNC with the default thread count)",
+   "static_backward_branches_executed": 1,
+   "static_barrier_sites": 2,
+   "whole_kernel_chain": {
+    "async_copies": 0,
+    "critical_path_instructions": 38,
+    "dependency_waits": 0,
+    "dependent_global_load_depth": 1,
+    "global_load_to_use_edges": 2,
+    "global_loads": 2,
+    "global_loads_with_a_consumer": 2,
+    "instructions": 122,
+    "shared_loads": 40,
+    "shared_loads_with_a_consumer": 40
+   }
+  },
+  "work": {
+   "all_counts_exact": true,
+   "assumption_log_lane_visits": {},
+   "assumptions_applied": [],
+   "executed_async_copy_global_to_shared_bytes": 0,
+   "executed_global_bytes_exact": true,
+   "executed_global_bytes_per_thread": 524.0,
+   "executed_global_load_bytes": 2249728000,
+   "executed_global_store_bytes": 17305600,
+   "families": {
+    "barrier": {
+     "exact": true,
+     "lane_instructions": 562432000
+    },
+    "control": {
+     "exact": true,
+     "lane_instructions": 285542400
+    },
+    "fp32_fma": {
+     "exact": true,
+     "lane_instructions": 8998912000
+    },
+    "fp_other": {
+     "exact": true,
+     "lane_instructions": 4326400
+    },
+    "global_load": {
+     "exact": true,
+     "lane_instructions": 562432000,
+     "width_bits_histogram": {
+      "32": 562432000
+     }
+    },
+    "global_store": {
+     "exact": true,
+     "lane_instructions": 4326400,
+     "width_bits_histogram": {
+      "32": 4326400
+     }
+    },
+    "integer_alu": {
+     "exact": true,
+     "lane_instructions": 1773824000
+    },
+    "move_const_special": {
+     "exact": true,
+     "lane_instructions": 56243200
+    },
+    "shared_load": {
+     "exact": true,
+     "lane_instructions": 11248640000,
+     "width_bits_histogram": {
+      "128": 2249728000,
+      "32": 8998912000
+     }
+    },
+    "shared_store": {
+     "exact": true,
+     "lane_instructions": 562432000,
+     "width_bits_histogram": {
+      "32": 562432000
+     }
+    }
+   },
+   "float_variant_lane_counts": {
+    "FFMA": 8998912000
+   },
+   "note": "lane-level predicate-true instruction counts per launch of this kernel; counts are CONDITIONAL on `assumptions_applied` and are not warp-issued counts. FFMA modifier variants (.SAT/.RM/.RZ/.RP) are in opcode_lane_counts and float_variant_lane_counts, not in the six-class fma count (FFMA only), and families.other.",
+   "opcode_lane_counts": {
+    "BAR.SYNC.DEFER_BLOCKING": 562432000,
+    "BRA": 276889600,
+    "BRA.U": 4326400,
+    "EXIT": 4326400,
+    "FFMA": 8998912000,
+    "HFMA2": 4326400,
+    "IADD": 847974400,
+    "IMAD": 21632000,
+    "IMAD.WIDE": 566758400,
+    "ISETP.GE.AND": 281216000,
+    "LDC": 4326400,
+    "LDC.64": 12979200,
+    "LDCU.64": 8652800,
+    "LDG.E": 562432000,
+    "LDS": 8998912000,
+    "LDS.128": 2249728000,
+    "LEA": 30284800,
+    "MOV": 4326400,
+    "S2R": 17305600,
+    "S2UR": 4326400,
+    "SHF.L.U32": 4326400,
+    "STG.E": 4326400,
+    "STS": 562432000,
+    "UIADD3": 4326400,
+    "UISETP.GE.AND": 4326400,
+    "ULEA": 8652800,
+    "UMOV": 4326400,
+    "USHF.L.U32": 4326400
+   },
+   "opcodes_with_unknown_guard_upper_bound": [],
+   "six_class_counts": {
+    "barrier": 562432000,
+    "exponential": 0,
+    "fma": 8998912000,
+    "shared_load": 11248640000,
+    "shared_store": 562432000,
+    "shuffle": 0
+   },
+   "six_class_counts_from_frozen_derivation": null,
+   "six_class_cross_check": {
+    "barrier": {
+     "equal": true,
+     "from_events": 562432000,
+     "from_visits": 562432000
+    },
+    "exponential": {
+     "equal": true,
+     "from_events": 0,
+     "from_visits": 0
+    },
+    "fma": {
+     "equal": true,
+     "from_events": 8998912000,
+     "from_visits": 8998912000
+    },
+    "shared_load": {
+     "equal": true,
+     "from_events": 11248640000,
+     "from_visits": 11248640000
+    },
+    "shared_store": {
+     "equal": true,
+     "from_events": 562432000,
+     "from_visits": 562432000
+    },
+    "shuffle": {
+     "equal": true,
+     "from_events": 0,
+     "from_visits": 0
+    }
+   },
+   "six_class_cross_check_all_equal": true,
+   "six_class_width_histograms": {
+    "barrier": {},
+    "exponential": {},
+    "fma": {
+     "32": 8998912000
+    },
+    "shared_load": {
+     "128": 2249728000,
+     "32": 8998912000
+    },
+    "shared_store": {
+     "32": 562432000
+    },
+    "shuffle": {}
+   },
+   "source_of_six_class_counts": "pytorch_features/pt_interp.py (extended interpreter); the frozen derivation refuses these kernels, so there is no frozen reference",
+   "static_global_access_width_sites": {
+    "global_load": {
+     "32": 2
+    },
+    "global_store": {
+     "32": 1
+    }
+   },
+   "total_lane_instructions": 24059110400,
+   "total_lane_instructions_per_thread": 5561.0,
+   "upper_bound_note": "opcodes_with_unknown_guard_upper_bound lists opcodes with a guard predicate the interpreter could not decide; they are counted as executed"
+  }
+ },
+ "phases": {
+  "kernels": [
+   {
+    "barrier_sequence": [
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730",
+     "0x2a0",
+     "0x730"
+    ],
+    "kernel_id": "mm32",
+    "phases": [
+     {
+      "critical_path_compute_instructions": 6,
+      "dependent_global_load_depth": 1,
+      "index": 0,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA.U": 135200,
+       "HFMA2": 135200,
+       "IADD": 540800,
+       "IMAD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDC": 135200,
+       "LDC.64": 405600,
+       "LDCU.64": 270400,
+       "LDG.E": 270400,
+       "LEA": 946400,
+       "MOV": 135200,
+       "S2R": 540800,
+       "S2UR": 135200,
+       "SHF.L.U32": 135200,
+       "STS": 270400,
+       "UIADD3": 135200,
+       "UISETP.GE.AND": 135200,
+       "ULEA": 270400,
+       "UMOV": 135200,
+       "USHF.L.U32": 135200
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 1,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 2,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 3,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 4,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 5,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 6,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 7,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 8,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 9,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 10,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 11,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 12,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 13,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 14,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 15,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 16,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 17,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 18,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 19,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 20,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 21,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 22,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 23,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 24,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 25,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 26,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 27,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 28,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 29,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 30,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 31,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 32,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 33,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 34,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 35,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 36,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 37,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 38,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 39,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 40,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 41,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 42,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 43,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 44,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 45,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 46,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 47,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 48,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 49,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 50,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 51,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 52,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 53,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 54,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 55,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 56,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 57,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 58,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 59,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 60,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 61,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 62,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 63,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 64,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 65,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 66,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 67,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 68,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 69,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 70,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 71,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 72,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 73,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 74,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 75,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 76,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 77,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 78,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 79,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 80,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 81,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 82,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 83,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 84,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 85,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 86,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 87,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 88,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 89,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 90,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 91,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 92,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 93,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 94,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 95,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 96,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 97,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 98,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 99,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 100,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 101,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 102,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 103,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 104,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 105,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 106,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 107,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 108,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 109,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 110,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 111,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 112,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 113,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 114,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 115,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 116,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 117,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 118,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 119,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 120,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 121,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 122,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 123,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 124,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 125,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 126,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 127,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 3,
+      "dependent_global_load_depth": 1,
+      "index": 128,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "BRA": 135200,
+       "IADD": 405600,
+       "IMAD.WIDE": 270400,
+       "ISETP.GE.AND": 135200,
+       "LDG.E": 270400,
+       "STS": 270400
+      },
+      "lines": 270400,
+      "read_bytes": 34611200,
+      "read_sectors": 1081600,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 33,
+      "dependent_global_load_depth": 0,
+      "index": 129,
+      "issue_warp_instructions": {
+       "BAR.SYNC.DEFER_BLOCKING": 135200,
+       "FFMA": 4326400,
+       "LDS": 4326400,
+       "LDS.128": 1081600
+      },
+      "lines": 0,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 0,
+      "write_sectors": 0
+     },
+     {
+      "critical_path_compute_instructions": 4,
+      "dependent_global_load_depth": 0,
+      "index": 130,
+      "issue_warp_instructions": {
+       "BRA": 135200,
+       "EXIT": 135200,
+       "IMAD": 270400,
+       "IMAD.WIDE": 135200,
+       "STG.E": 135200
+      },
+      "lines": 135200,
+      "read_bytes": 0,
+      "read_sectors": 0,
+      "repetitions": 1,
+      "write_bytes": 17305600,
+      "write_sectors": 540800
+     }
+    ],
+    "unknown_guard_upper_bounds": []
+   }
+  ],
+  "reason": null,
+  "status": "conditional_static_phases"
+ },
+ "unique": {
+  "kernels": [
+   {
+    "blocks": 4225,
+    "blocks_per_sm": 1,
+    "first_touch_read_sectors_per_block": 16640,
+    "kernel_id": "mm32",
+    "phases": [
+     {
+      "index": 0,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 1,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 2,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 3,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 4,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 5,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 6,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 7,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 8,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 9,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 10,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 11,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 12,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 13,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 14,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 15,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 16,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 17,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 18,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 19,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 20,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 21,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 22,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 23,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 24,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 25,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 26,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 27,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 28,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 29,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 30,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 31,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 32,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 33,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 34,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 35,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 36,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 37,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 38,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 39,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 40,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 41,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 42,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 43,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 44,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 45,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 46,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 47,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 48,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 49,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 50,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 51,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 52,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 53,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 54,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 55,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 56,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 57,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 58,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 59,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 60,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 61,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 62,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 63,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 64,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 65,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 66,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 67,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 68,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 69,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 70,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 71,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 72,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 73,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 74,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 75,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 76,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 77,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 78,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 79,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 80,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 81,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 82,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 83,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 84,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 85,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 86,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 87,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 88,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 89,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 90,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 91,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 92,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 93,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 94,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 95,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 96,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 97,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 98,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 99,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 100,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 101,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 102,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 103,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 104,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 105,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 106,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 107,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 108,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 109,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 110,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 111,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 112,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 113,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 114,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 115,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 116,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 117,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 118,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 119,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 120,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 121,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 122,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 123,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 124,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 125,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 126,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 127,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 128,
+      "lines": 270400,
+      "read_sectors": 1081600,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 1081600,
+      "read_sectors_first_touch_per_block": 256,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 1081600,
+      "read_sectors_unique_in_phase_per_block": 256,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 129,
+      "lines": 0,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 0
+     },
+     {
+      "index": 130,
+      "lines": 135200,
+      "read_sectors": 0,
+      "read_sectors_also_written_same_phase_per_block": 0,
+      "read_sectors_first_touch": 0,
+      "read_sectors_first_touch_per_block": 0,
+      "read_sectors_readback_of_prior_phase_writes_per_block": 0,
+      "read_sectors_total_requested": 0,
+      "read_sectors_unique_in_phase_per_block": 0,
+      "repetitions": 1,
+      "write_sectors": 540800
+     }
+    ],
+    "read_sectors_shared_across_blocks_note": {
+     "block0_distinct_read_sectors": 16640,
+     "note": "lower bound from 1-2 other sampled blocks; NOT used in first_touch",
+     "sampled_blocks_compared": 1,
+     "shared_with_at_least_one_other_sampled_block": 0
+    },
+    "status": "ok",
+    "total_requested_read_sectors_per_block": 16640,
+    "unique_read_bytes_per_block": 532480,
+    "unique_read_or_written_bytes_per_block": 536576,
+    "unique_read_sectors_per_block": 16640
+   }
+  ],
+  "kernels_per_launch": 1,
+  "reason": null,
+  "status": "ok"
+ }
+}

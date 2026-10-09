@@ -1,0 +1,7 @@
+{
+ "source": "micro_v3/out_overlap.jsonl (Blackwell GPU 1, 40 configurations of a synthetic memory-phase / compute-phase kernel); median overlap fraction over configurations with 8 or more phase pairs, 1 and 4 waves",
+ "overlap_definition": "alpha = (Tm + Tc - T) / (Tm + Tc - max(Tm, Tc)); 0 = different blocks' phases fully serialised, 1 = fully overlapped",
+ "resident_blocks_per_sm": [1, 2, 3, 6],
+ "alpha": [0.123, 0.480, 0.502, 0.585],
+ "extrapolation": "clamped to the measured range (no value above 6 resident blocks is measured)"
+}
